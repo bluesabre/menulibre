@@ -1,0 +1,8 @@
+[Desktop Entry]
+_Name=Menulibre
+_Comment=Menulibre application
+Categories=GNOME;Utility;
+Exec=menulibre
+Icon=menulibre
+Terminal=false
+Type=Application

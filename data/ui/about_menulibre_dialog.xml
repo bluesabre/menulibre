@@ -1,0 +1,9 @@
+<glade-catalog name="about_menulibre_dialog" domain="glade-3" 
+               depends="gtk+" version="1.0">
+  <glade-widget-classes>
+    <glade-widget-class title="About Menulibre Dialog" name="AboutMenulibreDialog" 
+                        generic-name="AboutMenulibreDialog" parent="GtkAboutDialog"
+                        icon-name="widget-gtk-about-dialog"/>
+  </glade-widget-classes>
+
+</glade-catalog>
