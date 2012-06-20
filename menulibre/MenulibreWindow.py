@@ -47,6 +47,7 @@ class MenulibreWindow(Window):
         treestore = Gtk.TreeStore(GdkPixbuf.Pixbuf, str, int)
         self.treeview_menus.set_model(treestore)
         self.notebook_appsettings = self.builder.get_object('notebook_appsettings')
+        self.textview_editor = self.builder.get_object('textview_editor')
         
         self.image_icon = self.builder.get_object('image_icon')
         
@@ -62,10 +63,22 @@ class MenulibreWindow(Window):
         self.entry_command = self.builder.get_object('entry_command')
         self.entry_directory = self.builder.get_object('entry_directory')
         
+        self.switch_runinterminal = self.builder.get_object('switch_runinterminal')
+        self.switch_startupnotify = self.builder.get_object('switch_startupnotify')
+        
+        self.image_appcategory = self.builder.get_object('image_appcategory')
+        
         self.label_debug = self.builder.get_object('label_debug')
         
+        self.treeview_quicklists = self.builder.get_object('treeview_quicklists')
+        
+        self.box_applicationcategory = self.builder.get_object('box_applicationcategory')
+        self.label_appcategory = self.builder.get_object('label_appcategory')
+        
+        self.grid_appcategory = self.builder.get_object('grid_appcategory')
+        
         self.apps = menus.Applications()
-        category_sets = dict()
+        self.category_sets = dict()
         for category in self.apps.Applications.keys():
             if category == 'AudioVideo':
                 cat = 'Multimedia'
@@ -100,14 +113,16 @@ class MenulibreWindow(Window):
             else:
                 cat = category
                 stock = 'applications-other'
-            category_sets[cat] = [category, stock]
-        keys = category_sets.keys()
+            self.category_sets[cat] = [category, stock]
+        keys = self.category_sets.keys()
         keys.sort()
+        category_id = -1
         for key in keys:
             cat = key
-            category, stock = category_sets[key]
+            category, stock = self.category_sets[key]
             image = self.get_icon_pixbuf(stock, Gtk.IconSize.LARGE_TOOLBAR)
-            piter = treestore.append(None, [image, cat, -1])
+            piter = treestore.append(None, [image, cat, category_id])
+            category_id -= 1
             app_pairs = []
             for app in self.apps.Applications[category]:
                 app_pairs.append( [app.get_name(), app] )
@@ -117,6 +132,8 @@ class MenulibreWindow(Window):
                 icon_name = app.get_icon()
                 image = self.get_icon_pixbuf(icon_name, Gtk.IconSize.LARGE_TOOLBAR)
                 treestore.append(piter, [image, app.get_name(), app.get_id()])
+                
+        
                 
         tvcolumn = Gtk.TreeViewColumn('Menus')
         self.treeview_menus.append_column(tvcolumn)
@@ -129,6 +146,22 @@ class MenulibreWindow(Window):
         
         tvcolumn.set_sort_column_id(1)
         tvcolumn.set_sort_order(Gtk.SortType.ASCENDING)
+        
+        
+        togglerender = Gtk.CellRendererToggle()
+        togglerender.connect("toggled", self.on_quicklist_toggle, self.treeview_quicklists.get_model())
+        col = Gtk.TreeViewColumn("Show", togglerender, active=0)
+        self.treeview_quicklists.append_column(col)
+        tvcolumn = Gtk.TreeViewColumn('Name')
+        text = Gtk.CellRendererText()
+        tvcolumn.pack_start(text, True)
+        tvcolumn.add_attribute(text, 'text', 1)
+        self.treeview_quicklists.append_column(tvcolumn)
+        tvcolumn = Gtk.TreeViewColumn('Command')
+        text = Gtk.CellRendererText()
+        tvcolumn.pack_start(text, True)
+        tvcolumn.add_attribute(text, 'text', 2)
+        self.treeview_quicklists.append_column(tvcolumn)
         
     def get_icon_pixbuf(self, icon_name, IconSize):
         #IconSize = Gtk.IconSize.DIALOG
@@ -194,6 +227,13 @@ class MenulibreWindow(Window):
 #                else:
 #                    pixbuf = icon_theme.load_icon(icon_name, width, Gtk.IconLookupFlags.USE_BUILTIN)
 #        return pixbuf
+
+    def set_quicklists(self, quicklist_sets=[]):
+        listmodel = Gtk.ListStore(bool, str, str)
+        for pair in quicklist_sets:
+            enabled, name, command = pair
+            listmodel.append([enabled, name, command])
+        self.treeview_quicklists.set_model(listmodel)
         
     def on_button_appname_clicked(self, widget):
         self.edit_string = self.entry_appname.get_text()
@@ -221,18 +261,76 @@ class MenulibreWindow(Window):
             self.on_entry_appname_cancel(widget)
         
     def on_button_appcomment_clicked(self, widget):
+        self.edit_string = self.entry_appcomment.get_text()
         self.button_appcomment.hide()
         self.box_appcomment.show()
+        self.set_focus(self.entry_appcomment)
+        
+    def on_entry_appcomment_modify(self, widget):
+        new_text = '<i>%s</i>' % self.entry_appcomment.get_text()
+        self.label_appcomment.set_markup(new_text)
+        self.box_appcomment.hide()
+        self.button_appcomment.show()
+        
+    def on_entry_appcomment_cancel(self, widget):
+        self.box_appcomment.hide()
+        self.button_appcomment.show()
+        try:
+            self.entry_appcomment.set_text(self.edit_string)
+        except TypeError:
+            pass
+        self.edit_string = None
+        
+    def on_entry_appcomment_key_press_event(self, widget, event):
+        if Gdk.keyval_name(event.get_keyval()[1]) == 'Escape':
+            self.on_entry_appcomment_cancel(widget)
         
     def on_treeview_menus_cursor_changed(self, widget):
         try:
             tree_sel = widget.get_selection()
             (tm, ti) = tree_sel.get_selected()
+            label = tm.get_value(ti, 1)
             appid = tm.get_value(ti, 2)
-            if appid == -1:
+            grid_location = 0
+            if appid < 0:
+                for child in self.grid_appcategory.get_children():
+                    self.grid_appcategory.remove(child)
+                app_cat, stock_icon = self.category_sets[label]
+                apps = self.apps.Applications[app_cat]
+                apps = sorted(apps, key=lambda app: app.get_name().lower())
+                self.image_appcategory.set_from_icon_name( stock_icon, Gtk.IconSize.DIALOG )
+                self.label_appcategory.set_markup('<big><big><b>%s</b></big></big>' % label)
+                for app in apps:
+                    app_box = Gtk.Box()
+                    app_box.set_orientation(Gtk.Orientation.VERTICAL)
+                    image = Gtk.Image()
+                    image.set_from_icon_name( app.get_icon(), Gtk.IconSize.LARGE_TOOLBAR )
+                    label = Gtk.Label()
+                    label.set_markup('<small>%s</small>' % app.get_name())
+                    app_box.pack_start(image, True, True, 0)
+                    app_box.pack_start(label, True, True, 0)
+                    app_box.show_all()
+                    if grid_location == 0:
+                        last_button = Gtk.Button()
+                        last_button.add(app_box)
+                        last_button.set_relief(Gtk.ReliefStyle.NONE)
+                        last_button.show()
+                        self.grid_appcategory.add(last_button)
+                        grid_location = 1
+                    else:
+                        button = Gtk.Button()
+                        button.add(app_box)
+                        button.set_relief(Gtk.ReliefStyle.NONE)
+                        button.show()
+                        self.grid_appcategory.attach_next_to(button, last_button, Gtk.PositionType.RIGHT, 1, 1)
+                        grid_location = 0
+                    
                 self.notebook_appsettings.hide()
+                self.box_applicationcategory.show()
+                self.set_quicklists()
                 pass
             else:
+                self.box_applicationcategory.hide()
                 self.notebook_appsettings.show()
                 app = self.apps.get_app_by_id(tm.get_value(ti, 2))
                 app_name = app.get_name()
@@ -244,16 +342,35 @@ class MenulibreWindow(Window):
                 self.entry_appcomment.set_text(app_comment)
                 self.entry_command.set_text( app.get_exec() )
                 self.entry_directory.set_text( app.get_path() )
+                editor_buffer = self.textview_editor.get_buffer()
+                text = '\n'.join(app.original)
+                editor_buffer.set_text(text)
+                
+
+                
+                self.switch_runinterminal.set_active(app.get_terminal())
+                self.switch_startupnotify.set_active(app.get_startupnotify())
                 
                 icon = app.get_icon()
                 if os.path.isfile(icon):
                     self.image_icon.set_from_file(icon)
                 else:
                     self.image_icon.set_from_icon_name( app.get_icon(), Gtk.IconSize.DIALOG )
+                    
+                self.set_quicklists(app.get_quicklists())
+            
         except AttributeError:
+            self.set_quicklists()
             pass
         except TypeError:
+            try:
+                self.set_quicklists()
+            except AttributeError:
+                pass
             pass
+            
+    def on_quicklist_toggle(self, widget):
+        pass
             
             
 
