@@ -315,6 +315,7 @@ class MenulibreWindow(Window):
                         last_button.add(app_box)
                         last_button.set_relief(Gtk.ReliefStyle.NONE)
                         last_button.show()
+                        last_button.connect('clicked', self.on_categoryapp_clicked, app.get_id())
                         self.grid_appcategory.add(last_button)
                         grid_location = 1
                     else:
@@ -322,13 +323,13 @@ class MenulibreWindow(Window):
                         button.add(app_box)
                         button.set_relief(Gtk.ReliefStyle.NONE)
                         button.show()
+                        button.connect('clicked', self.on_categoryapp_clicked, app.get_id())
                         self.grid_appcategory.attach_next_to(button, last_button, Gtk.PositionType.RIGHT, 1, 1)
                         grid_location = 0
                     
                 self.notebook_appsettings.hide()
                 self.box_applicationcategory.show()
                 self.set_quicklists()
-                pass
             else:
                 self.box_applicationcategory.hide()
                 self.notebook_appsettings.show()
@@ -371,6 +372,9 @@ class MenulibreWindow(Window):
             
     def on_quicklist_toggle(self, widget):
         pass
+        
+    def on_categoryapp_clicked(self, widget, appid):
+        print appid
             
             
 
