@@ -20,7 +20,7 @@ import gettext
 from gettext import gettext as _
 gettext.textdomain('menulibre')
 
-from gi.repository import Gtk, Gdk, GdkPixbuf # pylint: disable=E0611
+from gi.repository import Gtk, Gdk, GdkPixbuf, Pango # pylint: disable=E0611
 import logging
 logger = logging.getLogger('menulibre')
 
@@ -77,6 +77,8 @@ class MenulibreWindow(Window):
         
         self.grid_appcategory = self.builder.get_object('grid_appcategory')
         
+        self.entry_search = self.builder.get_object('entry_search')
+        
         self.apps = menus.Applications()
         self.category_sets = dict()
         for category in self.apps.Applications.keys():
@@ -110,28 +112,34 @@ class MenulibreWindow(Window):
             elif category == 'Utility':
                 cat = 'Accessories'
                 stock = 'applications-accessories'
+            elif category == 'WINE':
+                cat = category
+                stock = 'wine'
             else:
                 cat = category
                 stock = 'applications-other'
             self.category_sets[cat] = [category, stock]
-        keys = self.category_sets.keys()
-        keys.sort()
-        category_id = -1
-        for key in keys:
-            cat = key
-            category, stock = self.category_sets[key]
-            image = self.get_icon_pixbuf(stock, Gtk.IconSize.LARGE_TOOLBAR)
-            piter = treestore.append(None, [image, cat, category_id])
-            category_id -= 1
-            app_pairs = []
-            for app in self.apps.Applications[category]:
-                app_pairs.append( [app.get_name(), app] )
-            app_pairs = sorted(app_pairs, key=lambda app_pair: app_pair[0].lower())
-            for app_pair in app_pairs:
-                app = app_pair[1]
-                icon_name = app.get_icon()
-                image = self.get_icon_pixbuf(icon_name, Gtk.IconSize.LARGE_TOOLBAR)
-                treestore.append(piter, [image, app.get_name(), app.get_id()])
+        #keys = self.category_sets.keys()
+        #keys.sort()
+        #category_id = -1
+        #for key in keys:
+        #    cat = key
+        #    category, stock = self.category_sets[key]
+        #    image = self.get_icon_pixbuf(stock, Gtk.IconSize.LARGE_TOOLBAR)
+        #   piter = treestore.append(None, [image, cat, category_id])
+        #    category_id -= 1
+        #    app_pairs = []
+        #    for app in self.apps.Applications[category]:
+        #        app_pairs.append( [app.get_name(), app] )
+        #    app_pairs = sorted(app_pairs, key=lambda app_pair: app_pair[0].lower())
+        #   for app_pair in app_pairs:
+        #        app = app_pair[1]
+        #        icon_name = app.get_icon()
+        #        image = self.get_icon_pixbuf(icon_name, Gtk.IconSize.LARGE_TOOLBAR)
+        #        if app.get_hidden():
+        #            treestore.append(piter, [image, '<i>%s</i>' % app.get_name(), app.get_id()])
+        #        else:
+        #            treestore.append(piter, [image, app.get_name(), app.get_id()])
                 
         
                 
@@ -142,7 +150,7 @@ class MenulibreWindow(Window):
         tvcolumn.add_attribute(pixbuf, 'pixbuf', 0)
         text = Gtk.CellRendererText()
         tvcolumn.pack_start(text, True)
-        tvcolumn.add_attribute(text, 'text', 1)
+        tvcolumn.add_attribute(text, 'markup', 1)
         
         tvcolumn.set_sort_column_id(1)
         tvcolumn.set_sort_order(Gtk.SortType.ASCENDING)
@@ -162,6 +170,11 @@ class MenulibreWindow(Window):
         tvcolumn.pack_start(text, True)
         tvcolumn.add_attribute(text, 'text', 2)
         self.treeview_quicklists.append_column(tvcolumn)
+        
+        
+        
+        self.icon_cache = dict()
+        self.show_applications()
         
     def get_icon_pixbuf(self, icon_name, IconSize):
         #IconSize = Gtk.IconSize.DIALOG
@@ -228,6 +241,50 @@ class MenulibreWindow(Window):
 #                    pixbuf = icon_theme.load_icon(icon_name, width, Gtk.IconLookupFlags.USE_BUILTIN)
 #        return pixbuf
 
+    def show_applications(self, app_filter=''):
+        treestore = Gtk.TreeStore(GdkPixbuf.Pixbuf, str, int)
+        keys = self.category_sets.keys()
+        keys.sort()
+        category_id = -1
+        for key in keys:
+            cat = key
+            category, stock = self.category_sets[key]
+            if app_filter != '':
+                show_category = False
+                for app in self.apps.Applications[category]:
+                    if app_filter in app.get_name().lower():
+                        show_category = True
+                        break
+            else:
+                show_category = True
+            if show_category:
+                image = self.get_icon_pixbuf(stock, Gtk.IconSize.LARGE_TOOLBAR)
+                piter = treestore.append(None, [image, cat, category_id])
+                category_id -= 1
+                app_pairs = []
+                for app in self.apps.Applications[category]:
+                    app_pairs.append( [app.get_name(), app] )
+                app_pairs = sorted(app_pairs, key=lambda app_pair: app_pair[0].lower())
+                for app_pair in app_pairs:
+                    app = app_pair[1]
+                    icon_name = app.get_icon()
+                    appid = app.get_id()
+                    try:
+                        image = self.icon_cache[appid]
+                    except KeyError:
+                        image = self.icon_cache[appid] = self.get_icon_pixbuf(icon_name, Gtk.IconSize.LARGE_TOOLBAR)
+                    if app_filter in app.get_name().lower():
+                        if app.get_hidden():
+                            treestore.append(piter, [image, '<i>%s</i>' % app.get_name(), app.get_id()])
+                        else:
+                            treestore.append(piter, [image, app.get_name(), app.get_id()])
+        self.treeview_menus.set_model(treestore)
+        if app_filter != '':
+            self.treeview_menus.expand_all()
+        else:
+            self.treeview_menus.collapse_all()
+        self.treeview_menus.set_cursor_on_cell( Gtk.TreePath.new_from_string( '0' ), None, None, False )
+
     def set_quicklists(self, quicklist_sets=[]):
         listmodel = Gtk.ListStore(bool, str, str)
         for pair in quicklist_sets:
@@ -286,6 +343,7 @@ class MenulibreWindow(Window):
             self.on_entry_appcomment_cancel(widget)
         
     def on_treeview_menus_cursor_changed(self, widget):
+        app_filter = self.entry_search.get_text()
         try:
             tree_sel = widget.get_selection()
             (tm, ti) = tree_sel.get_selected()
@@ -301,12 +359,48 @@ class MenulibreWindow(Window):
                 self.image_appcategory.set_from_icon_name( stock_icon, Gtk.IconSize.DIALOG )
                 self.label_appcategory.set_markup('<big><big><b>%s</b></big></big>' % label)
                 for app in apps:
+                    app_name = app.get_name()
+                    if app_filter in app_name.lower():
+                        app_box = Gtk.Box()
+                        app_box.set_orientation(Gtk.Orientation.VERTICAL)
+                        image = Gtk.Image()
+                        image.set_from_icon_name( app.get_icon(), Gtk.IconSize.DIALOG )
+                        label = Gtk.Label()
+                        label.set_markup('<small>%s</small>' % app.get_name())
+                        label.set_width_chars(22)
+                        label.set_max_width_chars(20)
+                        label.set_ellipsize(Pango.EllipsizeMode.END)
+                        app_box.pack_start(image, True, True, 0)
+                        app_box.pack_start(label, True, True, 0)
+                        app_box.show_all()
+                        if grid_location == 0:
+                            last_button = Gtk.Button()
+                            last_button.add(app_box)
+                            last_button.set_relief(Gtk.ReliefStyle.NONE)
+                            #last_button.set_tooltip(app.get_name())
+                            last_button.show()
+                            last_button.connect('clicked', self.on_categoryapp_clicked, app.get_id())
+                            self.grid_appcategory.add(last_button)
+                            grid_location = 1
+                        else:
+                            button = Gtk.Button()
+                            button.add(app_box)
+                            button.set_relief(Gtk.ReliefStyle.NONE)
+                            #button.set_tooltip(app.get_name())
+                            button.show()
+                            button.connect('clicked', self.on_categoryapp_clicked, app.get_id())
+                            self.grid_appcategory.attach_next_to(button, last_button, Gtk.PositionType.RIGHT, 1, 1)
+                            grid_location = 0
+                if app_filter == '':
                     app_box = Gtk.Box()
                     app_box.set_orientation(Gtk.Orientation.VERTICAL)
                     image = Gtk.Image()
-                    image.set_from_icon_name( app.get_icon(), Gtk.IconSize.LARGE_TOOLBAR )
+                    image.set_from_icon_name( 'gtk-add', Gtk.IconSize.DIALOG )
                     label = Gtk.Label()
-                    label.set_markup('<small>%s</small>' % app.get_name())
+                    label.set_markup('<b><small>%s</small></b>' % 'Add Launcher')
+                    label.set_width_chars(22)
+                    label.set_max_width_chars(20)
+                    label.set_ellipsize(Pango.EllipsizeMode.END)
                     app_box.pack_start(image, True, True, 0)
                     app_box.pack_start(label, True, True, 0)
                     app_box.show_all()
@@ -314,16 +408,18 @@ class MenulibreWindow(Window):
                         last_button = Gtk.Button()
                         last_button.add(app_box)
                         last_button.set_relief(Gtk.ReliefStyle.NONE)
+                        #last_button.set_tooltip(app.get_name())
                         last_button.show()
-                        last_button.connect('clicked', self.on_categoryapp_clicked, app.get_id())
+                        last_button.connect('clicked', self.on_categoryapp_clicked, 0)
                         self.grid_appcategory.add(last_button)
                         grid_location = 1
                     else:
                         button = Gtk.Button()
                         button.add(app_box)
                         button.set_relief(Gtk.ReliefStyle.NONE)
+                        #button.set_tooltip(app.get_name())
                         button.show()
-                        button.connect('clicked', self.on_categoryapp_clicked, app.get_id())
+                        button.connect('clicked', self.on_categoryapp_clicked, 0)
                         self.grid_appcategory.attach_next_to(button, last_button, Gtk.PositionType.RIGHT, 1, 1)
                         grid_location = 0
                     
@@ -374,7 +470,31 @@ class MenulibreWindow(Window):
         pass
         
     def on_categoryapp_clicked(self, widget, appid):
-        print appid
-            
+        tree_sel = self.treeview_menus.get_selection()
+        
+        (treestore, treeiter) = tree_sel.get_selected()
+        child = treestore.iter_children(treeiter)
+        path_counter = 0
+        for i in range(len(treestore)):
+            if treestore.get_value(child, 2) == appid:
+                path, column = self.treeview_menus.get_cursor()
+                self.treeview_menus.expand_row(path, False)
+                self.treeview_menus.set_cursor_on_cell( Gtk.TreePath.new_from_string( path.to_string() + ':' + str(path_counter) ), None, None, False )
+                return
+            else:
+                child = treestore.iter_next(child)
+                path_counter += 1
+        
+    def on_entry_search_changed(self, widget):
+        text = widget.get_text()
+        if text == '':
+            widget.set_icon_from_stock(Gtk.EntryIconPosition.SECONDARY, None)
+        else:
+            widget.set_icon_from_stock(Gtk.EntryIconPosition.SECONDARY, 'gtk-clear')
+        self.show_applications(widget.get_text())
+        
+    def on_entry_search_icon_press(self, widget, button=None, other=None):
+        if button == Gtk.EntryIconPosition.SECONDARY:
+            self.entry_search.set_text('')
             
 

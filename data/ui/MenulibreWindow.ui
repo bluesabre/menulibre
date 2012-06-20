@@ -361,15 +361,16 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkEntry" id="entry1">
+                      <object class="GtkEntry" id="entry_search">
                         <property name="width_request">200</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="margin_right">6</property>
                         <property name="invisible_char">•</property>
                         <property name="primary_icon_stock">gtk-find</property>
-                        <property name="secondary_icon_stock">gtk-clear</property>
                         <property name="placeholder_text">Search Applications</property>
+                        <signal name="changed" handler="on_entry_search_changed" swapped="no"/>
+                        <signal name="icon-press" handler="on_entry_search_icon_press" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -402,7 +403,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="shadow_type">in</property>
-                <property name="min_content_width">200</property>
+                <property name="min_content_width">190</property>
                 <child>
                   <object class="GtkTreeView" id="treeview_menus">
                     <property name="width_request">150</property>
@@ -1137,6 +1138,8 @@
                     <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkImage" id="image_appcategory">
+                        <property name="width_request">48</property>
+                        <property name="height_request">48</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="stock">gtk-missing-image</property>
@@ -1177,7 +1180,6 @@
                                 <property name="orientation">vertical</property>
                                 <property name="row_spacing">12</property>
                                 <property name="column_spacing">12</property>
-                                <property name="row_homogeneous">True</property>
                                 <property name="column_homogeneous">True</property>
                                 <child>
                                   <placeholder/>
