@@ -8,6 +8,56 @@
     <property name="can_focus">False</property>
     <property name="stock">gtk-help</property>
   </object>
+  <object class="GtkImage" id="image8">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-new</property>
+    <property name="icon-size">1</property>
+  </object>
+  <object class="GtkImage" id="image9">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-directory</property>
+  </object>
+  <object class="GtkMenu" id="menu_add">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkImageMenuItem" id="menu_add_launcher">
+        <property name="label" translatable="yes">Add Launcher</property>
+        <property name="use_action_appearance">False</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="image">image8</property>
+        <property name="use_stock">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="menu_add_menu">
+        <property name="label" translatable="yes">Add Menu</property>
+        <property name="use_action_appearance">False</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="image">image9</property>
+        <property name="use_stock">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="menuitem1">
+        <property name="use_action_appearance">False</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="menu_add_seperator">
+        <property name="use_action_appearance">False</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Add Seperator</property>
+      </object>
+    </child>
+  </object>
   <object class="MenulibreWindow" id="menulibre_window">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">Menulibre</property>
@@ -236,30 +286,18 @@
           <object class="GtkToolbar" id="toolbar1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="show_arrow">False</property>
             <child>
-              <object class="GtkToolButton" id="toolbutton1">
+              <object class="GtkMenuToolButton" id="toolbutton_addnew">
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Add Launcher</property>
                 <property name="use_action_appearance">False</property>
                 <property name="label" translatable="yes">toolbutton1</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-new</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="homogeneous">True</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkToolButton" id="toolbutton2">
-                <property name="use_action_appearance">False</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="use_action_appearance">False</property>
-                <property name="label" translatable="yes">toolbutton2</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">gtk-open</property>
+                <signal name="show-menu" handler="on_addnew_show_menu" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -271,6 +309,7 @@
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Save All Changes</property>
                 <property name="use_action_appearance">False</property>
                 <property name="label" translatable="yes">toolbutton3</property>
                 <property name="use_underline">True</property>
@@ -298,6 +337,7 @@
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Undo the last action</property>
                 <property name="use_action_appearance">False</property>
                 <property name="label" translatable="yes">toolbutton5</property>
                 <property name="use_underline">True</property>
@@ -313,6 +353,7 @@
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Redo the last undone action</property>
                 <property name="use_action_appearance">False</property>
                 <property name="label" translatable="yes">toolbutton6</property>
                 <property name="use_underline">True</property>
@@ -340,6 +381,7 @@
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Revert all changes to last saved state</property>
                 <property name="use_action_appearance">False</property>
                 <property name="label" translatable="yes">toolbutton9</property>
                 <property name="use_underline">True</property>
@@ -446,6 +488,8 @@
                             <child>
                               <object class="GtkButton" id="button_icon">
                                 <property name="use_action_appearance">False</property>
+                                <property name="width_request">60</property>
+                                <property name="height_request">60</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -997,6 +1041,11 @@
                           <object class="GtkTreeView" id="treeview_quicklists">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
+                            <signal name="drag-data-received" handler="on_treeview_quicklists_drag_data_received" swapped="no"/>
+                            <signal name="drag-data-get" handler="on_treeview_quicklists_drag_data_get" swapped="no"/>
+                            <child internal-child="selection">
+                              <object class="GtkTreeSelection" id="treeview-selection2"/>
+                            </child>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -1008,10 +1057,11 @@
                           <object class="GtkBox" id="box14">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="border_width">6</property>
                             <property name="orientation">vertical</property>
                             <property name="spacing">6</property>
                             <child>
-                              <object class="GtkButton" id="button6">
+                              <object class="GtkButton" id="button_quicklist_add">
                                 <property name="label">gtk-add</property>
                                 <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
@@ -1019,6 +1069,7 @@
                                 <property name="receives_default">True</property>
                                 <property name="use_action_appearance">False</property>
                                 <property name="use_stock">True</property>
+                                <signal name="clicked" handler="on_button_quicklist_add_clicked" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -1027,7 +1078,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="button7">
+                              <object class="GtkButton" id="button_quicklist_remove">
                                 <property name="label">gtk-remove</property>
                                 <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
@@ -1035,6 +1086,7 @@
                                 <property name="receives_default">True</property>
                                 <property name="use_action_appearance">False</property>
                                 <property name="use_stock">True</property>
+                                <signal name="clicked" handler="on_button_quicklist_remove_clicked" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -1043,7 +1095,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="button8">
+                              <object class="GtkButton" id="button_quicklist_up">
                                 <property name="label">gtk-go-up</property>
                                 <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
@@ -1051,6 +1103,7 @@
                                 <property name="receives_default">True</property>
                                 <property name="use_action_appearance">False</property>
                                 <property name="use_stock">True</property>
+                                <signal name="clicked" handler="on_button_quicklist_up_clicked" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -1059,7 +1112,7 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkButton" id="button9">
+                              <object class="GtkButton" id="button_quicklist_down">
                                 <property name="label">gtk-go-down</property>
                                 <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
@@ -1067,6 +1120,7 @@
                                 <property name="receives_default">True</property>
                                 <property name="use_action_appearance">False</property>
                                 <property name="use_stock">True</property>
+                                <signal name="clicked" handler="on_button_quicklist_down_clicked" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -1181,6 +1235,12 @@
                                 <property name="row_spacing">12</property>
                                 <property name="column_spacing">12</property>
                                 <property name="column_homogeneous">True</property>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
                                 <child>
                                   <placeholder/>
                                 </child>
