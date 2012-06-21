@@ -297,7 +297,6 @@
                 <property name="label" translatable="yes">toolbutton1</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-new</property>
-                <signal name="show-menu" handler="on_addnew_show_menu" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -336,6 +335,7 @@
               <object class="GtkToolButton" id="toolbutton5">
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
+                <property name="sensitive">False</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Undo the last action</property>
                 <property name="use_action_appearance">False</property>
@@ -352,6 +352,7 @@
               <object class="GtkToolButton" id="toolbutton6">
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
+                <property name="sensitive">False</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Redo the last undone action</property>
                 <property name="use_action_appearance">False</property>
