@@ -24,7 +24,7 @@ from gi.repository import Gtk, Gdk, GdkPixbuf, Pango # pylint: disable=E0611
 import logging
 logger = logging.getLogger('menulibre')
 
-from menulibre_lib import Window, IconTheme, menus
+from menulibre_lib import Window, IconTheme, menus, history
 from menulibre.AboutMenulibreDialog import AboutMenulibreDialog
 from menulibre.PreferencesMenulibreDialog import PreferencesMenulibreDialog
 
@@ -44,10 +44,15 @@ class MenulibreWindow(Window):
 
         self.AboutDialog = AboutMenulibreDialog
         self.PreferencesDialog = PreferencesMenulibreDialog
+        
+        self.history = history.History(self)
 
         # Code for other initialization actions should be added here.
         self.get_interface()
         self.icon_cache = dict()
+
+        self.ignore_undo = False
+        
 
         self.apps = menus.Applications()
         
@@ -101,6 +106,8 @@ class MenulibreWindow(Window):
         self.toolbutton_addnew = self.builder.get_object('toolbutton_addnew')
         self.menu_add = self.builder.get_object('menu_add')
         self.toolbutton_addnew.set_menu(self.menu_add)
+        self.toolbutton_undo = self.builder.get_object('toolbutton_undo')
+        self.toolbutton_redo = self.builder.get_object('toolbutton_redo')
         self.entry_search = self.builder.get_object('entry_search')
     
         # Applications TreeView
@@ -126,28 +133,35 @@ class MenulibreWindow(Window):
         self.button_appname = self.builder.get_object('button_appname')
         self.label_appname = self.builder.get_object('label_appname')
         self.entry_appname = self.builder.get_object('entry_appname')
-        self.entry_appname.connect('changed', self.on_tracked_entry_changed, 'name')
+        self.entry_appname.connect('changed', self.on_tracked_entry_changed)
+        self.history.register(self.entry_appname, self.set_application_name)
         
         self.box_appcomment = self.builder.get_object('box_appcomment')
         self.button_appcomment = self.builder.get_object('button_appcomment')
         self.label_appcomment = self.builder.get_object('label_appcomment')
         self.entry_appcomment = self.builder.get_object('entry_appcomment')
-        self.entry_appcomment.connect('changed', self.on_tracked_entry_changed, 'comment')
+        self.entry_appcomment.connect('changed', self.on_tracked_entry_changed)
+        self.history.register(self.entry_appcomment, self.set_application_comment)
         
         self.entry_command = self.builder.get_object('entry_command')
-        self.entry_command.connect('changed', self.on_tracked_entry_changed, 'command')
+        self.entry_command.connect('changed', self.on_tracked_entry_changed)
+        self.history.register(self.entry_command, self.set_application_command)
         self.entry_directory = self.builder.get_object('entry_directory')
-        self.entry_directory.connect('changed', self.on_tracked_entry_changed, 'path')
+        self.entry_directory.connect('changed', self.on_tracked_entry_changed)
+        self.history.register(self.entry_directory, self.set_application_workingdirectory)
         
         self.switch_runinterminal = self.builder.get_object('switch_runinterminal')
-        self.switch_runinterminal.connect('notify::active', self.on_tracked_entry_changed, 'terminal')
+        self.switch_runinterminal.connect('notify::active', self.on_tracked_switch_changed)
+        self.history.register(self.switch_runinterminal, self.set_application_useterminal)
         self.switch_startupnotify = self.builder.get_object('switch_startupnotify')
-        self.switch_startupnotify.connect('notify::active', self.on_tracked_entry_changed, 'startup')
+        self.switch_startupnotify.connect('notify::active', self.on_tracked_switch_changed)
+        self.history.register(self.switch_startupnotify, self.set_application_startupnotify)
         
         self.label_debug = self.builder.get_object('label_debug')
         
         # -- Quicklists Tab
         self.treeview_quicklists = self.builder.get_object('treeview_quicklists')
+        self.history.register(self.treeview_quicklists, self.set_application_quicklists)
         
         cell_toggle = Gtk.CellRendererToggle()
         cell_toggle.connect("toggled", self.on_quicklist_toggle, self.treeview_quicklists.get_model)
@@ -176,13 +190,26 @@ class MenulibreWindow(Window):
         
         # -- Editor Tab
         self.textview_editor = self.builder.get_object('textview_editor')
-        self.textview_editor.connect('key-press-event', self.on_tracked_entry_changed, 'file')
+        self.textview_editor.connect('key-press-event', self.on_tracked_textview_changed)
+        self.history.register(self.textview_editor, self.set_application_editor)
         
         # Category View
         self.box_applicationcategory = self.builder.get_object('box_applicationcategory')
         self.image_appcategory = self.builder.get_object('image_appcategory')
         self.label_appcategory = self.builder.get_object('label_appcategory')
         self.grid_appcategory = self.builder.get_object('grid_appcategory')
+        
+    def on_toolbutton_undo_clicked(self, widget):
+        self.history.Undo()
+    
+    def on_toolbutton_redo_clicked(self, widget):
+        self.history.Redo()
+        
+    def set_undo_enabled(self, is_enabled):
+        self.toolbutton_undo.set_sensitive(is_enabled)
+        
+    def set_redo_enabled(self, is_enabled):
+        self.toolbutton_redo.set_sensitive(is_enabled)
         
     def get_icon_pixbuf(self, icon_name, IconSize):
         icon = icon_theme.get_stock_image(icon_name, IconSize)
@@ -254,6 +281,19 @@ class MenulibreWindow(Window):
             self.treeview_menus.collapse_all()
         self.treeview_menus.set_cursor_on_cell( Gtk.TreePath.new_from_string( '0' ), None, None, False )
         
+    def history_appname(self, data):
+        replace_string = data
+        new_text = '<big><b>%s</b></big>' % replace_string
+        self.label_appname.set_markup(new_text)
+        self.button_appname.show()
+        self.box_appname.hide()
+        
+    def get_selected_appid(self):
+        tree_sel = self.treeview_menus.get_selection()
+        (tm, ti) = tree_sel.get_selected()
+        appid = tm.get_value(ti, 2)
+        return appid
+        
     def on_button_appname_clicked(self, widget):
         self.edit_string = self.entry_appname.get_text()
         self.button_appname.hide()
@@ -261,7 +301,9 @@ class MenulibreWindow(Window):
         self.set_focus(self.entry_appname)
         
     def on_entry_appname_modify(self, widget):
-        new_text = '<big><b>%s</b></big>' % self.entry_appname.get_text()
+        new_string = self.entry_appname.get_text()
+        self.history.add_event(self.get_path(), self.entry_appname, self.edit_string, new_string)
+        new_text = '<big><b>%s</b></big>' % new_string
         self.label_appname.set_markup(new_text)
         self.box_appname.hide()
         self.button_appname.show()
@@ -287,6 +329,7 @@ class MenulibreWindow(Window):
         
     def on_entry_appcomment_modify(self, widget):
         new_text = '<i>%s</i>' % self.entry_appcomment.get_text()
+        self.history.add_event(self.get_path(), self.entry_appcomment, self.edit_string, new_text)
         self.label_appcomment.set_markup(new_text)
         self.box_appcomment.hide()
         self.button_appcomment.show()
@@ -343,19 +386,43 @@ class MenulibreWindow(Window):
                 
                 # General Settings
                 self.set_application_icon( app.get_icon(), Gtk.IconSize.DIALOG )
-                self.set_application_name( app.get_name() )
-                self.set_application_comment( app.get_comment() )
-                self.set_application_command( app.get_exec() )
-                self.set_application_workingdirectory( app.get_path() )
-                self.set_application_useterminal( app.get_terminal() )
-                self.set_application_startupnotify( app.get_startupnotify() )
+                try:
+                    self.set_application_name( self.changes[appid][self.entry_appname] )
+                except KeyError:
+                    self.set_application_name( app.get_name() )
+                try:
+                    self.set_application_comment( self.changes[appid][self.entry_appcomment] )
+                except KeyError:
+                    self.set_application_comment( app.get_comment() )
+                try:
+                    self.set_application_command( self.changes[appid][self.entry_command] )
+                except KeyError:
+                    self.set_application_command( app.get_exec() )
+                try:
+                    self.set_application_workingdirectory( self.changes[appid][self.entry_directory] )
+                except KeyError:
+                    self.set_application_workingdirectory( app.get_path() )
+                try:
+                    self.set_application_useterminal( self.changes[appid][self.switch_runinterminal] )
+                except KeyError:
+                    self.set_application_useterminal( app.get_terminal() )
+                try:
+                    self.set_application_startupnotify( self.changes[appid][self.switch_startupnotify] )
+                except KeyError:
+                    self.set_application_startupnotify( app.get_startupnotify() )
                 self.set_application_filename( app.filename )
                 
                 # Quicklists
-                self.set_application_quicklists( app.get_quicklists() )
+                try:
+                    self.set_application_quicklists( self.changes[appid][self.treeview_quicklists] )
+                except KeyError:
+                    self.set_application_quicklists( app.get_quicklists() )
                 
                 # Editor
-                self.set_application_editor( app.original )
+                try:
+                    self.set_application_editor( self.changes[appid][self.textview_editor] )
+                except KeyError:
+                    self.set_application_editor( app.original )
                 
                 self.box_applicationcategory.hide()
                 self.notebook_appsettings.show()
@@ -371,6 +438,12 @@ class MenulibreWindow(Window):
             except AttributeError:
                 pass
             pass
+            
+    def get_path(self):
+        tree_sel = self.treeview_menus.get_selection()
+        (treestore, treeiter) = tree_sel.get_selected()
+        path = treestore.get_path(treeiter)
+        return path
             
     def set_category_icon(self, icon_name, size):
         """Set the category view icon."""
@@ -473,6 +546,9 @@ class MenulibreWindow(Window):
         button.connect('clicked', self.on_categoryapp_clicked, app_id)
         return button
         
+    def set_cursor_by_path(self, path):
+        self.treeview_menus.set_cursor_on_cell( path, None, None, False )
+        
     def on_categoryapp_clicked(self, widget, appid):
         tree_sel = self.treeview_menus.get_selection()
         
@@ -507,23 +583,31 @@ class MenulibreWindow(Window):
         
     def edited_cb(self, cell, path, new_text, user_data):
         """Quicklist treeview cell edited callback function."""
+        quicklists = self.get_quicklists()
         get_model, column = user_data
         liststore = get_model()
         liststore[path][column] = new_text
+        self.history.add_event(self.get_path(), self.treeview_quicklists, quicklists, self.get_quicklists())
         return
             
     def on_button_quicklist_add_clicked(self, widget):
-        self.on_tracked_entry_changed(None, 'quicklists')
+        #self.on_tracked_entry_changed(None, 'quicklists')
+        quicklists = self.get_quicklists()
         listmodel = self.treeview_quicklists.get_model()
         listmodel.append([False, '', ''])
         self.treeview_quicklists.set_cursor_on_cell( Gtk.TreePath.new_from_string( str(len(listmodel)-1) ), None, None, False )
+        self.on_tracked_quicklists_changed(widget)
+        self.history.add_event(self.get_path(), self.treeview_quicklists, quicklists, self.get_quicklists())
         
     def on_button_quicklist_remove_clicked(self, widget):
         if len(self.treeview_quicklists.get_model()) > 0:
-            self.on_tracked_entry_changed(None, 'quicklists')
+            #self.on_tracked_entry_changed(None, 'quicklists')
+            quicklists = self.get_quicklists()
             tree_sel = self.treeview_quicklists.get_selection()
             (treestore, treeiter) = tree_sel.get_selected()
             treestore.remove(treeiter)
+            self.on_tracked_quicklists_changed(widget)
+            self.history.add_event(self.get_path(), self.treeview_quicklists, quicklists, self.get_quicklists())
         
     def on_button_quicklist_up_clicked(self, widget):
         if len(self.treeview_quicklists.get_model()) > 0:
@@ -531,7 +615,8 @@ class MenulibreWindow(Window):
             (treestore, treeiter) = tree_sel.get_selected()
             path = treestore.get_path(treeiter)
             if int(str(path)) > 0:
-                self.on_tracked_entry_changed(None, 'quicklists')
+                #self.on_tracked_entry_changed(None, 'quicklists')
+                quicklists = self.get_quicklists()
                 up = treestore.iter_previous(treeiter)
                 enabled = treestore.get_value(treeiter, 0)
                 name = treestore.get_value(treeiter, 1)
@@ -539,6 +624,8 @@ class MenulibreWindow(Window):
                 treestore.remove(treeiter)
                 treestore.insert_before(up, [enabled, name, command])
                 self.treeview_quicklists.set_cursor_on_cell( Gtk.TreePath.new_from_string( str(int(str(path))-1) ), None, None, False )
+                self.on_tracked_quicklists_changed(widget)
+                self.history.add_event(self.get_path(), self.treeview_quicklists, quicklists, self.get_quicklists())
         
     def on_button_quicklist_down_clicked(self, widget):
         if len(self.treeview_quicklists.get_model()) > 0:
@@ -546,7 +633,8 @@ class MenulibreWindow(Window):
             (treestore, treeiter) = tree_sel.get_selected()
             path = treestore.get_path(treeiter)
             if int(str(path)) < len(treestore)-1:
-                self.on_tracked_entry_changed(None, 'quicklists')
+                #self.on_tracked_entry_changed(None, 'quicklists')
+                quicklists = self.get_quicklists()
                 down = treestore.iter_next(treeiter)
                 enabled = treestore.get_value(treeiter, 0)
                 name = treestore.get_value(treeiter, 1)
@@ -554,6 +642,8 @@ class MenulibreWindow(Window):
                 treestore.remove(treeiter)
                 treestore.insert_after(down, [enabled, name, command])
                 self.treeview_quicklists.set_cursor_on_cell( Gtk.TreePath.new_from_string( str(int(str(path))+1) ), None, None, False )
+                self.on_tracked_quicklists_changed(widget)
+                self.history.add_event(self.get_path(), self.treeview_quicklists, quicklists, self.get_quicklists())
             
     def on_treeview_quicklists_drag_data_get(self, treeview, context, selection, target_id, etime):
         print "Drag Data GET"
@@ -582,17 +672,67 @@ class MenulibreWindow(Window):
             context.finish(True, True, etime)
         return
         
-    def on_tracked_entry_changed(self, widget, field, textview=None):
-        if textview:
-            field = textview
+    def add_tracked_change(self, widget, data):
         if not self.ignore_changes:
             selection = self.treeview_menus.get_selection()
             model, iter = selection.get_selected()
             app_id = model.get_value(iter, 2)
             if app_id not in self.changes.keys():
-                self.changes[app_id] = []
-            if field not in self.changes[app_id]:
-                self.changes[app_id].append(field)
-            print self.changes
+                label = model.get_value(iter, 1)
+                model.set_value(iter, 1, '<b>* %s</b>' % label)
+                self.changes[app_id] = dict()
+            if widget == self.entry_appname:
+                label = model.get_value(iter, 1).split('</b>')[0].lstrip('<b>* ')
+                new_label = self.entry_appname.get_text()
+                if label == new_label:
+                    model.set_value(iter, 1, '<b>* %s</b>' % label)
+                else:
+                    model.set_value(iter, 1, '<b>* %s</b> (%s)' % (label, new_label))
+            self.changes[app_id][widget] = data
+        
+    def on_tracked_quicklists_changed(self, widget):
+        self.add_tracked_change( self.treeview_quicklists, self.get_quicklists() )
+        
+    def get_quicklists(self):
+        model = self.treeview_quicklists.get_model()
+        iter = model.get_iter_first()
+        quicklists = []
+        while iter != None:
+            enabled = model.get_value(iter, 0)
+            name = model.get_value(iter, 1)
+            command = model.get_value(iter, 2)
+            quicklists.append( [enabled, name, command] )
+            iter = model.iter_next(iter)
+        return quicklists
+            
+        
+    def on_tracked_textview_changed(self, widget, event):
+        buffer = widget.get_buffer()
+        text = buffer.get_text(buffer.get_start_iter(), buffer.get_end_iter(), False)
+        selection = self.treeview_menus.get_selection()
+        model, iter = selection.get_selected()
+        app_id = model.get_value(iter, 2)
+        try:
+            if self.textview_editor not in self.changes[app_id].keys():
+                app = self.apps.get_app_by_id(app_id)
+                old_text = app.original
+            else:
+                old_text = self.changes[app_id][self.textview_editor]
+        except KeyError:
+            app = self.apps.get_app_by_id(app_id)
+            old_text = app.original
+        self.add_tracked_change(widget, text)
+        self.history.add_event(self.get_path(), self.textview_editor, old_text, text)
+        
+    def on_tracked_entry_changed(self, widget):
+        self.add_tracked_change(widget, widget.get_text())
+            
+    def on_tracked_switch_changed(self, widget, event):
+        selection = self.treeview_menus.get_selection()
+        model, iter = selection.get_selected()
+        app_id = model.get_value(iter, 2)
+        if not self.ignore_undo:
+            self.history.add_event( self.get_path(), widget, not widget.get_active(), widget.get_active() )
+        self.add_tracked_change(widget, widget.get_active())
             
 

@@ -307,6 +307,7 @@
               <object class="GtkToolButton" id="toolbutton3">
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
+                <property name="sensitive">False</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Save All Changes</property>
                 <property name="use_action_appearance">False</property>
@@ -332,7 +333,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkToolButton" id="toolbutton5">
+              <object class="GtkToolButton" id="toolbutton_undo">
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
@@ -342,6 +343,7 @@
                 <property name="label" translatable="yes">toolbutton5</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-undo</property>
+                <signal name="clicked" handler="on_toolbutton_undo_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -349,7 +351,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkToolButton" id="toolbutton6">
+              <object class="GtkToolButton" id="toolbutton_redo">
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
@@ -359,6 +361,7 @@
                 <property name="label" translatable="yes">toolbutton6</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-redo</property>
+                <signal name="clicked" handler="on_toolbutton_redo_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -381,6 +384,7 @@
               <object class="GtkToolButton" id="toolbutton9">
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
+                <property name="sensitive">False</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Revert all changes to last saved state</property>
                 <property name="use_action_appearance">False</property>
@@ -1236,6 +1240,15 @@
                                 <property name="row_spacing">12</property>
                                 <property name="column_spacing">12</property>
                                 <property name="column_homogeneous">True</property>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
                                 <child>
                                   <placeholder/>
                                 </child>
