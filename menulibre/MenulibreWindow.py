@@ -106,6 +106,7 @@ class MenulibreWindow(Window):
         self.toolbutton_addnew = self.builder.get_object('toolbutton_addnew')
         self.menu_add = self.builder.get_object('menu_add')
         self.toolbutton_addnew.set_menu(self.menu_add)
+        self.toolbutton_save = self.builder.get_object('toolbutton_save')
         self.toolbutton_undo = self.builder.get_object('toolbutton_undo')
         self.toolbutton_redo = self.builder.get_object('toolbutton_redo')
         self.entry_search = self.builder.get_object('entry_search')
@@ -198,6 +199,9 @@ class MenulibreWindow(Window):
         self.image_appcategory = self.builder.get_object('image_appcategory')
         self.label_appcategory = self.builder.get_object('label_appcategory')
         self.grid_appcategory = self.builder.get_object('grid_appcategory')
+
+    def on_toolbutton_save_clicked(self, widget):
+        print self.changes
         
     def on_toolbutton_undo_clicked(self, widget):
         self.history.Undo()
