@@ -1,4 +1,4 @@
-from gi.repository import Gtk
+from gi.repository import Gtk, GdkPixbuf
 import os
 
 import subprocess
@@ -34,89 +34,126 @@ home = os.getenv('HOME')
 
 
 class IconTheme(Gtk.IconTheme):
-    def __init__(self, theme_name, inherited=[]):
+    def __init__(self, theme_name, inherited=[], main=False):
+        self.main_theme = main
         Gtk.IconTheme.__init__(self)
-        if os.path.isdir( os.path.join(home, '.icons', theme_name) ):
-            self.theme_dir = os.path.join(home, '.icons', theme_name)
+        if theme_name == '/usr/share/pixmaps':
+            self.index = dict()
+            for file in os.listdir(theme_name):
+                if os.path.isfile(file):
+                    name = os.path.splitext(file)[0]
+                    self.index[name] = {'scalable': os.path.join( theme_name, file )}
+            self.inherits = []
         else:
-            self.theme_dir = os.path.join('/usr', 'share', 'icons', theme_name)
-        try:
-            theme_index = open( os.path.join( self.theme_dir, 'index.theme' ), 'r' )
-        except IOError:
-            if os.path.isdir( os.path.join( self.theme_dir, theme_name ) ):
-                self.theme_dir = os.path.join( self.theme_dir, theme_name )
+            if os.path.isdir( os.path.join(home, '.icons', theme_name) ):
+                self.theme_dir = os.path.join(home, '.icons', theme_name)
+            else:
+                self.theme_dir = os.path.join('/usr', 'share', 'icons', theme_name)
+            try:
                 theme_index = open( os.path.join( self.theme_dir, 'index.theme' ), 'r' )
-        inherited_themes = []
-        for line in theme_index.readlines():
-            if line[:9].lower() == 'inherits=':
-                inherited_themes = line.split('=')[1].split(',')
-                break
-        #for theme in inherited_themes:
-        #    inherited.append(theme)
-        inherited.append(theme_name)
-        theme_index.close()
-        #self.index = dict()
-        #for toplevel_folder in os.listdir(self.theme_dir):
-        #    if os.path.isdir( os.path.join( self.theme_dir, toplevel_folder ) ):
-        #        if toplevel_folder in ['scalable', 'symbolic']:
-        #            size = 'scalable'
-        #        else:
-        #            try:
-        #                int(toplevel_folder.split('x')[0])
-        #                size = str(int(toplevel_folder.split('x')[0]))
-        #            except ValueError:
-        #                size = None
-        #        for second_dir in os.listdir( os.path.join( self.theme_dir, toplevel_folder ) ):
-        #            if second_dir in ['scalable', 'symbolic'] and not size:
-        #                size = 'scalable'
-        #            elif not size:
-        #                size = str(int(second_dir.split('x')[0]))
-        #            for filename in os.listdir( os.path.join( self.theme_dir, toplevel_folder, second_dir ) ):
-        #                if os.path.isfile( os.path.join( self.theme_dir, toplevel_folder, second_dir, filename ) ) and os.path.splitext(filename)[1] != '.icon':
-        #                    icon_name = os.path.splitext(filename)[0].replace('-symbolic', '')
-        #                    if icon_name not in self.index.keys():
-        #                        self.index[icon_name] = dict()
-        #                    self.index[icon_name][size] = os.path.join( self.theme_dir, toplevel_folder, second_dir, filename )
-        #print self.index
-        self.inherits = []
-        for theme in inherited_themes:
-            if theme not in inherited:
-                self.inherits.append(IconTheme(theme.replace('\n', ''), inherited))
-        
-    def get_stock_image(self, name, IconSize):
+            except IOError:
+                if os.path.isdir( os.path.join( self.theme_dir, theme_name ) ):
+                    self.theme_dir = os.path.join( self.theme_dir, theme_name )
+                    theme_index = open( os.path.join( self.theme_dir, 'index.theme' ), 'r' )
+            inherited_themes = []
+            for line in theme_index.readlines():
+                if line[:9].lower() == 'inherits=':
+                    inherited_themes = line.split('=')[1].split(',')
+                    break
+            inherited.append(theme_name)
+            theme_index.close()
+            self.index = dict()
+            for toplevel_folder in os.listdir(self.theme_dir):
+                try:
+                    size = None
+                    size_set_first = False
+                    if os.path.isdir( os.path.join( self.theme_dir, toplevel_folder ) ):
+                        if toplevel_folder.lower() == 'scalable':
+                            size = 'scalable'
+                            size_set_first = True
+                        elif toplevel_folder.lower() == 'symbolic':
+                            size = 'symbolic'
+                            size_set_first = True
+                        else:
+                            try:
+                                int(toplevel_folder.split('x')[0])
+                                size = str(int(toplevel_folder.split('x')[0]))
+                                size_set_first = True
+                            except ValueError:
+                                size = None
+                        for second_dir in os.listdir( os.path.join( self.theme_dir, toplevel_folder ) ):
+                            if second_dir == 'scalable':
+                                size = 'scalable'
+                            elif second_dir == 'symbolic':
+                                size = 'symbolic'
+                            elif not size or not size_set_first:
+                                size = str(int(second_dir.split('x')[0]))
+                            for filename in os.listdir( os.path.join( self.theme_dir, toplevel_folder, second_dir ) ):
+                                if os.path.isfile( os.path.join( self.theme_dir, toplevel_folder, second_dir, filename ) ) and os.path.splitext(filename)[1] != '.icon':
+                                    icon_name = os.path.splitext(filename)[0].replace('-symbolic', '')
+                                    if icon_name not in self.index.keys():
+                                        self.index[icon_name] = dict()
+                                    self.index[icon_name][size] = os.path.join( self.theme_dir, toplevel_folder, second_dir, filename )
+                except ValueError:
+                    pass
+            self.inherits = []
+            for theme in inherited_themes:
+                if theme not in inherited:
+                    self.inherits.append(IconTheme(theme.replace('\n', ''), inherited))
+            self.inherits.append(IconTheme('/usr/share/pixmaps', None))
+
+    def get_theme_GdkPixbuf(self, name, IconSize):
         unused, width, height = Gtk.icon_size_lookup(IconSize)
-        for item in os.listdir(self.theme_dir): #theme_dir
-            if os.path.isdir( os.path.join(self.theme_dir, item) ): #theme_dir/subfolder
-                if str(height) in item or item in ['scalable', 'symbolic']:
-                    for path in os.listdir( os.path.join(self.theme_dir, item) ): #theme_dir/subfolder/iconsfolder
-                        for filename in os.listdir( os.path.join(self.theme_dir, item, path) ):
-                            if os.path.splitext( filename )[0] == name and os.path.splitext(filename)[1] != '.icon':
-                                return os.path.join(self.theme_dir, item, path, filename)
-                        for filename in os.listdir( os.path.join(self.theme_dir, item, path) ):
-                            if name in filename and os.path.splitext(filename)[1] != '.icon':
-                                return os.path.join(self.theme_dir, item, path, filename)
-                else:
-                    for path in os.listdir( os.path.join(self.theme_dir, item) ):
-                        os.path.join(self.theme_dir, item, path)
-                        if str(height) in path or path in ['scalable', 'symbolic']:
-                            for filename in os.listdir( os.path.join(self.theme_dir, item, path) ):
-                                if os.path.splitext( filename )[0] == name and os.path.splitext(filename)[1] != '.icon':
-                                    return os.path.join(self.theme_dir, item, path, filename)
-                            for filename in os.listdir( os.path.join(self.theme_dir, item, path) ):
-                                if name in filename and os.path.splitext(filename)[1] != '.icon':
-                                    return os.path.join(self.theme_dir, item, path, filename)
-        for theme in self.inherits:
-            result = theme.get_stock_image(name, IconSize)
-            if result:
-                return result
-        return None
+        filename, sized = self.get_theme_image(name, IconSize)
+        if 'missing' in filename and 'missing' not in name:
+            try:
+                return self.load_icon(name, width, 0)
+            except:
+                pass
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file(filename)
+        if not sized:
+            return pixbuf.scale_simple(width, height, GdkPixbuf.InterpType.HYPER)
+        return pixbuf
+
+    def load_theme_image(self, GtkImage, name, IconSize):
+        pass
+
+
+        
+    def get_theme_image(self, name, IconSize):
+        if os.path.isfile(name):
+            return (name, False)
+        unused, width, height = Gtk.icon_size_lookup(IconSize)
+        if name in self.index.keys():
+            if str(width) in self.index[name].keys():
+                return (self.index[name][str(width)], True)
+            else:
+                try:
+                    return (self.index[name]['scalable'], False)
+                except KeyError:
+                    sizes = self.index[name].keys()
+                    closest = None
+                    difference = None
+                    for size in sizes:
+                        length = int(size)
+                        if difference == None or abs(width-length) < difference:
+                            difference = abs(width-length)
+                            closest = size
+                    return (self.index[name][size], False)
+        else:
+            for theme in self.inherits:
+                image = theme.get_theme_image(name, IconSize)
+                if image != None:
+                    return image
+            if self.main_theme:
+                try:
+                    return (self.index['gtk-missing-image'][str(width)], True)
+                except KeyError:
+                    for theme in self.inherits:
+                        return theme.get_theme_image('gtk-missing-image', IconSize)
+            else:
+                return None
         
 class CurrentTheme(IconTheme):
     def __init__(self):
-        IconTheme.__init__(self, current_theme)
-        
-
-                                    
-if __name__=='__main__':
-    theme = IconTheme('elementary-xfce-dark')
-    print theme.get_stock_image('gtk-find', Gtk.IconSize.LARGE_TOOLBAR)
+        IconTheme.__init__(self, current_theme, main=True)

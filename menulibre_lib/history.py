@@ -12,6 +12,7 @@ class History:
         
     def add_event(self, path, widget, old_data, new_data):
         #print 'History ADD: \'%s\', \'%s\', \'%s\', \'%s\'' % (path.to_string(), str(name), str(old_data), str(new_data))
+        self.parent.enable_save()
         self.redo = []
         self.undo.append( [path, widget, old_data, new_data] )
         self.parent.set_undo_enabled(True)

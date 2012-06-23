@@ -129,6 +129,32 @@ class MenulibreWindow(Window):
         
         # -- General Settings Tab
         self.image_icon = self.builder.get_object('image_icon')
+        self.preview48 = self.builder.get_object('preview48')
+        self.preview32 = self.builder.get_object('preview32')
+        self.preview24 = self.builder.get_object('preview24')
+        self.preview16 = self.builder.get_object('preview16')
+        self.dialog_iconsel_1 = self.builder.get_object('dialog_iconsel_1')
+        self.combobox_stockicon = self.builder.get_object('combobox_stockicon')
+        combobox_liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str)
+        self.combobox_stockicon.set_model(combobox_liststore)
+
+        cell_pixbuf = Gtk.CellRendererPixbuf()
+        self.combobox_stockicon.pack_start(cell_pixbuf, True)
+        self.combobox_stockicon.add_attribute(cell_pixbuf, 'pixbuf', 0)
+
+        cell_text = Gtk.CellRendererText()
+        self.combobox_stockicon.pack_start(cell_text, False)
+        self.combobox_stockicon.add_attribute(cell_text, 'text', 1)
+
+        stocks = Gtk.stock_list_ids()
+        stocks.sort()
+        for stockicon in stocks:
+            try:
+                icon = self.combobox_stockicon.render_icon(stockicon, Gtk.IconSize.MENU)
+                combobox_liststore.append([icon, stockicon])
+            except AttributeError:
+                pass
+
         
         self.box_appname = self.builder.get_object('box_appname')
         self.button_appname = self.builder.get_object('button_appname')
@@ -200,8 +226,79 @@ class MenulibreWindow(Window):
         self.label_appcategory = self.builder.get_object('label_appcategory')
         self.grid_appcategory = self.builder.get_object('grid_appcategory')
 
+    def on_combobox_stockicon_changed(self, combobox):
+        model = combobox.get_model()
+        active = combobox.get_active()
+        if active < 0:
+            return None
+        stockicon = model[active][1]
+        self.preview48.set_from_stock(stockicon, Gtk.IconSize.DIALOG)
+        self.preview32.set_from_stock(stockicon, Gtk.IconSize.DND)
+        self.preview24.set_from_stock(stockicon, Gtk.IconSize.LARGE_TOOLBAR)
+        self.preview16.set_from_stock(stockicon, Gtk.IconSize.MENU)
+
+    def on_filechooserbutton_image_file_set(self, widget):
+        filename = widget.get_filename()
+        pixbuf = GdkPixbuf.Pixbuf.new_from_file(filename)
+        pixbuf48 = pixbuf.scale_simple(48, 48, GdkPixbuf.InterpType.HYPER)
+        self.preview48.set_from_pixbuf(pixbuf48)
+        pixbuf32 = pixbuf.scale_simple(32, 32, GdkPixbuf.InterpType.HYPER)
+        self.preview32.set_from_pixbuf(pixbuf32)
+        pixbuf24 = pixbuf.scale_simple(24, 24, GdkPixbuf.InterpType.HYPER)
+        self.preview24.set_from_pixbuf(pixbuf24)
+        pixbuf16 = pixbuf.scale_simple(16, 16, GdkPixbuf.InterpType.HYPER)
+        self.preview16.set_from_pixbuf(pixbuf16)
+
+
+    def enable_save(self):
+        self.toolbutton_save.set_sensitive(True)
+
+    def save_app_changes(self, app_id):
+        print self.changes[app_id]
+        if app_id not in self.changes.keys():
+            return
+        app = self.apps.get_app_by_id(app_id)
+        try:
+            text = self.changes[app_id][self.textview_editor]
+        except KeyError:
+            text = '\n'.join(app.original)
+        if self.entry_appname in self.changes[app_id].keys():
+            text = text.replace('\nName=%s' % app.get_name(), '\nName=%s' % self.changes[app_id][self.entry_appname])
+        if self.entry_appcomment in self.changes[app_id].keys():
+            text = text.replace('\nComment=%s' % app.get_comment(), '\nComment=%s' % self.changes[app_id][self.entry_appcomment])
+        if self.entry_command in self.changes[app_id].keys():
+            text = text.replace('\nExec=%s' % app.get_exec(), '\nExec=%s' % self.changes[app_id][self.entry_command])
+            text = text.replace('\nTryExec=%s' % app.get_exec(), '\nTryExec=%s' % self.changes[app_id][self.entry_command])
+        if self.entry_directory in self.changes[app_id].keys():
+            text = text.replace('\nPath=%s' % app.get_path(), '\nPath=%s' % self.changes[app_id][self.entry_directory])
+        if self.switch_runinterminal in self.changes[app_id].keys():
+            print self.changes[app_id][self.switch_runinterminal]
+            if self.changes[app_id][self.switch_runinterminal] == True:
+                terminal = 'true'
+            else:
+                terminal = 'false'
+            text = text.replace('\nTerminal=%s' % str(app.get_terminal()).lower(), '\nTerminal=%s' % terminal)
+        if self.switch_startupnotify in self.changes[app_id].keys():
+            if self.changes[app_id][self.switch_startupnotify]:
+                notify = 'true'
+            else:
+                notify = 'false'
+            text = text.replace('\nStartupNotify=%s' % str(app.get_terminal()).lower(), '\nStartupNotify=%s' % notify)
+        return text
+
+    def on_button_icon_clicked(self, widget):
+        self.dialog_iconsel_1.show_all()
+        self.dialog_iconsel_1.run()
+        self.dialog_iconsel_1.hide()
+
     def on_toolbutton_save_clicked(self, widget):
-        print self.changes
+        selection = self.treeview_menus.get_selection()
+        model, iter = selection.get_selected()
+        app_id = model.get_value(iter, 2)
+        
+        textbuffer = self.textview_editor.get_buffer()
+        text = self.save_app_changes(app_id)
+        textbuffer.set_text(text)
         
     def on_toolbutton_undo_clicked(self, widget):
         self.history.Undo()
@@ -216,13 +313,8 @@ class MenulibreWindow(Window):
         self.toolbutton_redo.set_sensitive(is_enabled)
         
     def get_icon_pixbuf(self, icon_name, IconSize):
-        icon = icon_theme.get_stock_image(icon_name, IconSize)
-        if icon:
-            pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon)
-            if os.path.splitext(icon)[1] == '.svg':
-                ignore, height, width = Gtk.icon_size_lookup(IconSize)
-                pixbuf = pixbuf.scale_simple(height, width, GdkPixbuf.InterpType.HYPER)
-                # GdkPixbuf.InterpType.HYPER, GdkPixbuf.InterpType.BILINEAR
+        pixbuf = icon_theme.get_theme_GdkPixbuf( icon_name, IconSize )
+        if pixbuf:
             return pixbuf
         
         try:
@@ -378,10 +470,10 @@ class MenulibreWindow(Window):
                             grid_location = 0
                 if app_filter == '':
                     if grid_location == 0:
-                        self.add_category_application(None, 'gtk-add', '<b>Add Launcher</b>', app_id)
+                        self.add_category_application(None, 'gtk-add', '<b>Add Launcher</b>', 0)
                         grid_location = 1
                     else:
-                        self.add_category_application(last_button, 'gtk-add', '<b>Add Launcher</b>', app_id)
+                        self.add_category_application(last_button, 'gtk-add', '<b>Add Launcher</b>', 0)
                 self.notebook_appsettings.hide()
                 self.box_applicationcategory.show()
             else:
