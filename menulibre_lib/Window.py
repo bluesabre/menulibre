@@ -73,6 +73,8 @@ class Window(Gtk.Window):
             LaunchpadIntegration.set_sourcepackagename('menulibre')
         except ImportError:
             pass
+        except AttributeError:
+            pass
 
         # Optional application indicator support
         # Run 'quickly add indicator' to get started.

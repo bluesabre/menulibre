@@ -103,56 +103,89 @@ class IconTheme(Gtk.IconTheme):
             self.inherits.append(IconTheme('/usr/share/pixmaps', None))
 
     def get_theme_GdkPixbuf(self, name, IconSize):
-        unused, width, height = Gtk.icon_size_lookup(IconSize)
-        filename, sized = self.get_theme_image(name, IconSize)
-        if 'missing' in filename and 'missing' not in name:
+        try:
+            unused, width, height = Gtk.icon_size_lookup(IconSize)
+            filename, sized = self.get_theme_image(name, IconSize)
+            print filename
             try:
-                return self.load_icon(name, width, 0)
-            except:
+                if 'missing' in filename and 'missing' not in name:
+                    if 'applications-' in filename:
+                        return self.load_icon('applications-other', width, 0)
+                    try:
+                        return self.load_icon(name, width, 0)
+                    except:
+                        pass
+            except TypeError:
                 pass
-        pixbuf = GdkPixbuf.Pixbuf.new_from_file(filename)
-        if not sized:
-            return pixbuf.scale_simple(width, height, GdkPixbuf.InterpType.HYPER)
-        return pixbuf
+            pixbuf = GdkPixbuf.Pixbuf.new_from_file(filename)
+            if not sized:
+                return pixbuf.scale_simple(width, height, GdkPixbuf.InterpType.HYPER)
+            return pixbuf
+        except:
+            pass
 
     def load_theme_image(self, GtkImage, name, IconSize):
         pass
 
-
+    def get_all_icons(self, IconSize):
+        print 'Getting all icons'
+        uniques = dict()
+        for icon in self.index.keys():
+            uniques[icon] = self.get_theme_image(icon, IconSize)
+        for theme in self.inherits:
+            icons = theme.get_all_icons(IconSize)
+            for icon in icons.keys():
+                if icon not in uniques.keys():
+                    uniques[icon] = icons[icon]
+        return uniques
         
     def get_theme_image(self, name, IconSize):
-        if os.path.isfile(name):
-            return (name, False)
-        unused, width, height = Gtk.icon_size_lookup(IconSize)
-        if name in self.index.keys():
-            if str(width) in self.index[name].keys():
-                return (self.index[name][str(width)], True)
+        try:
+            if os.path.isfile(name):
+                return (name, False)
+            unused, width, height = Gtk.icon_size_lookup(IconSize)
+            if name in self.index.keys():
+                if str(width) in self.index[name].keys():
+                    return (self.index[name][str(width)], True)
+                else:
+                    try:
+                        return (self.index[name]['scalable'], False)
+                    except KeyError:
+                        sizes = self.index[name].keys()
+                        closest = None
+                        difference = None
+                        for size in sizes:
+                            try:
+                                length = int(size)
+                                if difference == None or abs(width-length) < difference:
+                                    difference = abs(width-length)
+                                    closest = size
+                            except ValueError:
+                                return (self.index[name][size], False)
+                        return (self.index[name][closest], False)
             else:
-                try:
-                    return (self.index[name]['scalable'], False)
-                except KeyError:
-                    sizes = self.index[name].keys()
-                    closest = None
-                    difference = None
-                    for size in sizes:
-                        length = int(size)
-                        if difference == None or abs(width-length) < difference:
-                            difference = abs(width-length)
-                            closest = size
-                    return (self.index[name][size], False)
-        else:
-            for theme in self.inherits:
-                image = theme.get_theme_image(name, IconSize)
-                if image != None:
-                    return image
-            if self.main_theme:
-                try:
-                    return (self.index['gtk-missing-image'][str(width)], True)
-                except KeyError:
-                    for theme in self.inherits:
-                        return theme.get_theme_image('gtk-missing-image', IconSize)
-            else:
-                return None
+                for theme in self.inherits:
+                    image = theme.get_theme_image(name, IconSize)
+                    if image != None:
+                        return image
+                if self.main_theme:
+                    try:
+                        return (self.index['image-missing'][str(width)], True)
+                    except KeyError:
+                        for theme in self.inherits:
+                            return theme.get_theme_image('image-missing', IconSize)
+                else:
+                    try:
+                        return (self.index['image-missing'][str(width)], True)
+                    except KeyError:
+                        pass
+                    return None
+        except TypeError:
+            try:
+                return (self.index['image-missing'][str(width)], True)
+            except KeyError:
+                for theme in self.inherits:
+                    return theme.get_theme_image('image-missing', IconSize)
         
 class CurrentTheme(IconTheme):
     def __init__(self):
