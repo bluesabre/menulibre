@@ -1,0 +1,24 @@
+Source: menulibre
+Section: python
+Priority: extra
+Build-Depends: cdbs (>= 0.4.43),
+ debhelper (>= 6),
+ python (>= 2.6.6-3~),
+ python-distutils-extra (>= 2.10)
+Maintainer: Sean Davis <smd.seandavis@gmail.com>
+Standards-Version: 3.8.3
+XS-Python-Version: current
+
+Package: menulibre
+Architecture: all
+XB-Python-Version: ${python:Versions}
+Depends: ${misc:Depends},
+ ${python:Depends},
+ python-gconf,
+ gir1.2-glib-2.0,
+ gir1.2-gtk-3.0,
+ gir1.2-launchpad-integration-3.0,
+ gir1.2-gdkpixbuf-2.0,
+ yelp
+Description: UNKNOWN
+ UNKNOWN
