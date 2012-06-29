@@ -31,6 +31,8 @@ from menulibre.PreferencesMenulibreDialog import PreferencesMenulibreDialog
 icon_theme = IconTheme.CurrentTheme()
 IconSize = Gtk.icon_size_lookup(Gtk.IconSize.SMALL_TOOLBAR)
 
+home = os.getenv('HOME')
+
 Gtk.IconSize.UNITY = Gtk.icon_size_register('UNITY', 128, 128)
 
 # See menulibre_lib.Window.py for more details about how this class works
@@ -81,10 +83,18 @@ class MenulibreWindow(Window):
         self.iconview_single = False
         
         self.update_pending = False
+        self.ignore_updates = False
+        
+        self.quicklist_format = None
         
         self.load_category_into_iconview(None)
 
         self.editor_changed = False
+        self.in_history = False
+        self.last_editor = ''
+        
+        self.undo_stack = []
+        self.redo_stack = []
         
     def get_interface(self):
         """Load all of the interface elements into memory so that we can
@@ -186,7 +196,7 @@ class MenulibreWindow(Window):
         # -- Editor (Notebook Page 2) -- #
         self.editor_textview = self.builder.get_object('editor_textview')
         buffer = self.editor_textview.get_buffer()
-        buffer.connect('mark_set', self.set_editor_line)
+        buffer.connect('changed', self.set_editor_line)
         
       # Icon Selection Dialog 1 (Select and Preview)
         self.iconselection_dialog = self.builder.get_object('iconselection_dialog1')
@@ -235,22 +245,38 @@ class MenulibreWindow(Window):
         pass
     
     def on_toolbar_save_clicked(self, button):
-        selection = self.treeview_menus.get_selection()
-        model, iter = selection.get_selected()
-        app_id = model.get_value(iter, 2)
-        
-        textbuffer = self.textview_editor.get_buffer()
-        text = self.save_app_changes(app_id)
-        textbuffer.set_text(text)
+        filename = self.get_application_filename()
+        text = self.get_application_text()
+        try:
+            openfile = open(filename, 'w')
+            openfile.write(text)
+        except IOError:
+            filename = os.path.split(filename)[1]
+            filename = os.path.join( home, '.local', 'share', 'applications', filename )
+            openfile = open(filename, 'w')
+            openfile.write(text)
+            self.set_application_filename(filename)
+            appid = len(self.apps)
+            newapp = Applications.Application(filename)
+            newapp.set_id(appid)
+            self.apps[appid] = newapp
+        openfile.close()
     
     def on_toolbar_undo_clicked(self, button):
-        self.history.Undo()
+        self.undo()
     
     def on_toolbar_redo_clicked(self, button):
-        self.history.Redo()
+        self.redo()
     
     def on_toolbar_revert_clicked(self, button):
-        pass
+        data = self.undo_stack[0]
+        del self.undo_stack[:]
+        del self.redo_stack[:]
+        self.set_application_text( data )
+        self.set_undo_enabled(False)
+        self.set_redo_enabled(False)
+        #self.set_save_enabled(False)
+        self.set_revert_enabled(False)
     
     def on_entry_search_changed(self, widget):
         text = widget.get_text()
@@ -366,6 +392,11 @@ class MenulibreWindow(Window):
                             self.load_category_into_iconview(cat)
                             break
             else:
+                self.in_history = True
+                del self.undo_stack[:]
+                del self.redo_stack[:]
+                self.set_undo_enabled(False)
+                self.set_redo_enabled(False)
                 self.set_breadcrumb_application(selection_id)
                 app = self.apps[selection_id]
                 
@@ -385,6 +416,8 @@ class MenulibreWindow(Window):
                 # Editor
                 self.set_application_text( app.get_original() )
                 self.show_appsettings()
+                self.in_history = False
+                self.last_editor = app.get_original()
         except IndexError:
             pass
         self.lock_breadcrumb = False
@@ -404,6 +437,9 @@ class MenulibreWindow(Window):
     def on_general_name_button_clicked(self, button):
         self.show_general_name_editor()
         
+    def on_general_name_modify_entry_activate(self, widget):
+        self.general_name_modify_accept()
+        
     def on_general_name_modify_entry_key_press_event(self, widget, event):
         if Gdk.keyval_name(event.get_keyval()[1]) == 'Escape':
             self.general_name_modify_reject()
@@ -416,6 +452,9 @@ class MenulibreWindow(Window):
     
     def on_general_comment_button_clicked(self, button):
         self.show_general_comment_editor()
+        
+    def on_general_comment_modify_entry_activate(self, widget):
+        self.general_comment_modify_accept()
         
     def on_general_comment_modify_entry_key_press_event(self, widget, event):
         if Gdk.keyval_name(event.get_keyval()[1]) == 'Escape':
@@ -448,20 +487,37 @@ class MenulibreWindow(Window):
     def on_quicklist_toggled(self, widget, path):
         model = self.quicklists_treeview.get_model()
         model[path][0] = not model[path][0]
+        
+    def get_quicklist_unique_shortcut_name(self, quicklists, base_name, counter):
+        if counter == 0:
+            for quicklist in quicklists:
+                if quicklist[1] == base_name:
+                    return self.get_quicklist_unique_shortcut_name(quicklists, base_name, counter+1)
+            return base_name
+        else:
+            for quicklist in quicklists:
+                if quicklist[1] == base_name + str(counter):
+                    return self.get_quicklist_unique_shortcut_name(quicklists, base_name, counter+1)
+            return base_name + str(counter)
     
     def on_quicklist_add_clicked(self, button):
         #self.on_tracked_entry_changed(None, 'quicklists')
         quicklists = self.get_application_quicklists()
         listmodel = self.quicklists_treeview.get_model()
-        listmodel.append([False, 'NewShortcut', 'New Shortcut', ''])
+        if len(listmodel) == 0:
+            self.quicklist_format = 'actions'
+        shortcut_name = self.get_quicklist_unique_shortcut_name(quicklists, 'NewShortcut', 0)
+        
+        listmodel.append([False, shortcut_name, 'New Shortcut', ''])
         self.quicklists_treeview.set_cursor_on_cell( Gtk.TreePath.new_from_string( str(len(listmodel)-1) ), None, None, False )
+        self.get_quicklist_strings()
         #self.on_tracked_quicklists_changed(button)
         #self.history.add_event(self.get_path(), self.quicklists_treeview, quicklists, self.get_application_quicklists())
     
     def on_quicklist_remove_clicked(self, button):
         if len(self.quicklists_treeview.get_model()) > 0:
             #self.on_tracked_entry_changed(None, 'quicklists')
-            quicklists = self.get_application_quicklists()
+            #quicklists = self.get_application_quicklists()
             tree_sel = self.quicklists_treeview.get_selection()
             (treestore, treeiter) = tree_sel.get_selected()
             treestore.remove(treeiter)
@@ -475,7 +531,7 @@ class MenulibreWindow(Window):
             path = treestore.get_path(treeiter)
             if int(str(path)) > 0:
                 #self.on_tracked_entry_changed(None, 'quicklists')
-                quicklists = self.get_application_quicklists()
+                #quicklists = self.get_application_quicklists()
                 up = treestore.iter_previous(treeiter)
                 enabled = treestore.get_value(treeiter, 0)
                 shortcut_name = treestore.get_value(treeiter, 1)
@@ -495,7 +551,7 @@ class MenulibreWindow(Window):
             path = treestore.get_path(treeiter)
             if int(str(path)) < len(treestore)-1:
                 #self.on_tracked_entry_changed(None, 'quicklists')
-                quicklists = self.get_application_quicklists()
+                #quicklists = self.get_application_quicklists()
                 down = treestore.iter_next(treeiter)
                 enabled = treestore.get_value(treeiter, 0)
                 shortcut_name = treestore.get_value(treeiter, 1)
@@ -506,17 +562,6 @@ class MenulibreWindow(Window):
                 self.quicklists_treeview.set_cursor_on_cell( Gtk.TreePath.new_from_string( str(int(str(path))+1) ), None, None, False )
                 #self.on_tracked_quicklists_changed(button)
                 #self.history.add_event(self.get_path(), self.quicklists_treeview, quicklists, self.get_application_quicklists())
-      
-    def on_editor_textview_key_press_event(self, widget, event):
-        buffer = self.editor_textview.get_buffer()
-        text = buffer.get_text(buffer.get_start_iter(), buffer.get_end_iter(), False)
-        
-        line = text.split('\n')[self.editor_line]
-        for item in ['Icon=', 'Name=', 'Comment=', 'Exec=', 'TryExec=',
-                     'Path=', 'StartupNotify=', 'Terminal=']:
-            if item in line:
-                self.editor_changed = True
-                self.general_command_entry.emit("changed")
     
     def on_iconselection_radio_stock_toggled(self, radio_button):
         self.iconselection_stock.set_sensitive( radio_button.get_active() )
@@ -613,6 +658,12 @@ class MenulibreWindow(Window):
         
     def get_save_enabled(self):
         return self.toolbar_save.get_sensitive()
+    
+    def set_revert_enabled(self, enabled):
+        self.toolbar_revert.set_sensitive(enabled)
+        
+    def get_revert_enabled(self):
+        return self.toolbar_revert.get_sensitive()
   
     def set_application_icon(self, icon_name, size):
         """Set the application icon."""
@@ -658,7 +709,7 @@ class MenulibreWindow(Window):
         self.general_name_entry.set_text( name )
     
     def get_application_name(self):
-        return self.general_name_label.get_label().rstrip('</b></big>').lstrip('<big><b>')
+        return self.general_name_label.get_label()[8:-10]
     
     def set_application_comment(self, comment):
         """Set the application comment label and entry."""
@@ -668,7 +719,7 @@ class MenulibreWindow(Window):
         self.general_comment_entry.set_text( comment )
     
     def get_application_comment(self):
-        return self.general_comment_label.get_label().rstrip('</i>').lstrip('<i>')
+        return self.general_comment_label.get_label()[3:-4]
     
     def set_application_command(self, command):
         """Set the application command entry."""
@@ -715,30 +766,37 @@ class MenulibreWindow(Window):
         """Set the application quicklists treeview."""
         listmodel = Gtk.ListStore(bool, str, str, str)
         lists = []
-        for key in quicklists.keys():
-            if key != '#format':
-                shortcut_name = key
-                displayed_name = quicklists[key]['name']
-                enabled = quicklists[key]['enabled']
-                command = quicklists[key]['command']
-                order = quicklists[key]['order']
-                lists.append( [enabled, shortcut_name, displayed_name, command, order] )
-        lists = sorted(lists, key=lambda quicklist: quicklist[3])
-        for group in lists:
-            listmodel.append( group[:4] )
+        try:
+            self.quicklist_format = quicklists['#format']
+            for key in quicklists.keys():
+                if key != '#format':
+                    shortcut_name = key
+                    displayed_name = quicklists[key]['name']
+                    enabled = quicklists[key]['enabled']
+                    command = quicklists[key]['command']
+                    order = quicklists[key]['order']
+                    lists.append( [enabled, shortcut_name, displayed_name, command, order] )
+            lists = sorted(lists, key=lambda quicklist: quicklist[3])
+            for group in lists:
+                listmodel.append( group[:4] )
+        except KeyError:
+            pass
         self.quicklists_treeview.set_model(listmodel)
     
     def get_application_quicklists(self):
         model = self.quicklists_treeview.get_model()
-        iter = model.get_iter_first()
         quicklists = []
-        while iter != None:
-            enabled = model.get_value(iter, 0)
-            shortcut_name = model.get_value(iter, 1)
-            displayed_name = model.get_value(iter, 2)
-            command = model.get_value(iter, 3)
-            quicklists.append( [enabled, shortcut_name, displayed_name, command] )
-            iter = model.iter_next(iter)
+        try:
+            iter = model.get_iter_first()
+            while iter != None:
+                enabled = model.get_value(iter, 0)
+                shortcut_name = model.get_value(iter, 1)
+                displayed_name = model.get_value(iter, 2)
+                command = model.get_value(iter, 3)
+                quicklists.append( [enabled, shortcut_name, displayed_name, command] )
+                iter = model.iter_next(iter)
+        except AttributeError:
+            pass
         return quicklists
     
     def set_application_text(self, text):
@@ -980,43 +1038,71 @@ class MenulibreWindow(Window):
         self.history.add_event(self.get_path(), self.quicklists_treeview, quicklists, self.get_application_quicklists())
         return
     
-    def update_editor(self):
-        try:
-            task = self.threaded_update_editor()
+    def update_editor(self, editor_updated=False):
+        task = self.threaded_update_editor(editor_updated)
+        if task != None:
             GObject.idle_add(task.next)
-        except AttributeError:
-            pass
     
     def get_data_from_editor(self):
         editor_data = {'icon': None, 'name': None, 'comment': None, 
                        'command': None, 'path': None, 'terminal': None, 
-                       'startupnotify': None}
+                       'startupnotify': None, 'quicklists': dict()}
         
+        action_order = 0
         text = self.get_application_text()
         for line in text.split('\n'):
-            if line[:5] == 'Icon=':
-                editor_data['icon'] = line[5:]
-            elif line[:5] == 'Name=':
-                if editor_data['name'] == None:
-                    editor_data['name'] = line[5:]
-            elif line[:8] == 'Comment=':
-                editor_data['comment'] = line[8:]
-            elif line[:5] == 'Exec=':
-                if editor_data['name'] == None:
-                    editor_data['command'] = line[5:]
-            elif line[:5] == 'Path=':
-                editor_data['path'] = line[5:]
-            elif line[:9] == 'Terminal=':
-                editor_data['terminal'] = line[9:]
-            elif line[:14] == 'StartupNotify=':
-                editor_data['startupnotify'] = line[14:]
+            try:
+                if line[:5] == 'Icon=':
+                    editor_data['icon'] = line[5:]
+                elif line[:5] == 'Name=':
+                    if editor_data['name'] == None:
+                        editor_data['name'] = line[5:]
+                    else:
+                        editor_data['quicklists'][quicklist_key]['name'] = line[5:]
+                elif line[:8] == 'Comment=':
+                    editor_data['comment'] = line[8:]
+                elif line[:5] == 'Exec=':
+                    if editor_data['command'] == None:
+                        editor_data['command'] = line[5:]
+                    else:
+                        editor_data['quicklists'][quicklist_key]['command'] = line[5:]
+                elif line[:5] == 'Path=':
+                    editor_data['path'] = line[5:]
+                elif line[:9] == 'Terminal=':
+                    editor_data['terminal'] = line[9:]
+                elif line[:14] == 'StartupNotify=':
+                    editor_data['startupnotify'] = line[14:]
+                elif line[:8] == 'Actions=' or 'X-Ayatana-Desktop-Shortcuts' in line:
+                    format, enabled = line.split('=')
+                    enabled = enabled.split(';')
+                    editor_data['quicklists']['#format'] = format
+                elif line[0] == '[' and line != '[Desktop Entry]':
+                    if '[desktop action ' in line.lower():
+                        quicklist_key = line[16:].replace(']', '')
+                    elif ' shortcut group]' in line.lower():
+                        quicklist_key = line[1:][:len(line)-17]
+                    editor_data['quicklists'][quicklist_key] = dict()
+                    editor_data['quicklists'][quicklist_key]['order'] = action_order
+                    action_order += 1
+                    editor_data['quicklists'][quicklist_key]['enabled'] = quicklist_key in enabled
+            except IndexError:
+                pass
+                
+                
         return editor_data
         
-    def threaded_update_editor(self):
+    def threaded_update_editor(self, editor_updated):
         if not self.update_pending:
             while Gtk.events_pending(): Gtk.main_iteration()
             
-            if self.editor_changed:
+            
+            if editor_updated:
+                self.update_pending = True
+                if not self.in_history:
+                    self.undo_stack.append(self.last_editor)
+                    self.set_undo_enabled(True)
+                    del self.redo_stack[:]
+                    self.set_redo_enabled(False)
                 data = self.get_data_from_editor()
                 self.set_application_icon( data['icon'], Gtk.IconSize.DIALOG )
                 self.set_application_name( data['name'] )
@@ -1025,10 +1111,17 @@ class MenulibreWindow(Window):
                 self.set_application_path( data['path'] )
                 self.set_application_terminal( data['terminal'] )
                 self.set_application_startupnotify( data['startupnotify'] )
-                self.editor_changed = False
+                self.set_application_quicklists( data['quicklists'] )
+                
+                self.update_pending = False
             else:
             
                 self.update_pending = True
+                if not self.in_history:
+                    self.undo_stack.append(self.get_application_text())
+                    self.set_undo_enabled(True)
+                    del self.redo_stack[:]
+                    self.set_redo_enabled(False)
                 icon = self.get_application_icon()
                 name = self.get_application_name()
                 comment = self.get_application_comment()
@@ -1037,36 +1130,151 @@ class MenulibreWindow(Window):
                 terminal = str(self.get_application_terminal()).lower()
                 startupnotify = str(self.get_application_startupnotify()).lower()
                 #filename = self.get_application_filename()
-                #quicklists = self.get_application_quicklists()
-                self.update_pending = False
+                quicklists_action, quicklist_string = self.get_quicklist_strings()
+                #self.update_pending = False
+                icon_set = name_set = comment_set = command_set = False
+                path_set = terminal_set = startupnotify_set = False
                 
                 buffer = self.editor_textview.get_buffer()
                 text = buffer.get_text(buffer.get_start_iter(), buffer.get_end_iter(), False)
                 text_lines = text.split('\n')
                 newlines = []
                 for line in text_lines:
-                    if line[:5] == 'Icon=':
-                        newlines.append(line[:5] + icon)
-                    elif line[:5] == 'Name=':
-                        newlines.append(line[:5] + name)
-                    elif line[:8] == 'Comment=':
-                        newlines.append(line[:8] + comment)
-                    elif line[:5] == 'Exec=':
-                        newlines.append(line[:5] + command)
-                    elif line[:8] == 'TryExec=':
-                        newlines.append(line[:8] + command)
-                    elif line[:5] == 'Path=':
-                        newlines.append(line[:5] + path)
-                    elif line[:9] == 'Terminal=':
-                        newlines.append(line[:9] + terminal)
-                    elif line[:14] == 'StartupNotify=':
-                        newlines.append(line[:14] + startupnotify)
-                    else: newlines.append(line)
+                    try:
+                        if line[:5] == 'Icon=':
+                            if not icon_set:
+                                newlines.append(line[:5] + icon)
+                                icon_set = True
+                            else: newlines.append(line)
+                        elif line[:5] == 'Name=':
+                            if not name_set:
+                                newlines.append(line[:5] + name)
+                                name_set = True
+                            else: newlines.append(line)
+                        elif line[:8] == 'Comment=':
+                            if not comment_set:
+                                newlines.append(line[:8] + comment)
+                                comment_set = True
+                            else: newlines.append(line)
+                        elif line[:5] == 'Exec=':
+                            if not command_set:
+                                newlines.append(line[:5] + command)
+                                command_set = True
+                            else: newlines.append(line)
+                        elif line[:8] == 'TryExec=':
+                            newlines.append(line[:8] + command)
+                        elif line[:5] == 'Path=':
+                            if not path_set:
+                                newlines.append(line[:5] + path)
+                                path_set = True
+                            else: newlines.append(line)
+                        elif line[:9] == 'Terminal=':
+                            if not terminal_set:
+                                newlines.append(line[:9] + terminal)
+                                terminal_set = True
+                            else: newlines.append(line)
+                        elif line[:14] == 'StartupNotify=':
+                            if not startupnotify_set:
+                                newlines.append(line[:14] + startupnotify)
+                                startupnotify_set = True
+                            else: newlines.append(line)
+                        elif line[:8] == 'Actions=' or 'X-Ayatana-Desktop-Shortcuts' in line:
+                            newlines.append(quicklists_action)
+                        elif line[0] == '[' and line != '[Desktop Entry]':
+                            newlines.append(quicklist_string)
+                            newlines.append('\n')
+                            break
+                        else: newlines.append(line)
+                    except IndexError:
+                        newlines.append(line)
                 text = '\n'.join(newlines)
+                # check for missing tags
+                if not comment_set:
+                    text.replace('\nName=%s\n' % name, '\nName=%s\nComment=%s\n' % (name, comment), 1)
+                if not icon_set:
+                    text.replace('\nComment=%s\n' % comment, '\nComment=%s\nIcon=%s\n' % (comment, icon), 1)
+                if not command_set:
+                    text.replace('\nIcon=%s\n' % icon, '\nIcon=%s\nExec=%s\n' % (icon, command), 1)
+                if not path_set:
+                    text.replace('\nExec=%s\n' % command, '\nExec=%s\nPath=%s\n' % (command, path), 1)
+                if not terminal_set:
+                    text.replace('\nPath=%s\n' % path, '\nPath=%s\nTerminal=%s\n' % (path, terminal), 1)
+                if not startupnotify_set:
+                    text.replace('\nTerminal=%s\n' % terminal, '\nTerminal=%s\nStartupNotify=%s\n' % (terminal, startupnotify), 1)
                 buffer.set_text(text)
+                self.update_pending = False
+            self.last_editor = self.get_application_text()
+            if len(self.undo_stack) == 0:
+                self.set_save_enabled(False)
+                self.set_revert_enabled(False)
+            else:
+                self.set_save_enabled(True)
+                self.set_revert_enabled(True)
                 
-    def set_editor_line(self, buffer, textiter, textmark):
-        row = textiter.get_line()
-        self.editor_line = row
-        self.editor_changed = True
-        self.update_editor()
+    def set_editor_line(self, buffer):
+        self.update_editor(True)
+        #row = textiter.get_line()
+        #self.editor_line = row
+        #self.editor_changed = True
+        #self.update_editor()
+
+    def get_quicklist_strings(self):
+        quicklists = self.get_application_quicklists()
+        format = self.quicklist_format
+        
+        actions = ''
+        quicklist_string = ''
+        
+        quicklist_string = ''
+        if format == 'actions':
+            actions = 'Actions='
+            for quicklist in quicklists:
+                enabled, shortcut_name, displayed_name, command = quicklist
+                string = """[Desktop Action %s]
+Name=%s
+Exec=%s
+OnlyShowIn=Unity;
+
+""" % (shortcut_name, displayed_name, command)
+                quicklist_string += string
+                if enabled:
+                    actions += '%s;' % shortcut_name
+        elif format == 'x-ayatana-desktop-shortcuts':
+            actions = 'X-Ayatana-Desktop-Shortcuts='
+            for quicklist in quicklists:
+                enabled, shortcut_name, displayed_name, command = quicklist
+                string = """[%s Shortcut Group]
+Name=%s
+Exec=%s
+OnlyShowIn=Unity;
+
+""" % (shortcut_name, displayed_name, command)
+                quicklist_string += string
+                if enabled:
+                    actions += '%s;' % shortcut_name
+        quicklist_string = quicklist_string.rstrip()
+                    
+        return (actions, quicklist_string)
+    
+    def undo(self):
+        print self.undo_stack
+        self.in_history = True
+        current = self.get_application_text()
+        self.redo_stack.append(current)
+        self.set_redo_enabled(True)
+        undo_text = self.undo_stack.pop()
+        if len(self.undo_stack) == 0:
+            self.set_undo_enabled(False)
+        self.set_application_text(undo_text)
+        self.in_history = False
+        
+    def redo(self):
+        self.in_history = True
+        current = self.get_application_text()
+        self.undo_stack.append(current)
+        self.set_undo_enabled(True)
+        redo_text = self.redo_stack.pop()
+        if len(self.redo_stack) == 0:
+            self.set_redo_enabled(False)
+        self.set_application_text(redo_text)
+        self.in_history = False

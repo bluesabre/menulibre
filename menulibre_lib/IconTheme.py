@@ -106,7 +106,6 @@ class IconTheme(Gtk.IconTheme):
         try:
             unused, width, height = Gtk.icon_size_lookup(IconSize)
             filename, sized = self.get_theme_image(name, IconSize)
-            print filename
             try:
                 if 'missing' in filename and 'missing' not in name:
                     if 'applications-' in filename:

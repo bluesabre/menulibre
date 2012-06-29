@@ -1,8 +1,20 @@
 [Desktop Entry]
 _Name=Menulibre
-_Comment=Menulibre application
+_Comment=Edit System and User Menus with ease
 Categories=GNOME;Utility;
 Exec=menulibre
-Icon=menulibre
+Icon=menu-editor
 Terminal=false
 Type=Application
+Actions=User;Root;
+X-Ubuntu-Gettext-Domain=menulibre
+
+[Desktop Action User]
+Name=Edit User Menus
+Exec=menulibre
+OnlyShowIn=Unity;
+
+[Desktop Action Root]
+Name=Edit System Menus
+Exec=gksudo menulibre
+OnlyShowIn=Unity;

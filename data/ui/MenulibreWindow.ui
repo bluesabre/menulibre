@@ -769,9 +769,9 @@
                         <property name="margin_right">6</property>
                         <property name="invisible_char">•</property>
                         <property name="primary_icon_stock">gtk-find</property>
+                        <property name="primary_icon_sensitive">False</property>
                         <property name="placeholder_text">Search Applications</property>
                         <signal name="changed" handler="on_entry_search_changed" swapped="no"/>
-                        <signal name="icon-press" handler="on_entry_search_icon_press" swapped="no"/>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1089,7 +1089,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="invisible_char">•</property>
-                                        <signal name="activate" handler="on_entry_appname_modify" swapped="no"/>
+                                        <signal name="activate" handler="on_general_name_modify_entry_activate" swapped="no"/>
                                         <signal name="key-press-event" handler="on_general_name_modify_entry_key_press_event" swapped="no"/>
                                       </object>
                                       <packing>
@@ -1193,7 +1193,7 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="invisible_char">•</property>
-                                        <signal name="activate" handler="on_entry_appcomment_modify" swapped="no"/>
+                                        <signal name="activate" handler="on_general_comment_modify_entry_activate" swapped="no"/>
                                         <signal name="key-press-event" handler="on_general_comment_modify_entry_key_press_event" swapped="no"/>
                                       </object>
                                       <packing>
@@ -1700,7 +1700,6 @@
                       <object class="GtkTextView" id="editor_textview">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <signal name="key-press-event" handler="on_editor_textview_key_press_event" swapped="no"/>
                       </object>
                     </child>
                   </object>
