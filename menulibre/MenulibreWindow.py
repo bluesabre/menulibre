@@ -313,8 +313,7 @@ class MenulibreWindow(Window):
         model = self.clear_appselection_iconview()
         name = "Search Results"
         icon = "gtk-find"
-        pixbuf = icon_theme.get_theme_GdkPixbuf(icon, Gtk.IconSize.BUTTON)
-        self.breadcrumb_category_image.set_from_pixbuf(pixbuf)
+        self.breadcrumb_category_image.set_from_stock(icon, Gtk.IconSize.BUTTON)
         self.breadcrumb_category_label.set_label(name)
         self.breadcrumb_category.show_all()
         self.breadcrumb_home.set_active(False)

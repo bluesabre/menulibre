@@ -1,11 +1,8 @@
 == GENERAL ==
 
-. Search does not begin on first attempt
 . IconTheme class does not correctly get stock icons
 . Occasional GError exception on bad icon load
 . IconTheme class is crippled by elementary theme
-. Search > App > Clear produces bad results
-. Search > App > Search Results goes home.
 
 
 
