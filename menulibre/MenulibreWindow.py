@@ -246,7 +246,27 @@ class MenulibreWindow(Window):
         
   # Events        
     def on_toolbar_addnew_clicked(self, button):
-        pass
+        self.new_launcher()
+        
+        self.appsettings_notebook.set_current_page(0)
+        self.set_position(Gtk.WindowPosition.NONE)
+        if self.iconview_single:
+            self.iconview_single = False
+            return
+        self.iconview_single = True
+        self.lock_breadcrumb = True
+
+        self.in_history = True
+        del self.undo_stack[:]
+        del self.redo_stack[:]
+        self.set_undo_enabled(False)
+        self.set_redo_enabled(False)
+        
+        self.new_launcher()
+        
+        self.in_history = False
+        
+        self.lock_breadcrumb = False
     
     def on_toolbar_save_clicked(self, button):
         filename = self.get_application_filename()
@@ -417,27 +437,32 @@ class MenulibreWindow(Window):
             del self.redo_stack[:]
             self.set_undo_enabled(False)
             self.set_redo_enabled(False)
-            self.set_breadcrumb_application(selection_id)
-            app = self.apps[selection_id]
             
-            # General Settings
-            self.set_application_icon( app.get_icon()[1], Gtk.IconSize.DIALOG )
-            self.set_application_name( app.get_name() )
-            self.set_application_comment( app.get_comment() )
-            self.set_application_command( app.get_exec() )
-            self.set_application_path( app.get_path() )
-            self.set_application_terminal( app.get_terminal() )
-            self.set_application_startupnotify( app.get_startupnotify() )
-            self.set_application_filename( app.get_filename() )
+            if selection_id == 1337:
+                self.new_launcher()
+            else:
             
-            # Quicklists
-            self.set_application_quicklists( app.get_actions() )
-            
-            # Editor
-            self.set_application_text( app.get_original() )
-            self.show_appsettings()
-            self.in_history = False
-            self.last_editor = app.get_original()
+                self.set_breadcrumb_application(selection_id)
+                app = self.apps[selection_id]
+                
+                # General Settings
+                self.set_application_icon( app.get_icon()[1], Gtk.IconSize.DIALOG )
+                self.set_application_name( app.get_name() )
+                self.set_application_comment( app.get_comment() )
+                self.set_application_command( app.get_exec() )
+                self.set_application_path( app.get_path() )
+                self.set_application_terminal( app.get_terminal() )
+                self.set_application_startupnotify( app.get_startupnotify() )
+                self.set_application_filename( app.get_filename() )
+                
+                # Quicklists
+                self.set_application_quicklists( app.get_actions() )
+                
+                # Editor
+                self.set_application_text( app.get_original() )
+                self.show_appsettings()
+                self.in_history = False
+                self.last_editor = app.get_original()
         except IndexError:
             pass
         self.lock_breadcrumb = False
@@ -799,7 +824,7 @@ class MenulibreWindow(Window):
             lists = sorted(lists, key=lambda quicklist: quicklist[3])
             for group in lists:
                 listmodel.append( group[:4] )
-        except KeyError:
+        except (KeyError, TypeError):
             pass
         self.quicklists_treeview.set_model(listmodel)
     
@@ -990,11 +1015,16 @@ class MenulibreWindow(Window):
         self.breadcrumb_category.set_active(True)
         
     def set_breadcrumb_application(self, app_id):
-        app = self.apps[app_id]
-        name = app.get_name()
-        icon = app.get_icon()
-        pixbuf = icon_theme.get_theme_GdkPixbuf(icon[1], Gtk.IconSize.BUTTON)
-        self.breadcrumb_application_image.set_from_pixbuf(pixbuf)
+        if app_id == 1337:
+            name = 'New Menu Item'
+            icon = 'gtk-add'
+            self.breadcrumb_application_image.set_from_stock(icon, Gtk.IconSize.BUTTON)
+        else:
+            app = self.apps[app_id]
+            name = app.get_name()
+            icon = app.get_icon()
+            pixbuf = icon_theme.get_theme_GdkPixbuf(icon[1], Gtk.IconSize.BUTTON)
+            self.breadcrumb_application_image.set_from_pixbuf(pixbuf)
         self.breadcrumb_application_label.set_label(name)
         self.breadcrumb_application.show_all()
         self.breadcrumb_home.set_active(False)
@@ -1316,3 +1346,38 @@ OnlyShowIn=Unity;
             self.set_redo_enabled(False)
         self.set_application_text(redo_text)
         self.in_history = False
+        
+    def new_launcher(self):
+        self.set_breadcrumb_application(1337)
+        #app = self.apps[selection_id]
+        
+        # General Settings
+        self.set_application_icon( 'application-default-icon', Gtk.IconSize.DIALOG )
+        self.set_application_name( 'New Menu Item' )
+        self.set_application_comment( 'A small descriptive blurb about this application.' )
+        self.set_application_command( '' )
+        self.set_application_path( '' )
+        self.set_application_terminal( False )
+        self.set_application_startupnotify( False )
+        self.set_application_filename( 'New Application' )
+        
+        # Quicklists
+        self.set_application_quicklists( None )
+        
+        launcher = """
+[Desktop Entry]
+Name=New Menu Item
+Comment=A small descriptive blurb about this application.
+Categories=
+Exec=
+Icon=application-default-icon
+Terminal=false
+Type=Application
+Actions=
+        """
+        
+        # Editor
+        self.set_application_text( launcher )
+        self.show_appsettings()
+        self.in_history = False
+        self.last_editor = launcher
