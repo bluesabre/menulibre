@@ -924,8 +924,28 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkScrolledWindow" id="appselection_scrolled">
+              <object class="GtkScrolledWindow" id="catselection_scrolled">
                 <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="hscrollbar_policy">never</property>
+                <property name="shadow_type">in</property>
+                <child>
+                  <object class="GtkIconView" id="catselection_iconview">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="columns">5</property>
+                    <signal name="item-activated" handler="on_catselection_iconview_item_activated" swapped="no"/>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow" id="appselection_scrolled">
                 <property name="can_focus">True</property>
                 <property name="hscrollbar_policy">never</property>
                 <property name="shadow_type">in</property>
@@ -941,7 +961,7 @@
               <packing>
                 <property name="expand">True</property>
                 <property name="fill">True</property>
-                <property name="position">0</property>
+                <property name="position">1</property>
               </packing>
             </child>
             <child>
@@ -998,7 +1018,7 @@
               <packing>
                 <property name="expand">True</property>
                 <property name="fill">True</property>
-                <property name="position">1</property>
+                <property name="position">2</property>
               </packing>
             </child>
             <child>
@@ -1722,7 +1742,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">2</property>
+                <property name="position">3</property>
               </packing>
             </child>
           </object>

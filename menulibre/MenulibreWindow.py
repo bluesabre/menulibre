@@ -128,6 +128,8 @@ class MenulibreWindow(Window):
         self.breadcrumb_application_label = self.builder.get_object('breadcrumb_application_label')
         
         # -- Application Selection (Gtk.IconView) -- #
+        self.catselection = self.builder.get_object('catselection_scrolled')
+        self.catselection_iconview = self.builder.get_object('catselection_iconview')
         self.appselection = self.builder.get_object('appselection_scrolled')
         self.appselection_iconview = self.builder.get_object('appselection_iconview')
         self.appselection_search_fail = self.builder.get_object('appselection_search_fail')
@@ -287,8 +289,9 @@ class MenulibreWindow(Window):
         if text == '':
             if self.last_cat == None:
                 self.breadcrumb_category.set_visible(False)
-            self.show_appselection()
+            self.show_catselection()
             self.breadcrumb_category.set_visible(False)
+            self.breadcrumb_application.set_visible(False)
             widget.set_icon_from_stock(Gtk.EntryIconPosition.SECONDARY, None)
             self.load_category_into_iconview(self.last_cat)
             self.last_cat = None
@@ -347,18 +350,16 @@ class MenulibreWindow(Window):
         if not self.lock_breadcrumb:
             self.entry_search.set_placeholder_text('Search Applications')
             self.lock_breadcrumb = True
-            self.load_category_into_iconview(None)
             self.breadcrumb_application.set_active(False)
             self.breadcrumb_category.set_active(False) 
             self.lock_breadcrumb = False
-            self.show_appselection()
+            self.show_catselection()
         
     def on_breadcrumb_category_clicked(self, button):
         if not self.lock_breadcrumb:
             label = self.breadcrumb_category_label.get_label()
             self.entry_search.set_placeholder_text('Search %s' % label)
             self.lock_breadcrumb = True
-            self.load_category_into_iconview(self.category)
             self.breadcrumb_application.set_active(False)
             self.breadcrumb_home.set_active(False)
             self.lock_breadcrumb = False
@@ -375,6 +376,28 @@ class MenulibreWindow(Window):
             self.breadcrumb_home.set_active(False)
             self.lock_breadcrumb = False
             self.show_appsettings()
+            
+    def on_catselection_iconview_item_activated(self, widget, index):
+        self.set_position(Gtk.WindowPosition.NONE)
+        if self.iconview_single:
+            self.iconview_single = False
+            return
+        self.iconview_single = True
+        self.lock_breadcrumb = True
+        try:
+            model = widget.get_model()
+            #label = model[index][1]
+            selection_id = model[index][2]
+            if selection_id == -9001:
+                self.load_category_into_iconview('')
+            else:
+                for cat in self.categories:
+                    if selection_id == self.categories[cat][2]:
+                        self.load_category_into_iconview(cat)
+                        self.show_appselection()
+        except:
+            pass
+        self.lock_breadcrumb = False
         
     
     def on_appselection_iconview_item_activated(self, widget, index):
@@ -389,41 +412,33 @@ class MenulibreWindow(Window):
             model = widget.get_model()
             #label = model[index][1]
             selection_id = model[index][2]
-            if selection_id <= 0:
-                if selection_id == -9001:
-                    self.load_category_into_iconview('')
-                else:
-                    for cat in self.categories:
-                        if selection_id == self.categories[cat][2]:
-                            self.load_category_into_iconview(cat)
-                            break
-            else:
-                self.in_history = True
-                del self.undo_stack[:]
-                del self.redo_stack[:]
-                self.set_undo_enabled(False)
-                self.set_redo_enabled(False)
-                self.set_breadcrumb_application(selection_id)
-                app = self.apps[selection_id]
-                
-                # General Settings
-                self.set_application_icon( app.get_icon()[1], Gtk.IconSize.DIALOG )
-                self.set_application_name( app.get_name() )
-                self.set_application_comment( app.get_comment() )
-                self.set_application_command( app.get_exec() )
-                self.set_application_path( app.get_path() )
-                self.set_application_terminal( app.get_terminal() )
-                self.set_application_startupnotify( app.get_startupnotify() )
-                self.set_application_filename( app.get_filename() )
-                
-                # Quicklists
-                self.set_application_quicklists( app.get_actions() )
-                
-                # Editor
-                self.set_application_text( app.get_original() )
-                self.show_appsettings()
-                self.in_history = False
-                self.last_editor = app.get_original()
+
+            self.in_history = True
+            del self.undo_stack[:]
+            del self.redo_stack[:]
+            self.set_undo_enabled(False)
+            self.set_redo_enabled(False)
+            self.set_breadcrumb_application(selection_id)
+            app = self.apps[selection_id]
+            
+            # General Settings
+            self.set_application_icon( app.get_icon()[1], Gtk.IconSize.DIALOG )
+            self.set_application_name( app.get_name() )
+            self.set_application_comment( app.get_comment() )
+            self.set_application_command( app.get_exec() )
+            self.set_application_path( app.get_path() )
+            self.set_application_terminal( app.get_terminal() )
+            self.set_application_startupnotify( app.get_startupnotify() )
+            self.set_application_filename( app.get_filename() )
+            
+            # Quicklists
+            self.set_application_quicklists( app.get_actions() )
+            
+            # Editor
+            self.set_application_text( app.get_original() )
+            self.show_appsettings()
+            self.in_history = False
+            self.last_editor = app.get_original()
         except IndexError:
             pass
         self.lock_breadcrumb = False
@@ -864,26 +879,42 @@ class MenulibreWindow(Window):
         self.hide_general_comment_editor()
         self.general_comment_entry.set_text( self.get_application_comment() )
         
+    def clear_catselection_iconview(self):
+        liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int)
+        self.catselection_iconview.set_model(liststore)
+        self.catselection_iconview.set_pixbuf_column(0)
+        self.catselection_iconview.set_text_column(1)
+        return liststore
+        
     def clear_appselection_iconview(self):
         liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int)
         self.appselection_iconview.set_model(liststore)
         self.appselection_iconview.set_pixbuf_column(0)
         self.appselection_iconview.set_text_column(1)
         return liststore
+        
+    def show_catselection(self):
+        self.appsettings_notebook.hide()
+        self.appselection_search_fail.hide()
+        self.appselection.hide()
+        self.catselection.show()
     
     def show_appselection(self):
         self.appsettings_notebook.hide()
         self.appselection_search_fail.hide()
+        self.catselection.hide()
         self.appselection.show()
         
     def show_appsettings(self):
         self.appselection_search_fail.hide()
         self.appselection.hide()
+        self.catselection.hide()
         self.appsettings_notebook.show()
         
     def show_selection_fail(self):
         self.appselection.hide()
         self.appsettings_notebook.hide()
+        self.catselection.hide()
         self.appselection_search_fail.show()
         
     def show_general_name_editor(self):
@@ -908,9 +939,10 @@ class MenulibreWindow(Window):
         
         
     def load_category_into_iconview(self, category=None):
-        model = self.clear_appselection_iconview()
+        
         if category == None:
             # Home View
+            model = self.clear_catselection_iconview()
             self.entry_search.set_placeholder_text('Search Applications')
             image = icon_theme.get_theme_GdkPixbuf('gtk-about', Gtk.IconSize.DIALOG)
             model.append([image, 'Show All', -9001])
@@ -923,6 +955,7 @@ class MenulibreWindow(Window):
             
         else:
             # Load specific category applications (Category View)
+            model = self.clear_appselection_iconview()
             if category == '':
                 self.set_breadcrumb_category('all')
             else:
