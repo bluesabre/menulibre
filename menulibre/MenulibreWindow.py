@@ -378,6 +378,7 @@ class MenulibreWindow(Window):
         
     
     def on_appselection_iconview_item_activated(self, widget, index):
+        self.appsettings_notebook.set_current_page(0)
         self.set_position(Gtk.WindowPosition.NONE)
         if self.iconview_single:
             self.iconview_single = False
