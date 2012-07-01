@@ -96,6 +96,8 @@ class MenulibreWindow(Window):
         self.undo_stack = []
         self.redo_stack = []
         
+        self.set_position(Gtk.WindowPosition.CENTER_ALWAYS)
+        
     def get_interface(self):
         """Load all of the interface elements into memory so that we can
         access and interact with them."""
@@ -280,6 +282,7 @@ class MenulibreWindow(Window):
     
     def on_entry_search_changed(self, widget):
         text = widget.get_text()
+        self.set_position(Gtk.WindowPosition.NONE)
         
         if text == '':
             if self.last_cat == None:
@@ -301,6 +304,7 @@ class MenulibreWindow(Window):
             self.show_search_results(text, category)
             
     def show_search_results(self, query, category=None):
+        self.set_position(Gtk.WindowPosition.NONE)
         if category == None:
             self.last_cat = None
         model = self.clear_appselection_iconview()
@@ -374,6 +378,7 @@ class MenulibreWindow(Window):
         
     
     def on_appselection_iconview_item_activated(self, widget, index):
+        self.set_position(Gtk.WindowPosition.NONE)
         if self.iconview_single:
             self.iconview_single = False
             return

@@ -288,10 +288,13 @@ def get_applications():
             app_counter += 1
             applications[app.id] = app
     local_apps = os.path.join( home, '.local', 'share', 'applications' )
-    for filename in os.listdir( local_apps ):
-        if os.path.isfile( os.path.join( local_apps, filename )) and os.path.splitext( filename )[1] == '.desktop':
-            app = Application(os.path.join( local_apps, filename ))
-            app.id = app_counter
-            app_counter += 1
-            applications[app.id] = app
+    try:
+        for filename in os.listdir( local_apps ):
+            if os.path.isfile( os.path.join( local_apps, filename )) and os.path.splitext( filename )[1] == '.desktop':
+                app = Application(os.path.join( local_apps, filename ))
+                app.id = app_counter
+                app_counter += 1
+                applications[app.id] = app
+    except OSError:
+        pass
     return applications

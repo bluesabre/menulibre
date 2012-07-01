@@ -75,7 +75,7 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
         values = {'__menulibre_data_directory__': "'%s'" % (self.prefix + '/share/menulibre/'),
                   '__version__': "'%s'" % self.distribution.get_version()}
         previous_values = update_config(values)
-        update_desktop_file(self.prefix + '/share/menulibre/')
+        #update_desktop_file(self.prefix + '/share/menulibre/')
         DistUtilsExtra.auto.install_auto.run(self)
         update_config(previous_values)
 

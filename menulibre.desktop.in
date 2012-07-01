@@ -1,7 +1,8 @@
 [Desktop Entry]
-_Name=Menulibre
+_Name=Menu Editor
 _Comment=Edit System and User Menus with ease
-Categories=GNOME;Utility;
+Categories=GNOME;GTK;System;Settings;X-GNOME-Settings-Panel;X-GNOME-PersonalSettings;
+X-GNOME-Settings-Panel=menulibre
 Exec=menulibre
 Icon=menu-editor
 Terminal=false
