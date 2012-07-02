@@ -1645,6 +1645,7 @@
                                     <property name="use_action_appearance">False</property>
                                     <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
+                                    <signal name="toggled" handler="on_categories_accessories_toggled" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">0</property>
@@ -1663,6 +1664,7 @@
                                     <property name="use_action_appearance">False</property>
                                     <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
+                                    <signal name="toggled" handler="on_categories_development_toggled" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -1681,6 +1683,7 @@
                                     <property name="use_action_appearance">False</property>
                                     <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
+                                    <signal name="toggled" handler="on_categories_education_toggled" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">2</property>
@@ -1699,6 +1702,7 @@
                                     <property name="use_action_appearance">False</property>
                                     <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
+                                    <signal name="toggled" handler="on_categories_games_toggled" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">0</property>
@@ -1717,6 +1721,7 @@
                                     <property name="use_action_appearance">False</property>
                                     <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
+                                    <signal name="toggled" handler="on_categories_graphics_toggled" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -1735,6 +1740,7 @@
                                     <property name="use_action_appearance">False</property>
                                     <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
+                                    <signal name="toggled" handler="on_categories_internet_toggled" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">2</property>
@@ -1753,6 +1759,7 @@
                                     <property name="use_action_appearance">False</property>
                                     <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
+                                    <signal name="toggled" handler="on_categories_multimedia_toggled" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">0</property>
@@ -1771,6 +1778,7 @@
                                     <property name="use_action_appearance">False</property>
                                     <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
+                                    <signal name="toggled" handler="on_categories_office_toggled" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -1789,6 +1797,7 @@
                                     <property name="use_action_appearance">False</property>
                                     <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
+                                    <signal name="toggled" handler="on_categories_settings_toggled" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">2</property>
@@ -1807,6 +1816,7 @@
                                     <property name="use_action_appearance">False</property>
                                     <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
+                                    <signal name="toggled" handler="on_categories_system_toggled" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">0</property>
@@ -1825,6 +1835,7 @@
                                     <property name="use_action_appearance">False</property>
                                     <property name="xalign">0</property>
                                     <property name="draw_indicator">True</property>
+                                    <signal name="toggled" handler="on_categories_wine_toggled" swapped="no"/>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -1875,6 +1886,7 @@
                       <object class="GtkTreeView" id="quicklists_treeview">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
+                        <signal name="cursor-changed" handler="on_quicklists_treeview_cursor_changed" swapped="no"/>
                         <child internal-child="selection">
                           <object class="GtkTreeSelection" id="treeview-selection1"/>
                         </child>

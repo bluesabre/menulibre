@@ -127,7 +127,6 @@ class IconTheme(Gtk.IconTheme):
         pass
 
     def get_all_icons(self, IconSize):
-        print 'Getting all icons'
         uniques = dict()
         for icon in self.index.keys():
             uniques[icon] = self.get_theme_image(icon, IconSize)
