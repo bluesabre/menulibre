@@ -54,14 +54,16 @@ class Application:
         self.path = ''
         self.terminal = False
         self.startupnotify = False
+        self.hidden = False
         self.categories = []
         self.actions = dict()
         self.id = 0
         self.TreeViewPath = None
         self.original = ''
         self.changes = {'filename': None, 'icon': None, 'name': None, 'comment': None, 
-                        'command': None, 'path': None, 'terminal': None, 'startupnotify': None, 'categories': None,
-                        'actions': None, 'id': None, 'TreeViewPath': None, 'original': None}
+                        'command': None, 'path': None, 'terminal': None, 'startupnotify': None, 
+                        'hidden': None, 'categories': None, 'actions': None, 'id': None, 
+                        'TreeViewPath': None, 'original': None}
 
         desktop_file = open(filename, 'r')
         contents = desktop_file.readlines()
@@ -82,6 +84,7 @@ class Application:
                         else:
                             print "Trouble line: %s" % str(line)
                         self.actions[quicklist_key]['order'] = action_order
+                        #print 'Quicklist: %s\tOrder: %s' % (quicklist_key, action_order)
                         action_order += 1
                     group_count += 1
                 else:
@@ -118,6 +121,11 @@ class Application:
                             self.startupnotify = True
                         else:
                             self.startupnotify = False
+                    elif line[:10].lower() == 'nodisplay=':
+                        if line[10:] == 'true':
+                            self.hidden = True
+                        else:
+                            self.hidden = False
                     elif line[:11].lower() == 'categories=':
                         categories = line[11:]
                         self.categories = categories.split(';')
@@ -241,6 +249,15 @@ class Application:
             return self.changes['categories']
         else:
             return self.categories
+            
+    def set_hidden(self, hidden):
+        self.changes['hidden'] = hidden
+        
+    def get_hidden(self):
+        if self.changes['hidden']:
+            return self.changes['hidden']
+        else:
+            return self.hidden
 
     def set_actions(self, actions):
         self.changes['actions'] = actions

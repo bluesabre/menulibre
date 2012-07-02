@@ -141,6 +141,8 @@ class MenulibreWindow(Window):
         self.appsettings_quicklists = self.builder.get_object('appsettings_quicklists')
         self.appsettings_editor = self.builder.get_object('appsettings_editor')
         
+        self.statusbar = self.builder.get_object('statusbar_label')
+        
         # -- General Settings (Notebook Page 0) -- #
         self.label_generalsettings = self.builder.get_object('label_generalsettings')
         self.general_icon_button = self.builder.get_object('general_icon_button')
@@ -159,7 +161,22 @@ class MenulibreWindow(Window):
         self.general_terminal_switch.connect('notify::active', self.on_general_terminal_switch_toggled)
         self.general_startupnotify_switch = self.builder.get_object('general_startupnotify_switch')
         self.general_startupnotify_switch.connect('notify::active', self.on_general_startupnotify_switch_toggled)
+        self.general_nodisplay_switch = self.builder.get_object('general_nodisplay_switch')
+        self.general_nodisplay_switch.connect('notify::active', self.on_general_nodisplay_switch_toggled)
         self.general_filename_label = self.builder.get_object('general_filename_label')
+        
+        # Categories
+        self.categories_accessories = self.builder.get_object('categories_accessories')
+        self.categories_development = self.builder.get_object('categories_development')
+        self.categories_education = self.builder.get_object('categories_education')
+        self.categories_games = self.builder.get_object('categories_games')
+        self.categories_graphics = self.builder.get_object('categories_graphics')
+        self.categories_internet = self.builder.get_object('categories_internet')
+        self.categories_multimedia = self.builder.get_object('categories_multimedia')
+        self.categories_office = self.builder.get_object('categories_office')
+        self.categories_settings = self.builder.get_object('categories_settings')
+        self.categories_system = self.builder.get_object('categories_system')
+        self.categories_wine = self.builder.get_object('categories_wine')
         
         # -- Quicklists (Notebook Page 1) -- #
         self.quicklists_treeview = self.builder.get_object('quicklists_treeview')
@@ -355,7 +372,8 @@ class MenulibreWindow(Window):
                 icon = self.get_icon_pixbuf( app.get_icon()[1], Gtk.IconSize.DIALOG )
                 name = app.get_name()
                 appid = app.get_id()
-                model.append( [icon, name, appid] )
+                comment = app.get_comment()
+                model.append( [icon, name, appid, comment] )
         if counter == 0:
             self.show_selection_fail()
         else:
@@ -453,6 +471,8 @@ class MenulibreWindow(Window):
                 self.set_application_path( app.get_path() )
                 self.set_application_terminal( app.get_terminal() )
                 self.set_application_startupnotify( app.get_startupnotify() )
+                self.set_application_hidden( app.get_hidden() )
+                self.set_application_categories( app.get_categories() )
                 self.set_application_filename( app.get_filename() )
                 
                 # Quicklists
@@ -466,9 +486,27 @@ class MenulibreWindow(Window):
         except IndexError:
             pass
         self.lock_breadcrumb = False
+        
+    def on_catselection_iconview_selection_changed(self, widget):
+        try:
+            model = widget.get_model()
+            index = int(widget.get_selected_items()[0].to_string())
+            label =  model[index][1]
+            self.statusbar.set_label(label)
+        except IndexError:
+            self.statusbar.set_label('')
+        
+    def on_appselection_iconview_selection_changed(self, widget):
+        try:
+            model = widget.get_model()
+            index = int(widget.get_selected_items()[0].to_string())
+            label =  model[index][3]
+            self.statusbar.set_label(label)
+        except IndexError:
+            self.statusbar.set_label('')
     
-    def on_application_search_all_button_clicked(self, button):
-        pass
+    def on_appselection_search_all_button_clicked(self, button):
+        pass 
     
     def on_appsettings_notebook_switch_page(self, notebook, page, pageno):
         buffer = self.editor_textview.get_buffer()
@@ -527,6 +565,9 @@ class MenulibreWindow(Window):
         self.update_editor()
     
     def on_general_startupnotify_switch_toggled(self, widget, state):
+        self.update_editor()
+        
+    def on_general_nodisplay_switch_toggled(self, widget, state):
         self.update_editor()
     
     def on_quicklist_toggled(self, widget, path):
@@ -799,6 +840,12 @@ class MenulibreWindow(Window):
     
     def get_application_startupnotify(self):
         return self.general_startupnotify_switch.get_active()
+        
+    def set_application_hidden(self, hidden):
+        self.general_nodisplay_switch.set_active( hidden )
+        
+    def get_application_hidden(self):
+        return self.general_nodisplay_switch.get_active()
     
     def set_application_filename(self, filename):
         self.general_filename_label.set_markup('<small>%s</small>' % filename)
@@ -806,6 +853,50 @@ class MenulibreWindow(Window):
     def get_application_filename(self):
         label = self.general_filename_label.get_label()
         return label.rstrip('</small>').lstrip('<small>')
+        
+    def set_application_categories(self, categories):
+        self.categories_accessories.set_active( 'Utility' in categories )
+        self.categories_development.set_active( 'Development' in categories )
+        self.categories_education.set_active( 'Education' in categories )
+        self.categories_games.set_active( 'Game' in categories )
+        self.categories_graphics.set_active( 'Graphics' in categories )
+        self.categories_internet.set_active( 'Network' in categories )
+        self.categories_multimedia.set_active( 'AudioVideo' in categories )
+        self.categories_office.set_active( 'Office' in categories )
+        self.categories_settings.set_active( 'Settings' in categories )
+        self.categories_system.set_active( 'System' in categories )
+        for cat in categories:
+            if 'wine' in cat.lower():
+                self.categories_wine.set_active( True )
+                return
+        self.categories_wine.set_active(False)
+            
+        
+    def get_application_categories(self):
+        categories = []
+        if self.categories_accessories.get_active():
+            categories.append('Utility')
+        if self.categories_development.get_active():
+            categories.append('Development')
+        if self.categories_education.get_active():
+            categories.append('Education')
+        if self.categories_games.get_active():
+            categories.append('Game')
+        if self.categories_graphics.get_active():
+            categories.append('Graphics')
+        if self.categories_internet.get_active():
+            categories.append('Network')
+        if self.categories_multimedia.get_active():
+            categories.append('AudioVideo')
+        if self.categories_office.get_active():
+            categories.append('Office')
+        if self.categories_settings.get_active():
+            categories.append('Settings')
+        if self.categories_system.get_active():
+            categories.append('System')
+        if self.categories_wine.get_active():
+            categories.append('Wine')
+        return categories
     
     def set_application_quicklists(self, quicklists):
         """Set the application quicklists treeview."""
@@ -821,7 +912,7 @@ class MenulibreWindow(Window):
                     command = quicklists[key]['command']
                     order = quicklists[key]['order']
                     lists.append( [enabled, shortcut_name, displayed_name, command, order] )
-            lists = sorted(lists, key=lambda quicklist: quicklist[3])
+            lists = sorted(lists, key=lambda quicklist: quicklist[4])
             for group in lists:
                 listmodel.append( group[:4] )
         except (KeyError, TypeError):
@@ -911,7 +1002,7 @@ class MenulibreWindow(Window):
         return liststore
         
     def clear_appselection_iconview(self):
-        liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int)
+        liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int, str)
         self.appselection_iconview.set_model(liststore)
         self.appselection_iconview.set_pixbuf_column(0)
         self.appselection_iconview.set_text_column(1)
@@ -968,8 +1059,8 @@ class MenulibreWindow(Window):
             # Home View
             model = self.clear_catselection_iconview()
             self.entry_search.set_placeholder_text('Search Applications')
-            image = icon_theme.get_theme_GdkPixbuf('gtk-about', Gtk.IconSize.DIALOG)
-            model.append([image, 'Show All', -9001])
+            image = icon_theme.get_theme_GdkPixbuf('applications-other', Gtk.IconSize.DIALOG)
+            model.append([image, 'All Applications', -9001])
             categories = self.categories.values()
             categories = sorted(categories, key=lambda category: category[0].lower())
             for category in categories:
@@ -987,14 +1078,23 @@ class MenulibreWindow(Window):
                 label = self.breadcrumb_category_label.get_label()
                 self.entry_search.set_placeholder_text('Search %s' % label)
             icon = self.get_icon_pixbuf( 'gtk-add', Gtk.IconSize.DIALOG)
-            model.append( [icon, 'Add Launcher', 1337] )
+            model.append( [icon, 'Add Launcher', 1337, 'Add a new application launcher'] )
             apps = sorted(self.apps.values(), key=lambda app: app.get_name().lower())
             for app in apps:
+                if category.lower() == 'wine':
+                    for cat in app.get_categories():
+                        if 'wine' in cat.lower():
+                            icon = self.get_icon_pixbuf( app.get_icon()[1], Gtk.IconSize.DIALOG )
+                            name = app.get_name()
+                            appid = app.get_id()
+                            comment = app.get_comment()
+                            model.append( [icon, name, appid, comment] )
                 if category in app.get_categories() or category == '':
                     icon = self.get_icon_pixbuf( app.get_icon()[1], Gtk.IconSize.DIALOG )
                     name = app.get_name()
                     appid = app.get_id()
-                    model.append( [icon, name, appid] )
+                    comment = app.get_comment()
+                    model.append( [icon, name, appid, comment] )
             self.category = category
             
                     
@@ -1100,11 +1200,11 @@ class MenulibreWindow(Window):
     def edited_cb(self, cell, path, new_text, user_data):
         """Quicklist treeview cell edited callback function."""
         quicklists = self.get_application_quicklists()
-        get_model, column = user_data
-        liststore = get_model()
+        print quicklists
+        treeview, column = user_data
+        liststore = treeview.get_model()
         liststore[path][column] = new_text
-        self.history.add_event(self.get_path(), self.quicklists_treeview, quicklists, self.get_application_quicklists())
-        return
+        self.update_editor()
     
     def update_editor(self, editor_updated=False):
         task = self.threaded_update_editor(editor_updated)
@@ -1137,9 +1237,9 @@ class MenulibreWindow(Window):
                 elif line[:5] == 'Path=':
                     editor_data['path'] = line[5:]
                 elif line[:9] == 'Terminal=':
-                    editor_data['terminal'] = line[9:]
+                    editor_data['terminal'] = 'true' in line[9:]
                 elif line[:14] == 'StartupNotify=':
-                    editor_data['startupnotify'] = line[14:]
+                    editor_data['startupnotify'] = 'true' in line[14:]
                 elif line[:8] == 'Actions=' or 'X-Ayatana-Desktop-Shortcuts' in line:
                     format, enabled = line.split('=')
                     enabled = enabled.split(';')
@@ -1359,6 +1459,8 @@ OnlyShowIn=Unity;
         self.set_application_path( '' )
         self.set_application_terminal( False )
         self.set_application_startupnotify( False )
+        self.set_application_hidden( False )
+        self.set_application_categories( [] )
         self.set_application_filename( 'New Application' )
         
         # Quicklists

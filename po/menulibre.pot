@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-01 08:55-0400\n"
+"POT-Creation-Date: 2012-07-02 05:31-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,55 +22,55 @@ msgid "Show debug messages (-vv debugs menulibre_lib also)"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:1
-msgid "Select an Icon"
+msgid "Select an icon"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:2
-msgid "Stock Icon"
+msgid "Select an Icon"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:3
-msgid "Icon Name"
+msgid "Stock Icon"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:4
-msgid "Image File"
+msgid "Icon Name"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:5
-msgid "Select an Image"
+msgid "Image File"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:6
-msgid "<b>Select Icon</b>"
+msgid "Select an Image"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:7
-msgid "48x48"
+msgid "<b>Select Icon</b>"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:8
-msgid "32x32"
+msgid "48x48"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:9
-msgid "24x24"
+msgid "32x32"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:10
-msgid "16x16"
+msgid "24x24"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:11
-msgid "128x128"
+msgid "16x16"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:12
-msgid "<b>Preview</b>"
+msgid "128x128"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:13
-msgid "Select an icon"
+msgid "<b>Preview</b>"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:14
@@ -170,30 +170,82 @@ msgid "Use startup notification"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:38
-msgid "<b>Options</b>"
+msgid "Hide from menus"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:39
-msgid "<small>Filename</small>"
+msgid "<b>Options</b>"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:40
-msgid "General Settings"
+msgid "<small>Filename</small>"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:41
-msgid "Quicklists"
+msgid "Accessories"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:42
-msgid "Editor"
+msgid "Development"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:43
+msgid "Education"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:44
+msgid "Games"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:45
+msgid "Graphics"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:46
+msgid "Internet"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:47
+msgid "Multimedia"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:48
+msgid "Office"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:49
+msgid "Settings"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:50
+msgid "System"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:51
+msgid "WINE"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:52
+msgid "<b>Categories</b>"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:53
+msgid "General Settings"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:54
+msgid "Quicklists"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:55
+msgid "Editor"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Status Area"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:169
+#: ../menulibre/MenulibreWindow.py:173
 msgid "Show"
 msgstr ""
 
