@@ -554,13 +554,23 @@ class MenulibreWindow(Window):
         self.update_editor()
     
     def on_general_command_browse_clicked(self, button):
-        pass
+        dialog = Gtk.FileChooserDialog("Select an executable", self, 0, (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, Gtk.STOCK_OK, Gtk.ResponseType.OK))
+        dialog.show()
+        response = dialog.run()
+        dialog.hide()
+        if response == Gtk.ResponseType.OK:
+            self.set_application_command( dialog.get_filename() )
     
     def on_general_path_entry_changed(self, widget):
         self.update_editor()
     
     def on_general_path_browse_clicked(self, button):
-        pass
+        dialog = Gtk.FileChooserDialog("Select an executable", self, Gtk.FileChooserAction.SELECT_FOLDER, buttons=(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, Gtk.STOCK_OK, Gtk.ResponseType.OK))
+        dialog.show()
+        response = dialog.run()
+        dialog.hide()
+        if response == Gtk.ResponseType.OK:
+            self.set_application_path( dialog.get_filename() )
     
     def on_general_terminal_switch_toggled(self, widget, state):
         self.update_editor()
