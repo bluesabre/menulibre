@@ -41,9 +41,6 @@ class Application:
         self.id = None
         self.TreeViewPath = None
         self.original = default_application
-        self.changes = {'filename': None, 'icon': None, 'name': None, 'comment': None, 
-                        'command': None, 'path': None, 'terminal': None, 'startupnotify': None, 'categories': None,
-                        'actions': None, 'id': None, 'TreeViewPath': None, 'original': None}
 
     def new_from_file(self, filename):
         self.filename = filename
@@ -82,82 +79,85 @@ class Application:
         print 'Quicklists: %s' % str(self.actions)
 
     def set_filename(self, filename):
-        self.changes['filename'] = filename
+        self.filename = filename
 
     def get_filename(self):
         return self.filename
 
-    def set_icon(self, type, name):
-        self.changes['icon'] = (type, name)
+    def set_icon(self, name):
+        self.icon = name
 
     def get_icon(self):
         return self.icon
 
     def set_name(self, name):
-        self.changes['name'] = name
+        self.name = name
 
     def get_name(self):
         return self.name
 
     def set_comment(self, comment):
-        self.changes['comment'] = comment
+        self.comment = comment
 
     def get_comment(self):
         return self.comment
 
     def set_exec(self, command):
-        self.changes['command'] = command
+        self.command = command
 
     def get_exec(self):
         return self.command
 
     def set_path(self, path):
-        self.changes['path'] = path
+        self.path = path
 
     def get_path(self):
         return self.path
 
     def set_terminal(self, terminal):
-        self.changes['terminal'] = terminal
+        self.terminal = terminal
 
     def get_terminal(self):
         return self.terminal
 
     def set_startupnotify(self, startupnotify):
-        self.changes['startupnotify'] = startupnotify
+        self.startupnotify = startupnotify
 
     def get_startupnotify(self):
         return self.startupnotify
 
     def set_categories(self, categories):
-        self.changes['categories'] = categories
+        self.categories = categories
 
     def get_categories(self):
         return self.categories
             
     def set_hidden(self, hidden):
-        self.changes['hidden'] = hidden
+        self.hidden = hidden
         
     def get_hidden(self):
         return self.hidden
+        
+    def set_quicklist_format(self, qformat):
+        self.quicklist_format = qformat
         
     def get_quicklist_format(self):
         return self.quicklist_format
 
     def set_actions(self, actions):
-        self.changes['actions'] = actions
+        self.actions = actions
 
     def get_actions(self):
         return self.actions
 
     def set_id(self, id):
-        self.changes['id'] = id
+        self.id = id
 
     def get_id(self):
         return self.id
 
     def set_original(self, original):
-        self.changes['original'] = original
+        self.original = original
 
     def get_original(self):
         return self.original
@@ -165,15 +165,11 @@ class Application:
 def get_applications():
     applications = dict()
     app_counter = 1
-    for filename in os.listdir('/usr/share/applications'):
-        if os.path.isfile( os.path.join( '/usr/share/applications', filename )) and os.path.splitext( filename )[1] == '.desktop':
-            app = Application(os.path.join( '/usr/share/applications', filename ))
-            app.id = app_counter
-            app_counter += 1
-            applications[app.id] = app
-    local_apps = os.path.join( home, '.local', 'share', 'applications' )
+    filenames = []
     try:
+        local_apps = os.path.join( home, '.local', 'share', 'applications' )
         for filename in os.listdir( local_apps ):
+            filenames.append(filename)
             if os.path.isfile( os.path.join( local_apps, filename )) and os.path.splitext( filename )[1] == '.desktop':
                 app = Application(os.path.join( local_apps, filename ))
                 app.id = app_counter
@@ -181,6 +177,15 @@ def get_applications():
                 applications[app.id] = app
     except OSError:
         pass
+    for filename in os.listdir('/usr/share/applications'):
+        if filename not in filenames:
+            if os.path.isfile( os.path.join( '/usr/share/applications', filename )) and os.path.splitext( filename )[1] == '.desktop':
+                app = Application(os.path.join( '/usr/share/applications', filename ))
+                app.id = app_counter
+                app_counter += 1
+                applications[app.id] = app
+    
+    
     return applications
     
 defaults = {'filename': '', 'icon': 'gtk-missing-image', 'name': '', 

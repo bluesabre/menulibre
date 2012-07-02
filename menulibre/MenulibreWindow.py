@@ -109,8 +109,6 @@ class MenulibreWindow(Window):
         context = self.toolbar.get_style_context()
         context.add_class(Gtk.STYLE_CLASS_PRIMARY_TOOLBAR)
         self.toolbar_addnew = self.builder.get_object('toolbar_addnew')
-        #self.menu_add = self.builder.get_object('menu_add')
-        #self.toolbar_addnew.set_menu(self.menu_add)
         self.toolbar_save = self.builder.get_object('toolbar_save')
         self.toolbar_undo = self.builder.get_object('toolbar_undo')
         self.toolbar_redo = self.builder.get_object('toolbar_redo')
@@ -168,6 +166,7 @@ class MenulibreWindow(Window):
         self.general_filename_label = self.builder.get_object('general_filename_label')
         
         # Categories
+        self.categories_expander = self.builder.get_object('categories_expander')
         self.categories_accessories = self.builder.get_object('categories_accessories')
         self.categories_development = self.builder.get_object('categories_development')
         self.categories_education = self.builder.get_object('categories_education')
@@ -265,7 +264,6 @@ class MenulibreWindow(Window):
         
   # Events        
     def on_toolbar_addnew_clicked(self, button):
-        self.new_launcher()
         
         self.appsettings_notebook.set_current_page(0)
         self.set_position(Gtk.WindowPosition.NONE)
@@ -461,7 +459,7 @@ class MenulibreWindow(Window):
             if selection_id == 1337:
                 self.new_launcher()
             else:
-            
+                self.set_categories_expanded(False)
                 self.set_breadcrumb_application(selection_id)
                 app = self.apps[selection_id]
                 
@@ -596,7 +594,6 @@ class MenulibreWindow(Window):
         self.quicklist_modified = False
     
     def on_quicklist_add_clicked(self, button):
-        #self.on_tracked_entry_changed(None, 'quicklists')
         self.quicklist_modified = True
         quicklists = self.get_application_quicklists()
         listmodel = self.quicklists_treeview.get_model()
@@ -606,20 +603,13 @@ class MenulibreWindow(Window):
         
         listmodel.append([False, shortcut_name, 'New Shortcut', ''])
         self.quicklists_treeview.set_cursor_on_cell( Gtk.TreePath.new_from_string( str(len(listmodel)-1) ), None, None, False )
-        #self.get_quicklist_strings()
-        #self.on_tracked_quicklists_changed(button)
-        #self.history.add_event(self.get_path(), self.quicklists_treeview, quicklists, self.get_application_quicklists())
     
     def on_quicklist_remove_clicked(self, button):
         if len(self.quicklists_treeview.get_model()) > 0:
             self.quicklist_modified = True
-            #self.on_tracked_entry_changed(None, 'quicklists')
-            #quicklists = self.get_application_quicklists()
             tree_sel = self.quicklists_treeview.get_selection()
             (treestore, treeiter) = tree_sel.get_selected()
             treestore.remove(treeiter)
-            #self.on_tracked_quicklists_changed(button)
-            #self.history.add_event(self.get_path(), self.quicklists_treeview, quicklists, self.get_application_quicklists())
     
     def on_quicklist_move_up_clicked(self, button):
         if len(self.quicklists_treeview.get_model()) > 0:
@@ -628,8 +618,6 @@ class MenulibreWindow(Window):
             (treestore, treeiter) = tree_sel.get_selected()
             path = treestore.get_path(treeiter)
             if int(str(path)) > 0:
-                #self.on_tracked_entry_changed(None, 'quicklists')
-                #quicklists = self.get_application_quicklists()
                 up = treestore.iter_previous(treeiter)
                 enabled = treestore.get_value(treeiter, 0)
                 shortcut_name = treestore.get_value(treeiter, 1)
@@ -639,8 +627,6 @@ class MenulibreWindow(Window):
                 treestore.remove(treeiter)
                 treestore.insert_before(up, [enabled, shortcut_name, displayed_name, command])
                 self.quicklists_treeview.set_cursor_on_cell( Gtk.TreePath.new_from_string( str(int(str(path))-1) ), None, None, False )
-                #self.on_tracked_quicklists_changed(button)
-                #self.history.add_event(self.get_path(), self.quicklists_treeview, quicklists, self.get_application_quicklists())
     
     def on_quicklist_move_down_clicked(self, button):
         if len(self.quicklists_treeview.get_model()) > 0:
@@ -649,8 +635,6 @@ class MenulibreWindow(Window):
             (treestore, treeiter) = tree_sel.get_selected()
             path = treestore.get_path(treeiter)
             if int(str(path)) < len(treestore)-1:
-                #self.on_tracked_entry_changed(None, 'quicklists')
-                #quicklists = self.get_application_quicklists()
                 down = treestore.iter_next(treeiter)
                 enabled = treestore.get_value(treeiter, 0)
                 shortcut_name = treestore.get_value(treeiter, 1)
@@ -659,8 +643,6 @@ class MenulibreWindow(Window):
                 treestore.remove(treeiter)
                 treestore.insert_after(down, [enabled, shortcut_name, displayed_name, command])
                 self.quicklists_treeview.set_cursor_on_cell( Gtk.TreePath.new_from_string( str(int(str(path))+1) ), None, None, False )
-                #self.on_tracked_quicklists_changed(button)
-                #self.history.add_event(self.get_path(), self.quicklists_treeview, quicklists, self.get_application_quicklists())
     
     def on_iconselection_radio_stock_toggled(self, radio_button):
         self.iconselection_stock.set_sensitive( radio_button.get_active() )
@@ -960,7 +942,7 @@ class MenulibreWindow(Window):
             lists = sorted(lists, key=lambda quicklist: quicklist[4])
             for group in lists:
                 listmodel.append( group[:4] )
-        except (KeyError, TypeError):
+        except (KeyError, TypeError, AttributeError):
             pass
         self.quicklists_treeview.set_model(listmodel)
     
@@ -1096,6 +1078,9 @@ class MenulibreWindow(Window):
         self.general_comment_modify_box.set_visible(False)
         self.general_comment_button.set_visible(True)
         self.set_focus( self.general_comment_button )
+        
+    def set_categories_expanded(self, expanded):
+        self.categories_expander.set_expanded(expanded)
         
         
     def load_category_into_iconview(self, category=None):
@@ -1521,3 +1506,5 @@ Actions=
         self.show_appsettings()
         self.in_history = False
         self.last_editor = launcher
+        
+        self.set_categories_expanded(True)
