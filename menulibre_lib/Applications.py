@@ -251,6 +251,6 @@ def read_desktop_file(filename, contents):
                 settings['quicklists'][quicklist_key]['order'] = action_order
                 action_order += 1
                 settings['quicklists'][quicklist_key]['enabled'] = quicklist_key in enabled
-        except IndexError:
+        except (IndexError, UnboundLocalError):
             pass
     return settings

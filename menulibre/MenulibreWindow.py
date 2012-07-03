@@ -379,6 +379,8 @@ class MenulibreWindow(Window):
             self.entry_search.set_text('')
     
     def on_breadcrumb_home_clicked(self, button):
+		"""When the Home breadcrumb is clicked, change to the Home 
+		page."""
         if not self.lock_breadcrumb:
             self.entry_search.set_placeholder_text('Search Applications')
             self.lock_breadcrumb = True
@@ -388,6 +390,8 @@ class MenulibreWindow(Window):
             self.show_catselection()
         
     def on_breadcrumb_category_clicked(self, button):
+		"""When the Category breadcrumb is clicked, change to the 
+		category view page."""
         if not self.lock_breadcrumb:
             label = self.breadcrumb_category_label.get_label()
             self.entry_search.set_placeholder_text('Search %s' % label)
@@ -398,6 +402,8 @@ class MenulibreWindow(Window):
             self.show_appselection()
             
     def on_breadcrumb_application_clicked(self, button):
+		"""When the Application breadcrumb is clicked, change to the
+		launcher editor page."""
         if not self.lock_breadcrumb:
             self.entry_search.set_placeholder_text('Search Applications')
             self.lock_breadcrumb = True
@@ -410,6 +416,8 @@ class MenulibreWindow(Window):
             self.show_appsettings()
             
     def on_catselection_iconview_item_activated(self, widget, index):
+		"""When an item is activated in the Category Selection view, 
+		load the category's applications in the category view."""
         self.set_position(Gtk.WindowPosition.NONE)
         if self.iconview_single:
             self.iconview_single = False
@@ -430,8 +438,9 @@ class MenulibreWindow(Window):
             pass
         self.lock_breadcrumb = False
         
-    
     def on_appselection_iconview_item_activated(self, widget, index):
+		"""When an item is activated in the Application Selection view,
+		load the application into the launcher editor view."""
         self.appsettings_notebook.set_current_page(0)
         self.set_position(Gtk.WindowPosition.NONE)
         if self.iconview_single:
@@ -441,7 +450,6 @@ class MenulibreWindow(Window):
         self.lock_breadcrumb = True
         try:
             model = widget.get_model()
-            #label = model[index][1]
             selection_id = model[index][2]
 
             self.in_history = True
