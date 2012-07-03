@@ -24,9 +24,8 @@ from gi.repository import Gtk, Gdk, GdkPixbuf, GObject # pylint: disable=E0611
 import logging
 logger = logging.getLogger('menulibre')
 
-from menulibre_lib import Window, IconTheme, Applications, history
+from menulibre_lib import Window, IconTheme, Applications
 from menulibre.AboutMenulibreDialog import AboutMenulibreDialog
-from menulibre.PreferencesMenulibreDialog import PreferencesMenulibreDialog
 
 icon_theme = IconTheme.CurrentTheme()
 IconSize = Gtk.icon_size_lookup(Gtk.IconSize.SMALL_TOOLBAR)
@@ -44,7 +43,6 @@ class MenulibreWindow(Window):
         super(MenulibreWindow, self).finish_initializing(builder)
 
         self.AboutDialog = AboutMenulibreDialog
-        self.PreferencesDialog = PreferencesMenulibreDialog
         
         self.show_wine = os.path.isdir('/usr/share/wine')
 
@@ -269,7 +267,8 @@ class MenulibreWindow(Window):
         
   # Events        
     def on_toolbar_addnew_clicked(self, button):
-        
+        """When the Add New toolbar icon is clicked, go to the
+        application editor and New Launcher details."""
         self.appsettings_notebook.set_current_page(0)
         self.set_position(Gtk.WindowPosition.NONE)
         if self.iconview_single:
@@ -291,7 +290,9 @@ class MenulibreWindow(Window):
         self.lock_breadcrumb = False
     
     def on_toolbar_save_clicked(self, button):
-        print 'save clicked'
+        """When the Save toolbar icon is clicked, save the desktop file.
+        If modifying a system entry while not sudo-powered, create a new
+        launcher in /home/USERNAME/.local/share/applications."""
         filename = self.get_application_filename()
         text = self.get_application_text()
         try:
@@ -316,24 +317,38 @@ class MenulibreWindow(Window):
             newapp.set_id(appid)
             self.apps[appid] = newapp
         openfile.close()
+        del self.undo_stack[:]
+        del self.redo_stack[:]
+        self.set_undo_enabled(False)
+        self.set_redo_enabled(False)
+        self.set_save_enabled(False)
+        self.set_revert_enabled(False)
     
     def on_toolbar_undo_clicked(self, button):
+		"""When the Undo toolbar icon is clicked, undo the last done
+		action."""
         self.undo()
     
     def on_toolbar_redo_clicked(self, button):
+		"""When the Redo toolbar icon is clicked, redo the last undone
+		action."""
         self.redo()
     
     def on_toolbar_revert_clicked(self, button):
+		"""When the Revert toolbar icon is clicked, restore the launcher
+		to the last saved state."""
         data = self.undo_stack[0]
         del self.undo_stack[:]
         del self.redo_stack[:]
         self.set_application_text( data )
         self.set_undo_enabled(False)
         self.set_redo_enabled(False)
-        #self.set_save_enabled(False)
+        self.set_save_enabled(False)
         self.set_revert_enabled(False)
     
     def on_entry_search_changed(self, widget):
+		"""When text is entered into the search entry, run a query and
+		display the results."""
         text = widget.get_text()
         self.set_position(Gtk.WindowPosition.NONE)
         
@@ -357,43 +372,9 @@ class MenulibreWindow(Window):
             widget.set_icon_from_stock(Gtk.EntryIconPosition.SECONDARY, 'gtk-clear')
             self.show_search_results(text, category)
             
-    def show_search_results(self, query, category=None):
-        self.set_position(Gtk.WindowPosition.NONE)
-        if category == None:
-            self.last_cat = None
-        model = self.clear_appselection_iconview()
-        name = "Search Results"
-        icon = "gtk-find"
-        self.breadcrumb_category_image.set_from_stock(icon, Gtk.IconSize.BUTTON)
-        self.breadcrumb_category_label.set_label(name)
-        self.breadcrumb_category.show_all()
-        self.breadcrumb_home.set_active(False)
-        self.breadcrumb_application.set_active(False)
-        self.breadcrumb_category.set_active(True)
-        
-        apps = sorted(self.apps.values(), key=lambda app: app.get_name().lower())
-        counter = 0
-        for app in apps:
-            show_icon = True
-            if category != None:
-                if category in app.get_categories():
-                    pass
-                else:
-                    show_icon = False
-    
-            if show_icon and query.lower() in app.get_name().lower():
-                counter += 1
-                icon = self.get_icon_pixbuf( app.get_icon()[1], Gtk.IconSize.DIALOG )
-                name = app.get_name()
-                appid = app.get_id()
-                comment = app.get_comment()
-                model.append( [icon, name, appid, comment] )
-        if counter == 0:
-            self.show_selection_fail()
-        else:
-            self.show_appselection()
-    
     def on_entry_search_icon_press(self, widget, button, event):
+		"""When the clear icon is pressed in the search widget, clear
+		the search query and return to the last location."""
         if button == Gtk.EntryIconPosition.SECONDARY:
             self.entry_search.set_text('')
     
@@ -1239,7 +1220,6 @@ class MenulibreWindow(Window):
 
     def edited_cb(self, cell, path, new_text, user_data):
         """Quicklist treeview cell edited callback function."""
-        quicklists = self.get_application_quicklists()
         treeview, column = user_data
         liststore = treeview.get_model()
         liststore[path][column] = new_text
@@ -1251,11 +1231,6 @@ class MenulibreWindow(Window):
             GObject.idle_add(task.next)
     
     def get_data_from_editor(self):
-        editor_data = {'icon': None, 'name': None, 'comment': None, 
-                       'command': None, 'path': None, 'terminal': None, 
-                       'startupnotify': None, 'quicklists': dict()}
-        
-        action_order = 0
         text = self.get_application_text()
         return Applications.read_desktop_file(self.get_application_filename(), text)
         
@@ -1484,7 +1459,7 @@ OnlyShowIn=Unity;
     def new_launcher(self):
         self.set_breadcrumb_application(1337)
         #app = self.apps[selection_id]
-        
+        self.breadcrumb_category.set_visible(False)
         
         # General Settings
         self.set_application_icon( 'application-default-icon', Gtk.IconSize.DIALOG )
@@ -1520,3 +1495,40 @@ Actions=
         self.last_editor = launcher
         
         self.set_categories_expanded(True)
+
+
+    def show_search_results(self, query, category=None):
+        self.set_position(Gtk.WindowPosition.NONE)
+        if category == None:
+            self.last_cat = None
+        model = self.clear_appselection_iconview()
+        name = "Search Results"
+        icon = "gtk-find"
+        self.breadcrumb_category_image.set_from_stock(icon, Gtk.IconSize.BUTTON)
+        self.breadcrumb_category_label.set_label(name)
+        self.breadcrumb_category.show_all()
+        self.breadcrumb_home.set_active(False)
+        self.breadcrumb_application.set_active(False)
+        self.breadcrumb_category.set_active(True)
+        
+        apps = sorted(self.apps.values(), key=lambda app: app.get_name().lower())
+        counter = 0
+        for app in apps:
+            show_icon = True
+            if category != None:
+                if category in app.get_categories():
+                    pass
+                else:
+                    show_icon = False
+    
+            if show_icon and query.lower() in app.get_name().lower():
+                counter += 1
+                icon = self.get_icon_pixbuf( app.get_icon()[1], Gtk.IconSize.DIALOG )
+                name = app.get_name()
+                appid = app.get_id()
+                comment = app.get_comment()
+                model.append( [icon, name, appid, comment] )
+        if counter == 0:
+            self.show_selection_fail()
+        else:
+            self.show_appselection()
