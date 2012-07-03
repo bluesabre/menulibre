@@ -840,6 +840,7 @@ class MenulibreWindow(Window):
         name = name.replace('&', '&amp;')
         self.general_name_label.set_markup( '<big><b>%s</b></big>' % name )
         self.general_name_entry.set_text( name )
+        self.breadcrumb_application_label.set_label(name)
     
     def get_application_name(self):
         return self.general_name_label.get_label()[8:-10].replace('&amp;', '&')
@@ -1022,7 +1023,19 @@ class MenulibreWindow(Window):
     # -- End Helper Functions ---------------------------------------- #
     
     def general_name_modify_accept(self):
-        self.set_application_name( self.general_name_entry.get_text() )
+        name = self.general_name_entry.get_text()
+        self.set_application_name( name )
+        if self.get_application_filename() == 'New Application':
+            filename = name.replace(' ', '').replace('&', '').lower()
+            filename += '.desktop'
+            filename = os.path.join( home, '.local', 'share', 'applications', filename )
+            if os.path.exists(filename):
+                counter = 0
+                while os.path.exists(filename.replace('.desktop', str(counter)+'.desktop')):
+                    counter += 1
+                filename = filename.replace('.desktop', str(counter)+'.desktop')
+            self.set_application_filename( filename )
+            
         self.hide_general_name_editor()
         self.update_editor()
     
