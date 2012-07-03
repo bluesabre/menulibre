@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-02 05:31-0400\n"
+"POT-Creation-Date: 2012-07-03 10:14-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,55 +22,55 @@ msgid "Show debug messages (-vv debugs menulibre_lib also)"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:1
-msgid "Select an icon"
-msgstr ""
-
-#: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Select an Icon"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:3
+#: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Stock Icon"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:4
+#: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Icon Name"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:5
+#: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Image File"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:6
+#: ../data/ui/MenulibreWindow.ui.h:5
 msgid "Select an Image"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:7
+#: ../data/ui/MenulibreWindow.ui.h:6
 msgid "<b>Select Icon</b>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:8
+#: ../data/ui/MenulibreWindow.ui.h:7
 msgid "48x48"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:9
+#: ../data/ui/MenulibreWindow.ui.h:8
 msgid "32x32"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:10
+#: ../data/ui/MenulibreWindow.ui.h:9
 msgid "24x24"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:11
+#: ../data/ui/MenulibreWindow.ui.h:10
 msgid "16x16"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:12
+#: ../data/ui/MenulibreWindow.ui.h:11
 msgid "128x128"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:13
+#: ../data/ui/MenulibreWindow.ui.h:12
 msgid "<b>Preview</b>"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:13
+msgid "Select an icon"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:14
@@ -245,7 +245,7 @@ msgstr ""
 msgid "Status Area"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:173
+#: ../menulibre/MenulibreWindow.py:196
 msgid "Show"
 msgstr ""
 

@@ -92,6 +92,11 @@ class MenulibreWindow(Window):
         self.in_history = False
         self.last_editor = ''
         
+        if os.getuid() == 0: 
+            self.sudo = True
+        else:
+            self.sudo = False
+        
         
         
         self.undo_stack = []
@@ -1028,7 +1033,10 @@ class MenulibreWindow(Window):
         if self.get_application_filename() == 'New Application':
             filename = name.replace(' ', '').replace('&', '').lower()
             filename += '.desktop'
-            filename = os.path.join( home, '.local', 'share', 'applications', filename )
+            if self.sudo:
+                filename = os.path.join( '/usr', 'share', 'applications', filename )
+            else:
+                filename = os.path.join( home, '.local', 'share', 'applications', filename )
             if os.path.exists(filename):
                 counter = 0
                 while os.path.exists(filename.replace('.desktop', str(counter)+'.desktop')):
@@ -1206,37 +1214,6 @@ class MenulibreWindow(Window):
                 liststore.append( [icon_theme.get_theme_GdkPixbuf(icon, Gtk.IconSize.DIALOG), icon] )
             yield True
         yield False
-    
-    def save_app_changes(self, app_id):
-        if app_id not in self.changes.keys():
-            return
-        app = self.apps.get_app_by_id(app_id)
-        try:
-            text = self.changes[app_id][self.textview_editor]
-        except KeyError:
-            text = '\n'.join(app.original)
-        if self.entry_appname in self.changes[app_id].keys():
-            text = text.replace('\nName=%s' % app.get_name(), '\nName=%s' % self.changes[app_id][self.entry_appname])
-        if self.entry_appcomment in self.changes[app_id].keys():
-            text = text.replace('\nComment=%s' % app.get_comment(), '\nComment=%s' % self.changes[app_id][self.entry_appcomment])
-        if self.entry_command in self.changes[app_id].keys():
-            text = text.replace('\nExec=%s' % app.get_exec(), '\nExec=%s' % self.changes[app_id][self.entry_command])
-            text = text.replace('\nTryExec=%s' % app.get_exec(), '\nTryExec=%s' % self.changes[app_id][self.entry_command])
-        if self.entry_directory in self.changes[app_id].keys():
-            text = text.replace('\nPath=%s' % app.get_path(), '\nPath=%s' % self.changes[app_id][self.entry_directory])
-        if self.switch_runinterminal in self.changes[app_id].keys():
-            if self.changes[app_id][self.switch_runinterminal] == True:
-                terminal = 'true'
-            else:
-                terminal = 'false'
-            text = text.replace('\nTerminal=%s' % str(app.get_terminal()).lower(), '\nTerminal=%s' % terminal)
-        if self.switch_startupnotify in self.changes[app_id].keys():
-            if self.changes[app_id][self.switch_startupnotify]:
-                notify = 'true'
-            else:
-                notify = 'false'
-            text = text.replace('\nStartupNotify=%s' % str(app.get_terminal()).lower(), '\nStartupNotify=%s' % notify)
-        return text
 
     def get_icon_pixbuf(self, icon_name, IconSize):
         pixbuf = icon_theme.get_theme_GdkPixbuf( icon_name, IconSize )
@@ -1364,7 +1341,7 @@ class MenulibreWindow(Window):
                                 command_set = True
                             else: newlines.append(line)
                         elif line[:8] == 'TryExec=':
-                            newlines.append(line[:8] + command)
+                            newlines.append(line[:8] + command.split(' ')[0])
                         elif line[:5] == 'Path=':
                             if not path_set:
                                 newlines.append(line[:5] + path)

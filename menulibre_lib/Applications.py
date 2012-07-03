@@ -20,6 +20,8 @@ StartupNotify=false
 Categories=
 """
 
+sudo = os.getuid() == 0
+
 class Application:
     def __init__(self, filename):
         if not os.path.isfile(filename):
@@ -166,17 +168,19 @@ def get_applications():
     applications = dict()
     app_counter = 1
     filenames = []
-    try:
-        local_apps = os.path.join( home, '.local', 'share', 'applications' )
-        for filename in os.listdir( local_apps ):
-            filenames.append(filename)
-            if os.path.isfile( os.path.join( local_apps, filename )) and os.path.splitext( filename )[1] == '.desktop':
-                app = Application(os.path.join( local_apps, filename ))
-                app.id = app_counter
-                app_counter += 1
-                applications[app.id] = app
-    except OSError:
-        pass
+    print sudo
+    if not sudo:
+        try:
+            local_apps = os.path.join( home, '.local', 'share', 'applications' )
+            for filename in os.listdir( local_apps ):
+                filenames.append(filename)
+                if os.path.isfile( os.path.join( local_apps, filename )) and os.path.splitext( filename )[1] == '.desktop':
+                    app = Application(os.path.join( local_apps, filename ))
+                    app.id = app_counter
+                    app_counter += 1
+                    applications[app.id] = app
+        except OSError:
+            pass
     for filename in os.listdir('/usr/share/applications'):
         if filename not in filenames:
             if os.path.isfile( os.path.join( '/usr/share/applications', filename )) and os.path.splitext( filename )[1] == '.desktop':

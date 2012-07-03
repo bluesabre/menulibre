@@ -27,8 +27,11 @@ if de == 'gnome':
 elif de == 'xfce':
     query = subprocess.Popen('xfconf-query -c xsettings -p /Net/IconThemeName', shell=True, stdout=subprocess.PIPE)
     current_theme = query.stdout.read().replace('\n', '')
+else:
+    import gconf
+    client = gconf.Client()
+    current_theme = client.get_string('/desktop/gnome/interface/icon_theme')
 
-    
 home = os.getenv('HOME')
 
 
