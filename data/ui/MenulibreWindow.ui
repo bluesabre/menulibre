@@ -649,6 +649,7 @@
                 <property name="label" translatable="yes">toolbutton1</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-new</property>
+                <accelerator key="n" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -666,6 +667,7 @@
                 <property name="label" translatable="yes">toolbutton3</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-save</property>
+                <accelerator key="s" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                 <signal name="clicked" handler="on_toolbar_save_clicked" swapped="no"/>
               </object>
               <packing>
@@ -696,6 +698,7 @@
                 <property name="label" translatable="yes">toolbutton5</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-undo</property>
+                <accelerator key="z" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                 <signal name="clicked" handler="on_toolbar_undo_clicked" swapped="no"/>
               </object>
               <packing>
@@ -714,6 +717,7 @@
                 <property name="label" translatable="yes">toolbutton6</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-redo</property>
+                <accelerator key="z" signal="clicked" modifiers="GDK_SHIFT_MASK | GDK_CONTROL_MASK"/>
                 <signal name="clicked" handler="on_toolbar_redo_clicked" swapped="no"/>
               </object>
               <packing>
@@ -771,6 +775,7 @@
                         <property name="primary_icon_stock">gtk-find</property>
                         <property name="primary_icon_sensitive">False</property>
                         <property name="placeholder_text">Search Applications</property>
+                        <accelerator key="f" signal="grab-focus" modifiers="GDK_CONTROL_MASK"/>
                         <signal name="changed" handler="on_entry_search_changed" swapped="no"/>
                       </object>
                       <packing>
@@ -806,6 +811,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
+                <accelerator key="Home" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                 <signal name="clicked" handler="on_breadcrumb_home_clicked" swapped="no"/>
                 <child>
                   <object class="GtkImage" id="image11">

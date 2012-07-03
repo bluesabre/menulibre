@@ -291,6 +291,7 @@ class MenulibreWindow(Window):
         self.lock_breadcrumb = False
     
     def on_toolbar_save_clicked(self, button):
+        print 'save clicked'
         filename = self.get_application_filename()
         text = self.get_application_text()
         try:
@@ -1483,6 +1484,7 @@ OnlyShowIn=Unity;
     def new_launcher(self):
         self.set_breadcrumb_application(1337)
         #app = self.apps[selection_id]
+        
         
         # General Settings
         self.set_application_icon( 'application-default-icon', Gtk.IconSize.DIALOG )
