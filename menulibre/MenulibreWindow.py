@@ -39,9 +39,6 @@ Gtk.IconSize.UNITY = Gtk.icon_size_register('UNITY', 128, 128)
 class MenulibreWindow(Window):
     __gtype_name__ = "MenulibreWindow"
     
-    #(TARGET_ENTRY_BOOL, TARGET_ENTRY_NAME, TARGET_ENTRY_COMMAND) = range(3)
-    #(COLUMN_BOOL, COLUMN_TEXT_NAME, COLUMN_TEXT_COMMAND) = range(3)
-    
     def finish_initializing(self, builder): # pylint: disable=E1002
         """Set up the main window"""
         super(MenulibreWindow, self).finish_initializing(builder)
@@ -49,7 +46,7 @@ class MenulibreWindow(Window):
         self.AboutDialog = AboutMenulibreDialog
         self.PreferencesDialog = PreferencesMenulibreDialog
         
-        self.history = history.History(self)
+        self.show_wine = os.path.isdir('/usr/share/wine')
 
         # Code for other initialization actions should be added here.
         self.categories = { 'AudioVideo': ['Multimedia', 'applications-multimedia', -7, []],
@@ -72,7 +69,7 @@ class MenulibreWindow(Window):
 
         self.apps = Applications.get_applications()
         
-
+        
 
         self.iconview_filename = None
 
@@ -94,6 +91,8 @@ class MenulibreWindow(Window):
         self.editor_changed = False
         self.in_history = False
         self.last_editor = ''
+        
+        
         
         self.undo_stack = []
         self.redo_stack = []
@@ -178,6 +177,7 @@ class MenulibreWindow(Window):
         self.categories_settings = self.builder.get_object('categories_settings')
         self.categories_system = self.builder.get_object('categories_system')
         self.categories_wine = self.builder.get_object('categories_wine')
+        self.categories_wine.set_visible(self.show_wine)
         
         # -- Quicklists (Notebook Page 1) -- #
         self.quicklists_treeview = self.builder.get_object('quicklists_treeview')
@@ -294,6 +294,14 @@ class MenulibreWindow(Window):
         except IOError:
             filename = os.path.split(filename)[1]
             filename = os.path.join( home, '.local', 'share', 'applications', filename )
+            if not os.path.isdir( os.path.join( home, '.local', 'share', 'applications') ):
+                filepath = home
+                for path in ['.local', 'share', 'applications']:
+                    try:
+                        filepath = os.path.join(filepath, path)
+                        os.mkdir(filepath)
+                    except OSError:
+                        pass
             openfile = open(filename, 'w')
             openfile.write(text)
             self.set_application_filename(filename)
@@ -423,7 +431,6 @@ class MenulibreWindow(Window):
         self.lock_breadcrumb = True
         try:
             model = widget.get_model()
-            #label = model[index][1]
             selection_id = model[index][2]
             if selection_id == -9001:
                 self.load_category_into_iconview('')
@@ -431,7 +438,7 @@ class MenulibreWindow(Window):
                 for cat in self.categories:
                     if selection_id == self.categories[cat][2]:
                         self.load_category_into_iconview(cat)
-                        self.show_appselection()
+            self.show_appselection()
         except:
             pass
         self.lock_breadcrumb = False
@@ -830,11 +837,12 @@ class MenulibreWindow(Window):
         """Set the application name label and entry."""
         if name == None:
             name = ''
+        name = name.replace('&', '&amp;')
         self.general_name_label.set_markup( '<big><b>%s</b></big>' % name )
         self.general_name_entry.set_text( name )
     
     def get_application_name(self):
-        return self.general_name_label.get_label()[8:-10]
+        return self.general_name_label.get_label()[8:-10].replace('&amp;', '&')
     
     def set_application_comment(self, comment):
         """Set the application comment label and entry."""
@@ -1105,6 +1113,8 @@ class MenulibreWindow(Window):
             categories = sorted(categories, key=lambda category: category[0].lower())
             for category in categories:
                 label, image, category_id, apps = category
+                if label == 'WINE' and not self.show_wine:
+                    return
                 image = icon_theme.get_theme_GdkPixbuf(image, Gtk.IconSize.DIALOG)
                 model.append([image, label, category_id])
             
@@ -1458,7 +1468,7 @@ OnlyShowIn=Unity;
         return (actions, quicklist_string)
     
     def undo(self):
-        print self.undo_stack
+        #print self.undo_stack
         self.in_history = True
         current = self.get_application_text()
         self.redo_stack.append(current)
