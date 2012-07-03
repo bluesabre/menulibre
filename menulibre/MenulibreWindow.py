@@ -1397,7 +1397,7 @@ class MenulibreWindow(Window):
                     text = text.replace('\nTerminal=%s\n' % terminal, '\nTerminal=%s\nStartupNotify=%s\n' % (terminal, startupnotify), 1)
                 if not categories_set:
                     text = text.replace('\nStartupNotify=%s\n' % startupnotify, '\nStartupNotify=%s\nCategories=%s\n' % (startupnotify, ';'.join(categories)), 1)
-                if not actions_set:
+                if not actions_set and len(quicklist_string) > 0:
                     text += '\n' + quicklists_action + '\n' + quicklist_string
                 text = text.replace('\n\n\n', '\n\n')
                 buffer.set_text(text)
