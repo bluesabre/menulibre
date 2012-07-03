@@ -491,6 +491,8 @@ class MenulibreWindow(Window):
         self.lock_breadcrumb = False
         
     def on_catselection_iconview_selection_changed(self, widget):
+		"""When an item is selected in the category selection view, 
+		change the statusbar to the category name."""
         try:
             model = widget.get_model()
             index = int(widget.get_selected_items()[0].to_string())
@@ -500,6 +502,8 @@ class MenulibreWindow(Window):
             self.statusbar.set_label('')
         
     def on_appselection_iconview_selection_changed(self, widget):
+		"""When an item is selected in the application selection view, 
+		change the statusbar to the application comment."""
         try:
             model = widget.get_model()
             index = int(widget.get_selected_items()[0].to_string())
@@ -509,53 +513,80 @@ class MenulibreWindow(Window):
             self.statusbar.set_label('')
     
     def on_appselection_search_all_button_clicked(self, button):
+		"""When an item cannot be found and the Search All button is
+		available and clicked, search with no filters."""
         pass 
     
     def on_appsettings_notebook_switch_page(self, notebook, page, pageno):
+		"""When the notebook page is changed, reset the text editor
+		cursor to the top."""
         buffer = self.editor_textview.get_buffer()
         buffer.place_cursor( buffer.get_start_iter() )
     
     def on_general_icon_button_clicked(self, button):
+		"""When the Application Icon button is clicked, show the icon
+		selection dialog."""
         self.iconselection_dialog.show_all()
         self.iconselection_dialog.run()
         self.iconselection_dialog.hide()
     
     def on_general_name_button_clicked(self, button):
+		"""When the Application Name button is clicked, reveal the name
+		editor."""
         self.show_general_name_editor()
         
     def on_general_name_modify_entry_activate(self, widget):
+		"""When the Application Name entry is activated, accept the 
+		changes."""
         self.general_name_modify_accept()
         
     def on_general_name_modify_entry_key_press_event(self, widget, event):
+		"""If the user presses the ESCAPE key while in the name entry, 
+		reject the changes."""
         if Gdk.keyval_name(event.get_keyval()[1]) == 'Escape':
             self.general_name_modify_reject()
     
     def on_general_name_modify_cancel_clicked(self, button):
+		"""If the user clicks the entry cancel button, reject the 
+		changes."""
         self.general_name_modify_reject()
     
     def on_general_name_modify_confirm_clicked(self, button):
+		"""If the user clicks the entry OK button, accept the changes."""
         self.general_name_modify_accept()
     
     def on_general_comment_button_clicked(self, button):
+		"""When the Application Comment button is clicked, reveal the 
+		comment editor."""
         self.show_general_comment_editor()
         
     def on_general_comment_modify_entry_activate(self, widget):
+		"""When the Application Comment entry is activated, accept the 
+		changes."""
         self.general_comment_modify_accept()
         
     def on_general_comment_modify_entry_key_press_event(self, widget, event):
+		"""If the user presses the ESCAPE key while in the comment
+		entry, reject the changes."""
         if Gdk.keyval_name(event.get_keyval()[1]) == 'Escape':
             self.general_comment_modify_reject()
     
     def on_general_comment_modify_cancel_clicked(self, button):
+		"""If the user clicks the entry cancel button, reject the 
+		changes."""
         self.general_comment_modify_reject()
     
     def on_general_comment_modify_confirm_clicked(self, button):
+		"""If the user clicks the entry OK button, accept the changes."""
         self.general_comment_modify_accept()
         
     def on_general_command_entry_changed(self, widget):
+		"""Update the editor when the Command entry is changed."""
         self.update_editor()
     
     def on_general_command_browse_clicked(self, button):
+		"""Show a file chooser dialog when the Command browse button
+		is clicked, and set the Command entry to the selected file."""
         dialog = Gtk.FileChooserDialog("Select an executable", self, 0, (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, Gtk.STOCK_OK, Gtk.ResponseType.OK))
         dialog.show()
         response = dialog.run()
@@ -564,9 +595,12 @@ class MenulibreWindow(Window):
             self.set_application_command( dialog.get_filename() )
     
     def on_general_path_entry_changed(self, widget):
+		"""Update the editor when the Path entry is changed."""
         self.update_editor()
     
     def on_general_path_browse_clicked(self, button):
+		"""Show a folder chooser dialog when the Path browse button is 
+		clicked, and set the Path entry to the selected folder."""
         dialog = Gtk.FileChooserDialog("Select an executable", self, Gtk.FileChooserAction.SELECT_FOLDER, buttons=(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, Gtk.STOCK_OK, Gtk.ResponseType.OK))
         dialog.show()
         response = dialog.run()
@@ -575,37 +609,34 @@ class MenulibreWindow(Window):
             self.set_application_path( dialog.get_filename() )
     
     def on_general_terminal_switch_toggled(self, widget, state):
+		"""Update the editor when the Terminal switch is toggled."""
         self.update_editor()
     
     def on_general_startupnotify_switch_toggled(self, widget, state):
+		"""Update the editor when the StartupNotify switch is toggled."""
         self.update_editor()
         
     def on_general_nodisplay_switch_toggled(self, widget, state):
+		"""Update the editor with the NoDisplay switch is toggled."""
         self.update_editor()
-    
-    def on_quicklist_toggled(self, widget, path):
-        model = self.quicklists_treeview.get_model()
-        model[path][0] = not model[path][0]
-        self.update_editor()
-        
-    def get_quicklist_unique_shortcut_name(self, quicklists, base_name, counter):
-        if counter == 0:
-            for quicklist in quicklists:
-                if quicklist[1] == base_name:
-                    return self.get_quicklist_unique_shortcut_name(quicklists, base_name, counter+1)
-            return base_name
-        else:
-            for quicklist in quicklists:
-                if quicklist[1] == base_name + str(counter):
-                    return self.get_quicklist_unique_shortcut_name(quicklists, base_name, counter+1)
-            return base_name + str(counter)
             
     def on_quicklists_treeview_cursor_changed(self, widget):
+		"""Required to update the editor when modified, as opposed to
+		cursor changed."""
         if self.quicklist_modified:
             self.update_editor()
         self.quicklist_modified = False
     
+    def on_quicklist_toggled(self, widget, path):
+		"""When a quicklist item is toggled, enable the toggle and then
+		update the editor."""
+        model = self.quicklists_treeview.get_model()
+        model[path][0] = not model[path][0]
+        self.update_editor()
+
     def on_quicklist_add_clicked(self, button):
+		"""When the Quicklist Add button is clicked, add a new, unique
+		quicklist item."""
         self.quicklist_modified = True
         quicklists = self.get_application_quicklists()
         listmodel = self.quicklists_treeview.get_model()
@@ -617,6 +648,8 @@ class MenulibreWindow(Window):
         self.quicklists_treeview.set_cursor_on_cell( Gtk.TreePath.new_from_string( str(len(listmodel)-1) ), None, None, False )
     
     def on_quicklist_remove_clicked(self, button):
+		"""When the Quicklist Remove button is clicked, remove the 
+		currently selected quicklist item."""
         if len(self.quicklists_treeview.get_model()) > 0:
             self.quicklist_modified = True
             tree_sel = self.quicklists_treeview.get_selection()
@@ -624,6 +657,8 @@ class MenulibreWindow(Window):
             treestore.remove(treeiter)
     
     def on_quicklist_move_up_clicked(self, button):
+		"""When the Quicklist Move Up button is clicked, move the 
+		currently selected quicklist item up in the treeview."""
         if len(self.quicklists_treeview.get_model()) > 0:
             self.quicklist_modified = True
             tree_sel = self.quicklists_treeview.get_selection()
@@ -635,12 +670,13 @@ class MenulibreWindow(Window):
                 shortcut_name = treestore.get_value(treeiter, 1)
                 displayed_name = treestore.get_value(treeiter, 2)
                 command = treestore.get_value(treeiter, 3)
-                
                 treestore.remove(treeiter)
                 treestore.insert_before(up, [enabled, shortcut_name, displayed_name, command])
                 self.quicklists_treeview.set_cursor_on_cell( Gtk.TreePath.new_from_string( str(int(str(path))-1) ), None, None, False )
     
     def on_quicklist_move_down_clicked(self, button):
+		"""When the Quicklist Move Down button is clicked, move the 
+		currently selected quicklist item down in the treeview."""
         if len(self.quicklists_treeview.get_model()) > 0:
             self.quicklist_modified = True
             tree_sel = self.quicklists_treeview.get_selection()
@@ -1540,3 +1576,18 @@ Actions=
             self.show_selection_fail()
         else:
             self.show_appselection()
+            
+            
+        
+    def get_quicklist_unique_shortcut_name(self, quicklists, base_name, counter):
+		
+        if counter == 0:
+            for quicklist in quicklists:
+                if quicklist[1] == base_name:
+                    return self.get_quicklist_unique_shortcut_name(quicklists, base_name, counter+1)
+            return base_name
+        else:
+            for quicklist in quicklists:
+                if quicklist[1] == base_name + str(counter):
+                    return self.get_quicklist_unique_shortcut_name(quicklists, base_name, counter+1)
+            return base_name + str(counter)

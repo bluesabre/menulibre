@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-03 10:14-0400\n"
+"POT-Creation-Date: 2012-07-03 13:27-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -245,7 +245,7 @@ msgstr ""
 msgid "Status Area"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:196
+#: ../menulibre/MenulibreWindow.py:194
 msgid "Show"
 msgstr ""
 
@@ -268,14 +268,6 @@ msgstr ""
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:14
 msgid "Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>"
-msgstr ""
-
-#: ../data/ui/PreferencesMenulibreDialog.ui.h:1
-msgid "Menulibre Preferences"
-msgstr ""
-
-#: ../data/ui/PreferencesMenulibreDialog.ui.h:2
-msgid "_Example entry:"
 msgstr ""
 
 #: ../menulibre.desktop.in.h:1
