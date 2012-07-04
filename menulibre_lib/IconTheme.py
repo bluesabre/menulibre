@@ -20,6 +20,7 @@ import os
 import subprocess
 
 def detect_desktop_environment():
+	"""Return the current desktop environment in use."""
     desktop_environment = 'generic'
     if os.environ.get('KDE_FULL_SESSION') == 'true':
         desktop_environment = 'kde'
@@ -50,9 +51,9 @@ else:
 
 home = os.getenv('HOME')
 
-
-
 class IconTheme(Gtk.IconTheme):
+	"""IconTheme class that appropriately gets the current icon theme in
+	use by the current desktop environment."""
     def __init__(self, theme_name, inherited=[], main=False):
         self.main_theme = main
         Gtk.IconTheme.__init__(self)
@@ -122,6 +123,7 @@ class IconTheme(Gtk.IconTheme):
             self.inherits.append(IconTheme('/usr/share/pixmaps', None))
 
     def get_theme_GdkPixbuf(self, name, IconSize):
+		"""Return a GdkPixbuf for an icon name at size IconSize."""
         try:
             unused, width, height = Gtk.icon_size_lookup(IconSize)
             filename, sized = self.get_theme_image(name, IconSize)
@@ -141,22 +143,9 @@ class IconTheme(Gtk.IconTheme):
             return pixbuf
         except:
             pass
-
-    def load_theme_image(self, GtkImage, name, IconSize):
-        pass
-
-    def get_all_icons(self, IconSize):
-        uniques = dict()
-        for icon in self.index.keys():
-            uniques[icon] = self.get_theme_image(icon, IconSize)
-        for theme in self.inherits:
-            icons = theme.get_all_icons(IconSize)
-            for icon in icons.keys():
-                if icon not in uniques.keys():
-                    uniques[icon] = icons[icon]
-        return uniques
         
     def get_theme_image(self, name, IconSize):
+		"""Return theme icon name at the given icon size."""
         try:
             if os.path.isfile(name):
                 return (name, False)
@@ -203,7 +192,21 @@ class IconTheme(Gtk.IconTheme):
             except KeyError:
                 for theme in self.inherits:
                     return theme.get_theme_image('image-missing', IconSize)
+				
+
+    def get_all_icons(self, IconSize):
+		"""Return all unique icons at the given icon size."""
+        uniques = dict()
+        for icon in self.index.keys():
+            uniques[icon] = self.get_theme_image(icon, IconSize)
+        for theme in self.inherits:
+            icons = theme.get_all_icons(IconSize)
+            for icon in icons.keys():
+                if icon not in uniques.keys():
+                    uniques[icon] = icons[icon]
+        return uniques
         
 class CurrentTheme(IconTheme):
+	"""IconThene class that is specifically for the current theme."""
     def __init__(self):
         IconTheme.__init__(self, current_theme, main=True)

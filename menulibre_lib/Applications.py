@@ -18,8 +18,6 @@ import os
 
 from gi.repository import Gtk
 
-stock_icons = Gtk.stock_list_ids()
-
 home = os.getenv('HOME')
 
 default_application = """
@@ -39,6 +37,9 @@ Categories=
 sudo = os.getuid() == 0
 
 class Application:
+	"""Application class that uses data from .desktop files installed 
+	both system-wide (/usr/share/applications) and locally 
+	(/home/USERNAME/.local/share/applications)."""
     def __init__(self, filename):
         if not os.path.isfile(filename):
             self.new(filename)
@@ -46,6 +47,7 @@ class Application:
             self.new_from_file(filename)
 
     def new(self, filename):
+		"""Create a new application instance for a non-existing file."""
         self.filename = filename
         self.icon = 'gtk-missing-image'
         self.name = 'New Application'
@@ -61,6 +63,7 @@ class Application:
         self.original = default_application
 
     def new_from_file(self, filename):
+		"""Create a new application instance for an existing filename."""
         self.filename = filename
         self.id = 0
 
@@ -81,110 +84,126 @@ class Application:
         self.actions = settings['quicklists']
         self.original = settings['text']
 
-    def print_app(self):
-        print 'Filename: %s' % str(self.filename)
-        print 'Icon: %s' % str(self.icon)
-        print 'Name: %s' % str(self.name)
-        print 'Comment: %s' % str(self.comment)
-        print 'Exec: %s' % str(self.command)
-        print 'Path: %s' % str(self.path)
-        print 'Terminal: %s' % str(self.terminal)
-        print 'StartupNotify: %s' % str(self.startupnotify)
-        print 'Hidden: %s' % str(self.hidden)
-        print 'Categories: %s' % str(self.categories)
-        print 'Actions: %s' % str(self.actions)
-        print 'ID: %s' % str(self.id)
-        print 'Quicklists: %s' % str(self.actions)
-
     def set_filename(self, filename):
+		"""Set the application filename."""
         self.filename = filename
 
     def get_filename(self):
+		"""Return the application filename."""
         return self.filename
 
     def set_icon(self, name):
+		"""Set the application icon name."""
         self.icon = name
 
     def get_icon(self):
+		"""Return the application icon name."""
         return self.icon
 
     def set_name(self, name):
+		"""Set the application proper name."""
         self.name = name
 
     def get_name(self):
+		"""Return the application proper name."""
         return self.name
 
     def set_comment(self, comment):
+		"""Set the application comment."""
         self.comment = comment
 
     def get_comment(self):
+		"""Return the application comment."""
         return self.comment
 
     def set_exec(self, command):
+		"""Set the application command."""
         self.command = command
 
     def get_exec(self):
+		"""Return the application command."""
         return self.command
 
     def set_path(self, path):
+		"""Set the application working directory."""
         self.path = path
 
     def get_path(self):
+		"""Return the application working directory."""
         return self.path
 
     def set_terminal(self, terminal):
+		"""Set whether the application runs in the terminal."""
         self.terminal = terminal
 
     def get_terminal(self):
+		"""Return whether the application runs in the terminal."""
         return self.terminal
 
     def set_startupnotify(self, startupnotify):
+		"""Set whether the application should notify on startup."""
         self.startupnotify = startupnotify
 
     def get_startupnotify(self):
+		"""Return whether the application should notify on startup."""
         return self.startupnotify
 
     def set_categories(self, categories):
+		"""Set the application categories."""
         self.categories = categories
 
     def get_categories(self):
+		"""Return the application categories."""
         return self.categories
             
     def set_hidden(self, hidden):
+		"""Set whether the application menu item is hidden."""
         self.hidden = hidden
         
     def get_hidden(self):
+		"""Return whether the application menu item is hidden."""
         return self.hidden
         
     def set_quicklist_format(self, qformat):
+		"""Set the application quicklist format, commonly 'Actions' or 
+		'X-Ayatana-Desktop-Shortcuts'."""
         self.quicklist_format = qformat
         
     def get_quicklist_format(self):
+		"""Return the application quicklist format."""
         return self.quicklist_format
 
     def set_actions(self, actions):
+		"""Set the application quicklist items."""
         self.actions = actions
 
     def get_actions(self):
+		"""Return the application quicklist items."""
         return self.actions
 
     def set_id(self, id):
+		"""Set the application ID, used for identifying the launcher in 
+		a selection window."""
         self.id = id
 
     def get_id(self):
+		"""Return the application ID."""
         return self.id
 
     def set_original(self, original):
+		"""Set the application original .desktop contents."""
         self.original = original
 
     def get_original(self):
+		"""Return the application original .desktop contents."""
         return self.original
 
 def get_applications():
+	"""Return all installed applications for the current user.  If the
+	program is started as root, only show system launchers."""
     applications = dict()
     app_counter = 1
     filenames = []
-    print sudo
     if not sudo:
         try:
             local_apps = os.path.join( home, '.local', 'share', 'applications' )
@@ -204,8 +223,6 @@ def get_applications():
                 app.id = app_counter
                 app_counter += 1
                 applications[app.id] = app
-    
-    
     return applications
     
 defaults = {'filename': '', 'icon': 'gtk-missing-image', 'name': '', 
@@ -215,7 +232,7 @@ defaults = {'filename': '', 'icon': 'gtk-missing-image', 'name': '',
             'text': default_application}
     
 def read_desktop_file(filename, contents):
-    # use filename.read()
+    """Return the settings pulled from the application .desktop file."""
     settings = {'filename': '', 'icon': 'gtk-missing-image', 'name': '', 
             'comment': '', 'command': '', 'path': '', 'terminal': False, 
             'startupnotify': False, 'hidden': False, 'categories': [], 
