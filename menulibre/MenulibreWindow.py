@@ -1560,7 +1560,7 @@ Actions=
     
             if show_icon and query.lower() in app.get_name().lower():
                 counter += 1
-                icon = self.get_icon_pixbuf( app.get_icon()[1], Gtk.IconSize.DIALOG )
+                icon = self.get_icon_pixbuf( app.get_icon(), Gtk.IconSize.DIALOG )
                 name = app.get_name()
                 appid = app.get_id()
                 comment = app.get_comment()
