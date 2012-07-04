@@ -43,10 +43,9 @@ class MenulibreWindow(Window):
         super(MenulibreWindow, self).finish_initializing(builder)
 
         self.AboutDialog = AboutMenulibreDialog
-        
-        self.show_wine = os.path.isdir('/usr/share/wine')
 
-        # Code for other initialization actions should be added here.
+		self.sudo = os.getuid() == 0
+		self.apps = Applications.get_applications()
         self.categories = { 'AudioVideo': ['Multimedia', 'applications-multimedia', -7, []],
                             'Development': ['Development', 'applications-development', -2, []],
                             'Education': ['Education', 'applications-education', -3, []],
@@ -59,46 +58,27 @@ class MenulibreWindow(Window):
                             'System': ['System', 'applications-system', -11, []],
                             'Utility': ['Accessories', 'applications-accessories', -1, []],
                             'WINE': ['WINE', 'wine', -12, []]}
-        self.get_interface()
-        self.icon_cache = dict()
-
-        self.ignore_undo = False
         
-
-        self.apps = Applications.get_applications()
-        
-        
-
-        self.iconview_filename = None
-
-        #self.show_applications()
-        self.lock_breadcrumb = False
-        self.category = None
-        self.lock_application = False
-        self.iconview_single = False
-        
-        self.update_pending = False
-        self.ignore_updates = False
-        
-        self.quicklist_format = None
-        
-        self.load_category_into_iconview(None)
-
-        self.quicklist_modified = False
-
-        self.editor_changed = False
-        self.in_history = False
-        self.last_editor = ''
-        
-        if os.getuid() == 0: 
-            self.sudo = True
-        else:
-            self.sudo = False
-        
-        
-        
+        #self.icon_cache = dict()
         self.undo_stack = []
         self.redo_stack = []
+
+        self.show_wine = os.path.isdir('/usr/share/wine')
+
+		# Locks
+        self.lock_breadcrumb = False
+        self.iconview_single = False
+        self.update_pending = False
+        self.quicklist_modified = False
+        self.editor_changed = False
+        self.in_history = False
+        
+        # Variables
+        self.quicklist_format = None
+        self.last_editor = ''
+        
+        self.get_interface()
+        self.load_category_into_iconview(None)
         
         self.set_position(Gtk.WindowPosition.CENTER_ALWAYS)
         
@@ -197,7 +177,7 @@ class MenulibreWindow(Window):
         tvcolumn = Gtk.TreeViewColumn('Shortcut Name')
         text_render_name = Gtk.CellRendererText()
         text_render_name.set_property('editable', True)
-        text_render_name.connect('edited', self.edited_cb, (self.quicklists_treeview, 1))
+        text_render_name.connect('edited', self.shortcut_edited_cb, (self.quicklists_treeview, 1))
         tvcolumn.pack_start(text_render_name, True)
         tvcolumn.add_attribute(text_render_name, 'text', 1)
         self.quicklists_treeview.append_column(tvcolumn)
@@ -228,7 +208,6 @@ class MenulibreWindow(Window):
         self.iconselection_radio_stock = self.builder.get_object('iconselection_radio_stock')
         self.iconselection_radio_theme = self.builder.get_object('iconselection_radio_theme')
         self.iconselection_radio_image = self.builder.get_object('iconselection_radio_image')
-        self.iconselection_stock = self.builder.get_object('iconselection_stock')
         self.iconselection_theme = self.builder.get_object('iconselection_theme')
         self.iconselection_theme_entry = self.builder.get_object('iconselection_theme_entry')
         self.iconselection_theme_browse = self.builder.get_object('iconselection_theme_browse')
@@ -239,26 +218,6 @@ class MenulibreWindow(Window):
         self.preview24 = self.builder.get_object('preview24')
         self.preview16 = self.builder.get_object('preview16')
         self.set_preview_from_stock('gtk-missing-image')
-                
-        combobox_liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str)
-        self.iconselection_stock.set_model(combobox_liststore)
-
-        cell_pixbuf = Gtk.CellRendererPixbuf()
-        self.iconselection_stock.pack_start(cell_pixbuf, True)
-        self.iconselection_stock.add_attribute(cell_pixbuf, 'pixbuf', 0)
-
-        cell_text = Gtk.CellRendererText()
-        self.iconselection_stock.pack_start(cell_text, False)
-        self.iconselection_stock.add_attribute(cell_text, 'text', 1)
-        
-        stocks = Gtk.stock_list_ids()
-        stocks = sorted(stocks, key=lambda stock: stock.lower())
-        for stockicon in stocks:
-            try:
-                icon = self.iconselection_stock.render_icon(stockicon, Gtk.IconSize.MENU)
-                combobox_liststore.append([icon, stockicon])
-            except AttributeError:
-                pass
     
       # Icon Selection Dialog 2 (All Icons)
         self.iconselection_dialog_all = self.builder.get_object('iconselection_dialog2')
@@ -692,17 +651,6 @@ class MenulibreWindow(Window):
                 treestore.insert_after(down, [enabled, shortcut_name, displayed_name, command])
                 self.quicklists_treeview.set_cursor_on_cell( Gtk.TreePath.new_from_string( str(int(str(path))+1) ), None, None, False )
     
-    def on_iconselection_radio_stock_toggled(self, radio_button):
-        self.iconselection_stock.set_sensitive( radio_button.get_active() )
-        if radio_button.get_active():
-            model = self.iconselection_stock.get_model()
-            active = self.iconselection_stock.get_active()
-            if active < 0:
-                self.set_preview_from_stock('gtk-missing-image')
-            else:
-                stockicon = model[active][1]
-                self.set_preview_from_stock(stockicon)
-    
     def on_iconselection_radio_theme_toggled(self, radio_button):
         self.iconselection_theme.set_sensitive( radio_button.get_active() )
         if radio_button.get_active():
@@ -712,14 +660,6 @@ class MenulibreWindow(Window):
         self.iconselection_image.set_sensitive( radio_button.get_active() )
         if radio_button.get_active():
             self.set_preview_from_filename( self.iconselection_image.get_filename() )
-    
-    def on_iconselection_stock_changed(self, combobox):
-        model = combobox.get_model()
-        active = combobox.get_active()
-        if active < 0:
-            return None
-        stockicon = model[active][1]
-        self.set_preview_from_stock(stockicon)
         
     def on_iconselection_theme_entry_changed(self, widget):
         self.set_preview_from_name( self.iconselection_theme_entry.get_text() )
@@ -739,14 +679,7 @@ class MenulibreWindow(Window):
     
     def on_iconselection_dialog1_response(self, widget, response):
         if response == 1:
-            if self.iconselection_radio_stock.get_active():
-                model = self.iconselection_stock.get_model()
-                active = self.iconselection_stock.get_active()
-                if active < 0:
-                    return None
-                stockicon = model[active][1]
-                self.set_application_icon(stockicon, Gtk.IconSize.DIALOG)
-            elif self.iconselection_radio_theme.get_active():
+            if self.iconselection_radio_theme.get_active():
                 name = self.iconselection_theme_entry.get_text()
                 self.set_application_icon(name, Gtk.IconSize.DIALOG)
             elif self.iconselection_radio_image.get_active():
@@ -832,16 +765,6 @@ class MenulibreWindow(Window):
         """Set the application icon."""
         if icon_name == None:
             icon_name = 'gtk-missing-image'
-        elif icon_name in Applications.stock_icons:
-            self.general_icon_image.set_from_stock( icon_name, size )
-            
-            self.iconselection_radio_stock.set_active(True)
-            #self.iconselection_stock.set_sensitive(True)
-            model = self.iconselection_stock.get_model()
-            for i in range(len(model)):
-                if model[i][1] == icon_name:
-                    self.iconselection_stock.set_active(i)
-                    break
         if os.path.isfile( icon_name ):
             self.general_icon_image.set_from_pixbuf( icon_theme.get_theme_GdkPixbuf(icon_name, size) )
             self.image_filename = icon_name
@@ -880,6 +803,7 @@ class MenulibreWindow(Window):
         """Set the application comment label and entry."""
         if comment == None:
             comment = ''
+        comment = comment.replace('&', '&amp;')
         self.general_comment_label.set_markup( '<i>%s</i>' % comment )
         self.general_comment_entry.set_text( comment )
     
@@ -1190,9 +1114,7 @@ class MenulibreWindow(Window):
                     name = app.get_name()
                     appid = app.get_id()
                     comment = app.get_comment()
-                    model.append( [icon, name, appid, comment] )
-            self.category = category
-            
+                    model.append( [icon, name, appid, comment] )            
                     
     def set_breadcrumb_category(self, category):
         if category == 'all':
@@ -1261,6 +1183,16 @@ class MenulibreWindow(Window):
             return self.get_icon_pixbuf('gtk-missing-image', IconSize)
         else:
             return None
+            
+    def shortcut_edited_cb(self, cell, path, new_text, user_data):
+        """Quicklist treeview cell edited callback function."""
+        treeview, column = user_data
+        liststore = treeview.get_model()
+        new_text = new_text.replace(' ', '').replace('&', '')
+        quicklists = self.get_application_quicklists()
+        new_text = self.get_quicklist_unique_shortcut_name(quicklists, new_text, 0)
+        liststore[path][column] = new_text
+        self.update_editor()
 
     def edited_cb(self, cell, path, new_text, user_data):
         """Quicklist treeview cell edited callback function."""

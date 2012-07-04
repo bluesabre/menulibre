@@ -92,26 +92,6 @@
                         <property name="column_spacing">12</property>
                         <property name="row_homogeneous">True</property>
                         <child>
-                          <object class="GtkRadioButton" id="iconselection_radio_stock">
-                            <property name="label" translatable="yes">Stock Icon</property>
-                            <property name="use_action_appearance">False</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="receives_default">False</property>
-                            <property name="use_action_appearance">False</property>
-                            <property name="xalign">0</property>
-                            <property name="active">True</property>
-                            <property name="draw_indicator">True</property>
-                            <signal name="toggled" handler="on_iconselection_radio_stock_toggled" swapped="no"/>
-                          </object>
-                          <packing>
-                            <property name="left_attach">0</property>
-                            <property name="top_attach">0</property>
-                            <property name="width">1</property>
-                            <property name="height">1</property>
-                          </packing>
-                        </child>
-                        <child>
                           <object class="GtkRadioButton" id="iconselection_radio_theme">
                             <property name="label" translatable="yes">Icon Name</property>
                             <property name="use_action_appearance">False</property>
@@ -122,12 +102,11 @@
                             <property name="xalign">0</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
-                            <property name="group">iconselection_radio_stock</property>
                             <signal name="toggled" handler="on_iconselection_radio_theme_toggled" swapped="no"/>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
-                            <property name="top_attach">1</property>
+                            <property name="top_attach">0</property>
                             <property name="width">1</property>
                             <property name="height">1</property>
                           </packing>
@@ -143,42 +122,12 @@
                             <property name="xalign">0</property>
                             <property name="active">True</property>
                             <property name="draw_indicator">True</property>
-                            <property name="group">iconselection_radio_stock</property>
+                            <property name="group">iconselection_radio_theme</property>
                             <signal name="toggled" handler="on_iconselection_radio_image_toggled" swapped="no"/>
                           </object>
                           <packing>
                             <property name="left_attach">0</property>
-                            <property name="top_attach">2</property>
-                            <property name="width">1</property>
-                            <property name="height">1</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkFileChooserButton" id="iconselection_image">
-                            <property name="visible">True</property>
-                            <property name="sensitive">False</property>
-                            <property name="can_focus">False</property>
-                            <property name="orientation">vertical</property>
-                            <property name="filter">filefilter1</property>
-                            <property name="title" translatable="yes">Select an Image</property>
-                            <signal name="file-set" handler="on_iconselection_image_file_set" swapped="no"/>
-                          </object>
-                          <packing>
-                            <property name="left_attach">1</property>
-                            <property name="top_attach">2</property>
-                            <property name="width">1</property>
-                            <property name="height">1</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkComboBox" id="iconselection_stock">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <signal name="changed" handler="on_iconselection_stock_changed" swapped="no"/>
-                          </object>
-                          <packing>
-                            <property name="left_attach">1</property>
-                            <property name="top_attach">0</property>
+                            <property name="top_attach">1</property>
                             <property name="width">1</property>
                             <property name="height">1</property>
                           </packing>
@@ -186,7 +135,6 @@
                         <child>
                           <object class="GtkBox" id="iconselection_theme">
                             <property name="visible">True</property>
-                            <property name="sensitive">False</property>
                             <property name="can_focus">False</property>
                             <property name="spacing">6</property>
                             <child>
@@ -194,6 +142,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="invisible_char">•</property>
+                                <property name="invisible_char_set">True</property>
                                 <signal name="changed" handler="on_iconselection_theme_entry_changed" swapped="no"/>
                               </object>
                               <packing>
@@ -224,6 +173,23 @@
                                 <property name="position">1</property>
                               </packing>
                             </child>
+                          </object>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="top_attach">0</property>
+                            <property name="width">1</property>
+                            <property name="height">1</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkFileChooserButton" id="iconselection_image">
+                            <property name="visible">True</property>
+                            <property name="sensitive">False</property>
+                            <property name="can_focus">False</property>
+                            <property name="orientation">vertical</property>
+                            <property name="filter">filefilter1</property>
+                            <property name="title" translatable="yes">Select an Image</property>
+                            <signal name="file-set" handler="on_iconselection_image_file_set" swapped="no"/>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
