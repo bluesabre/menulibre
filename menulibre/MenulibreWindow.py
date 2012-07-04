@@ -1071,14 +1071,14 @@ class MenulibreWindow(Window):
         liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int)
         self.catselection_iconview.set_model(liststore)
         self.catselection_iconview.set_pixbuf_column(0)
-        self.catselection_iconview.set_text_column(1)
+        self.catselection_iconview.set_markup_column(1)
         return liststore
         
     def clear_appselection_iconview(self):
         liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int, str)
         self.appselection_iconview.set_model(liststore)
         self.appselection_iconview.set_pixbuf_column(0)
-        self.appselection_iconview.set_text_column(1)
+        self.appselection_iconview.set_markup_column(1)
         return liststore
         
     def show_catselection(self):
@@ -1171,9 +1171,12 @@ class MenulibreWindow(Window):
                     show_app = True
                 if show_app:
                     icon = self.get_icon_pixbuf( app.get_icon(), Gtk.IconSize.DIALOG )
-                    name = app.get_name()
+                    name = app.get_name().replace('&', '&amp;')
                     appid = app.get_id()
                     comment = app.get_comment()
+                    hidden = app.get_hidden()
+                    if hidden:
+                        name = '<i>%s</i>' % name
                     model.append( [icon, name, appid, comment] )            
                     
     def set_breadcrumb_category(self, category):

@@ -1,1 +1,6 @@
+== TODO ==
 . Change application category fallback icon to applications-other
+
+== BUGS ==
+. Occasional GError exception on bad icon load
+. IconTheme class is crippled by elementary theme

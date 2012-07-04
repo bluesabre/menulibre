@@ -1,4 +1,0 @@
-== GENERAL ==
-
-. Occasional GError exception on bad icon load
-. IconTheme class is crippled by elementary theme
