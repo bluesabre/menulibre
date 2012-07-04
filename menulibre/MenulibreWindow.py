@@ -76,6 +76,8 @@ class MenulibreWindow(Window):
         # Variables
         self.quicklist_format = None
         self.last_editor = ''
+        self.last_height = 0
+        self.last_width = 0
         
         self.get_interface()
         self.load_category_into_iconview(None)
@@ -222,9 +224,52 @@ class MenulibreWindow(Window):
       # Icon Selection Dialog 2 (All Icons)
         self.iconselection_dialog_all = self.builder.get_object('iconselection_dialog2')
         self.iconselection_search = self.builder.get_object('iconselection_dialog2_search')
-        self.iconselection_iconview = self.builder.get_object('iconselection_dialog2_iconview')
+        self.iconselection_treeview = self.builder.get_object('iconselection_treeview')
         
-  # Events        
+        self.iconselection_treeview.append_column(Gtk.TreeViewColumn(_('Image'),
+                Gtk.CellRendererPixbuf(), pixbuf=0))
+        self.iconselection_treeview.append_column(Gtk.TreeViewColumn(_('Name'), 
+                Gtk.CellRendererText(), text=1))
+                
+        
+        
+  # Events       
+    def on_window_check_resize(self, widget, something):
+        allocation = widget.get_allocation()
+        height = allocation.height
+        width = allocation.width
+        if height != self.last_height or width != self.last_width:
+            try:
+                cat = self.catselection_iconview.get_model()
+                model = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int)
+                self.catselection_iconview.set_model(model)
+                for i in cat:
+                    img = i[0]
+                    string = i[1]
+                    id = i[2]
+                    model.append([img, string, id])
+                    
+                del cat
+            except TypeError:
+                pass
+                
+            try:
+                app = self.appselection_iconview.get_model()
+                model = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int)
+                self.appselection_iconview.set_model(model)
+                for i in app:
+                    img = i[0]
+                    string = i[1]
+                    id = i[2]
+                    model.append([img, string, id])
+                    
+                del app
+            except TypeError:
+                pass
+                
+            self.last_height = height
+            self.last_width = width
+   
     def on_toolbar_addnew_clicked(self, button):
         """When the Add New toolbar icon is clicked, go to the
         application editor and New Launcher details."""
@@ -347,6 +392,7 @@ class MenulibreWindow(Window):
             self.breadcrumb_category.set_active(False) 
             self.lock_breadcrumb = False
             self.show_catselection()
+            self.on_catselection_iconview_selection_changed()
         
     def on_breadcrumb_category_clicked(self, button):
 		"""When the Category breadcrumb is clicked, change to the 
@@ -359,6 +405,7 @@ class MenulibreWindow(Window):
             self.breadcrumb_home.set_active(False)
             self.lock_breadcrumb = False
             self.show_appselection()
+            self.on_appselection_iconview_selection_changed()
             
     def on_breadcrumb_application_clicked(self, button):
 		"""When the Application breadcrumb is clicked, change to the
@@ -373,6 +420,7 @@ class MenulibreWindow(Window):
             self.breadcrumb_home.set_active(False)
             self.lock_breadcrumb = False
             self.show_appsettings()
+            self.statusbar.set_label(self.get_application_filename())
             
     def on_catselection_iconview_item_activated(self, widget, index):
 		"""When an item is activated in the Category Selection view, 
@@ -449,9 +497,10 @@ class MenulibreWindow(Window):
             pass
         self.lock_breadcrumb = False
         
-    def on_catselection_iconview_selection_changed(self, widget):
+    def on_catselection_iconview_selection_changed(self, widget=None):
 		"""When an item is selected in the category selection view, 
 		change the statusbar to the category name."""
+		widget = self.catselection_iconview
         try:
             model = widget.get_model()
             index = int(widget.get_selected_items()[0].to_string())
@@ -460,9 +509,10 @@ class MenulibreWindow(Window):
         except IndexError:
             self.statusbar.set_label('')
         
-    def on_appselection_iconview_selection_changed(self, widget):
+    def on_appselection_iconview_selection_changed(self, widget=None):
 		"""When an item is selected in the application selection view, 
 		change the statusbar to the application comment."""
+		widget = self.appselection_iconview
         try:
             model = widget.get_model()
             index = int(widget.get_selected_items()[0].to_string())
@@ -671,7 +721,7 @@ class MenulibreWindow(Window):
         self.iconselection_dialog_all.run()
         self.iconselection_dialog_all.hide()
         liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str)
-        self.iconselection_iconview.set_model(liststore)
+        self.iconselection_treeview.set_model(liststore)
     
     def on_iconselection_image_file_set(self, widget):
         filename = widget.get_filename()
@@ -689,17 +739,23 @@ class MenulibreWindow(Window):
     
     def on_iconselection_dialog2_response(self, widget, response):
         if response == 1:
-            path = self.iconselection_iconview.get_selected_items()[0]
-            index = int(path.to_string())
-            model = self.iconselection_iconview.get_model()
-            name = model[index][1]
+            tree_sel = self.iconselection_treeview.get_selection()
+            (treestore, treeiter) = tree_sel.get_selected()
+            name = treestore[treeiter][1]
             self.iconselection_theme_entry.set_text(name)
     
-    def on_iconselection_dialog2_search_icon_press(self, widget):
-        pass
+    def on_iconselection_dialog2_search_icon_press(self, widget, pos, more):
+        self.iconselection_search.set_text('')
     
     def on_iconselection_dialog2_search_changed(self, widget):
-        pass
+        if widget.get_text() == '':
+            widget.set_icon_from_stock(Gtk.EntryIconPosition.SECONDARY, None)
+        else:
+            widget.set_icon_from_stock(Gtk.EntryIconPosition.SECONDARY, 'gtk-clear')
+        self.iconselection_filter.refilter()
+        
+    def iconselection_filter_func(self, model, iter, user_data):
+        return self.iconselection_search.get_text() in model[iter][1]
         
     # Categories
     def on_categories_accessories_toggled(self, widget):
@@ -852,6 +908,7 @@ class MenulibreWindow(Window):
     
     def set_application_filename(self, filename):
         self.general_filename_label.set_markup('<small>%s</small>' % filename)
+        self.statusbar.set_label(filename)
         
     def get_application_filename(self):
         label = self.general_filename_label.get_label()
@@ -1029,18 +1086,21 @@ class MenulibreWindow(Window):
         self.appselection_search_fail.hide()
         self.appselection.hide()
         self.catselection.show()
+        self.on_catselection_iconview_selection_changed()
     
     def show_appselection(self):
         self.appsettings_notebook.hide()
         self.appselection_search_fail.hide()
         self.catselection.hide()
         self.appselection.show()
+        self.on_appselection_iconview_selection_changed()
         
     def show_appsettings(self):
         self.appselection_search_fail.hide()
         self.appselection.hide()
         self.catselection.hide()
         self.appsettings_notebook.show()
+        self.statusbar.set_label( self.get_application_filename() )
         
     def show_selection_fail(self):
         self.appselection.hide()
@@ -1151,15 +1211,16 @@ class MenulibreWindow(Window):
 
     def load_iconselection_icons(self):
         liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str)
-        self.iconselection_iconview.set_model(liststore)
-        self.iconselection_iconview.set_pixbuf_column(0)
-        self.iconselection_iconview.set_text_column(1)
+        
+        self.iconselection_filter = liststore.filter_new()
+        self.iconselection_filter.set_visible_func(self.iconselection_filter_func)
+        self.iconselection_treeview.set_model(self.iconselection_filter)
         while Gtk.events_pending(): Gtk.main_iteration()
-        icons = icon_theme.get_all_icons(Gtk.IconSize.DIALOG).keys()
+        icons = icon_theme.get_all_icons(Gtk.IconSize.LARGE_TOOLBAR).keys()
         icons = sorted(icons, key=lambda icon: icon.lower())
         for icon in icons:
-            if 'action' not in icon:
-                liststore.append( [icon_theme.get_theme_GdkPixbuf(icon, Gtk.IconSize.DIALOG), icon] )
+            if 'action' not in icon and icon[:8] != 'process-' and icon[-8:] != '-spinner':
+                liststore.append( [icon_theme.get_theme_GdkPixbuf(icon, Gtk.IconSize.LARGE_TOOLBAR), icon] )
             yield True
         yield False
 
