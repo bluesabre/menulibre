@@ -87,13 +87,13 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
 
 DistUtilsExtra.auto.setup(
     name='menulibre',
-    version='0.1-public9',
+    version='12.07',
     license='GPL-3',
     author='Sean Davis',
     author_email='smd.seandavis@gmail.com',
     #description='UI for managing …',
     #long_description='Here a longer description',
-    #url='https://launchpad.net/menulibre',
+    url='https://launchpad.net/menulibre',
     cmdclass={'install': InstallAndUpdateDataDirectory}
     )
 
