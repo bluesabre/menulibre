@@ -1,3 +1,52 @@
+menulibre (12.07) precise; urgency=low
+
+  * Added enhanced breadcrumb keyboard navigation.
+  * Fixed amperstand issue with search results.
+  * Added docstrings for Application and IconTheme classes.
+  * Added italics to hidden menu items.
+  * Fixed missing icons in search.
+  * Added IconView resizing.
+  * Removed stock icon selection since stock icons are not available in
+    launcher items.
+  * Further cleanup
+  * Fix for UnboundLocalError in quicklists.
+  * Beginning cleanup and commenting.
+  * Added accelerators for save, undo, redo, search, and home.
+  * Fix for added quicklists when there are none.
+  * MenuLibre now works fully with sudo powers.
+  * New Applications now work.
+  * Updated TODO
+  * Fixed All Applications, hiding WINE, saving without local app
+    directory.
+  * Changes?
+  * Everything but statusbar and new launchers.
+  * MenuLibre no longer shows system/user duplicates.
+  * Quicklists are now fully supported.
+  * All settings, categories, and quicklists are now properly loaded.
+  * Add Launcher mostly implemented.
+  * Fixed search results icon.
+  * Fixed search results loading problem.
+  * Fixed loading new app should go to new page.
+  * Added Menu Editor to System Settings.  Made window centered on
+    start.
+  * Creating ubuntu package
+  * Updated interface, most items now work.  Still some known bugs, see
+    file BUGS.
+  * Creating ubuntu package
+  * Much improved IconTheme class.
+  * Added missing files.
+  * Added missing files.
+  * All actions are now undo-able.
+  * Change tracking.
+  * Change tracking.
+  * Instant Search
+  * Initial Category view implementation.
+  * Initial Category view implementation.
+  * Fixed icon/pixbuf grabber.
+  * Initial interface and application viewer functionaility.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Thu, 05 Jul 2012 16:39:48 -0400
+
 menulibre (0.1-public9) precise; urgency=low
 
   * New release.
