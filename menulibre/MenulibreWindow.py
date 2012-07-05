@@ -81,6 +81,8 @@ class MenulibreWindow(Window):
         
         self.get_interface()
         self.load_category_into_iconview(None)
+        self.set_focus(self.catselection_iconview)
+        self.catselection_iconview.select_path(Gtk.TreePath.new_from_string('0'))
         
         self.set_position(Gtk.WindowPosition.CENTER_ALWAYS)
         
@@ -114,8 +116,10 @@ class MenulibreWindow(Window):
         # -- Application Selection (Gtk.IconView) -- #
         self.catselection = self.builder.get_object('catselection_scrolled')
         self.catselection_iconview = self.builder.get_object('catselection_iconview')
+        self.catselection_iconview.connect('button-press-event', self.on_catselection_button_press_event)
         self.appselection = self.builder.get_object('appselection_scrolled')
         self.appselection_iconview = self.builder.get_object('appselection_iconview')
+        self.appselection_iconview.connect('button-press-event', self.on_appselection_button_press_event)
         self.appselection_search_fail = self.builder.get_object('appselection_search_fail')
         self.appselection_search_all_button = self.builder.get_object('appselection_search_all_button')
         
@@ -207,7 +211,6 @@ class MenulibreWindow(Window):
         
       # Icon Selection Dialog 1 (Select and Preview)
         self.iconselection_dialog = self.builder.get_object('iconselection_dialog1')
-        self.iconselection_radio_stock = self.builder.get_object('iconselection_radio_stock')
         self.iconselection_radio_theme = self.builder.get_object('iconselection_radio_theme')
         self.iconselection_radio_image = self.builder.get_object('iconselection_radio_image')
         self.iconselection_theme = self.builder.get_object('iconselection_theme')
@@ -219,7 +222,7 @@ class MenulibreWindow(Window):
         self.preview32 = self.builder.get_object('preview32')
         self.preview24 = self.builder.get_object('preview24')
         self.preview16 = self.builder.get_object('preview16')
-        self.set_preview_from_stock('gtk-missing-image')
+        self.set_preview_from_name('image-missing')
     
       # Icon Selection Dialog 2 (All Icons)
         self.iconselection_dialog_all = self.builder.get_object('iconselection_dialog2')
@@ -230,11 +233,20 @@ class MenulibreWindow(Window):
                 Gtk.CellRendererPixbuf(), pixbuf=0))
         self.iconselection_treeview.append_column(Gtk.TreeViewColumn(_('Name'), 
                 Gtk.CellRendererText(), text=1))
+
                 
+  # Events
+    def on_menulibre_window_key_press_event(self, widget, event):
+        """Enables some high-quality keyboard navigation."""
+        keyname = Gdk.keyval_name(event.keyval)
+        if keyname == 'BackSpace' and not self.entry_search.has_focus():
+            if self.breadcrumb_category.get_active():
+                self.breadcrumb_home.activate()
+            elif self.breadcrumb_application.get_active() and self.appsettings_notebook.has_focus():
+                self.breadcrumb_category.activate()
         
-        
-  # Events       
     def on_window_check_resize(self, widget, something):
+        """Adjust IconView icons when the window is resized."""
         allocation = widget.get_allocation()
         height = allocation.height
         width = allocation.width
@@ -349,6 +361,12 @@ class MenulibreWindow(Window):
         self.set_redo_enabled(False)
         self.set_save_enabled(False)
         self.set_revert_enabled(False)
+        
+    def on_entry_search_activate(self, widget):
+        if len(widget.get_text()) > 0:
+            self.breadcrumb_application.activate()
+            self.appselection_iconview.select_path(Gtk.TreePath.new_from_string('0'))
+            self.appselection_iconview.grab_focus()
     
     def on_entry_search_changed(self, widget):
 		"""When text is entered into the search entry, run a query and
@@ -366,6 +384,7 @@ class MenulibreWindow(Window):
             self.load_category_into_iconview(self.last_cat)
             self.last_cat = None
         else:
+            self.breadcrumb_application.set_visible(False)
             category = None
             self.last_cat = None
             if self.breadcrumb_category.get_active():
@@ -393,6 +412,9 @@ class MenulibreWindow(Window):
             self.lock_breadcrumb = False
             self.show_catselection()
             self.on_catselection_iconview_selection_changed()
+            self.set_focus(self.catselection_iconview)
+            if len(self.catselection_iconview.get_selected_items()) == 0:
+                self.catselection_iconview.select_path(Gtk.TreePath.new_from_string("0"))
         
     def on_breadcrumb_category_clicked(self, button):
 		"""When the Category breadcrumb is clicked, change to the 
@@ -406,6 +428,10 @@ class MenulibreWindow(Window):
             self.lock_breadcrumb = False
             self.show_appselection()
             self.on_appselection_iconview_selection_changed()
+            if not self.entry_search.has_focus():
+                self.set_focus(self.appselection_iconview)
+            if len(self.appselection_iconview.get_selected_items()) == 0:
+                self.appselection_iconview.select_path(Gtk.TreePath.new_from_string("0"))
             
     def on_breadcrumb_application_clicked(self, button):
 		"""When the Application breadcrumb is clicked, change to the
@@ -421,6 +447,13 @@ class MenulibreWindow(Window):
             self.lock_breadcrumb = False
             self.show_appsettings()
             self.statusbar.set_label(self.get_application_filename())
+            self.set_focus(self.appsettings_notebook)
+                        
+    def on_catselection_button_press_event(self, widget, event):
+        """Enables single-click in the category selection view."""
+        self.iconview_single = False
+        path = self.catselection_iconview.get_path_at_pos(event.x, event.y)
+        self.on_catselection_iconview_item_activated(widget, path)
             
     def on_catselection_iconview_item_activated(self, widget, index):
 		"""When an item is activated in the Category Selection view, 
@@ -444,6 +477,13 @@ class MenulibreWindow(Window):
         except:
             pass
         self.lock_breadcrumb = False
+        self.set_focus(self.appselection_iconview)
+        
+    def on_appselection_button_press_event(self, widget, event):
+        """Enables single-click in the application selection view."""
+        self.iconview_single = False
+        path = self.appselection_iconview.get_path_at_pos(event.x, event.y)
+        self.on_appselection_iconview_item_activated(widget, path)
         
     def on_appselection_iconview_item_activated(self, widget, index):
 		"""When an item is activated in the Application Selection view,
@@ -493,9 +533,10 @@ class MenulibreWindow(Window):
                 self.show_appsettings()
                 self.in_history = False
                 self.last_editor = app.get_original()
-        except IndexError:
+        except (IndexError, TypeError):
             pass
         self.lock_breadcrumb = False
+        self.set_focus(self.appsettings_notebook)
         
     def on_catselection_iconview_selection_changed(self, widget=None):
 		"""When an item is selected in the category selection view, 
@@ -506,7 +547,7 @@ class MenulibreWindow(Window):
             index = int(widget.get_selected_items()[0].to_string())
             label =  model[index][1]
             self.statusbar.set_label(label)
-        except IndexError:
+        except (IndexError, TypeError):
             self.statusbar.set_label('')
         
     def on_appselection_iconview_selection_changed(self, widget=None):
@@ -518,7 +559,7 @@ class MenulibreWindow(Window):
             index = int(widget.get_selected_items()[0].to_string())
             label =  model[index][3]
             self.statusbar.set_label(label)
-        except IndexError:
+        except (IndexError, TypeError):
             self.statusbar.set_label('')
     
     def on_appselection_search_all_button_clicked(self, button):
@@ -732,10 +773,14 @@ class MenulibreWindow(Window):
         self.iconselection_treeview.set_model(liststore)
     
     def on_iconselection_image_file_set(self, widget):
+        """When the an image is selected from the icon selection dialog,
+        set the icon image entry to its filename."""
         filename = widget.get_filename()
         self.set_preview_from_filename(filename)
     
     def on_iconselection_dialog1_response(self, widget, response):
+        """When OK is pressed in the primary icon selection dialog, 
+        set the application icon to the newly selected image."""
         if response == 1:
             if self.iconselection_radio_theme.get_active():
                 name = self.iconselection_theme_entry.get_text()
@@ -746,6 +791,8 @@ class MenulibreWindow(Window):
             self.update_editor()
     
     def on_iconselection_dialog2_response(self, widget, response):
+        """When OK is pressed in the secondary icon selection dialog, 
+        set the selected icon entry to the new icon name."""
         if response == 1:
             tree_sel = self.iconselection_treeview.get_selection()
             (treestore, treeiter) = tree_sel.get_selected()
@@ -753,9 +800,13 @@ class MenulibreWindow(Window):
             self.iconselection_theme_entry.set_text(name)
     
     def on_iconselection_dialog2_search_icon_press(self, widget, pos, more):
+        """When the clear icon is pressed in the icon selection search,
+        clear the search terms."""
         self.iconselection_search.set_text('')
     
     def on_iconselection_dialog2_search_changed(self, widget):
+        """When the icon selection search terms are modified, update
+        the search filter and display matching results."""
         if widget.get_text() == '':
             widget.set_icon_from_stock(Gtk.EntryIconPosition.SECONDARY, None)
         else:
@@ -763,72 +814,92 @@ class MenulibreWindow(Window):
         self.iconselection_filter.refilter()
         
     def iconselection_filter_func(self, model, iter, user_data):
+        """Filter function rules for the icon selection search."""
         return self.iconselection_search.get_text() in model[iter][1]
         
     # Categories
     def on_categories_accessories_toggled(self, widget):
+        """Update the editor when a category is toggled."""
         self.update_editor()
         
     def on_categories_development_toggled(self, widget):
+        """Update the editor when a category is toggled."""
         self.update_editor()
         
     def on_categories_education_toggled(self, widget):
+        """Update the editor when a category is toggled."""
         self.update_editor()
         
     def on_categories_games_toggled(self, widget):
+        """Update the editor when a category is toggled."""
         self.update_editor()
         
     def on_categories_graphics_toggled(self, widget):
+        """Update the editor when a category is toggled."""
         self.update_editor()
         
     def on_categories_internet_toggled(self, widget):
+        """Update the editor when a category is toggled."""
         self.update_editor()
         
     def on_categories_multimedia_toggled(self, widget):
+        """Update the editor when a category is toggled."""
         self.update_editor()
         
     def on_categories_office_toggled(self, widget):
+        """Update the editor when a category is toggled."""
         self.update_editor()
         
     def on_categories_settings_toggled(self, widget):
+        """Update the editor when a category is toggled."""
         self.update_editor()
         
     def on_categories_system_toggled(self, widget):
+        """Update the editor when a category is toggled."""
         self.update_editor()
         
     def on_categories_wine_toggled(self, widget):
+        """Update the editor when a category is toggled."""
         self.update_editor()
     # -- End Events -------------------------------------------------- #
     
   # Helper Functions
     def set_undo_enabled(self, enabled):
+        """Toggle undo functionality enabled."""
         self.toolbar_undo.set_sensitive(enabled)
         
     def get_undo_enabled(self):
+        """Return undo functionality enabled."""
         return self.toolbar_undo.get_sensitive()
         
     def set_redo_enabled(self, enabled):
+        """Toggle redo functionality enabled."""
         self.toolbar_redo.set_sensitive(enabled)
         
     def get_redo_enabled(self):
+        """Return redo functionality enabled."""
         return self.toolbar_redo.get_sensitive()
         
     def set_save_enabled(self, enabled):
+        """Toggle save functionality enabled."""
         self.toolbar_save.set_sensitive(enabled)
         
     def get_save_enabled(self):
+        """Return save functionality enabled."""
         return self.toolbar_save.get_sensitive()
     
     def set_revert_enabled(self, enabled):
+        """Toggle revert functionality enabled."""
         self.toolbar_revert.set_sensitive(enabled)
         
     def get_revert_enabled(self):
+        """Return revert functionality enabled."""
         return self.toolbar_revert.get_sensitive()
   
     def set_application_icon(self, icon_name, size):
         """Set the application icon."""
         if icon_name == None:
-            icon_name = 'gtk-missing-image'
+            icon_name = 'application-default-icon'
         if os.path.isfile( icon_name ):
             self.general_icon_image.set_from_pixbuf( icon_theme.get_theme_GdkPixbuf(icon_name, size) )
             self.image_filename = icon_name
@@ -840,13 +911,11 @@ class MenulibreWindow(Window):
             self.iconselection_theme_entry.set_text( icon_name )
     
     def get_application_icon(self):
+        """Return the application icon name."""
         icon_name = self.general_icon_image.get_icon_name()
         if icon_name[0]: 
             return icon_name[0]
-        icon_name = self.general_icon_image.get_stock()
-        if icon_name[0]:
-            return icon_name[0]
-        if self.iconselection_radio_image.get_active():
+        elif self.iconselection_radio_image.get_active():
             return self.iconselection_image.get_filename()
         else:
             return self.image_filename
@@ -861,6 +930,7 @@ class MenulibreWindow(Window):
         self.breadcrumb_application_label.set_label(name)
     
     def get_application_name(self):
+        """Return the application name extracted from the button label."""
         return self.general_name_label.get_label()[8:-10].replace('&amp;', '&')
     
     def set_application_comment(self, comment):
@@ -872,6 +942,8 @@ class MenulibreWindow(Window):
         self.general_comment_entry.set_text( comment )
     
     def get_application_comment(self):
+        """Return the application comment extracted from the button 
+        label."""
         return self.general_comment_label.get_label()[3:-4]
     
     def set_application_command(self, command):
@@ -881,22 +953,27 @@ class MenulibreWindow(Window):
         self.general_command_entry.set_text( command )
     
     def get_application_command(self):
+        """Return the application command."""
         return self.general_command_entry.get_text()
     
     def set_application_path(self, path):
+        """Set the application working directory."""
         if path == None:
             path = ''
         self.general_path_entry.set_text(path)
     
     def get_application_path(self):
+        """Return the application working directory."""
         return self.general_path_entry.get_text()
     
     def set_application_terminal(self, terminal):
+        """Set whether the application runs in a terminal."""
         if terminal == None:
             terminal = False
         self.general_terminal_switch.set_active(terminal)
         
     def get_application_terminal(self):
+        """Return whether the application runs in a terminal."""
         return self.general_terminal_switch.get_active()
     
     def set_application_startupnotify(self, startupnotify):
@@ -906,23 +983,30 @@ class MenulibreWindow(Window):
         self.general_startupnotify_switch.set_active( startupnotify )
     
     def get_application_startupnotify(self):
+        """Return whether the application should notify on startup."""
         return self.general_startupnotify_switch.get_active()
         
     def set_application_hidden(self, hidden):
+        """Set whether the application is hidden in the menus."""
         self.general_nodisplay_switch.set_active( hidden )
         
     def get_application_hidden(self):
+        """Return whether the application is hidden in the menus."""
         return self.general_nodisplay_switch.get_active()
     
     def set_application_filename(self, filename):
+        """Set the application filename."""
         self.general_filename_label.set_markup('<small>%s</small>' % filename)
         self.statusbar.set_label(filename)
         
     def get_application_filename(self):
+        """Return the application filename."""
         label = self.general_filename_label.get_label()
         return label.rstrip('</small>').lstrip('<small>')
         
     def set_application_categories(self, categories):
+        """Set the application categories from a list of category 
+        names."""
         self.categories_accessories.set_active( 'Utility' in categories )
         self.categories_development.set_active( 'Development' in categories )
         self.categories_education.set_active( 'Education' in categories )
@@ -939,8 +1023,8 @@ class MenulibreWindow(Window):
                 return
         self.categories_wine.set_active(False)
             
-        
     def get_application_categories(self):
+        """Return a list of the application categories."""
         categories = []
         if self.categories_accessories.get_active():
             categories.append('Utility')
@@ -986,6 +1070,7 @@ class MenulibreWindow(Window):
         self.quicklists_treeview.set_model(listmodel)
     
     def get_application_quicklists(self):
+        """Return the application quicklists."""
         model = self.quicklists_treeview.get_model()
         quicklists = []
         try:
@@ -1002,27 +1087,19 @@ class MenulibreWindow(Window):
         return quicklists
     
     def set_application_text(self, text):
+        """Set the application text editor."""
         self.editor_textview.get_buffer().set_text(text)
     
     def get_application_text(self):
+        """Return the text that is contained in the application text
+        editor buffer."""
         buffer = self.editor_textview.get_buffer()
         return buffer.get_text(buffer.get_start_iter(), buffer.get_end_iter(), False)
-    
-    def revert_changes(self):
-        pass
-    
-    def set_preview_from_stock(self, stockicon):
-        if stockicon == None:
-            stockicon = 'gtk-missing-image'
-        self.preview128.set_from_stock(stockicon, Gtk.IconSize.UNITY)
-        self.preview48.set_from_stock(stockicon, Gtk.IconSize.DIALOG)
-        self.preview32.set_from_stock(stockicon, Gtk.IconSize.DND)
-        self.preview24.set_from_stock(stockicon, Gtk.IconSize.LARGE_TOOLBAR)
-        self.preview16.set_from_stock(stockicon, Gtk.IconSize.MENU)
 
     def set_preview_from_name(self, name):
+        """Set the Icon preview from an icon name."""
         if name == None or len(name) == 0:
-            self.set_preview_from_stock('gtk-missing-image')
+            self.set_preview_from_stock('application-default-icon')
         else:
             self.preview128.set_from_icon_name( name, Gtk.IconSize.UNITY )
             self.preview48.set_from_icon_name( name, Gtk.IconSize.DIALOG )
@@ -1031,8 +1108,9 @@ class MenulibreWindow(Window):
             self.preview16.set_from_icon_name( name, Gtk.IconSize.MENU )
             
     def set_preview_from_filename(self, filename):
+        """Set the Icon preview from a filename."""
         if filename == None:
-            self.set_preview_from_stock('gtk-missing-image')
+            self.set_preview_from_stock('application-default-icon')
         else:
             self.preview128.set_from_pixbuf( icon_theme.get_theme_GdkPixbuf(filename, Gtk.IconSize.UNITY) )
             self.preview48.set_from_pixbuf( icon_theme.get_theme_GdkPixbuf(filename, Gtk.IconSize.DIALOG) )
@@ -1043,6 +1121,8 @@ class MenulibreWindow(Window):
     # -- End Helper Functions ---------------------------------------- #
     
     def general_name_modify_accept(self):
+        """Accept the changes to the application name, and set the
+        various labels according to the new data."""
         name = self.general_name_entry.get_text()
         self.set_application_name( name )
         if self.get_application_filename() == 'New Application':
@@ -1058,24 +1138,31 @@ class MenulibreWindow(Window):
                     counter += 1
                 filename = filename.replace('.desktop', str(counter)+'.desktop')
             self.set_application_filename( filename )
-            
         self.hide_general_name_editor()
         self.update_editor()
     
     def general_name_modify_reject(self):
+        """Reject the changes to the application name, and maintain
+        the current labels."""
         self.hide_general_name_editor()
         self.general_name_entry.set_text(self.get_application_name())
     
     def general_comment_modify_accept(self):
+        """Accept the changes to the application comment, and set the
+        various labels according to the new data."""
         self.set_application_comment( self.general_comment_entry.get_text())
         self.hide_general_comment_editor()
         self.update_editor()
     
     def general_comment_modify_reject(self):
+        """Reject the changes to the application comment, and maintain
+        the current labels."""
         self.hide_general_comment_editor()
         self.general_comment_entry.set_text( self.get_application_comment() )
         
     def clear_catselection_iconview(self):
+        """Remove all items from the category selection and return a new
+        Gtk.ListStore."""
         liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int)
         self.catselection_iconview.set_model(liststore)
         self.catselection_iconview.set_pixbuf_column(0)
@@ -1083,6 +1170,8 @@ class MenulibreWindow(Window):
         return liststore
         
     def clear_appselection_iconview(self):
+        """Remove all items from the application selection and return a 
+        new Gtk.ListStore."""
         liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int, str)
         self.appselection_iconview.set_model(liststore)
         self.appselection_iconview.set_pixbuf_column(0)
@@ -1090,6 +1179,7 @@ class MenulibreWindow(Window):
         return liststore
         
     def show_catselection(self):
+        """Show the category selection, and hide other views."""
         self.appsettings_notebook.hide()
         self.appselection_search_fail.hide()
         self.appselection.hide()
@@ -1097,6 +1187,7 @@ class MenulibreWindow(Window):
         self.on_catselection_iconview_selection_changed()
     
     def show_appselection(self):
+        """Show the application selection, and hide other views."""
         self.appsettings_notebook.hide()
         self.appselection_search_fail.hide()
         self.catselection.hide()
@@ -1104,6 +1195,7 @@ class MenulibreWindow(Window):
         self.on_appselection_iconview_selection_changed()
         
     def show_appsettings(self):
+        """Show the application launcher editor, and hide other views."""
         self.appselection_search_fail.hide()
         self.appselection.hide()
         self.catselection.hide()
@@ -1111,37 +1203,42 @@ class MenulibreWindow(Window):
         self.statusbar.set_label( self.get_application_filename() )
         
     def show_selection_fail(self):
+        """Show the selection search failure view, and hide other views."""
         self.appselection.hide()
         self.appsettings_notebook.hide()
         self.catselection.hide()
         self.appselection_search_fail.show()
         
     def show_general_name_editor(self):
+        """Show the application name editor."""
         self.general_name_button.set_visible(False)
         self.general_name_modify_box.set_visible(True)
         self.set_focus( self.general_name_entry )
         
     def hide_general_name_editor(self):
+        """Hide the application name editor."""
         self.general_name_modify_box.set_visible(False)
         self.general_name_button.set_visible(True)
         self.set_focus( self.general_name_button )
         
     def show_general_comment_editor(self):
+        """Show the application comment editor."""
         self.general_comment_button.set_visible(False)
         self.general_comment_modify_box.set_visible(True)
         self.set_focus( self.general_comment_entry )
         
     def hide_general_comment_editor(self):
+        """Hide the application comment editor."""
         self.general_comment_modify_box.set_visible(False)
         self.general_comment_button.set_visible(True)
         self.set_focus( self.general_comment_button )
         
     def set_categories_expanded(self, expanded):
+        """Toggle visibility of the category checkboxes."""
         self.categories_expander.set_expanded(expanded)
-        
-        
+
     def load_category_into_iconview(self, category=None):
-        
+        """Load the icon view for categories or applications."""
         if category == None:
             # Home View
             model = self.clear_catselection_iconview()
@@ -1188,6 +1285,7 @@ class MenulibreWindow(Window):
                     model.append( [icon, name, appid, comment] )            
                     
     def set_breadcrumb_category(self, category):
+        """Set the breadcrumb category."""
         if category == 'all':
             name = "All Applications"
             icon = 'gtk-about'
