@@ -1,3 +1,9 @@
+menulibre (12.07.1) precise; urgency=low
+
+  * Finished commenting everything.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Thu, 05 Jul 2012 18:02:59 -0400
+
 menulibre (12.07) precise; urgency=low
 
   * Added enhanced breadcrumb keyboard navigation.
