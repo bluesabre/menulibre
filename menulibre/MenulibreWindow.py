@@ -203,7 +203,7 @@ class MenulibreWindow(Window):
         # -- Editor (Notebook Page 2) -- #
         self.editor_textview = self.builder.get_object('editor_textview')
         buffer = self.editor_textview.get_buffer()
-        buffer.connect('changed', self.set_editor_line)
+        buffer.connect('changed', self.on_editor_buffer_changed)
         
       # Icon Selection Dialog 1 (Select and Preview)
         self.iconselection_dialog = self.builder.get_object('iconselection_dialog1')
@@ -702,19 +702,27 @@ class MenulibreWindow(Window):
                 self.quicklists_treeview.set_cursor_on_cell( Gtk.TreePath.new_from_string( str(int(str(path))+1) ), None, None, False )
     
     def on_iconselection_radio_theme_toggled(self, radio_button):
+		"""When the theme radio button is toggled, toggle the theme 
+		selection button as well."""
         self.iconselection_theme.set_sensitive( radio_button.get_active() )
         if radio_button.get_active():
             self.set_preview_from_name(self.iconselection_theme_entry.get_text())
     
     def on_iconselection_radio_image_toggled(self, radio_button):
+		"""When the image radio button is toggled, toggle the image
+		selection button as well."""
         self.iconselection_image.set_sensitive( radio_button.get_active() )
         if radio_button.get_active():
             self.set_preview_from_filename( self.iconselection_image.get_filename() )
         
     def on_iconselection_theme_entry_changed(self, widget):
+		"""When the theme entry is modified, set the preview to the new
+		icon."""
         self.set_preview_from_name( self.iconselection_theme_entry.get_text() )
     
     def on_iconselection_theme_browse_clicked(self, button):
+		"""When the theme browse button is clicked, display the icon 
+		selection dialog, and set the icon from the selected icon."""
         self.iconselection_dialog_all.show_all()
         task = self.load_iconselection_icons()
         GObject.idle_add(task.next)
@@ -1228,6 +1236,7 @@ class MenulibreWindow(Window):
         yield False
 
     def get_icon_pixbuf(self, icon_name, IconSize):
+		"""Return a Pixbuf for icon_name at size IconSize."""
         pixbuf = icon_theme.get_theme_GdkPixbuf( icon_name, IconSize )
         if pixbuf:
             return pixbuf
@@ -1249,7 +1258,7 @@ class MenulibreWindow(Window):
             return None
             
     def shortcut_edited_cb(self, cell, path, new_text, user_data):
-        """Quicklist treeview cell edited callback function."""
+        """Quicklist treeview ShortcutName edited callback function."""
         treeview, column = user_data
         liststore = treeview.get_model()
         new_text = new_text.replace(' ', '').replace('&', '')
@@ -1266,19 +1275,22 @@ class MenulibreWindow(Window):
         self.update_editor()
     
     def update_editor(self, editor_updated=False):
+		"""Update the editor and settings (call the threaded update)."""
         task = self.threaded_update_editor(editor_updated)
         if task != None:
             GObject.idle_add(task.next)
     
     def get_data_from_editor(self):
+		"""Return the launcher settings from the editor text."""
         text = self.get_application_text()
         return Applications.read_desktop_file(self.get_application_filename(), text)
         
     def threaded_update_editor(self, editor_updated):
+		"""Update the editor and settings on a GObject thread."""
         if not self.update_pending:
             while Gtk.events_pending(): Gtk.main_iteration()
-            
-            
+            # When the editor is updated, update all the fields, 
+            # switches, and checkboxes in the launcher settings.
             if editor_updated:
                 self.update_pending = True
                 if not self.in_history:
@@ -1299,8 +1311,9 @@ class MenulibreWindow(Window):
                 self.set_application_quicklists( data['quicklists'] )
                 
                 self.update_pending = False
+            # When the launcher settings are modified, update the editor
+            # appropriately.
             else:
-            
                 self.update_pending = True
                 if not self.in_history:
                     self.undo_stack.append(self.get_application_text())
@@ -1426,17 +1439,16 @@ class MenulibreWindow(Window):
                 self.set_save_enabled(True)
                 self.set_revert_enabled(True)
                 
-    def set_editor_line(self, buffer):
+    def on_editor_buffer_changed(self, buffer):
+		"""Update the launcher entry fields when the editor is 
+		modified."""
         self.update_editor(True)
-        #row = textiter.get_line()
-        #self.editor_line = row
-        #self.editor_changed = True
-        #self.update_editor()
 
     def get_quicklist_strings(self):
+		"""Return the application quicklist format string and quicklist
+		entry games."""
         quicklists = self.get_application_quicklists()
         format = self.quicklist_format
-        
         actions = ''
         quicklist_string = ''
         try:
@@ -1474,7 +1486,7 @@ OnlyShowIn=Unity;
         return (actions, quicklist_string)
     
     def undo(self):
-        #print self.undo_stack
+		"""Undo the last done action in history."""
         self.in_history = True
         current = self.get_application_text()
         self.redo_stack.append(current)
@@ -1486,6 +1498,7 @@ OnlyShowIn=Unity;
         self.in_history = False
         
     def redo(self):
+		"""Redo the last undone action in history."""
         self.in_history = True
         current = self.get_application_text()
         self.undo_stack.append(current)
@@ -1497,8 +1510,9 @@ OnlyShowIn=Unity;
         self.in_history = False
         
     def new_launcher(self):
+		"""Show the application editor with details for a new 
+		application."""
         self.set_breadcrumb_application(1337)
-        #app = self.apps[selection_id]
         self.breadcrumb_category.set_visible(False)
         
         # General Settings
@@ -1538,6 +1552,8 @@ Actions=
 
 
     def show_search_results(self, query, category=None):
+		"""Show search results for the query in the application 
+		browser."""
         self.set_position(Gtk.WindowPosition.NONE)
         if category == None:
             self.last_cat = None
@@ -1550,7 +1566,6 @@ Actions=
         self.breadcrumb_home.set_active(False)
         self.breadcrumb_application.set_active(False)
         self.breadcrumb_category.set_active(True)
-        
         apps = sorted(self.apps.values(), key=lambda app: app.get_name().lower())
         counter = 0
         for app in apps:
@@ -1560,11 +1575,10 @@ Actions=
                     pass
                 else:
                     show_icon = False
-    
             if show_icon and query.lower() in app.get_name().lower():
                 counter += 1
                 icon = self.get_icon_pixbuf( app.get_icon(), Gtk.IconSize.DIALOG )
-                name = app.get_name()
+                name = app.get_name().replace('&', '&amp;')
                 appid = app.get_id()
                 comment = app.get_comment()
                 model.append( [icon, name, appid, comment] )
@@ -1572,11 +1586,10 @@ Actions=
             self.show_selection_fail()
         else:
             self.show_appselection()
-            
-            
-        
+
     def get_quicklist_unique_shortcut_name(self, quicklists, base_name, counter):
-		
+		"""Return a unique shortcut for the quicklists using the 
+		base_name and counters."""
         if counter == 0:
             for quicklist in quicklists:
                 if quicklist[1] == base_name:
