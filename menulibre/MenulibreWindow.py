@@ -363,6 +363,8 @@ class MenulibreWindow(Window):
         self.set_revert_enabled(False)
         
     def on_entry_search_activate(self, widget):
+        """When ENTER is pressed in the search entry, set the focus on
+        the AppSelection IconView."""
         if len(widget.get_text()) > 0:
             self.breadcrumb_application.activate()
             self.appselection_iconview.select_path(Gtk.TreePath.new_from_string('0'))
@@ -1302,6 +1304,8 @@ class MenulibreWindow(Window):
         self.breadcrumb_category.set_active(True)
         
     def set_breadcrumb_application(self, app_id):
+        """Set the application breadcrumb to the application with ID 
+        app_id."""
         if app_id == 1337:
             name = 'New Menu Item'
             icon = 'gtk-add'
@@ -1319,8 +1323,8 @@ class MenulibreWindow(Window):
         self.breadcrumb_application.set_active(True)
 
     def load_iconselection_icons(self):
+        """Loads icons into the icon selection"""
         liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str)
-        
         self.iconselection_filter = liststore.filter_new()
         self.iconselection_filter.set_visible_func(self.iconselection_filter_func)
         self.iconselection_treeview.set_model(self.iconselection_filter)
