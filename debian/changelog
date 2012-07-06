@@ -1,3 +1,13 @@
+menulibre (12.07.5) precise; urgency=low
+
+  * Finished the application help menus.
+  * Finished the application help menus.
+  * Added Editing a Launcher Basic help page.
+  * Added Editing a Launcher Basic help page.
+  * Beginning creation of help pages.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Fri, 06 Jul 2012 16:53:05 -0400
+
 menulibre (12.07.4) precise; urgency=low
 
   * Added menus and launchpad integration back to the program.  Removed
