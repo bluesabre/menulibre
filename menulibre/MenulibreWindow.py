@@ -391,6 +391,7 @@ class MenulibreWindow(Window):
             self.last_cat = None
         else:
             self.breadcrumb_application.set_visible(False)
+            #self.entry_search.grab_focus()
             category = None
             self.last_cat = None
             if self.breadcrumb_category.get_active():
@@ -398,8 +399,11 @@ class MenulibreWindow(Window):
                 for cat in self.categories:
                     if self.categories[cat][0] == search_type:
                         self.last_cat = category = cat
+                self.entry_search.grab_focus()
             widget.set_icon_from_stock(Gtk.EntryIconPosition.SECONDARY, 'gtk-clear')
             self.show_search_results(text, category)
+        #if not self.entry_search.has_focus():
+        #    self.entry_search.grab_focus()
             
     def on_entry_search_icon_press(self, widget, button, event):
 		"""When the clear icon is pressed in the search widget, clear
@@ -418,7 +422,8 @@ class MenulibreWindow(Window):
             self.lock_breadcrumb = False
             self.show_catselection()
             self.on_catselection_iconview_selection_changed()
-            self.set_focus(self.catselection_iconview)
+            if not self.entry_search.has_focus():
+                self.set_focus(self.catselection_iconview)
             if len(self.catselection_iconview.get_selected_items()) == 0:
                 self.catselection_iconview.select_path(Gtk.TreePath.new_from_string("0"))
         
@@ -453,7 +458,8 @@ class MenulibreWindow(Window):
             self.lock_breadcrumb = False
             self.show_appsettings()
             self.statusbar.set_label(self.get_application_filename())
-            self.set_focus(self.appsettings_notebook)
+            if not self.entry_search.has_focus():
+                self.set_focus(self.appsettings_notebook)
             
     def on_catselection_iconview_motion_notify_event(self, widget, event):
         """Implementation of on-hover event for IconView."""
@@ -1704,6 +1710,8 @@ Actions=
             self.show_selection_fail()
         else:
             self.show_appselection()
+        self.entry_search.grab_focus()
+        self.entry_search.set_position(len(self.entry_search.get_text()))
 
     def get_quicklist_unique_shortcut_name(self, quicklists, base_name, counter):
 		"""Return a unique shortcut for the quicklists using the 
