@@ -58,6 +58,17 @@ class Window(Gtk.Window):
         self.ui = builder.get_ui(self, True)
 
         self.AboutDialog = None # class
+        
+        # Optional Launchpad integration
+        # This shouldn't crash if not found as it is simply used for bug reporting.
+        # See https://wiki.ubuntu.com/UbuntuDevelopment/Internationalisation/Coding
+        # for more information about Launchpad integration.
+        try:
+            from gi.repository import LaunchpadIntegration # pylint: disable=E0611
+            LaunchpadIntegration.add_items(self.ui.help_menu, 1, True, True)
+            LaunchpadIntegration.set_sourcepackagename('menulibre')
+        except ImportError:
+            pass
 
     def on_mnu_contents_activate(self, widget, data=None):
         show_uri(self, "ghelp:%s" % get_help_uri())

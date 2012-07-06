@@ -92,6 +92,13 @@ class MenulibreWindow(Window):
         """Load all of the interface elements into memory so that we can
         access and interact with them."""
       # MenuLibre Window (Gtk.Window)
+        # -- Menu -- #
+        self.menu_addlauncher = self.builder.get_object('file_addlauncher')
+        self.menu_save = self.builder.get_object('file_save')
+        self.menu_undo = self.builder.get_object('edit_undo')
+        self.menu_redo = self.builder.get_object('edit_redo')
+        self.menu_revert = self.builder.get_object('edit_revert')
+      
         # -- Toolbar (Gtk.Toolbar) -- #
         self.toolbar = self.builder.get_object('toolbar')
         context = self.toolbar.get_style_context()
@@ -132,8 +139,6 @@ class MenulibreWindow(Window):
         self.appsettings_general = self.builder.get_object('appsettings_general')
         self.appsettings_quicklists = self.builder.get_object('appsettings_quicklists')
         self.appsettings_editor = self.builder.get_object('appsettings_editor')
-        
-        self.statusbar = self.builder.get_object('statusbar_label')
         
         # -- General Settings (Notebook Page 0) -- #
         self.label_generalsettings = self.builder.get_object('label_generalsettings')
@@ -460,7 +465,6 @@ class MenulibreWindow(Window):
             self.breadcrumb_home.set_active(False)
             self.lock_breadcrumb = False
             self.show_appsettings()
-            self.statusbar.set_label(self.get_application_filename())
             if not self.entry_search.has_focus():
                 self.set_focus(self.appsettings_notebook)
             
@@ -573,9 +577,8 @@ class MenulibreWindow(Window):
             model = widget.get_model()
             index = int(widget.get_selected_items()[0].to_string())
             label =  model[index][1]
-            self.statusbar.set_label(label)
         except (IndexError, TypeError):
-            self.statusbar.set_label('')
+            pass
         
     def on_appselection_iconview_selection_changed(self, widget=None):
 		"""When an item is selected in the application selection view, 
@@ -585,9 +588,8 @@ class MenulibreWindow(Window):
             model = widget.get_model()
             index = int(widget.get_selected_items()[0].to_string())
             label =  model[index][3]
-            self.statusbar.set_label(label)
         except (IndexError, TypeError):
-            self.statusbar.set_label('')
+            pass
     
     def on_appselection_search_all_button_clicked(self, button):
 		"""When an item cannot be found and the Search All button is
@@ -894,6 +896,7 @@ class MenulibreWindow(Window):
     def set_undo_enabled(self, enabled):
         """Toggle undo functionality enabled."""
         self.toolbar_undo.set_sensitive(enabled)
+        self.menu_undo.set_sensitive(enabled)
         
     def get_undo_enabled(self):
         """Return undo functionality enabled."""
@@ -902,6 +905,7 @@ class MenulibreWindow(Window):
     def set_redo_enabled(self, enabled):
         """Toggle redo functionality enabled."""
         self.toolbar_redo.set_sensitive(enabled)
+        self.menu_redo.set_sensitive(enabled)
         
     def get_redo_enabled(self):
         """Return redo functionality enabled."""
@@ -910,6 +914,7 @@ class MenulibreWindow(Window):
     def set_save_enabled(self, enabled):
         """Toggle save functionality enabled."""
         self.toolbar_save.set_sensitive(enabled)
+        self.menu_save.set_sensitive(enabled)
         
     def get_save_enabled(self):
         """Return save functionality enabled."""
@@ -918,6 +923,7 @@ class MenulibreWindow(Window):
     def set_revert_enabled(self, enabled):
         """Toggle revert functionality enabled."""
         self.toolbar_revert.set_sensitive(enabled)
+        self.menu_revert.set_sensitive(enabled)
         
     def get_revert_enabled(self):
         """Return revert functionality enabled."""
@@ -1024,7 +1030,6 @@ class MenulibreWindow(Window):
     def set_application_filename(self, filename):
         """Set the application filename."""
         self.general_filename_label.set_markup('<small>%s</small>' % filename)
-        self.statusbar.set_label(filename)
         
     def get_application_filename(self):
         """Return the application filename."""
@@ -1227,7 +1232,6 @@ class MenulibreWindow(Window):
         self.appselection.hide()
         self.catselection.hide()
         self.appsettings_notebook.show()
-        self.statusbar.set_label( self.get_application_filename() )
         
     def show_selection_fail(self):
         """Show the selection search failure view, and hide other views."""
