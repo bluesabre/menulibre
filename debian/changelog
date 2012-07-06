@@ -1,3 +1,12 @@
+menulibre (12.07.3) precise; urgency=low
+
+  * Testing cleanup.
+  * Fully implemented on-hover for iconview.
+  * Added hover to iconselections.
+  * Added hover to iconselections.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Fri, 06 Jul 2012 07:14:51 -0400
+
 menulibre (12.07.2) precise; urgency=low
 
   * New release.
