@@ -10,7 +10,7 @@
     <email>smd.seandavis@gmail.com</email>
     <years>2012</years>
   </credit>
-  <desc>Editing a Launcher (Basic)</desc>
+  <desc>How to edit a launcher</desc>
 </info>
 
 <title>Editing a Launcher (Basic)</title>
@@ -49,7 +49,7 @@
 
 <section id="categories">
     <title>Categories</title>
-    <p>Categories are mostly used in menu-based desktop environments, but are also used in filtering within the Unity Dash.  The standard FreeDesktop.org categories that are used are <gui>Accessories</gui>, <gui>Development</gui>, <gui>Education</gui>, <gui>Games</gui>, <gui>Graphics</gui>, <gui>Internet</gui>, <gui>Multimedia</gui>, <gui>Office</gui>, <gui>Settings</gui>, and <gui>System</gui>.
+    <p>Categories are mostly used in menu-based desktop environments, but are also used in filtering within the Unity Dash.  The standard FreeDesktop.org categories that are used are <gui>Accessories</gui>, <gui>Development</gui>, <gui>Education</gui>, <gui>Games</gui>, <gui>Graphics</gui>, <gui>Internet</gui>, <gui>Multimedia</gui>, <gui>Office</gui>, <gui>Settings</gui>, and <gui>System</gui>.</p>
 </section>
 
 </page>
