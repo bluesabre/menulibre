@@ -1,0 +1,27 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="menulibre-edit-quicklists">
+
+<info>
+  <link type="guide" xref="index#contents"/>
+  <credit type="author">
+    <name>Sean Davis</name>
+    <email>smd.seandavis@gmail.com</email>
+    <years>2012</years>
+  </credit>
+  <desc>How to edit launcher quicklists</desc>
+</info>
+
+<title>Editing a Launcher (Quicklists)</title>
+<p>Quicklists are a feature found in Unity, as well as a growing number of other projects.  <app>MenuLibre</app> makes it easy to add, remove, and modify quicklists to existing and new launchers.</p>
+
+<media type="image" mime="image/png" src="figures/menulibre-quicklists.png"/>
+
+<p>Clicking on <gui>Add</gui> or <gui>Remove</gui> will add or remove the selected quicklist item.</p>
+<p>Clicking on <gui>Up</gui> or <gui>Down</gui> will move the selected quicklist item accordingly.</p>
+
+<p>Clicking on the quicklist item's <gui>Shortcut Name</gui>, <gui>Displayed Name</gui>, or <gui>Command</gui> allow you to modify these values.</p>
+
+<p>Toggling a quicklist item to <gui>Show</gui> will show or hide it in the quicklist menu.</p>
+
+</page>
