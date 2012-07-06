@@ -915,6 +915,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <signal name="selection-changed" handler="on_catselection_iconview_selection_changed" swapped="no"/>
+                    <signal name="motion-notify-event" handler="on_catselection_iconview_motion_notify_event" swapped="no"/>
                     <signal name="item-activated" handler="on_catselection_iconview_item_activated" swapped="no"/>
                   </object>
                 </child>
@@ -935,6 +936,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <signal name="selection-changed" handler="on_appselection_iconview_selection_changed" swapped="no"/>
+                    <signal name="motion-notify-event" handler="on_appselection_iconview_motion_notify_event" swapped="no"/>
                     <signal name="item-activated" handler="on_appselection_iconview_item_activated" swapped="no"/>
                   </object>
                 </child>

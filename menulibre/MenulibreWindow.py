@@ -78,6 +78,8 @@ class MenulibreWindow(Window):
         self.last_editor = ''
         self.last_height = 0
         self.last_width = 0
+        self.catselection_hover = {'x': 0, 'y': 0, 'path': None}
+        self.appselection_hover = {'x': 0, 'y': 0, 'path': None}
         
         self.get_interface()
         self.load_category_into_iconview(None)
@@ -116,9 +118,11 @@ class MenulibreWindow(Window):
         # -- Application Selection (Gtk.IconView) -- #
         self.catselection = self.builder.get_object('catselection_scrolled')
         self.catselection_iconview = self.builder.get_object('catselection_iconview')
+        self.catselection_iconview.add_events(Gdk.EventType.MOTION_NOTIFY)
         self.catselection_iconview.connect('button-press-event', self.on_catselection_button_press_event)
         self.appselection = self.builder.get_object('appselection_scrolled')
         self.appselection_iconview = self.builder.get_object('appselection_iconview')
+        self.appselection_iconview.add_events(Gdk.EventType.MOTION_NOTIFY)
         self.appselection_iconview.connect('button-press-event', self.on_appselection_button_press_event)
         self.appselection_search_fail = self.builder.get_object('appselection_search_fail')
         self.appselection_search_all_button = self.builder.get_object('appselection_search_all_button')
@@ -450,6 +454,18 @@ class MenulibreWindow(Window):
             self.show_appsettings()
             self.statusbar.set_label(self.get_application_filename())
             self.set_focus(self.appsettings_notebook)
+            
+    def on_catselection_iconview_motion_notify_event(self, widget, event):
+        path = self.catselection_iconview.get_path_at_pos(int(event.x), int(event.y))
+        self.catselection_hover['path'] = path
+        GObject.timeout_add(400, self.on_catselection_hover, widget, path)
+        
+    def on_catselection_hover(self, widget, path):
+        if path != None:
+            if self.catselection_hover['path'] == path:
+                self.catselection_iconview.select_path(path)
+            return False
+        return False
                         
     def on_catselection_button_press_event(self, widget, event):
         """Enables single-click in the category selection view."""
@@ -480,6 +496,18 @@ class MenulibreWindow(Window):
             pass
         self.lock_breadcrumb = False
         self.set_focus(self.appselection_iconview)
+        
+    def on_appselection_iconview_motion_notify_event(self, widget, event):
+        path = self.appselection_iconview.get_path_at_pos(int(event.x), int(event.y))
+        self.appselection_hover['path'] = path
+        GObject.timeout_add(400, self.on_appselection_hover, widget, path)
+        
+    def on_appselection_hover(self, widget, path):
+        if path != None:
+            if self.appselection_hover['path'] == path:
+                self.appselection_iconview.select_path(path)
+            return False
+        return False
         
     def on_appselection_button_press_event(self, widget, event):
         """Enables single-click in the application selection view."""
