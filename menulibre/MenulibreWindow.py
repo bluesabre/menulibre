@@ -457,8 +457,9 @@ class MenulibreWindow(Window):
             
     def on_catselection_iconview_motion_notify_event(self, widget, event):
         path = self.catselection_iconview.get_path_at_pos(int(event.x), int(event.y))
-        self.catselection_hover['path'] = path
-        GObject.timeout_add(400, self.on_catselection_hover, widget, path)
+        #self.catselection_hover['path'] = path
+        #GObject.timeout_add(400, self.on_catselection_hover, widget, path)
+        self.catselection_iconview.select_path(path)
         
     def on_catselection_hover(self, widget, path):
         if path != None:
@@ -499,8 +500,9 @@ class MenulibreWindow(Window):
         
     def on_appselection_iconview_motion_notify_event(self, widget, event):
         path = self.appselection_iconview.get_path_at_pos(int(event.x), int(event.y))
-        self.appselection_hover['path'] = path
-        GObject.timeout_add(400, self.on_appselection_hover, widget, path)
+        #self.appselection_hover['path'] = path
+        #GObject.timeout_add(400, self.on_appselection_hover, widget, path)
+        self.appselection_iconview.select_path(path)
         
     def on_appselection_hover(self, widget, path):
         if path != None:
