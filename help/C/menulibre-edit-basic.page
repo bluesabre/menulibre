@@ -1,0 +1,55 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="menulibre-edit-basic">
+
+<info>
+  <link type="guide" xref="index#contents"/>
+  <link type="seealso" xref="menulibre-edit-quicklists"/>
+  <credit type="author">
+    <name>Sean Davis</name>
+    <email>smd.seandavis@gmail.com</email>
+    <years>2012</years>
+  </credit>
+  <desc>Editing a Launcher (Basic)</desc>
+</info>
+
+<title>Editing a Launcher (Basic)</title>
+<p><app>MenuLibre</app> makes menu editing as easy as clicking, editing, and saving.  This page will cover the basic editor options found under the <gui>General</gui> tab.  For editing Quicklists, visit <link xref="menulibre-edit-quicklists">this page</link>.</p>
+
+<section id="name-comment">
+    <title>Name and Comment</title>
+    <p>The <gui>Name</gui> and <gui>Comment</gui> fields are two of the most visible parts of your menu item.  The name is displayed in the menu, and the comment is often displayed when you hover that menu item.</p>
+    
+    <media type="image" mime="image/png" src="figures/menulibre-edit-name.png"/>
+    
+    <p>To edit either of these fields, simply click the text and enter your changes into the editor.  To commit your changes, click the OK button or press the <keyseq><key>Enter</key></keyseq> key.  To cancel, press the Cancel button or press the <keyseq><key>Escape</key></keyseq> key.</p>
+</section>
+
+<section id="icon">
+    <title>Icon</title>
+    <p>The menu item's icon is easily the most visible part of the launcher.  To modify the icon, simply click the icon to be shown the icon selection dialog.</p>
+    
+    <media type="image" mime="image/png" src="figures/menulibre-icon-selection.png"/>
+    
+    <p>From here, you can easily select and preview the image that your new/updated menu item will use.  When you are finished with your selection, press the OK button or the <keyseq><key>Enter</key></keyseq> key.</p>
+</section>
+
+<section id="settings">
+    <title>Application Settings</title>
+    <p>The <gui>Command</gui> and <gui>Working Directory</gui> are the main running settings for your launcher.  Be sure to enter a working executable for your application.  <gui>Working Directory</gui> is generally optional.</p>
+</section>
+
+<section id="options">
+    <title>Runtime Options</title>
+    <p>The application options <gui>Run in terminal</gui>, <gui>Use startup notification</gui>, and <gui>Hide from menus</gui> are fairly straight-forward.</p>
+    <p><gui>Run in terminal</gui> controls whether to display a terminal window along with your application.  This can be useful for debugging or terminal-only applications.</p>
+    <p><gui>Use startup notification</gui> will provide a visual indicator (usually with the mouse cursor), that your application is starting up.</p>
+    <p><gui>Hide from menus</gui> will make your application invisible to your menu, and can be useful for cleaning up unused menu entries.</p>
+</section>
+
+<section id="categories">
+    <title>Categories</title>
+    <p>Categories are mostly used in menu-based desktop environments, but are also used in filtering within the Unity Dash.  The standard FreeDesktop.org categories that are used are <gui>Accessories</gui>, <gui>Development</gui>, <gui>Education</gui>, <gui>Games</gui>, <gui>Graphics</gui>, <gui>Internet</gui>, <gui>Multimedia</gui>, <gui>Office</gui>, <gui>Settings</gui>, and <gui>System</gui>.
+</section>
+
+</page>

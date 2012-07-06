@@ -1,0 +1,24 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="menulibre-find-installed">
+
+<info>
+  <link type="guide" xref="index#contents"/>
+  <credit type="author">
+    <name>Sean Davis</name>
+    <email>smd.seandavis@gmail.com</email>
+    <years>2012</years>
+  </credit>
+  <desc>Finding an installed application</desc>
+</info>
+
+<title>Finding an installed application</title>
+<p><app>MenuLibre</app> provides two powerful methods for finding an application launcher.  The first, more traditional method is to click on category and application icons until you find what you are looking for.</p>
+
+<media type="image" mime="image/png" src="figures/menulibre-find-installed.png"/>
+
+<p>The second method involves using the search entry located at the top of the <app>MenuLibre</app> window.  If you begin a search while inside of a category view, search results will be limited to that category.  If no results are found, <app>MenuLibre</app> offers to try the search again using no filters.</p>
+
+<p>Search results are matched based on three criteria.  If the application name, generic name, comment, or executable match the search terms, the application is shown.</p>
+
+</page>
