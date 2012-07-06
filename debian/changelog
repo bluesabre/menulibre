@@ -1,3 +1,9 @@
+menulibre (12.07.2) precise; urgency=low
+
+  * New release.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Thu, 05 Jul 2012 20:08:31 -0400
+
 menulibre (12.07.1) precise; urgency=low
 
   * Finished commenting everything.
