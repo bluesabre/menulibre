@@ -1,0 +1,59 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:ui="http://projectmallard.org/experimental/ui/"
+      type="topic"
+      id="menulibre-shortcut-keys">
+
+<info>
+  <link type="guide" xref="index#contents"/>
+  <credit type="author">
+    <name>Sean Davis</name>
+    <email>smd.seandavis@gmail.com</email>
+    <years>2012</years>
+  </credit>
+  <desc>Shortcut keys</desc>
+</info>
+
+<title>Shortcut Keys</title>
+<p>Use <gui>shortcut keys</gui> to perform common tasks more quickly than with the mouse and menus.  The following table lists all of <app>MenuLibre's</app> shortcut keys.</p>
+
+<table rules="rows" frame="top bottom" ui:expanded="yes">
+<title><app>MenuLibre</app> shortcut keys</title>
+    <thead>
+        <tr>
+            <td><p>To Do This</p></td>  <td><p>Press This</p></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><p>Get help with <app>MenuLibre</app></p></td>  <td><p><keyseq><key>F1</key></keyseq></p></td>
+        </tr>
+        <tr>
+            <td><p>Quit <app>MenuLibre</app></p></td>  <td><p><keyseq><key>Ctrl</key><key>Q</key></keyseq> or <keyseq><key>Ctrl</key><key>W</key></keyseq></p></td>
+        </tr>
+    </tbody>
+</table>
+
+<table rules="rows" frame="top bottom" ui:expanded="no">>
+<title>Shortcut keys for working with launchers</title>
+    <thead>
+        <tr>
+            <td><p>To Do This</p></td>  <td><p>Press This</p></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><p>Add a new launcher</p></td>  <td><p><keyseq><key>Ctrl</key><key>N</key></keyseq></p></td>
+        </tr>
+        <tr>
+            <td><p>Save changes</p></td>  <td><p><keyseq><key>Ctrl</key><key>S</key></keyseq></p></td>
+        </tr>
+        <tr>
+            <td><p>Undo last change</p></td>  <td><p><keyseq><key>Ctrl</key><key>Z</key></keyseq></p></td>
+        </tr>
+        <tr>
+            <td><p>Redo last undone change</p></td>  <td><p><keyseq><key>Ctrl</key><key>Shift</key><key>Z</key></keyseq></p></td>
+        </tr>
+    </tbody>
+</table>
+
+</page>

@@ -7,9 +7,9 @@
   <title type="text">Menulibre</title>
   <desc>The <app>Menulibre</app> help.</desc>
   <credit type="author">
-    <name>Your Name</name>
-    <email>Your E-mail</email>
-    <years>2010</years>
+    <name>Sean Davis</name>
+    <email>smd.seandavis@gmail.com</email>
+    <years>2012</years>
   </credit>
   <license href="http://creativecommons.org/licenses/by-sa/3.0/">
   <p>Creative Commons Attribution-Share Alike 3.0 Unported License</p>
@@ -20,10 +20,12 @@
 <!-- This shows on the page in title font -->
 <!-- the icon only shows when installed -->
 <media type="image" mime="image/png" src="figures/icon.png">[icon]</media>
-<app>Menulibre</app> Help
+MenuLibre
 </title>
 
-<p>This is an example guide page. It's main function is to link together the help topics.</p>
+<p>Welcome to the <app>MenuLibre</app> help guide.  For a quick introduction into both <app>MenuLibre's</app> most basic features, as well as keyboard shortcuts, visit the <link xref="menulibre-quickstart">Getting Started with MenuLibre</link> and <link xref="menulibre-shortcut-keys">Shortcut keys</link> pages.</p>
+
+<p>Other help topics are grouped together into sections below.  Enjoy using <app>MenuLibre</app>!</p>
 
 <!-- This is the visible index -->
 <section id="contents" style="2column">

@@ -1,0 +1,26 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="menulibre-quickstart">
+
+<info>
+  <link type="guide" xref="index#contents"/>
+  <credit type="author">
+    <name>Sean Davis</name>
+    <email>smd.seandavis@gmail.com</email>
+    <years>2012</years>
+  </credit>
+  <desc>Get started with MenuLibre</desc>
+</info>
+
+<title>Getting Started</title>
+<p><app>MenuLibre</app> is an advanced menu editor that provides modern features in a clean, easy-to-use interface. All without GNOME dependencies, so even lightweight systems can benefit from the sanity that MenuLibre offers. MenuLibre is your one-stop shop for menus in Linux, whether you use Gnome, LXDE, XFCE, or Unity.</p>
+
+<media type="image" mime="image/png" src="figures/menulibre-screenshot.png"/>
+
+<p>Once <app>MenuLibre</app> launches, select a category and an application, or type it into the search box.  Before you open another menu item, be sure to click <gui>Save</gui> to save your changes.</p>
+
+<p>For more information about finding, modifying, or creating an application launcher, explore <link xref="index">the other portions</link> of the <app>MenuLibre</app> help.</p>
+
+
+
+</page>
