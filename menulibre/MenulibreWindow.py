@@ -417,6 +417,7 @@ class MenulibreWindow(Window):
         if not self.lock_breadcrumb:
             self.entry_search.set_placeholder_text('Search Applications')
             self.lock_breadcrumb = True
+            self.breadcrumb_home.set_active(True)
             self.breadcrumb_application.set_active(False)
             self.breadcrumb_category.set_active(False) 
             self.lock_breadcrumb = False
@@ -434,6 +435,7 @@ class MenulibreWindow(Window):
             label = self.breadcrumb_category_label.get_label()
             self.entry_search.set_placeholder_text('Search %s' % label)
             self.lock_breadcrumb = True
+            self.breadcrumb_category.set_active(True)
             self.breadcrumb_application.set_active(False)
             self.breadcrumb_home.set_active(False)
             self.lock_breadcrumb = False
@@ -453,6 +455,7 @@ class MenulibreWindow(Window):
             self.appsettings_notebook.show()
             self.appselection.hide()
             self.appselection_search_fail.hide()
+            self.breadcrumb_application.set_active(True)
             self.breadcrumb_category.set_active(False)
             self.breadcrumb_home.set_active(False)
             self.lock_breadcrumb = False
