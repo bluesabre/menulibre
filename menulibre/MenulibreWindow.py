@@ -1196,7 +1196,7 @@ class MenulibreWindow(Window):
     def clear_appselection_iconview(self):
         """Remove all items from the application selection and return a 
         new Gtk.ListStore."""
-        liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int, str)
+        liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int, str, str, str)
         self.appselection_iconview.set_model(liststore)
         self.appselection_iconview.set_pixbuf_column(0)
         self.appselection_iconview.set_markup_column(1)
@@ -1288,7 +1288,7 @@ class MenulibreWindow(Window):
                 label = self.breadcrumb_category_label.get_label()
                 self.entry_search.set_placeholder_text('Search %s' % label)
             icon = self.get_icon_pixbuf( 'gtk-add', Gtk.IconSize.DIALOG)
-            model.append( [icon, 'Add Launcher', 1337, 'Add a new application launcher'] )
+            model.append( [icon, 'Add Launcher', 1337, 'Add a new application launcher', '', ''] )
             apps = sorted(self.apps.values(), key=lambda app: app.get_name().lower())
             for app in apps:
                 show_app = False
@@ -1302,11 +1302,13 @@ class MenulibreWindow(Window):
                     icon = self.get_icon_pixbuf( app.get_icon(), Gtk.IconSize.DIALOG )
                     name = app.get_name().replace('&', '&amp;')
                     appid = app.get_id()
+                    genericname = app.get_genericname()
+                    executable = app.get_executable()
                     comment = app.get_comment()
                     hidden = app.get_hidden()
                     if hidden:
                         name = '<i>%s</i>' % name
-                    model.append( [icon, name, appid, comment] )            
+                    model.append( [icon, name, appid, genericname, comment, executable] )   
                     
     def set_breadcrumb_category(self, category):
         """Set the breadcrumb category."""
@@ -1699,13 +1701,17 @@ Actions=
                     pass
                 else:
                     show_icon = False
-            if show_icon and query.lower() in app.get_name().lower():
+            if show_icon and (query.lower() in app.get_name().lower() or
+                              query.lower() in app.get_genericname().lower() or
+                              query.lower() in app.get_executable().lower()):
                 counter += 1
                 icon = self.get_icon_pixbuf( app.get_icon(), Gtk.IconSize.DIALOG )
                 name = app.get_name().replace('&', '&amp;')
                 appid = app.get_id()
                 comment = app.get_comment()
-                model.append( [icon, name, appid, comment] )
+                executable = app.get_executable()
+                genericname = app.get_genericname()
+                model.append( [icon, name, appid, genericname, comment, executable] )
         if counter == 0:
             self.show_selection_fail()
         else:

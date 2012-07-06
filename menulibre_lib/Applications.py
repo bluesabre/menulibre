@@ -52,7 +52,9 @@ class Application:
         self.icon = 'gtk-missing-image'
         self.name = 'New Application'
         self.comment = 'My New Application'
+        self.genericname = ''
         self.command = ''
+        self.executable = ''
         self.path = ''
         self.terminal = False
         self.startupnotify = False
@@ -74,7 +76,9 @@ class Application:
         self.name = settings['name']
         self.icon = settings['icon']
         self.comment = settings['comment']
+        self.genericname = settings['genericname']
         self.command = settings['command']
+        self.executable = settings['executable']
         self.path = settings['path']
         self.terminal = settings['terminal']
         self.startupnotify = settings['startupnotify']
@@ -115,6 +119,12 @@ class Application:
     def get_comment(self):
 		"""Return the application comment."""
         return self.comment
+        
+    def set_genericname(self, name):
+        self.genericname = name
+        
+    def get_genericname(self):
+        return self.genericname
 
     def set_exec(self, command):
 		"""Set the application command."""
@@ -123,6 +133,12 @@ class Application:
     def get_exec(self):
 		"""Return the application command."""
         return self.command
+        
+    def set_executable(self, executable):
+        self.executable = executable
+        
+    def get_executable(self):
+        return self.executable
 
     def set_path(self, path):
 		"""Set the application working directory."""
@@ -234,10 +250,10 @@ defaults = {'filename': '', 'icon': 'gtk-missing-image', 'name': '',
 def read_desktop_file(filename, contents):
     """Return the settings pulled from the application .desktop file."""
     settings = {'filename': '', 'icon': 'gtk-missing-image', 'name': '', 
-            'comment': '', 'command': '', 'path': '', 'terminal': False, 
-            'startupnotify': False, 'hidden': False, 'categories': [], 
-            'quicklists': dict(), 'quicklist_format': 'actions', 'id': 0, 
-            'text': default_application}
+            'comment': '', 'genericname': '', 'command': '', 'executable': '', 
+            'path': '', 'terminal': False, 'startupnotify': False, 
+            'hidden': False, 'categories': [], 'quicklists': dict(), 
+            'quicklist_format': 'actions', 'id': 0, 'text': default_application}
     settings['text'] = contents
     settings['filename'] = filename
     quicklist_key = None
@@ -253,9 +269,12 @@ def read_desktop_file(filename, contents):
                     settings['quicklists'][quicklist_key]['name'] = line[5:]
             elif line[:8] == 'Comment=':
                 settings['comment'] = line[8:]
+            elif line[:12] == 'GenericName=':
+                settings['genericname'] = line[12:]
             elif line[:5] == 'Exec=':
                 if settings['command'] == '':
                     settings['command'] = line[5:]
+                    settings['executable'] = line[5:].split(' ')[0]
                 else:
                     settings['quicklists'][quicklist_key]['command'] = line[5:]
             elif line[:5] == 'Path=':
