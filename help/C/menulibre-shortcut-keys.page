@@ -25,6 +25,12 @@
     </thead>
     <tbody>
         <tr>
+            <td><p>Activate search entry</p></td>  <td><p><keyseq><key>Ctrl</key><key>F</key></keyseq></p></td>
+        </tr>
+        <tr>
+            <td><p>Go to previous breadcrumb</p></td>  <td><p><keyseq><key>BackSpace</key></keyseq></p></td>
+        </tr>
+        <tr>
             <td><p>Get help with <app>MenuLibre</app></p></td>  <td><p><keyseq><key>F1</key></keyseq></p></td>
         </tr>
         <tr>
