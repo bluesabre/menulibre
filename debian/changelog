@@ -1,3 +1,10 @@
+menulibre (12.07.6) precise; urgency=low
+
+  * Fixed application caching when creating new launchers and editing
+    launchers.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Fri, 06 Jul 2012 23:14:35 -0400
+
 menulibre (12.07.5) precise; urgency=low
 
   * Finished the application help menus.
