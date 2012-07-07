@@ -49,11 +49,20 @@ elif de == 'xfce':
     query = subprocess.Popen('xfconf-query -c xsettings -p /Net/IconThemeName', shell=True, stdout=subprocess.PIPE)
     current_theme = query.stdout.read().replace('\n', '')
 elif de == 'lxde':
-    filename = open( os.path.join(home, '.config', 'lxsession', 'Lubuntu', 'desktop.conf'), 'r')
+    filenames = [ os.path.join(home, '.config', 'lxsession', 'Lubuntu', 'desktop.conf'),
+                  os.path.join(home, '.config', 'lxsession', 'Lubuntu-Netbook', 'desktop.conf'), 
+                  os.path.join('/etc', 'xdg', 'lxsession', 'Lubuntu', 'desktop.conf'),
+                  os.path.join('/etc', 'xdg', 'lxsession', 'Lubuntu-Netbook', 'desktop.conf') ]
+    for path in filenames:
+        if os.path.isfile(path):
+            filename = path
+            break
+    filename = open( filename, 'r')
     for line in filename.readlines():
         if 'sNet/IconThemeName=' in line:
             current_theme = line.lstrip('sNet/IconThemeName=').replace('\n', '')
             break
+    filename.close()
 else:
     import gconf
     client = gconf.Client()
