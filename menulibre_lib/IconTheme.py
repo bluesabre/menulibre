@@ -19,11 +19,15 @@ import os
 
 import subprocess
 
+home = os.getenv('HOME')
+
 def detect_desktop_environment():
 	"""Return the current desktop environment in use."""
     desktop_environment = 'generic'
     if os.environ.get('KDE_FULL_SESSION') == 'true':
         desktop_environment = 'kde'
+    elif os.environ.get('XDG_CURRENT_DESKTOP') == 'LXDE':
+        desktop_environment = 'lxde'
     elif os.environ.get('GNOME_DESKTOP_SESSION_ID'):
         desktop_environment = 'gnome'
     else:
@@ -44,12 +48,18 @@ if de == 'gnome':
 elif de == 'xfce':
     query = subprocess.Popen('xfconf-query -c xsettings -p /Net/IconThemeName', shell=True, stdout=subprocess.PIPE)
     current_theme = query.stdout.read().replace('\n', '')
+elif de == 'lxde':
+    filename = open(os.path.join(home, '.config', 'lxsession', 'Lubuntu', 'r'))
+    for line in filename.readlines():
+        if 'sNet/IconThemeName=' in line:
+            current_theme = line.lstrip('sNet/IconThemeName=').replace('\n', '')
+            break
 else:
     import gconf
     client = gconf.Client()
     current_theme = client.get_string('/desktop/gnome/interface/icon_theme')
 
-home = os.getenv('HOME')
+
 
 class IconTheme(Gtk.IconTheme):
 	"""IconTheme class that appropriately gets the current icon theme in
