@@ -1,3 +1,14 @@
+menulibre (12.07.7) precise; urgency=low
+
+  * Fixed always visible HScrollbar in Non-Overlay scrollbar
+    environments.
+  * Added proper Lubuntu support.  Remove View menu item.
+  * Added support for Lubuntu theming.
+  * Added support for Lubuntu theming.
+  * Added support for Lubuntu theming.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Sat, 07 Jul 2012 09:25:03 -0400
+
 menulibre (12.07.6ubuntu1) precise; urgency=low
 
   * 
