@@ -247,7 +247,7 @@ class MenulibreWindow(Window):
                 
   # Events
     def on_file_quit_activate(self, widget):
-        Gtk.main_quit()
+        Gtk.main_quit
   
     def on_menulibre_window_key_press_event(self, widget, event):
         """Enables some high-quality keyboard navigation."""
@@ -264,6 +264,7 @@ class MenulibreWindow(Window):
         height = allocation.height
         width = allocation.width
         if height != self.last_height or width != self.last_width:
+            self.catselection.set_policy(Gtk.PolicyType.ALWAYS, Gtk.PolicyType.AUTOMATIC)
             try:
                 cat = self.catselection_iconview.get_model()
                 model = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int)
@@ -277,7 +278,8 @@ class MenulibreWindow(Window):
                 del cat
             except TypeError:
                 pass
-                
+            self.catselection.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
+            self.appselection.set_policy(Gtk.PolicyType.ALWAYS, Gtk.PolicyType.AUTOMATIC) 
             try:
                 app = self.appselection_iconview.get_model()
                 model = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int)
@@ -291,6 +293,7 @@ class MenulibreWindow(Window):
                 del app
             except TypeError:
                 pass
+            self.appselection.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
                 
             self.last_height = height
             self.last_width = width
@@ -596,28 +599,6 @@ class MenulibreWindow(Window):
             pass
         self.lock_breadcrumb = False
         self.set_focus(self.appsettings_notebook)
-        
-    def on_catselection_iconview_selection_changed(self, widget=None):
-		"""When an item is selected in the category selection view, 
-		change the statusbar to the category name."""
-		widget = self.catselection_iconview
-        try:
-            model = widget.get_model()
-            index = int(widget.get_selected_items()[0].to_string())
-            label =  model[index][1]
-        except (IndexError, TypeError):
-            pass
-        
-    def on_appselection_iconview_selection_changed(self, widget=None):
-		"""When an item is selected in the application selection view, 
-		change the statusbar to the application comment."""
-		widget = self.appselection_iconview
-        try:
-            model = widget.get_model()
-            index = int(widget.get_selected_items()[0].to_string())
-            label =  model[index][3]
-        except (IndexError, TypeError):
-            pass
     
     def on_appselection_search_all_button_clicked(self, button):
 		"""When an item cannot be found and the Search All button is
