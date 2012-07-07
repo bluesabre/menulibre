@@ -407,8 +407,12 @@ class MenulibreWindow(Window):
         the AppSelection IconView."""
         if len(widget.get_text()) > 0:
             self.breadcrumb_application.activate()
+            self.lock_breadcrumb = True
             self.appselection_iconview.select_path(Gtk.TreePath.new_from_string('0'))
             self.appselection_iconview.grab_focus()
+            
+            self.lock_breadcrumb = False
+            self.show_appselection()
     
     def on_entry_search_changed(self, widget):
 		"""When text is entered into the search entry, run a query and
@@ -458,7 +462,6 @@ class MenulibreWindow(Window):
             self.breadcrumb_category.set_active(False) 
             self.lock_breadcrumb = False
             self.show_catselection()
-            self.on_catselection_iconview_selection_changed()
             if not self.entry_search.has_focus():
                 self.set_focus(self.catselection_iconview)
             if len(self.catselection_iconview.get_selected_items()) == 0:
@@ -476,7 +479,6 @@ class MenulibreWindow(Window):
             self.breadcrumb_home.set_active(False)
             self.lock_breadcrumb = False
             self.show_appselection()
-            self.on_appselection_iconview_selection_changed()
             if not self.entry_search.has_focus():
                 self.set_focus(self.appselection_iconview)
             if len(self.appselection_iconview.get_selected_items()) == 0:
@@ -1231,7 +1233,6 @@ class MenulibreWindow(Window):
         self.appselection_search_fail.hide()
         self.appselection.hide()
         self.catselection.show()
-        self.on_catselection_iconview_selection_changed()
     
     def show_appselection(self):
         """Show the application selection, and hide other views."""
@@ -1239,7 +1240,6 @@ class MenulibreWindow(Window):
         self.appselection_search_fail.hide()
         self.catselection.hide()
         self.appselection.show()
-        self.on_appselection_iconview_selection_changed()
         
     def show_appsettings(self):
         """Show the application launcher editor, and hide other views."""

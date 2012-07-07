@@ -21,7 +21,8 @@ override_dh_install:
 		mkdir -p debian/menulibre/usr/share/applications; \
 		mv debian/menulibre/opt/extras.ubuntu.com/menulibre/share/applications/menulibre.desktop debian/menulibre/usr/share/applications/extras-menulibre.desktop; \
 		rmdir --ignore-fail-on-non-empty debian/menulibre/opt/extras.ubuntu.com/menulibre/share/applications; \
-		sed -i 's|Exec=.*|Exec=/opt/extras.ubuntu.com/menulibre/bin/menulibre|' debian/menulibre/usr/share/applications/extras-menulibre.desktop; \
+		sed -i 's|Exec=menulibre|Exec=/opt/extras.ubuntu.com/menulibre/bin/menulibre|' debian/menulibre/usr/share/applications/extras-menulibre.desktop; \
+		sed -i 's|Exec=gksudo menulibre|Exec=gksudo /opt/extras.ubuntu.com/menulibre/bin/menulibre|' debian/menulibre/usr/share/applications/extras-menulibre.desktop; \
 		sed -i 's|Icon=/usr/|Icon=/opt/extras.ubuntu.com/menulibre/|' debian/menulibre/usr/share/applications/extras-menulibre.desktop; \
 	fi
 	grep -RlZ 'import gettext' debian/menulibre/* | xargs -0 -r sed -i 's|\(import\) gettext$$|\1 locale|'

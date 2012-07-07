@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-03 13:27-0400\n"
+"POT-Creation-Date: 2012-07-07 09:16-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,239 +17,255 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../menulibre/__init__.py:34
-msgid "Show debug messages (-vv debugs menulibre_lib also)"
-msgstr ""
-
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:2
-msgid "Stock Icon"
-msgstr ""
-
-#: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Icon Name"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:4
+#: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Image File"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:5
+#: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Select an Image"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:6
+#: ../data/ui/MenulibreWindow.ui.h:5
 msgid "<b>Select Icon</b>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:7
+#: ../data/ui/MenulibreWindow.ui.h:6
 msgid "48x48"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:8
+#: ../data/ui/MenulibreWindow.ui.h:7
 msgid "32x32"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:9
+#: ../data/ui/MenulibreWindow.ui.h:8
 msgid "24x24"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:10
+#: ../data/ui/MenulibreWindow.ui.h:9
 msgid "16x16"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:11
+#: ../data/ui/MenulibreWindow.ui.h:10
 msgid "128x128"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:12
+#: ../data/ui/MenulibreWindow.ui.h:11
 msgid "<b>Preview</b>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:13
+#: ../data/ui/MenulibreWindow.ui.h:12
 msgid "Select an icon"
 msgstr ""
 
+#: ../data/ui/MenulibreWindow.ui.h:13
+msgid "MenuLibre"
+msgstr ""
+
 #: ../data/ui/MenulibreWindow.ui.h:14
-msgid "Add Launcher"
+msgid "_File"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:15
-msgid "Add Menu"
+msgid "Add _New Launcher"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:16
-msgid "Add Seperator"
+msgid "_Edit"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:17
-msgid "Menulibre"
+msgid "_Help"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:18
-msgid "toolbutton1"
+msgid "_Contents"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:19
-msgid "Save All Changes"
+msgid "Add Launcher"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:20
-msgid "toolbutton3"
+msgid "toolbutton1"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:21
-msgid "Undo the last action"
+msgid "Save All Changes"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:22
-msgid "toolbutton5"
+msgid "toolbutton3"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:23
-msgid "Redo the last undone action"
+msgid "Undo the last action"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:24
-msgid "toolbutton6"
+msgid "toolbutton5"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:25
-msgid "Revert all changes to last saved state"
+msgid "Redo the last undone action"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:26
-msgid "toolbutton9"
+msgid "toolbutton6"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:27
-msgid "Category"
+msgid "Revert all changes to last saved state"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:28
-msgid "Application"
+msgid "toolbutton9"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:29
-msgid "<b>No applications found.</b>"
+msgid "Category"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:30
-msgid "Try searching everything."
+msgid "Application"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:31
-msgid "<big><b>Application Name</b></big>"
+msgid "<b>No applications found.</b>"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:32
-msgid "<i>A quick snippet about your application.</i>"
+msgid "Try searching everything."
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:33
-msgid "Command"
+msgid "<big><b>Application Name</b></big>"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:34
-msgid "Working Directory"
+msgid "<i>A quick snippet about your application.</i>"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:35
-msgid "<b>Application Settings</b>"
+msgid "Command"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:36
-msgid "Run in terminal"
+msgid "Working Directory"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:37
-msgid "Use startup notification"
+msgid "<b>Application Settings</b>"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:38
-msgid "Hide from menus"
+msgid "Run in terminal"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:39
-msgid "<b>Options</b>"
+msgid "Use startup notification"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:40
-msgid "<small>Filename</small>"
+msgid "Hide from menus"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:41
-msgid "Accessories"
+msgid "<b>Options</b>"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:42
-msgid "Development"
+msgid "label"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:43
-msgid "Education"
+msgid "<small>Filename</small>"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:44
-msgid "Games"
+msgid "Accessories"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:45
-msgid "Graphics"
+msgid "Development"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:46
-msgid "Internet"
+msgid "Education"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:47
-msgid "Multimedia"
+msgid "Games"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:48
-msgid "Office"
+msgid "Graphics"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:49
-msgid "Settings"
+msgid "Internet"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:50
-msgid "System"
+msgid "Multimedia"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:51
-msgid "WINE"
+msgid "Office"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:52
-msgid "<b>Categories</b>"
+msgid "Settings"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:53
-msgid "General Settings"
+msgid "System"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:54
-msgid "Quicklists"
+msgid "WINE"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:55
-msgid "Editor"
+msgid "<b>Categories</b>"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:56
-msgid "Status Area"
+msgid "General Settings"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:194
+#: ../data/ui/MenulibreWindow.ui.h:57
+msgid "Quicklists"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:58
+msgid "Editor"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:190
 msgid "Show"
 msgstr ""
 
+#: ../menulibre/MenulibreWindow.py:242
+msgid "Image"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:244
+msgid "Name"
+msgstr ""
+
 #: ../data/ui/AboutMenulibreDialog.ui.h:1
+msgid "Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>"
+msgstr ""
+
+#: ../data/ui/AboutMenulibreDialog.ui.h:2
 msgid ""
 "# Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>\n"
 "# This program is free software: you can redistribute it and/or modify it \n"
@@ -266,8 +282,8 @@ msgid ""
 "# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
 msgstr ""
 
-#: ../data/ui/AboutMenulibreDialog.ui.h:14
-msgid "Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>"
+#: ../menulibre/__init__.py:34
+msgid "Show debug messages (-vv debugs menulibre_lib also)"
 msgstr ""
 
 #: ../menulibre.desktop.in.h:1

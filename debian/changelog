@@ -1,3 +1,9 @@
+menulibre (12.07.6ubuntu1) precise; urgency=low
+
+  * 
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Sat, 07 Jul 2012 09:16:37 -0400
+
 menulibre (12.07.6) precise; urgency=low
 
   * Fixed application caching when creating new launchers and editing
