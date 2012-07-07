@@ -160,6 +160,7 @@ class MenulibreWindow(Window):
         self.general_startupnotify_switch.connect('notify::active', self.on_general_startupnotify_switch_toggled)
         self.general_nodisplay_switch = self.builder.get_object('general_nodisplay_switch')
         self.general_nodisplay_switch.connect('notify::active', self.on_general_nodisplay_switch_toggled)
+        self.general_id_label = self.builder.get_object('general_id_label')
         self.general_filename_label = self.builder.get_object('general_filename_label')
         
         # Categories
@@ -323,6 +324,12 @@ class MenulibreWindow(Window):
         try:
             openfile = open(filename, 'w')
             openfile.write(text)
+            openfile.close()
+            appid = self.get_application_id()
+            if appid == 1337:
+                appid = len(self.apps)
+            self.apps[appid] = Applications.Application(filename)
+            self.apps[appid].set_id(appid)
         except IOError:
             filename = os.path.split(filename)[1]
             filename = os.path.join( home, '.local', 'share', 'applications', filename )
@@ -341,13 +348,31 @@ class MenulibreWindow(Window):
             newapp = Applications.Application(filename)
             newapp.set_id(appid)
             self.apps[appid] = newapp
-        openfile.close()
+            openfile.close()
         del self.undo_stack[:]
         del self.redo_stack[:]
         self.set_undo_enabled(False)
         self.set_redo_enabled(False)
         self.set_save_enabled(False)
         self.set_revert_enabled(False)
+        
+        self.lock_breadcrumb = True
+        try:
+            model = self.catselection_iconview.get_model()
+            index = self.catselection_iconview.get_selected_items()[0]
+            selection_id = model[index][2]
+            if selection_id == -9001:
+                self.load_category_into_iconview('')
+            else:
+                for cat in self.categories:
+                    if selection_id == self.categories[cat][2]:
+                        self.load_category_into_iconview(cat)
+        except IndexError:
+            pass
+        self.breadcrumb_application.set_active(True)
+        self.set_breadcrumb_application(appid)
+        self.breadcrumb_category.set_active(False)
+        self.lock_breadcrumb = False
     
     def on_toolbar_undo_clicked(self, button):
 		"""When the Undo toolbar icon is clicked, undo the last done
@@ -539,13 +564,13 @@ class MenulibreWindow(Window):
             if selection_id == 1337:
                 self.new_launcher()
             else:
-                self.set_categories_expanded(False)
                 self.set_breadcrumb_application(selection_id)
                 app = self.apps[selection_id]
                 
                 # General Settings
                 self.set_application_icon( app.get_icon()[1], Gtk.IconSize.DIALOG )
                 self.set_application_name( app.get_name() )
+                self.set_application_id( app.get_id() )
                 self.set_application_comment( app.get_comment() )
                 self.set_application_command( app.get_exec() )
                 self.set_application_path( app.get_path() )
@@ -952,6 +977,12 @@ class MenulibreWindow(Window):
             return self.iconselection_image.get_filename()
         else:
             return self.image_filename
+    
+    def set_application_id(self, id):
+        self.general_id_label.set_label( str(id) )
+        
+    def get_application_id(self):
+        return int(self.general_id_label.get_label())
   
     def set_application_name(self, name):    
         """Set the application name label and entry."""
@@ -1131,7 +1162,7 @@ class MenulibreWindow(Window):
     def set_preview_from_name(self, name):
         """Set the Icon preview from an icon name."""
         if name == None or len(name) == 0:
-            self.set_preview_from_stock('application-default-icon')
+            self.set_preview_from_name('application-default-icon')
         else:
             self.preview128.set_from_icon_name( name, Gtk.IconSize.UNITY )
             self.preview48.set_from_icon_name( name, Gtk.IconSize.DIALOG )
@@ -1142,7 +1173,7 @@ class MenulibreWindow(Window):
     def set_preview_from_filename(self, filename):
         """Set the Icon preview from a filename."""
         if filename == None:
-            self.set_preview_from_stock('application-default-icon')
+            self.set_preview_from_name('application-default-icon')
         else:
             self.preview128.set_from_pixbuf( icon_theme.get_theme_GdkPixbuf(filename, Gtk.IconSize.UNITY) )
             self.preview48.set_from_pixbuf( icon_theme.get_theme_GdkPixbuf(filename, Gtk.IconSize.DIALOG) )
@@ -1263,10 +1294,6 @@ class MenulibreWindow(Window):
         self.general_comment_modify_box.set_visible(False)
         self.general_comment_button.set_visible(True)
         self.set_focus( self.general_comment_button )
-        
-    def set_categories_expanded(self, expanded):
-        """Toggle visibility of the category checkboxes."""
-        self.categories_expander.set_expanded(expanded)
 
     def load_category_into_iconview(self, category=None):
         """Load the icon view for categories or applications."""
@@ -1416,7 +1443,9 @@ class MenulibreWindow(Window):
     def get_data_from_editor(self):
 		"""Return the launcher settings from the editor text."""
         text = self.get_application_text()
-        return Applications.read_desktop_file(self.get_application_filename(), text)
+        data = Applications.read_desktop_file(self.get_application_filename(), text)
+        data['id'] = self.get_application_id()
+        return data
         
     def threaded_update_editor(self, editor_updated):
 		"""Update the editor and settings on a GObject thread."""
@@ -1434,6 +1463,7 @@ class MenulibreWindow(Window):
                 data = self.get_data_from_editor()
                 self.set_application_icon( data['icon'], Gtk.IconSize.DIALOG )
                 self.set_application_name( data['name'] )
+                self.set_application_id( data['id'] )
                 self.set_application_comment( data['comment'] )
                 self.set_application_command( data['command'] )
                 self.set_application_path( data['path'] )
@@ -1651,6 +1681,7 @@ OnlyShowIn=Unity;
         # General Settings
         self.set_application_icon( 'application-default-icon', Gtk.IconSize.DIALOG )
         self.set_application_name( 'New Menu Item' )
+        self.set_application_id( 1337 )
         self.set_application_comment( 'A small descriptive blurb about this application.' )
         self.set_application_command( '' )
         self.set_application_path( '' )
@@ -1680,9 +1711,6 @@ Actions=
         self.show_appsettings()
         self.in_history = False
         self.last_editor = launcher
-        
-        self.set_categories_expanded(True)
-
 
     def show_search_results(self, query, category=None):
 		"""Show search results for the query in the application 
