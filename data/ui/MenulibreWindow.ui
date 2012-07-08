@@ -922,8 +922,8 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
+                <property name="active">True</property>
                 <accelerator key="Home" signal="clicked" modifiers="GDK_MOD1_MASK"/>
-                <signal name="toggled" handler="on_breadcrumb_toggled" swapped="no"/>
                 <signal name="clicked" handler="on_breadcrumb_home_clicked" swapped="no"/>
                 <child>
                   <object class="GtkImage" id="image11">
@@ -945,7 +945,6 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
-                <signal name="toggled" handler="on_breadcrumb_toggled" swapped="no"/>
                 <signal name="clicked" handler="on_breadcrumb_category_clicked" swapped="no"/>
                 <child>
                   <object class="GtkBox" id="box3">
@@ -991,7 +990,6 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
-                <signal name="toggled" handler="on_breadcrumb_toggled" swapped="no"/>
                 <signal name="clicked" handler="on_breadcrumb_application_clicked" swapped="no"/>
                 <child>
                   <object class="GtkBox" id="box8">
@@ -1071,6 +1069,7 @@
                   <object class="GtkIconView" id="appselection_iconview">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <signal name="key-press-event" handler="on_appselection_iconview_key_press_event" swapped="no"/>
                     <signal name="motion-notify-event" handler="on_appselection_iconview_motion_notify_event" swapped="no"/>
                     <signal name="item-activated" handler="on_appselection_iconview_item_activated" swapped="no"/>
                   </object>

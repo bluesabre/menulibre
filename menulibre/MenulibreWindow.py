@@ -410,10 +410,11 @@ class MenulibreWindow(Window):
             self.breadcrumb_application.activate()
             self.lock_breadcrumb = True
             self.appselection_iconview.select_path(Gtk.TreePath.new_from_string('0'))
-            self.appselection_iconview.grab_focus()
+            
             
             self.lock_breadcrumb = False
             self.show_appselection()
+            self.set_focus(self.appselection_iconview)
     
     def on_entry_search_changed(self, widget):
 		"""When text is entered into the search entry, run a query and
@@ -429,6 +430,7 @@ class MenulibreWindow(Window):
             self.breadcrumb_application.set_visible(False)
             widget.set_icon_from_stock(Gtk.EntryIconPosition.SECONDARY, None)
             self.load_category_into_iconview(self.last_cat)
+            self.on_breadcrumb_toggled(self.breadcrumb_home)
             self.last_cat = None
         else:
             self.breadcrumb_application.set_visible(False)
@@ -458,6 +460,7 @@ class MenulibreWindow(Window):
         if not self.lock_breadcrumb:
             self.entry_search.set_placeholder_text('Search Applications')
             self.lock_breadcrumb = True
+            self.on_breadcrumb_toggled(button)
             #self.breadcrumb_home.set_active(True)
             #self.breadcrumb_application.set_active(False)
             #self.breadcrumb_category.set_active(False) 
@@ -475,6 +478,7 @@ class MenulibreWindow(Window):
             label = self.breadcrumb_category_label.get_label()
             self.entry_search.set_placeholder_text('Search %s' % label)
             self.lock_breadcrumb = True
+            self.on_breadcrumb_toggled(button)
             #self.breadcrumb_category.set_active(True)
             #self.breadcrumb_application.set_active(False)
             #self.breadcrumb_home.set_active(False)
@@ -491,9 +495,11 @@ class MenulibreWindow(Window):
         if not self.lock_breadcrumb:
             self.entry_search.set_placeholder_text('Search Applications')
             self.lock_breadcrumb = True
-            self.appsettings_notebook.show()
-            self.appselection.hide()
-            self.appselection_search_fail.hide()
+            #self.appsettings_notebook.show()
+            #self.appselection.hide()
+            #self.appselection_search_fail.hide()
+            self.show_appsettings()
+            self.on_breadcrumb_toggled(button)
             #self.breadcrumb_application.set_active(True)
             #self.breadcrumb_category.set_active(False)
             #self.breadcrumb_home.set_active(False)
@@ -503,9 +509,10 @@ class MenulibreWindow(Window):
                 self.set_focus(self.appsettings_notebook)
                 
     def on_breadcrumb_toggled(self, widget):
-        for button in [self.breadcrumb_home, self.breadcrumb_category, self.breadrumb_application]:
-            if button == widget and button.get_active():
-                button.set_active(True)
+        widget.set_active(True)
+        for button in [self.breadcrumb_home, self.breadcrumb_category, self.breadcrumb_application]:
+            if button == widget:
+                pass
             else:
                 button.set_active(False)
             
@@ -525,6 +532,7 @@ class MenulibreWindow(Window):
 		"""When an item is activated in the Category Selection view, 
 		load the category's applications in the category view."""
         self.set_position(Gtk.WindowPosition.NONE)
+        self.entry_search.set_text('')
         if self.iconview_single:
             self.iconview_single = False
             return
@@ -556,6 +564,15 @@ class MenulibreWindow(Window):
         self.iconview_single = False
         path = self.appselection_iconview.get_path_at_pos(event.x, event.y)
         self.on_appselection_iconview_item_activated(widget, path)
+        
+    def on_appselection_iconview_key_press_event(self, widget, event):
+        keyval = Gdk.keyval_name(event.get_keyval()[1])
+        if keyval == 'KP_Enter' or keyval == 'Return':
+            try:
+                path = self.appselection_iconview.get_selected_items()[0]
+                self.on_appselection_iconview_item_activated(widget, path)
+            except IndexError:
+                pass
         
     def on_appselection_iconview_item_activated(self, widget, index):
 		"""When an item is activated in the Application Selection view,
@@ -603,12 +620,13 @@ class MenulibreWindow(Window):
                 # Editor
                 self.set_application_text( app.get_original() )
                 self.show_appsettings()
+                self.set_focus(self.appsettings_notebook)
                 self.in_history = False
                 self.last_editor = app.get_original()
         except (IndexError, TypeError):
             pass
         self.lock_breadcrumb = False
-        self.set_focus(self.appsettings_notebook)
+        
     
     def on_appselection_search_all_button_clicked(self, button):
 		"""When an item cannot be found and the Search All button is
@@ -1274,10 +1292,13 @@ class MenulibreWindow(Window):
         
     def show_appsettings(self):
         """Show the application launcher editor, and hide other views."""
-        self.appselection_search_fail.hide()
-        self.appselection.hide()
-        self.catselection.hide()
-        self.appsettings_notebook.show()
+        if self.breadcrumb_application.get_visible():
+            self.appselection_search_fail.hide()
+            self.appselection.hide()
+            self.catselection.hide()
+            self.appsettings_notebook.show()
+        else:
+            self.on_breadcrumb_toggled(self.breadcrumb_category)
         
     def show_selection_fail(self):
         """Show the selection search failure view, and hide other views."""
