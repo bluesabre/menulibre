@@ -1461,6 +1461,7 @@ class MenulibreWindow(Window):
             # When the launcher settings are modified, update the editor
             # appropriately.
             else:
+                data = self.get_data_from_editor()
                 self.update_pending = True
                 if not self.in_history:
                     self.undo_stack.append(self.get_application_text())
@@ -1476,6 +1477,14 @@ class MenulibreWindow(Window):
                 startupnotify = str(self.get_application_startupnotify()).lower()
                 hidden = str(self.get_application_hidden()).lower()
                 categories = self.get_application_categories()
+                editor_categories = data['categories']
+                for category in editor_categories:
+                    if category not in self.categories.keys() and 'wine' not in category.lower():
+                        categories.append(category)
+                    if 'wine' in category.lower() and 'Wine' in categories:
+                        categories.remove('Wine')
+                        categories.append(category)
+                
                 #filename = self.get_application_filename()
                 quicklists_action, quicklist_string = self.get_quicklist_strings()
                 #self.update_pending = False
