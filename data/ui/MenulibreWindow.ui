@@ -43,7 +43,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="iconselection2_confirm">
+              <object class="GtkButton" id="iconselection1_confirm">
                 <property name="label">gtk-ok</property>
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
@@ -409,7 +409,7 @@
     </child>
     <action-widgets>
       <action-widget response="0">iconselection1_cancel</action-widget>
-      <action-widget response="1">iconselection2_confirm</action-widget>
+      <action-widget response="1">iconselection1_confirm</action-widget>
     </action-widgets>
   </object>
   <object class="GtkDialog" id="iconselection_dialog2">

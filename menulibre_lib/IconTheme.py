@@ -79,7 +79,7 @@ class IconTheme(Gtk.IconTheme):
         if theme_name == '/usr/share/pixmaps':
             self.index = dict()
             for file in os.listdir(theme_name):
-                if os.path.isfile(file):
+                if os.path.isdir(file):
                     name = os.path.splitext(file)[0]
                     self.index[name] = {'scalable': os.path.join( theme_name, file )}
             self.inherits = []
@@ -224,6 +224,16 @@ class IconTheme(Gtk.IconTheme):
                 if icon not in uniques.keys():
                     uniques[icon] = icons[icon]
         return uniques
+        
+    def has_icon(self, icon_name):
+        if icon_name in self.index.keys():
+            return True
+        if len(self.inherits) > 0:
+            for theme in self.inherits:
+                if theme.has_icon(icon_name):
+                    return True
+            return False
+        return False
         
 class CurrentTheme(IconTheme):
 	"""IconThene class that is specifically for the current theme."""

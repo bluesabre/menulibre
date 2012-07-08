@@ -233,6 +233,7 @@ class MenulibreWindow(Window):
         self.preview24 = self.builder.get_object('preview24')
         self.preview16 = self.builder.get_object('preview16')
         self.set_preview_from_name('image-missing')
+        self.iconselection1_confirm = self.builder.get_object('iconselection1_confirm')
     
       # Icon Selection Dialog 2 (All Icons)
         self.iconselection_dialog_all = self.builder.get_object('iconselection_dialog2')
@@ -616,9 +617,19 @@ class MenulibreWindow(Window):
     def on_general_icon_button_clicked(self, button):
 		"""When the Application Icon button is clicked, show the icon
 		selection dialog."""
+		radio_theme = self.iconselection_radio_theme.get_active()
+		radio_image = self.iconselection_radio_image.get_active()
+		theme_entry = self.iconselection_theme_entry.get_text()
+		theme_image = self.iconselection_image.get_filename()
+		if theme_image == None: theme_image = ''
         self.iconselection_dialog.show_all()
-        self.iconselection_dialog.run()
+        response = self.iconselection_dialog.run()
         self.iconselection_dialog.hide()
+        if response != 1:
+            self.iconselection_radio_theme.set_active(radio_theme)
+            self.iconselection_radio_image.set_active(radio_image)
+            self.iconselection_theme_entry.set_text(theme_entry)
+            self.iconselection_image.set_filename(theme_image)
     
     def on_general_name_button_clicked(self, button):
 		"""When the Application Name button is clicked, reveal the name
@@ -788,6 +799,7 @@ class MenulibreWindow(Window):
         self.iconselection_theme.set_sensitive( radio_button.get_active() )
         if radio_button.get_active():
             self.set_preview_from_name(self.iconselection_theme_entry.get_text())
+            self.iconselection1_confirm.set_sensitive(True)
     
     def on_iconselection_radio_image_toggled(self, radio_button):
 		"""When the image radio button is toggled, toggle the image
@@ -795,6 +807,12 @@ class MenulibreWindow(Window):
         self.iconselection_image.set_sensitive( radio_button.get_active() )
         if radio_button.get_active():
             self.set_preview_from_filename( self.iconselection_image.get_filename() )
+            if self.iconselection_image.get_filename() == None:
+                self.iconselection1_confirm.set_sensitive(False)
+            elif os.path.isfile( self.iconselection_image.get_filename() ):
+                self.iconselection1_confirm.set_sensitive(True)
+            else:
+                self.iconselection1_confirm.set_sensitive(False)
         
     def on_iconselection_theme_entry_changed(self, widget):
 		"""When the theme entry is modified, set the preview to the new
@@ -817,6 +835,12 @@ class MenulibreWindow(Window):
         set the icon image entry to its filename."""
         filename = widget.get_filename()
         self.set_preview_from_filename(filename)
+        if self.iconselection_image.get_filename() == None:
+            self.iconselection1_confirm.set_sensitive(False)
+        elif os.path.isfile( self.iconselection_image.get_filename() ):
+            self.iconselection1_confirm.set_sensitive(True)
+        else:
+            self.iconselection1_confirm.set_sensitive(False)
     
     def on_iconselection_dialog1_response(self, widget, response):
         """When OK is pressed in the primary icon selection dialog, 
