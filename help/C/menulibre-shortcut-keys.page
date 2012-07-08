@@ -31,6 +31,12 @@
             <td><p>Go to previous breadcrumb</p></td>  <td><p><keyseq><key>BackSpace</key></keyseq></p></td>
         </tr>
         <tr>
+            <td><p>Cycle breadcrumbs forward</p></td>  <td><p><keyseq><key>Ctrl</key><key>Tab</key></keyseq></p></td>
+        </tr>
+        <tr>
+            <td><p>Cycle breadcrumbs backwards</p></td>  <td><p><keyseq><key>Ctrl</key><key>Shift</key><key>Tab</key></keyseq></p></td>
+        </tr>
+        <tr>
             <td><p>Get help with <app>MenuLibre</app></p></td>  <td><p><keyseq><key>F1</key></keyseq></p></td>
         </tr>
         <tr>
