@@ -253,12 +253,39 @@ class MenulibreWindow(Window):
     def on_menulibre_window_key_press_event(self, widget, event):
         """Enables some high-quality keyboard navigation."""
         keyname = Gdk.keyval_name(event.keyval)
-        print keyname
+        ctrl = event.state & Gdk.ModifierType.CONTROL_MASK
+        shift = event.state & Gdk.ModifierType.SHIFT_MASK
         if keyname == 'BackSpace' and not self.entry_search.has_focus():
             if self.breadcrumb_category.get_active():
                 self.breadcrumb_home.activate()
             elif self.breadcrumb_application.get_active() and self.appsettings_notebook.has_focus():
                 self.breadcrumb_category.activate()
+        if ctrl and shift and 'Tab' in keyname:
+            if self.breadcrumb_application.get_active():
+                if self.breadcrumb_category.get_visible():
+                    self.breadcrumb_category.activate()
+                else:
+                    self.breadcrumb_home.activate()
+            elif self.breadcrumb_category.get_active():
+                self.breadcrumb_home.activate()
+            else:
+                if self.breadcrumb_application.get_visible():
+                    self.breadcrumb_application.activate()
+                elif self.breadcrumb_category.get_visible():
+                    self.breadcrumb_category.activate()
+        elif ctrl and keyname == 'Tab':
+            if self.breadcrumb_home.get_active():
+                if self.breadcrumb_category.get_visible():
+                    self.breadcrumb_category.activate()
+                elif self.breadcrumb_application.get_visible():
+                    self.breadcrumb_application.activate()
+            elif self.breadcrumb_category.get_active():
+                if self.breadcrumb_application.get_visible():
+                    self.breadcrumb_application.activate()
+                else:
+                    self.breadcrumb_home.activate()
+            else:
+                self.breadcrumb_home.activate()
         
     def on_window_check_resize(self, widget, something):
         """Adjust IconView icons when the window is resized."""
