@@ -605,7 +605,7 @@ class MenulibreWindow(Window):
     def on_appselection_search_all_button_clicked(self, button):
 		"""When an item cannot be found and the Search All button is
 		available and clicked, search with no filters."""
-        pass 
+        self.show_search_results(self.entry_search.get_text(), None)
     
     def on_appsettings_notebook_switch_page(self, notebook, page, pageno):
 		"""When the notebook page is changed, reset the text editor
@@ -1732,6 +1732,10 @@ Actions=
                 genericname = app.get_genericname()
                 model.append( [icon, name, appid, genericname, comment, executable] )
         if counter == 0:
+            if category == None:
+                self.appselection_search_all_button.hide()
+            else:
+                self.appselection_search_all_button.show()
             self.show_selection_fail()
         else:
             self.show_appselection()
