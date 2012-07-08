@@ -253,6 +253,7 @@ class MenulibreWindow(Window):
     def on_menulibre_window_key_press_event(self, widget, event):
         """Enables some high-quality keyboard navigation."""
         keyname = Gdk.keyval_name(event.keyval)
+        print keyname
         if keyname == 'BackSpace' and not self.entry_search.has_focus():
             if self.breadcrumb_category.get_active():
                 self.breadcrumb_home.activate()
