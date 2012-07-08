@@ -458,9 +458,9 @@ class MenulibreWindow(Window):
         if not self.lock_breadcrumb:
             self.entry_search.set_placeholder_text('Search Applications')
             self.lock_breadcrumb = True
-            self.breadcrumb_home.set_active(True)
-            self.breadcrumb_application.set_active(False)
-            self.breadcrumb_category.set_active(False) 
+            #self.breadcrumb_home.set_active(True)
+            #self.breadcrumb_application.set_active(False)
+            #self.breadcrumb_category.set_active(False) 
             self.lock_breadcrumb = False
             self.show_catselection()
             if not self.entry_search.has_focus():
@@ -475,9 +475,9 @@ class MenulibreWindow(Window):
             label = self.breadcrumb_category_label.get_label()
             self.entry_search.set_placeholder_text('Search %s' % label)
             self.lock_breadcrumb = True
-            self.breadcrumb_category.set_active(True)
-            self.breadcrumb_application.set_active(False)
-            self.breadcrumb_home.set_active(False)
+            #self.breadcrumb_category.set_active(True)
+            #self.breadcrumb_application.set_active(False)
+            #self.breadcrumb_home.set_active(False)
             self.lock_breadcrumb = False
             self.show_appselection()
             if not self.entry_search.has_focus():
@@ -494,13 +494,20 @@ class MenulibreWindow(Window):
             self.appsettings_notebook.show()
             self.appselection.hide()
             self.appselection_search_fail.hide()
-            self.breadcrumb_application.set_active(True)
-            self.breadcrumb_category.set_active(False)
-            self.breadcrumb_home.set_active(False)
+            #self.breadcrumb_application.set_active(True)
+            #self.breadcrumb_category.set_active(False)
+            #self.breadcrumb_home.set_active(False)
             self.lock_breadcrumb = False
             self.show_appsettings()
             if not self.entry_search.has_focus():
                 self.set_focus(self.appsettings_notebook)
+                
+    def on_breadcrumb_toggled(self, widget):
+        for button in [self.breadcrumb_home, self.breadcrumb_category, self.breadrumb_application]:
+            if button == widget and button.get_active():
+                button.set_active(True)
+            else:
+                button.set_active(False)
             
     def on_catselection_iconview_motion_notify_event(self, widget, event):
         """Implementation of on-hover event for IconView."""

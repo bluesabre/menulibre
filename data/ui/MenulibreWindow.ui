@@ -923,6 +923,7 @@
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
                 <accelerator key="Home" signal="clicked" modifiers="GDK_MOD1_MASK"/>
+                <signal name="toggled" handler="on_breadcrumb_toggled" swapped="no"/>
                 <signal name="clicked" handler="on_breadcrumb_home_clicked" swapped="no"/>
                 <child>
                   <object class="GtkImage" id="image11">
@@ -944,6 +945,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
+                <signal name="toggled" handler="on_breadcrumb_toggled" swapped="no"/>
                 <signal name="clicked" handler="on_breadcrumb_category_clicked" swapped="no"/>
                 <child>
                   <object class="GtkBox" id="box3">
@@ -989,6 +991,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
+                <signal name="toggled" handler="on_breadcrumb_toggled" swapped="no"/>
                 <signal name="clicked" handler="on_breadcrumb_application_clicked" swapped="no"/>
                 <child>
                   <object class="GtkBox" id="box8">
