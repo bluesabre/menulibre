@@ -1,3 +1,10 @@
+menulibre (12.07.11) precise; urgency=low
+
+  * Finished integrating all expected features.
+  * Added delete button for entries.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Sun, 08 Jul 2012 22:31:00 -0400
+
 menulibre (12.07.9ubuntu1) precise; urgency=low
 
   * 
