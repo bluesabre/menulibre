@@ -106,6 +106,7 @@ class Application:
 
     def set_name(self, name):
 		"""Set the application proper name."""
+		print 'set name: ' + name
         self.name = name
 
     def get_name(self):

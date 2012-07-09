@@ -560,8 +560,8 @@
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">MenuLibre</property>
     <property name="window_position">center</property>
-    <property name="default_width">480</property>
-    <property name="default_height">520</property>
+    <property name="default_width">500</property>
+    <property name="default_height">550</property>
     <property name="icon_name">menu-editor</property>
     <property name="startup_id">menulibre</property>
     <signal name="configure-event" handler="on_window_check_resize" swapped="no"/>
@@ -633,8 +633,8 @@
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <accelerator key="w" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                         <accelerator key="q" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                        <accelerator key="w" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                         <signal name="activate" handler="on_file_quit_activate" swapped="no"/>
                       </object>
                     </child>
@@ -927,6 +927,8 @@
                 <signal name="clicked" handler="on_breadcrumb_home_clicked" swapped="no"/>
                 <child>
                   <object class="GtkImage" id="image11">
+                    <property name="width_request">24</property>
+                    <property name="height_request">24</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="stock">gtk-home</property>
@@ -1210,6 +1212,7 @@
                                         <property name="xalign">0</property>
                                         <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Application Name&lt;/b&gt;&lt;/big&gt;</property>
                                         <property name="use_markup">True</property>
+                                        <property name="ellipsize">end</property>
                                       </object>
                                     </child>
                                   </object>
@@ -1231,7 +1234,7 @@
                                         <signal name="key-press-event" handler="on_general_name_modify_entry_key_press_event" swapped="no"/>
                                       </object>
                                       <packing>
-                                        <property name="expand">False</property>
+                                        <property name="expand">True</property>
                                         <property name="fill">True</property>
                                         <property name="position">0</property>
                                       </packing>
@@ -1314,6 +1317,7 @@
                                         <property name="xalign">0</property>
                                         <property name="label" translatable="yes">&lt;i&gt;A quick snippet about your application.&lt;/i&gt;</property>
                                         <property name="use_markup">True</property>
+                                        <property name="ellipsize">end</property>
                                       </object>
                                     </child>
                                   </object>
@@ -1335,7 +1339,7 @@
                                         <signal name="key-press-event" handler="on_general_comment_modify_entry_key_press_event" swapped="no"/>
                                       </object>
                                       <packing>
-                                        <property name="expand">False</property>
+                                        <property name="expand">True</property>
                                         <property name="fill">True</property>
                                         <property name="position">0</property>
                                       </packing>
@@ -2048,12 +2052,16 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkTreeView" id="quicklists_treeview">
+                      <object class="GtkScrolledWindow" id="scrolledwindow1">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <signal name="cursor-changed" handler="on_quicklists_treeview_cursor_changed" swapped="no"/>
-                        <child internal-child="selection">
-                          <object class="GtkTreeSelection" id="treeview-selection1"/>
+                        <property name="shadow_type">in</property>
+                        <child>
+                          <object class="GtkTreeView" id="quicklists_treeview">
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <signal name="cursor-changed" handler="on_quicklists_treeview_cursor_changed" swapped="no"/>
+                          </object>
                         </child>
                       </object>
                       <packing>

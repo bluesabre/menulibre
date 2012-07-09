@@ -333,10 +333,6 @@ class MenulibreWindow(Window):
         application editor and New Launcher details."""
         self.appsettings_notebook.set_current_page(0)
         self.set_position(Gtk.WindowPosition.NONE)
-        if self.iconview_single:
-            self.iconview_single = False
-            return
-        self.iconview_single = True
         self.lock_breadcrumb = True
 
         self.in_history = True
@@ -379,12 +375,13 @@ class MenulibreWindow(Window):
                         pass
             openfile = open(filename, 'w')
             openfile.write(text)
+            openfile.close()
             self.set_application_filename(filename)
             appid = len(self.apps)
             newapp = Applications.Application(filename)
             newapp.set_id(appid)
             self.apps[appid] = newapp
-            openfile.close()
+            
         del self.undo_stack[:]
         del self.redo_stack[:]
         self.set_undo_enabled(False)
@@ -409,6 +406,7 @@ class MenulibreWindow(Window):
         self.set_breadcrumb_application(appid)
         self.breadcrumb_category.set_active(False)
         self.lock_breadcrumb = False
+        self.button_delete.show()
     
     def on_toolbar_undo_clicked(self, button):
 		"""When the Undo toolbar icon is clicked, undo the last done
@@ -546,54 +544,59 @@ class MenulibreWindow(Window):
         response = self.remove_launcher_dialog.run()
         self.remove_launcher_dialog.hide()
         if response == Gtk.ResponseType.OK:
-            os.remove( self.get_application_filename() )
-            appid = self.get_application_id()
-            if system_backup:
-                
-                filename = os.path.join('/usr', 'share', 'applications', filename)
-                self.apps[appid] = Applications.Application(filename)
-                self.apps[appid].set_id(appid)
+            if os.path.isfile( self.get_application_filename() ) and self.get_application_filename() != 'New Application':
+                os.remove( self.get_application_filename() )
+                appid = self.get_application_id()
+                if system_backup:
+                    
+                    filename = os.path.join('/usr', 'share', 'applications', filename)
+                    self.apps[appid] = Applications.Application(filename)
+                    self.apps[appid].set_id(appid)
 
-                self.set_breadcrumb_application(appid)
-                self.in_history = True
-                app = self.apps[appid]
-                
-                if home in app.get_filename():
-                    self.button_delete.show()
-                elif self.sudo:
-                    self.button_delete.show()
+                    self.set_breadcrumb_application(appid)
+                    self.in_history = True
+                    app = self.apps[appid]
+                    
+                    if home in app.get_filename():
+                        self.button_delete.show()
+                    elif self.sudo:
+                        self.button_delete.show()
+                    else:
+                        self.button_delete.hide()
+                    
+                    # General Settings
+                    self.set_application_icon( app.get_icon()[1], Gtk.IconSize.DIALOG )
+                    self.set_application_name( app.get_name() )
+                    self.set_application_id( app.get_id() )
+                    self.set_application_comment( app.get_comment() )
+                    self.set_application_command( app.get_exec() )
+                    self.set_application_path( app.get_path() )
+                    self.set_application_terminal( app.get_terminal() )
+                    self.set_application_startupnotify( app.get_startupnotify() )
+                    self.set_application_hidden( app.get_hidden() )
+                    self.set_application_categories( app.get_categories() )
+                    self.set_application_filename( app.get_filename() )
+                    
+                    # Quicklists
+                    self.quicklist_format = app.get_quicklist_format()
+                    self.set_application_quicklists( app.get_actions() )
+                    
+                    # Editor
+                    self.set_application_text( app.get_original() )
+                    self.show_appsettings()
+                    self.set_focus(self.appsettings_notebook)
+                    self.in_history = False
+                    self.last_editor = app.get_original()
+
                 else:
-                    self.button_delete.hide()
-                
-                # General Settings
-                self.set_application_icon( app.get_icon()[1], Gtk.IconSize.DIALOG )
-                self.set_application_name( app.get_name() )
-                self.set_application_id( app.get_id() )
-                self.set_application_comment( app.get_comment() )
-                self.set_application_command( app.get_exec() )
-                self.set_application_path( app.get_path() )
-                self.set_application_terminal( app.get_terminal() )
-                self.set_application_startupnotify( app.get_startupnotify() )
-                self.set_application_hidden( app.get_hidden() )
-                self.set_application_categories( app.get_categories() )
-                self.set_application_filename( app.get_filename() )
-                
-                # Quicklists
-                self.quicklist_format = app.get_quicklist_format()
-                self.set_application_quicklists( app.get_actions() )
-                
-                # Editor
-                self.set_application_text( app.get_original() )
-                self.show_appsettings()
-                self.set_focus(self.appsettings_notebook)
-                self.in_history = False
-                self.last_editor = app.get_original()
-
+                    self.breadcrumb_home.activate()
+                    self.breadcrumb_category.hide()
+                    self.breadcrumb_application.hide()
+                    del self.apps[appid]
             else:
                 self.breadcrumb_home.activate()
                 self.breadcrumb_category.hide()
                 self.breadcrumb_application.hide()
-                del self.apps[appid]
                 
     def on_catselection_iconview_motion_notify_event(self, widget, event):
         """Implementation of on-hover event for IconView."""
@@ -1110,26 +1113,26 @@ class MenulibreWindow(Window):
         if name == None:
             name = ''
         name = name.replace('&', '&amp;')
-        self.general_name_label.set_markup( '<big><b>%s</b></big>' % name )
+        self.general_name_label.set_markup( '<big><big><b>%s</b></big></big>' % name )
         self.general_name_entry.set_text( name )
         self.breadcrumb_application_label.set_label(name)
     
     def get_application_name(self):
         """Return the application name extracted from the button label."""
-        return self.general_name_label.get_label()[8:-10].replace('&amp;', '&')
+        return self.general_name_label.get_label()[13:-16].replace('&amp;', '&')
     
     def set_application_comment(self, comment):
         """Set the application comment label and entry."""
         if comment == None:
             comment = ''
         comment = comment.replace('&', '&amp;')
-        self.general_comment_label.set_markup( '<i>%s</i>' % comment )
+        self.general_comment_label.set_markup( '%s' % comment )
         self.general_comment_entry.set_text( comment )
     
     def get_application_comment(self):
         """Return the application comment extracted from the button 
         label."""
-        return self.general_comment_label.get_label()[3:-4]
+        return self.general_comment_label.get_label()
     
     def set_application_command(self, command):
         """Set the application command entry."""
@@ -1452,6 +1455,9 @@ class MenulibreWindow(Window):
                     for cat in app.get_categories():
                         if 'wine' in cat.lower():
                             show_app = True
+                elif category == 'Other':
+                    if len(app.get_categories()) == 0:
+                        show_app = True
                 if category in app.get_categories() or category == '':
                     show_app = True
                 if show_app:
@@ -1475,8 +1481,7 @@ class MenulibreWindow(Window):
             name, icon, catid, apps = category
         if self.breadcrumb_category_label.get_label() != name:
             self.breadcrumb_application.hide()
-        pixbuf = icon_theme.get_theme_GdkPixbuf(icon, Gtk.IconSize.BUTTON)
-        self.breadcrumb_category_image.set_from_pixbuf(pixbuf)
+        self.breadcrumb_category_image.set_from_icon_name( icon, Gtk.IconSize.BUTTON )
         self.breadcrumb_category_label.set_label(name)
         self.breadcrumb_category.show_all()
         self.breadcrumb_home.set_active(False)
@@ -1494,8 +1499,11 @@ class MenulibreWindow(Window):
             app = self.apps[app_id]
             name = app.get_name()
             icon = app.get_icon()
+            #if os.path.isfile( icon ):
             pixbuf = icon_theme.get_theme_GdkPixbuf(icon, Gtk.IconSize.BUTTON)
             self.breadcrumb_application_image.set_from_pixbuf(pixbuf)
+            #else:
+            #    self.breadcrumb_application_image.set_from_icon_name(icon, Gtk.IconSize.BUTTON)
         self.breadcrumb_application_label.set_label(name)
         self.breadcrumb_application.show_all()
         self.breadcrumb_home.set_active(False)
