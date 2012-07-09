@@ -59,7 +59,6 @@ class MenulibreWindow(Window):
                             'Utility': ['Accessories', 'applications-accessories', -1, []],
                             'WINE': ['WINE', 'wine', -12, []]}
         
-        #self.icon_cache = dict()
         self.undo_stack = []
         self.redo_stack = []
 
@@ -440,8 +439,6 @@ class MenulibreWindow(Window):
             self.breadcrumb_application.activate()
             self.lock_breadcrumb = True
             self.appselection_iconview.select_path(Gtk.TreePath.new_from_string('0'))
-            
-            
             self.lock_breadcrumb = False
             self.show_appselection()
             self.set_focus(self.appselection_iconview)
@@ -464,7 +461,6 @@ class MenulibreWindow(Window):
             self.last_cat = None
         else:
             self.breadcrumb_application.set_visible(False)
-            #self.entry_search.grab_focus()
             category = None
             self.last_cat = None
             if self.breadcrumb_category.get_active():
@@ -475,8 +471,6 @@ class MenulibreWindow(Window):
                 self.entry_search.grab_focus()
             widget.set_icon_from_stock(Gtk.EntryIconPosition.SECONDARY, 'gtk-clear')
             self.show_search_results(text, category)
-        #if not self.entry_search.has_focus():
-        #    self.entry_search.grab_focus()
             
     def on_entry_search_icon_press(self, widget, button, event):
 		"""When the clear icon is pressed in the search widget, clear
@@ -491,9 +485,6 @@ class MenulibreWindow(Window):
             self.entry_search.set_placeholder_text('Search Applications')
             self.lock_breadcrumb = True
             self.on_breadcrumb_toggled(button)
-            #self.breadcrumb_home.set_active(True)
-            #self.breadcrumb_application.set_active(False)
-            #self.breadcrumb_category.set_active(False) 
             self.lock_breadcrumb = False
             self.show_catselection()
             if not self.entry_search.has_focus():
@@ -509,9 +500,6 @@ class MenulibreWindow(Window):
             self.entry_search.set_placeholder_text('Search %s' % label)
             self.lock_breadcrumb = True
             self.on_breadcrumb_toggled(button)
-            #self.breadcrumb_category.set_active(True)
-            #self.breadcrumb_application.set_active(False)
-            #self.breadcrumb_home.set_active(False)
             self.lock_breadcrumb = False
             self.show_appselection()
             if not self.entry_search.has_focus():
@@ -525,14 +513,8 @@ class MenulibreWindow(Window):
         if not self.lock_breadcrumb:
             self.entry_search.set_placeholder_text('Search Applications')
             self.lock_breadcrumb = True
-            #self.appsettings_notebook.show()
-            #self.appselection.hide()
-            #self.appselection_search_fail.hide()
             self.show_appsettings()
             self.on_breadcrumb_toggled(button)
-            #self.breadcrumb_application.set_active(True)
-            #self.breadcrumb_category.set_active(False)
-            #self.breadcrumb_home.set_active(False)
             self.lock_breadcrumb = False
             self.show_appsettings()
             if not self.entry_search.has_focus():
