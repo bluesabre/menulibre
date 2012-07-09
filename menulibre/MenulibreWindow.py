@@ -162,6 +162,8 @@ class MenulibreWindow(Window):
         self.general_nodisplay_switch.connect('notify::active', self.on_general_nodisplay_switch_toggled)
         self.general_id_label = self.builder.get_object('general_id_label')
         self.general_filename_label = self.builder.get_object('general_filename_label')
+        self.button_delete = self.builder.get_object('button_delete')
+        self.remove_launcher_dialog = self.builder.get_object('remove_launcher_dialog')
         
         # Categories
         self.categories_expander = self.builder.get_object('categories_expander')
@@ -543,7 +545,74 @@ class MenulibreWindow(Window):
                 pass
             else:
                 button.set_active(False)
-            
+                
+    def on_button_delete_clicked(self, widget):
+        system_backup = False
+        filename = self.get_application_filename()
+        if home in filename:
+            filename = os.path.split(filename)[1]
+            if filename in os.listdir('/usr/share/applications'):
+                system_backup = True
+                message = 'Are you sure you wish to remove "%s"?\nThe menu item will be restored to system defaults.' % filename
+            else:
+                message = 'Are you sure you wish to remove "%s"?\nThis cannot be undone.' % filename
+        else:
+            filename = os.path.split(filename)[1]
+            message = 'Are you sure you wish to remove "%s"?\nThis cannot be undone.' % filename
+        self.remove_launcher_dialog.format_secondary_text(message)
+        self.remove_launcher_dialog.show()
+        response = self.remove_launcher_dialog.run()
+        self.remove_launcher_dialog.hide()
+        if response == Gtk.ResponseType.OK:
+            os.remove( self.get_application_filename() )
+            appid = self.get_application_id()
+            if system_backup:
+                
+                filename = os.path.join('/usr', 'share', 'applications', filename)
+                self.apps[appid] = Applications.Application(filename)
+                self.apps[appid].set_id(appid)
+
+                self.set_breadcrumb_application(appid)
+                self.in_history = True
+                app = self.apps[appid]
+                
+                if home in app.get_filename():
+                    self.button_delete.show()
+                elif self.sudo:
+                    self.button_delete.show()
+                else:
+                    self.button_delete.hide()
+                
+                # General Settings
+                self.set_application_icon( app.get_icon()[1], Gtk.IconSize.DIALOG )
+                self.set_application_name( app.get_name() )
+                self.set_application_id( app.get_id() )
+                self.set_application_comment( app.get_comment() )
+                self.set_application_command( app.get_exec() )
+                self.set_application_path( app.get_path() )
+                self.set_application_terminal( app.get_terminal() )
+                self.set_application_startupnotify( app.get_startupnotify() )
+                self.set_application_hidden( app.get_hidden() )
+                self.set_application_categories( app.get_categories() )
+                self.set_application_filename( app.get_filename() )
+                
+                # Quicklists
+                self.quicklist_format = app.get_quicklist_format()
+                self.set_application_quicklists( app.get_actions() )
+                
+                # Editor
+                self.set_application_text( app.get_original() )
+                self.show_appsettings()
+                self.set_focus(self.appsettings_notebook)
+                self.in_history = False
+                self.last_editor = app.get_original()
+
+            else:
+                self.breadcrumb_home.activate()
+                self.breadcrumb_category.hide()
+                self.breadcrumb_application.hide()
+                del self.apps[appid]
+                
     def on_catselection_iconview_motion_notify_event(self, widget, event):
         """Implementation of on-hover event for IconView."""
         path = self.catselection_iconview.get_path_at_pos(int(event.x), int(event.y))
@@ -627,6 +696,13 @@ class MenulibreWindow(Window):
             else:
                 self.set_breadcrumb_application(selection_id)
                 app = self.apps[selection_id]
+                
+                if home in app.get_filename():
+                    self.button_delete.show()
+                elif self.sudo:
+                    self.button_delete.show()
+                else:
+                    self.button_delete.hide()
                 
                 # General Settings
                 self.set_application_icon( app.get_icon()[1], Gtk.IconSize.DIALOG )

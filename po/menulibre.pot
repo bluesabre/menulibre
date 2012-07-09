@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-07 09:16-0400\n"
+"POT-Creation-Date: 2012-07-08 14:48-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -253,11 +253,11 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:242
+#: ../menulibre/MenulibreWindow.py:243
 msgid "Image"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:244
+#: ../menulibre/MenulibreWindow.py:245
 msgid "Name"
 msgstr ""
 

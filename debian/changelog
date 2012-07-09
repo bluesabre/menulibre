@@ -1,3 +1,9 @@
+menulibre (12.07.9ubuntu1) precise; urgency=low
+
+  * 
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Sun, 08 Jul 2012 14:48:01 -0400
+
 menulibre (12.07.9) precise; urgency=low
 
   * Added new shortcut keys to help.
@@ -10,7 +16,7 @@ menulibre (12.07.9) precise; urgency=low
   * Additional categories are now preserved.
   * Finished Search All functionality.
 
- -- Sean Davis <smd.seandavis@gmail.com>  Sun, 08 Jul 2012 09:50:46 -0400
+ -- Sean Davis <smd.seandavis@gmail.com>  Sun, 08 Jul 2012 11:25:54 -0400
 
 menulibre (12.07.8) precise; urgency=low
 
