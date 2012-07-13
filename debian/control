@@ -1,12 +1,11 @@
 Source: menulibre
 Section: python
 Priority: extra
-Build-Depends: cdbs (>= 0.4.43),
- debhelper (>= 6),
+Build-Depends: debhelper (>= 8),
  python (>= 2.6.6-3~),
  python-distutils-extra (>= 2.10)
 Maintainer: Sean Davis <smd.seandavis@gmail.com>
-Standards-Version: 3.8.3
+Standards-Version: 3.9.3
 XS-Python-Version: current
 
 Package: menulibre
@@ -20,5 +19,7 @@ Depends: ${misc:Depends},
  gir1.2-launchpad-integration-3.0,
  gir1.2-gdkpixbuf-2.0,
  yelp
-Description: UNKNOWN
- UNKNOWN
+Description: advanced menu editor with quicklist support
+ An advanced menu editor that provides modern features and full quicklist 
+ support. Avoids GNOME dependencies so it can be suitable for lightweight 
+ distributions (Lubuntu, Xubuntu) as well.

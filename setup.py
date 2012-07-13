@@ -50,32 +50,11 @@ def update_config(values = {}):
         sys.exit(1)
     return oldvalues
 
-
-def update_desktop_file(datadir):
-
-    try:
-        fin = file('menulibre.desktop.in', 'r')
-        fout = file(fin.name + '.new', 'w')
-
-        for line in fin:            
-            if 'Icon=' in line:
-                line = "Icon=%s\n" % (datadir + 'media/menulibre.svg')
-            fout.write(line)
-        fout.flush()
-        fout.close()
-        fin.close()
-        os.rename(fout.name, fin.name)
-    except (OSError, IOError), e:
-        print ("ERROR: Can't find menulibre.desktop.in")
-        sys.exit(1)
-
-
 class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
     def run(self):
         values = {'__menulibre_data_directory__': "'%s'" % (self.prefix + '/share/menulibre/'),
                   '__version__': "'%s'" % self.distribution.get_version()}
         previous_values = update_config(values)
-        #update_desktop_file(self.prefix + '/share/menulibre/')
         DistUtilsExtra.auto.install_auto.run(self)
         update_config(previous_values)
 
@@ -91,8 +70,8 @@ DistUtilsExtra.auto.setup(
     license='GPL-3',
     author='Sean Davis',
     author_email='smd.seandavis@gmail.com',
-    #description='UI for managing …',
-    #long_description='Here a longer description',
+    description='advanced menu editor with quicklist support',
+    long_description='An advanced menu editor that provides modern features and full quicklist support. Avoids GNOME dependencies so it can be suitable for lightweight distributions (Lubuntu, Xubuntu) as well.',
     url='https://launchpad.net/menulibre',
     cmdclass={'install': InstallAndUpdateDataDirectory}
     )
