@@ -20,6 +20,6 @@ Depends: ${misc:Depends},
  gir1.2-gdkpixbuf-2.0,
  yelp
 Description: advanced menu editor with quicklist support
- An advanced menu editor that provides modern features and full quicklist 
- support. Avoids GNOME dependencies so it can be suitable for lightweight 
+ An advanced menu editor that provides modern features and full quicklist
+ support. Avoids GNOME dependencies so it can be suitable for lightweight
  distributions (Lubuntu, Xubuntu) as well.

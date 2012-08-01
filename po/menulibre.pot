@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-08 14:48-0400\n"
+"POT-Creation-Date: 2012-08-01 13:01-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -186,78 +186,90 @@ msgid "label"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:43
-msgid "<small>Filename</small>"
+msgid "Delete this launcher..."
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:44
-msgid "Accessories"
+msgid "<small>Filename</small>"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:45
-msgid "Development"
+msgid "Accessories"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:46
-msgid "Education"
+msgid "Development"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:47
-msgid "Games"
+msgid "Education"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:48
-msgid "Graphics"
+msgid "Games"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:49
-msgid "Internet"
+msgid "Graphics"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:50
-msgid "Multimedia"
+msgid "Internet"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:51
-msgid "Office"
+msgid "Multimedia"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:52
-msgid "Settings"
+msgid "Office"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:53
-msgid "System"
+msgid "Settings"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:54
-msgid "WINE"
+msgid "System"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:55
-msgid "<b>Categories</b>"
+msgid "WINE"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:56
-msgid "General Settings"
+msgid "<b>Categories</b>"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:57
-msgid "Quicklists"
+msgid "General Settings"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:58
+msgid "Quicklists"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Editor"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:190
+#: ../data/ui/MenulibreWindow.ui.h:60
+msgid "<big><b>Remove Launcher?</b></big>"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:61
+msgid "Are you sure you wish to remove this launcher?  This cannot be undone."
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:191
 msgid "Show"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:243
+#: ../menulibre/MenulibreWindow.py:244
 msgid "Image"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:245
+#: ../menulibre/MenulibreWindow.py:246
 msgid "Name"
 msgstr ""
 
