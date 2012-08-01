@@ -66,11 +66,12 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
 
 DistUtilsExtra.auto.setup(
     name='menulibre',
-    version='12.07.11',
+    version='12.08',
     license='GPL-3',
     author='Sean Davis',
     author_email='smd.seandavis@gmail.com',
     description='advanced menu editor with quicklist support',
+    url='https://launchpad.net/menulibre',
     long_description='An advanced menu editor that provides modern features and full quicklist support. Avoids GNOME dependencies so it can be suitable for lightweight distributions (Lubuntu, Xubuntu) as well.',
     url='https://launchpad.net/menulibre',
     cmdclass={'install': InstallAndUpdateDataDirectory}
