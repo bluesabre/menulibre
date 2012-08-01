@@ -1,3 +1,17 @@
+menulibre (12.08.2) precise; urgency=low
+
+  * Fix for IconTheme bug.
+  * Added changes from ~dholbach of the ARB.  Added changed information
+    to setup.py.
+  * Fixed breadcrumb data loss when saving.  Fixed New Launcher button
+    only working every other click.  Fixed Other category.  Fixed Remove
+    button not showing after creating new local launcher.  Increased
+    font size for application name.  Removed italics from application
+    comment.  Added ellipsize to name and comment.  Added scrolled
+    window to quicklist.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Wed, 01 Aug 2012 13:01:41 -0400
+
 menulibre (12.07.11) precise; urgency=low
 
   * Initial version.
