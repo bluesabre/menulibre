@@ -41,10 +41,15 @@ def detect_desktop_environment():
     return desktop_environment
 
 de = detect_desktop_environment()
+
 if de == 'gnome':
-    import gconf
-    client = gconf.Client()
-    current_theme = client.get_string('/desktop/gnome/interface/icon_theme')
+    from gi.repository import Gio
+    settings = Gio.Settings.new("org.gnome.desktop.interface")
+    current_theme = settings.get_string("icon-theme")
+    if not current_theme:
+        import gconf
+        client = gconf.Client()
+        current_theme = client.get_string('/desktop/gnome/interface/icon_theme')
 elif de == 'xfce':
     query = subprocess.Popen('xfconf-query -c xsettings -p /Net/IconThemeName', shell=True, stdout=subprocess.PIPE)
     current_theme = query.stdout.read().replace('\n', '')
@@ -64,11 +69,13 @@ elif de == 'lxde':
             break
     filename.close()
 else:
-    import gconf
-    client = gconf.Client()
-    current_theme = client.get_string('/desktop/gnome/interface/icon_theme')
-
-
+    from gi.repository import Gio
+    settings = Gio.Settings.new("org.gnome.desktop.interface")
+    current_theme = settings.get_string("icon-theme")
+    if not current_theme:
+        import gconf
+        client = gconf.Client()
+        current_theme = client.get_string('/desktop/gnome/interface/icon_theme')
 
 class IconTheme(Gtk.IconTheme):
 	"""IconTheme class that appropriately gets the current icon theme in
