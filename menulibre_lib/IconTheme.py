@@ -83,6 +83,7 @@ class IconTheme(Gtk.IconTheme):
     def __init__(self, theme_name, inherited=[], main=False):
         self.main_theme = main
         Gtk.IconTheme.__init__(self)
+        theme_index = None
         if theme_name == '/usr/share/pixmaps':
             self.index = dict()
             for file in os.listdir(theme_name):
@@ -102,12 +103,13 @@ class IconTheme(Gtk.IconTheme):
                     self.theme_dir = os.path.join( self.theme_dir, theme_name )
                     theme_index = open( os.path.join( self.theme_dir, 'index.theme' ), 'r' )
             inherited_themes = []
-            for line in theme_index.readlines():
-                if line[:9].lower() == 'inherits=':
-                    inherited_themes = line.split('=')[1].split(',')
-                    break
-            inherited.append(theme_name)
-            theme_index.close()
+            if theme_index != None:
+                for line in theme_index.readlines():
+                    if line[:9].lower() == 'inherits=':
+                        inherited_themes = line.split('=')[1].split(',')
+                        break
+                inherited.append(theme_name)
+                theme_index.close()
             self.index = dict()
             for toplevel_folder in os.listdir(self.theme_dir):
                 try:
