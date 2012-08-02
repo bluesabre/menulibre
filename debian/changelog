@@ -1,3 +1,9 @@
+menulibre (12.08.4) precise; urgency=low
+
+  * Fix for IconTheme index bug.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Thu, 02 Aug 2012 13:56:38 -0400
+
 menulibre (12.08.3) precise; urgency=low
 
   * Fix for IconTheme index bug.
