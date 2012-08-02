@@ -1,7 +1,8 @@
 Source: menulibre
 Section: python
 Priority: extra
-Build-Depends: debhelper (>= 8),
+Build-Depends: cdbs (>= 0.4.43),
+ debhelper (>= 6),
  python (>= 2.6.6-3~),
  python-distutils-extra (>= 2.10)
 Maintainer: Sean Davis <smd.seandavis@gmail.com>
