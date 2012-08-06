@@ -1,0 +1,308 @@
+# Russian translation for menulibre
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the menulibre package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: menulibre\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-08-01 13:01-0400\n"
+"PO-Revision-Date: 2012-07-31 16:39+0000\n"
+"Last-Translator: Aleksey Kabanov <Unknown>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-08-06 19:40+0000\n"
+"X-Generator: Launchpad (build 15745)\n"
+
+#: ../data/ui/MenulibreWindow.ui.h:1
+msgid "Select an Icon"
+msgstr "Выберите значок"
+
+#: ../data/ui/MenulibreWindow.ui.h:2
+msgid "Icon Name"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:3
+msgid "Image File"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:4
+msgid "Select an Image"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:5
+msgid "<b>Select Icon</b>"
+msgstr "<b>Выберите значок</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:6
+msgid "48x48"
+msgstr "48x48"
+
+#: ../data/ui/MenulibreWindow.ui.h:7
+msgid "32x32"
+msgstr "32x32"
+
+#: ../data/ui/MenulibreWindow.ui.h:8
+msgid "24x24"
+msgstr "24x24"
+
+#: ../data/ui/MenulibreWindow.ui.h:9
+msgid "16x16"
+msgstr "16x16"
+
+#: ../data/ui/MenulibreWindow.ui.h:10
+msgid "128x128"
+msgstr "128x128"
+
+#: ../data/ui/MenulibreWindow.ui.h:11
+msgid "<b>Preview</b>"
+msgstr "<b>Предварительный просмотр</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:12
+msgid "Select an icon"
+msgstr "Выберите значок"
+
+#: ../data/ui/MenulibreWindow.ui.h:13
+msgid "MenuLibre"
+msgstr "MenuLibre"
+
+#: ../data/ui/MenulibreWindow.ui.h:14
+msgid "_File"
+msgstr "_Файл"
+
+#: ../data/ui/MenulibreWindow.ui.h:15
+msgid "Add _New Launcher"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:16
+msgid "_Edit"
+msgstr "_Правка"
+
+#: ../data/ui/MenulibreWindow.ui.h:17
+msgid "_Help"
+msgstr "_Справка"
+
+#: ../data/ui/MenulibreWindow.ui.h:18
+msgid "_Contents"
+msgstr "_Содержание"
+
+#: ../data/ui/MenulibreWindow.ui.h:19
+msgid "Add Launcher"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:20
+msgid "toolbutton1"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:21
+msgid "Save All Changes"
+msgstr "Сохранить все изменения"
+
+#: ../data/ui/MenulibreWindow.ui.h:22
+msgid "toolbutton3"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:23
+msgid "Undo the last action"
+msgstr "Отменить последнее действие"
+
+#: ../data/ui/MenulibreWindow.ui.h:24
+msgid "toolbutton5"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:25
+msgid "Redo the last undone action"
+msgstr "Вернуть последнее отменённое действие"
+
+#: ../data/ui/MenulibreWindow.ui.h:26
+msgid "toolbutton6"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:27
+msgid "Revert all changes to last saved state"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:28
+msgid "toolbutton9"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:29
+msgid "Category"
+msgstr "Категория"
+
+#: ../data/ui/MenulibreWindow.ui.h:30
+msgid "Application"
+msgstr "Приложение"
+
+#: ../data/ui/MenulibreWindow.ui.h:31
+msgid "<b>No applications found.</b>"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:32
+msgid "Try searching everything."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:33
+msgid "<big><b>Application Name</b></big>"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:34
+msgid "<i>A quick snippet about your application.</i>"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:35
+msgid "Command"
+msgstr "Команда"
+
+#: ../data/ui/MenulibreWindow.ui.h:36
+msgid "Working Directory"
+msgstr "Рабочий каталог"
+
+#: ../data/ui/MenulibreWindow.ui.h:37
+msgid "<b>Application Settings</b>"
+msgstr "<b>Параметры приложения</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:38
+msgid "Run in terminal"
+msgstr "Запустить в терминале"
+
+#: ../data/ui/MenulibreWindow.ui.h:39
+msgid "Use startup notification"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:40
+msgid "Hide from menus"
+msgstr "Скрыть из меню"
+
+#: ../data/ui/MenulibreWindow.ui.h:41
+msgid "<b>Options</b>"
+msgstr "<b>Опции</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:42
+msgid "label"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:43
+msgid "Delete this launcher..."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:44
+msgid "<small>Filename</small>"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:45
+msgid "Accessories"
+msgstr "Стандартные"
+
+#: ../data/ui/MenulibreWindow.ui.h:46
+msgid "Development"
+msgstr "Средства разработки"
+
+#: ../data/ui/MenulibreWindow.ui.h:47
+msgid "Education"
+msgstr "Образовательные"
+
+#: ../data/ui/MenulibreWindow.ui.h:48
+msgid "Games"
+msgstr "Игры"
+
+#: ../data/ui/MenulibreWindow.ui.h:49
+msgid "Graphics"
+msgstr "Графика"
+
+#: ../data/ui/MenulibreWindow.ui.h:50
+msgid "Internet"
+msgstr "Интернет"
+
+#: ../data/ui/MenulibreWindow.ui.h:51
+msgid "Multimedia"
+msgstr "Мультимедиа"
+
+#: ../data/ui/MenulibreWindow.ui.h:52
+msgid "Office"
+msgstr "Офис"
+
+#: ../data/ui/MenulibreWindow.ui.h:53
+msgid "Settings"
+msgstr "Настройки"
+
+#: ../data/ui/MenulibreWindow.ui.h:54
+msgid "System"
+msgstr "Системные"
+
+#: ../data/ui/MenulibreWindow.ui.h:55
+msgid "WINE"
+msgstr "WINE"
+
+#: ../data/ui/MenulibreWindow.ui.h:56
+msgid "<b>Categories</b>"
+msgstr "<b>Категории</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:57
+msgid "General Settings"
+msgstr "Общие настройки"
+
+#: ../data/ui/MenulibreWindow.ui.h:58
+msgid "Quicklists"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:59
+msgid "Editor"
+msgstr "Редактор"
+
+#: ../data/ui/MenulibreWindow.ui.h:60
+msgid "<big><b>Remove Launcher?</b></big>"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:61
+msgid ""
+"Are you sure you wish to remove this launcher?  This cannot be undone."
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:191
+msgid "Show"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:244
+msgid "Image"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:246
+msgid "Name"
+msgstr ""
+
+#: ../data/ui/AboutMenulibreDialog.ui.h:1
+msgid "Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>"
+msgstr "Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>"
+
+#: ../data/ui/AboutMenulibreDialog.ui.h:2
+msgid ""
+"# Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>\n"
+"# This program is free software: you can redistribute it and/or modify it \n"
+"# under the terms of the GNU General Public License version 3, as published "
+"\n"
+"# by the Free Software Foundation.\n"
+"# \n"
+"# This program is distributed in the hope that it will be useful, but \n"
+"# WITHOUT ANY WARRANTY; without even the implied warranties of \n"
+"# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR \n"
+"# PURPOSE.  See the GNU General Public License for more details.\n"
+"# \n"
+"# You should have received a copy of the GNU General Public License along \n"
+"# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
+msgstr ""
+
+#: ../menulibre/__init__.py:34
+msgid "Show debug messages (-vv debugs menulibre_lib also)"
+msgstr "Показывать отладочные сообщения (-vv отлаживает также menulibre_lib)"
+
+#: ../menulibre.desktop.in.h:1
+msgid "Menu Editor"
+msgstr "Редактор меню"
+
+#: ../menulibre.desktop.in.h:2
+msgid "Edit System and User Menus with ease"
+msgstr ""
