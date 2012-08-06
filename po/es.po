@@ -1,0 +1,310 @@
+# Spanish translation for menulibre
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the menulibre package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: menulibre\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-08-01 13:01-0400\n"
+"PO-Revision-Date: 2012-08-04 06:51+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
+"Language-Team: Spanish <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2012-08-06 19:40+0000\n"
+"X-Generator: Launchpad (build 15745)\n"
+
+#: ../data/ui/MenulibreWindow.ui.h:1
+msgid "Select an Icon"
+msgstr "Seleccione un icono"
+
+#: ../data/ui/MenulibreWindow.ui.h:2
+msgid "Icon Name"
+msgstr "Nombre del icono"
+
+#: ../data/ui/MenulibreWindow.ui.h:3
+msgid "Image File"
+msgstr "Archivo de imagen"
+
+#: ../data/ui/MenulibreWindow.ui.h:4
+msgid "Select an Image"
+msgstr "Seleccione una imagen"
+
+#: ../data/ui/MenulibreWindow.ui.h:5
+msgid "<b>Select Icon</b>"
+msgstr "<b>Seleccionar icono</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:6
+msgid "48x48"
+msgstr "48×48"
+
+#: ../data/ui/MenulibreWindow.ui.h:7
+msgid "32x32"
+msgstr "32×32"
+
+#: ../data/ui/MenulibreWindow.ui.h:8
+msgid "24x24"
+msgstr "24×24"
+
+#: ../data/ui/MenulibreWindow.ui.h:9
+msgid "16x16"
+msgstr "16×16"
+
+#: ../data/ui/MenulibreWindow.ui.h:10
+msgid "128x128"
+msgstr "128×128"
+
+#: ../data/ui/MenulibreWindow.ui.h:11
+msgid "<b>Preview</b>"
+msgstr "<b>Previsualización</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:12
+msgid "Select an icon"
+msgstr "Seleccione un icono"
+
+#: ../data/ui/MenulibreWindow.ui.h:13
+msgid "MenuLibre"
+msgstr "MenuLibre"
+
+#: ../data/ui/MenulibreWindow.ui.h:14
+msgid "_File"
+msgstr "_Archivo"
+
+#: ../data/ui/MenulibreWindow.ui.h:15
+msgid "Add _New Launcher"
+msgstr "Añadir lanzador _nuevo"
+
+#: ../data/ui/MenulibreWindow.ui.h:16
+msgid "_Edit"
+msgstr "_Editar"
+
+#: ../data/ui/MenulibreWindow.ui.h:17
+msgid "_Help"
+msgstr "Ay_uda"
+
+#: ../data/ui/MenulibreWindow.ui.h:18
+msgid "_Contents"
+msgstr "Índ_ice"
+
+#: ../data/ui/MenulibreWindow.ui.h:19
+msgid "Add Launcher"
+msgstr "Añadir lanzador"
+
+#: ../data/ui/MenulibreWindow.ui.h:20
+msgid "toolbutton1"
+msgstr "Botón de herramienta 1"
+
+#: ../data/ui/MenulibreWindow.ui.h:21
+msgid "Save All Changes"
+msgstr "Guardar todos los cambios"
+
+#: ../data/ui/MenulibreWindow.ui.h:22
+msgid "toolbutton3"
+msgstr "Botón de herramienta 3"
+
+#: ../data/ui/MenulibreWindow.ui.h:23
+msgid "Undo the last action"
+msgstr "Deshacer la última acción"
+
+#: ../data/ui/MenulibreWindow.ui.h:24
+msgid "toolbutton5"
+msgstr "Botón de herramienta 5"
+
+#: ../data/ui/MenulibreWindow.ui.h:25
+msgid "Redo the last undone action"
+msgstr "Rehacer la última acción deshecha"
+
+#: ../data/ui/MenulibreWindow.ui.h:26
+msgid "toolbutton6"
+msgstr "Botón de herramienta 6"
+
+#: ../data/ui/MenulibreWindow.ui.h:27
+msgid "Revert all changes to last saved state"
+msgstr "Revertir todos los cambios al último estado guardado"
+
+#: ../data/ui/MenulibreWindow.ui.h:28
+msgid "toolbutton9"
+msgstr "Botón de herramienta 9"
+
+#: ../data/ui/MenulibreWindow.ui.h:29
+msgid "Category"
+msgstr "Categoría"
+
+#: ../data/ui/MenulibreWindow.ui.h:30
+msgid "Application"
+msgstr "Aplicación"
+
+#: ../data/ui/MenulibreWindow.ui.h:31
+msgid "<b>No applications found.</b>"
+msgstr "<b>No se encontraron aplicaciones.</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:32
+msgid "Try searching everything."
+msgstr "Intente buscar en todo."
+
+#: ../data/ui/MenulibreWindow.ui.h:33
+msgid "<big><b>Application Name</b></big>"
+msgstr "<big><b>Nombre de la aplicación</b></big>"
+
+#: ../data/ui/MenulibreWindow.ui.h:34
+msgid "<i>A quick snippet about your application.</i>"
+msgstr "<i>Un resumen rápido de su aplicación.</i>"
+
+#: ../data/ui/MenulibreWindow.ui.h:35
+msgid "Command"
+msgstr "Orden"
+
+#: ../data/ui/MenulibreWindow.ui.h:36
+msgid "Working Directory"
+msgstr "Directorio de trabajo"
+
+#: ../data/ui/MenulibreWindow.ui.h:37
+msgid "<b>Application Settings</b>"
+msgstr "<b>Configuración de la aplicación</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:38
+msgid "Run in terminal"
+msgstr "Ejecutar en un terminal"
+
+#: ../data/ui/MenulibreWindow.ui.h:39
+msgid "Use startup notification"
+msgstr "Usar notificación de inicio"
+
+#: ../data/ui/MenulibreWindow.ui.h:40
+msgid "Hide from menus"
+msgstr "Ocultar de los menús"
+
+#: ../data/ui/MenulibreWindow.ui.h:41
+msgid "<b>Options</b>"
+msgstr "<b>Opciones</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:42
+msgid "label"
+msgstr "etiqueta"
+
+#: ../data/ui/MenulibreWindow.ui.h:43
+msgid "Delete this launcher..."
+msgstr "Eliminar este lanzador…"
+
+#: ../data/ui/MenulibreWindow.ui.h:44
+msgid "<small>Filename</small>"
+msgstr "<small>Nombre de archivo</small>"
+
+#: ../data/ui/MenulibreWindow.ui.h:45
+msgid "Accessories"
+msgstr "Accesorios"
+
+#: ../data/ui/MenulibreWindow.ui.h:46
+msgid "Development"
+msgstr "Desarrollo"
+
+#: ../data/ui/MenulibreWindow.ui.h:47
+msgid "Education"
+msgstr "Educación"
+
+#: ../data/ui/MenulibreWindow.ui.h:48
+msgid "Games"
+msgstr "Juegos"
+
+#: ../data/ui/MenulibreWindow.ui.h:49
+msgid "Graphics"
+msgstr "Gráficos"
+
+#: ../data/ui/MenulibreWindow.ui.h:50
+msgid "Internet"
+msgstr "Internet"
+
+#: ../data/ui/MenulibreWindow.ui.h:51
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: ../data/ui/MenulibreWindow.ui.h:52
+msgid "Office"
+msgstr "Oficina"
+
+#: ../data/ui/MenulibreWindow.ui.h:53
+msgid "Settings"
+msgstr "Configuración"
+
+#: ../data/ui/MenulibreWindow.ui.h:54
+msgid "System"
+msgstr "Sistema"
+
+#: ../data/ui/MenulibreWindow.ui.h:55
+msgid "WINE"
+msgstr "WINE"
+
+#: ../data/ui/MenulibreWindow.ui.h:56
+msgid "<b>Categories</b>"
+msgstr "<b>Categorías</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:57
+msgid "General Settings"
+msgstr "Configuración general"
+
+#: ../data/ui/MenulibreWindow.ui.h:58
+msgid "Quicklists"
+msgstr "Listas rápidas"
+
+#: ../data/ui/MenulibreWindow.ui.h:59
+msgid "Editor"
+msgstr "Editor"
+
+#: ../data/ui/MenulibreWindow.ui.h:60
+msgid "<big><b>Remove Launcher?</b></big>"
+msgstr "<big><b>¿Eliminar el lanzador?</b></big>"
+
+#: ../data/ui/MenulibreWindow.ui.h:61
+msgid ""
+"Are you sure you wish to remove this launcher?  This cannot be undone."
+msgstr ""
+"¿Está seguro de que quiere eliminar este lanzador?  Esto no se puede "
+"deshacer."
+
+#: ../menulibre/MenulibreWindow.py:191
+msgid "Show"
+msgstr "Mostrar"
+
+#: ../menulibre/MenulibreWindow.py:244
+msgid "Image"
+msgstr "Imagen"
+
+#: ../menulibre/MenulibreWindow.py:246
+msgid "Name"
+msgstr "Nombre"
+
+#: ../data/ui/AboutMenulibreDialog.ui.h:1
+msgid "Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>"
+msgstr "Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>"
+
+#: ../data/ui/AboutMenulibreDialog.ui.h:2
+msgid ""
+"# Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>\n"
+"# This program is free software: you can redistribute it and/or modify it \n"
+"# under the terms of the GNU General Public License version 3, as published "
+"\n"
+"# by the Free Software Foundation.\n"
+"# \n"
+"# This program is distributed in the hope that it will be useful, but \n"
+"# WITHOUT ANY WARRANTY; without even the implied warranties of \n"
+"# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR \n"
+"# PURPOSE.  See the GNU General Public License for more details.\n"
+"# \n"
+"# You should have received a copy of the GNU General Public License along \n"
+"# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
+msgstr ""
+
+#: ../menulibre/__init__.py:34
+msgid "Show debug messages (-vv debugs menulibre_lib also)"
+msgstr "Mostrar mensajes de depuración (-vv depura menulibre_lib también)"
+
+#: ../menulibre.desktop.in.h:1
+msgid "Menu Editor"
+msgstr "Editor de menús"
+
+#: ../menulibre.desktop.in.h:2
+msgid "Edit System and User Menus with ease"
+msgstr "Edite los menús del sistema y del usuario con facilidad"
