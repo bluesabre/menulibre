@@ -1,3 +1,12 @@
+menulibre (12.08.6) precise; urgency=low
+
+  * Added Spanish translation.
+  * Added Russian translation.
+  * Added Chinese translation.
+  * Added French translation.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Mon, 06 Aug 2012 15:48:15 -0400
+
 menulibre (12.08.5) precise; urgency=low
 
   * New release.
