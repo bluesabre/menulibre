@@ -136,12 +136,19 @@ class IconTheme(Gtk.IconTheme):
                                 size = 'symbolic'
                             elif not size or not size_set_first:
                                 size = str(int(second_dir.split('x')[0]))
-                            for filename in os.listdir( os.path.join( self.theme_dir, toplevel_folder, second_dir ) ):
-                                if os.path.isfile( os.path.join( self.theme_dir, toplevel_folder, second_dir, filename ) ) and os.path.splitext(filename)[1] != '.icon':
-                                    icon_name = os.path.splitext(filename)[0].replace('-symbolic', '')
-                                    if icon_name not in self.index.keys():
-                                        self.index[icon_name] = dict()
-                                    self.index[icon_name][size] = os.path.join( self.theme_dir, toplevel_folder, second_dir, filename )
+                            if os.path.isdir( os.path.join( self.theme_dir, toplevel_folder, second_dir ) ):
+                                for filename in os.listdir( os.path.join( self.theme_dir, toplevel_folder, second_dir ) ):
+                                    if os.path.isfile( os.path.join( self.theme_dir, toplevel_folder, second_dir, filename ) ) and os.path.splitext(filename)[1] != '.icon':
+                                        icon_name = os.path.splitext(filename)[0].replace('-symbolic', '')
+                                        if icon_name not in self.index.keys():
+                                            self.index[icon_name] = dict()
+                                        self.index[icon_name][size] = os.path.join( self.theme_dir, toplevel_folder, second_dir, filename )
+                            elif os.path.isfile( os.path.join( self.theme_dir, toplevel_folder, second_dir ) ):
+                                icon_name = os.path.splitext(filename)[0].replace('-symbolic', '')
+                                if icon_name not in self.index.keys():
+                                    self.index[icon_name] = dict()
+                                self.index[icon_name][size] = os.path.join( self.theme_dir, toplevel_folder, second_dir, filename )
+                                
                 except ValueError:
                     pass
             self.inherits = []
