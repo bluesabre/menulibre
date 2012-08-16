@@ -1,3 +1,9 @@
+menulibre (12.08.8) precise; urgency=low
+
+  * Fix for IconTheme bug #1037283
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Thu, 16 Aug 2012 14:17:59 -0400
+
 menulibre (12.08.7) precise; urgency=low
 
   * New release.
