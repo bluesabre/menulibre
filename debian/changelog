@@ -1,3 +1,9 @@
+menulibre (12.08.11) precise; urgency=low
+
+  * New release.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Tue, 21 Aug 2012 21:38:24 -0400
+
 menulibre (12.08.10) precise; urgency=low
 
   * Added more safeguards to IconTheme, added Exception handler.
