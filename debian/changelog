@@ -1,3 +1,9 @@
+menulibre (12.08.12) precise; urgency=low
+
+  * Fixed toolbar labels text (usually hidden).
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Wed, 22 Aug 2012 14:58:44 -0400
+
 menulibre (12.08.11) precise; urgency=low
 
   * New release.
