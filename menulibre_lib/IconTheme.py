@@ -19,143 +19,167 @@ import os
 
 import subprocess
 
+from menulibre.MenulibreExceptions import MenulibreInitException
+
 home = os.getenv('HOME')
+
+def is_theme(directory):
+    exists = os.path.isdir(directory) and os.path.isfile( os.path.join( directory, 'index.theme' ) )
+    if not exists: return False
+    
+    peek = open( os.path.join( directory, 'index.theme' ) )
+    line = peek.readline()
+    peek.close()
+    return "[Icon Theme]" in line
+    
+    
 
 def detect_desktop_environment():
 	"""Return the current desktop environment in use."""
-    desktop_environment = 'generic'
-    if os.environ.get('KDE_FULL_SESSION') == 'true':
-        desktop_environment = 'kde'
-    elif os.environ.get('XDG_CURRENT_DESKTOP') == 'LXDE':
-        desktop_environment = 'lxde'
-    elif os.environ.get('GNOME_DESKTOP_SESSION_ID'):
-        desktop_environment = 'gnome'
-    else:
-        try:
-            query = subprocess.Popen('xprop -root _DT_SAVE_MODE', shell=True, stdout=subprocess.PIPE)
-            info = ''.join(query.stdout.readlines())
-            if ' = "xfce4"' in info:
-                desktop_environment = 'xfce'
-        except (OSError, RuntimeError):
-            pass
-    return desktop_environment
+	try:
+        desktop_environment = 'generic'
+        if os.environ.get('KDE_FULL_SESSION') == 'true':
+            desktop_environment = 'kde'
+        elif os.environ.get('XDG_CURRENT_DESKTOP') == 'LXDE':
+            desktop_environment = 'lxde'
+        elif os.environ.get('GNOME_DESKTOP_SESSION_ID'):
+            desktop_environment = 'gnome'
+        else:
+            try:
+                query = subprocess.Popen('xprop -root _DT_SAVE_MODE', shell=True, stdout=subprocess.PIPE)
+                info = ''.join(query.stdout.readlines())
+                if ' = "xfce4"' in info:
+                    desktop_environment = 'xfce'
+            except (OSError, RuntimeError):
+                pass
+        return desktop_environment
+    except Exception as e:
+        raise MenulibreInitException("IconTheme.detect_desktop_environment",
+                                        [e, desktop_environment] )
 
 de = detect_desktop_environment()
 
-if de == 'gnome':
-    from gi.repository import Gio
-    settings = Gio.Settings.new("org.gnome.desktop.interface")
-    current_theme = settings.get_string("icon-theme")
-    if not current_theme:
-        import gconf
-        client = gconf.Client()
-        current_theme = client.get_string('/desktop/gnome/interface/icon_theme')
-elif de == 'xfce':
-    query = subprocess.Popen('xfconf-query -c xsettings -p /Net/IconThemeName', shell=True, stdout=subprocess.PIPE)
-    current_theme = query.stdout.read().replace('\n', '')
-elif de == 'lxde':
-    filenames = [ os.path.join(home, '.config', 'lxsession', 'Lubuntu', 'desktop.conf'),
-                  os.path.join(home, '.config', 'lxsession', 'Lubuntu-Netbook', 'desktop.conf'), 
-                  os.path.join('/etc', 'xdg', 'lxsession', 'Lubuntu', 'desktop.conf'),
-                  os.path.join('/etc', 'xdg', 'lxsession', 'Lubuntu-Netbook', 'desktop.conf') ]
-    for path in filenames:
-        if os.path.isfile(path):
-            filename = path
-            break
-    filename = open( filename, 'r')
-    for line in filename.readlines():
-        if 'sNet/IconThemeName=' in line:
-            current_theme = line.lstrip('sNet/IconThemeName=').replace('\n', '')
-            break
-    filename.close()
-else:
-    from gi.repository import Gio
-    settings = Gio.Settings.new("org.gnome.desktop.interface")
-    current_theme = settings.get_string("icon-theme")
-    if not current_theme:
-        import gconf
-        client = gconf.Client()
-        current_theme = client.get_string('/desktop/gnome/interface/icon_theme')
+try:
+    if de == 'gnome':
+        from gi.repository import Gio
+        settings = Gio.Settings.new("org.gnome.desktop.interface")
+        current_theme = settings.get_string("icon-theme")
+        if not current_theme:
+            import gconf
+            client = gconf.Client()
+            current_theme = client.get_string('/desktop/gnome/interface/icon_theme')
+    elif de == 'xfce':
+        query = subprocess.Popen('xfconf-query -c xsettings -p /Net/IconThemeName', shell=True, stdout=subprocess.PIPE)
+        current_theme = query.stdout.read().replace('\n', '')
+    elif de == 'lxde':
+        filenames = [ os.path.join(home, '.config', 'lxsession', 'Lubuntu', 'desktop.conf'),
+                      os.path.join(home, '.config', 'lxsession', 'Lubuntu-Netbook', 'desktop.conf'), 
+                      os.path.join('/etc', 'xdg', 'lxsession', 'Lubuntu', 'desktop.conf'),
+                      os.path.join('/etc', 'xdg', 'lxsession', 'Lubuntu-Netbook', 'desktop.conf') ]
+        for path in filenames:
+            if os.path.isfile(path):
+                filename = path
+                break
+        filename = open( filename, 'r')
+        for line in filename.readlines():
+            if 'sNet/IconThemeName=' in line:
+                current_theme = line.lstrip('sNet/IconThemeName=').replace('\n', '')
+                break
+        filename.close()
+    else:
+        from gi.repository import Gio
+        settings = Gio.Settings.new("org.gnome.desktop.interface")
+        current_theme = settings.get_string("icon-theme")
+        if not current_theme:
+            import gconf
+            client = gconf.Client()
+            current_theme = client.get_string('/desktop/gnome/interface/icon_theme')
+except Exception as e:
+    raise MenulibreInitException("IconTheme.detect_current_theme", [e, de] )
 
 class IconTheme(Gtk.IconTheme):
 	"""IconTheme class that appropriately gets the current icon theme in
 	use by the current desktop environment."""
     def __init__(self, theme_name, inherited=[], main=False):
-        self.main_theme = main
-        Gtk.IconTheme.__init__(self)
-        theme_index = None
-        if theme_name == '/usr/share/pixmaps':
-            self.index = dict()
-            for file in os.listdir(theme_name):
-                if os.path.isdir(file):
-                    name = os.path.splitext(file)[0]
-                    self.index[name] = {'scalable': os.path.join( theme_name, file )}
-            self.inherits = []
-        else:
-            if os.path.isdir( os.path.join(home, '.icons', theme_name) ):
-                self.theme_dir = os.path.join(home, '.icons', theme_name)
+        try:
+            self.main_theme = main
+            Gtk.IconTheme.__init__(self)
+            theme_index = None
+            if theme_name == '/usr/share/pixmaps':
+                self.index = dict()
+                for file in os.listdir(theme_name):
+                    if os.path.isdir(file):
+                        name = os.path.splitext(file)[0]
+                        self.index[name] = {'scalable': os.path.join( theme_name, file )}
+                self.inherits = []
             else:
-                self.theme_dir = os.path.join('/usr', 'share', 'icons', theme_name)
-            try:
+                if is_theme( os.path.join(home, '.icons', theme_name) ):
+                    self.theme_dir = os.path.join(home, '.icons', theme_name)
+                elif is_theme( os.path.join('/usr', 'share', 'icons', theme_name) ):
+                    self.theme_dir = os.path.join('/usr', 'share', 'icons', theme_name)
+                else:
+                    return None
+                    
                 theme_index = open( os.path.join( self.theme_dir, 'index.theme' ), 'r' )
-            except IOError:
-                if os.path.isdir( os.path.join( self.theme_dir, theme_name ) ):
-                    self.theme_dir = os.path.join( self.theme_dir, theme_name )
-                    theme_index = open( os.path.join( self.theme_dir, 'index.theme' ), 'r' )
-            inherited_themes = []
-            if theme_index != None:
-                for line in theme_index.readlines():
-                    if line[:9].lower() == 'inherits=':
-                        inherited_themes = line.split('=')[1].split(',')
-                        break
-                inherited.append(theme_name)
-                theme_index.close()
-            self.index = dict()
-            for toplevel_folder in os.listdir(self.theme_dir):
-                try:
-                    size = None
-                    size_set_first = False
-                    if os.path.isdir( os.path.join( self.theme_dir, toplevel_folder ) ):
-                        if toplevel_folder.lower() == 'scalable':
-                            size = 'scalable'
-                            size_set_first = True
-                        elif toplevel_folder.lower() == 'symbolic':
-                            size = 'symbolic'
-                            size_set_first = True
-                        else:
-                            try:
-                                int(toplevel_folder.split('x')[0])
-                                size = str(int(toplevel_folder.split('x')[0]))
-                                size_set_first = True
-                            except ValueError:
-                                size = None
-                        for second_dir in os.listdir( os.path.join( self.theme_dir, toplevel_folder ) ):
-                            if second_dir == 'scalable':
+                inherited_themes = []
+                if theme_index != None:
+                    for line in theme_index.readlines():
+                        if line[:9].lower() == 'inherits=':
+                            inherited_themes = line.split('=')[1].split(',')
+                            break
+                    inherited.append(theme_name)
+                    theme_index.close()
+                self.index = dict()
+                for toplevel_folder in os.listdir(self.theme_dir):
+                    try:
+                        size = None
+                        size_set_first = False
+                        if os.path.isdir( os.path.join( self.theme_dir, toplevel_folder ) ):
+                            if toplevel_folder.lower() == 'scalable':
                                 size = 'scalable'
-                            elif second_dir == 'symbolic':
+                                size_set_first = True
+                            elif toplevel_folder.lower() == 'symbolic':
                                 size = 'symbolic'
-                            elif not size or not size_set_first:
-                                size = str(int(second_dir.split('x')[0]))
-                            if os.path.isdir( os.path.join( self.theme_dir, toplevel_folder, second_dir ) ):
-                                for filename in os.listdir( os.path.join( self.theme_dir, toplevel_folder, second_dir ) ):
-                                    if os.path.isfile( os.path.join( self.theme_dir, toplevel_folder, second_dir, filename ) ) and os.path.splitext(filename)[1] != '.icon':
-                                        icon_name = os.path.splitext(filename)[0].replace('-symbolic', '')
-                                        if icon_name not in self.index.keys():
-                                            self.index[icon_name] = dict()
-                                        self.index[icon_name][size] = os.path.join( self.theme_dir, toplevel_folder, second_dir, filename )
-                            elif os.path.isfile( os.path.join( self.theme_dir, toplevel_folder, second_dir ) ):
-                                icon_name = os.path.splitext(filename)[0].replace('-symbolic', '')
-                                if icon_name not in self.index.keys():
-                                    self.index[icon_name] = dict()
-                                self.index[icon_name][size] = os.path.join( self.theme_dir, toplevel_folder, second_dir, filename )
-                                
-                except ValueError:
-                    pass
-            self.inherits = []
-            for theme in inherited_themes:
-                if theme not in inherited:
-                    self.inherits.append(IconTheme(theme.replace('\n', ''), inherited))
-            self.inherits.append(IconTheme('/usr/share/pixmaps', None))
+                                size_set_first = True
+                            else:
+                                try:
+                                    int(toplevel_folder.split('x')[0])
+                                    size = str(int(toplevel_folder.split('x')[0]))
+                                    size_set_first = True
+                                except ValueError:
+                                    size = None
+                            for second_dir in os.listdir( os.path.join( self.theme_dir, toplevel_folder ) ):
+                                if second_dir == 'scalable':
+                                    size = 'scalable'
+                                elif second_dir == 'symbolic':
+                                    size = 'symbolic'
+                                elif not size or not size_set_first:
+                                    size = str(int(second_dir.split('x')[0]))
+                                if os.path.isdir( os.path.join( self.theme_dir, toplevel_folder, second_dir ) ):
+                                    for filename in os.listdir( os.path.join( self.theme_dir, toplevel_folder, second_dir ) ):
+                                        if os.path.isfile( os.path.join( self.theme_dir, toplevel_folder, second_dir, filename ) ) and os.path.splitext(filename)[1] != '.icon':
+                                            icon_name = os.path.splitext(filename)[0].replace('-symbolic', '')
+                                            if icon_name not in self.index.keys():
+                                                self.index[icon_name] = dict()
+                                            self.index[icon_name][size] = os.path.join( self.theme_dir, toplevel_folder, second_dir, filename )
+                                elif os.path.isfile( os.path.join( self.theme_dir, toplevel_folder, second_dir ) ):
+                                    icon_name = os.path.splitext(filename)[0].replace('-symbolic', '')
+                                    if icon_name not in self.index.keys():
+                                        self.index[icon_name] = dict()
+                                    self.index[icon_name][size] = os.path.join( self.theme_dir, toplevel_folder, second_dir, filename )
+                                    
+                    except ValueError:
+                        pass
+                self.inherits = []
+                for theme in inherited_themes:
+                    if theme not in inherited:
+                        inherit_theme = IconTheme(theme.replace('\n', ''), inherited)
+                        if inherit_theme != None:
+                            self.inherits.append(inherit_theme)
+                self.inherits.append(IconTheme('/usr/share/pixmaps', None))
+        except Exception as e:
+            raise MenulibreInitException("IconTheme.__init__",
+                                        [e, self.main_theme, theme_name, self.theme_dir] )
 
     def get_theme_GdkPixbuf(self, name, IconSize):
 		"""Return a GdkPixbuf for an icon name at size IconSize."""
