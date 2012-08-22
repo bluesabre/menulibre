@@ -6,4 +6,27 @@ else
 	dh $@ --with python2
 endif
 
+override_dh_auto_install:
+	dh_auto_install -- --install-scripts=/opt/extras.ubuntu.com/menulibre/bin                 --install-data=/opt/extras.ubuntu.com/menulibre                 --install-lib=/opt/extras.ubuntu.com/menulibre
 
+override_dh_python2:
+	dh_python2 /opt/extras.ubuntu.com/menulibre
+
+
+override_dh_install:
+	dh_install
+	mkdir -p debian/menulibre/opt/extras.ubuntu.com/menulibre/bin
+	if [ -x debian/menulibre/opt/extras.ubuntu.com/menulibre/menulibre/menulibre ]; then mv debian/menulibre/opt/extras.ubuntu.com/menulibre/menulibre/menulibre debian/menulibre/opt/extras.ubuntu.com/menulibre/bin; fi
+	if [ -f debian/menulibre/opt/extras.ubuntu.com/menulibre/share/applications/menulibre.desktop ]; then \
+		mkdir -p debian/menulibre/usr/share/applications; \
+		mv debian/menulibre/opt/extras.ubuntu.com/menulibre/share/applications/menulibre.desktop debian/menulibre/usr/share/applications/extras-menulibre.desktop; \
+		rmdir --ignore-fail-on-non-empty debian/menulibre/opt/extras.ubuntu.com/menulibre/share/applications; \
+		sed -i 's|Exec=[^ ]*|Exec=/opt/extras.ubuntu.com/menulibre/bin/menulibre|' debian/menulibre/usr/share/applications/extras-menulibre.desktop; \
+		sed -i 's|Icon=/usr/|Icon=/opt/extras.ubuntu.com/menulibre/|' debian/menulibre/usr/share/applications/extras-menulibre.desktop; \
+	fi
+	grep -RlZ 'import gettext' debian/menulibre/* | xargs -0 -r sed -i 's|\(import\) gettext$$|\1 locale|'
+	grep -RlZ 'from gettext import gettext as _' debian/menulibre/* | xargs -0 -r sed -i 's|from gettext \(import gettext as _\)|from locale \1|'
+	grep -RlZ "gettext.textdomain('menulibre')" debian/menulibre/* | xargs -0 -r sed -i "s|gettext\(\.textdomain('menulibre')\)|locale\.bindtextdomain('menulibre', '/opt/extras.ubuntu.com/menulibre/share/locale')\nlocale\1|" 
+	sed -i "s|__menulibre_data_directory__ =.*|__menulibre_data_directory__ = '/opt/extras.ubuntu.com/menulibre/share/menulibre/'|" debian/menulibre/opt/extras.ubuntu.com/menulibre/menulibre*/menulibreconfig.py
+	sed -i 's|        sys.path.insert(0, opt_path)|\0\n    os.putenv("XDG_DATA_DIRS", "%s:%s" % ("/opt/extras.ubuntu.com/menulibre/share/", os.getenv("XDG_DATA_DIRS", "")))|' debian/menulibre/opt/extras.ubuntu.com/menulibre/bin/menulibre
+	if [ -d debian/menulibre/opt/extras.ubuntu.com/menulibre/share/glib-2.0/schemas ]; then glib-compile-schemas debian/menulibre/opt/extras.ubuntu.com/menulibre/share/glib-2.0/schemas; fi
