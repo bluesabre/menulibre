@@ -633,8 +633,8 @@
                         <property name="can_focus">False</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
-                        <accelerator key="q" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                         <accelerator key="w" signal="activate" modifiers="GDK_CONTROL_MASK"/>
+                        <accelerator key="q" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                         <signal name="activate" handler="on_file_quit_activate" swapped="no"/>
                       </object>
                     </child>
@@ -760,7 +760,7 @@
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Add Launcher</property>
                 <property name="use_action_appearance">False</property>
-                <property name="label" translatable="yes">toolbutton1</property>
+                <property name="label" translatable="yes">Add Launcher</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-new</property>
               </object>
@@ -777,7 +777,7 @@
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Save All Changes</property>
                 <property name="use_action_appearance">False</property>
-                <property name="label" translatable="yes">toolbutton3</property>
+                <property name="label" translatable="yes">Save</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-save</property>
                 <signal name="clicked" handler="on_toolbar_save_clicked" swapped="no"/>
@@ -807,7 +807,7 @@
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Undo the last action</property>
                 <property name="use_action_appearance">False</property>
-                <property name="label" translatable="yes">toolbutton5</property>
+                <property name="label" translatable="yes">Undo</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-undo</property>
                 <signal name="clicked" handler="on_toolbar_undo_clicked" swapped="no"/>
@@ -825,7 +825,7 @@
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Redo the last undone action</property>
                 <property name="use_action_appearance">False</property>
-                <property name="label" translatable="yes">toolbutton6</property>
+                <property name="label" translatable="yes">Redo</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-redo</property>
                 <signal name="clicked" handler="on_toolbar_redo_clicked" swapped="no"/>
@@ -855,7 +855,7 @@
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Revert all changes to last saved state</property>
                 <property name="use_action_appearance">False</property>
-                <property name="label" translatable="yes">toolbutton9</property>
+                <property name="label" translatable="yes">Revert</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-revert-to-saved</property>
                 <signal name="clicked" handler="on_toolbar_revert_clicked" swapped="no"/>
@@ -2061,6 +2061,9 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <signal name="cursor-changed" handler="on_quicklists_treeview_cursor_changed" swapped="no"/>
+                            <child internal-child="selection">
+                              <object class="GtkTreeSelection" id="treeview-selection3"/>
+                            </child>
                           </object>
                         </child>
                       </object>
