@@ -1,4 +1,4 @@
-menulibre (12.08.12) precise; urgency=low
+menulibre (12.08.12) quantal; urgency=low
 
   * Fixed toolbar labels text (usually hidden).
 

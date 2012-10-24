@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-21 12:09-0400\n"
+"POT-Creation-Date: 2012-10-24 07:29-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -94,170 +94,166 @@ msgid "Add Launcher"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:20
-msgid "toolbutton1"
-msgstr ""
-
-#: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Save All Changes"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:22
-msgid "toolbutton3"
+#: ../data/ui/MenulibreWindow.ui.h:21
+msgid "Save"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:23
+#: ../data/ui/MenulibreWindow.ui.h:22
 msgid "Undo the last action"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:24
-msgid "toolbutton5"
+#: ../data/ui/MenulibreWindow.ui.h:23
+msgid "Undo"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:25
+#: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Redo the last undone action"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:26
-msgid "toolbutton6"
+#: ../data/ui/MenulibreWindow.ui.h:25
+msgid "Redo"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:27
+#: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Revert all changes to last saved state"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:28
-msgid "toolbutton9"
+#: ../data/ui/MenulibreWindow.ui.h:27
+msgid "Revert"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:29
+#: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Category"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:30
+#: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:31
+#: ../data/ui/MenulibreWindow.ui.h:30
 msgid "<b>No applications found.</b>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:32
+#: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Try searching everything."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:33
+#: ../data/ui/MenulibreWindow.ui.h:32
 msgid "<big><b>Application Name</b></big>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:34
+#: ../data/ui/MenulibreWindow.ui.h:33
 msgid "<i>A quick snippet about your application.</i>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:35
+#: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Command"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:36
+#: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Working Directory"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:37
+#: ../data/ui/MenulibreWindow.ui.h:36
 msgid "<b>Application Settings</b>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:38
+#: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Run in terminal"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:39
+#: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Use startup notification"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:40
+#: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Hide from menus"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:41
+#: ../data/ui/MenulibreWindow.ui.h:40
 msgid "<b>Options</b>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:42
+#: ../data/ui/MenulibreWindow.ui.h:41
 msgid "label"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:43
+#: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Delete this launcher..."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:44
+#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "<small>Filename</small>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:45
+#: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Accessories"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:46
+#: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Development"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:47
+#: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Education"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:48
+#: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Games"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:49
+#: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Graphics"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:50
+#: ../data/ui/MenulibreWindow.ui.h:49
 msgid "Internet"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:51
+#: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Multimedia"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:52
+#: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Office"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:53
+#: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Settings"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:54
+#: ../data/ui/MenulibreWindow.ui.h:53
 msgid "System"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:55
+#: ../data/ui/MenulibreWindow.ui.h:54
 msgid "WINE"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:56
+#: ../data/ui/MenulibreWindow.ui.h:55
 msgid "<b>Categories</b>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:57
+#: ../data/ui/MenulibreWindow.ui.h:56
 msgid "General Settings"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:58
+#: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Quicklists"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:59
+#: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Editor"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:60
+#: ../data/ui/MenulibreWindow.ui.h:59
 msgid "<big><b>Remove Launcher?</b></big>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:61
+#: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Are you sure you wish to remove this launcher?  This cannot be undone."
 msgstr ""
 
