@@ -1,3 +1,15 @@
+menulibre (12.10ubuntu1) UNRELEASED; urgency=low
+
+  * Pre-upgrade checkpoint
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Wed, 24 Oct 2012 07:37:14 -0400
+
+menulibre (12.10) quantal; urgency=low
+
+  * Upgraded to latest quickly, package ready for quantal.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Wed, 24 Oct 2012 07:37:14 -0400
+
 menulibre (12.08.12) quantal; urgency=low
 
   * Fixed toolbar labels text (usually hidden).
