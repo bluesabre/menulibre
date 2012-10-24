@@ -16,9 +16,9 @@
 
 import optparse
 
-import gettext
-from gettext import gettext as _
-gettext.textdomain('menulibre')
+import locale
+from locale import gettext as _
+locale.textdomain('menulibre')
 
 from gi.repository import Gtk # pylint: disable=E0611
 

@@ -16,9 +16,9 @@
 
 import os
 
-import gettext
-from gettext import gettext as _
-gettext.textdomain('menulibre')
+import locale
+from locale import gettext as _
+locale.textdomain('menulibre')
 
 from gi.repository import Gtk, Gdk, GdkPixbuf, GObject # pylint: disable=E0611
 import logging

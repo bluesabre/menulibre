@@ -14,9 +14,9 @@
 # with this program.  If not, see <http://www.gnu.org/licenses/>.
 ### END LICENSE
 
-import gettext
-from gettext import gettext as _
-gettext.textdomain('menulibre')
+import locale
+from locale import gettext as _
+locale.textdomain('menulibre')
 
 import logging
 logger = logging.getLogger('menulibre')
