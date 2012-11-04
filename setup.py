@@ -85,15 +85,21 @@ def update_desktop_file(filename, target_pkgdata, target_scripts):
     try:
         fin = file(filename, 'r')
         fout = file(filename + '.new', 'w')
+        
+        exec_count = 0
 
         for line in fin:
-            if 'Icon=' in line:
-                line = "Icon=%s\n" % (target_pkgdata + 'media/menulibre.svg')
-            elif 'Exec=' in line:
+            #if 'Icon=' in line:
+            #    line = "Icon=%s\n" % (target_pkgdata + 'media/menulibre.svg')
+            #elif 'Exec=' in line:
+            if 'Exec=' in line:
                 cmd = line.split("=")[1].split(None, 1)
-                line = "Exec=%s" % (target_scripts + 'menulibre')
-                if len(cmd) > 1:
-                    line += " %s" % cmd[1].strip()  # Add script arguments back
+                if 'gksudo' in line:
+                    line = "Exec=%s" % ('gksudo ' + target_scripts + 'menulibre')
+                else:
+                    line = "Exec=%s" % (target_scripts + 'menulibre')
+                #if len(cmd) > 1:
+                #    line += " %s" % cmd[1].strip()  # Add script arguments back
                 line += "\n"
             fout.write(line)
         fout.flush()
