@@ -1,3 +1,9 @@
+menulibre (12.11.1) quantal; urgency=low
+
+  * Fixed Menu Quit.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Sun, 04 Nov 2012 19:38:55 -0500
+
 menulibre (12.11) quantal; urgency=low
 
   * Fixed lp 1072133, fixed System Menu configs.
