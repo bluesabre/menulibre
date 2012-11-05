@@ -247,10 +247,7 @@ class MenulibreWindow(Window):
                 Gtk.CellRendererText(), text=1))
 
                 
-  # Events
-    def on_file_quit_activate(self, widget):
-        Gtk.main_quit
-  
+  # Events  
     def on_menulibre_window_key_press_event(self, widget, event):
         """Enables some high-quality keyboard navigation."""
         keyname = Gdk.keyval_name(event.keyval)
