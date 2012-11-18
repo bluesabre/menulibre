@@ -3,3 +3,4 @@ version = 12.08.1
 template = ubuntu-application
 ppa = menulibre-dev/devel
 lp_id = menulibre
+target_distribution = precise
