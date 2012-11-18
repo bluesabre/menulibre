@@ -1,3 +1,10 @@
+menulibre (12.11.2) quantal; urgency=low
+
+  * Modified IconTheme class, adjusted application finding.  Should
+    address bugs: 1040027, 1063206, and 1079624
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Sun, 18 Nov 2012 14:13:20 -0500
+
 menulibre (12.11.1) quantal; urgency=low
 
   * Fixed Menu Quit.
