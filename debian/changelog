@@ -1,3 +1,9 @@
+menulibre (12.11.3) precise; urgency=low
+
+  * New release.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Sun, 18 Nov 2012 14:35:22 -0500
+
 menulibre (12.11.2) quantal; urgency=low
 
   * Modified IconTheme class, adjusted application finding.  Should
