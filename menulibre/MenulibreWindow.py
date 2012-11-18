@@ -27,7 +27,7 @@ logger = logging.getLogger('menulibre')
 from menulibre_lib import Window, IconTheme, Applications
 from menulibre.AboutMenulibreDialog import AboutMenulibreDialog
 
-icon_theme = IconTheme.CurrentTheme()
+icon_theme = IconTheme.MenulibreIconTheme()
 IconSize = Gtk.icon_size_lookup(Gtk.IconSize.SMALL_TOOLBAR)
 
 home = os.getenv('HOME')
@@ -292,34 +292,38 @@ class MenulibreWindow(Window):
         width = allocation.width
         if height != self.last_height or width != self.last_width:
             self.catselection.set_policy(Gtk.PolicyType.ALWAYS, Gtk.PolicyType.AUTOMATIC)
+
+            cat = self.catselection_iconview.get_model()
+            model = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int)
+            self.catselection_iconview.set_model(model)
+            
             try:
-                cat = self.catselection_iconview.get_model()
-                model = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int)
-                self.catselection_iconview.set_model(model)
                 for i in cat:
                     img = i[0]
                     string = i[1]
                     id = i[2]
                     model.append([img, string, id])
-                    
-                del cat
             except TypeError:
                 pass
+            del cat
+
             self.catselection.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
             self.appselection.set_policy(Gtk.PolicyType.ALWAYS, Gtk.PolicyType.AUTOMATIC) 
+
+            app = self.appselection_iconview.get_model()
+            model = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int)
+            self.appselection_iconview.set_model(model)
+            
             try:
-                app = self.appselection_iconview.get_model()
-                model = Gtk.ListStore(GdkPixbuf.Pixbuf, str, int)
-                self.appselection_iconview.set_model(model)
                 for i in app:
                     img = i[0]
                     string = i[1]
                     id = i[2]
                     model.append([img, string, id])
-                    
-                del app
             except TypeError:
                 pass
+            del app
+
             self.appselection.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
                 
             self.last_height = height
@@ -628,6 +632,7 @@ class MenulibreWindow(Window):
                         self.load_category_into_iconview(cat)
             self.show_appselection()
         except:
+            "IconView Error"
             pass
         self.lock_breadcrumb = False
         self.set_focus(self.appselection_iconview)
@@ -1266,7 +1271,7 @@ class MenulibreWindow(Window):
                 command = model.get_value(iter, 3)
                 quicklists.append( [enabled, shortcut_name, displayed_name, command] )
                 iter = model.iter_next(iter)
-        except AttributeError:
+        except AttributeError: # No quicklists here
             pass
         return quicklists
     

@@ -106,7 +106,6 @@ class Application:
 
     def set_name(self, name):
 		"""Set the application proper name."""
-		print 'set name: ' + name
         self.name = name
 
     def get_name(self):
@@ -214,7 +213,7 @@ class Application:
     def get_original(self):
 		"""Return the application original .desktop contents."""
         return self.original
-
+        
 def get_applications():
 	"""Return all installed applications for the current user.  If the
 	program is started as root, only show system launchers."""
@@ -222,27 +221,25 @@ def get_applications():
     app_counter = 1
     filenames = []
     if not sudo:
-        try:
-            local_apps = os.path.join( home, '.local', 'share', 'applications' )
-            for filename in os.listdir( local_apps ):
-                filenames.append(filename)
-                if os.path.isfile( os.path.join( local_apps, filename )) and os.path.splitext( filename )[1] == '.desktop':
-                    app = Application(os.path.join( local_apps, filename ))
+        for (path, dirs, files) in os.walk( os.path.join( home, '.local', 'share', 'applications' ) ):
+            for filename in files:
+                if os.path.splitext( filename )[1] == '.desktop':
+                    filenames.append(filename)
+                    app = Application(os.path.join( path, filename ))
                     app.id = app_counter
                     app_counter += 1
                     applications[app.id] = app
-        except OSError:
-            pass
-    for filename in os.listdir('/usr/share/applications'):
-        if filename not in filenames:
-            if os.path.isfile( os.path.join( '/usr/share/applications', filename )) and os.path.splitext( filename )[1] == '.desktop':
-                app = Application(os.path.join( '/usr/share/applications', filename ))
+    for (path, dirs, files) in os.walk( '/usr/share/applications' ):
+        for filename in files:
+            if os.path.splitext( filename )[1] == '.desktop':
+                filenames.append(filename)
+                app = Application(os.path.join( path, filename ))
                 app.id = app_counter
                 app_counter += 1
                 applications[app.id] = app
     return applications
     
-defaults = {'filename': '', 'icon': 'gtk-missing-image', 'name': '', 
+defaults = {'filename': '', 'icon': 'application-default-icon', 'name': '', 
             'comment': '', 'command': '', 'path': '', 'terminal': False, 
             'startupnotify': False, 'hidden': False, 'categories': [], 
             'quicklists': dict(), 'quicklist_format': 'actions', 'id': 0, 
@@ -250,7 +247,7 @@ defaults = {'filename': '', 'icon': 'gtk-missing-image', 'name': '',
     
 def read_desktop_file(filename, contents):
     """Return the settings pulled from the application .desktop file."""
-    settings = {'filename': '', 'icon': 'gtk-missing-image', 'name': '', 
+    settings = {'filename': '', 'icon': 'application-default-icon', 'name': '', 
             'comment': '', 'genericname': '', 'command': '', 'executable': '', 
             'path': '', 'terminal': False, 'startupnotify': False, 
             'hidden': False, 'categories': [], 'quicklists': dict(), 
@@ -261,41 +258,41 @@ def read_desktop_file(filename, contents):
     action_order = 0
     for line in contents.split('\n'):
         try:
-            if line[:5] == 'Icon=':
+            if line.lower().startswith('icon='):
                 settings['icon'] = line[5:]
-            elif line[:5] == 'Name=':
+            elif line.lower().startswith('name='):
                 if settings['name'] == '':
                     settings['name'] = line[5:]
                 else:
                     settings['quicklists'][quicklist_key]['name'] = line[5:]
-            elif line[:8] == 'Comment=':
+            elif line.lower().startswith('comment='):
                 settings['comment'] = line[8:]
-            elif line[:12] == 'GenericName=':
+            elif line.lower().startswith('genericname='):
                 settings['genericname'] = line[12:]
-            elif line[:5] == 'Exec=':
+            elif line.lower().startswith('exec='):
                 if settings['command'] == '':
                     settings['command'] = line[5:]
                     settings['executable'] = line[5:].split(' ')[0]
                 else:
                     settings['quicklists'][quicklist_key]['command'] = line[5:]
-            elif line[:5] == 'Path=':
+            elif line.lower().startswith('path='):
                 settings['path'] = line[5:]
-            elif line[:9] == 'Terminal=':
+            elif line.lower().startswith('terminal='):
                 settings['terminal'] = 'true' in line[9:]
-            elif line[:14] == 'StartupNotify=':
+            elif line.lower().startswith('startupnotify='):
                 settings['startupnotify'] = 'true' in line[14:]
-            elif line[:10] == 'NoDisplay=':
+            elif line.lower().startswith('nodisplay='):
                 settings['hidden'] = 'true' in line[10:]
-            elif line[:11] == 'Categories=':
+            elif line.lower().startswith('categories='):
                 settings['categories'] = line[11:].split(';')
                 try:
                     settings['categories'].remove('')
                 except ValueError:
                     pass
-            elif line[:8] == 'Actions=' or 'X-Ayatana-Desktop-Shortcuts' in line:
+            elif line.lower().startswith('actions=') or line.lower().startswith('x-ayatana-desktop-shortcuts'):
                 settings['quicklist_format'], enabled = line.split('=')
                 enabled = enabled.split(';')
-            elif line[0] == '[' and line != '[Desktop Entry]':
+            elif line.startswith('[') and not line.lower().startswith('[desktop entry]'):
                 if '[desktop action ' in line.lower():
                     quicklist_key = line[16:].replace(']', '')
                 elif ' shortcut group]' in line.lower():
