@@ -233,7 +233,7 @@ class MenulibreWindow(Window):
         self.preview32 = self.builder.get_object('preview32')
         self.preview24 = self.builder.get_object('preview24')
         self.preview16 = self.builder.get_object('preview16')
-        self.set_preview_from_name('image-missing')
+        self.set_preview_images('image-missing')
         self.iconselection1_confirm = self.builder.get_object('iconselection1_confirm')
     
       # Icon Selection Dialog 2 (All Icons)
@@ -352,6 +352,9 @@ class MenulibreWindow(Window):
         """When the Save toolbar icon is clicked, save the desktop file.
         If modifying a system entry while not sudo-powered, create a new
         launcher in /home/USERNAME/.local/share/applications."""
+        self.general_name_modify_accept()
+        self.general_comment_modify_accept()
+                
         filename = self.get_application_filename()
         text = self.get_application_text()
         try:
@@ -914,7 +917,7 @@ class MenulibreWindow(Window):
 		selection button as well."""
         self.iconselection_theme.set_sensitive( radio_button.get_active() )
         if radio_button.get_active():
-            self.set_preview_from_name(self.iconselection_theme_entry.get_text())
+            self.set_preview_images(self.iconselection_theme_entry.get_text())
             self.iconselection1_confirm.set_sensitive(True)
     
     def on_iconselection_radio_image_toggled(self, radio_button):
@@ -922,7 +925,7 @@ class MenulibreWindow(Window):
 		selection button as well."""
         self.iconselection_image.set_sensitive( radio_button.get_active() )
         if radio_button.get_active():
-            self.set_preview_from_filename( self.iconselection_image.get_filename() )
+            self.set_preview_images( self.iconselection_image.get_filename() )
             if self.iconselection_image.get_filename() == None:
                 self.iconselection1_confirm.set_sensitive(False)
             elif os.path.isfile( self.iconselection_image.get_filename() ):
@@ -933,7 +936,7 @@ class MenulibreWindow(Window):
     def on_iconselection_theme_entry_changed(self, widget):
 		"""When the theme entry is modified, set the preview to the new
 		icon."""
-        self.set_preview_from_name( self.iconselection_theme_entry.get_text() )
+        self.set_preview_images( self.iconselection_theme_entry.get_text() )
     
     def on_iconselection_theme_browse_clicked(self, button):
 		"""When the theme browse button is clicked, display the icon 
@@ -950,7 +953,7 @@ class MenulibreWindow(Window):
         """When the an image is selected from the icon selection dialog,
         set the icon image entry to its filename."""
         filename = widget.get_filename()
-        self.set_preview_from_filename(filename)
+        self.set_preview_images(filename)
         if self.iconselection_image.get_filename() == None:
             self.iconselection1_confirm.set_sensitive(False)
         elif os.path.isfile( self.iconselection_image.get_filename() ):
@@ -1084,13 +1087,12 @@ class MenulibreWindow(Window):
         """Set the application icon."""
         if icon_name == None:
             icon_name = 'application-default-icon'
+        self.general_icon_image.set_from_pixbuf( icon_theme.get_theme_GdkPixbuf(icon_name, size) )
+        self.image_filename = icon_name
         if os.path.isfile( icon_name ):
-            self.general_icon_image.set_from_pixbuf( icon_theme.get_theme_GdkPixbuf(icon_name, size) )
-            self.image_filename = icon_name
             self.iconselection_image.set_filename(icon_name)
             self.iconselection_radio_image.set_active(True)
         else:
-            self.general_icon_image.set_from_icon_name( icon_name, size )
             self.iconselection_radio_theme.set_active(True)
             self.iconselection_theme_entry.set_text( icon_name )
     
@@ -1284,28 +1286,18 @@ class MenulibreWindow(Window):
         editor buffer."""
         buffer = self.editor_textview.get_buffer()
         return buffer.get_text(buffer.get_start_iter(), buffer.get_end_iter(), False)
-
-    def set_preview_from_name(self, name):
-        """Set the Icon preview from an icon name."""
-        if name == None or len(name) == 0:
-            self.set_preview_from_name('application-default-icon')
-        else:
-            self.preview128.set_from_icon_name( name, Gtk.IconSize.UNITY )
-            self.preview48.set_from_icon_name( name, Gtk.IconSize.DIALOG )
-            self.preview32.set_from_icon_name( name, Gtk.IconSize.DND )
-            self.preview24.set_from_icon_name( name, Gtk.IconSize.LARGE_TOOLBAR )
-            self.preview16.set_from_icon_name( name, Gtk.IconSize.MENU )
             
-    def set_preview_from_filename(self, filename):
+    def set_preview_images(self, icon_name):
         """Set the Icon preview from a filename."""
-        if filename == None:
-            self.set_preview_from_name('application-default-icon')
+        if icon_name == None:
+            icon_name = 'application-default-icon'
         else:
-            self.preview128.set_from_pixbuf( icon_theme.get_theme_GdkPixbuf(filename, Gtk.IconSize.UNITY) )
-            self.preview48.set_from_pixbuf( icon_theme.get_theme_GdkPixbuf(filename, Gtk.IconSize.DIALOG) )
-            self.preview32.set_from_pixbuf( icon_theme.get_theme_GdkPixbuf(filename, Gtk.IconSize.DND) )
-            self.preview24.set_from_pixbuf( icon_theme.get_theme_GdkPixbuf(filename, Gtk.IconSize.LARGE_TOOLBAR) )
-            self.preview16.set_from_pixbuf( icon_theme.get_theme_GdkPixbuf(filename, Gtk.IconSize.MENU) )
+            self.preview128.set_from_pixbuf ( icon_theme.get_theme_GdkPixbuf(icon_name, Gtk.IconSize.UNITY) )
+            self.preview48.set_from_pixbuf  ( icon_theme.get_theme_GdkPixbuf(icon_name, Gtk.IconSize.DIALOG) )
+            self.preview32.set_from_pixbuf  ( icon_theme.get_theme_GdkPixbuf(icon_name, Gtk.IconSize.DND) )
+            self.preview24.set_from_pixbuf  ( icon_theme.get_theme_GdkPixbuf(icon_name, Gtk.IconSize.LARGE_TOOLBAR) )
+            self.preview16.set_from_pixbuf  ( icon_theme.get_theme_GdkPixbuf(icon_name, Gtk.IconSize.MENU) )
+        
         
     # -- End Helper Functions ---------------------------------------- #
     
@@ -1519,7 +1511,7 @@ class MenulibreWindow(Window):
         self.iconselection_filter.set_visible_func(self.iconselection_filter_func)
         self.iconselection_treeview.set_model(self.iconselection_filter)
         while Gtk.events_pending(): Gtk.main_iteration()
-        icons = icon_theme.get_all_icons(Gtk.IconSize.LARGE_TOOLBAR).keys()
+        icons = icon_theme.get_all_icons(Gtk.IconSize.LARGE_TOOLBAR)
         icons = sorted(icons, key=lambda icon: icon.lower())
         for icon in icons:
             if 'action' not in icon and icon[:8] != 'process-' and icon[-8:] != '-spinner':

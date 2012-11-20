@@ -41,14 +41,15 @@ class MenulibreIconTheme:
                     pixbuf = self.gtk_icon_theme.load_icon(name, width, Gtk.IconLookupFlags.USE_BUILTIN)
                 except GError:
                     if name.startswith("applications-"):
-                        pixbuf = self.gtk_icon_theme.load_icon("applications-other", width, Gtk.IconLookupFlags.USE_BUILTIN)
+                        pixbuf = self.gtk_icon_theme.load_icon("applications-other", width, Gtk.IconLookupFlags.USE_BUILTIN|Gtk.IconLookupFlags.FORCE_SVG)
                     else:
-                        pixbuf = self.gtk_icon_theme.load_icon("application-default-icon", width, Gtk.IconLookupFlags.USE_BUILTIN)
+                        pixbuf = self.gtk_icon_theme.load_icon("application-default-icon", width, Gtk.IconLookupFlags.USE_BUILTIN|Gtk.IconLookupFlags.FORCE_SVG)
+            if pixbuf.get_width() != width: pixbuf = pixbuf.scale_simple(width, height, GdkPixbuf.InterpType.HYPER)
             return pixbuf
 
     def get_all_icons(self, IconSize):
 		"""Return all unique icons at the given icon size."""
-        return self.gtk_icon_theme.list_icons()
+        return self.gtk_icon_theme.list_icons(None)
         
     def has_icon(self, icon_name):
         return icon_name in self.gtk_icon_theme.list_icons()
