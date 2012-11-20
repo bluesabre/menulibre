@@ -1,3 +1,10 @@
+menulibre (12.11.4) precise; urgency=low
+
+  * Fix for icon viewer, auto accept changes to name and comment when
+    saved.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Mon, 19 Nov 2012 19:22:05 -0500
+
 menulibre (12.11.3) precise; urgency=low
 
   * New release.

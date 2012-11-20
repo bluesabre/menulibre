@@ -1493,11 +1493,8 @@ class MenulibreWindow(Window):
             app = self.apps[app_id]
             name = app.get_name()
             icon = app.get_icon()
-            #if os.path.isfile( icon ):
             pixbuf = icon_theme.get_theme_GdkPixbuf(icon, Gtk.IconSize.BUTTON)
             self.breadcrumb_application_image.set_from_pixbuf(pixbuf)
-            #else:
-            #    self.breadcrumb_application_image.set_from_icon_name(icon, Gtk.IconSize.BUTTON)
         self.breadcrumb_application_label.set_label(name)
         self.breadcrumb_application.show_all()
         self.breadcrumb_home.set_active(False)
