@@ -1,3 +1,9 @@
+menulibre (12.11.6) quantal; urgency=low
+
+  * New release.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Mon, 19 Nov 2012 19:25:35 -0500
+
 menulibre (12.11.5) precise; urgency=low
 
   * Fix for icon viewer, auto accept changes to name and comment when
