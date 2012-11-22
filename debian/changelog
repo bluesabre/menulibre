@@ -1,3 +1,9 @@
+menulibre (12.11.7) precise; urgency=low
+
+  * Added lots of fallback icons.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Wed, 21 Nov 2012 20:29:43 -0500
+
 menulibre (12.11.6) quantal; urgency=low
 
   * New release.
