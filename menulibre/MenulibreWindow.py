@@ -113,6 +113,8 @@ class MenulibreWindow(Window):
         
         # -- Breadcrumbs (Gtk.Box) -- #
         self.breadcrumbs = self.builder.get_object('breadcrumbs')
+        context = self.breadcrumbs.get_style_context()
+        context.add_class(Gtk.STYLE_CLASS_LINKED)
         self.breadcrumb_home = self.builder.get_object('breadcrumb_home')
         self.breadcrumb_category = self.builder.get_object('breadcrumb_category')
         self.breadcrumb_category_image = self.builder.get_object('breadcrumb_category_image')
