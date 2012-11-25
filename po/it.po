@@ -1,4 +1,4 @@
-# French translation for menulibre
+# Italian translation for menulibre
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the menulibre package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-10-24 07:29-0400\n"
-"PO-Revision-Date: 2012-10-28 09:27+0000\n"
-"Last-Translator: mimilus <Unknown>\n"
-"Language-Team: French <fr@li.org>\n"
+"PO-Revision-Date: 2012-11-02 06:54+0000\n"
+"Last-Translator: Pietro Albini <Unknown>\n"
+"Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,23 +19,23 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
-msgstr "Sélectionner une icône"
+msgstr "Seleziona un'icona"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Icon Name"
-msgstr "Nom de l'icône"
+msgstr "Nome icona"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Image File"
-msgstr "Fichier Image"
+msgstr "File immagine"
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Select an Image"
-msgstr "Sélectionner une image"
+msgstr "Seleziona un'immagine"
 
 #: ../data/ui/MenulibreWindow.ui.h:5
 msgid "<b>Select Icon</b>"
-msgstr "<b>Sélectionner une icône</b>"
+msgstr "<b>Seleziona Icona</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "48x48"
@@ -59,11 +59,11 @@ msgstr "128x128"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "<b>Preview</b>"
-msgstr "<b>Aperçu</b>"
+msgstr "<b>Anteprima</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "Select an icon"
-msgstr "Sélectionner une icône"
+msgstr "Seleziona un'icona"
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "MenuLibre"
@@ -71,206 +71,206 @@ msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "_File"
-msgstr "_Fichier"
+msgstr "_File"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Add _New Launcher"
-msgstr "Ajouter un _Nouveau Lanceur"
+msgstr "Aggiungi _Nuovo Launcher"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid "_Edit"
-msgstr "_Éditer"
+msgstr "_Modifica"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "_Help"
-msgstr "_Aide"
+msgstr "_Aiuto"
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid "_Contents"
-msgstr "_Contenus"
+msgstr "_Contenuti"
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Add Launcher"
-msgstr "Ajouter un lanceur"
+msgstr "Aggiungi lanciatore"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Save All Changes"
-msgstr "Enregistrer toutes les modifications"
+msgstr "Salva tutte le modifiche"
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Save"
-msgstr "Enregistrer"
+msgstr "Salva"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
 msgid "Undo the last action"
-msgstr "Annuler la dernière action"
+msgstr "Annulla l'ultima operazione"
 
 #: ../data/ui/MenulibreWindow.ui.h:23
 msgid "Undo"
-msgstr "Annuler"
+msgstr "Annulla l'ultima azione"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Redo the last undone action"
-msgstr "Rétablir la dernière action annulée"
+msgstr "Ripristina l'ultima azione annullata"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Redo"
-msgstr "Répéter"
+msgstr "Ripeti"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Revert all changes to last saved state"
-msgstr "Annuler toutes les modifications du dernier état sauvé"
+msgstr "Ripristina i cambiamenti all'ultimo salvataggio"
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Revert"
-msgstr "Réinitialiser"
+msgstr "Ripristina"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Category"
-msgstr "Catégorie"
+msgstr "Categoria"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application"
-msgstr "Application"
+msgstr "Applicazione"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
 msgid "<b>No applications found.</b>"
-msgstr "<b>Pas d'application trouvée.</b>"
+msgstr "<b>Nessuna applicazione trovata.</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Try searching everything."
-msgstr "Essayez de chercher tout."
+msgstr "Prova a cercare qualsiasi cosa."
 
 #: ../data/ui/MenulibreWindow.ui.h:32
 msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Nom Application</b></big>"
+msgstr "<big><b>Nome Applicazione</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "<i>A quick snippet about your application.</i>"
-msgstr "<i>Un extrait rapide à propos de votre application.</i>"
+msgstr "<i>Una piccola descrizione sulla tua applicazione.</i>"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Command"
-msgstr "Commande"
+msgstr "Comando"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Working Directory"
-msgstr "Dossier de travail"
+msgstr "Directory di lavoro"
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "<b>Application Settings</b>"
-msgstr "<b>Paramètres Application</b>"
+msgstr "<b>Impostazioni Applicazione</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Run in terminal"
-msgstr "Exécuter dans un terminal"
+msgstr "Esegui nel terminale"
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Use startup notification"
-msgstr "Utiliser la notification de démarrage"
+msgstr "Usa la notifica all'avvio"
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Hide from menus"
-msgstr "Masquer depuis menus"
+msgstr "Nascondi nel menu"
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "<b>Options</b>"
-msgstr "<b>Options</b>"
+msgstr "<b>Opzioni</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "label"
-msgstr "nom"
+msgstr "etichetta"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Delete this launcher..."
-msgstr "Supprimer ce lanceur ..."
+msgstr "Elimina questo lanciatore..."
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "<small>Filename</small>"
-msgstr "<small>Nom de fichier</small>"
+msgstr "<small>Nome file</small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Accessories"
-msgstr "Accessoires"
+msgstr "Accessori"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Development"
-msgstr "Développement"
+msgstr "Sviluppo"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Education"
-msgstr "Éducation"
+msgstr "Istruzione"
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Games"
-msgstr "Jeux"
+msgstr "Giochi"
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Graphics"
-msgstr "Infographie"
+msgstr "Grafica"
 
 #: ../data/ui/MenulibreWindow.ui.h:49
 msgid "Internet"
-msgstr "Internet"
+msgstr "Internet e Reti"
 
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Multimedia"
-msgstr "Multimédia"
+msgstr "Multimedia"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Office"
-msgstr "Bureau"
+msgstr "Ufficio"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Settings"
-msgstr "Paramètres"
+msgstr "Impostazioni"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "System"
-msgstr "Système"
+msgstr "Sistema"
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "WINE"
-msgstr "WINE"
+msgstr "Wine"
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid "<b>Categories</b>"
-msgstr "<b>Catégories</b>"
+msgstr "<b>Categorie</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "General Settings"
-msgstr "Paramètres généraux"
+msgstr "Impostazioni Generali"
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Quicklists"
-msgstr "Listes rapides"
+msgstr "Quicklists"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Editor"
-msgstr "Éditeur"
+msgstr "Editor"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "<big><b>Remove Launcher?</b></big>"
-msgstr "<big><b>Supprimer le lanceur ?</b></big>"
+msgstr "<big><b>Rimuovere Lanciatore?</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid ""
 "Are you sure you wish to remove this launcher?  This cannot be undone."
 msgstr ""
-"Êtes-vous sûr de vouloir supprimer ce lanceur ? Cela ne pourra pas être "
-"annulé."
+"Sei sicuro di voler rimuovere questo lanciatore? L'operazione non può essere "
+"annullata."
 
 #: ../menulibre/MenulibreWindow.py:191
 msgid "Show"
-msgstr "Afficher"
+msgstr "Mostra"
 
 #: ../menulibre/MenulibreWindow.py:244
 msgid "Image"
-msgstr "Image"
+msgstr "Immagine"
 
 #: ../menulibre/MenulibreWindow.py:246
 msgid "Name"
-msgstr "Nom"
+msgstr "Nome"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:1
 msgid "Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>"
@@ -293,26 +293,28 @@ msgid ""
 "# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
 msgstr ""
 "# Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>\n"
-"# This program is free software: you can redistribute it and/or modify it\n"
-"# under the terms of the GNU General Public License version 3, as published\n"
+"# This program is free software: you can redistribute it and/or modify it \n"
+"# under the terms of the GNU General Public License version 3, as published "
+"\n"
 "# by the Free Software Foundation.\n"
-"#\n"
-"# This program is distributed in the hope that it will be useful, but\n"
-"# WITHOUT ANY WARRANTY; without even the implied warranties of\n"
-"# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR\n"
-"# PURPOSE. See the GNU General Public License for more details.\n"
-"#\n"
-"# You should have received a copy of the GNU General Public License along\n"
-"# with this program. If not, see <http://www.gnu.org/licenses/>.\n"
+"# \n"
+"# This program is distributed in the hope that it will be useful, but \n"
+"# WITHOUT ANY WARRANTY; without even the implied warranties of \n"
+"# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR \n"
+"# PURPOSE.  See the GNU General Public License for more details.\n"
+"# \n"
+"# You should have received a copy of the GNU General Public License along \n"
+"# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
 
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages (-vv debugs menulibre_lib also)"
-msgstr "Afficher les messages de débogage (-vv débogue menulibre_lib aussi)"
+msgstr ""
+"Mostra messaggi di debug (-vv effettua il debug anche di menulibre_lib)"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr "Éditeur de menus"
+msgstr "Editor del Menu"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Edit System and User Menus with ease"
-msgstr "Modifier les menus Système et Utilisateur avec facilité"
+msgstr "Modifica i menu degli utenti e di sistema con facilità"
