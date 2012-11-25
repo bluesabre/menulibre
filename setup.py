@@ -142,7 +142,7 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
 
 DistUtilsExtra.auto.setup(
     name='menulibre',
-    version='12.11.10',
+    version='12.11.11',
     license='GPL-3',
     author='Sean Davis',
     author_email='smd.seandavis@gmail.com',
