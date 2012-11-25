@@ -1,3 +1,9 @@
+menulibre (12.11.12) precise; urgency=low
+
+  * Fixed function for loading icon file.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Sun, 25 Nov 2012 12:14:47 -0500
+
 menulibre (12.11.11) quantal; urgency=low
 
   * New release.
