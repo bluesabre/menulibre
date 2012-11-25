@@ -1,3 +1,15 @@
+menulibre (12.11.9ubuntu1) UNRELEASED; urgency=low
+
+  * Add the linked-class to breadcrumbs
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Sun, 25 Nov 2012 09:54:22 -0500
+
+menulibre (12.11.9) precise; urgency=low
+
+  * Translations update.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Sun, 25 Nov 2012 09:54:22 -0500
+
 menulibre (12.11.8) quantal; urgency=low
 
   * New release.
