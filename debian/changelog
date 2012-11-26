@@ -1,3 +1,9 @@
+menulibre (12.11.15) precise; urgency=low
+
+  * New release.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Mon, 26 Nov 2012 05:25:47 -0500
+
 menulibre (12.11.14ubuntu1) UNRELEASED; urgency=low
 
   * Another attempt at properly packaging image files.
