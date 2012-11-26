@@ -18,6 +18,8 @@ from gi.repository import Gtk, GdkPixbuf
 from gi._glib import GError
 import os
 
+from menulibreconfig import get_data_file
+
 import subprocess
 
 home = os.getenv('HOME')
@@ -45,7 +47,7 @@ class MenulibreIconTheme:
                     pixbuf = self.gtk_icon_theme.load_icon("applications-other", width, icon_flags)
                 except GError:
                     # If that fails, fallback on our backup tango icon.
-                    pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size("../data/icons/applications-other.svg", width, height)
+                    pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(get_data_file("media", "applications-other.svg"), width, height)
             else:
                 # Make sure the icon name doesn't have an extension...
                 name = os.path.splitext(name)[0]
@@ -62,7 +64,7 @@ class MenulibreIconTheme:
                             pixbuf = self.gtk_icon_theme.load_icon("image-missing", width, icon_flags)
                         except GError:
                             # And if that fails, use the backup fallback icon.
-                            pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size("../data/icons/image-missing.svg", width, height)
+                            pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(get_data_file("media", "image-missing.svg"), width, height)
 
         if pixbuf.get_width() != width: pixbuf = pixbuf.scale_simple(width, height, GdkPixbuf.InterpType.HYPER)
         return pixbuf

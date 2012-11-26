@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-24 07:29-0400\n"
+"POT-Creation-Date: 2012-11-26 05:20-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -257,15 +257,15 @@ msgstr ""
 msgid "Are you sure you wish to remove this launcher?  This cannot be undone."
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:191
+#: ../menulibre/MenulibreWindow.py:193
 msgid "Show"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:244
+#: ../menulibre/MenulibreWindow.py:246
 msgid "Image"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:246
+#: ../menulibre/MenulibreWindow.py:248
 msgid "Name"
 msgstr ""
 
