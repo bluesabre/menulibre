@@ -224,7 +224,7 @@ def get_applications():
         for (path, dirs, files) in os.walk( os.path.join( home, '.local', 'share', 'applications' ) ):
             for filename in files:
                 if os.path.splitext( filename )[1] == '.desktop':
-                    filenames.append(filename)
+                    filenames.append(['local', filename])
                     app = Application(os.path.join( path, filename ))
                     app.id = app_counter
                     app_counter += 1
@@ -232,11 +232,12 @@ def get_applications():
     for (path, dirs, files) in os.walk( '/usr/share/applications' ):
         for filename in files:
             if os.path.splitext( filename )[1] == '.desktop':
-                filenames.append(filename)
-                app = Application(os.path.join( path, filename ))
-                app.id = app_counter
-                app_counter += 1
-                applications[app.id] = app
+                if ['local', filename] not in filenames:
+                    filenames.append(['system', filename])
+                    app = Application(os.path.join( path, filename ))
+                    app.id = app_counter
+                    app_counter += 1
+                    applications[app.id] = app
     return applications
     
 defaults = {'filename': '', 'icon': 'application-default-icon', 'name': '', 
