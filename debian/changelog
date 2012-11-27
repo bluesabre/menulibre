@@ -1,3 +1,17 @@
+menulibre (12.11.17ubuntu1) UNRELEASED; urgency=low
+
+  * Prevent local/system launcher duplication in icon-view.
+  * Added license header to MenulibreExceptions.py
+  * Added additional detection for wine applications.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Tue, 27 Nov 2012 05:20:09 -0500
+
+menulibre (12.11.17) precise; urgency=low
+
+  * Reordered help shortcut keys.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Tue, 27 Nov 2012 05:20:09 -0500
+
 menulibre (12.11.16) quantal; urgency=low
 
   * New release.
