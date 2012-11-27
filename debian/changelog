@@ -1,3 +1,9 @@
+menulibre (12.11.18) precise; urgency=low
+
+  * New release.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Tue, 27 Nov 2012 05:20:43 -0500
+
 menulibre (12.11.17ubuntu1) UNRELEASED; urgency=low
 
   * Prevent local/system launcher duplication in icon-view.
