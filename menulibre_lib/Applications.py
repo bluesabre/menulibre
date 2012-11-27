@@ -303,4 +303,8 @@ def read_desktop_file(filename, contents):
                 settings['quicklists'][quicklist_key]['enabled'] = quicklist_key in enabled
         except (IndexError, UnboundLocalError):
             pass
+    # Check for uncategorized WINE applications...
+    if len(settings['categories']) == 0:
+        if 'wine' in os.path.split(settings['filename'])[0]:
+            settings['categories'].append('Wine')
     return settings
