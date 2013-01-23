@@ -29,6 +29,7 @@ from menulibre.AboutMenulibreDialog import AboutMenulibreDialog
 
 icon_theme = IconTheme.MenulibreIconTheme()
 IconSize = Gtk.icon_size_lookup(Gtk.IconSize.SMALL_TOOLBAR)
+breadcrumb_icon_size = Gtk.IconSize.LARGE_TOOLBAR
 
 home = os.getenv('HOME')
 
@@ -1477,7 +1478,7 @@ class MenulibreWindow(Window):
             name, icon, catid, apps = category
         if self.breadcrumb_category_label.get_label() != name:
             self.breadcrumb_application.hide()
-        self.breadcrumb_category_image.set_from_icon_name( icon, Gtk.IconSize.BUTTON )
+        self.breadcrumb_category_image.set_from_icon_name( icon, breadcrumb_icon_size )
         self.breadcrumb_category_label.set_label(name)
         self.breadcrumb_category.show_all()
         self.breadcrumb_home.set_active(False)
@@ -1490,12 +1491,12 @@ class MenulibreWindow(Window):
         if app_id == 1337:
             name = 'New Menu Item'
             icon = 'gtk-add'
-            self.breadcrumb_application_image.set_from_stock(icon, Gtk.IconSize.BUTTON)
+            self.breadcrumb_application_image.set_from_stock(icon, breadcrumb_icon_size)
         else:
             app = self.apps[app_id]
             name = app.get_name()
             icon = app.get_icon()
-            pixbuf = icon_theme.get_theme_GdkPixbuf(icon, Gtk.IconSize.BUTTON)
+            pixbuf = icon_theme.get_theme_GdkPixbuf(icon, breadcrumb_icon_size)
             self.breadcrumb_application_image.set_from_pixbuf(pixbuf)
         self.breadcrumb_application_label.set_label(name)
         self.breadcrumb_application.show_all()
