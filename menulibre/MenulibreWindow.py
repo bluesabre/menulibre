@@ -50,18 +50,18 @@ class MenulibreWindow(Window):
 
 		self.sudo = os.getuid() == 0
 		self.apps = Applications.get_applications()
-        self.categories = { 'AudioVideo': ['Multimedia', 'applications-multimedia', -7, []],
-                            'Development': ['Development', 'applications-development', -2, []],
-                            'Education': ['Education', 'applications-education', -3, []],
-                            'Game': ['Games', 'applications-games', -4, []],
-                            'Graphics': ['Graphics', 'applications-graphics', -5, []],
-                            'Network': ['Internet', 'applications-internet', -6, []],
-                            'Office': ['Office', 'applications-office', -8, []],
-                            'Other': ['Other', 'applications-other', -9, []],
-                            'Settings': ['Settings', 'preferences-desktop', -10, []],
-                            'System': ['System', 'applications-system', -11, []],
-                            'Utility': ['Accessories', 'applications-accessories', -1, []],
-                            'WINE': ['WINE', 'wine', -12, []]}
+        self.categories = { 'AudioVideo': [_('Multimedia'), 'applications-multimedia', -7, []],
+                            'Development': [_('Development'), 'applications-development', -2, []],
+                            'Education': [_('Education'), 'applications-education', -3, []],
+                            'Game': [_('Games'), 'applications-games', -4, []],
+                            'Graphics': [_('Graphics'), 'applications-graphics', -5, []],
+                            'Network': [_('Internet'), 'applications-internet', -6, []],
+                            'Office': [_('Office'), 'applications-office', -8, []],
+                            'Other': [_('Other'), 'applications-other', -9, []],
+                            'Settings': [_('Settings'), 'preferences-desktop', -10, []],
+                            'System': [_('System'), 'applications-system', -11, []],
+                            'Utility': [_('Accessories'), 'applications-accessories', -1, []],
+                            'WINE': [_('WINE'), 'wine', -12, []]}
         
         self.undo_stack = []
         self.redo_stack = []
