@@ -28,50 +28,61 @@ class MenulibreIconTheme:
     def __init__(self):
         self.gtk_icon_theme = Gtk.IconTheme.get_default()
         
-    def get_theme_GdkPixbuf(self, name, IconSize):
-		"""Return a GdkPixbuf for an icon name at size IconSize."""
-		icon_flags = Gtk.IconLookupFlags.USE_BUILTIN|Gtk.IconLookupFlags.FORCE_SVG
-        unused, width, height = Gtk.icon_size_lookup(IconSize)
-        if os.path.isfile(name):
-            pixbuf = GdkPixbuf.Pixbuf.new_from_file(name)
-            return pixbuf.scale_simple(width, height, GdkPixbuf.InterpType.HYPER)
+    def load_icon(self, name, IconSize):
+        pixbuf_flags = Gtk.IconLookupFlags.USE_BUILTIN|Gtk.IconLookupFlags.FORCE_SVG
+        ret, width, height = Gtk.icon_size_lookup(IconSize)
+        
+        pixbuf = self.get_theme_GdkPixbuf( name, width, height, pixbuf_flags )
+        
+        if pixbuf.get_height() != height: 
+            pixbuf = pixbuf.scale_simple(width, height, GdkPixbuf.InterpType.HYPER)
             
-        try:
-            # Try to load the icon name from the theme...
-            pixbuf = self.gtk_icon_theme.load_icon(name, width, icon_flags)
-        except GError:
-            # If that fails, split paths between category and application.
-            if name.startswith("applications-"):
-                try:
-                    # Try the load the theme "applications-other" icon.
-                    pixbuf = self.gtk_icon_theme.load_icon("applications-other", width, icon_flags)
-                except GError:
-                    # If that fails, fallback on our backup tango icon.
-                    pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(get_data_file("media", "applications-other.svg"), width, height)
-            else:
-                # Make sure the icon name doesn't have an extension...
-                name = os.path.splitext(name)[0]
-                try:
-                    # Try the load the icon again now that the extension is gone.
-                    pixbuf = self.gtk_icon_theme.load_icon(name, width, icon_flags)
-                except GError:
-                    try:
-                        # If that fails, try using the app fallback icon.
-                        pixbuf = self.gtk_icon_theme.load_icon("application-default-icon", width, icon_flags)
-                    except GError:
-                        try:
-                            # If that fails, try using the "image-missing" icon.
-                            pixbuf = self.gtk_icon_theme.load_icon("image-missing", width, icon_flags)
-                        except GError:
-                            # And if that fails, use the backup fallback icon.
-                            pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(get_data_file("media", "image-missing.svg"), width, height)
-
-        if pixbuf.get_width() != width: pixbuf = pixbuf.scale_simple(width, height, GdkPixbuf.InterpType.HYPER)
         return pixbuf
+        
+    def get_theme_GdkPixbuf(self, name, width, height, flags):
+		"""Return a GdkPixbuf for an icon name at size IconSize."""
+        if os.path.isfile(name):
+            try:
+                return GdkPixbuf.Pixbuf.new_from_file(name)
+            except GError:
+                pass
+            
+        else:
+            try:
+                # Try to load the icon name from the theme...
+                return self.gtk_icon_theme.load_icon(name, width, flags)
+            except GError:
+                # If that fails, split paths between category and application.
+                if name.startswith("applications-"):
+                    try:
+                        # Try the load the theme "applications-other" icon.
+                        return self.gtk_icon_theme.load_icon("applications-other", width, flags)
+                    except GError:
+                        # If that fails, fallback on our backup tango icon.
+                        return GdkPixbuf.Pixbuf.new_from_file_at_size(get_data_file("media", "applications-other.svg"), width, height)
+                else:
+                    # Make sure the icon name doesn't have an extension...
+                    name = os.path.splitext(name)[0]
+                    try:
+                        # Try the load the icon again now that the extension is gone.
+                        return self.gtk_icon_theme.load_icon(name, width, flags)
+                    except GError:
+                        pass
+                        
+        # If you're still here, try the last fallback icons...
+        try:
+            return self.gtk_icon_theme.load_icon("application-default-icon", width, flags)
+        except GError:
+            try:
+                # If that fails, try using the "image-missing" icon.
+                return self.gtk_icon_theme.load_icon("image-missing", width, flags)
+            except GError:
+                # And if that fails, use the backup fallback icon.
+                return GdkPixbuf.Pixbuf.new_from_file_at_size(get_data_file("media", "image-missing.svg"), width, height)
 
-    def get_all_icons(self, IconSize):
-		"""Return all unique icons at the given icon size."""
+    def list_icons(self):
+		"""Return all unique icon names."""
         return self.gtk_icon_theme.list_icons(None)
         
     def has_icon(self, icon_name):
-        return icon_name in self.gtk_icon_theme.list_icons()
+        return icon_name in self.list_icons()

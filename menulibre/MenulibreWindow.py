@@ -29,7 +29,10 @@ from menulibre.AboutMenulibreDialog import AboutMenulibreDialog
 
 icon_theme = IconTheme.MenulibreIconTheme()
 IconSize = Gtk.icon_size_lookup(Gtk.IconSize.SMALL_TOOLBAR)
+
 breadcrumb_icon_size = Gtk.IconSize.LARGE_TOOLBAR
+iconview_icon_size = Gtk.IconSize.DIALOG
+preview_icon_size = Gtk.IconSize.DIALOG
 
 home = os.getenv('HOME')
 
@@ -572,7 +575,7 @@ class MenulibreWindow(Window):
                         self.button_delete.hide()
                     
                     # General Settings
-                    self.set_application_icon( app.get_icon()[1], Gtk.IconSize.DIALOG )
+                    self.set_application_icon( app.get_icon()[1], preview_icon_size )
                     self.set_application_name( app.get_name() )
                     self.set_application_id( app.get_id() )
                     self.set_application_comment( app.get_comment() )
@@ -698,7 +701,7 @@ class MenulibreWindow(Window):
                     self.button_delete.hide()
                 
                 # General Settings
-                self.set_application_icon( app.get_icon()[1], Gtk.IconSize.DIALOG )
+                self.set_application_icon( app.get_icon()[1], preview_icon_size )
                 self.set_application_name( app.get_name() )
                 self.set_application_id( app.get_id() )
                 self.set_application_comment( app.get_comment() )
@@ -970,10 +973,10 @@ class MenulibreWindow(Window):
         if response == 1:
             if self.iconselection_radio_theme.get_active():
                 name = self.iconselection_theme_entry.get_text()
-                self.set_application_icon(name, Gtk.IconSize.DIALOG)
+                self.set_application_icon(name, preview_icon_size)
             elif self.iconselection_radio_image.get_active():
                 filename = self.iconselection_image.get_filename()
-                self.set_application_icon(filename, Gtk.IconSize.DIALOG)
+                self.set_application_icon(filename, preview_icon_size)
             self.update_editor()
     
     def on_iconselection_dialog2_response(self, widget, response):
@@ -1090,7 +1093,7 @@ class MenulibreWindow(Window):
         """Set the application icon."""
         if icon_name == None:
             icon_name = 'application-default-icon'
-        self.general_icon_image.set_from_pixbuf( icon_theme.get_theme_GdkPixbuf(icon_name, size) )
+        self.general_icon_image.set_from_pixbuf( icon_theme.load_icon(icon_name, size) )
         self.image_filename = icon_name
         if os.path.isfile( icon_name ):
             self.iconselection_image.set_filename(icon_name)
@@ -1295,11 +1298,11 @@ class MenulibreWindow(Window):
         if icon_name == None:
             icon_name = 'application-default-icon'
         else:
-            self.preview128.set_from_pixbuf ( icon_theme.get_theme_GdkPixbuf(icon_name, Gtk.IconSize.UNITY) )
-            self.preview48.set_from_pixbuf  ( icon_theme.get_theme_GdkPixbuf(icon_name, Gtk.IconSize.DIALOG) )
-            self.preview32.set_from_pixbuf  ( icon_theme.get_theme_GdkPixbuf(icon_name, Gtk.IconSize.DND) )
-            self.preview24.set_from_pixbuf  ( icon_theme.get_theme_GdkPixbuf(icon_name, Gtk.IconSize.LARGE_TOOLBAR) )
-            self.preview16.set_from_pixbuf  ( icon_theme.get_theme_GdkPixbuf(icon_name, Gtk.IconSize.MENU) )
+            self.preview128.set_from_pixbuf ( icon_theme.load_icon(icon_name, Gtk.IconSize.UNITY) )
+            self.preview48.set_from_pixbuf  ( icon_theme.load_icon(icon_name, Gtk.IconSize.DIALOG) )
+            self.preview32.set_from_pixbuf  ( icon_theme.load_icon(icon_name, Gtk.IconSize.DND) )
+            self.preview24.set_from_pixbuf  ( icon_theme.load_icon(icon_name, Gtk.IconSize.LARGE_TOOLBAR) )
+            self.preview16.set_from_pixbuf  ( icon_theme.load_icon(icon_name, Gtk.IconSize.MENU) )
         
         
     # -- End Helper Functions ---------------------------------------- #
@@ -1423,7 +1426,7 @@ class MenulibreWindow(Window):
             # Home View
             model = self.clear_catselection_iconview()
             self.entry_search.set_placeholder_text('Search Applications')
-            image = icon_theme.get_theme_GdkPixbuf('applications-other', Gtk.IconSize.DIALOG)
+            image = icon_theme.load_icon('applications-other', iconview_icon_size)
             model.append([image, 'All Applications', -9001])
             categories = self.categories.values()
             categories = sorted(categories, key=lambda category: category[0].lower())
@@ -1431,7 +1434,7 @@ class MenulibreWindow(Window):
                 label, image, category_id, apps = category
                 if label == 'WINE' and not self.show_wine:
                     return
-                image = icon_theme.get_theme_GdkPixbuf(image, Gtk.IconSize.DIALOG)
+                image = icon_theme.load_icon(image, iconview_icon_size)
                 model.append([image, label, category_id])
             
         else:
@@ -1443,7 +1446,7 @@ class MenulibreWindow(Window):
                 self.set_breadcrumb_category(self.categories[category])
                 label = self.breadcrumb_category_label.get_label()
                 self.entry_search.set_placeholder_text('Search %s' % label)
-            icon = self.get_icon_pixbuf( 'gtk-add', Gtk.IconSize.DIALOG)
+            icon = self.get_icon_pixbuf( 'gtk-add', iconview_icon_size)
             model.append( [icon, 'Add Launcher', 1337, 'Add a new application launcher', '', ''] )
             apps = sorted(self.apps.values(), key=lambda app: app.get_name().lower())
             for app in apps:
@@ -1458,7 +1461,7 @@ class MenulibreWindow(Window):
                 if category in app.get_categories() or category == '':
                     show_app = True
                 if show_app:
-                    icon = self.get_icon_pixbuf( app.get_icon(), Gtk.IconSize.DIALOG )
+                    icon = self.get_icon_pixbuf( app.get_icon(), iconview_icon_size )
                     name = app.get_name().replace('&', '&amp;')
                     appid = app.get_id()
                     genericname = app.get_genericname()
@@ -1496,7 +1499,7 @@ class MenulibreWindow(Window):
             app = self.apps[app_id]
             name = app.get_name()
             icon = app.get_icon()
-            pixbuf = icon_theme.get_theme_GdkPixbuf(icon, breadcrumb_icon_size)
+            pixbuf = icon_theme.load_icon(icon, breadcrumb_icon_size)
             self.breadcrumb_application_image.set_from_pixbuf(pixbuf)
         self.breadcrumb_application_label.set_label(name)
         self.breadcrumb_application.show_all()
@@ -1511,17 +1514,17 @@ class MenulibreWindow(Window):
         self.iconselection_filter.set_visible_func(self.iconselection_filter_func)
         self.iconselection_treeview.set_model(self.iconselection_filter)
         while Gtk.events_pending(): Gtk.main_iteration()
-        icons = icon_theme.get_all_icons(Gtk.IconSize.LARGE_TOOLBAR)
+        icons = icon_theme.list_icons()
         icons = sorted(icons, key=lambda icon: icon.lower())
         for icon in icons:
             if 'action' not in icon and icon[:8] != 'process-' and icon[-8:] != '-spinner':
-                liststore.append( [icon_theme.get_theme_GdkPixbuf(icon, Gtk.IconSize.LARGE_TOOLBAR), icon] )
+                liststore.append( [icon_theme.load_icon(icon, Gtk.IconSize.LARGE_TOOLBAR), icon] )
             yield True
         yield False
 
     def get_icon_pixbuf(self, icon_name, IconSize):
 		"""Return a Pixbuf for icon_name at size IconSize."""
-        pixbuf = icon_theme.get_theme_GdkPixbuf( icon_name, IconSize )
+        pixbuf = icon_theme.load_icon( icon_name, IconSize )
         if pixbuf:
             return pixbuf
         
@@ -1585,7 +1588,7 @@ class MenulibreWindow(Window):
                     del self.redo_stack[:]
                     self.set_redo_enabled(False)
                 data = self.get_data_from_editor()
-                self.set_application_icon( data['icon'], Gtk.IconSize.DIALOG )
+                self.set_application_icon( data['icon'], preview_icon_size )
                 self.set_application_name( data['name'] )
                 self.set_application_id( data['id'] )
                 self.set_application_comment( data['comment'] )
@@ -1812,7 +1815,7 @@ OnlyShowIn=Unity;
         self.breadcrumb_category.set_visible(False)
         
         # General Settings
-        self.set_application_icon( 'application-default-icon', Gtk.IconSize.DIALOG )
+        self.set_application_icon( 'application-default-icon', preview_icon_size )
         self.set_application_name( 'New Menu Item' )
         self.set_application_id( 1337 )
         self.set_application_comment( 'A small descriptive blurb about this application.' )
@@ -1873,7 +1876,7 @@ Actions=
                               query.lower() in app.get_genericname().lower() or
                               query.lower() in app.get_executable().lower()):
                 counter += 1
-                icon = self.get_icon_pixbuf( app.get_icon(), Gtk.IconSize.DIALOG )
+                icon = self.get_icon_pixbuf( app.get_icon(), iconview_icon_size )
                 name = app.get_name().replace('&', '&amp;')
                 appid = app.get_id()
                 comment = app.get_comment()
