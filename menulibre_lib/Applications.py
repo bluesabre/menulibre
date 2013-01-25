@@ -226,7 +226,7 @@ def get_applications():
                 if os.path.splitext( filename )[1] == '.desktop':
                     filenames.append(['local', filename])
                     app = Application(os.path.join( path, filename ))
-                    app.id = app_counter
+                    app.id = filename
                     app_counter += 1
                     applications[app.id] = app
     for (path, dirs, files) in os.walk( '/usr/share/applications' ):
@@ -235,7 +235,7 @@ def get_applications():
                 if ['local', filename] not in filenames:
                     filenames.append(['system', filename])
                     app = Application(os.path.join( path, filename ))
-                    app.id = app_counter
+                    app.id = filename
                     app_counter += 1
                     applications[app.id] = app
     return applications
