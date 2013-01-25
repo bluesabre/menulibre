@@ -1292,10 +1292,11 @@ class MenulibreWindow(Window):
         
         apps = []
         for key in self.apps.keys():
-            app = self.apps[key]
-            desktop_file = os.path.basename(app.filename)
-            pixbuf = icon_theme.load_icon(app.icon, iconview_icon_size)
-            apps.append([pixbuf, app.name, desktop_file, ';'.join(app.categories), app.comment])
+            if key != 'MenulibreNewLauncher':
+                app = self.apps[key]
+                desktop_file = os.path.basename(app.filename)
+                pixbuf = icon_theme.load_icon(app.icon, iconview_icon_size)
+                apps.append([pixbuf, app.name, desktop_file, ';'.join(app.categories), app.comment])
         apps = sorted(apps, key=lambda app: app[1].lower())
         
         pixbuf = icon_theme.load_icon('edit-add', iconview_icon_size)
