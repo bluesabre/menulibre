@@ -171,6 +171,7 @@ class MenulibreWindow(Window):
         
         pixbuf = icon_theme.load_icon('edit-add', iconview_icon_size)
         model.append([pixbuf, _('Add Launcher'), 'MenulibreNewLauncher', 'MenulibreNoSearch', 'Add a new application launcher'])
+        self.apps['MenulibreNewLauncher'] = Applications.Application('MenulibreNewLauncher')
         for app in apps:
             model.append(app)
         
@@ -299,6 +300,11 @@ class MenulibreWindow(Window):
                 return False
                 
         if self.current_category:
+            if self.current_category == 'Other':
+                if any(category.lower() in model[iter][3].lower() for category in self.categories.keys()):
+                    return False
+                else:
+                    return True
             if not self.current_category.lower() in model[iter][3].lower():
                 return False
                 
@@ -363,22 +369,25 @@ class MenulibreWindow(Window):
                 
             self.last_height = height
             self.last_width = width
+            
+    def clear_history(self):
+        self.in_history = True
+        del self.undo_stack[:]
+        del self.redo_stack[:]
+        self.set_undo_enabled(False)
+        self.set_redo_enabled(False)
+        self.set_revert_enabled(False)
+        self.set_save_enabled(False)
+        self.in_history = False
    
     def on_toolbar_addnew_clicked(self, button):
         """When the Add New toolbar icon is clicked, go to the
         application editor and New Launcher details."""
         self.appsettings_notebook.set_current_page(0)
         self.set_position(Gtk.WindowPosition.NONE)
-
-        self.in_history = True
-        del self.undo_stack[:]
-        del self.redo_stack[:]
-        self.set_undo_enabled(False)
-        self.set_redo_enabled(False)
         
         self.new_launcher()
-        
-        self.in_history = False
+        self.clear_history()
     
     def on_toolbar_save_clicked(self, button):
         """When the Save toolbar icon is clicked, save the desktop file.
@@ -389,18 +398,36 @@ class MenulibreWindow(Window):
                 
         filename = self.get_application_filename()
         text = self.get_application_text()
-        try:
-            openfile = open(filename, 'w')
-            openfile.write(text)
-            openfile.close()
-            appid = self.get_application_id()
-            if appid == 'MenulibreNewLauncher':
+        if os.path.exists(filename):
+            try:
+                openfile = open(filename, 'w')
+                openfile.write(text)
+                openfile.close()
+                appid = self.get_application_id()
+                if appid == 'MenulibreNewLauncher':
+                    appid = len(self.apps)
+                self.apps[appid] = Applications.Application(filename)
+                self.apps[appid].set_id(appid)
+            except IOError:
+                filename = os.path.split(filename)[1]
+                filename = os.path.join( home, '.local', 'share', 'applications', filename )
+                if not os.path.isdir( os.path.join( home, '.local', 'share', 'applications') ):
+                    filepath = home
+                    for path in ['.local', 'share', 'applications']:
+                        try:
+                            filepath = os.path.join(filepath, path)
+                            os.mkdir(filepath)
+                        except OSError:
+                            pass
+                openfile = open(filename, 'w')
+                openfile.write(text)
+                openfile.close()
+                self.set_application_filename(filename)
                 appid = len(self.apps)
-            self.apps[appid] = Applications.Application(filename)
-            self.apps[appid].set_id(appid)
-        except IOError:
-            filename = os.path.split(filename)[1]
-            filename = os.path.join( home, '.local', 'share', 'applications', filename )
+                newapp = Applications.Application(filename)
+                newapp.set_id(appid)
+                self.apps[appid] = newapp
+        else:
             if not os.path.isdir( os.path.join( home, '.local', 'share', 'applications') ):
                 filepath = home
                 for path in ['.local', 'share', 'applications']:
@@ -418,12 +445,7 @@ class MenulibreWindow(Window):
             newapp.set_id(appid)
             self.apps[appid] = newapp
             
-        del self.undo_stack[:]
-        del self.redo_stack[:]
-        self.set_undo_enabled(False)
-        self.set_redo_enabled(False)
-        self.set_save_enabled(False)
-        self.set_revert_enabled(False)
+        self.clear_history()
         
         self.lock_breadcrumb = True
         try:
@@ -458,13 +480,8 @@ class MenulibreWindow(Window):
 		"""When the Revert toolbar icon is clicked, restore the launcher
 		to the last saved state."""
         data = self.undo_stack[0]
-        del self.undo_stack[:]
-        del self.redo_stack[:]
         self.set_application_text( data )
-        self.set_undo_enabled(False)
-        self.set_redo_enabled(False)
-        self.set_save_enabled(False)
-        self.set_revert_enabled(False)
+        self.clear_history()
         
     def on_entry_search_activate(self, widget):
         """When ENTER is pressed in the search entry, set the focus on
@@ -562,7 +579,7 @@ class MenulibreWindow(Window):
         response = self.remove_launcher_dialog.run()
         self.remove_launcher_dialog.hide()
         if response == Gtk.ResponseType.OK:
-            if os.path.isfile( self.get_application_filename() ) and self.get_application_filename() != 'New Application':
+            if os.path.isfile( self.get_application_filename() ) and self.get_application_filename() != _('New Menu Item'):
                 os.remove( self.get_application_filename() )
                 appid = self.get_application_id()
                 if system_backup:
@@ -571,40 +588,7 @@ class MenulibreWindow(Window):
                     self.apps[appid] = Applications.Application(filename)
                     self.apps[appid].set_id(appid)
 
-                    self.set_breadcrumb_application(appid)
-                    self.in_history = True
-                    app = self.apps[appid]
-                    
-                    if home in app.get_filename():
-                        self.button_delete.show()
-                    elif self.sudo:
-                        self.button_delete.show()
-                    else:
-                        self.button_delete.hide()
-                    
-                    # General Settings
-                    self.set_application_icon( app.get_icon()[1], preview_icon_size )
-                    self.set_application_name( app.get_name() )
-                    self.set_application_id( app.get_id() )
-                    self.set_application_comment( app.get_comment() )
-                    self.set_application_command( app.get_exec() )
-                    self.set_application_path( app.get_path() )
-                    self.set_application_terminal( app.get_terminal() )
-                    self.set_application_startupnotify( app.get_startupnotify() )
-                    self.set_application_hidden( app.get_hidden() )
-                    self.set_application_categories( app.get_categories() )
-                    self.set_application_filename( app.get_filename() )
-                    
-                    # Quicklists
-                    self.quicklist_format = app.get_quicklist_format()
-                    self.set_application_quicklists( app.get_actions() )
-                    
-                    # Editor
-                    self.set_application_text( app.get_original() )
-                    self.show_appsettings()
-                    self.set_focus(self.appsettings_notebook)
-                    self.in_history = False
-                    self.last_editor = app.get_original()
+                    self.load_application_settings(appid)
 
                 else:
                     self.breadcrumb_home.activate()
@@ -686,49 +670,12 @@ class MenulibreWindow(Window):
         try:
             model = widget.get_model()
             selection_id = model[index][2]
-
-            self.in_history = True
-            del self.undo_stack[:]
-            del self.redo_stack[:]
-            self.set_undo_enabled(False)
-            self.set_redo_enabled(False)
             
             if selection_id == 'MenulibreNewLauncher':
                 self.new_launcher()
             else:
-                self.set_breadcrumb_application(selection_id)
-                app = self.apps[selection_id]
-                
-                if home in app.get_filename():
-                    self.button_delete.show()
-                elif self.sudo:
-                    self.button_delete.show()
-                else:
-                    self.button_delete.hide()
-                
-                # General Settings
-                self.set_application_icon( app.get_icon()[1], preview_icon_size )
-                self.set_application_name( app.get_name() )
-                self.set_application_id( app.get_id() )
-                self.set_application_comment( app.get_comment() )
-                self.set_application_command( app.get_exec() )
-                self.set_application_path( app.get_path() )
-                self.set_application_terminal( app.get_terminal() )
-                self.set_application_startupnotify( app.get_startupnotify() )
-                self.set_application_hidden( app.get_hidden() )
-                self.set_application_categories( app.get_categories() )
-                self.set_application_filename( app.get_filename() )
-                
-                # Quicklists
-                self.quicklist_format = app.get_quicklist_format()
-                self.set_application_quicklists( app.get_actions() )
-                
-                # Editor
-                self.set_application_text( app.get_original() )
-                self.show_appsettings()
-                self.set_focus(self.appsettings_notebook)
-                self.in_history = False
-                self.last_editor = app.get_original()
+                self.load_application_settings(selection_id)
+
         except (IndexError, TypeError):
             pass
         self.lock_breadcrumb = False
@@ -1205,7 +1152,18 @@ class MenulibreWindow(Window):
     def get_application_filename(self):
         """Return the application filename."""
         label = self.general_filename_label.get_label()
-        return label.rstrip('</small>').lstrip('<small>')
+        label = label.replace('<small>', '')
+        label = label.replace('</small>', '')
+        if label == _('New Menu Item'):
+            name = self.get_application_name().lower()
+            filename = name.replace(' ', '-').replace('&', '-') + '.desktop'
+            filename = os.path.join(home, '.local', 'share', 'applications', filename)
+            counter = 0
+            while os.path.exists(filename):
+                filename = filename.replace('.desktop', str(counter)+'.desktop')
+                counter += 1
+            return filename
+        return label
         
     def set_application_categories(self, categories):
         """Set the application categories from a list of category 
@@ -1318,7 +1276,7 @@ class MenulibreWindow(Window):
         various labels according to the new data."""
         name = self.general_name_entry.get_text()
         self.set_application_name( name )
-        if self.get_application_filename() == 'New Application':
+        if self.get_application_filename() == _('New Menu Item'):
             filename = name.replace(' ', '').replace('&', '').lower()
             filename += '.desktop'
             if self.sudo:
@@ -1750,45 +1708,55 @@ OnlyShowIn=Unity;
         self.set_application_text(redo_text)
         self.in_history = False
         
+    def load_application_settings(self, app_id):
+        self.in_history = True
+        
+        app = self.apps[app_id]
+        
+        # General Settings
+        self.set_application_icon( app.get_icon()[1], preview_icon_size )
+        self.set_application_name( app.get_name() )
+        self.set_application_id( app.get_id() )
+        self.set_application_comment( app.get_comment() )
+        self.set_application_command( app.get_exec() )
+        self.set_application_path( app.get_path() )
+        self.set_application_terminal( app.get_terminal() )
+        self.set_application_startupnotify( app.get_startupnotify() )
+        self.set_application_hidden( app.get_hidden() )
+        self.set_application_categories( app.get_categories() )
+        
+        filename = app.get_filename()
+        if filename == "MenulibreNewLauncher":
+            filename = ("New Menu Item")
+        self.set_application_filename( filename )
+        
+        # Quicklists
+        self.quicklist_format = app.get_quicklist_format()
+        self.set_application_quicklists( app.get_actions() )
+        
+        # Editor
+        self.set_application_text( app.get_original() )
+        self.show_appsettings()
+        
+        self.last_editor = app.get_original()
+        self.in_history = False
+        
+        if home in app.get_filename():
+            self.button_delete.show()
+        elif self.sudo:
+            self.button_delete.show()
+        else:
+            self.button_delete.hide()
+            
+        self.set_breadcrumb_application(app_id)
+        self.set_focus(self.appsettings_notebook)
+        self.clear_history()
+        
     def new_launcher(self):
 		"""Show the application editor with details for a new 
 		application."""
-        self.set_breadcrumb_application('MenulibreNewLauncher')
+        self.load_application_settings('MenulibreNewLauncher')
         self.breadcrumb_category.set_visible(False)
-        
-        # General Settings
-        self.set_application_icon( 'application-default-icon', preview_icon_size )
-        self.set_application_name( 'New Menu Item' )
-        self.set_application_id( 'MenulibreNewLauncher' )
-        self.set_application_comment( 'A small descriptive blurb about this application.' )
-        self.set_application_command( '' )
-        self.set_application_path( '' )
-        self.set_application_terminal( False )
-        self.set_application_startupnotify( False )
-        self.set_application_hidden( False )
-        self.set_application_categories( [] )
-        self.set_application_filename( 'New Application' )
-        
-        # Quicklists
-        self.set_application_quicklists( None )
-        
-        launcher = """
-[Desktop Entry]
-Name=New Menu Item
-Comment=A small descriptive blurb about this application.
-Categories=
-Exec=
-Icon=application-default-icon
-Terminal=false
-Type=Application
-Actions=
-        """
-        
-        # Editor
-        self.set_application_text( launcher )
-        self.show_appsettings()
-        self.in_history = False
-        self.last_editor = launcher
 
     def show_search_results(self, query, category=None):
 		"""Show search results for the query in the application 

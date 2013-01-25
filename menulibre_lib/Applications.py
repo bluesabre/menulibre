@@ -24,9 +24,9 @@ default_application = """
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=New Application
-Comment=My New Application
-Icon=
+Name=New Menu Item
+Comment=A small descriptive blurb about this application.
+Icon=application-default-icon
 Exec=
 Path=
 Terminal=false
@@ -49,14 +49,16 @@ class Application:
     def new(self, filename):
 		"""Create a new application instance for a non-existing file."""
         self.filename = filename
-        self.icon = 'gtk-missing-image'
-        self.name = 'New Application'
-        self.comment = 'My New Application'
+        self.icon = 'application-default-icon'
+        self.name = 'New Menu Item'
+        self.comment = 'A small descriptive blurb about this application.'
         self.genericname = ''
         self.command = ''
         self.executable = ''
         self.path = ''
         self.terminal = False
+        self.hidden = False
+        self.quicklist_format = ""
         self.startupnotify = False
         self.categories = []
         self.actions = None
@@ -306,6 +308,6 @@ def read_desktop_file(filename, contents):
             pass
     # Check for uncategorized WINE applications...
     if len(settings['categories']) == 0:
-        if 'wine' in os.path.split(settings['filename'])[0]:
+        if 'wine' in settings['filename'].lower():
             settings['categories'].append('Wine')
     return settings
