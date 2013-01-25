@@ -50,18 +50,18 @@ class MenulibreWindow(Window):
 
 		self.sudo = os.getuid() == 0
 		self.apps = Applications.get_applications()
-        self.categories = { 'AudioVideo': [_('Multimedia'), 'applications-multimedia', 'AudioVideo', []],
-                            'Development': [_('Development'), 'applications-development', 'Development', []],
-                            'Education': [_('Education'), 'applications-education', 'Education', []],
-                            'Game': [_('Games'), 'applications-games', 'Game', []],
-                            'Graphics': [_('Graphics'), 'applications-graphics', 'Graphics', []],
-                            'Network': [_('Internet'), 'applications-internet', 'Network', []],
-                            'Office': [_('Office'), 'applications-office', 'Office', []],
-                            'Other': [_('Other'), 'applications-other', 'Other', []],
-                            'Settings': [_('Settings'), 'preferences-desktop', 'Settings', []],
-                            'System': [_('System'), 'applications-system', 'System', []],
-                            'Utility': [_('Accessories'), 'applications-accessories', 'Utility', []],
-                            'WINE': [_('WINE'), 'wine', 'WINE', []]}
+        self.categories = { 'AudioVideo': [_('Multimedia'), 'applications-multimedia', 'AudioVideo'],
+                            'Development': [_('Development'), 'applications-development', 'Development'],
+                            'Education': [_('Education'), 'applications-education', 'Education'],
+                            'Game': [_('Games'), 'applications-games', 'Game'],
+                            'Graphics': [_('Graphics'), 'applications-graphics', 'Graphics'],
+                            'Network': [_('Internet'), 'applications-internet', 'Network'],
+                            'Office': [_('Office'), 'applications-office', 'Office'],
+                            'Other': [_('Other'), 'applications-other', 'Other'],
+                            'Settings': [_('Settings'), 'preferences-desktop', 'Settings'],
+                            'System': [_('System'), 'applications-system', 'System'],
+                            'Utility': [_('Accessories'), 'applications-accessories', 'Utility'],
+                            'WINE': [_('WINE'), 'wine', 'WINE']}
         
         self.undo_stack = []
         self.redo_stack = []
@@ -143,37 +143,8 @@ class MenulibreWindow(Window):
         self.appselection_search_fail = self.builder.get_object('appselection_search_fail')
         self.appselection_search_all_button = self.builder.get_object('appselection_search_all_button')
         
-        model = self.clear_catselection_iconview()
-        image = icon_theme.load_icon('applications-other', iconview_icon_size)
-        model.append([image, _('All Applications'), "AllApplications"])
-        categories = self.categories.values()
-        categories = sorted(categories, key=lambda category: category[0].lower())
-        for label, image, category_id, apps in categories:
-            if label == 'WINE' and not self.show_wine:
-                continue
-            image = icon_theme.load_icon(image, iconview_icon_size)
-            model.append([image, label, category_id])
-
-
-        # image, name, desktop_file, categories, comment
-        model = Gtk.ListStore(GdkPixbuf.Pixbuf, str, str, str, str)
-        self.applications_filter = model.filter_new()
-        self.applications_filter.set_visible_func(self.applications_filter_func)
-        self.appselection_iconview.set_model(self.applications_filter)
-        
-        apps = []
-        for key in self.apps.keys():
-            app = self.apps[key]
-            desktop_file = os.path.basename(app.filename)
-            pixbuf = icon_theme.load_icon(app.icon, iconview_icon_size)
-            apps.append([pixbuf, app.name, desktop_file, ';'.join(app.categories), app.comment])
-        apps = sorted(apps, key=lambda app: app[1].lower())
-        
-        pixbuf = icon_theme.load_icon('edit-add', iconview_icon_size)
-        model.append([pixbuf, _('Add Launcher'), 'MenulibreNewLauncher', 'MenulibreNoSearch', 'Add a new application launcher'])
-        self.apps['MenulibreNewLauncher'] = Applications.Application('MenulibreNewLauncher')
-        for app in apps:
-            model.append(app)
+        self.initialize_catselection_iconview()
+        self.initialize_appselection_iconview()
         
         # -- Launcher Settings (Gtk.Notebook) -- #
         self.appsettings_notebook = self.builder.get_object('appsettings_notebook')
@@ -399,13 +370,13 @@ class MenulibreWindow(Window):
         filename = self.get_application_filename()
         text = self.get_application_text()
         if os.path.exists(filename):
+            appid = self.get_application_id()
             try:
                 openfile = open(filename, 'w')
                 openfile.write(text)
                 openfile.close()
-                appid = self.get_application_id()
                 if appid == 'MenulibreNewLauncher':
-                    appid = len(self.apps)
+                    appid = os.path.basename(filename)
                 self.apps[appid] = Applications.Application(filename)
                 self.apps[appid].set_id(appid)
             except IOError:
@@ -423,7 +394,6 @@ class MenulibreWindow(Window):
                 openfile.write(text)
                 openfile.close()
                 self.set_application_filename(filename)
-                appid = len(self.apps)
                 newapp = Applications.Application(filename)
                 newapp.set_id(appid)
                 self.apps[appid] = newapp
@@ -440,31 +410,16 @@ class MenulibreWindow(Window):
             openfile.write(text)
             openfile.close()
             self.set_application_filename(filename)
-            appid = len(self.apps)
+            appid = os.path.basename(filename)
             newapp = Applications.Application(filename)
             newapp.set_id(appid)
             self.apps[appid] = newapp
             
         self.clear_history()
         
-        self.lock_breadcrumb = True
-        try:
-            model = self.catselection_iconview.get_model()
-            index = self.catselection_iconview.get_selected_items()[0]
-            selection_id = model[index][2]
-            if selection_id == "AllApplications":
-                self.load_category_into_iconview('')
-            else:
-                for cat in self.categories:
-                    if selection_id == self.categories[cat][2]:
-                        self.load_category_into_iconview(cat)
-        except IndexError:
-            pass
-        self.breadcrumb_application.set_active(True)
-        self.set_breadcrumb_application(appid)
-        self.breadcrumb_category.set_active(False)
-        self.lock_breadcrumb = False
         self.button_delete.show()
+        
+        self.initialize_appselection_iconview()
     
     def on_toolbar_undo_clicked(self, button):
 		"""When the Undo toolbar icon is clicked, undo the last done
@@ -600,6 +555,8 @@ class MenulibreWindow(Window):
                 self.breadcrumb_category.hide()
                 self.breadcrumb_application.hide()
                 
+        self.initialize_appselection_iconview()
+                
     def on_catselection_iconview_motion_notify_event(self, widget, event):
         """Implementation of on-hover event for IconView."""
         path = self.catselection_iconview.get_path_at_pos(int(event.x), int(event.y))
@@ -623,15 +580,14 @@ class MenulibreWindow(Window):
         self.iconview_single = True
         self.lock_breadcrumb = True
         try:
-            model = widget.get_model()
-            selection_id = model[index][2]
+            selection_id = widget.get_model()[index][2]
+            
             if selection_id == "AllApplications":
                 self.load_category_into_iconview(None)
             else:
                 self.load_category_into_iconview(selection_id)
             self.show_appselection()
         except:
-            "IconView Error"
             pass
         self.lock_breadcrumb = False
         self.set_focus(self.appselection_iconview)
@@ -668,9 +624,8 @@ class MenulibreWindow(Window):
         self.iconview_single = True
         self.lock_breadcrumb = True
         try:
-            model = widget.get_model()
-            selection_id = model[index][2]
-            
+            selection_id = widget.get_model()[index][2]
+
             if selection_id == 'MenulibreNewLauncher':
                 self.new_launcher()
             else:
@@ -1311,14 +1266,44 @@ class MenulibreWindow(Window):
         self.hide_general_comment_editor()
         self.general_comment_entry.set_text( self.get_application_comment() )
         
-    def clear_catselection_iconview(self):
-        """Remove all items from the category selection and return a new
-        Gtk.ListStore."""
-        liststore = Gtk.ListStore(GdkPixbuf.Pixbuf, str, str)
-        self.catselection_iconview.set_model(liststore)
+    def initialize_catselection_iconview(self):
+        model = Gtk.ListStore(GdkPixbuf.Pixbuf, str, str)
+        self.catselection_iconview.set_model(model)
         self.catselection_iconview.set_pixbuf_column(0)
         self.catselection_iconview.set_markup_column(1)
-        return liststore
+        
+        image = icon_theme.load_icon('applications-other', iconview_icon_size)
+        model.append([image, _('All Applications'), "AllApplications"])
+        categories = self.categories.values()
+        categories = sorted(categories, key=lambda category: category[0].lower())
+        for label, image, category_id in categories:
+            if label == 'WINE' and not self.show_wine:
+                continue
+            image = icon_theme.load_icon(image, iconview_icon_size)
+            model.append([image, label, category_id])
+        
+    def initialize_appselection_iconview(self):
+        # image, name, desktop_file, categories, comment
+        model = Gtk.ListStore(GdkPixbuf.Pixbuf, str, str, str, str)
+        self.applications_filter = model.filter_new()
+        self.applications_filter.set_visible_func(self.applications_filter_func)
+        self.appselection_iconview.set_model(self.applications_filter)
+        
+        apps = []
+        for key in self.apps.keys():
+            app = self.apps[key]
+            desktop_file = os.path.basename(app.filename)
+            pixbuf = icon_theme.load_icon(app.icon, iconview_icon_size)
+            apps.append([pixbuf, app.name, desktop_file, ';'.join(app.categories), app.comment])
+        apps = sorted(apps, key=lambda app: app[1].lower())
+        
+        pixbuf = icon_theme.load_icon('edit-add', iconview_icon_size)
+        model.append([pixbuf, _('Add Launcher'), 'MenulibreNewLauncher', 'MenulibreNoSearch', 'Add a new application launcher'])
+        self.apps['MenulibreNewLauncher'] = Applications.Application('MenulibreNewLauncher')
+        for app in apps:
+            model.append(app)
+            
+        self.refilter()
         
     def show_catselection(self):
         """Show the category selection, and hide other views."""
@@ -1379,7 +1364,7 @@ class MenulibreWindow(Window):
             name = _("All Applications")
             icon = 'gtk-about'
         else:
-            name, icon, catid, apps = self.categories[category]
+            name, icon, catid = self.categories[category]
         if self.breadcrumb_category_label.get_label() != name:
             self.breadcrumb_application.hide()
         self.breadcrumb_category_image.set_from_icon_name( icon, breadcrumb_icon_size )
