@@ -138,8 +138,6 @@ class MenulibreWindow(Window):
         self.appselection_iconview = self.builder.get_object('appselection_iconview')
         self.appselection_iconview.add_events(Gdk.EventType.MOTION_NOTIFY)
         self.appselection_iconview.connect('button-press-event', self.on_appselection_button_press_event)
-        self.appselection_iconview.set_pixbuf_column(0)
-        self.appselection_iconview.set_markup_column(1)
         self.appselection_search_fail = self.builder.get_object('appselection_search_fail')
         self.appselection_search_all_button = self.builder.get_object('appselection_search_all_button')
         
@@ -1288,6 +1286,9 @@ class MenulibreWindow(Window):
         self.applications_filter = model.filter_new()
         self.applications_filter.set_visible_func(self.applications_filter_func)
         self.appselection_iconview.set_model(self.applications_filter)
+        self.appselection_iconview.set_pixbuf_column(0)
+        self.appselection_iconview.set_markup_column(1)
+        self.appselection_iconview.set_tooltip_column(4)
         
         apps = []
         for key in self.apps.keys():
