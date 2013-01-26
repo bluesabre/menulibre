@@ -1,0 +1,13 @@
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=New Menu Item
+Comment=A small descriptive blurb about this application.
+Icon=application-default-icon
+Exec=fda
+Path=
+Terminal=false
+NoDisplay=false
+StartupNotify=false
+Categories=
