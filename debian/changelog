@@ -1,3 +1,21 @@
+menulibre (13.01ubuntu1) UNRELEASED; urgency=low
+
+  * Add comment tooltip to application iconview.
+  * More cleanup, Fixed duplicates bug 1103468
+  * Cleanup and regression fixes.
+  * Significant cleanup and simplification.  Quite a bit faster now too.
+  * Enable translations for categories.
+  * Better icon sizing and handling.
+  * Bump icon size in breadcrumbs.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Fri, 25 Jan 2013 21:07:32 -0500
+
+menulibre (13.01) precise; urgency=low
+
+  * Fix for showing add launcher after modifying launcher.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Fri, 25 Jan 2013 21:07:31 -0500
+
 menulibre (12.11.19) quantal; urgency=low
 
   * New release.
