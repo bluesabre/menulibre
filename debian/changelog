@@ -1,3 +1,9 @@
+menulibre (13.03) raring; urgency=low
+
+  * Fix GError import
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Mon, 18 Mar 2013 06:25:08 -0400
+
 menulibre (13.01.4) raring; urgency=low
 
   * New release.
