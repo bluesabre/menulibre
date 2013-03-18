@@ -15,7 +15,7 @@
 ### END LICENSE
 
 from gi.repository import Gtk, GdkPixbuf
-from gi._glib import GError
+from gi.repository.GLib import GError
 import os
 
 from menulibreconfig import get_data_file
