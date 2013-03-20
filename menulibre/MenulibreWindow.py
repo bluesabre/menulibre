@@ -328,21 +328,6 @@ class MenulibreWindow(Window):
                     self.breadcrumb_home.activate()
             else:
                 self.breadcrumb_home.activate()
-        
-    def on_window_check_resize(self, widget, something):
-        """Adjust IconView icons when the window is resized."""
-        return
-        allocation = widget.get_allocation()
-        height = allocation.height
-        width = allocation.width
-        if height != self.last_height or width != self.last_width:
-            self.catselection.set_policy(Gtk.PolicyType.ALWAYS, Gtk.PolicyType.AUTOMATIC)
-            self.catselection.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
-            self.appselection.set_policy(Gtk.PolicyType.ALWAYS, Gtk.PolicyType.AUTOMATIC) 
-            self.appselection.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
-                
-            self.last_height = height
-            self.last_width = width
             
     def clear_history(self):
         self.in_history = True
@@ -479,7 +464,7 @@ class MenulibreWindow(Window):
 		"""When the Home breadcrumb is clicked, change to the Home 
 		page."""
 		if button.get_active():
-		    self.entry_search.set_placeholder_text('Search Applications')
+		    self.entry_search.set_placeholder_text( _('Search Applications') )
 		    self.show_catselection()
 		    if not self.entry_search.has_focus():
                 self.set_focus(self.catselection_iconview)
@@ -491,7 +476,7 @@ class MenulibreWindow(Window):
 		category view page."""
 		if button.get_active():
 		    label = self.breadcrumb_category_label.get_label()
-            self.entry_search.set_placeholder_text('Search %s' % label)
+            self.entry_search.set_placeholder_text( _('Search %s') % label)
             self.show_appselection()
             if not self.entry_search.has_focus():
                 self.set_focus(self.appselection_iconview)
@@ -502,7 +487,7 @@ class MenulibreWindow(Window):
 		"""When the Application breadcrumb is clicked, change to the
 		launcher editor page."""
 		if button.get_active():
-		    self.entry_search.set_placeholder_text('Search Applications')
+		    self.entry_search.set_placeholder_text( _('Search Applications') )
 		    self.show_appsettings()
 		    if not self.entry_search.has_focus():
                 self.set_focus(self.appsettings_notebook)
@@ -1138,7 +1123,8 @@ class MenulibreWindow(Window):
         """Set the application name label and entry."""
         if name == None:
             name = ''
-        self.general_name_label.set_markup( '<big><big><b>%s</b></big></big>' % escape(name) )
+        markup = '<big><big><b>%s</b></big></big>'
+        self.general_name_label.set_markup( markup % escape(name) )
         self.general_name_entry.set_text( name )
         self.breadcrumb_application_label.set_label(name)
     
@@ -1404,7 +1390,7 @@ class MenulibreWindow(Window):
         apps = sorted(apps, key=lambda app: app[1].lower())
         
         pixbuf = icon_theme.load_icon('edit-add', iconview_icon_size)
-        model.append([pixbuf, _('Add Launcher'), 'MenulibreNewLauncher', 'MenulibreNoSearch', 'Add a new application launcher'])
+        model.append([pixbuf, _('Add Launcher'), 'MenulibreNewLauncher', 'MenulibreNoSearch', _('Add a new application launcher')])
         self.apps['MenulibreNewLauncher'] = MenulibreXdg.Application(name='MenulibreNewLauncher')
         for app in apps:
             model.append(app)
@@ -1484,7 +1470,7 @@ class MenulibreWindow(Window):
         """Set the application breadcrumb to the application with ID 
         app_id."""
         if app_id == 'MenulibreNewLauncher':
-            name = 'New Menu Item'
+            name = _('New Menu Item')
             icon = 'application-default-icon'
             pixbuf = icon_theme.load_icon('application-default-icon', breadcrumb_icon_size)
             self.breadcrumb_application_image.set_from_pixbuf(pixbuf)

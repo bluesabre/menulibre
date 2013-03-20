@@ -149,10 +149,10 @@ class Application(DesktopEntry):
     def __init__(self, filename=None, name=None):
         if filename:
             if not filename.endswith('.desktop'):
-                raise ValueError("\'%s\' is not a .desktop file" % filename)
+                raise ValueError(_("\'%s\' is not a .desktop file") % filename)
         else:
             if not name:
-                raise ValueError("Initialized without required parameters.")
+                raise ValueError(_("Initialized without required parameters."))
         DesktopEntry.__init__(self, filename)
         if name:
             if name != 'MenulibreNewLauncher':
@@ -161,7 +161,7 @@ class Application(DesktopEntry):
 class Directory(DesktopEntry):
     def __init__(self, filename):
         if not filename.endswith('.directory'):
-            raise ValueError("\'%s\' is not a .directory file" % filename)
+            raise ValueError(_("\'%s\' is not a .directory file") % filename)
         DesktopEntry.__init__(self, filename)
         
 def get_application_paths():

@@ -550,7 +550,6 @@
     <property name="default_height">550</property>
     <property name="icon_name">menu-editor</property>
     <property name="startup_id">menulibre</property>
-    <signal name="configure-event" handler="on_window_check_resize" swapped="no"/>
     <signal name="key-press-event" handler="on_menulibre_window_key_press_event" swapped="no"/>
     <child>
       <object class="GtkVBox" id="vbox1">
