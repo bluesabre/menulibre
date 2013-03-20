@@ -1,4 +1,4 @@
-# Croatian translation for menulibre
+# Catalan translation for menulibre
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the menulibre package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
@@ -8,9 +8,9 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-11-26 05:20-0500\n"
-"PO-Revision-Date: 2012-11-29 13:43+0000\n"
-"Last-Translator: gogo <trebelnik2@gmail.com>\n"
-"Language-Team: Croatian <hr@li.org>\n"
+"PO-Revision-Date: 2012-11-26 13:02+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
+"Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,51 +19,51 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
-msgstr "Odaberi ikonu"
+msgstr "Seleccioneu una icona"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Icon Name"
-msgstr "Naziv ikone"
+msgstr "Nom de la icona"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Image File"
-msgstr "Datoteka slike"
+msgstr "Fitxer d’imatge"
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Select an Image"
-msgstr "Odaberi sliku"
+msgstr "Seleccioneu una imatge"
 
 #: ../data/ui/MenulibreWindow.ui.h:5
 msgid "<b>Select Icon</b>"
-msgstr "<b>Odaberi Ikonu</b>"
+msgstr "<b>Seleccioneu una icona</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "48x48"
-msgstr "48x48"
+msgstr "48×48"
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "32x32"
-msgstr "32x32"
+msgstr "32×32"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "24x24"
-msgstr "24x24"
+msgstr "24×24"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid "16x16"
-msgstr "16x16"
+msgstr "16×16"
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "128x128"
-msgstr "128x128"
+msgstr "128×128"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "<b>Preview</b>"
-msgstr "<b>Pogled</b>"
+msgstr "<b>Previsualització</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "Select an icon"
-msgstr "Odaberi ikonu"
+msgstr "Seleccioneu una icona"
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "MenuLibre"
@@ -71,143 +71,143 @@ msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "_File"
-msgstr "_Datoteka"
+msgstr "_Fitxer"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Add _New Launcher"
-msgstr "Dodaj _novi pokretač"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid "_Edit"
-msgstr "_Uredi"
+msgstr "_Edita"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "_Help"
-msgstr "_Pomoć"
+msgstr "_Ajuda"
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid "_Contents"
-msgstr "_Sadržaj"
+msgstr "_Contingut"
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Add Launcher"
-msgstr "Dodaj pokretač"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Save All Changes"
-msgstr "Spremi sve promjene"
+msgstr "Desa tots els canvis"
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Save"
-msgstr "Spremi"
+msgstr "Desa"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
 msgid "Undo the last action"
-msgstr "Poništi zadnju radnju"
+msgstr "Desfés l’última acció"
 
 #: ../data/ui/MenulibreWindow.ui.h:23
 msgid "Undo"
-msgstr "Poništi"
+msgstr "Desfés"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Redo the last undone action"
-msgstr "Vrati zadnje poništenu radnju"
+msgstr "Refés l’última acció desfeta"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Redo"
-msgstr "Ponovi"
+msgstr "Refés"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Revert all changes to last saved state"
-msgstr "Vrati sve stavke na posljednje spremljeno stanje"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Revert"
-msgstr "Vrati izvorno"
+msgstr "Reverteix"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Category"
-msgstr "Kategorija"
+msgstr "Categoria"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application"
-msgstr "Aplikacija"
+msgstr "Aplicació"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
 msgid "<b>No applications found.</b>"
-msgstr "<b>Nema pronađenih aplikacija.</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Try searching everything."
-msgstr "Probaj pretražiti sve."
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:32
 msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Naziv aplikacije</b></big>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "<i>A quick snippet about your application.</i>"
-msgstr "<i>Kratak opis vaše aplikacije.</i>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Command"
-msgstr "Naredba"
+msgstr "Ordre"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Working Directory"
-msgstr "Radni direktorij"
+msgstr "Directori de treball"
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "<b>Application Settings</b>"
-msgstr "<b>Postavke aplikacije</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Run in terminal"
-msgstr "Pokreni u terminalu"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Use startup notification"
-msgstr "Koristi upozorenje pri pokretanju"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Hide from menus"
-msgstr "Sakrij od izbornika"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "<b>Options</b>"
-msgstr "<b>Mogućnosti</b>"
+msgstr "<b>Opcions</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "label"
-msgstr "oznaka"
+msgstr "etiqueta"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Delete this launcher..."
-msgstr "Obriši ovaj pokretač..."
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "<small>Filename</small>"
-msgstr "<small>Naziv-datoteke</small>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Accessories"
-msgstr "Pomagala"
+msgstr "Accessoris"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Development"
-msgstr "Razvoj"
+msgstr "Desenvolupament"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Education"
-msgstr "Edukacija"
+msgstr "Educació"
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Games"
-msgstr "Igre"
+msgstr "Jocs"
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Graphics"
-msgstr "Grafika"
+msgstr "Gràfics"
 
 #: ../data/ui/MenulibreWindow.ui.h:49
 msgid "Internet"
@@ -215,31 +215,31 @@ msgstr "Internet"
 
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Multimedia"
-msgstr "Multimedija"
+msgstr "Multimèdia"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Office"
-msgstr "Ured"
+msgstr "Ofimàtica"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Settings"
-msgstr "Postavke"
+msgstr "Configuració"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "System"
-msgstr "Sustav"
+msgstr "Sistema"
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "WINE"
-msgstr "WINE"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid "<b>Categories</b>"
-msgstr "<b>Kategorije</b>"
+msgstr "<b>Categories</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "General Settings"
-msgstr "Opće postavke"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Quicklists"
@@ -247,33 +247,32 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Editor"
-msgstr "Uređivač"
+msgstr "Editor"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "<big><b>Remove Launcher?</b></big>"
-msgstr "<big><b>Ukloni pokretač?</b></big>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid ""
 "Are you sure you wish to remove this launcher?  This cannot be undone."
 msgstr ""
-"Sigurno želite ukloniti ovaj pokretač?  Ova radnja se ne može poništiti."
 
 #: ../menulibre/MenulibreWindow.py:193
 msgid "Show"
-msgstr "Prikaži"
+msgstr "Mostra"
 
 #: ../menulibre/MenulibreWindow.py:246
 msgid "Image"
-msgstr "Slika"
+msgstr "Imatge"
 
 #: ../menulibre/MenulibreWindow.py:248
 msgid "Name"
-msgstr "Naziv"
+msgstr "Nom"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:1
 msgid "Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>"
-msgstr "Autorsko pravo (C) 2012 Sean Davis <smd.seandavis@gmail.com>"
+msgstr "Copyright © 2012 Sean Davis <smd.seandavis@gmail.com>"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:2
 msgid ""
@@ -291,27 +290,15 @@ msgid ""
 "# You should have received a copy of the GNU General Public License along \n"
 "# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
 msgstr ""
-"# Autorsko pravo (C) 2012 Sean Davis <smd.seandavis@gmail.com>\n"
-"# Ovaj program je slobodan softver: možete ga redistribuirati i/ili\n"
-"# modificirati pod uvjetima GNU Opće javne licence inačice 3\n"
-"# objavljene od Fundacije slobodnog softvera.\n"
-"# \n"
-"# Ovaj program je distribuiran u nadi da će biti koristan, ali \n"
-"# BEZ IKAKVOG JAMSTVA; čak i bez podrazumjevanog jamstva ili\n"
-"# POGODNOSTI ZA ODREĐENU NAMJENU.\n"
-"# Pogledajte GNU Opću javnu licencu za više informacija.\n"
-"# \n"
-"# Trebali ste dobiti primjerak GNU Opće javne licence\n"
-"# uz ovaj program. Ako niste, pogledajte <http://www.gnu.org/licenses/>.\n"
 
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages (-vv debugs menulibre_lib also)"
-msgstr "Prikaži poruke otklanjanja greške (-vv debugs menulibre_lib also)"
+msgstr ""
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr "Uređivač izbornika"
+msgstr ""
 
 #: ../menulibre.desktop.in.h:2
 msgid "Edit System and User Menus with ease"
-msgstr "Uredite s lakoćom izbornike korisnika i sustava"
+msgstr ""

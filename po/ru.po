@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-10-24 07:29-0400\n"
+"POT-Creation-Date: 2012-11-26 05:20-0500\n"
 "PO-Revision-Date: 2012-11-17 16:30+0000\n"
 "Last-Translator: Rodion R. <rodikr2005@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-11-25 14:44+0000\n"
-"X-Generator: Launchpad (build 16293)\n"
+"X-Launchpad-Export-Date: 2013-03-20 23:04+0000\n"
+"X-Generator: Launchpad (build 16532)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
@@ -260,15 +260,15 @@ msgstr ""
 "Вы уверены, что хотите удалить эту кнопку запуска?  Отменить это действие "
 "будет невозможно."
 
-#: ../menulibre/MenulibreWindow.py:191
+#: ../menulibre/MenulibreWindow.py:193
 msgid "Show"
 msgstr "Показать"
 
-#: ../menulibre/MenulibreWindow.py:244
+#: ../menulibre/MenulibreWindow.py:246
 msgid "Image"
 msgstr "Изображение"
 
-#: ../menulibre/MenulibreWindow.py:246
+#: ../menulibre/MenulibreWindow.py:248
 msgid "Name"
 msgstr "Название"
 
