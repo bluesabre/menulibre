@@ -164,19 +164,28 @@ class Directory(DesktopEntry):
             raise ValueError("\'%s\' is not a .directory file" % filename)
         DesktopEntry.__init__(self, filename)
         
-def get_applications():
-    """Return all installed applications for the current user.  If the
-    program is started as root, only show system launchers."""
+def get_application_paths():
     data_dirs = BaseDirectory.xdg_data_dirs
     data_dirs.reverse()
-	
-    applications = dict()
     
     if sudo:
         data_dirs = data_dirs[:-1]
         
-    for data_dir in data_dirs:
-        for root, dirs, files in os.walk(os.path.join(data_dir, 'applications')):
+    application_paths = []
+    for path in data_dirs:
+        path = os.path.join(path, 'applications')
+        if path not in application_paths and os.path.isdir(path):
+            application_paths.append(path)
+        
+    return application_paths
+        
+def get_applications():
+    """Return all installed applications for the current user.  If the
+    program is started as root, only show system launchers."""
+    applications = dict()
+    
+    for path in get_application_paths():
+        for root, dirs, files in os.walk(path):
             for filename in files:
                 if filename.endswith('.desktop'):
                     applications[filename] = Application(os.path.join(root, filename))
@@ -188,7 +197,6 @@ def load_properties_from_text(text):
     current_property = ""
     blank_count = 0
     for line in text.split('\n'):
-        print "Line:", line
         if line.startswith('[') and line.endswith(']'):
             current_property = line[1:-1]
             properties[current_property] = OrderedDict()
@@ -201,5 +209,4 @@ def load_properties_from_text(text):
                 blank_count += 1
             except KeyError:
                 pass
-    print properties
     return properties

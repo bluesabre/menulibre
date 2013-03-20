@@ -29,6 +29,7 @@ from xml.sax.saxutils import escape, unescape
 from collections import OrderedDict
 
 from menulibre_lib import Window, IconTheme, MenulibreXdg
+from menulibre_lib.helpers import mkdir
 from menulibre.AboutMenulibreDialog import AboutMenulibreDialog
 
 icon_theme = IconTheme.MenulibreIconTheme()
@@ -385,13 +386,7 @@ class MenulibreWindow(Window):
                 filename = os.path.split(filename)[1]
                 filename = os.path.join( home, '.local/share/applications', filename )
                 if not os.path.isdir( os.path.join( home, '.local/share/applications') ):
-                    filepath = home
-                    for path in ['.local', 'share', 'applications']:
-                        try:
-                            filepath = os.path.join(filepath, path)
-                            os.mkdir(filepath)
-                        except OSError:
-                            pass
+                    mkdir( os.path.join( home, '.local/share/applications') )
                 openfile = open(filename, 'w')
                 openfile.write(text)
                 openfile.close()
@@ -400,14 +395,8 @@ class MenulibreWindow(Window):
                 newapp.id = appid
                 self.apps[appid] = newapp
         else:
-            if not os.path.isdir( os.path.join( home, '.local', 'share', 'applications') ):
-                filepath = home
-                for path in ['.local', 'share', 'applications']:
-                    try:
-                        filepath = os.path.join(filepath, path)
-                        os.mkdir(filepath)
-                    except OSError:
-                        pass
+            if not os.path.isdir( os.path.join( home, '.local/share/applications') ):
+                mkdir( os.path.join( home, '.local/share/applications') )
             openfile = open(filename, 'w')
             openfile.write(text)
             openfile.close()
@@ -520,21 +509,20 @@ class MenulibreWindow(Window):
                 
     def on_button_delete_clicked(self, widget):
         system_backup = False
+        message = _('Are you sure you wish to remove "%s"?\n'
+                    'This cannot be undone.')
         filename = self.get_application_filename()
-        print(filename)
-        print(home)
         if filename.startswith(home):
             filename = os.path.basename(filename)
-            if filename in os.listdir('/usr/share/applications') or \
-               filename in os.listdir('/usr/local/share/applications'):
-                system_backup = True
-                message = 'Are you sure you wish to remove "%s"?\nThe menu item will be restored to system defaults.' % filename
-            else:
-                message = 'Are you sure you wish to remove "%s"?\nThis cannot be undone.' % filename
+            for path in MenulibreXdg.get_application_paths():
+                if not path.startswith(home):
+                    if filename in os.listdir(path):
+                        system_backup = True
+                        message = _('Are you sure you wish to remove "%s"?\n'
+                                    'The menu item will be restored to system defaults.')
         else:
             filename = os.path.split(filename)[1]
-            message = 'Are you sure you wish to remove "%s"?\nThis cannot be undone.' % filename
-        self.remove_launcher_dialog.format_secondary_text(message)
+        self.remove_launcher_dialog.format_secondary_text(message % filename)
         self.remove_launcher_dialog.show()
         response = self.remove_launcher_dialog.run()
         self.remove_launcher_dialog.hide()
@@ -544,10 +532,10 @@ class MenulibreWindow(Window):
                 appid = self.get_application_id()
                 if system_backup:
                     del self.apps[appid]
-                    for path in ['/usr/share/applications', '/usr/local/share/applications']:
-                        filename = os.path.join('/usr/share/applications', filename)
-                        if os.path.isfile(filename):
-                            self.apps[appid] = MenulibreXdg.Application(filename)
+                    for path in MenulibreXdg.get_application_paths():
+                        tmp_filename = os.path.join(path, filename)
+                        if os.path.isfile(tmp_filename):
+                            self.apps[appid] = MenulibreXdg.Application(tmp_filename)
                             self.apps[appid].id = appid
 
                             self.load_application_settings(appid)
@@ -730,7 +718,13 @@ class MenulibreWindow(Window):
     def on_general_command_browse_clicked(self, button):
 		"""Show a file chooser dialog when the Command browse button
 		is clicked, and set the Command entry to the selected file."""
-        dialog = Gtk.FileChooserDialog("Select an executable", self, 0, (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, Gtk.STOCK_OK, Gtk.ResponseType.OK))
+        dialog = Gtk.FileChooserDialog( _("Select an executable"), 
+                                        self, 
+                                        0, 
+                                        buttons=(Gtk.STOCK_CANCEL, 
+                                                 Gtk.ResponseType.CANCEL, 
+                                                 Gtk.STOCK_OK, 
+                                                 Gtk.ResponseType.OK))
         dialog.show()
         response = dialog.run()
         dialog.hide()
@@ -745,7 +739,13 @@ class MenulibreWindow(Window):
     def on_general_path_browse_clicked(self, button):
 		"""Show a folder chooser dialog when the Path browse button is 
 		clicked, and set the Path entry to the selected folder."""
-        dialog = Gtk.FileChooserDialog("Select an executable", self, Gtk.FileChooserAction.SELECT_FOLDER, buttons=(Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL, Gtk.STOCK_OK, Gtk.ResponseType.OK))
+        dialog = Gtk.FileChooserDialog( _("Select an executable"), 
+                                        self, 
+                                        Gtk.FileChooserAction.SELECT_FOLDER, 
+                                        buttons=(Gtk.STOCK_CANCEL, 
+                                                 Gtk.ResponseType.CANCEL, 
+                                                 Gtk.STOCK_OK, 
+                                                 Gtk.ResponseType.OK))
         dialog.show()
         response = dialog.run()
         dialog.hide()
@@ -831,7 +831,6 @@ class MenulibreWindow(Window):
         model = self.quicklists_treeview.get_model()
         enabled = not model[path][0]
         name = model[path][1]
-        print ("remove %s" % name)
         model[path][0] = enabled
         if 'X-Ayatana-Desktop-Shortcuts' in self.current_app.properties['Desktop Entry'].keys():
             prop_name = 'X-Ayatana-Desktop-Shortcuts'
@@ -858,9 +857,9 @@ class MenulibreWindow(Window):
         self.quicklist_modified = True
         quicklists = self.get_application_quicklists()
         listmodel = self.quicklists_treeview.get_model()
-        shortcut_name = self.get_quicklist_unique_shortcut_name(quicklists, 'NewShortcut', 0)
+        shortcut_name = self.get_quicklist_unique_shortcut_name(quicklists, _('NewShortcut'), 0)
         
-        listmodel.append([False, shortcut_name, 'New Shortcut', '', shortcut_name])
+        listmodel.append([False, shortcut_name, _('New Shortcut'), '', shortcut_name])
         self.quicklists_treeview.set_cursor_on_cell( Gtk.TreePath.new_from_string( str(len(listmodel)-1) ), None, None, False )
     
     def on_quicklist_remove_clicked(self, button):
@@ -900,7 +899,6 @@ class MenulibreWindow(Window):
 		"""When the Quicklist Move Down button is clicked, move the 
 		currently selected quicklist item down in the treeview."""
         if len(self.quicklists_treeview.get_model()) > 0:
-            #self.quicklist_modified = True
             self.lock_quicklist_data = True
             tree_sel = self.quicklists_treeview.get_selection()
             (treestore, treeiter) = tree_sel.get_selected()
@@ -1020,7 +1018,8 @@ class MenulibreWindow(Window):
             categories.append(category)
             categories.sort()
         else:
-            categories.remove(category)
+            if category in categories:
+                categories.remove(category)
         self.current_app['Categories'] = ';'.join(categories)
         self.update_editor()
                 
@@ -1219,10 +1218,10 @@ class MenulibreWindow(Window):
         if label == _('New Menu Item'):
             name = self.get_application_name().lower()
             filename = name.replace(' ', '-').replace('&', '-') + '.desktop'
-            filename = os.path.join(home, '.local', 'share', 'applications', filename)
+            filename = os.path.join(home, '.local/share/applications', filename)
             counter = 0
             while os.path.exists(filename):
-                filename = filename.replace('.desktop', str(counter)+'.desktop')
+                filename = filename.replace('.desktop', '%i.desktop' % counter)
                 counter += 1
             return filename
         return label
@@ -1335,9 +1334,9 @@ class MenulibreWindow(Window):
             filename = name.replace(' ', '').replace('&', '').lower()
             filename += '.desktop'
             if self.sudo:
-                filename = os.path.join( '/usr', 'share', 'applications', filename )
+                filename = os.path.join( '/usr/share/applications', filename )
             else:
-                filename = os.path.join( home, '.local', 'share', 'applications', filename )
+                filename = os.path.join( home, '.local/share/applications', filename )
             if os.path.exists(filename):
                 counter = 0
                 while os.path.exists(filename.replace('.desktop', str(counter)+'.desktop')):
