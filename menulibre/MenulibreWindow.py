@@ -1549,7 +1549,7 @@ class MenulibreWindow(Window):
     def get_data_from_editor(self):
 		"""Return the launcher settings from the editor text."""
         text = self.get_application_text()
-        entry = MenulibreXdg.DesktopEntry()
+        entry = MenulibreXdg.MenulibreDesktopEntry()
         entry.load_properties_from_text(text)
         entry.id = self.get_application_id()
         return entry

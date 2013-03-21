@@ -17,7 +17,7 @@
 import os
 
 import xdg
-from xdg import BaseDirectory
+from xdg import BaseDirectory, DesktopEntry
 
 import locale
 from locale import gettext as _
@@ -28,7 +28,7 @@ from collections import OrderedDict
 sudo = os.getuid() == 0
 default_locale = locale.getdefaultlocale()[0]
 
-class DesktopEntry:
+class MenulibreDesktopEntry:
     """Basic class for Desktop Entry files"""
     def __init__(self, filename=None):
         self.filename = filename
@@ -55,6 +55,9 @@ class DesktopEntry:
         
     def __setitem__(self, prop_name, prop_value):
         self.properties['Desktop Entry'][prop_name] = prop_value
+        if prop_name in ['Name', 'Comment']:
+            prop_name = "%s[%s]" % (prop_name, default_locale)
+            self.properties['Desktop Entry'][prop_name] = prop_value
         
     def __str__(self):
         text = ""
@@ -102,7 +105,7 @@ class DesktopEntry:
         return prop
             
     def get_named_property(self, category, prop_name, locale_str=None):
-        if locale:
+        if locale_str:
             try:
                 return self.properties[category]["%s[%s]" % (prop_name, locale_str)]
             except KeyError:
@@ -111,6 +114,11 @@ class DesktopEntry:
                         return self.properties[category]["%s[%s]" % (prop_name, locale_str.split('_')[0])]
                     except KeyError:
                         pass
+            if prop_name in ['Name', 'Comment'] and self.filename != None:
+                entry = xdg.DesktopEntry.DesktopEntry(self.filename)
+                if prop_name == 'Name': return str(entry.getName())
+                else: return str(entry.getComment())
+                    
         try:
             return self.properties[category][prop_name]
         except KeyError:
@@ -145,7 +153,7 @@ class DesktopEntry:
         out_file.write(str(self))
         out_file.close()
             
-class Application(DesktopEntry):
+class Application(MenulibreDesktopEntry):
     def __init__(self, filename=None, name=None):
         if filename:
             if not filename.endswith('.desktop'):
@@ -153,12 +161,12 @@ class Application(DesktopEntry):
         else:
             if not name:
                 raise ValueError(_("Initialized without required parameters."))
-        DesktopEntry.__init__(self, filename)
+        MenulibreDesktopEntry.__init__(self, filename)
         if name:
             if name != 'MenulibreNewLauncher':
                 self.properties['Desktop Entry']['Name'] = name
         
-class Directory(DesktopEntry):
+class Directory(MenulibreDesktopEntry):
     def __init__(self, filename):
         if not filename.endswith('.directory'):
             raise ValueError(_("\'%s\' is not a .directory file") % filename)
