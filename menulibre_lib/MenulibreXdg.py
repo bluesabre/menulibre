@@ -170,7 +170,7 @@ class Directory(MenulibreDesktopEntry):
     def __init__(self, filename):
         if not filename.endswith('.directory'):
             raise ValueError(_("\'%s\' is not a .directory file") % filename)
-        DesktopEntry.__init__(self, filename)
+        MenulibreDesktopEntry.__init__(self, filename)
         
 def get_application_paths():
     data_dirs = BaseDirectory.xdg_data_dirs
