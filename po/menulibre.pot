@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-20 18:59-0400\n"
+"POT-Creation-Date: 2013-03-20 21:34-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -161,7 +161,7 @@ msgstr ""
 msgid "<i>A quick snippet about your application.</i>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:37
+#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreWindow.py:226
 msgid "Command"
 msgstr ""
 
@@ -281,6 +281,14 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
+#: ../menulibre/MenulibreWindow.py:210
+msgid "Shortcut Name"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:218
+msgid "Displayed Name"
+msgstr ""
+
 #: ../menulibre/MenulibreWindow.py:260
 msgid "Image"
 msgstr ""
@@ -367,16 +375,16 @@ msgstr ""
 msgid "A small descriptive blurb about this application."
 msgstr ""
 
-#: ../menulibre_lib/MenulibreXdg.py:152
+#: ../menulibre_lib/MenulibreXdg.py:160
 #, python-format
 msgid "'%s' is not a .desktop file"
 msgstr ""
 
-#: ../menulibre_lib/MenulibreXdg.py:155
+#: ../menulibre_lib/MenulibreXdg.py:163
 msgid "Initialized without required parameters."
 msgstr ""
 
-#: ../menulibre_lib/MenulibreXdg.py:164
+#: ../menulibre_lib/MenulibreXdg.py:172
 #, python-format
 msgid "'%s' is not a .directory file"
 msgstr ""

@@ -207,7 +207,7 @@ class MenulibreWindow(Window):
         tvcolumn = Gtk.TreeViewColumn(_("Show"), cell_toggle, active=0)
         self.quicklists_treeview.append_column(tvcolumn)
         
-        tvcolumn = Gtk.TreeViewColumn('Shortcut Name')
+        tvcolumn = Gtk.TreeViewColumn(_('Shortcut Name'))
         text_render_name = Gtk.CellRendererText()
         text_render_name.set_property('editable', True)
         text_render_name.connect('edited', self.shortcut_edited_cb, (self.quicklists_treeview, 1))
@@ -215,7 +215,7 @@ class MenulibreWindow(Window):
         tvcolumn.add_attribute(text_render_name, 'text', 1)
         self.quicklists_treeview.append_column(tvcolumn)
         
-        tvcolumn = Gtk.TreeViewColumn('Displayed Name')
+        tvcolumn = Gtk.TreeViewColumn(_('Displayed Name'))
         text_render_name = Gtk.CellRendererText()
         text_render_name.set_property('editable', True)
         text_render_name.connect('edited', self.edited_cb, (self.quicklists_treeview, 2))
@@ -223,7 +223,7 @@ class MenulibreWindow(Window):
         tvcolumn.add_attribute(text_render_name, 'text', 2)
         self.quicklists_treeview.append_column(tvcolumn)
         
-        tvcolumn = Gtk.TreeViewColumn('Command')
+        tvcolumn = Gtk.TreeViewColumn(_('Command'))
         text_render_command = Gtk.CellRendererText()
         text_render_command.set_property('editable', True)
         text_render_command.connect('edited', self.edited_cb, (self.quicklists_treeview, 3))
