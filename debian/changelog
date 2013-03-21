@@ -1,3 +1,22 @@
+menulibre (13.03.2ubuntu1) UNRELEASED; urgency=low
+
+  * Fix typo with new api
+  * Enhanced international support
+  * Launchpad translations update
+  * Update license
+  * Trash useless functions, enable more translations.
+  * Cleanup, more translated strings.
+  * Add missing MenulibreXdg
+  * Improve application model to support internationalized launchers
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Wed, 20 Mar 2013 21:48:03 -0400
+
+menulibre (13.03.2) precise; urgency=low
+
+  * Last few missing translateable strings.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Wed, 20 Mar 2013 21:48:03 -0400
+
 menulibre (13.03.1) raring; urgency=low
 
   * Fix GError import
