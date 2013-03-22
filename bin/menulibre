@@ -23,6 +23,8 @@ import os
 import locale
 locale.textdomain('menulibre')
 
+sys.path[:] = [x for x in sys.path if (x != '/usr/bin')]
+
 # Add project root directory (enable symlink and trunk execution)
 PROJECT_ROOT_DIRECTORY = os.path.abspath(
     os.path.dirname(os.path.dirname(os.path.realpath(sys.argv[0]))))

@@ -64,6 +64,9 @@ def move_desktop_file(root, target_data, prefix):
     desktop_path = os.path.normpath(root + prefix + '/share/applications')
     desktop_file = desktop_path + '/menulibre.desktop'
 
+    if old_desktop_file == desktop_file:
+        # Desktop file is already in the right place.
+        return desktop_file
     if not os.path.exists(old_desktop_file):
         print ("ERROR: Can't find", old_desktop_file)
         sys.exit(1)
@@ -123,6 +126,8 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
     def run(self):
         DistUtilsExtra.auto.install_auto.run(self)
 
+        if not self.root:
+            self.root = ''
         target_data = '/' + os.path.relpath(self.install_data, self.root) + '/'
         target_pkgdata = target_data + 'share/menulibre/'
         target_scripts = '/' + os.path.relpath(self.install_scripts, self.root) + '/'
