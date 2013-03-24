@@ -87,8 +87,11 @@ class MenulibreDesktopEntry:
                 self.properties[current_property] = OrderedDict()
                 self.properties[current_property]["*OriginalName"] = current_property.replace(' Shortcut Group', '').replace('Desktop Action ', '')
             elif '=' in line:
-                key, value = line.split('=', 1)
-                self.properties[current_property][key] = value
+                try:
+                    key, value = line.split('=', 1)
+                    self.properties[current_property][key] = value
+                except KeyError:
+                    pass
             elif line.strip() == '':
                 try:
                     self.properties[current_property]['*Blank%i' % blank_count] = None
