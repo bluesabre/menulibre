@@ -1,3 +1,15 @@
+menulibre (13.03.6ubuntu1) UNRELEASED; urgency=low
+
+  * Fix build errors on non-Ubuntu installations, update es locale.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Sun, 24 Mar 2013 10:03:07 -0400
+
+menulibre (13.03.6) precise; urgency=low
+
+  * Add exception handling for property loading.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Sun, 24 Mar 2013 10:03:06 -0400
+
 menulibre (13.03.5) raring; urgency=low
 
   * New release.
