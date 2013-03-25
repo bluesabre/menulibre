@@ -1,3 +1,9 @@
+menulibre (13.03.11) quantal; urgency=low
+
+  * New release.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Mon, 25 Mar 2013 18:29:43 -0400
+
 menulibre (13.03.10) precise; urgency=low
 
   * Use encode instead of str for unicode strings.
