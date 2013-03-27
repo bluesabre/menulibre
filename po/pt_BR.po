@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-11-26 05:20-0500\n"
+"POT-Creation-Date: 2013-03-26 22:28-0400\n"
 "PO-Revision-Date: 2012-08-08 17:55+0000\n"
 "Last-Translator: Danillo <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-20 23:04+0000\n"
-"X-Generator: Launchpad (build 16532)\n"
+"X-Launchpad-Export-Date: 2013-03-27 05:25+0000\n"
+"X-Generator: Launchpad (build 16540)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
@@ -89,7 +89,7 @@ msgstr "_Ajuda"
 msgid "_Contents"
 msgstr "Conteúdo"
 
-#: ../data/ui/MenulibreWindow.ui.h:19
+#: ../data/ui/MenulibreWindow.ui.h:19 ../menulibre/MenulibreWindow.py:1393
 msgid "Add Launcher"
 msgstr "Adicionar Lançador"
 
@@ -134,151 +134,233 @@ msgid "Application"
 msgstr "Aplicativo"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
+msgid "Categories"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:31
+msgid "Applications"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:32
 msgid "<b>No applications found.</b>"
 msgstr "<b>Nenhum aplicativo encontrado.</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:31
+#: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Try searching everything."
 msgstr "Tente procurar por tudo."
 
-#: ../data/ui/MenulibreWindow.ui.h:32
+#: ../data/ui/MenulibreWindow.ui.h:34
+msgid "Search Failed"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:35
 msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>Nome do Aplicativo</b></big>"
 
-#: ../data/ui/MenulibreWindow.ui.h:33
+#: ../data/ui/MenulibreWindow.ui.h:36
 msgid "<i>A quick snippet about your application.</i>"
 msgstr "<i>Uma rápida descrição de seu aplicativo.</i>"
 
-#: ../data/ui/MenulibreWindow.ui.h:34
+#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreWindow.py:226
 msgid "Command"
 msgstr "Comando"
 
-#: ../data/ui/MenulibreWindow.ui.h:35
+#: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Working Directory"
 msgstr "Diretório de Trabalho"
 
-#: ../data/ui/MenulibreWindow.ui.h:36
+#: ../data/ui/MenulibreWindow.ui.h:39
 msgid "<b>Application Settings</b>"
 msgstr "<b>Configurações do Aplicativo</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:37
+#: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Run in terminal"
 msgstr "Executar no terminal"
 
-#: ../data/ui/MenulibreWindow.ui.h:38
+#: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
 msgstr "Usar notificação de inicialização"
 
-#: ../data/ui/MenulibreWindow.ui.h:39
+#: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Hide from menus"
 msgstr "Esconder dos menus"
 
-#: ../data/ui/MenulibreWindow.ui.h:40
+#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "<b>Options</b>"
 msgstr "<b>Opções</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:41
+#: ../data/ui/MenulibreWindow.ui.h:44
 msgid "label"
 msgstr "rótulo"
 
-#: ../data/ui/MenulibreWindow.ui.h:42
+#: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Delete this launcher..."
 msgstr "Deletar este lançador..."
 
-#: ../data/ui/MenulibreWindow.ui.h:43
+#: ../data/ui/MenulibreWindow.ui.h:46
 msgid "<small>Filename</small>"
 msgstr "<small>Nome do Arquivo</small>"
 
-#: ../data/ui/MenulibreWindow.ui.h:44
+#: ../data/ui/MenulibreWindow.ui.h:47 ../menulibre/MenulibreWindow.py:68
 msgid "Accessories"
 msgstr "Acessórios"
 
-#: ../data/ui/MenulibreWindow.ui.h:45
+#: ../data/ui/MenulibreWindow.ui.h:48 ../menulibre/MenulibreWindow.py:59
 msgid "Development"
 msgstr "Desenvolvimento"
 
-#: ../data/ui/MenulibreWindow.ui.h:46
+#: ../data/ui/MenulibreWindow.ui.h:49 ../menulibre/MenulibreWindow.py:60
 msgid "Education"
 msgstr "Educação"
 
-#: ../data/ui/MenulibreWindow.ui.h:47
+#: ../data/ui/MenulibreWindow.ui.h:50 ../menulibre/MenulibreWindow.py:61
 msgid "Games"
 msgstr "Jogos"
 
-#: ../data/ui/MenulibreWindow.ui.h:48
+#: ../data/ui/MenulibreWindow.ui.h:51 ../menulibre/MenulibreWindow.py:62
 msgid "Graphics"
 msgstr "Gráficos"
 
-#: ../data/ui/MenulibreWindow.ui.h:49
+#: ../data/ui/MenulibreWindow.ui.h:52 ../menulibre/MenulibreWindow.py:63
 msgid "Internet"
 msgstr "Internet"
 
-#: ../data/ui/MenulibreWindow.ui.h:50
+#: ../data/ui/MenulibreWindow.ui.h:53 ../menulibre/MenulibreWindow.py:58
 msgid "Multimedia"
 msgstr "Multimídia"
 
-#: ../data/ui/MenulibreWindow.ui.h:51
+#: ../data/ui/MenulibreWindow.ui.h:54 ../menulibre/MenulibreWindow.py:64
 msgid "Office"
 msgstr "Escritório"
 
-#: ../data/ui/MenulibreWindow.ui.h:52
+#: ../data/ui/MenulibreWindow.ui.h:55 ../menulibre/MenulibreWindow.py:66
 msgid "Settings"
 msgstr "Configurações"
 
-#: ../data/ui/MenulibreWindow.ui.h:53
+#: ../data/ui/MenulibreWindow.ui.h:56 ../menulibre/MenulibreWindow.py:67
 msgid "System"
 msgstr "Sistema"
 
-#: ../data/ui/MenulibreWindow.ui.h:54
+#: ../data/ui/MenulibreWindow.ui.h:57 ../menulibre/MenulibreWindow.py:69
 msgid "WINE"
 msgstr "WINE"
 
-#: ../data/ui/MenulibreWindow.ui.h:55
+#: ../data/ui/MenulibreWindow.ui.h:58
 msgid "<b>Categories</b>"
 msgstr "<b>Categorias</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:56
+#: ../data/ui/MenulibreWindow.ui.h:59
 msgid "General Settings"
 msgstr "Configurações Gerais"
 
-#: ../data/ui/MenulibreWindow.ui.h:57
+#: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Quicklists"
 msgstr "Lista de Atalhos"
 
-#: ../data/ui/MenulibreWindow.ui.h:58
+#: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Editor"
 msgstr "Editor"
 
-#: ../data/ui/MenulibreWindow.ui.h:59
+#: ../data/ui/MenulibreWindow.ui.h:62
+msgid "Application Settings"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:63
 msgid "<big><b>Remove Launcher?</b></big>"
 msgstr "<big><b>Remover Lançador?</b></big>"
 
-#: ../data/ui/MenulibreWindow.ui.h:60
+#: ../data/ui/MenulibreWindow.ui.h:64
 msgid ""
 "Are you sure you wish to remove this launcher?  This cannot be undone."
 msgstr ""
 "Você tem certeza de que deseja remover este lançador? Esta ação não pode ser "
 "desfeita."
 
-#: ../menulibre/MenulibreWindow.py:193
+#: ../menulibre/MenulibreWindow.py:65
+msgid "Other"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:207
 msgid "Show"
 msgstr "Exibir"
 
-#: ../menulibre/MenulibreWindow.py:246
+#: ../menulibre/MenulibreWindow.py:210
+msgid "Shortcut Name"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:218
+msgid "Displayed Name"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:260
 msgid "Image"
 msgstr "Imagem"
 
-#: ../menulibre/MenulibreWindow.py:248
+#: ../menulibre/MenulibreWindow.py:262
 msgid "Name"
 msgstr "Nome"
 
+#: ../menulibre/MenulibreWindow.py:467 ../menulibre/MenulibreWindow.py:490
+msgid "Search Applications"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:479
+#, python-format
+msgid "Search %s"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:497
+#, python-format
+msgid ""
+"Are you sure you wish to remove \"%s\"?\n"
+"This cannot be undone."
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:506
+#, python-format
+msgid ""
+"Are you sure you wish to remove \"%s\"?\n"
+"The menu item will be restored to system defaults."
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:515 ../menulibre/MenulibreWindow.py:1204
+#: ../menulibre/MenulibreWindow.py:1319 ../menulibre/MenulibreWindow.py:1473
+#: ../menulibre/MenulibreWindow.py:1645 ../menulibre/MenulibreWindow.py:1647
+#: ../menulibre_lib/MenulibreXdg.py:44
+msgid "New Menu Item"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:706 ../menulibre/MenulibreWindow.py:727
+msgid "Select an executable"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:845
+msgid "NewShortcut"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:847
+msgid "New Shortcut"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:1364 ../menulibre/MenulibreWindow.py:1456
+msgid "All Applications"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:1393
+msgid "Add a new application launcher"
+msgstr ""
+
+#: ../menulibre/MenulibreWindow.py:1687
+msgid "Search Results"
+msgstr ""
+
 #: ../data/ui/AboutMenulibreDialog.ui.h:1
-msgid "Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>"
-msgstr "Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>"
+msgid "Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
+msgstr ""
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:2
 msgid ""
-"# Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>\n"
+"# Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>\n"
 "# This program is free software: you can redistribute it and/or modify it \n"
 "# under the terms of the GNU General Public License version 3, as published "
 "\n"
@@ -292,20 +374,24 @@ msgid ""
 "# You should have received a copy of the GNU General Public License along \n"
 "# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
 msgstr ""
-"# Copyright (C) 2012 Sean Davis <smd.seandavis@gmail.com>\n"
-"# Este programa é software livre: você pode redistribuí-lo e/ou modificá-lo "
-"\n"
-"# sob os termos da Licença Pública Geral GNU versão 3, publicada pela\n"
-"# Free Software Foundation.\n"
-"# \n"
-"# Este programa é distribuído na esperança de que ele seja útil, mas \n"
-"# SEM QUALQUER GARANTIA; sem até mesmo as garantias implícitas de \n"
-"# COMERCIABILIDADE, QUALIDADE SATISFATÓRIA ou ADEQUAÇÃO A UM\n"
-"# PROPÓSITO PARTICULAR. Veja a Licença Pública Geral GNU para mais\n"
-"# detalhes.\n"
-"# \n"
-"# Você deve ter recebido uma cópia da Licença Pública Geral GNU junto\n"
-"# com este programa. Se não recebeu, veja <http://www.gnu.org/licenses/>.\n"
+
+#: ../menulibre_lib/MenulibreXdg.py:45
+msgid "A small descriptive blurb about this application."
+msgstr ""
+
+#: ../menulibre_lib/MenulibreXdg.py:171
+#, python-format
+msgid "'%s' is not a .desktop file"
+msgstr ""
+
+#: ../menulibre_lib/MenulibreXdg.py:174
+msgid "Initialized without required parameters."
+msgstr ""
+
+#: ../menulibre_lib/MenulibreXdg.py:183
+#, python-format
+msgid "'%s' is not a .directory file"
+msgstr ""
 
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages (-vv debugs menulibre_lib also)"
@@ -318,3 +404,11 @@ msgstr "Editor de Menus"
 #: ../menulibre.desktop.in.h:2
 msgid "Edit System and User Menus with ease"
 msgstr "Edite menus de sistema e de usuário com facilidade"
+
+#: ../menulibre.desktop.in.h:3
+msgid "Edit user menus"
+msgstr ""
+
+#: ../menulibre.desktop.in.h:4
+msgid "Edit system menus"
+msgstr ""
