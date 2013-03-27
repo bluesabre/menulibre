@@ -119,9 +119,17 @@ class MenulibreDesktopEntry:
                         pass
             if prop_name in ['Name', 'Comment'] and self.filename != None:
                 entry = xdg.DesktopEntry.DesktopEntry(self.filename)
-                if prop_name == 'Name': return entry.getName().encode('utf-8')
-                else: return entry.getComment().encode('utf-8')
-                    
+                if prop_name == 'Name': 
+                    value = entry.getName()
+                else: 
+                    value = entry.getComment()
+                try:
+                    return value.encode('utf-8')
+                except UnicodeDecodeError:
+                    try:
+                        return str(value)
+                    except UnicodeDecodeError:
+                        return self.properties[category][prop_name]
         try:
             return self.properties[category][prop_name]
         except KeyError:

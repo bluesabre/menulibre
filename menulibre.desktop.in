@@ -11,11 +11,11 @@ Actions=User;Root;
 X-Ubuntu-Gettext-Domain=menulibre
 
 [Desktop Action User]
-Name=Edit User Menus
+_Name=Edit user menus
 Exec=menulibre
 OnlyShowIn=Unity;
 
 [Desktop Action Root]
-Name=Edit System Menus
+_Name=Edit system menus
 Exec=gksudo menulibre
 OnlyShowIn=Unity;
