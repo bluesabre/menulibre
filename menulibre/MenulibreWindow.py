@@ -118,6 +118,7 @@ class MenulibreWindow(Window):
         
         # -- Search Bar (Gtk.Entry) -- #
         self.entry_search = self.builder.get_object('entry_search')
+        self.entry_search.set_placeholder_text( _("Search Applications") )
         
         # -- Breadcrumbs (Gtk.Box) -- #
         self.breadcrumbs = self.builder.get_object('breadcrumbs')
