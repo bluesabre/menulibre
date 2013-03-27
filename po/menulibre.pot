@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-22 06:22-0400\n"
+"POT-Creation-Date: 2013-03-26 22:28-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -376,16 +376,16 @@ msgstr ""
 msgid "A small descriptive blurb about this application."
 msgstr ""
 
-#: ../menulibre_lib/MenulibreXdg.py:160
+#: ../menulibre_lib/MenulibreXdg.py:171
 #, python-format
 msgid "'%s' is not a .desktop file"
 msgstr ""
 
-#: ../menulibre_lib/MenulibreXdg.py:163
+#: ../menulibre_lib/MenulibreXdg.py:174
 msgid "Initialized without required parameters."
 msgstr ""
 
-#: ../menulibre_lib/MenulibreXdg.py:172
+#: ../menulibre_lib/MenulibreXdg.py:183
 #, python-format
 msgid "'%s' is not a .directory file"
 msgstr ""
@@ -400,4 +400,12 @@ msgstr ""
 
 #: ../menulibre.desktop.in.h:2
 msgid "Edit System and User Menus with ease"
+msgstr ""
+
+#: ../menulibre.desktop.in.h:3
+msgid "Edit user menus"
+msgstr ""
+
+#: ../menulibre.desktop.in.h:4
+msgid "Edit system menus"
 msgstr ""
