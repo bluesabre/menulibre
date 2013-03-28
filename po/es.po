@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-03-26 22:28-0400\n"
-"PO-Revision-Date: 2013-03-25 22:33+0000\n"
-"Last-Translator: Sean Davis <Unknown>\n"
+"PO-Revision-Date: 2013-03-27 14:04+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-27 05:25+0000\n"
-"X-Generator: Launchpad (build 16540)\n"
+"X-Launchpad-Export-Date: 2013-03-28 05:11+0000\n"
+"X-Generator: Launchpad (build 16546)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
@@ -302,7 +302,7 @@ msgstr "Nombre"
 
 #: ../menulibre/MenulibreWindow.py:467 ../menulibre/MenulibreWindow.py:490
 msgid "Search Applications"
-msgstr "Buscar en aplicaciones"
+msgstr "Buscar aplicaciones"
 
 #: ../menulibre/MenulibreWindow.py:479
 #, python-format
@@ -315,7 +315,7 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "This cannot be undone."
 msgstr ""
-"¿Está seguro de que quiere eliminar \"%s\"?\n"
+"¿Está seguro de que quiere eliminar «%s»?\n"
 "Esto no se puede deshacer."
 
 #: ../menulibre/MenulibreWindow.py:506
@@ -324,15 +324,15 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "The menu item will be restored to system defaults."
 msgstr ""
-"¿Está seguro de que quiere eliminar \"%s\"?\n"
-"Se volvió al lanzador sistema."
+"¿Está seguro de que quiere eliminar «%s»?\n"
+"El elemento del menú se restablecerá al valor predeterminado del sistema."
 
 #: ../menulibre/MenulibreWindow.py:515 ../menulibre/MenulibreWindow.py:1204
 #: ../menulibre/MenulibreWindow.py:1319 ../menulibre/MenulibreWindow.py:1473
 #: ../menulibre/MenulibreWindow.py:1645 ../menulibre/MenulibreWindow.py:1647
 #: ../menulibre_lib/MenulibreXdg.py:44
 msgid "New Menu Item"
-msgstr "Nuevo item menu"
+msgstr "Elemento de menú nuevo"
 
 #: ../menulibre/MenulibreWindow.py:706 ../menulibre/MenulibreWindow.py:727
 msgid "Select an executable"
@@ -348,7 +348,7 @@ msgstr "Acceso rápido nuevo"
 
 #: ../menulibre/MenulibreWindow.py:1364 ../menulibre/MenulibreWindow.py:1456
 msgid "All Applications"
-msgstr "Todas las Aplicaciones"
+msgstr "Todas las aplicaciones"
 
 #: ../menulibre/MenulibreWindow.py:1393
 msgid "Add a new application launcher"
@@ -425,8 +425,8 @@ msgstr "Edite los menús del sistema y del usuario con facilidad"
 
 #: ../menulibre.desktop.in.h:3
 msgid "Edit user menus"
-msgstr ""
+msgstr "Editar menús del usuario"
 
 #: ../menulibre.desktop.in.h:4
 msgid "Edit system menus"
-msgstr ""
+msgstr "Editar menús del sistema"

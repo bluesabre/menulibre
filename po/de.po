@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-03-26 22:28-0400\n"
-"PO-Revision-Date: 2013-01-15 23:19+0000\n"
-"Last-Translator: Jonatan Zeidler <Unknown>\n"
+"PO-Revision-Date: 2013-03-27 10:18+0000\n"
+"Last-Translator: Leopold Stammler <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-27 05:25+0000\n"
-"X-Generator: Launchpad (build 16540)\n"
+"X-Launchpad-Export-Date: 2013-03-28 05:11+0000\n"
+"X-Generator: Launchpad (build 16546)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
@@ -135,11 +135,11 @@ msgstr "Anwendung"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
 msgid "Categories"
-msgstr ""
+msgstr "Kategorien"
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Applications"
-msgstr ""
+msgstr "Anwendungen"
 
 #: ../data/ui/MenulibreWindow.ui.h:32
 msgid "<b>No applications found.</b>"
@@ -263,7 +263,7 @@ msgstr "Editor"
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Application Settings"
-msgstr ""
+msgstr "Anwendungseinstellungen"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "<big><b>Remove Launcher?</b></big>"
@@ -278,7 +278,7 @@ msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:65
 msgid "Other"
-msgstr ""
+msgstr "Weitere"
 
 #: ../menulibre/MenulibreWindow.py:207
 msgid "Show"

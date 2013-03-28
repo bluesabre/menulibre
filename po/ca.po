@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-03-26 22:28-0400\n"
-"PO-Revision-Date: 2013-03-21 02:21+0000\n"
+"PO-Revision-Date: 2013-03-27 13:56+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-27 05:25+0000\n"
-"X-Generator: Launchpad (build 16540)\n"
+"X-Launchpad-Export-Date: 2013-03-28 05:11+0000\n"
+"X-Generator: Launchpad (build 16546)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
@@ -313,6 +313,8 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "This cannot be undone."
 msgstr ""
+"Esteu segur que voleu eliminar «%s»?\n"
+"Això no es pot desfer."
 
 #: ../menulibre/MenulibreWindow.py:506
 #, python-format
@@ -320,25 +322,27 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "The menu item will be restored to system defaults."
 msgstr ""
+"Esteu segur que voleu eliminar «%s»?\n"
+"L’element de menú es restablirà al valor predeterminat del sistema."
 
 #: ../menulibre/MenulibreWindow.py:515 ../menulibre/MenulibreWindow.py:1204
 #: ../menulibre/MenulibreWindow.py:1319 ../menulibre/MenulibreWindow.py:1473
 #: ../menulibre/MenulibreWindow.py:1645 ../menulibre/MenulibreWindow.py:1647
 #: ../menulibre_lib/MenulibreXdg.py:44
 msgid "New Menu Item"
-msgstr ""
+msgstr "Element de menú nou"
 
 #: ../menulibre/MenulibreWindow.py:706 ../menulibre/MenulibreWindow.py:727
 msgid "Select an executable"
-msgstr ""
+msgstr "Seleccioneu un executable"
 
 #: ../menulibre/MenulibreWindow.py:845
 msgid "NewShortcut"
-msgstr ""
+msgstr "DreceraNova"
 
 #: ../menulibre/MenulibreWindow.py:847
 msgid "New Shortcut"
-msgstr ""
+msgstr "Drecera nova"
 
 #: ../menulibre/MenulibreWindow.py:1364 ../menulibre/MenulibreWindow.py:1456
 msgid "All Applications"
@@ -375,7 +379,7 @@ msgstr ""
 
 #: ../menulibre_lib/MenulibreXdg.py:45
 msgid "A small descriptive blurb about this application."
-msgstr ""
+msgstr "Una descripció curta d’aquesta aplicació"
 
 #: ../menulibre_lib/MenulibreXdg.py:171
 #, python-format
@@ -393,7 +397,7 @@ msgstr "«%s» no és un fitxer .directory"
 
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages (-vv debugs menulibre_lib also)"
-msgstr ""
+msgstr "Mostra els missatges de depuració (-vv depura menulibre_lib també)"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -405,8 +409,8 @@ msgstr "Editeu els menús del sistema i de l’usuari fàcilment"
 
 #: ../menulibre.desktop.in.h:3
 msgid "Edit user menus"
-msgstr ""
+msgstr "Edita els menús de l’usuari"
 
 #: ../menulibre.desktop.in.h:4
 msgid "Edit system menus"
-msgstr ""
+msgstr "Edita els menús del sistema"

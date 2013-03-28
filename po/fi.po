@@ -1,16 +1,16 @@
-# Brazilian Portuguese translation for menulibre
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# Finnish translation for menulibre
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
 # This file is distributed under the same license as the menulibre package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-03-26 22:28-0400\n"
-"PO-Revision-Date: 2013-03-27 14:03+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
+"PO-Revision-Date: 2013-03-27 12:28+0000\n"
+"Last-Translator: Pasi Lallinaho <pasi@shimmerproject.org>\n"
+"Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,23 +19,23 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
-msgstr "Selecione um ícone"
+msgstr "Valitse kuvake"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Icon Name"
-msgstr "Nome do Ícone"
+msgstr "Kuvakkeen nimi"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Image File"
-msgstr "Arquivo de Imagem"
+msgstr "Kuvatiedosto"
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Select an Image"
-msgstr "Selecione uma Imagem"
+msgstr "Valitse kuva"
 
 #: ../data/ui/MenulibreWindow.ui.h:5
 msgid "<b>Select Icon</b>"
-msgstr "<b>Selecione Ícone</b>"
+msgstr "<b>Valitse kuvake</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "48x48"
@@ -59,11 +59,11 @@ msgstr "128x128"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "<b>Preview</b>"
-msgstr "<b>Pré-Visualização</b>"
+msgstr "<b>Esikatselu</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "Select an icon"
-msgstr "Selecione um ícone"
+msgstr "Valitse kuvake"
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "MenuLibre"
@@ -71,155 +71,156 @@ msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "_File"
-msgstr "_Arquivo"
+msgstr "_Tiedosto"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Add _New Launcher"
-msgstr "Adicionar _Novo Lançador"
+msgstr "_Lisää uusi käynnistin"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid "_Edit"
-msgstr "_Editar"
+msgstr "_Muokkaa"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "_Help"
-msgstr "_Ajuda"
+msgstr "_Ohje"
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid "_Contents"
-msgstr "Conteúdo"
+msgstr "_Sisällys"
 
 #: ../data/ui/MenulibreWindow.ui.h:19 ../menulibre/MenulibreWindow.py:1393
 msgid "Add Launcher"
-msgstr "Adicionar Lançador"
+msgstr "Lisää käynnistin"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Save All Changes"
-msgstr "Salvar Todas as Mudanças"
+msgstr "Tallenna kaikki muutokset"
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Save"
-msgstr "Salvar"
+msgstr "Tallenna"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
 msgid "Undo the last action"
-msgstr "Desfazer a última açãob"
+msgstr "Kumoa viimeisin toiminto"
 
 #: ../data/ui/MenulibreWindow.ui.h:23
 msgid "Undo"
-msgstr "Desfazer"
+msgstr "Kumoa"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Redo the last undone action"
-msgstr "Refazer a última ação desfeita"
+msgstr "Tee viimeisin kumottu toiminto uudelleen"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Redo"
-msgstr "Refazer"
+msgstr "Tee uudelleen"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Revert all changes to last saved state"
-msgstr "Reverter todas as mudanças para o último estado salvo"
+msgstr ""
+"Palauta ennalleen kaikki muutokset ja palaa viimeiseen tallennettuun tilaan"
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Revert"
-msgstr "Reverter"
+msgstr "Palauta ennalleen"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Category"
-msgstr "Categoria"
+msgstr "Kategoria"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application"
-msgstr "Aplicativo"
+msgstr "Sovellus"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
 msgid "Categories"
-msgstr "Categorias"
+msgstr "Kategoriat"
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Applications"
-msgstr "Aplicativos"
+msgstr "Sovellukset"
 
 #: ../data/ui/MenulibreWindow.ui.h:32
 msgid "<b>No applications found.</b>"
-msgstr "<b>Nenhum aplicativo encontrado.</b>"
+msgstr "<b>Sovelluksia ei löytynyt.</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Try searching everything."
-msgstr "Tente procurar por tudo."
+msgstr "Kokeile hakea kaikkea."
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Search Failed"
-msgstr ""
+msgstr "Haku epäonnistui."
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Nome do Aplicativo</b></big>"
+msgstr "<big><b>Sovelluksen nimi</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "<i>A quick snippet about your application.</i>"
-msgstr "<i>Uma rápida descrição de seu aplicativo.</i>"
+msgstr "<i>Lyhyt kuvaus sovelluksestasi.</i>"
 
 #: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreWindow.py:226
 msgid "Command"
-msgstr "Comando"
+msgstr "Komento"
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Working Directory"
-msgstr "Diretório de Trabalho"
+msgstr "Työkansio"
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "<b>Application Settings</b>"
-msgstr "<b>Configurações do Aplicativo</b>"
+msgstr "<b>Sovelluksen asetukset</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Run in terminal"
-msgstr "Executar no terminal"
+msgstr "Aja pääteohjelmassa."
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
-msgstr "Usar notificação de inicialização"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Hide from menus"
-msgstr "Esconder dos menus"
+msgstr "Piilota valikoista"
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "<b>Options</b>"
-msgstr "<b>Opções</b>"
+msgstr "<b>Asetukset</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "label"
-msgstr "rótulo"
+msgstr "nimi"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Delete this launcher..."
-msgstr "Deletar este lançador..."
+msgstr "Poista tämä käynnistin..."
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "<small>Filename</small>"
-msgstr "<small>Nome do Arquivo</small>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:47 ../menulibre/MenulibreWindow.py:68
 msgid "Accessories"
-msgstr "Acessórios"
+msgstr "Apuohjelmat"
 
 #: ../data/ui/MenulibreWindow.ui.h:48 ../menulibre/MenulibreWindow.py:59
 msgid "Development"
-msgstr "Desenvolvimento"
+msgstr "Kehitystyökalut"
 
 #: ../data/ui/MenulibreWindow.ui.h:49 ../menulibre/MenulibreWindow.py:60
 msgid "Education"
-msgstr "Educação"
+msgstr "Opetusohjelmat"
 
 #: ../data/ui/MenulibreWindow.ui.h:50 ../menulibre/MenulibreWindow.py:61
 msgid "Games"
-msgstr "Jogos"
+msgstr "Pelit"
 
 #: ../data/ui/MenulibreWindow.ui.h:51 ../menulibre/MenulibreWindow.py:62
 msgid "Graphics"
-msgstr "Gráficos"
+msgstr "Grafiikka"
 
 #: ../data/ui/MenulibreWindow.ui.h:52 ../menulibre/MenulibreWindow.py:63
 msgid "Internet"
@@ -227,19 +228,19 @@ msgstr "Internet"
 
 #: ../data/ui/MenulibreWindow.ui.h:53 ../menulibre/MenulibreWindow.py:58
 msgid "Multimedia"
-msgstr "Multimídia"
+msgstr "Multimedia"
 
 #: ../data/ui/MenulibreWindow.ui.h:54 ../menulibre/MenulibreWindow.py:64
 msgid "Office"
-msgstr "Escritório"
+msgstr "Toimisto"
 
 #: ../data/ui/MenulibreWindow.ui.h:55 ../menulibre/MenulibreWindow.py:66
 msgid "Settings"
-msgstr "Configurações"
+msgstr "Asetukset"
 
 #: ../data/ui/MenulibreWindow.ui.h:56 ../menulibre/MenulibreWindow.py:67
 msgid "System"
-msgstr "Sistema"
+msgstr "Järjestelmä"
 
 #: ../data/ui/MenulibreWindow.ui.h:57 ../menulibre/MenulibreWindow.py:69
 msgid "WINE"
@@ -247,67 +248,67 @@ msgstr "WINE"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
 msgid "<b>Categories</b>"
-msgstr "<b>Categorias</b>"
+msgstr "<b>Kategoriat</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "General Settings"
-msgstr "Configurações Gerais"
+msgstr "Yleiset asetukset"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Quicklists"
-msgstr "Lista de Atalhos"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Editor"
-msgstr "Editor"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Application Settings"
-msgstr "Configurações do aplicativo"
+msgstr "Sovelluksen asetukset"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "<big><b>Remove Launcher?</b></big>"
-msgstr "<big><b>Remover Lançador?</b></big>"
+msgstr "<big><b>Poista tämä käynnistin?</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid ""
 "Are you sure you wish to remove this launcher?  This cannot be undone."
 msgstr ""
-"Você tem certeza de que deseja remover este lançador? Esta ação não pode ser "
-"desfeita."
+"Oletko varma että haluat poistaa tämän käynnistimen? Tätä toimintoa ei voi "
+"kumota."
 
 #: ../menulibre/MenulibreWindow.py:65
 msgid "Other"
-msgstr "Outras"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:207
 msgid "Show"
-msgstr "Exibir"
+msgstr "Näytä"
 
 #: ../menulibre/MenulibreWindow.py:210
 msgid "Shortcut Name"
-msgstr "Nome do atalho"
+msgstr "Pikakuvakkeen nimi"
 
 #: ../menulibre/MenulibreWindow.py:218
 msgid "Displayed Name"
-msgstr "Nome exibido"
+msgstr "Näytettävä nimi"
 
 #: ../menulibre/MenulibreWindow.py:260
 msgid "Image"
-msgstr "Imagem"
+msgstr "Kuva"
 
 #: ../menulibre/MenulibreWindow.py:262
 msgid "Name"
-msgstr "Nome"
+msgstr "Nimi"
 
 #: ../menulibre/MenulibreWindow.py:467 ../menulibre/MenulibreWindow.py:490
 msgid "Search Applications"
-msgstr "Pesquisar aplicativos"
+msgstr "Etsi sovelluksia"
 
 #: ../menulibre/MenulibreWindow.py:479
 #, python-format
 msgid "Search %s"
-msgstr "Pesquisar %s"
+msgstr "Etsi kohteesta %s"
 
 #: ../menulibre/MenulibreWindow.py:497
 #, python-format
@@ -322,17 +323,19 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "The menu item will be restored to system defaults."
 msgstr ""
+"Oletko varma että haluat poistaa käynnistimen \"%s\"?\n"
+"Tämän käynnistimen asetukset palautetaan järjestelmän oletusasetuksiksi."
 
 #: ../menulibre/MenulibreWindow.py:515 ../menulibre/MenulibreWindow.py:1204
 #: ../menulibre/MenulibreWindow.py:1319 ../menulibre/MenulibreWindow.py:1473
 #: ../menulibre/MenulibreWindow.py:1645 ../menulibre/MenulibreWindow.py:1647
 #: ../menulibre_lib/MenulibreXdg.py:44
 msgid "New Menu Item"
-msgstr ""
+msgstr "Uusi valikkokohta"
 
 #: ../menulibre/MenulibreWindow.py:706 ../menulibre/MenulibreWindow.py:727
 msgid "Select an executable"
-msgstr ""
+msgstr "Valitse suoritettava kohde"
 
 #: ../menulibre/MenulibreWindow.py:845
 msgid "NewShortcut"
@@ -340,23 +343,23 @@ msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:847
 msgid "New Shortcut"
-msgstr ""
+msgstr "Uusi pikakuvake"
 
 #: ../menulibre/MenulibreWindow.py:1364 ../menulibre/MenulibreWindow.py:1456
 msgid "All Applications"
-msgstr "Todos os aplicativos"
+msgstr "Kaikki sovellukset"
 
 #: ../menulibre/MenulibreWindow.py:1393
 msgid "Add a new application launcher"
-msgstr ""
+msgstr "Lisää uusi sovelluskäynnistin"
 
 #: ../menulibre/MenulibreWindow.py:1687
 msgid "Search Results"
-msgstr "Resultados da pesquisa"
+msgstr "Hakutulokset"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:1
 msgid "Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
-msgstr "Copyright © 2012–2013 Sean Davis <smd.seandavis@gmail.com>"
+msgstr ""
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:2
 msgid ""
@@ -377,12 +380,12 @@ msgstr ""
 
 #: ../menulibre_lib/MenulibreXdg.py:45
 msgid "A small descriptive blurb about this application."
-msgstr ""
+msgstr "Lyhyt kuvaus tästä sovelluksesta."
 
 #: ../menulibre_lib/MenulibreXdg.py:171
 #, python-format
 msgid "'%s' is not a .desktop file"
-msgstr ""
+msgstr "'%s' ei ole .desktop -tiedosto"
 
 #: ../menulibre_lib/MenulibreXdg.py:174
 msgid "Initialized without required parameters."
@@ -391,19 +394,19 @@ msgstr ""
 #: ../menulibre_lib/MenulibreXdg.py:183
 #, python-format
 msgid "'%s' is not a .directory file"
-msgstr ""
+msgstr "'%s' ei ole .directory -tiedosto"
 
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages (-vv debugs menulibre_lib also)"
-msgstr "Exibir mensagens de depuração (também -vv debugs menulibre_lib)"
+msgstr ""
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr "Editor de Menus"
+msgstr "Valikkomuokkain"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Edit System and User Menus with ease"
-msgstr "Edite menus de sistema e de usuário com facilidade"
+msgstr ""
 
 #: ../menulibre.desktop.in.h:3
 msgid "Edit user menus"
