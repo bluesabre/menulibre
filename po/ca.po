@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-03-26 22:28-0400\n"
-"PO-Revision-Date: 2013-03-27 13:56+0000\n"
+"PO-Revision-Date: 2013-04-10 07:46+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-28 05:11+0000\n"
-"X-Generator: Launchpad (build 16546)\n"
+"X-Launchpad-Export-Date: 2013-04-11 05:29+0000\n"
+"X-Generator: Launchpad (build 16550)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
@@ -75,7 +75,7 @@ msgstr "_Fitxer"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Add _New Launcher"
-msgstr ""
+msgstr "Afegeix un llançador _nou"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid "_Edit"
@@ -91,7 +91,7 @@ msgstr "_Contingut"
 
 #: ../data/ui/MenulibreWindow.ui.h:19 ../menulibre/MenulibreWindow.py:1393
 msgid "Add Launcher"
-msgstr ""
+msgstr "Afegeix un llançador"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Save All Changes"
@@ -119,7 +119,7 @@ msgstr "Refés"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Revert all changes to last saved state"
-msgstr ""
+msgstr "Reverteix tots els canvis a l’últim estat guardat"
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Revert"
@@ -159,7 +159,7 @@ msgstr "<big><b>Nom de l’aplicació</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "<i>A quick snippet about your application.</i>"
-msgstr ""
+msgstr "<i>Un resum ràpid de la vostra aplicació.</i>"
 
 #: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreWindow.py:226
 msgid "Command"
@@ -179,7 +179,7 @@ msgstr "Executa en terminal"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
-msgstr ""
+msgstr "Usa una notificació d’inici"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Hide from menus"
@@ -195,7 +195,7 @@ msgstr "etiqueta"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Delete this launcher..."
-msgstr ""
+msgstr "Elimina aquest llançador…"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "<small>Filename</small>"
@@ -267,12 +267,14 @@ msgstr "Paràmetres de l’aplicació"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "<big><b>Remove Launcher?</b></big>"
-msgstr ""
+msgstr "<big><b>Eliminar aquest llançador?</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid ""
 "Are you sure you wish to remove this launcher?  This cannot be undone."
 msgstr ""
+"Esteu segur que voleu eliminar aquest llançador? Aquesta acció no es pot "
+"desfer."
 
 #: ../menulibre/MenulibreWindow.py:65
 msgid "Other"
@@ -284,7 +286,7 @@ msgstr "Mostra"
 
 #: ../menulibre/MenulibreWindow.py:210
 msgid "Shortcut Name"
-msgstr ""
+msgstr "Nom de la drecera"
 
 #: ../menulibre/MenulibreWindow.py:218
 msgid "Displayed Name"
@@ -350,7 +352,7 @@ msgstr "Totes les aplicacions"
 
 #: ../menulibre/MenulibreWindow.py:1393
 msgid "Add a new application launcher"
-msgstr ""
+msgstr "Afegeix un llançador d’aplicació nou"
 
 #: ../menulibre/MenulibreWindow.py:1687
 msgid "Search Results"

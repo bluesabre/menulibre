@@ -1,16 +1,16 @@
-# Russian translation for menulibre
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# Czech translation for menulibre
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
 # This file is distributed under the same license as the menulibre package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-03-26 22:28-0400\n"
-"PO-Revision-Date: 2013-04-10 22:04+0000\n"
-"Last-Translator: Rodion R. <rodikr2005@yandex.ru>\n"
-"Language-Team: Russian <ru@li.org>\n"
+"PO-Revision-Date: 2013-04-10 15:07+0000\n"
+"Last-Translator: aloisam <a.musil@email.cz>\n"
+"Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,23 +19,23 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
-msgstr "Выберите значок"
+msgstr "Vyberte ikonu"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Icon Name"
-msgstr "Название значка"
+msgstr "Ikona - název"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Image File"
-msgstr "Файл изображения"
+msgstr "Obrázek - soubor"
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Select an Image"
-msgstr "Выберите изображение"
+msgstr "Vyberte obrázek"
 
 #: ../data/ui/MenulibreWindow.ui.h:5
 msgid "<b>Select Icon</b>"
-msgstr "<b>Выберите значок</b>"
+msgstr "<b>Vyberte ikonu</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "48x48"
@@ -59,11 +59,11 @@ msgstr "128x128"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "<b>Preview</b>"
-msgstr "<b>Предварительный просмотр</b>"
+msgstr "<b>Náhled</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "Select an icon"
-msgstr "Выберите значок"
+msgstr "Vyberte ikonu"
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "MenuLibre"
@@ -71,243 +71,242 @@ msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "_File"
-msgstr "_Файл"
+msgstr "_Soubor"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Add _New Launcher"
-msgstr "Добавить _новую кнопку запуска"
+msgstr "Přidat nový spouštěč"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid "_Edit"
-msgstr "_Правка"
+msgstr "_Úpravy"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "_Help"
-msgstr "_Справка"
+msgstr "_Nápověda"
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid "_Contents"
-msgstr "_Содержание"
+msgstr "_Obsah"
 
 #: ../data/ui/MenulibreWindow.ui.h:19 ../menulibre/MenulibreWindow.py:1393
 msgid "Add Launcher"
-msgstr "Добавить кнопку запуска"
+msgstr "Přidat spouštěč"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Save All Changes"
-msgstr "Сохранить все изменения"
+msgstr "Uložit všechny změny"
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Save"
-msgstr "Сохранить"
+msgstr "Uložit"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
 msgid "Undo the last action"
-msgstr "Отменить последнее действие"
+msgstr "Vrátit zpět poslední akci"
 
 #: ../data/ui/MenulibreWindow.ui.h:23
 msgid "Undo"
-msgstr "Отменить"
+msgstr "Zpět"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Redo the last undone action"
-msgstr "Вернуть последнее отменённое действие"
+msgstr "Zopakovat poslední vrácenou akci"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Redo"
-msgstr "Повторить"
+msgstr "Opakovat"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Revert all changes to last saved state"
-msgstr "Возвратить все изменения в последнее сохранённое состояние"
+msgstr "Vrátit všechny změny k poslednímu uloženému stavu"
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Revert"
-msgstr "Восстановить"
+msgstr "Vrátit zpět"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Category"
-msgstr "Категория"
+msgstr "Kategorie"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application"
-msgstr "Приложение"
+msgstr "Aplikace"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
 msgid "Categories"
-msgstr "Категории"
+msgstr "Kategorie"
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Applications"
-msgstr "Приложения"
+msgstr "Aplikace"
 
 #: ../data/ui/MenulibreWindow.ui.h:32
 msgid "<b>No applications found.</b>"
-msgstr "<b>Приложений не найдено.</b>"
+msgstr "<b>Žádná aplikace nenalezena.</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Try searching everything."
-msgstr "Поискать во всех категориях."
+msgstr "Zkuste prohledat všechny aplikace"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Search Failed"
-msgstr "Не удалось выполнить поиск"
+msgstr "Vyhledávání selhalo"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Название приложения</b></big>"
+msgstr "<big><b>Název aplikace</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "<i>A quick snippet about your application.</i>"
-msgstr "<i>Краткое описание приложения.</i>"
+msgstr "<i>Stručný popis aplikace.</i>"
 
 #: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreWindow.py:226
 msgid "Command"
-msgstr "Команда"
+msgstr "Příkaz"
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Working Directory"
-msgstr "Рабочий каталог"
+msgstr "Pracovní adresář"
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "<b>Application Settings</b>"
-msgstr "<b>Параметры приложения</b>"
+msgstr "<b>Nastavení aplikace</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Run in terminal"
-msgstr "Запустить в терминале"
+msgstr "Spustit v terminálu"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
-msgstr "Использовать уведомление о запуске"
+msgstr "Použít upozornění na spuštění"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Hide from menus"
-msgstr "Скрыть из меню"
+msgstr "Nezobrazovat v nabídkách"
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "<b>Options</b>"
-msgstr "<b>Опции</b>"
+msgstr "<b>Možnosti</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "label"
-msgstr "метка"
+msgstr "popisek"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Delete this launcher..."
-msgstr "Удалить эту кнопку запуска…"
+msgstr "Odstranit tento spouštěč"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "<small>Filename</small>"
-msgstr "<small>Имя файла</small>"
+msgstr "<small>Jméno souboru</small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:47 ../menulibre/MenulibreWindow.py:68
 msgid "Accessories"
-msgstr "Стандартные"
+msgstr "Příslušenství"
 
 #: ../data/ui/MenulibreWindow.ui.h:48 ../menulibre/MenulibreWindow.py:59
 msgid "Development"
-msgstr "Средства разработки"
+msgstr "Vývoj"
 
 #: ../data/ui/MenulibreWindow.ui.h:49 ../menulibre/MenulibreWindow.py:60
 msgid "Education"
-msgstr "Образовательные"
+msgstr "Vzdělávání"
 
 #: ../data/ui/MenulibreWindow.ui.h:50 ../menulibre/MenulibreWindow.py:61
 msgid "Games"
-msgstr "Игры"
+msgstr "Hry"
 
 #: ../data/ui/MenulibreWindow.ui.h:51 ../menulibre/MenulibreWindow.py:62
 msgid "Graphics"
-msgstr "Графика"
+msgstr "Grafika"
 
 #: ../data/ui/MenulibreWindow.ui.h:52 ../menulibre/MenulibreWindow.py:63
 msgid "Internet"
-msgstr "Интернет"
+msgstr "internetové připojení"
 
 #: ../data/ui/MenulibreWindow.ui.h:53 ../menulibre/MenulibreWindow.py:58
 msgid "Multimedia"
-msgstr "Мультимедиа"
+msgstr "Multimédia"
 
 #: ../data/ui/MenulibreWindow.ui.h:54 ../menulibre/MenulibreWindow.py:64
 msgid "Office"
-msgstr "Офис"
+msgstr "Kancelář"
 
 #: ../data/ui/MenulibreWindow.ui.h:55 ../menulibre/MenulibreWindow.py:66
 msgid "Settings"
-msgstr "Настройки"
+msgstr "Přizpůsobení"
 
 #: ../data/ui/MenulibreWindow.ui.h:56 ../menulibre/MenulibreWindow.py:67
 msgid "System"
-msgstr "Системные"
+msgstr "Systém"
 
 #: ../data/ui/MenulibreWindow.ui.h:57 ../menulibre/MenulibreWindow.py:69
 msgid "WINE"
-msgstr "WINE"
+msgstr "Wine"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
 msgid "<b>Categories</b>"
-msgstr "<b>Категории</b>"
+msgstr "<b>Kategorie</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "General Settings"
-msgstr "Общие настройки"
+msgstr "Obecná nastavení"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Quicklists"
-msgstr "Списки действий"
+msgstr "Quicklists"
 
 #: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Editor"
-msgstr "Редактор"
+msgstr "Editor"
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Application Settings"
-msgstr "Настройки приложения"
+msgstr "Nastavení aplikace"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "<big><b>Remove Launcher?</b></big>"
-msgstr "<big><b>Удалить кнопку запуска?</b></big>"
+msgstr "<big><b>Odstranit spouštěč?</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid ""
 "Are you sure you wish to remove this launcher?  This cannot be undone."
 msgstr ""
-"Вы уверены, что хотите удалить эту кнопку запуска?  Отменить это действие "
-"будет невозможно."
+"Jste si jisti, že chcete odstranit tento spouštěč? Je to nevratný proces."
 
 #: ../menulibre/MenulibreWindow.py:65
 msgid "Other"
-msgstr "Прочее"
+msgstr "Ostatní"
 
 #: ../menulibre/MenulibreWindow.py:207
 msgid "Show"
-msgstr "Показать"
+msgstr "Zobrazit"
 
 #: ../menulibre/MenulibreWindow.py:210
 msgid "Shortcut Name"
-msgstr "Название ярлыка"
+msgstr "Název zkratky"
 
 #: ../menulibre/MenulibreWindow.py:218
 msgid "Displayed Name"
-msgstr "Отображаемое название"
+msgstr "Zobrazovaný název"
 
 #: ../menulibre/MenulibreWindow.py:260
 msgid "Image"
-msgstr "Изображение"
+msgstr "Obrázek"
 
 #: ../menulibre/MenulibreWindow.py:262
 msgid "Name"
-msgstr "Название"
+msgstr "Název"
 
 #: ../menulibre/MenulibreWindow.py:467 ../menulibre/MenulibreWindow.py:490
 msgid "Search Applications"
-msgstr "Поиск приложений"
+msgstr "Prohledat aplikace"
 
 #: ../menulibre/MenulibreWindow.py:479
 #, python-format
 msgid "Search %s"
-msgstr "Поиск %s"
+msgstr "Prohledat %s"
 
 #: ../menulibre/MenulibreWindow.py:497
 #, python-format
@@ -315,8 +314,8 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "This cannot be undone."
 msgstr ""
-"Вы уверены, что хотите удалить \"%s\"?\n"
-"Отмена станет невозможна."
+"Jste si jisti, že chcete odstranit \"%s\"?\n"
+"Je to nevratný proces."
 
 #: ../menulibre/MenulibreWindow.py:506
 #, python-format
@@ -324,43 +323,43 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "The menu item will be restored to system defaults."
 msgstr ""
-"Вы уверены, что хотите удалить \"%s\"?\n"
-"Будут восстановлены исходные значения пункта меню."
+"Jste si jisti, že chcete odstranit \"%s\"?\n"
+"Položka bude nastavena na výchozí hodnoty systému."
 
 #: ../menulibre/MenulibreWindow.py:515 ../menulibre/MenulibreWindow.py:1204
 #: ../menulibre/MenulibreWindow.py:1319 ../menulibre/MenulibreWindow.py:1473
 #: ../menulibre/MenulibreWindow.py:1645 ../menulibre/MenulibreWindow.py:1647
 #: ../menulibre_lib/MenulibreXdg.py:44
 msgid "New Menu Item"
-msgstr "Новый пункт меню"
+msgstr "Nová položka"
 
 #: ../menulibre/MenulibreWindow.py:706 ../menulibre/MenulibreWindow.py:727
 msgid "Select an executable"
-msgstr "Выберите исполняемый файл"
+msgstr "Vyberte spustitelný soubor"
 
 #: ../menulibre/MenulibreWindow.py:845
 msgid "NewShortcut"
-msgstr "НовыйЯрлык"
+msgstr "Nová zkratka"
 
 #: ../menulibre/MenulibreWindow.py:847
 msgid "New Shortcut"
-msgstr "Новый ярлык"
+msgstr "Nová zkratka"
 
 #: ../menulibre/MenulibreWindow.py:1364 ../menulibre/MenulibreWindow.py:1456
 msgid "All Applications"
-msgstr "Все приложения"
+msgstr "Všechny aplikace"
 
 #: ../menulibre/MenulibreWindow.py:1393
 msgid "Add a new application launcher"
-msgstr "Добавить новую кнопку запуска"
+msgstr "Přidat nový spoušteč aplikací"
 
 #: ../menulibre/MenulibreWindow.py:1687
 msgid "Search Results"
-msgstr "Результаты поиска"
+msgstr "Výsledky vyhledávání"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:1
 msgid "Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
-msgstr "Авторские права © 2012—2013 Sean Davis <smd.seandavis@gmail.com>"
+msgstr "Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:2
 msgid ""
@@ -378,56 +377,54 @@ msgid ""
 "# You should have received a copy of the GNU General Public License along \n"
 "# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
 msgstr ""
-"# Авторские права © 2012—2013 Sean Davis <smd.seandavis@gmail.com>\n"
-"# Это свободное программное обеспечение; вы можете распространять и/или "
-"изменять его \n"
-"# на условиях лицензии GNU General Public License версии 3, опубликованной \n"
-"# Фондом свободного программного обеспечения.\n"
+"# Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>\n"
+"# Tento program je svobodný software: můžete jej šířit a upravovat \n"
+"# podle podmínek GNU GPL (všeobecné veřejné licence GNU) verze 3 \n"
+"# ve znění zveřejněném Free Software Foundation.\n"
 "# \n"
-"# Эта программа распространяется в надежде, что она будет полезной, но \n"
-"# БЕЗ КАКИХ-ЛИБО ГАРАНТИЙ; даже без подразумеваемых гарантий \n"
-"# КОММЕРЧЕСКОЙ ВЫГОДЫ, УДОВЛЕТВОРИТЕЛЬНОГО КАЧЕСТВА или ПРИГОДНОСТИ ДЛЯ "
-"КОНКРЕТНОЙ \n"
-"# ЦЕЛИ. Для получения дополнительных сведений обратитесь к лицензии GNU "
-"General Public License.\n"
+"# Tento program je šířen s nadějí, že bude užitečný, ale \n"
+"# BEZ JAKÉKOLIV ZÁRUKY; without even the implied warranties of \n"
+"# OBCHODOVATELNOSTI, USPOKOJIVÉ KVALITY, nebo VHODNOSTI PRO URČITÝ \n"
+"# ÚČEL. Podrobnosti najdete v GNU GPL (všeobecné veřejné licenci GNU).\n"
 "# \n"
-"# Вы должны были получить копию GNU General Public License \n"
-"# с этой программой. Если нет, смотрите <http://www.gnu.org/licenses/>.\n"
+"# Spolu s tímto programem by jste měli obdržet kopii GNU GPL (všeobecné "
+"veřejné licence GNU).\n"
+"# Pokud se tak nestalo, najdete ji na <http://www.gnu.org/licenses/>.\n"
 
 #: ../menulibre_lib/MenulibreXdg.py:45
 msgid "A small descriptive blurb about this application."
-msgstr "Краткое описание приложения."
+msgstr "Stručný popis aplikace"
 
 #: ../menulibre_lib/MenulibreXdg.py:171
 #, python-format
 msgid "'%s' is not a .desktop file"
-msgstr "'%s' не является .desktop файлом"
+msgstr "'%s' není soubor typu .desktop"
 
 #: ../menulibre_lib/MenulibreXdg.py:174
 msgid "Initialized without required parameters."
-msgstr "Запущено без необходимых параметров"
+msgstr "Spustit bez vyžadovaných parametrů"
 
 #: ../menulibre_lib/MenulibreXdg.py:183
 #, python-format
 msgid "'%s' is not a .directory file"
-msgstr "'%s' не является .directory файлом"
+msgstr "'%s' není soubor typu .directory"
 
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages (-vv debugs menulibre_lib also)"
-msgstr "Показывать отладочные сообщения (-vv отлаживает также menulibre_lib)"
+msgstr "Ukázat ladící zprávy (-vv debugs menulibre_lib also)"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr "Редактор меню"
+msgstr "Menu editor"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Edit System and User Menus with ease"
-msgstr "Редактируйте системное и пользовательское меню с лёгкостью"
+msgstr "Snadná úprava systémových a uživatelských menu"
 
 #: ../menulibre.desktop.in.h:3
 msgid "Edit user menus"
-msgstr "Редактировать пользовательские меню"
+msgstr "Upravit uživatelské nabídky"
 
 #: ../menulibre.desktop.in.h:4
 msgid "Edit system menus"
-msgstr "Редактировать системные меню"
+msgstr "Upravit systémové nabídky"
