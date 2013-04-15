@@ -263,6 +263,8 @@ class MenulibreWindow(Window):
         self.iconselection_treeview.append_column(Gtk.TreeViewColumn(_('Name'), 
                 Gtk.CellRendererText(), text=1))
                 
+        self.lock_quicklist_data = False
+                
     def applications_filter_func(self, model, iter, user_data):
         """Filter function for search results."""
         # image, name, desktop_file, categories, comment
@@ -766,8 +768,6 @@ class MenulibreWindow(Window):
                     previous_props[self.current_app.properties[prop]["*OriginalName"]] = self.current_app.properties[prop]
                     del self.current_app.properties[prop]
                     
-            print previous_props.keys()
-            
             enabled_quicklists = []
             if 'X-Ayatana-Desktop-Shortcuts' in self.current_app.properties['Desktop Entry'].keys():
                 prop_name = 'X-Ayatana-Desktop-Shortcuts'
@@ -818,22 +818,32 @@ class MenulibreWindow(Window):
         enabled = not model[path][0]
         name = model[path][1]
         model[path][0] = enabled
+        
+        # Get the quicklist property name
         if 'X-Ayatana-Desktop-Shortcuts' in self.current_app.properties['Desktop Entry'].keys():
             prop_name = 'X-Ayatana-Desktop-Shortcuts'
         else:
             prop_name = 'Actions'
+            
+        # Get the currently enabled quicklists
         enabled_quicklists = self.current_app[prop_name].split(';')
+        
+        # Remove blanks
         try:
             enabled_quicklists.remove('')
         except ValueError:
             pass
+        
+        # If its already in the list, go ahead and remove it
+        try:
+            enabled_quicklists.remove(name)
+        except ValueError:
+            pass
+            
+        # If it is enabled, insert it into the proper location
         if enabled:
             enabled_quicklists.insert(int(path), name)
-        else:
-            try:
-                enabled_quicklists.remove(name)
-            except ValueError:
-                pass
+            
         self.current_app[prop_name] = ';'.join(enabled_quicklists)
         self.update_editor()
 
