@@ -1748,12 +1748,16 @@ class MenulibreWindow(Window):
         if filename:
             if filename == "MenulibreNewLauncher":
                 filename = _("New Menu Item")
-                if self.current_category == None:
-                    self.current_app['Categories'] = ''
+                if self.current_category and self.breadcrumb_category.get_active():
+                    self.set_application_categories(self.current_category)
                 else:
-                    self.current_app['Categories'] = self.current_category
+                    self.set_application_categories('')
         else:
             filename = _("New Menu Item")
+            if self.current_category and self.breadcrumb_category.get_active():
+                self.set_application_categories(self.current_category)
+            else:
+                self.set_application_categories('')
         self.set_application_filename( filename )
         self.set_application_id( os.path.basename(filename) )
         
