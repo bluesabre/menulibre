@@ -20,7 +20,7 @@ import locale
 from locale import gettext as _
 locale.textdomain('menulibre')
 
-from gi.repository import Gtk, Gdk, GdkPixbuf, GObject # pylint: disable=E0611
+from gi.repository import Gtk, Gdk, GdkPixbuf, GObject, GtkSource # pylint: disable=E0611
 import logging
 logger = logging.getLogger('menulibre')
 
@@ -170,6 +170,14 @@ class MenulibreWindow(Window):
         self.appsettings_general = self.builder.get_object('appsettings_general')
         self.appsettings_quicklists = self.builder.get_object('appsettings_quicklists')
         self.appsettings_editor = self.builder.get_object('appsettings_editor')
+        self.editor_sourceview = GtkSource.View.new()
+        lm = GtkSource.LanguageManager.new()
+        language = lm.get_language('desktop')
+        buffer = self.editor_sourceview.get_buffer()
+        buffer.set_highlight_syntax(True)
+        buffer.set_language(language)
+        self.appsettings_editor.add_with_viewport(self.editor_sourceview)
+        self.editor_sourceview.show()
         
         # -- General Settings (Notebook Page 0) -- #
         self.label_generalsettings = self.builder.get_object('label_generalsettings')
@@ -245,8 +253,7 @@ class MenulibreWindow(Window):
         self.quicklists_treeview.append_column(tvcolumn)
         
         # -- Editor (Notebook Page 2) -- #
-        self.editor_textview = self.builder.get_object('editor_textview')
-        buffer = self.editor_textview.get_buffer()
+        buffer = self.editor_sourceview.get_buffer()
         buffer.connect('changed', self.on_editor_buffer_changed)
         
       # Icon Selection Dialog 1 (Select and Preview)
@@ -734,7 +741,7 @@ class MenulibreWindow(Window):
 		"""When the notebook page is changed, reset the text editor
 		cursor to the top."""
         self.quicklist_toolbar.set_visible( pageno == 1 )
-        buffer = self.editor_textview.get_buffer()
+        buffer = self.editor_sourceview.get_buffer()
         buffer.place_cursor( buffer.get_start_iter() )
     
     def on_general_icon_button_clicked(self, button):
@@ -1394,12 +1401,12 @@ class MenulibreWindow(Window):
     
     def set_application_text(self, text):
         """Set the application text editor."""
-        self.editor_textview.get_buffer().set_text(text)
+        self.editor_sourceview.get_buffer().set_text(text)
     
     def get_application_text(self):
         """Return the text that is contained in the application text
         editor buffer."""
-        buffer = self.editor_textview.get_buffer()
+        buffer = self.editor_sourceview.get_buffer()
         return buffer.get_text(buffer.get_start_iter(), buffer.get_end_iter(), False)
             
     def set_preview_images(self, icon_name):
@@ -1697,7 +1704,7 @@ class MenulibreWindow(Window):
                     del self.redo_stack[:]
                     self.set_redo_enabled(False)
                 
-                buffer = self.editor_textview.get_buffer()
+                buffer = self.editor_sourceview.get_buffer()
 
                 buffer.set_text(str(self.current_app))
                 self.update_pending = False
