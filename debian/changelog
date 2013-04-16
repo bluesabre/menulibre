@@ -1,3 +1,22 @@
+menulibre (13.04ubuntu1) UNRELEASED; urgency=low
+
+  * Merge language updates
+  * Introduction of new category selector
+  * Change quicklist tab to use inline toolbar
+  * Fix quicklist loading.  lp #1167134
+  * Launchpad automatic translations update.
+  * Launchpad automatic translations update.
+  * Updated translations
+  * Make initial search entry placeholder text translated.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Mon, 15 Apr 2013 22:47:00 -0400
+
+menulibre (13.04) precise; urgency=low
+
+  * Add all subcategories
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Mon, 15 Apr 2013 22:47:00 -0400
+
 menulibre (13.03.16) raring; urgency=low
 
   * New release.
