@@ -277,24 +277,74 @@ class MenulibreWindow(Window):
         
         categories = sorted(self.categories.values(), key=lambda category: category[0])
         for category in categories:
-            if category[2] != 'Other':
+            if category[2] == 'Other':
+                self.add_category_to_menu(None, category[1], category[0])
+            else:
                 self.add_category_to_menu(None, category[1], category[0], category[2])
-        
-    def add_category_to_menu(self, parent, icon_name, label, value):
-        name = label
+                
+        for category in ['Accessibility', 'Archiving', 'Calculator', 'Clock', 'Compression', 'FileTools', 'TextEditor', 'TextTools']:
+            self.add_category_to_menu(_('Accessories'), None, category)
+                
+        for category in ['Building', 'Debugger', 'IDE', 'GUIDesigner', 'Profiling', 'RevisionControl', 'Translation', 'WebDevelopment']:
+            self.add_category_to_menu(_('Development'), None, category)
+            
+        for category in ['Art', 'ArtificialIntelligence', 'Astronomy', 'Biology', 'Chemistry', 'ComputerScience', 'Construction', 'DataVisualization', 'Economy', 'Electricity', 'Geography', 'Geology', 'Geoscience', 'History', 'Humanities', 'ImageProcessing', 'Languages', 'Literature', 'Maps', 'Math', 'MedicalSoftware', 'Music', 'NumericalAnalysis', 'ParallelComputing', 'Physics', 'Robotics', 'Spirituality', 'Sports']:
+            self.add_category_to_menu(_('Education'), None, category)
+            
+        for category in ['ActionGame', 'AdventureGame', 'ArcadeGame', 'BoardGame', 'BlocksGame', 'CardGame', 'Emulator', 'KidsGame', 'LogicGame', 'RolePlaying', 'Shooter', 'Simulation', 'SportsGame', 'StrategyGame']:
+            self.add_category_to_menu(_('Games'), None, category)
+            
+        for category in ['2DGraphics', '3DGraphics', 'OCR', 'Photography', 'Publishing', 'RasterGraphics', 'Scanning', 'VectorGraphics', 'Viewer']:
+            self.add_category_to_menu(_('Graphics'), None, category)
+            
+        for category in ['Chat', 'Dialup', 'Feed', 'FileTransfer', 'HamRadio', 'InstantMessaging', 'IRCClient', 'Monitor', 'News', 'P2P', 'RemoteAccess', 'Telephony', 'TelephonyTools', 'WebBrowser', 'WebDevelopment']:
+            self.add_category_to_menu(_('Internet'), None, category)
+            
+        for category in ['AudioVideoEditing', 'DiscBurning', 'Midi', 'Mixer', 'Player', 'Recorder', 'Sequencer', 'Tuner', 'TV']:
+            self.add_category_to_menu(_('Multimedia'), None, category)
+            
+        for category in ['Calendar', 'ContactManagement', 'Database', 'Dictionary', 'Chart', 'Email', 'Finance', 'FlowChart', 'PDA', 'Photography',  'ProjectManagement', 'Presentation', 'Publishing', 'Spreadsheet', 'WordProcessor']:
+            self.add_category_to_menu(_('Office'), None, category)
+            
+        for category in ['Amusement', 'ConsoleOnly', 'Core', 'Documentation', 'Electronics', 'Engineering', 'GNOME', 'GTK', 'Java', 'KDE', 'Motif', 'Qt', 'XFCE']:
+            self.add_category_to_menu(_('Other'), None, category)
+            
+        for category in ['Accessibility', 'DesktopSettings', 'HardwareSettings', 'PackageManager', 'Printing', 'Security']:
+            self.add_category_to_menu(_('Settings'), None, category)
+            
+        for category in ['Emulator', 'FileManager', 'Filesystem', 'FileTools', 'Monitor', 'Security', 'TerminalEmulator']:
+            self.add_category_to_menu(_('System'), None, category)
+
+    def add_category_to_menu(self, parent, icon_name, label, value=None):
         if icon_name:
             image = Gtk.Image.new_from_icon_name(icon_name, Gtk.IconSize.MENU)
             mi = Gtk.ImageMenuItem()
             mi.set_image(image)
         else:    
             mi = Gtk.MenuItem()
-        if value:
-            label = "%s (%s)" % (label, value)
         mi.set_label(label)
         mi.show()
-        if value:
-            mi.connect('activate', self.on_category_menu_item_clicked, value, name)
-        self.categories_menu.append(mi)
+            
+        if parent:
+            mi.connect('button-press-event', self.on_category_menu_item_clicked, label)
+            
+            for child in self.categories_menu.get_children():
+                if parent in child.get_label():
+                    menu = child.get_submenu()
+                    menu.append(mi)
+                    break
+        else:
+            submenu = Gtk.Menu()
+            mi.set_submenu(submenu)
+            self.categories_menu.append(mi)
+            if value:
+                mi = Gtk.MenuItem()
+                mi.set_label(value)
+                mi.show()
+                sep = Gtk.SeparatorMenuItem()
+                sep.show()
+                submenu.append(mi)
+                submenu.append(sep)
         
     def on_categories_add_clicked(self, widget):
         """When the menu button is clicked, display the appmenu."""
@@ -306,8 +356,8 @@ class MenulibreWindow(Window):
     def on_categories_menu_hide(self, widget):
         self.categories_add_button.set_active(False)
         
-    def on_category_menu_item_clicked(self, widget, value, name):
-        self.add_application_category(value, name)
+    def on_category_menu_item_clicked(self, widget, event, value):
+        self.add_application_category(value, None)
                 
     def applications_filter_func(self, model, iter, user_data):
         """Filter function for search results."""
