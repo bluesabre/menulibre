@@ -208,6 +208,7 @@ class MenulibreWindow(Window):
         
         # -- Quicklists (Notebook Page 1) -- #
         self.quicklists_treeview = self.builder.get_object('quicklists_treeview')
+        self.quicklists_treeview.set_reorderable(True)
         self.quicklist_toolbar = self.builder.get_object('quicklist_toolbar')
         self.quicklists_add = self.builder.get_object('quicklists_add')
         self.quicklists_remove = self.builder.get_object('quicklists_remove')
