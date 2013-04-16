@@ -332,6 +332,10 @@ class MenulibreWindow(Window):
             for child in self.categories_menu.get_children():
                 if parent in child.get_label():
                     menu = child.get_submenu()
+                    
+                    if len(menu.get_children()) == 2:
+                        menu.get_children()[1].show()
+                    
                     menu.append(mi)
                     break
         else:
@@ -343,10 +347,10 @@ class MenulibreWindow(Window):
                 # Translators: Required menu item
                 mi.set_label(_("%s (Required)") % value)
                 mi.show()
-                sep = Gtk.SeparatorMenuItem()
-                sep.show()
                 submenu.append(mi)
+                sep = Gtk.SeparatorMenuItem()
                 submenu.append(sep)
+                
         
     def on_categories_add_clicked(self, widget):
         """When the menu button is clicked, display the appmenu."""
