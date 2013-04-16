@@ -277,6 +277,8 @@ class MenulibreWindow(Window):
                 
         self.lock_quicklist_data = False
         
+        self.current_category = None
+        
         categories = sorted(self.categories.values(), key=lambda category: category[0])
         for category in categories:
             if category[2] == 'Other':
@@ -668,8 +670,10 @@ class MenulibreWindow(Window):
             selection_id = widget.get_model()[index][2]
             
             if selection_id == "AllApplications":
+                self.current_category = None
                 self.load_category_into_iconview(None)
             else:
+                self.current_category = selection_id
                 self.load_category_into_iconview(selection_id)
             self.show_appselection()
         except:
@@ -1744,6 +1748,10 @@ class MenulibreWindow(Window):
         if filename:
             if filename == "MenulibreNewLauncher":
                 filename = _("New Menu Item")
+                if self.current_category == None:
+                    self.current_app['Categories'] = ''
+                else:
+                    self.current_app['Categories'] = self.current_category
         else:
             filename = _("New Menu Item")
         self.set_application_filename( filename )
