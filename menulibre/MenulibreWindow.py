@@ -208,6 +208,7 @@ class MenulibreWindow(Window):
         
         # -- Quicklists (Notebook Page 1) -- #
         self.quicklists_treeview = self.builder.get_object('quicklists_treeview')
+        self.quicklist_toolbar = self.builder.get_object('quicklist_toolbar')
         self.quicklists_add = self.builder.get_object('quicklists_add')
         self.quicklists_remove = self.builder.get_object('quicklists_remove')
         self.quicklists_move_up = self.builder.get_object('quicklists_move_up')
@@ -722,6 +723,7 @@ class MenulibreWindow(Window):
     def on_appsettings_notebook_switch_page(self, notebook, page, pageno):
 		"""When the notebook page is changed, reset the text editor
 		cursor to the top."""
+        self.quicklist_toolbar.set_visible( pageno == 1 )
         buffer = self.editor_textview.get_buffer()
         buffer.place_cursor( buffer.get_start_iter() )
     

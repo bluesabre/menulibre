@@ -13,12 +13,6 @@
       <mime-type>image/*</mime-type>
     </mime-types>
   </object>
-  <object class="GtkImage" id="image13">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-info</property>
-    <property name="icon-size">1</property>
-  </object>
   <object class="GtkDialog" id="iconselection_dialog1">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
@@ -545,6 +539,12 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-add</property>
+    <property name="icon-size">1</property>
+  </object>
+  <object class="GtkImage" id="image13">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-info</property>
     <property name="icon-size">1</property>
   </object>
   <object class="GtkListStore" id="liststore1">
@@ -1897,80 +1897,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkToolbar" id="quicklist_toolbar">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="toolbar_style">icons</property>
-                            <property name="icon_size">2</property>
-                            <style>
-                              <class name="inline-toolbar"/>
-                            </style>
-                            <child>
-                              <object class="GtkToolButton" id="quicklist_add">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="tooltip_text" translatable="yes">Add Quicklist</property>
-                                <property name="label" translatable="yes">Add Quicklist</property>
-                                <property name="use_underline">True</property>
-                                <property name="icon_name">list-add-symbolic</property>
-                                <signal name="clicked" handler="on_quicklist_add_clicked" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="homogeneous">True</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkToolButton" id="quicklist_remove">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="tooltip_text" translatable="yes">Remove Quicklist</property>
-                                <property name="label" translatable="yes">Remove Quicklist</property>
-                                <property name="use_underline">True</property>
-                                <property name="icon_name">list-remove-symbolic</property>
-                                <signal name="clicked" handler="on_quicklist_remove_clicked" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="homogeneous">True</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkToolButton" id="quicklist_move_up">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="tooltip_text" translatable="yes">Move Up</property>
-                                <property name="label" translatable="yes">Move Up</property>
-                                <property name="use_underline">True</property>
-                                <property name="icon_name">go-up-symbolic</property>
-                                <signal name="clicked" handler="on_quicklist_move_up_clicked" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="homogeneous">True</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkToolButton" id="quicklist_move_down">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="tooltip_text" translatable="yes">Move Down</property>
-                                <property name="label" translatable="yes">Move Down</property>
-                                <property name="use_underline">True</property>
-                                <property name="icon_name">go-down-symbolic</property>
-                                <signal name="clicked" handler="on_quicklist_move_down_clicked" swapped="no"/>
-                              </object>
-                              <packing>
-                                <property name="expand">False</property>
-                                <property name="homogeneous">True</property>
-                              </packing>
-                            </child>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">True</property>
-                            <property name="position">1</property>
-                          </packing>
+                          <placeholder/>
                         </child>
                       </object>
                       <packing>
@@ -2082,6 +2009,91 @@
                     <property name="fill">True</property>
                     <property name="pack_type">end</property>
                     <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkToolbar" id="quicklist_toolbar">
+                    <property name="can_focus">False</property>
+                    <property name="margin_left">6</property>
+                    <property name="margin_right">6</property>
+                    <property name="toolbar_style">icons</property>
+                    <property name="icon_size">2</property>
+                    <style>
+                      <class name="inline-toolbar"/>
+                    </style>
+                    <child>
+                      <object class="GtkToolButton" id="quicklist_add">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="has_tooltip">True</property>
+                        <property name="tooltip_markup" translatable="yes">Add Quicklist</property>
+                        <property name="tooltip_text" translatable="yes">Add Quicklist</property>
+                        <property name="label" translatable="yes">Add Quicklist</property>
+                        <property name="use_underline">True</property>
+                        <property name="icon_name">list-add-symbolic</property>
+                        <signal name="clicked" handler="on_quicklist_add_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="homogeneous">True</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkToolButton" id="quicklist_remove">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="has_tooltip">True</property>
+                        <property name="tooltip_markup" translatable="yes">Remove Quicklist</property>
+                        <property name="tooltip_text" translatable="yes">Remove Quicklist</property>
+                        <property name="label" translatable="yes">Remove Quicklist</property>
+                        <property name="use_underline">True</property>
+                        <property name="icon_name">list-remove-symbolic</property>
+                        <signal name="clicked" handler="on_quicklist_remove_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="homogeneous">True</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkToolButton" id="quicklist_move_up">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="has_tooltip">True</property>
+                        <property name="tooltip_markup" translatable="yes">Move Up</property>
+                        <property name="tooltip_text" translatable="yes">Move Up</property>
+                        <property name="label" translatable="yes">Move Up</property>
+                        <property name="use_underline">True</property>
+                        <property name="icon_name">go-up-symbolic</property>
+                        <signal name="clicked" handler="on_quicklist_move_up_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="homogeneous">True</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkToolButton" id="quicklist_move_down">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="has_tooltip">True</property>
+                        <property name="tooltip_markup" translatable="yes">Move Down</property>
+                        <property name="tooltip_text" translatable="yes">Move Down</property>
+                        <property name="label" translatable="yes">Move Down</property>
+                        <property name="use_underline">True</property>
+                        <property name="icon_name">go-down-symbolic</property>
+                        <signal name="clicked" handler="on_quicklist_move_down_clicked" swapped="no"/>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="homogeneous">True</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">2</property>
                   </packing>
                 </child>
               </object>
