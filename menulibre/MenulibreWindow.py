@@ -43,6 +43,21 @@ home = os.getenv('HOME')
 
 Gtk.IconSize.UNITY = Gtk.icon_size_register('UNITY', 128, 128)
 
+# Menu detach function
+def detach_cb(menu, widget):
+    menu.detach()
+    
+# Menu position function
+def menu_position(self, menu, data=None, something_else=None):
+    widget = menu.get_attach_widget()
+    allocation = widget.get_allocation()
+    window_pos = widget.get_window().get_position()
+    #x = window_pos[0] + allocation.x - menu.get_allocated_width() + \
+#        widget.get_allocated_width()
+    x = window_pos[0] + allocation.x
+    y = window_pos[1] + allocation.y + allocation.height
+    return (x, y, True)
+
 # See menulibre_lib.Window.py for more details about how this class works
 class MenulibreWindow(Window):
     __gtype_name__ = "MenulibreWindow"
@@ -182,19 +197,14 @@ class MenulibreWindow(Window):
         self.remove_launcher_dialog = self.builder.get_object('remove_launcher_dialog')
         
         # Categories
-        self.categories_expander = self.builder.get_object('categories_expander')
-        self.categories_accessories = self.builder.get_object('categories_accessories')
-        self.categories_development = self.builder.get_object('categories_development')
-        self.categories_education = self.builder.get_object('categories_education')
-        self.categories_games = self.builder.get_object('categories_games')
-        self.categories_graphics = self.builder.get_object('categories_graphics')
-        self.categories_internet = self.builder.get_object('categories_internet')
-        self.categories_multimedia = self.builder.get_object('categories_multimedia')
-        self.categories_office = self.builder.get_object('categories_office')
-        self.categories_settings = self.builder.get_object('categories_settings')
-        self.categories_system = self.builder.get_object('categories_system')
-        self.categories_wine = self.builder.get_object('categories_wine')
-        self.categories_wine.set_visible(self.show_wine)
+        self.categories_treeview = self.builder.get_object('categories_treeview')
+        
+        self.categories_add_button = self.builder.get_object('categories_add')
+        self.categories_menu = self.builder.get_object('categories_menu')
+        self.categories_menu.attach_to_widget(self.categories_add_button, detach_cb)
+        
+        self.categories_remove_button = self.builder.get_object('categories_remove')
+        self.categories_clear_button = self.builder.get_object('categories_clear')
         
         # -- Quicklists (Notebook Page 1) -- #
         self.quicklists_treeview = self.builder.get_object('quicklists_treeview')
@@ -264,6 +274,40 @@ class MenulibreWindow(Window):
                 Gtk.CellRendererText(), text=1))
                 
         self.lock_quicklist_data = False
+        
+        categories = sorted(self.categories.values(), key=lambda category: category[0])
+        for category in categories:
+            if category[2] != 'Other':
+                self.add_category_to_menu(None, category[1], category[0], category[2])
+        
+    def add_category_to_menu(self, parent, icon_name, label, value):
+        name = label
+        if icon_name:
+            image = Gtk.Image.new_from_icon_name(icon_name, Gtk.IconSize.MENU)
+            mi = Gtk.ImageMenuItem()
+            mi.set_image(image)
+        else:    
+            mi = Gtk.MenuItem()
+        if value:
+            label = "%s (%s)" % (label, value)
+        mi.set_label(label)
+        mi.show()
+        if value:
+            mi.connect('activate', self.on_category_menu_item_clicked, value, name)
+        self.categories_menu.append(mi)
+        
+    def on_categories_add_clicked(self, widget):
+        """When the menu button is clicked, display the appmenu."""
+        if widget.get_active():
+            self.categories_menu.popup(None, None, menu_position, 
+                                        self.categories_menu, 3, 
+                                        Gtk.get_current_event_time())
+                                        
+    def on_categories_menu_hide(self, widget):
+        self.categories_add_button.set_active(False)
+        
+    def on_category_menu_item_clicked(self, widget, value, name):
+        self.add_application_category(value, name)
                 
     def applications_filter_func(self, model, iter, user_data):
         """Filter function for search results."""
@@ -1003,65 +1047,6 @@ class MenulibreWindow(Window):
         """Filter function rules for the icon selection search."""
         return self.iconselection_search.get_text() in model[iter][1]
         
-    # Categories
-    def on_category_modified(self, category, enabled):
-        categories = self.current_app['Categories'].split(';')
-        try:
-            categories.remove('')
-        except ValueError:
-            pass
-        if enabled:
-            categories.append(category)
-            categories.sort()
-        else:
-            if category in categories:
-                categories.remove(category)
-        self.current_app['Categories'] = ';'.join(categories)
-        self.update_editor()
-                
-    def on_categories_accessories_toggled(self, widget):
-        """Update the editor when a category is toggled."""
-        self.on_category_modified('Utility', widget.get_active())
-        
-    def on_categories_development_toggled(self, widget):
-        """Update the editor when a category is toggled."""
-        self.on_category_modified('Development', widget.get_active())
-        
-    def on_categories_education_toggled(self, widget):
-        """Update the editor when a category is toggled."""
-        self.on_category_modified('Education', widget.get_active())
-        
-    def on_categories_games_toggled(self, widget):
-        """Update the editor when a category is toggled."""
-        self.on_category_modified('Game', widget.get_active())
-        
-    def on_categories_graphics_toggled(self, widget):
-        """Update the editor when a category is toggled."""
-        self.on_category_modified('Graphics', widget.get_active())
-        
-    def on_categories_internet_toggled(self, widget):
-        """Update the editor when a category is toggled."""
-        self.on_category_modified('Network', widget.get_active())
-        
-    def on_categories_multimedia_toggled(self, widget):
-        """Update the editor when a category is toggled."""
-        self.on_category_modified('AudioVideo', widget.get_active())
-        
-    def on_categories_office_toggled(self, widget):
-        """Update the editor when a category is toggled."""
-        self.on_category_modified('Office', widget.get_active())
-        
-    def on_categories_settings_toggled(self, widget):
-        """Update the editor when a category is toggled."""
-        self.on_category_modified('Settings', widget.get_active())
-        
-    def on_categories_system_toggled(self, widget):
-        """Update the editor when a category is toggled."""
-        self.on_category_modified('System', widget.get_active())
-        
-    def on_categories_wine_toggled(self, widget):
-        """Update the editor when a category is toggled."""
-        self.on_category_modified('Wine', widget.get_active())
     # -- End Events -------------------------------------------------- #
     
   # Helper Functions
@@ -1223,50 +1208,73 @@ class MenulibreWindow(Window):
             return filename
         return label
         
+    def add_application_category(self, category, name=None):
+        if name == None:
+            try:
+                name = self.categories[category][0]
+            except KeyError:
+                name = _("Unknown")
+        model = self.categories_treeview.get_model()
+        iter = model.get_iter_first()
+        while iter:
+            value = model.get_value(iter, 0)
+            if category.lower() < value.lower():
+                model.insert_before(iter, [category, "<i>%s</i>" % name])
+                return
+            iter = model.iter_next(iter)
+        model.append([category, "<i>%s</i>" % name])
+        
+    def on_categories_clear_clicked(self, widget):
+        self.clear_application_categories()
+        
+    def on_liststore1_row_changed(self, liststore, path=None, treeiter=None):
+        categories = self.get_application_categories()
+        sensitive = len(categories) > 0
+        self.categories_remove_button.set_sensitive(sensitive)
+        self.categories_clear_button.set_sensitive(sensitive)
+        try:
+            self.current_app['Categories'] = ';'.join(categories)
+        except TypeError:
+            self.current_app['Categories'] = ''
+        self.update_editor()
+        
+    def on_categories_remove_clicked(self, widget):
+        if len(self.categories_treeview.get_model()) > 0:
+            tree_sel = self.categories_treeview.get_selection()
+            (treestore, treeiter) = tree_sel.get_selected()
+            if treeiter:
+                treestore.remove(treeiter)
+        
+    def clear_application_categories(self):
+        model = self.categories_treeview.get_model()
+        model.clear()
+        
     def set_application_categories(self, categories):
         """Set the application categories from a list of category 
         names."""
-        self.categories_accessories.set_active( 'Utility' in categories )
-        self.categories_development.set_active( 'Development' in categories )
-        self.categories_education.set_active( 'Education' in categories )
-        self.categories_games.set_active( 'Game' in categories )
-        self.categories_graphics.set_active( 'Graphics' in categories )
-        self.categories_internet.set_active( 'Network' in categories )
-        self.categories_multimedia.set_active( 'AudioVideo' in categories )
-        self.categories_office.set_active( 'Office' in categories )
-        self.categories_settings.set_active( 'Settings' in categories )
-        self.categories_system.set_active( 'System' in categories )
+        # Make sure the input type is a list, not a str
+        if isinstance(categories, str):
+            categories = categories.split(';')
+            
+        self.clear_application_categories()
+            
+        # Remove duplicates
+        add_categories = []
         for cat in categories:
-            if 'wine' in cat.lower():
-                self.categories_wine.set_active( True )
-                return
-        self.categories_wine.set_active(False)
+            if cat not in add_categories and cat.strip() != '':
+                add_categories.append(cat)
+                
+        add_categories.sort()
+        
+        for category in add_categories:
+            self.add_application_category(category)
             
     def get_application_categories(self):
         """Return a list of the application categories."""
         categories = []
-        if self.categories_accessories.get_active():
-            categories.append('Utility')
-        if self.categories_development.get_active():
-            categories.append('Development')
-        if self.categories_education.get_active():
-            categories.append('Education')
-        if self.categories_games.get_active():
-            categories.append('Game')
-        if self.categories_graphics.get_active():
-            categories.append('Graphics')
-        if self.categories_internet.get_active():
-            categories.append('Network')
-        if self.categories_multimedia.get_active():
-            categories.append('AudioVideo')
-        if self.categories_office.get_active():
-            categories.append('Office')
-        if self.categories_settings.get_active():
-            categories.append('Settings')
-        if self.categories_system.get_active():
-            categories.append('System')
-        if self.categories_wine.get_active():
-            categories.append('Wine')
+        model = self.categories_treeview.get_model()
+        for row in model:
+            categories.append(row[0])
         return categories
     
     def set_application_quicklists(self, quicklists):
