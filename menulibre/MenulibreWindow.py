@@ -340,7 +340,8 @@ class MenulibreWindow(Window):
             self.categories_menu.append(mi)
             if value:
                 mi = Gtk.MenuItem()
-                mi.set_label(value)
+                # Translators: Required menu item
+                mi.set_label(_("%s (Required)") % value)
                 mi.show()
                 sep = Gtk.SeparatorMenuItem()
                 sep.show()
@@ -1265,7 +1266,31 @@ class MenulibreWindow(Window):
             try:
                 name = self.categories[category][0]
             except KeyError:
-                name = _("Unknown")
+                if category in ['Accessibility', 'Archiving', 'Calculator', 'Clock', 'Compression', 'FileTools', 'TextEditor', 'TextTools']:
+                    name = _('Accessories')
+                elif category in ['Building', 'Debugger', 'IDE', 'GUIDesigner', 'Profiling', 'RevisionControl', 'Translation', 'WebDevelopment']:
+                    name = _('Development')
+                elif category in ['Art', 'ArtificialIntelligence', 'Astronomy', 'Biology', 'Chemistry', 'ComputerScience', 'Construction', 'DataVisualization', 'Economy', 'Electricity', 'Geography', 'Geology', 'Geoscience', 'History', 'Humanities', 'ImageProcessing', 'Languages', 'Literature', 'Maps', 'Math', 'MedicalSoftware', 'Music', 'NumericalAnalysis', 'ParallelComputing', 'Physics', 'Robotics', 'Spirituality', 'Sports']:
+                    name = _('Education')
+                elif category in ['ActionGame', 'AdventureGame', 'ArcadeGame', 'BoardGame', 'BlocksGame', 'CardGame', 'Emulator', 'KidsGame', 'LogicGame', 'RolePlaying', 'Shooter', 'Simulation', 'SportsGame', 'StrategyGame']:
+                    name = _('Games')
+                elif category in ['2DGraphics', '3DGraphics', 'OCR', 'Photography', 'Publishing', 'RasterGraphics', 'Scanning', 'VectorGraphics', 'Viewer']:
+                    name = _('Graphics')
+                elif category in ['Chat', 'Dialup', 'Feed', 'FileTransfer', 'HamRadio', 'InstantMessaging', 'IRCClient', 'Monitor', 'News', 'P2P', 'RemoteAccess', 'Telephony', 'TelephonyTools', 'WebBrowser', 'WebDevelopment']:
+                    name = _('Internet')
+                elif category in ['AudioVideoEditing', 'DiscBurning', 'Midi', 'Mixer', 'Player', 'Recorder', 'Sequencer', 'Tuner', 'TV']:
+                    name = _('Multimedia')
+                elif category in ['Calendar', 'ContactManagement', 'Database', 'Dictionary', 'Chart', 'Email', 'Finance', 'FlowChart', 'PDA', 'Photography',  'ProjectManagement', 'Presentation', 'Publishing', 'Spreadsheet', 'WordProcessor']:
+                    name = _('Office')
+                elif category in ['Amusement', 'ConsoleOnly', 'Core', 'Documentation', 'Electronics', 'Engineering', 'GNOME', 'GTK', 'Java', 'KDE', 'Motif', 'Qt', 'XFCE']:
+                    name = _('Other')
+                elif category in ['Accessibility', 'DesktopSettings', 'HardwareSettings', 'PackageManager', 'Printing', 'Security']:
+                    name = _('Settings')
+                elif category in ['Emulator', 'FileManager', 'Filesystem', 'FileTools', 'Monitor', 'Security', 'TerminalEmulator']:
+                    name = _('System')
+                else:
+                    name = _("Unknown")
+                    
         model = self.categories_treeview.get_model()
         iter = model.get_iter_first()
         while iter:
