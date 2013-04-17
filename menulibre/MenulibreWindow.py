@@ -867,7 +867,9 @@ class MenulibreWindow(Window):
         
     def on_general_nodisplay_switch_toggled(self, widget, state):
 		"""Update the editor with the NoDisplay switch is toggled."""
-		self.current_app['NoDisplay'] = str(widget.get_active()).lower()
+		hidden_str = str(widget.get_active()).lower()
+		self.current_app['NoDisplay'] = hidden_str
+		self.current_app['Hidden'] = hidden_str
         self.update_editor()
             
     def on_quicklists_treeview_cursor_changed(self, widget):
@@ -1687,7 +1689,7 @@ class MenulibreWindow(Window):
                 self.set_application_path( data['Path'] )
                 self.set_application_terminal( data['Terminal'] )
                 self.set_application_startupnotify( data['StartupNotify'] )
-                self.set_application_hidden( data['Hidden'] )
+                self.set_application_hidden( data['Hidden'] or data['NoDisplay'] )
                 self.set_application_categories( data['Categories'] )
                 
                 self.set_application_quicklists( data.get_actions() )
