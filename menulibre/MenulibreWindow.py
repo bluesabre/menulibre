@@ -43,6 +43,10 @@ home = os.getenv('HOME')
 
 Gtk.IconSize.UNITY = Gtk.icon_size_register('UNITY', 128, 128)
 
+
+lm = GtkSource.LanguageManager.new()
+desktop_language = lm.get_language('desktop')
+
 # Menu detach function
 def detach_cb(menu, widget):
     menu.detach()
@@ -171,11 +175,8 @@ class MenulibreWindow(Window):
         self.appsettings_quicklists = self.builder.get_object('appsettings_quicklists')
         self.appsettings_editor = self.builder.get_object('appsettings_editor')
         self.editor_sourceview = GtkSource.View.new()
-        lm = GtkSource.LanguageManager.new()
-        language = lm.get_language('desktop')
         buffer = self.editor_sourceview.get_buffer()
         buffer.set_highlight_syntax(True)
-        buffer.set_language(language)
         self.appsettings_editor.add_with_viewport(self.editor_sourceview)
         self.editor_sourceview.show()
         
@@ -1401,7 +1402,10 @@ class MenulibreWindow(Window):
     
     def set_application_text(self, text):
         """Set the application text editor."""
+        self.editor_sourceview.get_buffer().set_language(None)
+        self.editor_sourceview.get_buffer().set_text('')
         self.editor_sourceview.get_buffer().set_text(text)
+        self.editor_sourceview.get_buffer().set_language(desktop_language)
     
     def get_application_text(self):
         """Return the text that is contained in the application text
