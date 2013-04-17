@@ -566,7 +566,7 @@ class MenulibreWindow(Window):
                     if self.categories[cat][0] == search_type:
                         self.last_cat = category = cat
                 self.entry_search.grab_focus()
-            widget.set_icon_from_stock(Gtk.EntryIconPosition.SECONDARY, 'gtk-clear')
+            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, 'edit-clear-symbolic')
             self.show_search_results(text, category)
             
     def on_entry_search_icon_press(self, widget, button, event):
@@ -1111,7 +1111,7 @@ class MenulibreWindow(Window):
         if widget.get_text() == '':
             widget.set_icon_from_stock(Gtk.EntryIconPosition.SECONDARY, None)
         else:
-            widget.set_icon_from_stock(Gtk.EntryIconPosition.SECONDARY, 'gtk-clear')
+            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, 'edit-clear-symbolic')
         self.iconselection_filter.refilter()
         
     def iconselection_filter_func(self, model, iter, user_data):
