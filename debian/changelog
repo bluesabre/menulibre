@@ -1,3 +1,26 @@
+menulibre (13.04.4ubuntu1) UNRELEASED; urgency=low
+
+  * Fix first category item
+  * Make filename selectable
+  * Fix SourceView crashing
+  * Code simplification
+  * Use GtkSourceview for Editor
+  * Add open category to new launcher
+  * Make quicklists reorderable
+  * Make quicklists reorderable
+  * Only show category menu seperator if needed
+  * Add more info to categories
+  * Merge launchpad translations
+  * Move quicklist toolbar out from notebook
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Tue, 16 Apr 2013 22:48:49 -0400
+
+menulibre (13.04.4) precise; urgency=low
+
+  * Update translations and package info
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Tue, 16 Apr 2013 22:48:49 -0400
+
 menulibre (13.04.3) raring; urgency=low
 
   * New release.
