@@ -357,6 +357,7 @@ class MenulibreWindow(Window):
                 mi = Gtk.MenuItem()
                 # Translators: Required menu item
                 mi.set_label(_("%s (Required)") % value)
+                mi.connect('button-press-event', self.on_category_menu_item_clicked, value)
                 mi.show()
                 submenu.append(mi)
                 sep = Gtk.SeparatorMenuItem()
