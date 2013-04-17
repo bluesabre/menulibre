@@ -1,3 +1,9 @@
+menulibre (13.04.5) precise; urgency=low
+
+  * New release.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Tue, 16 Apr 2013 22:49:28 -0400
+
 menulibre (13.04.4ubuntu1) UNRELEASED; urgency=low
 
   * Fix first category item
