@@ -764,7 +764,7 @@ class MenulibreWindow(Window):
     def on_general_name_button_clicked(self, button):
 		"""When the Application Name button is clicked, reveal the name
 		editor."""
-        self.show_general_name_editor()
+        self.set_name_editor_visible(True)
         
     def on_general_name_modify_entry_activate(self, widget):
 		"""When the Application Name entry is activated, accept the 
@@ -789,7 +789,7 @@ class MenulibreWindow(Window):
     def on_general_comment_button_clicked(self, button):
 		"""When the Application Comment button is clicked, reveal the 
 		comment editor."""
-        self.show_general_comment_editor()
+        self.set_comment_editor_visible(True)
         
     def on_general_comment_modify_entry_activate(self, widget):
 		"""When the Application Comment entry is activated, accept the 
@@ -1441,14 +1441,14 @@ class MenulibreWindow(Window):
                     counter += 1
                 filename = filename.replace('.desktop', str(counter)+'.desktop')
             self.set_application_filename( filename )
-        self.hide_general_name_editor()
+        self.set_name_editor_visible(False)
         self.current_app['Name'] = name
         self.update_editor()
     
     def general_name_modify_reject(self):
         """Reject the changes to the application name, and maintain
         the current labels."""
-        self.hide_general_name_editor()
+        self.set_name_editor_visible(False)
         self.general_name_entry.set_text(self.get_application_name())
     
     def general_comment_modify_accept(self):
@@ -1456,14 +1456,14 @@ class MenulibreWindow(Window):
         various labels according to the new data."""
         comment = self.general_comment_entry.get_text()
         self.set_application_comment( comment )
-        self.hide_general_comment_editor()
+        self.set_comment_editor_visible(False)
         self.current_app['Comment'] = comment
         self.update_editor()
     
     def general_comment_modify_reject(self):
         """Reject the changes to the application comment, and maintain
         the current labels."""
-        self.hide_general_comment_editor()
+        self.set_comment_editor_visible(False)
         self.general_comment_entry.set_text( self.get_application_comment() )
         
     def initialize_catselection_iconview(self):
@@ -1532,29 +1532,27 @@ class MenulibreWindow(Window):
         if not self.breadcrumb_application.get_active():
             self.breadcrumb_application.set_active(True)
 
-    def show_general_name_editor(self):
-        """Show the application name editor."""
-        self.general_name_button.set_visible(False)
-        self.general_name_modify_box.set_visible(True)
-        self.set_focus( self.general_name_entry )
+    def set_name_editor_visible(self, is_visible):
+        """Show/hide the name editor and hide/show the name button."""
+        if is_visible:
+            self.general_name_button.set_visible(False)
+            self.general_name_modify_box.set_visible(True)
+            self.set_focus( self.general_name_entry )
+        else:
+            self.general_name_modify_box.set_visible(False)
+            self.general_name_button.set_visible(True)
+            self.set_focus( self.general_name_button )
         
-    def hide_general_name_editor(self):
-        """Hide the application name editor."""
-        self.general_name_modify_box.set_visible(False)
-        self.general_name_button.set_visible(True)
-        self.set_focus( self.general_name_button )
-        
-    def show_general_comment_editor(self):
-        """Show the application comment editor."""
-        self.general_comment_button.set_visible(False)
-        self.general_comment_modify_box.set_visible(True)
-        self.set_focus( self.general_comment_entry )
-        
-    def hide_general_comment_editor(self):
-        """Hide the application comment editor."""
-        self.general_comment_modify_box.set_visible(False)
-        self.general_comment_button.set_visible(True)
-        self.set_focus( self.general_comment_button )
+    def set_comment_editor_visible(self, is_visible):
+        """Show/hide the comment editor and hide/show the comment button."""
+        if is_visible:
+            self.general_comment_button.set_visible(False)
+            self.general_comment_modify_box.set_visible(True)
+            self.set_focus( self.general_comment_entry )
+        else:
+            self.general_comment_modify_box.set_visible(False)
+            self.general_comment_button.set_visible(True)
+            self.set_focus( self.general_comment_button )
 
     def load_category_into_iconview(self, category=None):
         """Load the icon view for categories or applications."""
@@ -1574,8 +1572,6 @@ class MenulibreWindow(Window):
         self.breadcrumb_category_image.set_from_icon_name( icon, breadcrumb_icon_size )
         self.breadcrumb_category_label.set_label(name)
         self.breadcrumb_category.show_all()
-        self.breadcrumb_home.set_active(False)
-        self.breadcrumb_application.set_active(False)
         self.breadcrumb_category.set_active(True)
         
     def set_breadcrumb_application(self, app_id):
@@ -1594,8 +1590,6 @@ class MenulibreWindow(Window):
             self.breadcrumb_application_image.set_from_pixbuf(pixbuf)
         self.breadcrumb_application_label.set_label(name)
         self.breadcrumb_application.show_all()
-        self.breadcrumb_home.set_active(False)
-        self.breadcrumb_category.set_active(False)
         self.breadcrumb_application.set_active(True)
 
     def load_iconselection_icons(self):
