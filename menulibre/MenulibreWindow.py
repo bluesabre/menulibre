@@ -217,41 +217,11 @@ class MenulibreWindow(Window):
         
         # -- Quicklists (Notebook Page 1) -- #
         self.quicklists_treeview = self.builder.get_object('quicklists_treeview')
-        self.quicklists_treeview.set_reorderable(True)
-        self.quicklist_toolbar = self.builder.get_object('quicklist_toolbar')
+        self.quicklists_toolbar = self.builder.get_object('quicklists_toolbar')
         self.quicklists_add = self.builder.get_object('quicklists_add')
         self.quicklists_remove = self.builder.get_object('quicklists_remove')
         self.quicklists_move_up = self.builder.get_object('quicklists_move_up')
         self.quicklists_move_down = self.builder.get_object('quicklists_move_down')
-        
-        cell_toggle = Gtk.CellRendererToggle()
-        cell_toggle.connect("toggled", self.on_quicklist_toggled)
-        tvcolumn = Gtk.TreeViewColumn(_("Show"), cell_toggle, active=0)
-        self.quicklists_treeview.append_column(tvcolumn)
-        
-        tvcolumn = Gtk.TreeViewColumn(_('Shortcut Name'))
-        text_render_name = Gtk.CellRendererText()
-        text_render_name.set_property('editable', True)
-        text_render_name.connect('edited', self.shortcut_edited_cb, (self.quicklists_treeview, 1))
-        tvcolumn.pack_start(text_render_name, True)
-        tvcolumn.add_attribute(text_render_name, 'text', 1)
-        self.quicklists_treeview.append_column(tvcolumn)
-        
-        tvcolumn = Gtk.TreeViewColumn(_('Displayed Name'))
-        text_render_name = Gtk.CellRendererText()
-        text_render_name.set_property('editable', True)
-        text_render_name.connect('edited', self.edited_cb, (self.quicklists_treeview, 2))
-        tvcolumn.pack_start(text_render_name, True)
-        tvcolumn.add_attribute(text_render_name, 'text', 2)
-        self.quicklists_treeview.append_column(tvcolumn)
-        
-        tvcolumn = Gtk.TreeViewColumn(_('Command'))
-        text_render_command = Gtk.CellRendererText()
-        text_render_command.set_property('editable', True)
-        text_render_command.connect('edited', self.edited_cb, (self.quicklists_treeview, 3))
-        tvcolumn.pack_start(text_render_command, True)
-        tvcolumn.add_attribute(text_render_command, 'text', 3)
-        self.quicklists_treeview.append_column(tvcolumn)
         
         # -- Editor (Notebook Page 2) -- #
         buffer = self.editor_sourceview.get_buffer()
@@ -742,7 +712,7 @@ class MenulibreWindow(Window):
     def on_appsettings_notebook_switch_page(self, notebook, page, pageno):
 		"""When the notebook page is changed, reset the text editor
 		cursor to the top."""
-        self.quicklist_toolbar.set_visible( pageno == 1 )
+        self.quicklists_toolbar.set_visible( pageno == 1 )
         buffer = self.editor_sourceview.get_buffer()
         buffer.place_cursor( buffer.get_start_iter() )
     
@@ -928,41 +898,7 @@ class MenulibreWindow(Window):
         self.quicklist_modified = True
         self.on_quicklists_treeview_cursor_changed(self.quicklists_treeview)
     
-    def on_quicklist_toggled(self, widget, path):
-		"""When a quicklist item is toggled, enable the toggle and then
-		update the editor."""
-        model = self.quicklists_treeview.get_model()
-        enabled = not model[path][0]
-        name = model[path][1]
-        model[path][0] = enabled
-        
-        # Get the quicklist property name
-        if 'X-Ayatana-Desktop-Shortcuts' in self.current_app.properties['Desktop Entry'].keys():
-            prop_name = 'X-Ayatana-Desktop-Shortcuts'
-        else:
-            prop_name = 'Actions'
-            
-        # Get the currently enabled quicklists
-        enabled_quicklists = self.current_app[prop_name].split(';')
-        
-        # Remove blanks
-        try:
-            enabled_quicklists.remove('')
-        except ValueError:
-            pass
-        
-        # If its already in the list, go ahead and remove it
-        try:
-            enabled_quicklists.remove(name)
-        except ValueError:
-            pass
-            
-        # If it is enabled, insert it into the proper location
-        if enabled:
-            enabled_quicklists.insert(int(path), name)
-            
-        self.current_app[prop_name] = ';'.join(enabled_quicklists)
-        self.update_editor()
+
 
     def on_quicklist_add_clicked(self, button):
 		"""When the Quicklist Add button is clicked, add a new, unique
@@ -1636,22 +1572,57 @@ class MenulibreWindow(Window):
         else:
             return None
             
-    def shortcut_edited_cb(self, cell, path, new_text, user_data):
-        """Quicklist treeview ShortcutName edited callback function."""
-        treeview, column = user_data
-        liststore = treeview.get_model()
+    def on_quicklist_toggled(self, widget, path):
+		"""When a quicklist item is toggled, enable the toggle and then
+		update the editor."""
+        model = self.quicklists_treeview.get_model()
+        enabled = not model[path][0]
+        name = model[path][1]
+        model[path][0] = enabled
+        
+        # Get the quicklist property name
+        if 'X-Ayatana-Desktop-Shortcuts' in self.current_app.properties['Desktop Entry'].keys():
+            prop_name = 'X-Ayatana-Desktop-Shortcuts'
+        else:
+            prop_name = 'Actions'
+            
+        # Get the currently enabled quicklists
+        enabled_quicklists = self.current_app[prop_name].split(';')
+        
+        # Remove blanks
+        try:
+            enabled_quicklists.remove('')
+        except ValueError:
+            pass
+        
+        # If its already in the list, go ahead and remove it
+        try:
+            enabled_quicklists.remove(name)
+        except ValueError:
+            pass
+            
+        # If it is enabled, insert it into the proper location
+        if enabled:
+            enabled_quicklists.insert(int(path), name)
+            
+        self.current_app[prop_name] = ';'.join(enabled_quicklists)
+        self.update_editor()
+        
+    def set_quicklist_value(self, row, col, value):
+        self.quicklists_treeview.get_model()[row][col] = value
+        self.update_editor()
+            
+    def quicklist_name_edited_cb(self, cell, path, new_text):
         new_text = new_text.replace(' ', '').replace('&', '')
         quicklists = self.get_application_quicklists()
         new_text = self.get_quicklist_unique_shortcut_name(quicklists, new_text, 0)
-        liststore[path][column] = new_text
-        self.update_editor()
+        self.set_quicklist_value(path, 1, new_text)
 
-    def edited_cb(self, cell, path, new_text, user_data):
-        """Quicklist treeview cell edited callback function."""
-        treeview, column = user_data
-        liststore = treeview.get_model()
-        liststore[path][column] = new_text
-        self.update_editor()
+    def quicklist_displayed_edited_cb(self, cell, path, new_text):
+        self.set_quicklist_value(path, 2, new_text)
+        
+    def quicklist_command_edited_cb(self, cell, path, new_text):
+        self.set_quicklist_value(path, 3, new_text)
     
     def update_editor(self, editor_updated=False):
 		"""Update the editor and settings (call the threaded update)."""

@@ -13,134 +13,6 @@
       <mime-type>image/*</mime-type>
     </mime-types>
   </object>
-  <object class="GtkDialog" id="iconselection_dialog2">
-    <property name="can_focus">False</property>
-    <property name="border_width">5</property>
-    <property name="title" translatable="yes">Select an icon</property>
-    <property name="window_position">center-on-parent</property>
-    <property name="default_width">600</property>
-    <property name="default_height">480</property>
-    <property name="icon_name">menu-editor</property>
-    <property name="type_hint">dialog</property>
-    <signal name="response" handler="on_iconselection_dialog2_response" swapped="no"/>
-    <child internal-child="vbox">
-      <object class="GtkBox" id="dialog-vbox1">
-        <property name="can_focus">False</property>
-        <property name="orientation">vertical</property>
-        <property name="spacing">2</property>
-        <child internal-child="action_area">
-          <object class="GtkButtonBox" id="dialog-action_area1">
-            <property name="can_focus">False</property>
-            <property name="layout_style">end</property>
-            <child>
-              <object class="GtkButton" id="button6">
-                <property name="label">gtk-cancel</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="button7">
-                <property name="label">gtk-ok</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="pack_type">end</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkBox" id="box15">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="orientation">vertical</property>
-            <child>
-              <object class="GtkBox" id="box16">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <child>
-                  <object class="GtkEntry" id="iconselection_dialog2_search">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="invisible_char">•</property>
-                    <property name="primary_icon_name">edit-find-symbolic</property>
-                    <property name="primary_icon_sensitive">False</property>
-                    <signal name="changed" handler="on_iconselection_dialog2_search_changed" swapped="no"/>
-                    <signal name="icon-press" handler="on_iconselection_dialog2_search_icon_press" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="pack_type">end</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkScrolledWindow" id="scrolledwindow4">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="shadow_type">in</property>
-                <child>
-                  <object class="GtkTreeView" id="iconselection_treeview">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="headers_visible">False</property>
-                    <property name="headers_clickable">False</property>
-                    <property name="rules_hint">True</property>
-                    <property name="enable_search">False</property>
-                    <property name="show_expanders">False</property>
-                    <child internal-child="selection">
-                      <object class="GtkTreeSelection" id="treeview-selection2"/>
-                    </child>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-      </object>
-    </child>
-    <action-widgets>
-      <action-widget response="0">button6</action-widget>
-      <action-widget response="1">button7</action-widget>
-    </action-widgets>
-  </object>
   <object class="GtkDialog" id="iconselection_dialog1">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
@@ -535,6 +407,134 @@
       <action-widget response="1">iconselection1_confirm</action-widget>
     </action-widgets>
   </object>
+  <object class="GtkDialog" id="iconselection_dialog2">
+    <property name="can_focus">False</property>
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">Select an icon</property>
+    <property name="window_position">center-on-parent</property>
+    <property name="default_width">600</property>
+    <property name="default_height">480</property>
+    <property name="icon_name">menu-editor</property>
+    <property name="type_hint">dialog</property>
+    <signal name="response" handler="on_iconselection_dialog2_response" swapped="no"/>
+    <child internal-child="vbox">
+      <object class="GtkBox" id="dialog-vbox1">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox" id="dialog-action_area1">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="button6">
+                <property name="label">gtk-cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="button7">
+                <property name="label">gtk-ok</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box15">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkBox" id="box16">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkEntry" id="iconselection_dialog2_search">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="invisible_char">•</property>
+                    <property name="primary_icon_name">edit-find-symbolic</property>
+                    <property name="primary_icon_sensitive">False</property>
+                    <signal name="changed" handler="on_iconselection_dialog2_search_changed" swapped="no"/>
+                    <signal name="icon-press" handler="on_iconselection_dialog2_search_icon_press" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="pack_type">end</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow" id="scrolledwindow4">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="shadow_type">in</property>
+                <child>
+                  <object class="GtkTreeView" id="iconselection_treeview">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="headers_visible">False</property>
+                    <property name="headers_clickable">False</property>
+                    <property name="rules_hint">True</property>
+                    <property name="enable_search">False</property>
+                    <property name="show_expanders">False</property>
+                    <child internal-child="selection">
+                      <object class="GtkTreeSelection" id="treeview-selection2"/>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="0">button6</action-widget>
+      <action-widget response="1">button7</action-widget>
+    </action-widgets>
+  </object>
   <object class="GtkImage" id="image12">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -559,6 +559,18 @@
     <signal name="row-inserted" handler="on_liststore1_row_changed" swapped="no"/>
   </object>
   <object class="GtkListStore" id="liststore2"/>
+  <object class="GtkListStore" id="liststore3">
+    <columns>
+      <!-- column-name quicklist_col_show -->
+      <column type="gboolean"/>
+      <!-- column-name quicklist_col_name -->
+      <column type="gchararray"/>
+      <!-- column-name quicklist_col_displayed -->
+      <column type="gchararray"/>
+      <!-- column-name quicklist_col_command -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
   <object class="MenulibreWindow" id="menulibre_window">
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">MenuLibre</property>
@@ -1885,9 +1897,70 @@
                               <object class="GtkTreeView" id="quicklists_treeview">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
+                                <property name="model">liststore3</property>
+                                <property name="headers_clickable">False</property>
+                                <property name="reorderable">True</property>
+                                <property name="enable_search">False</property>
                                 <signal name="cursor-changed" handler="on_quicklists_treeview_cursor_changed" swapped="no"/>
                                 <child internal-child="selection">
                                   <object class="GtkTreeSelection" id="treeview-selection4"/>
+                                </child>
+                                <child>
+                                  <object class="GtkTreeViewColumn" id="quicklist_show_col">
+                                    <property name="title" translatable="yes">Show</property>
+                                    <child>
+                                      <object class="GtkCellRendererToggle" id="quicklist_show_cell">
+                                        <signal name="toggled" handler="on_quicklist_toggled" swapped="no"/>
+                                      </object>
+                                      <attributes>
+                                        <attribute name="active">0</attribute>
+                                      </attributes>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkTreeViewColumn" id="quicklist_name_col">
+                                    <property name="title" translatable="yes">Shortcut Name</property>
+                                    <child>
+                                      <object class="GtkCellRendererText" id="quicklist_name_cell">
+                                        <property name="editable">True</property>
+                                        <signal name="edited" handler="quicklist_name_edited_cb" swapped="no"/>
+                                      </object>
+                                      <attributes>
+                                        <attribute name="text">1</attribute>
+                                      </attributes>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkTreeViewColumn" id="quicklist_displayed_col">
+                                    <property name="title" translatable="yes">Displayed Name</property>
+                                    <property name="expand">True</property>
+                                    <child>
+                                      <object class="GtkCellRendererText" id="quicklist_displayed_cell">
+                                        <property name="editable">True</property>
+                                        <signal name="edited" handler="quicklist_displayed_edited_cb" swapped="no"/>
+                                      </object>
+                                      <attributes>
+                                        <attribute name="text">2</attribute>
+                                      </attributes>
+                                    </child>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkTreeViewColumn" id="quicklist_command_col">
+                                    <property name="min_width">120</property>
+                                    <property name="title" translatable="yes">Command</property>
+                                    <child>
+                                      <object class="GtkCellRendererText" id="quicklist_command_cell">
+                                        <property name="editable">True</property>
+                                        <signal name="edited" handler="quicklist_command_edited_cb" swapped="no"/>
+                                      </object>
+                                      <attributes>
+                                        <attribute name="text">3</attribute>
+                                      </attributes>
+                                    </child>
+                                  </object>
                                 </child>
                               </object>
                             </child>
@@ -1897,9 +1970,6 @@
                             <property name="fill">True</property>
                             <property name="position">0</property>
                           </packing>
-                        </child>
-                        <child>
-                          <placeholder/>
                         </child>
                       </object>
                       <packing>
@@ -2012,7 +2082,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkToolbar" id="quicklist_toolbar">
+                  <object class="GtkToolbar" id="quicklists_toolbar">
                     <property name="can_focus">False</property>
                     <property name="margin_left">6</property>
                     <property name="margin_right">6</property>

@@ -6,9 +6,4 @@ else
 	dh $@ --with python2
 endif
 
-override_dh_auto_install:
-	dh_auto_install -- --install-scripts=/opt/extras.ubuntu.com/menulibre/bin                 --install-data=/opt/extras.ubuntu.com/menulibre                 --install-lib=/opt/extras.ubuntu.com/menulibre
-
-override_dh_python2:
-	dh_python2 /opt/extras.ubuntu.com/menulibre
 
