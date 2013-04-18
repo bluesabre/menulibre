@@ -56,11 +56,18 @@ def menu_position(self, menu, data=None, something_else=None):
     widget = menu.get_attach_widget()
     allocation = widget.get_allocation()
     window_pos = widget.get_window().get_position()
-    #x = window_pos[0] + allocation.x - menu.get_allocated_width() + \
-#        widget.get_allocated_width()
     x = window_pos[0] + allocation.x
     y = window_pos[1] + allocation.y + allocation.height
     return (x, y, True)
+    
+def get_unique_filename(filename):
+    basename = os.path.basename(filename)
+    counter = 0
+    for path in MenulibreXdg.get_application_paths():
+        while os.path.exists(os.path.join(path, basename.replace('.desktop', str(counter)+'.desktop'))):
+            counter += 1
+    filename = filename.replace('.desktop', str(counter)+'.desktop')
+    return filename
 
 # See menulibre_lib.Window.py for more details about how this class works
 class MenulibreWindow(Window):
@@ -437,8 +444,8 @@ class MenulibreWindow(Window):
         """When the Save toolbar icon is clicked, save the desktop file.
         If modifying a system entry while not sudo-powered, create a new
         launcher in /home/USERNAME/.local/share/applications."""
-        self.general_name_modify_accept()
-        self.general_comment_modify_accept()
+        self.on_name_modified_response(Gtk.ResponseType.ACCEPT)
+        self.on_comment_modified_response(Gtk.ResponseType.ACCEPT)
                 
         filename = self.get_application_filename()
         text = self.get_application_text()
@@ -475,6 +482,7 @@ class MenulibreWindow(Window):
             newapp = MenulibreXdg.Application(filename)
             newapp.id = appid
             self.apps[appid] = newapp
+        self.set_application_id(appid)
             
         self.clear_history()
         
@@ -741,22 +749,22 @@ class MenulibreWindow(Window):
     def on_general_name_modify_entry_activate(self, widget):
 		"""When the Application Name entry is activated, accept the 
 		changes."""
-        self.general_name_modify_accept()
+        self.on_name_modified_response(Gtk.ResponseType.ACCEPT)
         
     def on_general_name_modify_entry_key_press_event(self, widget, event):
 		"""If the user presses the ESCAPE key while in the name entry, 
 		reject the changes."""
         if Gdk.keyval_name(event.get_keyval()[1]) == 'Escape':
-            self.general_name_modify_reject()
+            self.on_name_modified_response(Gtk.ResponseType.REJECT)
     
     def on_general_name_modify_cancel_clicked(self, button):
 		"""If the user clicks the entry cancel button, reject the 
 		changes."""
-        self.general_name_modify_reject()
+        self.on_name_modified_response(Gtk.ResponseType.REJECT)
     
     def on_general_name_modify_confirm_clicked(self, button):
 		"""If the user clicks the entry OK button, accept the changes."""
-        self.general_name_modify_accept()
+		self.on_name_modified_response(Gtk.ResponseType.ACCEPT)
     
     def on_general_comment_button_clicked(self, button):
 		"""When the Application Comment button is clicked, reveal the 
@@ -766,22 +774,22 @@ class MenulibreWindow(Window):
     def on_general_comment_modify_entry_activate(self, widget):
 		"""When the Application Comment entry is activated, accept the 
 		changes."""
-        self.general_comment_modify_accept()
+        self.on_comment_modified_response(Gtk.ResponseType.ACCEPT)
         
     def on_general_comment_modify_entry_key_press_event(self, widget, event):
 		"""If the user presses the ESCAPE key while in the comment
 		entry, reject the changes."""
         if Gdk.keyval_name(event.get_keyval()[1]) == 'Escape':
-            self.general_comment_modify_reject()
+            self.on_comment_modified_response(Gtk.ResponseType.REJECT)
     
     def on_general_comment_modify_cancel_clicked(self, button):
 		"""If the user clicks the entry cancel button, reject the 
 		changes."""
-        self.general_comment_modify_reject()
+        self.on_comment_modified_response(Gtk.ResponseType.REJECT)
     
     def on_general_comment_modify_confirm_clicked(self, button):
 		"""If the user clicks the entry OK button, accept the changes."""
-        self.general_comment_modify_accept()
+        self.on_comment_modified_response(Gtk.ResponseType.ACCEPT)
         
     def on_general_command_entry_changed(self, widget):
 		"""Update the editor when the Command entry is changed."""
@@ -1210,11 +1218,7 @@ class MenulibreWindow(Window):
             name = self.get_application_name().lower()
             filename = name.replace(' ', '-').replace('&', '-') + '.desktop'
             filename = os.path.join(home, '.local/share/applications', filename)
-            counter = 0
-            while os.path.exists(filename):
-                filename = filename.replace('.desktop', '%i.desktop' % counter)
-                counter += 1
-            return filename
+            return get_unique_filename(filename)
         return label
         
     def add_application_category(self, category, name=None):
@@ -1365,50 +1369,40 @@ class MenulibreWindow(Window):
         
         
     # -- End Helper Functions ---------------------------------------- #
-    
-    def general_name_modify_accept(self):
-        """Accept the changes to the application name, and set the
-        various labels according to the new data."""
-        name = self.general_name_entry.get_text()
-        self.set_application_name( name )
-        if self.get_application_filename() == _('New Menu Item'):
-            filename = name.replace(' ', '').replace('&', '').lower()
-            filename += '.desktop'
-            if self.sudo:
-                filename = os.path.join( '/usr/share/applications', filename )
-            else:
-                filename = os.path.join( home, '.local/share/applications', filename )
-            if os.path.exists(filename):
-                counter = 0
-                while os.path.exists(filename.replace('.desktop', str(counter)+'.desktop')):
-                    counter += 1
-                filename = filename.replace('.desktop', str(counter)+'.desktop')
-            self.set_application_filename( filename )
+
+    def on_name_modified_response(self, response_id):
+        if response_id == Gtk.ResponseType.ACCEPT:
+            name = self.general_name_entry.get_text()
+            self.set_application_name( name )
+            if self.get_application_filename() == _('New Menu Item'):
+                filename = name.replace(' ', '').replace('&', '').lower()
+                filename += '.desktop'
+                if self.sudo:
+                    filename = os.path.join( '/usr/share/applications', filename )
+                else:
+                    filename = os.path.join( home, '.local/share/applications', filename )
+                
+                self.set_application_filename( get_unique_filename(filename) )
+            
+            self.current_app['Name'] = name
+            self.update_editor()
+            
         self.set_name_editor_visible(False)
-        self.current_app['Name'] = name
-        self.update_editor()
-    
-    def general_name_modify_reject(self):
-        """Reject the changes to the application name, and maintain
-        the current labels."""
-        self.set_name_editor_visible(False)
-        self.general_name_entry.set_text(self.get_application_name())
-    
-    def general_comment_modify_accept(self):
-        """Accept the changes to the application comment, and set the
-        various labels according to the new data."""
-        comment = self.general_comment_entry.get_text()
-        self.set_application_comment( comment )
+        if response_id != Gtk.ResponseType.ACCEPT:
+            self.general_name_entry.set_text(self.get_application_name())
+            
+    def on_comment_modified_response(self, response_id):
+        if response_id == Gtk.ResponseType.ACCEPT:
+            comment = self.general_comment_entry.get_text()
+            self.set_application_comment( comment )
+            self.set_comment_editor_visible(False)
+            self.current_app['Comment'] = comment
+            self.update_editor()
+            
         self.set_comment_editor_visible(False)
-        self.current_app['Comment'] = comment
-        self.update_editor()
-    
-    def general_comment_modify_reject(self):
-        """Reject the changes to the application comment, and maintain
-        the current labels."""
-        self.set_comment_editor_visible(False)
-        self.general_comment_entry.set_text( self.get_application_comment() )
-        
+        if response_id != Gtk.ResponseType.ACCEPT:
+            self.general_comment_entry.set_text( self.get_application_comment() )
+
     def initialize_catselection_iconview(self):
         model = Gtk.ListStore(GdkPixbuf.Pixbuf, str, str)
         self.catselection_iconview.set_model(model)
