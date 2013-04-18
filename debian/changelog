@@ -1,3 +1,18 @@
+menulibre (13.04.8ubuntu1) UNRELEASED; urgency=low
+
+  * Move quicklist code into glade file, update packaging
+  * Improve hidden detection, setting
+  * Merge translations
+  * Use symbolic icons in search entries
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Wed, 17 Apr 2013 22:00:24 -0400
+
+menulibre (13.04.8) precise; urgency=low
+
+  * Cleanup name and comment code.  Fix deleting brand new launcher
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Wed, 17 Apr 2013 22:00:24 -0400
+
 menulibre (13.04.7) raring; urgency=low
 
   * New release.
