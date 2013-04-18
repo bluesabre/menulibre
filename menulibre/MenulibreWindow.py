@@ -251,11 +251,6 @@ class MenulibreWindow(Window):
         self.iconselection_search = self.builder.get_object('iconselection_dialog2_search')
         self.iconselection_treeview = self.builder.get_object('iconselection_treeview')
         
-        self.iconselection_treeview.append_column(Gtk.TreeViewColumn(_('Image'),
-                Gtk.CellRendererPixbuf(), pixbuf=0))
-        self.iconselection_treeview.append_column(Gtk.TreeViewColumn(_('Name'), 
-                Gtk.CellRendererText(), text=1))
-                
         self.lock_quicklist_data = False
         
         self.current_category = None
