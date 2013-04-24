@@ -1,3 +1,17 @@
+menulibre (13.04.13ubuntu1) UNRELEASED; urgency=low
+
+  * Fix broken mkdir
+  * Move iconselection treeview to glade
+  * Move style context definitions to glade
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Wed, 24 Apr 2013 19:51:30 -0400
+
+menulibre (13.04.13) precise; urgency=low
+
+  * Updated translations
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Wed, 24 Apr 2013 19:51:30 -0400
+
 menulibre (13.04.12) raring; urgency=low
 
   * New release.
