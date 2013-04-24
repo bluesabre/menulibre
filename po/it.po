@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-04-16 22:15-0400\n"
+"POT-Creation-Date: 2013-04-17 20:50-0400\n"
 "PO-Revision-Date: 2012-11-02 06:54+0000\n"
-"Last-Translator: Pietro Albini <pietro98-albini@ubuntu-it.org>\n"
+"Last-Translator: Pietro Albini <pietro98.albini@gmail.com>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-17 05:39+0000\n"
+"X-Launchpad-Export-Date: 2013-04-19 05:55+0000\n"
 "X-Generator: Launchpad (build 16567)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
@@ -89,7 +89,7 @@ msgstr "_Aiuto"
 msgid "_Contents"
 msgstr "_Contenuti"
 
-#: ../data/ui/MenulibreWindow.ui.h:19 ../menulibre/MenulibreWindow.py:1510
+#: ../data/ui/MenulibreWindow.ui.h:19 ../menulibre/MenulibreWindow.py:1448
 msgid "Add Launcher"
 msgstr "Aggiungi lanciatore"
 
@@ -161,7 +161,7 @@ msgstr "<big><b>Nome Applicazione</b></big>"
 msgid "<i>A quick snippet about your application.</i>"
 msgstr "<i>Una piccola descrizione sulla tua applicazione.</i>"
 
-#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreWindow.py:248
+#: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Command"
 msgstr "Comando"
 
@@ -189,7 +189,7 @@ msgstr "Nascondi nel menu"
 msgid "<b>Options</b>"
 msgstr "<b>Opzioni</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:44 ../menulibre/MenulibreWindow.py:283
+#: ../data/ui/MenulibreWindow.ui.h:44 ../menulibre/MenulibreWindow.py:253
 msgid "Name"
 msgstr "Nome"
 
@@ -214,108 +214,120 @@ msgid "General Settings"
 msgstr "Impostazioni Generali"
 
 #: ../data/ui/MenulibreWindow.ui.h:50
+msgid "Show"
+msgstr "Mostra"
+
+#: ../data/ui/MenulibreWindow.ui.h:51
+msgid "Shortcut Name"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:52
+msgid "Displayed Name"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Quicklists"
 msgstr "Quicklists"
 
-#: ../data/ui/MenulibreWindow.ui.h:51
+#: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Editor"
 msgstr "Editor"
 
-#: ../data/ui/MenulibreWindow.ui.h:52
+#: ../data/ui/MenulibreWindow.ui.h:55
 msgid "label"
 msgstr "etichetta"
 
-#: ../data/ui/MenulibreWindow.ui.h:53
+#: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Delete this launcher..."
 msgstr "Elimina questo lanciatore..."
 
-#: ../data/ui/MenulibreWindow.ui.h:54
+#: ../data/ui/MenulibreWindow.ui.h:57
 msgid "<small>Filename</small>"
 msgstr "<small>Nome file</small>"
 
-#: ../data/ui/MenulibreWindow.ui.h:55
+#: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Add Quicklist"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:56
+#: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Remove Quicklist"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:57
+#: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Move Up"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:58
+#: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Move Down"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:59
+#: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Application Settings"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:60
+#: ../data/ui/MenulibreWindow.ui.h:63
 msgid "<big><b>Remove Launcher?</b></big>"
 msgstr "<big><b>Rimuovere Lanciatore?</b></big>"
 
-#: ../data/ui/MenulibreWindow.ui.h:61
+#: ../data/ui/MenulibreWindow.ui.h:64
 msgid ""
 "Are you sure you wish to remove this launcher?  This cannot be undone."
 msgstr ""
 "Sei sicuro di voler rimuovere questo lanciatore? L'operazione non può essere "
 "annullata."
 
-#: ../menulibre/MenulibreWindow.py:77 ../menulibre/MenulibreWindow.py:316
-#: ../menulibre/MenulibreWindow.py:1300
+#: ../menulibre/MenulibreWindow.py:77 ../menulibre/MenulibreWindow.py:286
+#: ../menulibre/MenulibreWindow.py:1238
 msgid "Multimedia"
 msgstr "Multimedia"
 
-#: ../menulibre/MenulibreWindow.py:78 ../menulibre/MenulibreWindow.py:301
-#: ../menulibre/MenulibreWindow.py:1290
+#: ../menulibre/MenulibreWindow.py:78 ../menulibre/MenulibreWindow.py:271
+#: ../menulibre/MenulibreWindow.py:1228
 msgid "Development"
 msgstr "Sviluppo"
 
-#: ../menulibre/MenulibreWindow.py:79 ../menulibre/MenulibreWindow.py:304
-#: ../menulibre/MenulibreWindow.py:1292
+#: ../menulibre/MenulibreWindow.py:79 ../menulibre/MenulibreWindow.py:274
+#: ../menulibre/MenulibreWindow.py:1230
 msgid "Education"
 msgstr "Istruzione"
 
-#: ../menulibre/MenulibreWindow.py:80 ../menulibre/MenulibreWindow.py:307
-#: ../menulibre/MenulibreWindow.py:1294
+#: ../menulibre/MenulibreWindow.py:80 ../menulibre/MenulibreWindow.py:277
+#: ../menulibre/MenulibreWindow.py:1232
 msgid "Games"
 msgstr "Giochi"
 
-#: ../menulibre/MenulibreWindow.py:81 ../menulibre/MenulibreWindow.py:310
-#: ../menulibre/MenulibreWindow.py:1296
+#: ../menulibre/MenulibreWindow.py:81 ../menulibre/MenulibreWindow.py:280
+#: ../menulibre/MenulibreWindow.py:1234
 msgid "Graphics"
 msgstr "Grafica"
 
-#: ../menulibre/MenulibreWindow.py:82 ../menulibre/MenulibreWindow.py:313
-#: ../menulibre/MenulibreWindow.py:1298
+#: ../menulibre/MenulibreWindow.py:82 ../menulibre/MenulibreWindow.py:283
+#: ../menulibre/MenulibreWindow.py:1236
 msgid "Internet"
 msgstr "Internet e Reti"
 
-#: ../menulibre/MenulibreWindow.py:83 ../menulibre/MenulibreWindow.py:319
-#: ../menulibre/MenulibreWindow.py:1302
+#: ../menulibre/MenulibreWindow.py:83 ../menulibre/MenulibreWindow.py:289
+#: ../menulibre/MenulibreWindow.py:1240
 msgid "Office"
 msgstr "Ufficio"
 
-#: ../menulibre/MenulibreWindow.py:84 ../menulibre/MenulibreWindow.py:322
-#: ../menulibre/MenulibreWindow.py:1304
+#: ../menulibre/MenulibreWindow.py:84 ../menulibre/MenulibreWindow.py:292
+#: ../menulibre/MenulibreWindow.py:1242
 msgid "Other"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:85 ../menulibre/MenulibreWindow.py:325
-#: ../menulibre/MenulibreWindow.py:1306
+#: ../menulibre/MenulibreWindow.py:85 ../menulibre/MenulibreWindow.py:295
+#: ../menulibre/MenulibreWindow.py:1244
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: ../menulibre/MenulibreWindow.py:86 ../menulibre/MenulibreWindow.py:328
-#: ../menulibre/MenulibreWindow.py:1308
+#: ../menulibre/MenulibreWindow.py:86 ../menulibre/MenulibreWindow.py:298
+#: ../menulibre/MenulibreWindow.py:1246
 msgid "System"
 msgstr "Sistema"
 
-#: ../menulibre/MenulibreWindow.py:87 ../menulibre/MenulibreWindow.py:298
-#: ../menulibre/MenulibreWindow.py:1288
+#: ../menulibre/MenulibreWindow.py:87 ../menulibre/MenulibreWindow.py:268
+#: ../menulibre/MenulibreWindow.py:1226
 msgid "Accessories"
 msgstr "Accessori"
 
@@ -323,84 +335,72 @@ msgstr "Accessori"
 msgid "WINE"
 msgstr "Wine"
 
-#: ../menulibre/MenulibreWindow.py:140 ../menulibre/MenulibreWindow.py:582
-#: ../menulibre/MenulibreWindow.py:605
+#: ../menulibre/MenulibreWindow.py:140 ../menulibre/MenulibreWindow.py:552
+#: ../menulibre/MenulibreWindow.py:575
 msgid "Search Applications"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:229
-msgid "Show"
-msgstr "Mostra"
-
-#: ../menulibre/MenulibreWindow.py:232
-msgid "Shortcut Name"
-msgstr ""
-
-#: ../menulibre/MenulibreWindow.py:240
-msgid "Displayed Name"
-msgstr ""
-
-#: ../menulibre/MenulibreWindow.py:281
+#: ../menulibre/MenulibreWindow.py:251
 msgid "Image"
 msgstr "Immagine"
 
 #. Translators: Required menu item
-#: ../menulibre/MenulibreWindow.py:359
+#: ../menulibre/MenulibreWindow.py:329
 #, python-format
 msgid "%s (Required)"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:594
+#: ../menulibre/MenulibreWindow.py:564
 #, python-format
 msgid "Search %s"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:612
+#: ../menulibre/MenulibreWindow.py:582
 #, python-format
 msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "This cannot be undone."
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:621
+#: ../menulibre/MenulibreWindow.py:591
 #, python-format
 msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "The menu item will be restored to system defaults."
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:630 ../menulibre/MenulibreWindow.py:1271
-#: ../menulibre/MenulibreWindow.py:1436 ../menulibre/MenulibreWindow.py:1586
-#: ../menulibre/MenulibreWindow.py:1756 ../menulibre/MenulibreWindow.py:1762
+#: ../menulibre/MenulibreWindow.py:600 ../menulibre/MenulibreWindow.py:1209
+#: ../menulibre/MenulibreWindow.py:1374 ../menulibre/MenulibreWindow.py:1524
+#: ../menulibre/MenulibreWindow.py:1729 ../menulibre/MenulibreWindow.py:1735
 #: ../menulibre_lib/MenulibreXdg.py:44
 msgid "New Menu Item"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:824 ../menulibre/MenulibreWindow.py:845
+#: ../menulibre/MenulibreWindow.py:794 ../menulibre/MenulibreWindow.py:815
 msgid "Select an executable"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:971
+#: ../menulibre/MenulibreWindow.py:909
 msgid "NewShortcut"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:973
+#: ../menulibre/MenulibreWindow.py:911
 msgid "New Shortcut"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:1310
+#: ../menulibre/MenulibreWindow.py:1248
 msgid "Unknown"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:1481 ../menulibre/MenulibreWindow.py:1571
+#: ../menulibre/MenulibreWindow.py:1419 ../menulibre/MenulibreWindow.py:1509
 msgid "All Applications"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:1510
+#: ../menulibre/MenulibreWindow.py:1448
 msgid "Add a new application launcher"
 msgstr ""
 
-#: ../menulibre/MenulibreWindow.py:1806
+#: ../menulibre/MenulibreWindow.py:1779
 msgid "Search Results"
 msgstr ""
 

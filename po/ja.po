@@ -1,4 +1,4 @@
-# Czech translation for menulibre
+# Japanese translation for menulibre
 # Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
 # This file is distributed under the same license as the menulibre package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
@@ -8,190 +8,190 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-04-17 20:50-0400\n"
-"PO-Revision-Date: 2013-04-13 09:15+0000\n"
-"Last-Translator: aloisam <a.musil@email.cz>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"PO-Revision-Date: 2013-04-19 05:02+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-19 05:54+0000\n"
+"X-Launchpad-Export-Date: 2013-04-20 06:04+0000\n"
 "X-Generator: Launchpad (build 16567)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
-msgstr "Vyberte ikonu"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Icon Name"
-msgstr "Ikona - název"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Image File"
-msgstr "Obrázek - soubor"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Select an Image"
-msgstr "Vyberte obrázek"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:5
 msgid "<b>Select Icon</b>"
-msgstr "<b>Vyberte ikonu</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "48x48"
-msgstr "48x48"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "32x32"
-msgstr "32x32"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "24x24"
-msgstr "24x24"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid "16x16"
-msgstr "16x16"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "128x128"
-msgstr "128x128"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "<b>Preview</b>"
-msgstr "<b>Náhled</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "Select an icon"
-msgstr "Vyberte ikonu"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "MenuLibre"
-msgstr "MenuLibre"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "_File"
-msgstr "_Soubor"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Add _New Launcher"
-msgstr "Přidat nový spouštěč"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid "_Edit"
-msgstr "_Úpravy"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "_Help"
-msgstr "_Nápověda"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid "_Contents"
-msgstr "_Obsah"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:19 ../menulibre/MenulibreWindow.py:1448
 msgid "Add Launcher"
-msgstr "Přidat spouštěč"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Save All Changes"
-msgstr "Uložit všechny změny"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Save"
-msgstr "Uložit"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:22
 msgid "Undo the last action"
-msgstr "Vrátit zpět poslední akci"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:23
 msgid "Undo"
-msgstr "Zpět"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Redo the last undone action"
-msgstr "Zopakovat poslední vrácenou akci"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Redo"
-msgstr "Opakovat"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Revert all changes to last saved state"
-msgstr "Vrátit všechny změny k poslednímu uloženému stavu"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Revert"
-msgstr "Vrátit změny"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Category"
-msgstr "Kategorie"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application"
-msgstr "Aplikace"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:30
 msgid "Categories"
-msgstr "Kategorie"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Applications"
-msgstr "Aplikace"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:32
 msgid "<b>No applications found.</b>"
-msgstr "<b>Žádná aplikace nenalezena.</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Try searching everything."
-msgstr "Zkuste prohledat všechny aplikace"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Search Failed"
-msgstr "Vyhledávání selhalo"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Název aplikace</b></big>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "<i>A quick snippet about your application.</i>"
-msgstr "<i>Stručný popis aplikace.</i>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Command"
-msgstr "Příkaz"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Working Directory"
-msgstr "Pracovní adresář"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "<b>Application Settings</b>"
-msgstr "<b>Nastavení aplikace</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Run in terminal"
-msgstr "Spustit v terminálu"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
-msgstr "Použít upozornění na spuštění"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Hide from menus"
-msgstr "Nezobrazovat v nabídkách"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "<b>Options</b>"
-msgstr "<b>Možnosti</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:44 ../menulibre/MenulibreWindow.py:253
 msgid "Name"
-msgstr "Název"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Add category..."
@@ -207,43 +207,43 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "<b>Categories</b>"
-msgstr "<b>Kategorie</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:49
 msgid "General Settings"
-msgstr "Obecná nastavení"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Show"
-msgstr "Zobrazit"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Shortcut Name"
-msgstr "Název zkratky"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Displayed Name"
-msgstr "Zobrazovaný název"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Quicklists"
-msgstr "Podnabídky"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Editor"
-msgstr "Editor"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid "label"
-msgstr "popisek"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Delete this launcher..."
-msgstr "Odstranit tento spouštěč"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "<small>Filename</small>"
-msgstr "<small>Jméno souboru</small>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Add Quicklist"
@@ -263,85 +263,84 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Application Settings"
-msgstr "Nastavení aplikace"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "<big><b>Remove Launcher?</b></big>"
-msgstr "<big><b>Odstranit spouštěč?</b></big>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid ""
 "Are you sure you wish to remove this launcher?  This cannot be undone."
 msgstr ""
-"Jste si jisti, že chcete odstranit tento spouštěč? Je to nevratný proces."
 
 #: ../menulibre/MenulibreWindow.py:77 ../menulibre/MenulibreWindow.py:286
 #: ../menulibre/MenulibreWindow.py:1238
 msgid "Multimedia"
-msgstr "Multimédia"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:78 ../menulibre/MenulibreWindow.py:271
 #: ../menulibre/MenulibreWindow.py:1228
 msgid "Development"
-msgstr "Vývoj"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:79 ../menulibre/MenulibreWindow.py:274
 #: ../menulibre/MenulibreWindow.py:1230
 msgid "Education"
-msgstr "Vzdělávání"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:80 ../menulibre/MenulibreWindow.py:277
 #: ../menulibre/MenulibreWindow.py:1232
 msgid "Games"
-msgstr "Hry"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:81 ../menulibre/MenulibreWindow.py:280
 #: ../menulibre/MenulibreWindow.py:1234
 msgid "Graphics"
-msgstr "Grafika"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:82 ../menulibre/MenulibreWindow.py:283
 #: ../menulibre/MenulibreWindow.py:1236
 msgid "Internet"
-msgstr "Internet"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:83 ../menulibre/MenulibreWindow.py:289
 #: ../menulibre/MenulibreWindow.py:1240
 msgid "Office"
-msgstr "Kancelář"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:84 ../menulibre/MenulibreWindow.py:292
 #: ../menulibre/MenulibreWindow.py:1242
 msgid "Other"
-msgstr "Ostatní"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:85 ../menulibre/MenulibreWindow.py:295
 #: ../menulibre/MenulibreWindow.py:1244
 msgid "Settings"
-msgstr "Přizpůsobení"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:86 ../menulibre/MenulibreWindow.py:298
 #: ../menulibre/MenulibreWindow.py:1246
 msgid "System"
-msgstr "Systém"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:87 ../menulibre/MenulibreWindow.py:268
 #: ../menulibre/MenulibreWindow.py:1226
 msgid "Accessories"
-msgstr "Příslušenství"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:88
 msgid "WINE"
-msgstr "Wine"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:140 ../menulibre/MenulibreWindow.py:552
 #: ../menulibre/MenulibreWindow.py:575
 msgid "Search Applications"
-msgstr "Prohledat aplikace"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:251
 msgid "Image"
-msgstr "Obrázek"
+msgstr ""
 
 #. Translators: Required menu item
 #: ../menulibre/MenulibreWindow.py:329
@@ -352,7 +351,7 @@ msgstr ""
 #: ../menulibre/MenulibreWindow.py:564
 #, python-format
 msgid "Search %s"
-msgstr "Prohledat %s"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:582
 #, python-format
@@ -360,8 +359,6 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "This cannot be undone."
 msgstr ""
-"Jste si jisti, že chcete odstranit \"%s\"?\n"
-"Je to nevratný proces."
 
 #: ../menulibre/MenulibreWindow.py:591
 #, python-format
@@ -369,27 +366,25 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "The menu item will be restored to system defaults."
 msgstr ""
-"Jste si jisti, že chcete odstranit \"%s\"?\n"
-"Položka bude nastavena na výchozí hodnoty systému."
 
 #: ../menulibre/MenulibreWindow.py:600 ../menulibre/MenulibreWindow.py:1209
 #: ../menulibre/MenulibreWindow.py:1374 ../menulibre/MenulibreWindow.py:1524
 #: ../menulibre/MenulibreWindow.py:1729 ../menulibre/MenulibreWindow.py:1735
 #: ../menulibre_lib/MenulibreXdg.py:44
 msgid "New Menu Item"
-msgstr "Nová položka"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:794 ../menulibre/MenulibreWindow.py:815
 msgid "Select an executable"
-msgstr "Vyberte spustitelný soubor"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:909
 msgid "NewShortcut"
-msgstr "Nová zkratka"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:911
 msgid "New Shortcut"
-msgstr "Nová zkratka"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:1248
 msgid "Unknown"
@@ -397,19 +392,19 @@ msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:1419 ../menulibre/MenulibreWindow.py:1509
 msgid "All Applications"
-msgstr "Všechny aplikace"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:1448
 msgid "Add a new application launcher"
-msgstr "Přidat nový spoušteč aplikací"
+msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:1779
 msgid "Search Results"
-msgstr "Výsledky vyhledávání"
+msgstr ""
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:1
 msgid "Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
-msgstr "Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
+msgstr ""
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:2
 msgid ""
@@ -427,53 +422,41 @@ msgid ""
 "# You should have received a copy of the GNU General Public License along \n"
 "# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
 msgstr ""
-"# Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>\n"
-"# Tento program je svobodný software: můžete jej šířit a upravovat \n"
-"# podle podmínek GNU GPL (všeobecné veřejné licence GNU) verze 3 \n"
-"# ve znění zveřejněném Free Software Foundation.\n"
-"# \n"
-"# Tento program je šířen s nadějí, že bude užitečný, ale \n"
-"# BEZ JAKÉKOLIV ZÁRUKY; a to dokonce i bez předpokládaných záruk \n"
-"# OBCHODOVATELNOSTI, USPOKOJIVÉ KVALITY, nebo VHODNOSTI PRO \n"
-"# URČITÝ ÚČEL. Podrobnosti najdete v GNU GPL.\n"
-"# \n"
-"# Spolu s tímto programem by jste měli obdržet kopii GNU GPL.\n"
-"# Pokud se tak nestalo, najdete ji na <http://www.gnu.org/licenses/>.\n"
 
 #: ../menulibre_lib/MenulibreXdg.py:45
 msgid "A small descriptive blurb about this application."
-msgstr "Stručný popis aplikace"
+msgstr ""
 
 #: ../menulibre_lib/MenulibreXdg.py:171
 #, python-format
 msgid "'%s' is not a .desktop file"
-msgstr "'%s' není soubor typu .desktop"
+msgstr ""
 
 #: ../menulibre_lib/MenulibreXdg.py:174
 msgid "Initialized without required parameters."
-msgstr "Spustit bez vyžadovaných parametrů"
+msgstr ""
 
 #: ../menulibre_lib/MenulibreXdg.py:183
 #, python-format
 msgid "'%s' is not a .directory file"
-msgstr "'%s' není soubor typu .directory"
+msgstr ""
 
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages (-vv debugs menulibre_lib also)"
-msgstr "Ukázat ladící zprávy (-vv debugs menulibre_lib also)"
+msgstr ""
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr "MenuLibre"
+msgstr ""
 
 #: ../menulibre.desktop.in.h:2
 msgid "Edit System and User Menus with ease"
-msgstr "Snadná úprava systémových a uživatelských menu"
+msgstr ""
 
 #: ../menulibre.desktop.in.h:3
 msgid "Edit user menus"
-msgstr "Upravit uživatelské nabídky"
+msgstr ""
 
 #: ../menulibre.desktop.in.h:4
 msgid "Edit system menus"
-msgstr "Upravit systémové nabídky"
+msgstr ""
