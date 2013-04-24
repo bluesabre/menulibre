@@ -39,7 +39,7 @@ def mkdir(path):
             if not os.path.isdir(current):
                 return False
         else:
-            os.mdir(current)
+            os.mkdir(current)
 
     return True
 
