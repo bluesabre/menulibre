@@ -8,350 +8,350 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-04-17 20:50-0400\n"
-"PO-Revision-Date: 2013-04-19 05:02+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2013-04-24 16:13+0000\n"
+"Last-Translator: ub <xenolith0bytetestcomgreen@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-20 06:04+0000\n"
-"X-Generator: Launchpad (build 16567)\n"
+"X-Launchpad-Export-Date: 2013-04-25 05:48+0000\n"
+"X-Generator: Launchpad (build 16580)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
-msgstr ""
+msgstr "アイコンを選択"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Icon Name"
-msgstr ""
+msgstr "アイコン名"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Image File"
-msgstr ""
+msgstr "画像ファイル"
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Select an Image"
-msgstr ""
+msgstr "画像を選択"
 
 #: ../data/ui/MenulibreWindow.ui.h:5
 msgid "<b>Select Icon</b>"
-msgstr ""
+msgstr "<b>アイコンを選択</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "48x48"
-msgstr ""
+msgstr "48x48"
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "32x32"
-msgstr ""
+msgstr "32x32"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "24x24"
-msgstr ""
+msgstr "24x24"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid "16x16"
-msgstr ""
+msgstr "16x16"
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "128x128"
-msgstr ""
+msgstr "128x128"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "<b>Preview</b>"
-msgstr ""
+msgstr "<b>プレビュー</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "Select an icon"
-msgstr ""
+msgstr "アイコンを選択"
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "MenuLibre"
-msgstr ""
+msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "_File"
-msgstr ""
+msgstr "ファイル(_F)"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Add _New Launcher"
-msgstr ""
+msgstr "ランチャーを追加(_N)"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid "_Edit"
-msgstr ""
+msgstr "編集(_E)"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "_Help"
-msgstr ""
+msgstr "ヘルプ(_H)"
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid "_Contents"
-msgstr ""
+msgstr "目次(_C)"
 
 #: ../data/ui/MenulibreWindow.ui.h:19 ../menulibre/MenulibreWindow.py:1448
 msgid "Add Launcher"
-msgstr ""
+msgstr "ランチャーを追加"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Save All Changes"
-msgstr ""
+msgstr "変更を保存"
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
 msgid "Undo the last action"
-msgstr ""
+msgstr "最後の操作をアンドゥ"
 
 #: ../data/ui/MenulibreWindow.ui.h:23
 msgid "Undo"
-msgstr ""
+msgstr "アンドゥ"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Redo the last undone action"
-msgstr ""
+msgstr "最後の取り消し操作をリドゥ"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Redo"
-msgstr ""
+msgstr "リドゥ"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Revert all changes to last saved state"
-msgstr ""
+msgstr "最後に保存した状態に戻す"
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Revert"
-msgstr ""
+msgstr "戻す"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Category"
-msgstr ""
+msgstr "カテゴリー"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application"
-msgstr ""
+msgstr "アプリケーション"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
 msgid "Categories"
-msgstr ""
+msgstr "カテゴリー"
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Applications"
-msgstr ""
+msgstr "アプリケーション"
 
 #: ../data/ui/MenulibreWindow.ui.h:32
 msgid "<b>No applications found.</b>"
-msgstr ""
+msgstr "<b>アプリが見つかりません。</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Try searching everything."
-msgstr ""
+msgstr "すべて検索"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Search Failed"
-msgstr ""
+msgstr "検索失敗"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "<big><b>Application Name</b></big>"
-msgstr ""
+msgstr "<big><b>アプリケーション名</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "<i>A quick snippet about your application.</i>"
-msgstr ""
+msgstr "アプリケーションの概要"
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Command"
-msgstr ""
+msgstr "コマンド"
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Working Directory"
-msgstr ""
+msgstr "作業ディレクトリー"
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "<b>Application Settings</b>"
-msgstr ""
+msgstr "<b>アプリケーションの設定</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Run in terminal"
-msgstr ""
+msgstr "端末で実行"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
-msgstr ""
+msgstr "起動の通知"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Hide from menus"
-msgstr ""
+msgstr "メニューから隠す"
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "<b>Options</b>"
-msgstr ""
+msgstr "<b>オプション</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:44 ../menulibre/MenulibreWindow.py:253
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Add category..."
-msgstr ""
+msgstr "カテゴリーの追加..."
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Remove category"
-msgstr ""
+msgstr "カテゴリーの削除"
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Clear categories"
-msgstr ""
+msgstr "カテゴリーのクリア"
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "<b>Categories</b>"
-msgstr ""
+msgstr "<b>カテゴリー</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:49
 msgid "General Settings"
-msgstr ""
+msgstr "一般"
 
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Show"
-msgstr ""
+msgstr "表示"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Shortcut Name"
-msgstr ""
+msgstr "ショートカット名"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Displayed Name"
-msgstr ""
+msgstr "表示名"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Quicklists"
-msgstr ""
+msgstr "クイックリスト"
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Editor"
-msgstr ""
+msgstr "編集"
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid "label"
-msgstr ""
+msgstr "ラベル"
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Delete this launcher..."
-msgstr ""
+msgstr "ランチャーを削除..."
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "<small>Filename</small>"
-msgstr ""
+msgstr "<small>ファイル名</small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Add Quicklist"
-msgstr ""
+msgstr "クイックリストの追加"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Remove Quicklist"
-msgstr ""
+msgstr "クイックリストの削除"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Move Up"
-msgstr ""
+msgstr "上に移動"
 
 #: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Move Down"
-msgstr ""
+msgstr "下に移動"
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Application Settings"
-msgstr ""
+msgstr "アプリケーションの設定"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "<big><b>Remove Launcher?</b></big>"
-msgstr ""
+msgstr "<big><b>ランチャーを削除しますか？</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid ""
 "Are you sure you wish to remove this launcher?  This cannot be undone."
-msgstr ""
+msgstr "ランチャーを消そうとしています。この操作は取り消せません。"
 
 #: ../menulibre/MenulibreWindow.py:77 ../menulibre/MenulibreWindow.py:286
 #: ../menulibre/MenulibreWindow.py:1238
 msgid "Multimedia"
-msgstr ""
+msgstr "マルチメディア"
 
 #: ../menulibre/MenulibreWindow.py:78 ../menulibre/MenulibreWindow.py:271
 #: ../menulibre/MenulibreWindow.py:1228
 msgid "Development"
-msgstr ""
+msgstr "開発ツール"
 
 #: ../menulibre/MenulibreWindow.py:79 ../menulibre/MenulibreWindow.py:274
 #: ../menulibre/MenulibreWindow.py:1230
 msgid "Education"
-msgstr ""
+msgstr "教育・教養"
 
 #: ../menulibre/MenulibreWindow.py:80 ../menulibre/MenulibreWindow.py:277
 #: ../menulibre/MenulibreWindow.py:1232
 msgid "Games"
-msgstr ""
+msgstr "ゲーム"
 
 #: ../menulibre/MenulibreWindow.py:81 ../menulibre/MenulibreWindow.py:280
 #: ../menulibre/MenulibreWindow.py:1234
 msgid "Graphics"
-msgstr ""
+msgstr "グラフィクス"
 
 #: ../menulibre/MenulibreWindow.py:82 ../menulibre/MenulibreWindow.py:283
 #: ../menulibre/MenulibreWindow.py:1236
 msgid "Internet"
-msgstr ""
+msgstr "インターネット"
 
 #: ../menulibre/MenulibreWindow.py:83 ../menulibre/MenulibreWindow.py:289
 #: ../menulibre/MenulibreWindow.py:1240
 msgid "Office"
-msgstr ""
+msgstr "オフィス"
 
 #: ../menulibre/MenulibreWindow.py:84 ../menulibre/MenulibreWindow.py:292
 #: ../menulibre/MenulibreWindow.py:1242
 msgid "Other"
-msgstr ""
+msgstr "その他"
 
 #: ../menulibre/MenulibreWindow.py:85 ../menulibre/MenulibreWindow.py:295
 #: ../menulibre/MenulibreWindow.py:1244
 msgid "Settings"
-msgstr ""
+msgstr "カスタマイズ"
 
 #: ../menulibre/MenulibreWindow.py:86 ../menulibre/MenulibreWindow.py:298
 #: ../menulibre/MenulibreWindow.py:1246
 msgid "System"
-msgstr ""
+msgstr "システム"
 
 #: ../menulibre/MenulibreWindow.py:87 ../menulibre/MenulibreWindow.py:268
 #: ../menulibre/MenulibreWindow.py:1226
 msgid "Accessories"
-msgstr ""
+msgstr "アクセサリー"
 
 #: ../menulibre/MenulibreWindow.py:88
 msgid "WINE"
-msgstr ""
+msgstr "WINE"
 
 #: ../menulibre/MenulibreWindow.py:140 ../menulibre/MenulibreWindow.py:552
 #: ../menulibre/MenulibreWindow.py:575
 msgid "Search Applications"
-msgstr ""
+msgstr "アプリケーションを検索"
 
 #: ../menulibre/MenulibreWindow.py:251
 msgid "Image"
-msgstr ""
+msgstr "画像"
 
 #. Translators: Required menu item
 #: ../menulibre/MenulibreWindow.py:329
 #, python-format
 msgid "%s (Required)"
-msgstr ""
+msgstr "%s (必要)"
 
 #: ../menulibre/MenulibreWindow.py:564
 #, python-format
 msgid "Search %s"
-msgstr ""
+msgstr "%sを検索"
 
 #: ../menulibre/MenulibreWindow.py:582
 #, python-format
@@ -359,6 +359,8 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "This cannot be undone."
 msgstr ""
+"\"%s\"を削除しますか？\n"
+"この操作は取り消せません。"
 
 #: ../menulibre/MenulibreWindow.py:591
 #, python-format
@@ -366,45 +368,47 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "The menu item will be restored to system defaults."
 msgstr ""
+"\"%s\"を削除しますか？\n"
+"メニューアイテムはシステムのデフォルトに戻ります。"
 
 #: ../menulibre/MenulibreWindow.py:600 ../menulibre/MenulibreWindow.py:1209
 #: ../menulibre/MenulibreWindow.py:1374 ../menulibre/MenulibreWindow.py:1524
 #: ../menulibre/MenulibreWindow.py:1729 ../menulibre/MenulibreWindow.py:1735
 #: ../menulibre_lib/MenulibreXdg.py:44
 msgid "New Menu Item"
-msgstr ""
+msgstr "新しいメニューアイテム"
 
 #: ../menulibre/MenulibreWindow.py:794 ../menulibre/MenulibreWindow.py:815
 msgid "Select an executable"
-msgstr ""
+msgstr "実行ファイルを選択"
 
 #: ../menulibre/MenulibreWindow.py:909
 msgid "NewShortcut"
-msgstr ""
+msgstr "新しいショートカット"
 
 #: ../menulibre/MenulibreWindow.py:911
 msgid "New Shortcut"
-msgstr ""
+msgstr "新しいショートカット"
 
 #: ../menulibre/MenulibreWindow.py:1248
 msgid "Unknown"
-msgstr ""
+msgstr "不明"
 
 #: ../menulibre/MenulibreWindow.py:1419 ../menulibre/MenulibreWindow.py:1509
 msgid "All Applications"
-msgstr ""
+msgstr "すべてのアプリケーション"
 
 #: ../menulibre/MenulibreWindow.py:1448
 msgid "Add a new application launcher"
-msgstr ""
+msgstr "アプリケーション・ランチャを追加"
 
 #: ../menulibre/MenulibreWindow.py:1779
 msgid "Search Results"
-msgstr ""
+msgstr "検索結果"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:1
 msgid "Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
-msgstr ""
+msgstr "Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:2
 msgid ""
@@ -425,38 +429,38 @@ msgstr ""
 
 #: ../menulibre_lib/MenulibreXdg.py:45
 msgid "A small descriptive blurb about this application."
-msgstr ""
+msgstr "このアプリの簡単な紹介"
 
 #: ../menulibre_lib/MenulibreXdg.py:171
 #, python-format
 msgid "'%s' is not a .desktop file"
-msgstr ""
+msgstr "%sは .desktopファイルではありません"
 
 #: ../menulibre_lib/MenulibreXdg.py:174
 msgid "Initialized without required parameters."
-msgstr ""
+msgstr "パラメーターなしで初期化"
 
 #: ../menulibre_lib/MenulibreXdg.py:183
 #, python-format
 msgid "'%s' is not a .directory file"
-msgstr ""
+msgstr "%sは .directoryファイルではありません"
 
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages (-vv debugs menulibre_lib also)"
-msgstr ""
+msgstr "デバッグ・メッセージを表示(-vv debugs menulibre_lib also)"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr ""
+msgstr "メニュー・エディター"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Edit System and User Menus with ease"
-msgstr ""
+msgstr "システムとユーザーメニューを簡単に編集"
 
 #: ../menulibre.desktop.in.h:3
 msgid "Edit user menus"
-msgstr ""
+msgstr "ユーザーメニューの編集"
 
 #: ../menulibre.desktop.in.h:4
 msgid "Edit system menus"
-msgstr ""
+msgstr "システムメニューの編集"
