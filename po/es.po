@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-04-17 20:50-0400\n"
-"PO-Revision-Date: 2013-03-27 14:04+0000\n"
+"PO-Revision-Date: 2013-05-05 06:07+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-05-05 05:36+0000\n"
+"X-Launchpad-Export-Date: 2013-05-06 05:54+0000\n"
 "X-Generator: Launchpad (build 16598)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
@@ -195,15 +195,15 @@ msgstr "Nombre"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Add category..."
-msgstr ""
+msgstr "Añadir categoría…"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Remove category"
-msgstr ""
+msgstr "Eliminar categoría"
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Clear categories"
-msgstr ""
+msgstr "Limpiar categorías"
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "<b>Categories</b>"
@@ -247,19 +247,19 @@ msgstr "<small>Nombre de archivo</small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Add Quicklist"
-msgstr ""
+msgstr "Añadir lista rápida"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Remove Quicklist"
-msgstr ""
+msgstr "Eliminar lista rápida"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Move Up"
-msgstr ""
+msgstr "Mover hacia arriba"
 
 #: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Move Down"
-msgstr ""
+msgstr "Mover hacia abajo"
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Application Settings"
@@ -348,7 +348,7 @@ msgstr "Imagen"
 #: ../menulibre/MenulibreWindow.py:329
 #, python-format
 msgid "%s (Required)"
-msgstr ""
+msgstr "%s (requerido)"
 
 #: ../menulibre/MenulibreWindow.py:564
 #, python-format
@@ -394,7 +394,7 @@ msgstr "Acceso rápido nuevo"
 
 #: ../menulibre/MenulibreWindow.py:1248
 msgid "Unknown"
-msgstr ""
+msgstr "Desconocido"
 
 #: ../menulibre/MenulibreWindow.py:1419 ../menulibre/MenulibreWindow.py:1509
 msgid "All Applications"
