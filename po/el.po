@@ -8,22 +8,22 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-04-17 20:50-0400\n"
-"PO-Revision-Date: 2012-12-17 01:09+0000\n"
-"Last-Translator: dpdt1 <Unknown>\n"
+"PO-Revision-Date: 2013-05-07 07:39+0000\n"
+"Last-Translator: Filippos Kolyvas <fkolyvas@gmail.com>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-05-05 05:36+0000\n"
+"X-Launchpad-Export-Date: 2013-05-08 05:54+0000\n"
 "X-Generator: Launchpad (build 16598)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
-msgstr "Επιλογή Εικονιδίου"
+msgstr "Επιλέξτε ένα εικονίδιο"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Icon Name"
-msgstr "Όνομα Εικονιδίου"
+msgstr "Όνομα εικονιδίου"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Image File"
@@ -31,7 +31,7 @@ msgstr "Αρχείο εικόνας"
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Select an Image"
-msgstr "Επιλογή Εικόνας"
+msgstr "Επιλέξτε μια εικόνα"
 
 #: ../data/ui/MenulibreWindow.ui.h:5
 msgid "<b>Select Icon</b>"
@@ -59,299 +59,301 @@ msgstr "128x128"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "<b>Preview</b>"
-msgstr ""
+msgstr "<b>Προεπισκόπηση</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "Select an icon"
-msgstr ""
+msgstr "Επιλέξτε ένα εικονίδιο"
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "MenuLibre"
-msgstr ""
+msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "_File"
-msgstr ""
+msgstr "_Αρχείο"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Add _New Launcher"
-msgstr ""
+msgstr "Προσθήκη _νέου εκκινητή"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid "_Edit"
-msgstr ""
+msgstr "_Επεξεργασία"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "_Help"
-msgstr ""
+msgstr "_Βοήθεια"
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid "_Contents"
-msgstr ""
+msgstr "_Περιεχόμενα"
 
 #: ../data/ui/MenulibreWindow.ui.h:19 ../menulibre/MenulibreWindow.py:1448
 msgid "Add Launcher"
-msgstr ""
+msgstr "Προσθήκη εκκινητή"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Save All Changes"
-msgstr ""
+msgstr "Αποθήκευση όλων των αλλαγών"
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Save"
-msgstr ""
+msgstr "Αποθήκευση"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
 msgid "Undo the last action"
-msgstr ""
+msgstr "Αναίρεση της τελευταίας ενέργειας"
 
 #: ../data/ui/MenulibreWindow.ui.h:23
 msgid "Undo"
-msgstr ""
+msgstr "Αναίρεση"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Redo the last undone action"
-msgstr ""
+msgstr "Επανάληψη της τελευταίας ενέργειας που αναιρέθηκε"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Redo"
-msgstr ""
+msgstr "Επανάληψη"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Revert all changes to last saved state"
-msgstr ""
+msgstr "Επαναφορά όλων των αλλαγών στην τελευταία αποθηκευμένη κατάσταση"
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Revert"
-msgstr ""
+msgstr "Επαναφορά"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Category"
-msgstr ""
+msgstr "Κατηγορία"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application"
-msgstr ""
+msgstr "Εφαρμογή"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
 msgid "Categories"
-msgstr ""
+msgstr "Κατηγορίες"
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Applications"
-msgstr ""
+msgstr "Εφαρμογές"
 
 #: ../data/ui/MenulibreWindow.ui.h:32
 msgid "<b>No applications found.</b>"
-msgstr ""
+msgstr "<b>Δεν βρέθηκαν εφαρμογές.</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Try searching everything."
-msgstr ""
+msgstr "Δοκιμάστε την αναζήτηση στα πάντα."
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Search Failed"
-msgstr ""
+msgstr "Η αναζήτηση απέτυχε"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "<big><b>Application Name</b></big>"
-msgstr ""
+msgstr "<big><b>Όνομα εφαρμογής</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "<i>A quick snippet about your application.</i>"
-msgstr ""
+msgstr "<i>Μια γρήγορη σημείωση για την εφαρμογή σας.</i>"
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Command"
-msgstr ""
+msgstr "Εντολή"
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Working Directory"
-msgstr ""
+msgstr "Κατάλογος εργασίας"
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "<b>Application Settings</b>"
-msgstr ""
+msgstr "<b>Ρυθμίσεις εφαρμογής</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Run in terminal"
-msgstr ""
+msgstr "Εκτέλεση στο τερματικό"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
-msgstr ""
+msgstr "Χρήση της ειδοποίησης έναρξης"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Hide from menus"
-msgstr ""
+msgstr "Απόκρυψη από τα μενού"
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "<b>Options</b>"
-msgstr ""
+msgstr "<b>Επιλογές</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:44 ../menulibre/MenulibreWindow.py:253
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Add category..."
-msgstr ""
+msgstr "Προσθήκη κατηγορίας..."
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Remove category"
-msgstr ""
+msgstr "Αφαίρεση κατηγορίας"
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Clear categories"
-msgstr ""
+msgstr "Καθαρισμός κατηγοριών"
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "<b>Categories</b>"
-msgstr ""
+msgstr "<b>Κατηγορίες</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:49
 msgid "General Settings"
-msgstr ""
+msgstr "Γενικές ρυθμίσεις"
 
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Show"
-msgstr ""
+msgstr "Εμφάνιση"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Shortcut Name"
-msgstr ""
+msgstr "Όνομα συντόμευσης"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Displayed Name"
-msgstr ""
+msgstr "Όνομα που εμφανίζεται"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Quicklists"
-msgstr ""
+msgstr "Quicklists"
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Editor"
-msgstr ""
+msgstr "Επεξεργαστής"
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid "label"
-msgstr ""
+msgstr "ετικέτα"
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Delete this launcher..."
-msgstr ""
+msgstr "Διαγραφή αυτού του εκκινητή..."
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "<small>Filename</small>"
-msgstr ""
+msgstr "<small>Όνομα αρχείου</small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Add Quicklist"
-msgstr ""
+msgstr "Προσθήκη Quicklist"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Remove Quicklist"
-msgstr ""
+msgstr "Αφαίρεση Quicklist"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Move Up"
-msgstr ""
+msgstr "Μετακίνηση επάνω"
 
 #: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Move Down"
-msgstr ""
+msgstr "Μετακίνηση κάτω"
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Application Settings"
-msgstr ""
+msgstr "Ρυθμίσεις εφαρμογής"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "<big><b>Remove Launcher?</b></big>"
-msgstr ""
+msgstr "<big><b>Αφαίρεση του εκκινητή;</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid ""
 "Are you sure you wish to remove this launcher?  This cannot be undone."
 msgstr ""
+"Θέλετε σίγουρα να αφαιρεθεί αυτός ο εκκινητής; Η ενέργεια αυτή δεν μπορεί να "
+"αναιρεθεί."
 
 #: ../menulibre/MenulibreWindow.py:77 ../menulibre/MenulibreWindow.py:286
 #: ../menulibre/MenulibreWindow.py:1238
 msgid "Multimedia"
-msgstr ""
+msgstr "Πολυμέσα"
 
 #: ../menulibre/MenulibreWindow.py:78 ../menulibre/MenulibreWindow.py:271
 #: ../menulibre/MenulibreWindow.py:1228
 msgid "Development"
-msgstr ""
+msgstr "Ανάπτυξη λογισμικού"
 
 #: ../menulibre/MenulibreWindow.py:79 ../menulibre/MenulibreWindow.py:274
 #: ../menulibre/MenulibreWindow.py:1230
 msgid "Education"
-msgstr ""
+msgstr "Εκπαίδευση"
 
 #: ../menulibre/MenulibreWindow.py:80 ../menulibre/MenulibreWindow.py:277
 #: ../menulibre/MenulibreWindow.py:1232
 msgid "Games"
-msgstr ""
+msgstr "Παιχνίδια"
 
 #: ../menulibre/MenulibreWindow.py:81 ../menulibre/MenulibreWindow.py:280
 #: ../menulibre/MenulibreWindow.py:1234
 msgid "Graphics"
-msgstr ""
+msgstr "Γραφικά"
 
 #: ../menulibre/MenulibreWindow.py:82 ../menulibre/MenulibreWindow.py:283
 #: ../menulibre/MenulibreWindow.py:1236
 msgid "Internet"
-msgstr ""
+msgstr "Διαδίκτυο"
 
 #: ../menulibre/MenulibreWindow.py:83 ../menulibre/MenulibreWindow.py:289
 #: ../menulibre/MenulibreWindow.py:1240
 msgid "Office"
-msgstr ""
+msgstr "Γραφείο"
 
 #: ../menulibre/MenulibreWindow.py:84 ../menulibre/MenulibreWindow.py:292
 #: ../menulibre/MenulibreWindow.py:1242
 msgid "Other"
-msgstr ""
+msgstr "'Αλλο"
 
 #: ../menulibre/MenulibreWindow.py:85 ../menulibre/MenulibreWindow.py:295
 #: ../menulibre/MenulibreWindow.py:1244
 msgid "Settings"
-msgstr ""
+msgstr "Ρυθμίσεις"
 
 #: ../menulibre/MenulibreWindow.py:86 ../menulibre/MenulibreWindow.py:298
 #: ../menulibre/MenulibreWindow.py:1246
 msgid "System"
-msgstr ""
+msgstr "Σύστημα"
 
 #: ../menulibre/MenulibreWindow.py:87 ../menulibre/MenulibreWindow.py:268
 #: ../menulibre/MenulibreWindow.py:1226
 msgid "Accessories"
-msgstr ""
+msgstr "Βοηθήματα"
 
 #: ../menulibre/MenulibreWindow.py:88
 msgid "WINE"
-msgstr ""
+msgstr "WINE"
 
 #: ../menulibre/MenulibreWindow.py:140 ../menulibre/MenulibreWindow.py:552
 #: ../menulibre/MenulibreWindow.py:575
 msgid "Search Applications"
-msgstr ""
+msgstr "Αναζήτηση εφαρμογών"
 
 #: ../menulibre/MenulibreWindow.py:251
 msgid "Image"
-msgstr ""
+msgstr "Εικόνα"
 
 #. Translators: Required menu item
 #: ../menulibre/MenulibreWindow.py:329
 #, python-format
 msgid "%s (Required)"
-msgstr ""
+msgstr "%s (Απαιτείται)"
 
 #: ../menulibre/MenulibreWindow.py:564
 #, python-format
 msgid "Search %s"
-msgstr ""
+msgstr "Αναζήτηση %s"
 
 #: ../menulibre/MenulibreWindow.py:582
 #, python-format
@@ -359,6 +361,8 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "This cannot be undone."
 msgstr ""
+"Θέλετε σίγουρα να αφαιρεθεί το \"%s\";\n"
+"Η ενέργεια αυτή δεν μπορεί να αναιρεθεί."
 
 #: ../menulibre/MenulibreWindow.py:591
 #, python-format
@@ -366,45 +370,47 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "The menu item will be restored to system defaults."
 msgstr ""
+"Θέλετε σίγουρα να αφαιρεθεί το \"%s\";\n"
+"Το αντικείμενο μενού θα επανέλθει στις προεπιλογές του συστήματος."
 
 #: ../menulibre/MenulibreWindow.py:600 ../menulibre/MenulibreWindow.py:1209
 #: ../menulibre/MenulibreWindow.py:1374 ../menulibre/MenulibreWindow.py:1524
 #: ../menulibre/MenulibreWindow.py:1729 ../menulibre/MenulibreWindow.py:1735
 #: ../menulibre_lib/MenulibreXdg.py:44
 msgid "New Menu Item"
-msgstr ""
+msgstr "Νέο αντικείμενο μενού"
 
 #: ../menulibre/MenulibreWindow.py:794 ../menulibre/MenulibreWindow.py:815
 msgid "Select an executable"
-msgstr ""
+msgstr "Επιλογή εκτελέσιμου"
 
 #: ../menulibre/MenulibreWindow.py:909
 msgid "NewShortcut"
-msgstr ""
+msgstr "ΝέαΣυντόμευση"
 
 #: ../menulibre/MenulibreWindow.py:911
 msgid "New Shortcut"
-msgstr ""
+msgstr "Νέα Συντόμευση"
 
 #: ../menulibre/MenulibreWindow.py:1248
 msgid "Unknown"
-msgstr ""
+msgstr "Άγνωστο"
 
 #: ../menulibre/MenulibreWindow.py:1419 ../menulibre/MenulibreWindow.py:1509
 msgid "All Applications"
-msgstr ""
+msgstr "Όλες οι εφαρμογές"
 
 #: ../menulibre/MenulibreWindow.py:1448
 msgid "Add a new application launcher"
-msgstr ""
+msgstr "Προσθήκη ενός νέου εκκινητή εφαρμογής"
 
 #: ../menulibre/MenulibreWindow.py:1779
 msgid "Search Results"
-msgstr ""
+msgstr "Αποτελέσματα αναζήτησης"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:1
 msgid "Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
-msgstr ""
+msgstr "Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:2
 msgid ""
@@ -422,41 +428,60 @@ msgid ""
 "# You should have received a copy of the GNU General Public License along \n"
 "# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
 msgstr ""
+"# Δικαίωμα αντιγραφής (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>\n"
+"# Το πρόγραμμα αυτό είναι Ελεύθερο λογισμικό. Μπορείτε να το αναδιανείμετε ή "
+"και να το τροποποιήσετε \n"
+"# υπό τους όρους της Γενικής δημόσιας άδειας GNU General Public License "
+"έκδοση 3, όπως αυτή δημοσιεύτηκε \n"
+"# από το Ίδρυμα ελευθέρου λογισμικού.\n"
+"# \n"
+"# Το πρόγραμμα αυτό διανείμεται με την ελπίδα να φανεί χρήσιμο, αλλά \n"
+"# ΧΩΡΙΣ ΚΑΜΜΙΑ ΕΓΓΥΗΣΗ. Χωρίς καν τις εννοούμενες εγγυήσεις \n"
+"# ΕΜΠΟΡΙΚΟΤΗΤΑΣ, ΙΚΑΝΟΠΟΙΗΤΙΚΗΣ ΠΟΙΟΤΗΤΑΣ, ή ΚΑΤΑΛΛΗΛΟΤΗΤΑΣ ΓΙΑ ΕΝΑΝ "
+"ΣΥΓΚΕΚΡΙΜΕΝΟ \n"
+"# ΣΚΟΠΟ. Δείτε την γενική δημόσια άδεια GNU General Public License για "
+"λεπτομέρειες.\n"
+"# \n"
+"# Θα πρέπει να έχετε λάβει αντίγραφο της δημόσιας άδειας GNU General Public "
+"License μαζί με \n"
+"# αυτό το πρόγραμμα.  Αν όχι, δείτε το <http://www.gnu.org/licenses/>.\n"
 
 #: ../menulibre_lib/MenulibreXdg.py:45
 msgid "A small descriptive blurb about this application."
-msgstr ""
+msgstr "Μια σύντομη περιγραφή για την εφαρμογή αυτή."
 
 #: ../menulibre_lib/MenulibreXdg.py:171
 #, python-format
 msgid "'%s' is not a .desktop file"
-msgstr ""
+msgstr "Το '%s' δεν είναι αρχείο τύπου .desktop"
 
 #: ../menulibre_lib/MenulibreXdg.py:174
 msgid "Initialized without required parameters."
-msgstr ""
+msgstr "Αρχικοποιήθηκε χωρίς απαιτούμενες παραμέτρους"
 
 #: ../menulibre_lib/MenulibreXdg.py:183
 #, python-format
 msgid "'%s' is not a .directory file"
-msgstr ""
+msgstr "Το '%s' δεν είναι αρχείο τύπου .directory"
 
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages (-vv debugs menulibre_lib also)"
 msgstr ""
+"Εμφάνιση μηνυμάτων αποσφαλμάτωσης (το -vv αποσφαλματώνει το menulibre_lib "
+"επίσης)"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr ""
+msgstr "Επεξεργαστής μενού"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Edit System and User Menus with ease"
-msgstr ""
+msgstr "Εύκολη επεξεργασία των μενού χρήστη και συστήματος"
 
 #: ../menulibre.desktop.in.h:3
 msgid "Edit user menus"
-msgstr ""
+msgstr "Επεξεργασία μενού χρήστη"
 
 #: ../menulibre.desktop.in.h:4
 msgid "Edit system menus"
-msgstr ""
+msgstr "Επεξεργασία μενού συστήματος"
