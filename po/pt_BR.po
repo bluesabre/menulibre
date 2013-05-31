@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-04-17 20:50-0400\n"
-"PO-Revision-Date: 2013-03-27 14:03+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
+"PO-Revision-Date: 2013-05-31 03:25+0000\n"
+"Last-Translator: Ewerton Wandalen <ewandalen@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-05-05 05:36+0000\n"
-"X-Generator: Launchpad (build 16598)\n"
+"X-Launchpad-Export-Date: 2013-05-31 06:19+0000\n"
+"X-Generator: Launchpad (build 16660)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
@@ -151,7 +151,7 @@ msgstr "Tente procurar por tudo."
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Search Failed"
-msgstr ""
+msgstr "Busca falhou"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "<big><b>Application Name</b></big>"
@@ -195,15 +195,15 @@ msgstr "Nome"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Add category..."
-msgstr ""
+msgstr "Add categoria"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Remove category"
-msgstr ""
+msgstr "Remover categoria"
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Clear categories"
-msgstr ""
+msgstr "Limpar categorias"
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "<b>Categories</b>"
@@ -255,11 +255,11 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Move Up"
-msgstr ""
+msgstr "Mover para cima"
 
 #: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Move Down"
-msgstr ""
+msgstr "Mover para baixo"
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Application Settings"
@@ -361,6 +361,8 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "This cannot be undone."
 msgstr ""
+"Você tem certeza que deseja remover \"%s\"?\n"
+"Isso não pode ser desfeito."
 
 #: ../menulibre/MenulibreWindow.py:591
 #, python-format
@@ -378,19 +380,19 @@ msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:794 ../menulibre/MenulibreWindow.py:815
 msgid "Select an executable"
-msgstr ""
+msgstr "Selecione um executável"
 
 #: ../menulibre/MenulibreWindow.py:909
 msgid "NewShortcut"
-msgstr ""
+msgstr "NovoAtalho"
 
 #: ../menulibre/MenulibreWindow.py:911
 msgid "New Shortcut"
-msgstr ""
+msgstr "Novo Atalho"
 
 #: ../menulibre/MenulibreWindow.py:1248
 msgid "Unknown"
-msgstr ""
+msgstr "Desconhecido"
 
 #: ../menulibre/MenulibreWindow.py:1419 ../menulibre/MenulibreWindow.py:1509
 msgid "All Applications"
