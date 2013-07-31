@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-04-17 20:50-0400\n"
-"PO-Revision-Date: 2013-03-27 10:18+0000\n"
-"Last-Translator: Leopold Stammler <Unknown>\n"
+"PO-Revision-Date: 2013-07-30 10:06+0000\n"
+"Last-Translator: Jonatan Zeidler <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-05-05 05:36+0000\n"
-"X-Generator: Launchpad (build 16598)\n"
+"X-Launchpad-Export-Date: 2013-07-31 06:07+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
@@ -151,7 +151,7 @@ msgstr "Überall suchen"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Search Failed"
-msgstr ""
+msgstr "Suche gescheitert"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "<big><b>Application Name</b></big>"
@@ -195,15 +195,15 @@ msgstr "Name"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Add category..."
-msgstr ""
+msgstr "Kategorie hinzufügen..."
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Remove category"
-msgstr ""
+msgstr "Kategorie entfernen"
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Clear categories"
-msgstr ""
+msgstr "Alle Kategorien entfernen"
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "<b>Categories</b>"
@@ -219,11 +219,11 @@ msgstr "Anzeigen"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Shortcut Name"
-msgstr ""
+msgstr "Tastaturkürzel"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Displayed Name"
-msgstr ""
+msgstr "Anzeigename"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Quicklists"
@@ -247,19 +247,19 @@ msgstr "<small>Datei</small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Add Quicklist"
-msgstr ""
+msgstr "Schnellliste hinzufügen"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Remove Quicklist"
-msgstr ""
+msgstr "Schnellliste entfernen"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Move Up"
-msgstr ""
+msgstr "Nach oben"
 
 #: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Move Down"
-msgstr ""
+msgstr "Nach unten"
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Application Settings"
@@ -338,7 +338,7 @@ msgstr "WINE"
 #: ../menulibre/MenulibreWindow.py:140 ../menulibre/MenulibreWindow.py:552
 #: ../menulibre/MenulibreWindow.py:575
 msgid "Search Applications"
-msgstr ""
+msgstr "Anwendungen suchen"
 
 #: ../menulibre/MenulibreWindow.py:251
 msgid "Image"
@@ -348,12 +348,12 @@ msgstr "Bild"
 #: ../menulibre/MenulibreWindow.py:329
 #, python-format
 msgid "%s (Required)"
-msgstr ""
+msgstr "%s (Benötigt)"
 
 #: ../menulibre/MenulibreWindow.py:564
 #, python-format
 msgid "Search %s"
-msgstr ""
+msgstr "Suche %s"
 
 #: ../menulibre/MenulibreWindow.py:582
 #, python-format
@@ -361,6 +361,8 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "This cannot be undone."
 msgstr ""
+"Soll \"%s\" wirklich entfernt werden?\n"
+"Dies kann nicht rückgängig gemacht werden."
 
 #: ../menulibre/MenulibreWindow.py:591
 #, python-format
@@ -368,45 +370,47 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "The menu item will be restored to system defaults."
 msgstr ""
+"Soll \"%s\" wirklich entfernt werden?\n"
+"Der Menüeintrag wird in der Systemvorgabe gespeichert bleiben."
 
 #: ../menulibre/MenulibreWindow.py:600 ../menulibre/MenulibreWindow.py:1209
 #: ../menulibre/MenulibreWindow.py:1374 ../menulibre/MenulibreWindow.py:1524
 #: ../menulibre/MenulibreWindow.py:1729 ../menulibre/MenulibreWindow.py:1735
 #: ../menulibre_lib/MenulibreXdg.py:44
 msgid "New Menu Item"
-msgstr ""
+msgstr "Neuer Menüeintrag"
 
 #: ../menulibre/MenulibreWindow.py:794 ../menulibre/MenulibreWindow.py:815
 msgid "Select an executable"
-msgstr ""
+msgstr "Eine ausführbare Datei wählen"
 
 #: ../menulibre/MenulibreWindow.py:909
 msgid "NewShortcut"
-msgstr ""
+msgstr "Neues Kürzel"
 
 #: ../menulibre/MenulibreWindow.py:911
 msgid "New Shortcut"
-msgstr ""
+msgstr "Neues Kürzel"
 
 #: ../menulibre/MenulibreWindow.py:1248
 msgid "Unknown"
-msgstr ""
+msgstr "Unbekannt"
 
 #: ../menulibre/MenulibreWindow.py:1419 ../menulibre/MenulibreWindow.py:1509
 msgid "All Applications"
-msgstr ""
+msgstr "Alle Anwendungen"
 
 #: ../menulibre/MenulibreWindow.py:1448
 msgid "Add a new application launcher"
-msgstr ""
+msgstr "Einen neuen Anwendungsstarter hinzufügen"
 
 #: ../menulibre/MenulibreWindow.py:1779
 msgid "Search Results"
-msgstr ""
+msgstr "Suchergebnisse"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:1
 msgid "Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
-msgstr ""
+msgstr "Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:2
 msgid ""
@@ -424,24 +428,40 @@ msgid ""
 "# You should have received a copy of the GNU General Public License along \n"
 "# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
 msgstr ""
+"# Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>\n"
+"# Dieses Programm ist freie Software. Sie können es unter den \n"
+"# Bedingungen der GNU General Public License, wie von der Free \n"
+"# Software Foundation veröffentlicht, weitergeben und/oder \n"
+"# modifizieren, entweder gemäß Version 3 der Lizenz oder (nach \n"
+"# Ihrer Option) jeder späteren Version.\n"
+"\n"
+"# Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, \n"
+"# daß es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE \n"
+"# GARANTIE, sogar ohne die implizite Garantie der MARKTREIFE \n"
+"# oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. \n"
+"# Details finden Sie in der GNU General Public License.\n"
+"\n"
+"#Sie sollten ein Exemplar der GNU General Public License zusammen \n"
+"#mit diesem Programm erhalten haben. \n"
+"#Falls nicht, siehe <http://www.gnu.org/licenses/>.\n"
 
 #: ../menulibre_lib/MenulibreXdg.py:45
 msgid "A small descriptive blurb about this application."
-msgstr ""
+msgstr "Eine Kurzbeschreibung dieser Anwendung"
 
 #: ../menulibre_lib/MenulibreXdg.py:171
 #, python-format
 msgid "'%s' is not a .desktop file"
-msgstr ""
+msgstr "'%s' ist keine .desktop-Datei"
 
 #: ../menulibre_lib/MenulibreXdg.py:174
 msgid "Initialized without required parameters."
-msgstr ""
+msgstr "Ohne erforderlichen Parameter initialisiert"
 
 #: ../menulibre_lib/MenulibreXdg.py:183
 #, python-format
 msgid "'%s' is not a .directory file"
-msgstr ""
+msgstr "'%s' ist keine .directory-Datei"
 
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages (-vv debugs menulibre_lib also)"
@@ -451,7 +471,7 @@ msgstr ""
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr "Hauptmenü"
+msgstr "Menüeditor"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Edit System and User Menus with ease"
@@ -459,8 +479,8 @@ msgstr "System- und Nutzermenüs einfach bearbeiten"
 
 #: ../menulibre.desktop.in.h:3
 msgid "Edit user menus"
-msgstr ""
+msgstr "Nutzermenüs bearbeiten"
 
 #: ../menulibre.desktop.in.h:4
 msgid "Edit system menus"
-msgstr ""
+msgstr "Systemmenüs bearbeiten"
