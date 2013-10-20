@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import locale
 from locale import gettext as _
 locale.textdomain('menulibre')
@@ -17,16 +18,23 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     ui_file = 'data/ui/MenulibreWindow.glade'
     
     def __init__(self, app):
-        Gtk.Window.__init__(self, title=_("MenuLibre"), application=app)
-        self.set_wmclass(_("MenuLibre"), _("MenuLibre"))
-        
-        # In order to use GMenu, the parent window must be created as above.
-        # To work around this, we reparent the glade file's widgets.
+        # Initialize the GtkBuilder to get our widgets from Glade.
         builder = Gtk.Builder()
         builder.add_from_file(self.ui_file)
-        win = builder.get_object('menulibre_window')
-        win.get_children()[0].reparent(self)
-        self.set_icon_name('alacarte')
+        
+        # Glade is unable to create a GtkApplication, so we have to reparent
+        # the window contents to our new window. Here we get the contents.
+        window = builder.get_object('menulibre_window')
+        window_title = window.get_title()
+        window_icon = window.get_icon_name()
+        window_contents = window.get_children()[0]
+        
+        # Initialize the GtkApplicationWindow.
+        Gtk.Window.__init__(self, title=window_title, application=app)
+        self.set_wmclass(_("MenuLibre"), _("MenuLibre"))
+        self.set_title(window_title)
+        self.set_icon_name(window_icon)
+        window_contents.reparent(self)
         
         # Configure Global Menu and AppMenu
         if session in ['gnome', 'ubuntu', 'ubuntu-2d']:
@@ -51,7 +59,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         except:
             pass
         self.view_container.add( builder.get_object(view_mode) )
-        builder.get_object(view_mode+"_container").add( builder.get_object('application_editor') )
+        container = builder.get_object(view_mode+"_container")
+        container.add( builder.get_object('application_editor') )
         self.view_container.show_all()
 
 class Application(Gtk.Application):
