@@ -1,0 +1,17 @@
+#!/bin/python
+
+import sys
+import os
+
+# Get project root directory (enable symlink and trunk execution)
+PROJECT_ROOT_DIRECTORY = os.path.abspath(
+    os.path.dirname(os.path.dirname(os.path.realpath(sys.argv[0]))))
+
+# Add project root directory to python search path
+sys.path.append(PROJECT_ROOT_DIRECTORY)
+
+from menulibre import MenulibreApplication
+
+app = MenulibreApplication.Application()
+exit_status = app.run(sys.argv)
+sys.exit(exit_status)
