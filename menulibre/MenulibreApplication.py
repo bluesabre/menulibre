@@ -3,7 +3,7 @@ import locale
 from locale import gettext as _
 locale.textdomain('menulibre')
 
-from gi.repository import Gtk, Gio, GLib
+from gi.repository import Gtk, Gio, GLib, GObject
 
 import sys
 import os
@@ -16,6 +16,15 @@ session = os.getenv("DESKTOP_SESSION")
 
 class MenulibreWindow(Gtk.ApplicationWindow):
     ui_file = 'data/ui/MenulibreWindow.glade'
+    
+    __gsignals__ = {
+        'about' : (GObject.SIGNAL_RUN_FIRST, GObject.TYPE_NONE, 
+                    (GObject.TYPE_BOOLEAN,)),
+        'help' : (GObject.SIGNAL_RUN_FIRST, GObject.TYPE_NONE, 
+                    (GObject.TYPE_BOOLEAN,)),
+        'quit' : (GObject.SIGNAL_RUN_FIRST, GObject.TYPE_NONE, 
+                    (GObject.TYPE_BOOLEAN,))
+        }
     
     def __init__(self, app):
         # Initialize the GtkBuilder to get our widgets from Glade.
@@ -53,8 +62,98 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             placeholder = builder.get_object('app_menu_holder')
             placeholder.add(self.app_menu_button)
             
-        builder.get_object('menubar').set_visible(session in ['ubuntu', 
-                                                              'ubuntu-2d'])
+        #builder.get_object('menubar').set_visible(session in ['ubuntu', 
+        #                                                      'ubuntu-2d'])
+        
+        self.actions = {}
+        
+        # Add Launcher action and related widgets
+        action = Gtk.Action(_('add_launcher'), _('_Add Launcher...'), 
+                            _('Add Launcher...'),
+                            Gtk.STOCK_NEW)
+        action.connect('activate', self.on_add_launcher_cb)
+        self.actions['add_launcher'] = action
+        for widget_name in ['menubar_new_launcher', 'toolbar_new']:
+            widget = builder.get_object(widget_name)
+            widget.set_related_action(action)
+            widget.set_use_action_appearance(True)
+            
+        # Save Launcher action and related widgets
+        action = Gtk.Action(_('save_launcher'), _('_Save'), 
+                            _('Save'),
+                            Gtk.STOCK_SAVE)
+        action.connect('activate', self.on_save_launcher_cb)
+        self.actions['save_launcher'] = action
+        for widget_name in ['menubar_save_launcher', 'toolbar_save']:
+            widget = builder.get_object(widget_name)
+            widget.set_related_action(action)
+            widget.set_use_action_appearance(True)
+            
+        # Undo action and related widgets
+        action = Gtk.Action(_('undo'), _('_Undo'), 
+                            _('Undo'),
+                            Gtk.STOCK_UNDO)
+        action.connect('activate', self.on_undo_cb)
+        self.actions['undo'] = action
+        for widget_name in ['menubar_undo', 'toolbar_undo']:
+            widget = builder.get_object(widget_name)
+            widget.set_related_action(action)
+            widget.set_use_action_appearance(True)
+            
+        # Redo action and related widgets
+        action = Gtk.Action(_('redo'), _('_Redo'), 
+                            _('Redo'),
+                            Gtk.STOCK_REDO)
+        action.connect('activate', self.on_redo_cb)
+        self.actions['redo'] = action
+        for widget_name in ['menubar_redo', 'toolbar_redo']:
+            widget = builder.get_object(widget_name)
+            widget.set_related_action(action)
+            widget.set_use_action_appearance(True)
+            
+        # Revert action and related widgets
+        action = Gtk.Action(_('revert'), _('_Revert'), 
+                            _('Revert'),
+                            Gtk.STOCK_REVERT_TO_SAVED)
+        action.connect('activate', self.on_revert_cb)
+        self.actions['revert'] = action
+        for widget_name in ['menubar_revert', 'toolbar_revert']:
+            widget = builder.get_object(widget_name)
+            widget.set_related_action(action)
+            widget.set_use_action_appearance(True)
+            
+        # Quit action and related widgets
+        action = Gtk.Action(_('quit'), _('_Quit'), 
+                            _('Quit'),
+                            Gtk.STOCK_QUIT)
+        action.connect('activate', self.on_quit_cb)
+        self.actions['quit'] = action
+        for widget_name in ['menubar_quit']:
+            widget = builder.get_object(widget_name)
+            widget.set_related_action(action)
+            widget.set_use_action_appearance(True)
+            
+        # Help action and related widgets
+        action = Gtk.Action(_('help'), _('_Contents'), 
+                            _('Help'),
+                            Gtk.STOCK_HELP)
+        action.connect('activate', self.on_help_cb)
+        self.actions['help'] = action
+        for widget_name in ['menubar_help']:
+            widget = builder.get_object(widget_name)
+            widget.set_related_action(action)
+            widget.set_use_action_appearance(True)
+            
+        # About action and related widgets
+        action = Gtk.Action(_('about'), _('_About'), 
+                            _('About'),
+                            Gtk.STOCK_ABOUT)
+        action.connect('activate', self.on_about_cb)
+        self.actions['about'] = action
+        for widget_name in ['menubar_about']:
+            widget = builder.get_object(widget_name)
+            widget.set_related_action(action)
+            widget.set_use_action_appearance(True)
                                                               
         self.view_container = builder.get_object('menulibre_window_container')
                                                               
@@ -76,6 +175,33 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         container = builder.get_object(view_mode+"_container")
         container.add( builder.get_object('application_editor') )
         self.view_container.show_all()
+        
+    def on_add_launcher_cb(self, widget):
+        print 'add launcher'
+        
+    def on_save_launcher_cb(self, widget):
+        print 'save launcher'
+        
+    def on_undo_cb(self, widget):
+        print 'undo'
+        
+    def on_redo_cb(self, widget):
+        print 'redo'
+        
+    def on_revert_cb(self, widget):
+        print 'revert'
+        
+    def on_quit_cb(self, widget):
+        # Emit the quit signal so the GtkApplication can handle it.
+        self.emit('quit', True)
+        
+    def on_help_cb(self, widget):
+        # Emit the help signal so the GtkApplication can handle it.
+        self.emit('help', True)
+        
+    def on_about_cb(self, widget):
+        # Emit the about signal so the GtkApplication can handle it.
+        self.emit('about', True)
 
 class Application(Gtk.Application):
     def __init__(self):
@@ -85,6 +211,10 @@ class Application(Gtk.Application):
         self.win = MenulibreWindow(self)
         self.win.show_all()
         
+        self.win.connect('about', self.about_cb)
+        self.win.connect('help', self.help_cb)
+        self.win.connect('quit', self.quit_cb)
+        
         if self.win.app_menu_button:
             self.win.app_menu_button.set_menu_model(self.menu)
             self.win.app_menu_button.show_all()
@@ -93,9 +223,12 @@ class Application(Gtk.Application):
         # start the application
         Gtk.Application.do_startup(self)
         
+        if session in ['gnome', 'ubuntu', 'ubuntu-2d']: auto_view = _("Modern")
+        else: auto_view = _("Classic")
+        
         self.menu = Gio.Menu()
         view_menu = Gio.Menu()
-        view_menu.append(_("Automatic (%s)") % _("Modern"), "app.switch_to_auto")
+        view_menu.append(_("Automatic (%s)") % auto_view, "app.switch_to_auto")
         view_menu.append(_("Modern"), "app.switch_to_modern")
         view_menu.append(_("Classic"), "app.switch_to_classic")
         self.menu.append_submenu(_("View"), view_menu)
@@ -135,6 +268,7 @@ class Application(Gtk.Application):
         self.win.set_view(view_mode)
 
     def help_cb(self, widget, data=None):
+        print 'help'
         pass
         
     def about_cb(self, widget, data=None):
