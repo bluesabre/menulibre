@@ -697,12 +697,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkToggleToolButton" id="toolbar_appmenu">
+              <object class="GtkToolItem" id="app_menu_holder">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Menu</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">gtk-properties</property>
+                <child>
+                  <placeholder/>
+                </child>
               </object>
               <packing>
                 <property name="expand">False</property>

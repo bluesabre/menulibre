@@ -37,8 +37,22 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         window_contents.reparent(self)
         
         # Configure Global Menu and AppMenu
-        if session in ['gnome', 'ubuntu', 'ubuntu-2d']:
-            builder.get_object('toolbar_appmenu').destroy()
+        self.app_menu_button = None
+        if session not in ['gnome', 'ubuntu', 'ubuntu-2d']:
+            # Create the AppMenu button on the rightside of the toolbar
+            self.app_menu_button = Gtk.MenuButton()
+            self.app_menu_button.set_relief(Gtk.ReliefStyle.NONE)
+            
+            # Use the classic "cog" image for the button.
+            image = Gtk.Image.new_from_icon_name("document-properties", 
+                                                 Gtk.IconSize.LARGE_TOOLBAR)
+            self.app_menu_button.set_image(image)
+            self.app_menu_button.show()
+            
+            # Pack the AppMenu button.
+            placeholder = builder.get_object('app_menu_holder')
+            placeholder.add(self.app_menu_button)
+            
         builder.get_object('menubar').set_visible(session in ['ubuntu', 
                                                               'ubuntu-2d'])
                                                               
@@ -70,47 +84,52 @@ class Application(Gtk.Application):
     def do_activate(self):
         self.win = MenulibreWindow(self)
         self.win.show_all()
+        
+        if self.win.app_menu_button:
+            self.win.app_menu_button.set_menu_model(self.menu)
+            self.win.app_menu_button.show_all()
 
     def do_startup (self):
         # start the application
         Gtk.Application.do_startup(self)
+        
+        self.menu = Gio.Menu()
+        view_menu = Gio.Menu()
+        view_menu.append(_("Automatic (%s)") % _("Modern"), "app.switch_to_auto")
+        view_menu.append(_("Modern"), "app.switch_to_modern")
+        view_menu.append(_("Classic"), "app.switch_to_classic")
+        self.menu.append_submenu(_("View"), view_menu)
+        self.menu.append(_("Help"), "app.help")
+        self.menu.append(_("About"), "app.about")
+        self.menu.append(_("Quit"), "app.quit")
 
         if session == 'gnome':
             # Configure GMenu
-            menu = Gio.Menu()
-            view_menu = Gio.Menu()
-            view_menu.append(_("Automatic (%s)") % _("Modern"), "app.switch_to_auto")
-            view_menu.append(_("Modern"), "app.switch_to_modern")
-            view_menu.append(_("Classic"), "app.switch_to_classic")
-            menu.append_submenu(_("View"), view_menu)
-            menu.append(_("Help"), "app.help")
-            menu.append(_("About"), "app.about")
-            menu.append(_("Quit"), "app.quit")
-            self.set_app_menu(menu)
+            self.set_app_menu(self.menu)
             
-            switch_to_auto = Gio.SimpleAction.new("switch_to_auto", None)
-            switch_to_auto.connect("activate", self.switch_view, Views.AUTO)
-            self.add_action(switch_to_auto)
-            
-            switch_to_modern = Gio.SimpleAction.new("switch_to_modern", None)
-            switch_to_modern.connect("activate", self.switch_view, Views.MODERN)
-            self.add_action(switch_to_modern)
-            
-            switch_to_classic = Gio.SimpleAction.new("switch_to_classic", None)
-            switch_to_classic.connect("activate", self.switch_view, Views.CLASSIC)
-            self.add_action(switch_to_classic)
-            
-            help_action = Gio.SimpleAction.new("help", None)
-            help_action.connect("activate", self.help_cb)
-            self.add_action(help_action)
-            
-            about_action = Gio.SimpleAction.new("about", None)
-            about_action.connect("activate", self.about_cb)
-            self.add_action(about_action)
-            
-            quit_action = Gio.SimpleAction.new("quit", None)
-            quit_action.connect("activate", self.quit_cb)
-            self.add_action(quit_action)
+        switch_to_auto = Gio.SimpleAction.new("switch_to_auto", None)
+        switch_to_auto.connect("activate", self.switch_view, Views.AUTO)
+        self.add_action(switch_to_auto)
+        
+        switch_to_modern = Gio.SimpleAction.new("switch_to_modern", None)
+        switch_to_modern.connect("activate", self.switch_view, Views.MODERN)
+        self.add_action(switch_to_modern)
+        
+        switch_to_classic = Gio.SimpleAction.new("switch_to_classic", None)
+        switch_to_classic.connect("activate", self.switch_view, Views.CLASSIC)
+        self.add_action(switch_to_classic)
+        
+        help_action = Gio.SimpleAction.new("help", None)
+        help_action.connect("activate", self.help_cb)
+        self.add_action(help_action)
+        
+        about_action = Gio.SimpleAction.new("about", None)
+        about_action.connect("activate", self.about_cb)
+        self.add_action(about_action)
+        
+        quit_action = Gio.SimpleAction.new("quit", None)
+        quit_action.connect("activate", self.quit_cb)
+        self.add_action(quit_action)
         
     def switch_view(self, widget, data=None, view_mode=None):
         self.win.set_view(view_mode)
