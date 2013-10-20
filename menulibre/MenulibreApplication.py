@@ -138,7 +138,32 @@ class Application(Gtk.Application):
         pass
         
     def about_cb(self, widget, data=None):
-        pass
+        # Create and display the AboutDialog.
+        aboutdialog = Gtk.AboutDialog()
+        
+        # Credits
+        authors = ["Sean Davis"]
+        documenters = ["Sean Davis"]
+        
+        # Populate the AboutDialog with all the relevant details.
+        aboutdialog.set_program_name("MenuLibre")
+        aboutdialog.set_logo_icon_name("alacarte")
+        aboutdialog.set_copyright("Copyright \xc2\xa9 2012-2013 Sean Davis")
+        aboutdialog.set_authors(authors)
+        aboutdialog.set_documenters(documenters)
+        aboutdialog.set_website("https://launchpad.net/menulibre")
+
+        # Clear the window title as suggested by Gnome docs.
+        aboutdialog.set_title("")
+
+        # Connect the signal to destroy the AboutDialog when Close is clicked.
+        aboutdialog.connect("response", self.about_close_cb)
+        
+        # Show the AboutDialog.
+        aboutdialog.show()
+        
+    def about_close_cb(self, widget, response):
+        widget.destroy()
         
     def quit_cb(self, widget, data=None):
         """Signal handler for closing the MenulibreWindow."""
