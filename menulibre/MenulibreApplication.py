@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import locale
 from locale import gettext as _
 locale.textdomain('menulibre')
@@ -7,6 +7,8 @@ from gi.repository import Gtk, Gio, GLib, GObject
 
 import sys
 import os
+
+import MenuEditor
 
 def enum(**enums):
     return type('Enum', (), enums)
@@ -62,8 +64,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             placeholder = builder.get_object('app_menu_holder')
             placeholder.add(self.app_menu_button)
             
-        #builder.get_object('menubar').set_visible(session in ['ubuntu', 
-        #                                                      'ubuntu-2d'])
+        builder.get_object('menubar').set_visible(session in ['ubuntu', 
+                                                              'ubuntu-2d'])
         
         self.actions = {}
         
@@ -156,6 +158,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             widget.set_use_action_appearance(True)
                                                               
         self.view_container = builder.get_object('menulibre_window_container')
+        
+        self.treestore = MenuEditor.get_treestore()
+
                                                               
         self.set_view(Views.AUTO)
         
@@ -176,20 +181,36 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         container.add( builder.get_object('application_editor') )
         self.view_container.show_all()
         
+        if view_mode == Views.CLASSIC:
+            treeview = builder.get_object('treeview1')
+            
+            col = Gtk.TreeViewColumn("Item")
+            col_cell_text = Gtk.CellRendererText()
+            col_cell_img = Gtk.CellRendererPixbuf()
+            col.pack_start(col_cell_img, False)
+            col.pack_start(col_cell_text, True)
+            col.add_attribute(col_cell_text, "text", 0)
+            col.add_attribute(col_cell_img, "pixbuf", 1)
+
+            treeview.append_column(col)
+            treeview.set_model(self.treestore)
+            
+            treeview.show_all()
+        
     def on_add_launcher_cb(self, widget):
-        print 'add launcher'
+        print ('add launcher')
         
     def on_save_launcher_cb(self, widget):
-        print 'save launcher'
+        print ('save launcher')
         
     def on_undo_cb(self, widget):
-        print 'undo'
+        print ('undo')
         
     def on_redo_cb(self, widget):
-        print 'redo'
+        print ('redo')
         
     def on_revert_cb(self, widget):
-        print 'revert'
+        print ('revert')
         
     def on_quit_cb(self, widget):
         # Emit the quit signal so the GtkApplication can handle it.
@@ -268,7 +289,7 @@ class Application(Gtk.Application):
         self.win.set_view(view_mode)
 
     def help_cb(self, widget, data=None):
-        print 'help'
+        print ('help')
         pass
         
     def about_cb(self, widget, data=None):
