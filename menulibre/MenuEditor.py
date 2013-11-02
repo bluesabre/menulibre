@@ -29,14 +29,24 @@ def get_default_menu():
     prefix = os.environ.get('XDG_MENU_PREFIX', '')
     return prefix + 'applications.menu'
     
-def load_icon(icon_name):
-    icon_size = Gtk.IconSize.DIALOG
-    if not icon_name:
+def load_icon(gicon):
+    pixbuf = None
+
+    if gicon is None:
         return None
-    if os.path.exists(icon_name):
-        b, x, y = Gtk.icon_size_lookup(icon_size)
-        return GdkPixbuf.Pixbuf.new_from_file_at_size(icon_name, x, y)
-    pixbuf = icon_theme.load_icon(icon_name, icon_size, Gtk.IconLookupFlags.USE_BUILTIN|Gtk.IconLookupFlags.GENERIC_FALLBACK)
+
+    icon_theme = Gtk.IconTheme.get_default()
+    info = icon_theme.lookup_by_gicon(gicon, 24, 0)
+    if info is None:
+        return None
+    try:
+        pixbuf = info.load_icon()
+    except GLib.GError:
+        return None
+    if pixbuf is None:
+        return None
+    if pixbuf.get_width() != 24 or pixbuf.get_height() != 24:
+        pixbuf = pixbuf.scale_simple(24, 24, GdkPixbuf.InterpType.HYPER)
     return pixbuf
     
 def menu_to_treestore(treestore, parent, menu_items):
@@ -62,8 +72,6 @@ def get_submenus(menu, tree_dir):
             app_id = child.get_desktop_file_id()
             app_info = child.get_app_info()
             icon = app_info.get_icon()
-            if icon:
-                icon = icon.to_string()
             details =  {'display_name': app_info.get_display_name(),
                         'generic_name': app_info.get_generic_name(),
                         'keywords': app_info.get_keywords(),
@@ -78,8 +86,6 @@ def get_submenus(menu, tree_dir):
         if isinstance(child, GMenu.TreeDirectory):
             dir_id = child.get_menu_id()
             icon = child.get_icon()
-            if icon:
-                icon = icon.to_string()
             details =  {'display_name': child.get_name(),
                         'generic_name': child.get_generic_name(),
                         'keywords': [],
