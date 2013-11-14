@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-04-17 20:50-0400\n"
-"PO-Revision-Date: 2013-07-30 10:06+0000\n"
-"Last-Translator: Jonatan Zeidler <Unknown>\n"
+"PO-Revision-Date: 2013-11-14 03:11+0000\n"
+"Last-Translator: Tobias Bannert <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-07-31 06:07+0000\n"
-"X-Generator: Launchpad (build 16718)\n"
+"X-Launchpad-Export-Date: 2013-11-14 06:26+0000\n"
+"X-Generator: Launchpad (build 16820)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
@@ -71,23 +71,23 @@ msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "_File"
-msgstr "Datei"
+msgstr "_Datei"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Add _New Launcher"
-msgstr "Neuen Starter anlegen"
+msgstr "Neuen _Starter anlegen"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid "_Edit"
-msgstr "Bearbeiten"
+msgstr "_Bearbeiten"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "_Help"
-msgstr "Hilfe"
+msgstr "_Hilfe"
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid "_Contents"
-msgstr "Hilfethemen"
+msgstr "_Hilfethemen"
 
 #: ../data/ui/MenulibreWindow.ui.h:19 ../menulibre/MenulibreWindow.py:1448
 msgid "Add Launcher"
@@ -159,7 +159,7 @@ msgstr "<big><b>Name der Anwendung</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "<i>A quick snippet about your application.</i>"
-msgstr "Kurzbeschreibung zur Anwendung"
+msgstr "<i>Kurzbeschreibung zur Anwendung</i>"
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Command"
@@ -171,7 +171,7 @@ msgstr "Arbeitsverzeichnis"
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "<b>Application Settings</b>"
-msgstr "Anwendungseinstellungen"
+msgstr "<b>Anwendungseinstellungen</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Run in terminal"
@@ -195,7 +195,7 @@ msgstr "Name"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Add category..."
-msgstr "Kategorie hinzufügen..."
+msgstr "Kategorie hinzufügen …"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Remove category"
@@ -231,7 +231,7 @@ msgstr "Tastenkürzel"
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Editor"
-msgstr "Editor"
+msgstr "Bearbeiter"
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid "label"
@@ -239,7 +239,7 @@ msgstr "Bezeichnung"
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Delete this launcher..."
-msgstr "Diesen Starter entfernen..."
+msgstr "Diesen Starter entfernen …"
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "<small>Filename</small>"
