@@ -168,6 +168,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if sel:
             treestore, treeiter = sel.get_selected()
             print treestore[treeiter][:]
+            
+    def icon_name_func(self, col, renderer, treestore, treeiter, user_data):
+        renderer.set_property("gicon", treestore[treeiter][2])
+        pass
         
     def set_view(self, view_mode):
         if not view_mode:
@@ -192,12 +196,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             col = Gtk.TreeViewColumn("Item")
             col_cell_text = Gtk.CellRendererText()
             col_cell_img = Gtk.CellRendererPixbuf()
-            print (dir(col_cell_img))
+            col_cell_img.set_property("stock-size", Gtk.IconSize.LARGE_TOOLBAR)
             col.pack_start(col_cell_img, False)
             col.pack_start(col_cell_text, True)
             col.add_attribute(col_cell_text, "markup", 0)
-            #col.add_attribute(col_cell_img, "pixbuf", 1)
-            treeview.set_tooltip_column(2)
+            col.set_cell_data_func(col_cell_img, self.icon_name_func, None)
+            treeview.set_tooltip_column(1)
 
             treeview.append_column(col)
             treeview.set_model(self.treestore)
@@ -210,8 +214,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             iconview = builder.get_object('iconview1')
             
             iconview.set_model(self.treestore)
-            iconview.set_pixbuf_column(1)
             iconview.set_text_column(0)
+            iconview.set_tooltip_column(1)
+            iconview.set_pixbuf_column(3)
             
             iconview.show_all()
         

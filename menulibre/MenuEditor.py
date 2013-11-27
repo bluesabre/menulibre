@@ -20,7 +20,7 @@ import codecs
 import os
 import xml.dom.minidom
 import xml.parsers.expat
-from gi.repository import GMenu, GLib, Gtk, GdkPixbuf
+from gi.repository import GMenu, GLib, Gtk, GdkPixbuf, GObject, Gio
 import util
 from xml.sax.saxutils import escape, unescape
 from enums import MenuItemTypes
@@ -35,22 +35,31 @@ def get_default_menu():
     prefix = os.environ.get('XDG_MENU_PREFIX', '')
     return prefix + 'applications.menu'
     
+def on_icon_theme_changed(icon_theme, treestore):
+    for row in treestore:
+        row[3] = load_icon(row[2], 48)
+        
+def load_fallback_icon(icon_size):
+    info = icon_theme.lookup_icon("image-missing", icon_size, Gtk.IconLookupFlags.GENERIC_FALLBACK|Gtk.IconLookupFlags.USE_BUILTIN)
+    return info.load_icon()
+    
 def load_icon(gicon, icon_size):
     pixbuf = None
 
     if gicon is None:
         return None
 
-    icon_theme = Gtk.IconTheme.get_default()
-    info = icon_theme.lookup_by_gicon(gicon, icon_size, 0)
-    if info is None:
-        return None
-    try:
-        pixbuf = info.load_icon()
-    except GLib.GError:
-        return None
-    if pixbuf is None:
-        return None
+    else:
+        info = icon_theme.lookup_by_gicon(gicon, icon_size, 0)
+    
+        if info is None:
+            pixbuf = load_fallback_icon(icon_size)
+        else:
+            try:
+                pixbuf = info.load_icon()
+            except GLib.GError:
+                pixbuf = load_fallback_icon(icon_size)
+            
     if pixbuf.get_width() != icon_size or pixbuf.get_height() != icon_size:
         pixbuf = pixbuf.scale_simple(icon_size, icon_size, GdkPixbuf.InterpType.HYPER)
     return pixbuf
@@ -67,9 +76,9 @@ def menu_to_treestore(treestore, parent, menu_items):
             if not item[2]['show']:
                 displayed_name = "<small><i>%s</i></small>" % displayed_name
             tooltip = item[2]['comment']
-            icon = load_icon(item[2]['icon'], 24)
+            icon = item[2]['icon']
             
-        treeiter = treestore.append(parent, [displayed_name, icon, tooltip])
+        treeiter = treestore.append(parent, [displayed_name, tooltip, icon, load_icon(icon, 48)])
         
         if item_type == MenuItemTypes.DIRECTORY:
             treestore = menu_to_treestore(treestore, treeiter, item[3])
@@ -77,7 +86,9 @@ def menu_to_treestore(treestore, parent, menu_items):
     return treestore
     
 def get_treestore():
-    treestore = Gtk.TreeStore(str, GdkPixbuf.Pixbuf, str)
+    # Name, Comment, GIcon (TreeView), Pixbuf (IconView)
+    treestore = Gtk.TreeStore(str, str, Gio.Icon, GdkPixbuf.Pixbuf)
+    icon_theme.connect("changed", on_icon_theme_changed, treestore)
     menu = get_menus()[0]
     return menu_to_treestore(treestore, None, menu)
     
