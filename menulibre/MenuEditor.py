@@ -23,6 +23,11 @@ import xml.parsers.expat
 from gi.repository import GMenu, GLib, Gtk, GdkPixbuf
 import util
 from xml.sax.saxutils import escape, unescape
+from enums import MenuItemTypes
+
+import locale
+from locale import gettext as _
+locale.textdomain('menulibre')
 
 icon_theme = Gtk.IconTheme.get_default()
 
@@ -30,14 +35,14 @@ def get_default_menu():
     prefix = os.environ.get('XDG_MENU_PREFIX', '')
     return prefix + 'applications.menu'
     
-def load_icon(gicon):
+def load_icon(gicon, icon_size):
     pixbuf = None
 
     if gicon is None:
         return None
 
     icon_theme = Gtk.IconTheme.get_default()
-    info = icon_theme.lookup_by_gicon(gicon, 24, 0)
+    info = icon_theme.lookup_by_gicon(gicon, icon_size, 0)
     if info is None:
         return None
     try:
@@ -46,21 +51,29 @@ def load_icon(gicon):
         return None
     if pixbuf is None:
         return None
-    if pixbuf.get_width() != 24 or pixbuf.get_height() != 24:
-        pixbuf = pixbuf.scale_simple(24, 24, GdkPixbuf.InterpType.HYPER)
+    if pixbuf.get_width() != icon_size or pixbuf.get_height() != icon_size:
+        pixbuf = pixbuf.scale_simple(icon_size, icon_size, GdkPixbuf.InterpType.HYPER)
     return pixbuf
     
 def menu_to_treestore(treestore, parent, menu_items):
     for item in menu_items:
-        if isinstance(item[0], GMenu.TreeSeparator):
-            treestore.append(parent, ["&lt;Separator&gt;", None, None])
+        item_type = item[0]
+        if item_type == MenuItemTypes.SEPARATOR:
+            displayed_name = "&lt;%s&gt;" % _("Separator")
+            tooltip = None
+            icon = None
         else:
-            display_name = escape(item[1]['display_name'])
-            if not item[1]['show']:
-                display_name = "<small><i>%s</i></small>" % display_name
-            treeiter = treestore.append(parent, [display_name, load_icon(item[1]['icon']), item[1]['comment']])
-            if item[2] is not None:
-                treestore = menu_to_treestore(treestore, treeiter, item[2])
+            displayed_name = escape(item[2]['display_name'])
+            if not item[2]['show']:
+                displayed_name = "<small><i>%s</i></small>" % displayed_name
+            tooltip = item[2]['comment']
+            icon = load_icon(item[2]['icon'], 24)
+            
+        treeiter = treestore.append(parent, [displayed_name, icon, tooltip])
+        
+        if item_type == MenuItemTypes.DIRECTORY:
+            treestore = menu_to_treestore(treestore, treeiter, item[3])
+
     return treestore
     
 def get_treestore():
@@ -83,10 +96,10 @@ def get_submenus(menu, tree_dir):
                         'filename': child.get_desktop_file_path(),
                         'icon': icon,
                         'show': not app_info.get_is_hidden()}
-            entry = [app_id, details, None]
+            entry = [MenuItemTypes.APPLICATION, app_id, details, None]
             structure.append(entry)
         if isinstance(child, GMenu.TreeSeparator):
-            structure.append([child, None, None])
+            structure.append([MenuItemTypes.SEPARATOR, child, None, None])
         if isinstance(child, GMenu.TreeDirectory):
             dir_id = child.get_menu_id()
             icon = child.get_icon()
@@ -99,7 +112,7 @@ def get_submenus(menu, tree_dir):
                         'icon': icon,
                         'show': True} #FIXME: Figure out how to detect this.
             submenus = get_submenus(menu, child)
-            entry = [dir_id, details, submenus]
+            entry = [MenuItemTypes.DIRECTORY, dir_id, details, submenus]
             structure.append(entry)
     return structure
     

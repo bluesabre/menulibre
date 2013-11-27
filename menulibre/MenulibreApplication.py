@@ -9,11 +9,8 @@ import sys
 import os
 
 import MenuEditor
+from enums import Views
 
-def enum(**enums):
-    return type('Enum', (), enums)
-    
-Views = enum(AUTO=None, CLASSIC='classic_view', MODERN='modern_view')
 session = os.getenv("DESKTOP_SESSION")
 
 class MenulibreWindow(Gtk.ApplicationWindow):
