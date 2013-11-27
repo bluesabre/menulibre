@@ -192,10 +192,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             col = Gtk.TreeViewColumn("Item")
             col_cell_text = Gtk.CellRendererText()
             col_cell_img = Gtk.CellRendererPixbuf()
+            print (dir(col_cell_img))
             col.pack_start(col_cell_img, False)
             col.pack_start(col_cell_text, True)
             col.add_attribute(col_cell_text, "markup", 0)
-            col.add_attribute(col_cell_img, "pixbuf", 1)
+            #col.add_attribute(col_cell_img, "pixbuf", 1)
             treeview.set_tooltip_column(2)
 
             treeview.append_column(col)
