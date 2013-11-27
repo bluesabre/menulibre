@@ -37,7 +37,7 @@ def get_default_menu():
     
 def on_icon_theme_changed(icon_theme, treestore):
     for row in treestore:
-        row[3] = load_icon(row[2], 48)
+        row[4] = load_icon(row[3], 48)
         
 def load_fallback_icon(icon_size):
     info = icon_theme.lookup_icon("image-missing", icon_size, Gtk.IconLookupFlags.GENERIC_FALLBACK|Gtk.IconLookupFlags.USE_BUILTIN)
@@ -78,7 +78,7 @@ def menu_to_treestore(treestore, parent, menu_items):
             tooltip = item[2]['comment']
             icon = item[2]['icon']
             
-        treeiter = treestore.append(parent, [displayed_name, tooltip, icon, load_icon(icon, 48)])
+        treeiter = treestore.append(parent, [displayed_name, tooltip, item_type, icon, load_icon(icon, 48)])
         
         if item_type == MenuItemTypes.DIRECTORY:
             treestore = menu_to_treestore(treestore, treeiter, item[3])
@@ -86,8 +86,8 @@ def menu_to_treestore(treestore, parent, menu_items):
     return treestore
     
 def get_treestore():
-    # Name, Comment, GIcon (TreeView), Pixbuf (IconView)
-    treestore = Gtk.TreeStore(str, str, Gio.Icon, GdkPixbuf.Pixbuf)
+    # Name, Comment, MenuItemType, GIcon (TreeView), Pixbuf (IconView)
+    treestore = Gtk.TreeStore(str, str, int, Gio.Icon, GdkPixbuf.Pixbuf)
     icon_theme.connect("changed", on_icon_theme_changed, treestore)
     menu = get_menus()[0]
     return menu_to_treestore(treestore, None, menu)

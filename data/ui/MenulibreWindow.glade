@@ -23,7 +23,7 @@
                 <property name="receives_default">True</property>
                 <property name="relief">none</property>
                 <child>
-                  <object class="GtkImage" id="image5">
+                  <object class="GtkImage" id="application_editor_image">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="pixel_size">48</property>
@@ -51,7 +51,7 @@
                     <property name="xalign">0</property>
                     <property name="yalign">1</property>
                     <child>
-                      <object class="GtkLabel" id="label8">
+                      <object class="GtkLabel" id="application_editor_name">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">&lt;big&gt;&lt;big&gt;&lt;b&gt;About Xfce&lt;/b&gt;&lt;/big&gt;&lt;/big&gt;</property>
@@ -74,10 +74,11 @@
                     <property name="xalign">0</property>
                     <property name="yalign">0</property>
                     <child>
-                      <object class="GtkLabel" id="label12">
+                      <object class="GtkLabel" id="application_editor_comment">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">Information about the Xfce Desktop Environment</property>
+                        <property name="ellipsize">end</property>
                       </object>
                     </child>
                   </object>
@@ -292,7 +293,7 @@
         <property name="margin_top">24</property>
         <property name="relief">none</property>
         <child>
-          <object class="GtkImage" id="image4">
+          <object class="GtkImage" id="category_editor_image">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="pixel_size">64</property>
@@ -313,7 +314,7 @@
         <property name="receives_default">True</property>
         <property name="relief">none</property>
         <child>
-          <object class="GtkLabel" id="label10">
+          <object class="GtkLabel" id="category_editor_name">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Accessories&lt;/b&gt;&lt;/big&gt;</property>
@@ -334,10 +335,11 @@
         <property name="receives_default">True</property>
         <property name="relief">none</property>
         <child>
-          <object class="GtkLabel" id="label11">
+          <object class="GtkLabel" id="category_editor_comment">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="label" translatable="yes">Common desktop tools and applications</property>
+            <property name="ellipsize">end</property>
           </object>
         </child>
       </object>
