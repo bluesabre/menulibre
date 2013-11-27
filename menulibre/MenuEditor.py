@@ -22,6 +22,7 @@ import xml.dom.minidom
 import xml.parsers.expat
 from gi.repository import GMenu, GLib, Gtk, GdkPixbuf
 import util
+from xml.sax.saxutils import escape, unescape
 
 icon_theme = Gtk.IconTheme.get_default()
 
@@ -52,16 +53,18 @@ def load_icon(gicon):
 def menu_to_treestore(treestore, parent, menu_items):
     for item in menu_items:
         if isinstance(item[0], GMenu.TreeSeparator):
-            treestore.append(parent, ["<Separator>", None])
-        elif item[2] is not None:
-            treeiter = treestore.append(parent, [item[1]['display_name'], load_icon(item[1]['icon'])])
-            treestore = menu_to_treestore(treestore, treeiter, item[2])
+            treestore.append(parent, ["&lt;Separator&gt;", None, None])
         else:
-            treestore.append(parent, [item[1]['display_name'], load_icon(item[1]['icon'])])
+            display_name = escape(item[1]['display_name'])
+            if not item[1]['show']:
+                display_name = "<small><i>%s</i></small>" % display_name
+            treeiter = treestore.append(parent, [display_name, load_icon(item[1]['icon']), item[1]['comment']])
+            if item[2] is not None:
+                treestore = menu_to_treestore(treestore, treeiter, item[2])
     return treestore
     
 def get_treestore():
-    treestore = Gtk.TreeStore(str, GdkPixbuf.Pixbuf)
+    treestore = Gtk.TreeStore(str, GdkPixbuf.Pixbuf, str)
     menu = get_menus()[0]
     return menu_to_treestore(treestore, None, menu)
     
@@ -74,6 +77,7 @@ def get_submenus(menu, tree_dir):
             icon = app_info.get_icon()
             details =  {'display_name': app_info.get_display_name(),
                         'generic_name': app_info.get_generic_name(),
+                        'comment': app_info.get_description(),
                         'keywords': app_info.get_keywords(),
                         'executable': app_info.get_executable(),
                         'filename': child.get_desktop_file_path(),
@@ -88,11 +92,12 @@ def get_submenus(menu, tree_dir):
             icon = child.get_icon()
             details =  {'display_name': child.get_name(),
                         'generic_name': child.get_generic_name(),
+                        'comment': child.get_comment(),
                         'keywords': [],
                         'executable': None,
                         'filename': child.get_desktop_file_path(),
                         'icon': icon,
-                        'show': True}
+                        'show': True} #FIXME: Figure out how to detect this.
             submenus = get_submenus(menu, child)
             entry = [dir_id, details, submenus]
             structure.append(entry)

@@ -39,12 +39,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         window_title = window.get_title()
         window_icon = window.get_icon_name()
         window_contents = window.get_children()[0]
+        size_request = window.get_size_request()
         
         # Initialize the GtkApplicationWindow.
         Gtk.Window.__init__(self, title=window_title, application=app)
         self.set_wmclass(_("MenuLibre"), _("MenuLibre"))
         self.set_title(window_title)
         self.set_icon_name(window_icon)
+        self.set_size_request(size_request[0], size_request[1])
         window_contents.reparent(self)
         
         # Configure Global Menu and AppMenu
@@ -164,6 +166,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                                               
         self.set_view(Views.AUTO)
         
+    def on_treeview_cursor_changed(self, widget, selection):
+        sel = widget.get_selection()
+        if sel:
+            treestore, treeiter = sel.get_selected()
+            print treestore[treeiter][:]
+        
     def set_view(self, view_mode):
         if not view_mode:
             if session in ['gnome', 'ubuntu', 'ubuntu-2d']:
@@ -189,13 +197,25 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             col_cell_img = Gtk.CellRendererPixbuf()
             col.pack_start(col_cell_img, False)
             col.pack_start(col_cell_text, True)
-            col.add_attribute(col_cell_text, "text", 0)
+            col.add_attribute(col_cell_text, "markup", 0)
             col.add_attribute(col_cell_img, "pixbuf", 1)
+            treeview.set_tooltip_column(2)
 
             treeview.append_column(col)
             treeview.set_model(self.treestore)
             
+            treeview.connect("cursor-changed", self.on_treeview_cursor_changed, None)
+            
             treeview.show_all()
+            
+        if view_mode == Views.MODERN:
+            iconview = builder.get_object('iconview1')
+            
+            iconview.set_model(self.treestore)
+            iconview.set_pixbuf_column(1)
+            iconview.set_text_column(0)
+            
+            iconview.show_all()
         
     def on_add_launcher_cb(self, widget):
         print ('add launcher')

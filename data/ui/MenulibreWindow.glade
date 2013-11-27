@@ -366,6 +366,7 @@
     <property name="can_focus">False</property>
     <child>
       <object class="GtkScrolledWindow" id="scrolledwindow1">
+        <property name="width_request">220</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="shadow_type">in</property>
@@ -414,6 +415,7 @@
   <object class="GtkListStore" id="liststore2"/>
   <object class="GtkListStore" id="liststore3"/>
   <object class="GtkWindow" id="menulibre_window">
+    <property name="height_request">480</property>
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">MenuLibre</property>
     <property name="icon_name">alacarte</property>
