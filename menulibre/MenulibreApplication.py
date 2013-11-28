@@ -51,11 +51,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if session not in ['gnome', 'ubuntu', 'ubuntu-2d']:
             # Create the AppMenu button on the rightside of the toolbar
             self.app_menu_button = Gtk.MenuButton()
-            self.app_menu_button.set_relief(Gtk.ReliefStyle.NONE)
+            self.app_menu_button.set_size_request(32,32)
+            #self.app_menu_button.set_relief(Gtk.ReliefStyle.NONE)
             
             # Use the classic "cog" image for the button.
-            image = Gtk.Image.new_from_icon_name("document-properties", 
-                                                 Gtk.IconSize.LARGE_TOOLBAR)
+            image = Gtk.Image.new_from_icon_name("emblem-system-symbolic", 
+                                                 Gtk.IconSize.MENU)
             self.app_menu_button.set_image(image)
             self.app_menu_button.show()
             
@@ -74,7 +75,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             Gtk.STOCK_NEW)
         action.connect('activate', self.on_add_launcher_cb)
         self.actions['add_launcher'] = action
-        for widget_name in ['menubar_new_launcher', 'toolbar_new']:
+        #for widget_name in ['menubar_new_launcher', 'toolbar_new']:
+        for widget_name in ['menubar_new_launcher']:
             widget = builder.get_object(widget_name)
             widget.set_related_action(action)
             widget.set_use_action_appearance(True)
@@ -85,7 +87,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             Gtk.STOCK_SAVE)
         action.connect('activate', self.on_save_launcher_cb)
         self.actions['save_launcher'] = action
-        for widget_name in ['menubar_save_launcher', 'toolbar_save']:
+        #for widget_name in ['menubar_save_launcher', 'toolbar_save']:
+        for widget_name in ['menubar_save_launcher']:
             widget = builder.get_object(widget_name)
             widget.set_related_action(action)
             widget.set_use_action_appearance(True)
@@ -96,7 +99,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             Gtk.STOCK_UNDO)
         action.connect('activate', self.on_undo_cb)
         self.actions['undo'] = action
-        for widget_name in ['menubar_undo', 'toolbar_undo']:
+        #for widget_name in ['menubar_undo', 'toolbar_undo']:
+        for widget_name in ['menubar_undo']:
             widget = builder.get_object(widget_name)
             widget.set_related_action(action)
             widget.set_use_action_appearance(True)
@@ -107,7 +111,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             Gtk.STOCK_REDO)
         action.connect('activate', self.on_redo_cb)
         self.actions['redo'] = action
-        for widget_name in ['menubar_redo', 'toolbar_redo']:
+        #for widget_name in ['menubar_redo', 'toolbar_redo']:
+        for widget_name in ['menubar_redo']:
             widget = builder.get_object(widget_name)
             widget.set_related_action(action)
             widget.set_use_action_appearance(True)
@@ -118,7 +123,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             Gtk.STOCK_REVERT_TO_SAVED)
         action.connect('activate', self.on_revert_cb)
         self.actions['revert'] = action
-        for widget_name in ['menubar_revert', 'toolbar_revert']:
+        #for widget_name in ['menubar_revert', 'toolbar_revert']:
+        for widget_name in ['menubar_revert']:
             widget = builder.get_object(widget_name)
             widget.set_related_action(action)
             widget.set_use_action_appearance(True)
