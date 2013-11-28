@@ -176,7 +176,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             displayed_name = treestore[treeiter][0]
             comment = treestore[treeiter][1]
             item_type = treestore[treeiter][2]
-            self.set_editor(item_type)
             if item_type != MenuItemTypes.SEPARATOR:
                 self.set_editor_image(treestore[treeiter][4])
                 self.set_editor_name(displayed_name)
@@ -185,24 +184,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def icon_name_func(self, col, renderer, treestore, treeiter, user_data):
         renderer.set_property("gicon", treestore[treeiter][3])
         pass
-        
-    def set_editor(self, item_type):
-        builder = Gtk.Builder()
-        builder.add_from_file(self.ui_file)
-        for child in self.editor_container.get_children():
-            child.destroy()
-        if item_type == MenuItemTypes.APPLICATION:
-            self.editor_container.add( builder.get_object('application_editor') )
-            self.editor_image = builder.get_object('application_editor_image')
-            self.editor_name = builder.get_object('application_editor_name')
-            self.editor_comment = builder.get_object('application_editor_comment')
-        elif item_type == MenuItemTypes.DIRECTORY:
-            self.editor_container.add( builder.get_object('category_editor') )
-            self.editor_image = builder.get_object('category_editor_image')
-            self.editor_name = builder.get_object('category_editor_name')
-            self.editor_comment = builder.get_object('category_editor_comment')
-        elif item_type == MenuItemTypes.SEPARATOR:
-            pass
             
     def set_editor_image(self, gicon):
         self.editor_image.set_from_gicon(gicon, self.editor_image.get_preferred_height()[0])
@@ -227,6 +208,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             pass
         self.view_container.add( builder.get_object(view_mode) )
         self.editor_container = builder.get_object(view_mode+"_container")
+        self.editor_container.add( builder.get_object('application_editor') )
+        self.editor_image = builder.get_object('application_editor_image')
+        self.editor_name = builder.get_object('application_editor_name')
+        self.editor_comment = builder.get_object('application_editor_comment')
         self.view_container.show_all()
         
         if view_mode == Views.CLASSIC:
