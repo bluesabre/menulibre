@@ -70,6 +70,7 @@ def menu_to_treestore(treestore, parent, menu_items):
         if item_type == MenuItemTypes.SEPARATOR:
             displayed_name = "--------------------"
             tooltip = _("Separator")
+            filename = None
             icon = None
         else:
             displayed_name = escape(item[2]['display_name'])
@@ -77,8 +78,9 @@ def menu_to_treestore(treestore, parent, menu_items):
                 displayed_name = "<small><i>%s</i></small>" % displayed_name
             tooltip = item[2]['comment']
             icon = item[2]['icon']
+            filename = item[2]['filename']
             
-        treeiter = treestore.append(parent, [displayed_name, tooltip, item_type, icon, load_icon(icon, 48)])
+        treeiter = treestore.append(parent, [displayed_name, tooltip, item_type, icon, load_icon(icon, 48), filename])
         
         if item_type == MenuItemTypes.DIRECTORY:
             treestore = menu_to_treestore(treestore, treeiter, item[3])
@@ -86,8 +88,8 @@ def menu_to_treestore(treestore, parent, menu_items):
     return treestore
     
 def get_treestore():
-    # Name, Comment, MenuItemType, GIcon (TreeView), Pixbuf (IconView)
-    treestore = Gtk.TreeStore(str, str, int, Gio.Icon, GdkPixbuf.Pixbuf)
+    # Name, Comment, MenuItemType, GIcon (TreeView), Pixbuf (IconView), Filename
+    treestore = Gtk.TreeStore(str, str, int, Gio.Icon, GdkPixbuf.Pixbuf, str)
     icon_theme.connect("changed", on_icon_theme_changed, treestore)
     menu = get_menus()[0]
     return menu_to_treestore(treestore, None, menu)

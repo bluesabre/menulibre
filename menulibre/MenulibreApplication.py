@@ -162,7 +162,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             widget.set_related_action(action)
             widget.set_use_action_appearance(True)
             
-        
+        self.delete_button = builder.get_object('toolbar_delete')
                                                               
         self.view_container = builder.get_object('menulibre_window_container')
         
@@ -181,13 +181,27 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         sel = widget.get_selection()
         if sel:
             treestore, treeiter = sel.get_selected()
-            displayed_name = treestore[treeiter][0]
-            comment = treestore[treeiter][1]
             item_type = treestore[treeiter][2]
-            if item_type != MenuItemTypes.SEPARATOR:
+            if item_type == MenuItemTypes.SEPARATOR:
+                self.editor_container.get_children()[0].hide()
+                #self.set_editor_image(None)
+                self.set_editor_name(_("Separator"))
+                self.set_editor_comment("")
+                self.set_editor_filename(None)
+            else:
+                self.editor_container.get_children()[0].show()
+                if item_type == MenuItemTypes.APPLICATION:
+                    self.editor_container.get_children()[0].show_all()
+                else:
+                    for widget in self.directory_hide_widgets:
+                        widget.hide()
+                displayed_name = treestore[treeiter][0]
+                comment = treestore[treeiter][1]
+                filename = treestore[treeiter][5]
                 self.set_editor_image(treestore[treeiter][4])
                 self.set_editor_name(displayed_name)
                 self.set_editor_comment(comment)
+                self.set_editor_filename(filename)
             
     def icon_name_func(self, col, renderer, treestore, treeiter, user_data):
         renderer.set_property("gicon", treestore[treeiter][3])
@@ -198,9 +212,26 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         
     def set_editor_name(self, text):
         self.editor_name.set_label("<big><b>%s</b></big>" % text)
+        self.editor_name.set_tooltip_markup(_("%s <i>(Click to modify.)</i>") % text)
         
     def set_editor_comment(self, text):
         self.editor_comment.set_label(text)
+        self.editor_comment.set_tooltip_markup(_("%s <i>(Click to modify.)</i>") % text)
+        
+    def set_editor_filename(self, filename):
+        # Since the filename has changed, check if it is now writable...
+        if filename is None or os.access(filename, os.W_OK):
+            self.delete_button.set_sensitive(True)
+            self.delete_button.set_tooltip_text("")
+        else:
+            self.delete_button.set_sensitive(False)
+            self.delete_button.set_tooltip_text(_("You do not have permission to delete this file."))
+            
+        if filename is None:
+            filename = ""
+            
+        self.editor_filename.set_label("<small><i>%s</i></small>" % filename)
+        self.editor_filename.set_tooltip_text(filename)
         
     def set_view(self, view_mode):
         if not view_mode:
@@ -220,6 +251,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.editor_image = builder.get_object('application_editor_image')
         self.editor_name = builder.get_object('application_editor_name')
         self.editor_comment = builder.get_object('application_editor_comment')
+        self.editor_filename = builder.get_object('application_editor_filename')
         self.view_container.show_all()
         
         self.settings_notebook = builder.get_object('settings_notebook')
@@ -229,6 +261,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             button = builder.get_object(buttons[i])
             button.connect("clicked", self.on_settings_group_changed, i)
             button.activate()
+            
+        self.directory_hide_widgets = []
+        for widget_name in ['details_frame', 'settings_frame', 'terminal_label', 'terminal_switch', 'notify_label', 'notify_switch']:
+            self.directory_hide_widgets.append(builder.get_object(widget_name))
         
         if view_mode == Views.CLASSIC:
             treeview = builder.get_object('treeview1')
