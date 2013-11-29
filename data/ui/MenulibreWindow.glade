@@ -945,6 +945,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
         <property name="xalign">0</property>
         <property name="label" translatable="yes">&lt;small&gt;&lt;i&gt;Filename&lt;/i&gt;&lt;/small&gt;</property>
         <property name="use_markup">True</property>
+        <property name="selectable">True</property>
         <property name="ellipsize">middle</property>
       </object>
       <packing>
