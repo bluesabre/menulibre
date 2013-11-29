@@ -3,7 +3,7 @@ import locale
 from locale import gettext as _
 locale.textdomain('menulibre')
 
-from gi.repository import Gtk, Gio, GLib, GObject
+from gi.repository import Gtk, Gio, GLib, GObject, Pango
 
 import sys
 import os
@@ -161,6 +161,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             widget = builder.get_object(widget_name)
             widget.set_related_action(action)
             widget.set_use_action_appearance(True)
+            
+        
                                                               
         self.view_container = builder.get_object('menulibre_window_container')
         
@@ -168,6 +170,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
                                                               
         self.set_view(Views.AUTO)
+        
+
+        
+    def on_settings_group_changed(self, widget, user_data=None):
+        if widget.get_active():
+            self.settings_notebook.set_current_page(user_data)
         
     def on_treeview_cursor_changed(self, widget, selection):
         sel = widget.get_selection()
@@ -214,11 +222,20 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.editor_comment = builder.get_object('application_editor_comment')
         self.view_container.show_all()
         
+        self.settings_notebook = builder.get_object('settings_notebook')
+        
+        buttons = ['categories_button', 'quicklists_button', 'advanced_button']
+        for i in range(len(buttons)):
+            button = builder.get_object(buttons[i])
+            button.connect("clicked", self.on_settings_group_changed, i)
+            button.activate()
+        
         if view_mode == Views.CLASSIC:
             treeview = builder.get_object('treeview1')
             
             col = Gtk.TreeViewColumn("Item")
             col_cell_text = Gtk.CellRendererText()
+            col_cell_text.set_property("ellipsize", Pango.EllipsizeMode.END)
             col_cell_img = Gtk.CellRendererPixbuf()
             col_cell_img.set_property("stock-size", Gtk.IconSize.LARGE_TOOLBAR)
             col.pack_start(col_cell_img, False)

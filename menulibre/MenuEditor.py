@@ -68,8 +68,8 @@ def menu_to_treestore(treestore, parent, menu_items):
     for item in menu_items:
         item_type = item[0]
         if item_type == MenuItemTypes.SEPARATOR:
-            displayed_name = "&lt;%s&gt;" % _("Separator")
-            tooltip = None
+            displayed_name = "--------------------"
+            tooltip = _("Separator")
             icon = None
         else:
             displayed_name = escape(item[2]['display_name'])
