@@ -7,6 +7,7 @@ Views = enum(AUTO=None,
              CLASSIC='classic_view', 
              MODERN='modern_view')
              
-MenuItemTypes = enum(APPLICATION=0,
-                     DIRECTORY=1,
-                     SEPARATOR=2)
+MenuItemTypes = enum(SEPARATOR=-1,
+                     APPLICATION=0,
+                     LINK=1,
+                     DIRECTORY=2)

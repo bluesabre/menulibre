@@ -160,7 +160,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                       <class name="linked"/>
                     </style>
                     <child>
-                      <object class="GtkEntry" id="entry1">
+                      <object class="GtkEntry" id="application_editor_exec">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="invisible_char">•</property>
@@ -202,7 +202,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                       <class name="linked"/>
                     </style>
                     <child>
-                      <object class="GtkEntry" id="entry2">
+                      <object class="GtkEntry" id="application_editor_path">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="invisible_char">•</property>
@@ -321,7 +321,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkSwitch" id="terminal_switch">
+                  <object class="GtkSwitch" id="application_editor_terminal">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                   </object>
@@ -333,7 +333,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkSwitch" id="notify_switch">
+                  <object class="GtkSwitch" id="application_editor_notify">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                   </object>
@@ -345,7 +345,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkSwitch" id="hide_switch">
+                  <object class="GtkSwitch" id="application_editor_nodisplay">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                   </object>
@@ -756,7 +756,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="entry3">
+                              <object class="GtkEntry" id="application_editor_genericname">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="hexpand">True</property>
@@ -770,7 +770,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="entry4">
+                              <object class="GtkEntry" id="application_editor_tryexec">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="invisible_char">•</property>
@@ -783,7 +783,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="entry5">
+                              <object class="GtkEntry" id="application_editor_onlyshowin">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="invisible_char">•</property>
@@ -796,7 +796,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="entry6">
+                              <object class="GtkEntry" id="application_editor_notshowin">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="invisible_char">•</property>
@@ -809,7 +809,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="entry7">
+                              <object class="GtkEntry" id="application_editor_mimetypes">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="invisible_char">•</property>
@@ -822,7 +822,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="entry8">
+                              <object class="GtkEntry" id="application_editor_keywords">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="invisible_char">•</property>
@@ -835,7 +835,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="entry9">
+                              <object class="GtkEntry" id="application_editor_startupwmclass">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="invisible_char">•</property>

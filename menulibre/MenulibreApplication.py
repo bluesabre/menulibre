@@ -9,9 +9,20 @@ import sys
 import os
 
 import MenuEditor
+import MenulibreXdg
 from enums import Views, MenuItemTypes
 
 session = os.getenv("DESKTOP_SESSION")
+
+def set_entry_text(widget, text):
+    if text is None:
+        text = ""
+    widget.set_text(text)
+    
+def set_toggle_active(widget, active):
+    if active is None:
+        active = False
+    widget.set_active(active)
 
 class MenulibreWindow(Gtk.ApplicationWindow):
     ui_file = 'data/ui/MenulibreWindow.glade'
@@ -184,17 +195,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             item_type = treestore[treeiter][2]
             if item_type == MenuItemTypes.SEPARATOR:
                 self.editor_container.get_children()[0].hide()
-                #self.set_editor_image(None)
                 self.set_editor_name(_("Separator"))
                 self.set_editor_comment("")
                 self.set_editor_filename(None)
             else:
                 self.editor_container.get_children()[0].show()
-                if item_type == MenuItemTypes.APPLICATION:
-                    self.editor_container.get_children()[0].show_all()
-                else:
-                    for widget in self.directory_hide_widgets:
-                        widget.hide()
+                
                 displayed_name = treestore[treeiter][0]
                 comment = treestore[treeiter][1]
                 filename = treestore[treeiter][5]
@@ -202,19 +208,45 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 self.set_editor_name(displayed_name)
                 self.set_editor_comment(comment)
                 self.set_editor_filename(filename)
+                
+                if item_type == MenuItemTypes.APPLICATION:
+                    self.editor_container.get_children()[0].show_all()
+                    entry = MenulibreXdg.MenulibreDesktopEntry(filename)
+                    self.set_editor_exec(entry['Exec'])
+                    self.set_editor_path(entry['Path'])
+                    self.set_editor_terminal(entry['Terminal'])
+                    self.set_editor_notify(entry['StartupNotify'])
+                    self.set_editor_nodisplay(entry['NoDisplay'])
+                    self.set_editor_genericname(entry['GenericName'])
+                    self.set_editor_tryexec(entry['TryExec'])
+                    self.set_editor_onlyshowin(entry['OnlyShowIn'])
+                    self.set_editor_notshowin(entry['NotShowIn'])
+                    self.set_editor_mimetypes(entry['Mimetype'])
+                    self.set_editor_keywords(entry['Keywords'])
+                    self.set_editor_startupwmclass(entry['StartupWMClass'])
+                else:
+                    for widget in self.directory_hide_widgets:
+                        widget.hide()
             
     def icon_name_func(self, col, renderer, treestore, treeiter, user_data):
         renderer.set_property("gicon", treestore[treeiter][3])
         pass
             
     def set_editor_image(self, gicon):
-        self.editor_image.set_from_gicon(gicon, self.editor_image.get_preferred_height()[0])
+        if gicon:
+            self.editor_image.set_from_gicon(gicon, self.editor_image.get_preferred_height()[0])
+        else:
+            self.editor_image.set_from_icon_name("application-default-icon", 48)
         
     def set_editor_name(self, text):
+        if text is None:
+            text = ""
         self.editor_name.set_label("<big><b>%s</b></big>" % text)
         self.editor_name.set_tooltip_markup(_("%s <i>(Click to modify.)</i>") % text)
         
     def set_editor_comment(self, text):
+        if text is None:
+            text = ""
         self.editor_comment.set_label(text)
         self.editor_comment.set_tooltip_markup(_("%s <i>(Click to modify.)</i>") % text)
         
@@ -232,6 +264,42 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             
         self.editor_filename.set_label("<small><i>%s</i></small>" % filename)
         self.editor_filename.set_tooltip_text(filename)
+    
+    def set_editor_exec(self, text):
+        set_entry_text(self.editor_exec, text)
+        
+    def set_editor_path(self, text):
+        set_entry_text(self.editor_path, text)
+        
+    def set_editor_terminal(self, boolean):
+        set_toggle_active(self.editor_terminal, boolean)
+        
+    def set_editor_notify(self, boolean):
+        set_toggle_active(self.editor_notify, boolean)
+        
+    def set_editor_nodisplay(self, boolean):
+        set_toggle_active(self.editor_nodisplay, boolean)
+        
+    def set_editor_genericname(self, text):
+        set_entry_text(self.editor_genericname, text)
+        
+    def set_editor_tryexec(self, text):
+        set_entry_text(self.editor_tryexec, text)
+        
+    def set_editor_onlyshowin(self, text):
+        set_entry_text(self.editor_onlyshowin, text)
+        
+    def set_editor_notshowin(self, text):
+        set_entry_text(self.editor_notshowin, text)
+        
+    def set_editor_mimetypes(self, text):
+        set_entry_text(self.editor_mimetypes, text)
+        
+    def set_editor_keywords(self, text):
+        set_entry_text(self.editor_keywords, text)
+        
+    def set_editor_startupwmclass(self, text):
+        set_entry_text(self.editor_startupwmclass, text)
         
     def set_view(self, view_mode):
         if not view_mode:
@@ -252,6 +320,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.editor_name = builder.get_object('application_editor_name')
         self.editor_comment = builder.get_object('application_editor_comment')
         self.editor_filename = builder.get_object('application_editor_filename')
+        self.editor_exec = builder.get_object('application_editor_exec')
+        self.editor_path = builder.get_object('application_editor_path')
+        self.editor_terminal = builder.get_object('application_editor_terminal')
+        self.editor_notify = builder.get_object('application_editor_notify')
+        self.editor_nodisplay = builder.get_object('application_editor_nodisplay')
+        self.editor_genericname = builder.get_object('application_editor_genericname')
+        self.editor_tryexec = builder.get_object('application_editor_tryexec')
+        self.editor_onlyshowin = builder.get_object('application_editor_onlyshowin')
+        self.editor_notshowin = builder.get_object('application_editor_notshowin')
+        self.editor_mimetypes = builder.get_object('application_editor_mimetypes')
+        self.editor_keywords = builder.get_object('application_editor_keywords')
+        self.editor_startupwmclass = builder.get_object('application_editor_startupwmclass')
+        
         self.view_container.show_all()
         
         self.settings_notebook = builder.get_object('settings_notebook')
@@ -263,7 +344,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             button.activate()
             
         self.directory_hide_widgets = []
-        for widget_name in ['details_frame', 'settings_frame', 'terminal_label', 'terminal_switch', 'notify_label', 'notify_switch']:
+        for widget_name in ['details_frame', 'settings_frame', 'terminal_label', 'application_editor_terminal', 'notify_label', 'application_editor_notify']:
             self.directory_hide_widgets.append(builder.get_object(widget_name))
         
         if view_mode == Views.CLASSIC:
