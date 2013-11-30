@@ -562,15 +562,14 @@ class Application(Gtk.Application):
         documenters = ["Sean Davis"]
 
         # Populate the AboutDialog with all the relevant details.
-        aboutdialog.set_program_name("MenuLibre")
-        aboutdialog.set_logo_icon_name("alacarte")
-        aboutdialog.set_copyright("Copyright \xc2\xa9 2012-2013 Sean Davis")
+        aboutdialog.set_program_name(_("MenuLibre"))
+        aboutdialog.set_logo_icon_name("menulibre")
+        aboutdialog.set_copyright(_("Copyright © 2012-2013 Sean Davis"))
         aboutdialog.set_authors(authors)
         aboutdialog.set_documenters(documenters)
         aboutdialog.set_website("https://launchpad.net/menulibre")
 
-        # Clear the window title as suggested by Gnome docs.
-        aboutdialog.set_title("")
+        aboutdialog.set_title(_("About MenuLibre"))
 
         # Connect the signal to destroy the AboutDialog when Close is clicked.
         aboutdialog.connect("response", self.about_close_cb)
