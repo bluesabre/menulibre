@@ -17,32 +17,40 @@
 #   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 import codecs
+import locale
 import os
 import xml.dom.minidom
 import xml.parsers.expat
-from gi.repository import GMenu, GLib, Gtk, GdkPixbuf, GObject, Gio
-import util
-from xml.sax.saxutils import escape, unescape
-from enums import MenuItemTypes
-
-import locale
 from locale import gettext as _
+from xml.sax.saxutils import escape
+
+from gi.repository import GdkPixbuf, Gio, GLib, GMenu, Gtk
+
+from . import util
+from .enums import MenuItemTypes
+
 locale.textdomain('menulibre')
 
 icon_theme = Gtk.IconTheme.get_default()
 
+
 def get_default_menu():
     prefix = os.environ.get('XDG_MENU_PREFIX', '')
     return prefix + 'applications.menu'
-    
+
+
 def on_icon_theme_changed(icon_theme, treestore):
     for row in treestore:
         row[4] = load_icon(row[3], 48)
-        
+
+
 def load_fallback_icon(icon_size):
-    info = icon_theme.lookup_icon("image-missing", icon_size, Gtk.IconLookupFlags.GENERIC_FALLBACK|Gtk.IconLookupFlags.USE_BUILTIN)
+    info = icon_theme.lookup_icon(
+        "image-missing", icon_size,
+        Gtk.IconLookupFlags.GENERIC_FALLBACK | Gtk.IconLookupFlags.USE_BUILTIN)
     return info.load_icon()
-    
+
+
 def load_icon(gicon, icon_size):
     pixbuf = None
 
@@ -51,7 +59,7 @@ def load_icon(gicon, icon_size):
 
     else:
         info = icon_theme.lookup_by_gicon(gicon, icon_size, 0)
-    
+
         if info is None:
             pixbuf = load_fallback_icon(icon_size)
         else:
@@ -59,11 +67,13 @@ def load_icon(gicon, icon_size):
                 pixbuf = info.load_icon()
             except GLib.GError:
                 pixbuf = load_fallback_icon(icon_size)
-            
+
     if pixbuf.get_width() != icon_size or pixbuf.get_height() != icon_size:
-        pixbuf = pixbuf.scale_simple(icon_size, icon_size, GdkPixbuf.InterpType.HYPER)
+        pixbuf = pixbuf.scale_simple(
+            icon_size, icon_size, GdkPixbuf.InterpType.HYPER)
     return pixbuf
-    
+
+
 def menu_to_treestore(treestore, parent, menu_items):
     for item in menu_items:
         item_type = item[0]
@@ -79,21 +89,25 @@ def menu_to_treestore(treestore, parent, menu_items):
             tooltip = item[2]['comment']
             icon = item[2]['icon']
             filename = item[2]['filename']
-            
-        treeiter = treestore.append(parent, [displayed_name, tooltip, item_type, icon, load_icon(icon, 48), filename])
-        
+
+        treeiter = treestore.append(
+            parent, [displayed_name, tooltip, item_type,
+            icon, load_icon(icon, 48), filename])
+
         if item_type == MenuItemTypes.DIRECTORY:
             treestore = menu_to_treestore(treestore, treeiter, item[3])
 
     return treestore
-    
+
+
 def get_treestore():
     # Name, Comment, MenuItemType, GIcon (TreeView), Pixbuf (IconView), Filename
     treestore = Gtk.TreeStore(str, str, int, Gio.Icon, GdkPixbuf.Pixbuf, str)
     icon_theme.connect("changed", on_icon_theme_changed, treestore)
     menu = get_menus()[0]
     return menu_to_treestore(treestore, None, menu)
-    
+
+
 def get_submenus(menu, tree_dir):
     structure = []
     for child in menu.getContents(tree_dir):
@@ -101,14 +115,14 @@ def get_submenus(menu, tree_dir):
             app_id = child.get_desktop_file_id()
             app_info = child.get_app_info()
             icon = app_info.get_icon()
-            details =  {'display_name': app_info.get_display_name(),
-                        'generic_name': app_info.get_generic_name(),
-                        'comment': app_info.get_description(),
-                        'keywords': app_info.get_keywords(),
-                        'executable': app_info.get_executable(),
-                        'filename': child.get_desktop_file_path(),
-                        'icon': icon,
-                        'show': not app_info.get_is_hidden()}
+            details = {'display_name': app_info.get_display_name(),
+                       'generic_name': app_info.get_generic_name(),
+                       'comment': app_info.get_description(),
+                       'keywords': app_info.get_keywords(),
+                       'executable': app_info.get_executable(),
+                       'filename': child.get_desktop_file_path(),
+                       'icon': icon,
+                       'show': not app_info.get_is_hidden()}
             entry = [MenuItemTypes.APPLICATION, app_id, details, None]
             structure.append(entry)
         if isinstance(child, GMenu.TreeSeparator):
@@ -116,19 +130,20 @@ def get_submenus(menu, tree_dir):
         if isinstance(child, GMenu.TreeDirectory):
             dir_id = child.get_menu_id()
             icon = child.get_icon()
-            details =  {'display_name': child.get_name(),
-                        'generic_name': child.get_generic_name(),
-                        'comment': child.get_comment(),
-                        'keywords': [],
-                        'executable': None,
-                        'filename': child.get_desktop_file_path(),
-                        'icon': icon,
-                        'show': True} #FIXME: Figure out how to detect this.
+            details = {'display_name': child.get_name(),
+                       'generic_name': child.get_generic_name(),
+                       'comment': child.get_comment(),
+                       'keywords': [],
+                       'executable': None,
+                       'filename': child.get_desktop_file_path(),
+                       'icon': icon,
+                       'show': True}  # FIXME: Figure out how to detect this.
             submenus = get_submenus(menu, child)
             entry = [MenuItemTypes.DIRECTORY, dir_id, details, submenus]
             structure.append(entry)
     return structure
-    
+
+
 def get_menus():
     menu = MenuEditor()
     structure = []
@@ -139,27 +154,37 @@ def get_menus():
         structure.append(get_submenus(menu, top[0]))
     return structure
 
+
 class MenuEditor(object):
+
     def __init__(self, basename=None):
         basename = basename or get_default_menu()
 
-        self.tree = GMenu.Tree.new(basename, GMenu.TreeFlags.SHOW_EMPTY|GMenu.TreeFlags.INCLUDE_EXCLUDED|GMenu.TreeFlags.INCLUDE_NODISPLAY|GMenu.TreeFlags.SHOW_ALL_SEPARATORS|GMenu.TreeFlags.SORT_DISPLAY_NAME)
+        self.tree = GMenu.Tree.new(basename,
+                                    GMenu.TreeFlags.SHOW_EMPTY |
+                                    GMenu.TreeFlags.INCLUDE_EXCLUDED |
+                                    GMenu.TreeFlags.INCLUDE_NODISPLAY |
+                                    GMenu.TreeFlags.SHOW_ALL_SEPARATORS |
+                                    GMenu.TreeFlags.SORT_DISPLAY_NAME)
         self.tree.connect('changed', self.menuChanged)
         self.load()
 
-        self.path = os.path.join(util.getUserMenuPath(), self.tree.props.menu_basename)
+        self.path = os.path.join(
+            util.getUserMenuPath(), self.tree.props.menu_basename)
         self.loadDOM()
 
     def loadDOM(self):
         try:
             self.dom = xml.dom.minidom.parse(self.path)
-        except (IOError, xml.parsers.expat.ExpatError) as e:
-            self.dom = xml.dom.minidom.parseString(util.getUserMenuXml(self.tree))
+        except (IOError, xml.parsers.expat.ExpatError):
+            self.dom = xml.dom.minidom.parseString(
+                util.getUserMenuXml(self.tree))
         util.removeWhitespaceNodes(self.dom)
 
     def load(self):
         if not self.tree.load_sync():
-            raise ValueError("can not load menu tree %r" % (self.tree.props.menu_basename,))
+            raise ValueError("can not load menu tree %r" %
+                             (self.tree.props.menu_basename,))
 
     def menuChanged(self, *a):
         self.load()
@@ -179,7 +204,7 @@ class MenuEditor(object):
 
     def restoreTree(self, menu):
         item_iter = menu.iter()
-        item_type = item_iter.next()
+        item_type = next(item_iter)
         while item_type != GMenu.TreeItemType.INVALID:
             if item_type == GMenu.TreeItemType.DIRECTORY:
                 item = item_iter.get_directory()
@@ -187,7 +212,7 @@ class MenuEditor(object):
             elif item_type == GMenu.TreeItemType.ENTRY:
                 item = item_iter.get_entry()
                 self.restoreItem(item)
-            item_type = item_iter.next()
+            item_type = next(item_iter)
         self.restoreMenu(menu)
 
     def restoreItem(self, item):
@@ -202,7 +227,7 @@ class MenuEditor(object):
     def restoreMenu(self, menu):
         if not self.canRevert(menu):
             return
-        #wtf happened here? oh well, just bail
+        # wtf happened here? oh well, just bail
         if not menu.get_desktop_file_path():
             return
         file_id = os.path.split(menu.get_desktop_file_path())[1]
@@ -219,12 +244,12 @@ class MenuEditor(object):
             return
 
         item_iter = parent.iter()
-        item_type = item_iter.next()
+        item_type = next(item_iter)
         while item_type != GMenu.TreeItemType.INVALID:
             if item_type == GMenu.TreeItemType.DIRECTORY:
                 item = item_iter.get_directory()
                 yield (item, self.isVisible(item))
-            item_type = item_iter.next()
+            item_type = next(item_iter)
 
     def getContents(self, item):
         contents = []
@@ -250,7 +275,7 @@ class MenuEditor(object):
 
     def getItems(self, menu):
         item_iter = menu.iter()
-        item_type = item_iter.next()
+        item_type = next(item_iter)
         while item_type != GMenu.TreeItemType.INVALID:
             item = None
             if item_type == GMenu.TreeItemType.ENTRY:
@@ -264,13 +289,14 @@ class MenuEditor(object):
             elif item_type == GMenu.TreeItemType.SEPARATOR:
                 item = item_iter.get_separator()
             yield (item, self.isVisible(item))
-            item_type = item_iter.next()
+            item_type = next(item_iter)
 
     def canRevert(self, item):
         if isinstance(item, GMenu.TreeEntry):
             if util.getItemPath(item.get_desktop_file_id()) is not None:
                 path = util.getUserItemPath()
-                if os.path.isfile(os.path.join(path, item.get_desktop_file_id())):
+                if os.path.isfile(os.path.join(path,
+                                               item.get_desktop_file_id())):
                     return True
         elif isinstance(item, GMenu.TreeDirectory):
             if item.get_desktop_file_path():
@@ -286,24 +312,31 @@ class MenuEditor(object):
     def setVisible(self, item, visible):
         dom = self.dom
         if isinstance(item, GMenu.TreeEntry):
-            menu_xml = self.getXmlMenu(self.getPath(item.get_parent()), dom.documentElement, dom)
+            menu_xml = self.getXmlMenu(
+                self.getPath(item.get_parent()), dom.documentElement, dom)
             if visible:
-                self.addXmlFilename(menu_xml, dom, item.get_desktop_file_id(), 'Include')
+                self.addXmlFilename(
+                    menu_xml, dom, item.get_desktop_file_id(), 'Include')
                 self.writeItem(item, NoDisplay=False)
             else:
-                self.addXmlFilename(menu_xml, dom, item.get_desktop_file_id(), 'Exclude')
-            self.addXmlTextElement(menu_xml, 'AppDir', util.getUserItemPath(), dom)
+                self.addXmlFilename(
+                    menu_xml, dom, item.get_desktop_file_id(), 'Exclude')
+            self.addXmlTextElement(
+                menu_xml, 'AppDir', util.getUserItemPath(), dom)
         elif isinstance(item, GMenu.TreeDirectory):
             item_iter = item.iter()
-            first_child_type = item_iter.next()
-            #don't mess with it if it's empty
+            first_child_type = next(item_iter)
+            # don't mess with it if it's empty
             if first_child_type == GMenu.TreeItemType.INVALID:
                 return
-            menu_xml = self.getXmlMenu(self.getPath(item), dom.documentElement, dom)
-            for node in self.getXmlNodesByName(['Deleted', 'NotDeleted'], menu_xml):
+            menu_xml = self.getXmlMenu(
+                self.getPath(item), dom.documentElement, dom)
+            for node in self.getXmlNodesByName(['Deleted', 'NotDeleted'],
+                                                menu_xml):
                 node.parentNode.removeChild(node)
             self.writeMenu(item, NoDisplay=not visible)
-            self.addXmlTextElement(menu_xml, 'DirectoryDir', util.getUserDirectoryPath(), dom)
+            self.addXmlTextElement(
+                menu_xml, 'DirectoryDir', util.getUserDirectoryPath(), dom)
         self.save()
 
     def createItem(self, parent, before, after, **kwargs):
@@ -321,8 +354,11 @@ class MenuEditor(object):
         menu_id = file_id.rsplit('.', 1)[0]
         parent = self.findMenu(parent_id)
         dom = self.dom
-        self.addXmlDefaultLayout(self.getXmlMenu(self.getPath(parent), dom.documentElement, dom) , dom)
-        menu_xml = self.getXmlMenu(self.getPath(parent) + [menu_id], dom.documentElement, dom)
+        self.addXmlDefaultLayout(
+            self.getXmlMenu(
+                self.getPath(parent), dom.documentElement, dom), dom)
+        menu_xml = self.getXmlMenu(
+            self.getPath(parent) + [menu_id], dom.documentElement, dom)
         self.addXmlTextElement(menu_xml, 'Directory', file_id, dom)
         self.positionItem(parent, ('Menu', menu_id), before, after)
         self.save()
@@ -331,32 +367,44 @@ class MenuEditor(object):
         self.positionItem(parent, ('Separator',), before, after)
         self.save()
 
-    def editItem(self, item, icon, name, comment, command, use_term, parent=None, final=True):
-        #if nothing changed don't make a user copy
+    def editItem(self, item, icon, name, comment, command, use_term,
+                 parent=None, final=True):
+        # if nothing changed don't make a user copy
         app_info = item.get_app_info()
-        if icon == app_info.get_icon() and name == app_info.get_display_name() and comment == item.get_comment() and command == item.get_exec() and use_term == item.get_launch_in_terminal():
+        if icon == app_info.get_icon() and \
+            name == app_info.get_display_name() and \
+            comment == item.get_comment() and \
+            command == item.get_exec() and \
+            use_term == item.get_launch_in_terminal():
             return
-        #hack, item.get_parent() seems to fail a lot
+        # hack, item.get_parent() seems to fail a lot
         if not parent:
             parent = item.get_parent()
-        self.writeItem(item, Icon=icon, Name=name, Comment=comment, Exec=command, Terminal=use_term)
+        self.writeItem(item, Icon=icon, Name=name,
+                       Comment=comment, Exec=command, Terminal=use_term)
         if final:
             dom = self.dom
-            menu_xml = self.getXmlMenu(self.getPath(parent), dom.documentElement, dom)
-            self.addXmlTextElement(menu_xml, 'AppDir', util.getUserItemPath(), dom)
+            menu_xml = self.getXmlMenu(
+                self.getPath(parent), dom.documentElement, dom)
+            self.addXmlTextElement(
+                menu_xml, 'AppDir', util.getUserItemPath(), dom)
         self.save()
 
     def editMenu(self, menu, icon, name, comment, final=True):
-        #if nothing changed don't make a user copy
-        if icon == menu.get_icon() and name == menu.get_name() and comment == menu.get_comment():
+        # if nothing changed don't make a user copy
+        if icon == menu.get_icon() and \
+            name == menu.get_name() and \
+            comment == menu.get_comment():
             return
-        #we don't use this, we just need to make sure the <Menu> exists
-        #otherwise changes won't show up
+        # we don't use this, we just need to make sure the <Menu> exists
+        # otherwise changes won't show up
         dom = self.dom
-        menu_xml = self.getXmlMenu(self.getPath(menu), dom.documentElement, dom)
+        menu_xml = self.getXmlMenu(
+            self.getPath(menu), dom.documentElement, dom)
         self.writeMenu(menu, Icon=icon, Name=name, Comment=comment)
         if final:
-            self.addXmlTextElement(menu_xml, 'DirectoryDir', util.getUserDirectoryPath(), dom)
+            self.addXmlTextElement(
+                menu_xml, 'DirectoryDir', util.getUserDirectoryPath(), dom)
         self.save()
 
     def copyItem(self, item, new_parent, before=None, after=None):
@@ -368,7 +416,8 @@ class MenuEditor(object):
         util.fillKeyFile(keyfile, dict(Categories=[], Hidden=False))
 
         app_info = item.get_app_info()
-        file_id = util.getUniqueFileId(app_info.get_name().replace(os.sep, '-'), '.desktop')
+        file_id = util.getUniqueFileId(
+            app_info.get_name().replace(os.sep, '-'), '.desktop')
         out_path = os.path.join(util.getUserItemPath(), file_id)
 
         contents, length = keyfile.to_data()
@@ -387,7 +436,8 @@ class MenuEditor(object):
 
     def deleteMenu(self, menu):
         dom = self.dom
-        menu_xml = self.getXmlMenu(self.getPath(menu), dom.documentElement, dom)
+        menu_xml = self.getXmlMenu(
+            self.getPath(menu), dom.documentElement, dom)
         self.addDeleted(menu_xml, dom)
         self.save()
 
@@ -397,7 +447,8 @@ class MenuEditor(object):
         contents.remove(item)
         layout = self.createLayout(contents)
         dom = self.dom
-        menu_xml = self.getXmlMenu(self.getPath(parent), dom.documentElement, dom)
+        menu_xml = self.getXmlMenu(
+            self.getPath(parent), dom.documentElement, dom)
         self.addXmlLayout(menu_xml, layout, dom)
         self.save()
 
@@ -409,7 +460,7 @@ class MenuEditor(object):
             return parent
 
         item_iter = parent.iter()
-        item_type = item_iter.next()
+        item_type = next(item_iter)
         while item_type != GMenu.TreeItemType.INVALID:
             if item_type == GMenu.TreeItemType.DIRECTORY:
                 item = item_iter.get_directory()
@@ -418,7 +469,7 @@ class MenuEditor(object):
                 menu = self.findMenu(menu_id, item)
                 if menu is not None:
                     return menu
-            item_type = item_iter.next()
+            item_type = next(item_iter)
 
     def isVisible(self, item):
         if isinstance(item, GMenu.TreeEntry):
@@ -471,15 +522,17 @@ class MenuEditor(object):
         node.appendChild(text)
         return element.appendChild(node)
 
-    def addXmlFilename(self, element, dom, filename, type = 'Include'):
+    def addXmlFilename(self, element, dom, filename, type='Include'):
         # remove old filenames
         for node in self.getXmlNodesByName(['Include', 'Exclude'], element):
-            if node.childNodes[0].nodeName == 'Filename' and node.childNodes[0].childNodes[0].nodeValue == filename:
+            if node.childNodes[0].nodeName == 'Filename' and \
+                node.childNodes[0].childNodes[0].nodeValue == filename:
                 element.removeChild(node)
 
         # add new filename
         node = dom.createElement(type)
-        node.appendChild(self.addXmlTextElement(node, 'Filename', filename, dom))
+        node.appendChild(
+            self.addXmlTextElement(node, 'Filename', filename, dom))
         return element.appendChild(node)
 
     def addDeleted(self, element, dom):
@@ -509,7 +562,9 @@ class MenuEditor(object):
         if item is not None:
             file_id = item.get_desktop_file_id()
         else:
-            file_id = util.getUniqueFileId(keyfile.get_string(GLib.KEY_FILE_DESKTOP_GROUP, 'Name'), '.desktop')
+            file_id = util.getUniqueFileId(
+                keyfile.get_string(GLib.KEY_FILE_DESKTOP_GROUP, 'Name'),
+                    '.desktop')
 
         contents, length = keyfile.to_data()
 
@@ -554,7 +609,7 @@ class MenuEditor(object):
             node = dom.createElement('Move')
             node.appendChild(self.addXmlTextElement(node, 'Old', old, dom))
             node.appendChild(self.addXmlTextElement(node, 'New', new, dom))
-            #are parsed in reverse order, need to put at the beginning
+            # are parsed in reverse order, need to put at the beginning
             return element.insertBefore(node, element.firstChild)
 
     def addXmlLayout(self, element, layout, dom):
@@ -604,7 +659,8 @@ class MenuEditor(object):
         return layout
 
     def addItem(self, parent, file_id, dom):
-        xml_parent = self.getXmlMenu(self.getPath(parent), dom.documentElement, dom)
+        xml_parent = self.getXmlMenu(
+            self.getPath(parent), dom.documentElement, dom)
         self.addXmlFilename(xml_parent, dom, file_id, 'Include')
 
     def moveItem(self, parent, item, before=None, after=None):
@@ -620,7 +676,7 @@ class MenuEditor(object):
         else:
             # append the item to the list
             index = len(contents)
-        #if this is a move to a new parent you can't remove the item
+        # if this is a move to a new parent you can't remove the item
         if item in contents:
             # decrease the destination index, if we shorten the list
             if (before and (contents.index(item) < index)) \
@@ -630,7 +686,8 @@ class MenuEditor(object):
         contents.insert(index, item)
         layout = self.createLayout(contents)
         dom = self.dom
-        menu_xml = self.getXmlMenu(self.getPath(parent), dom.documentElement, dom)
+        menu_xml = self.getXmlMenu(
+            self.getPath(parent), dom.documentElement, dom)
         self.addXmlLayout(menu_xml, layout, dom)
 
     def undoMoves(self, element, old, new, dom):
@@ -638,16 +695,16 @@ class MenuEditor(object):
         matches = []
         original_old = old
         final_old = old
-        #get all <Move> elements
+        # get all <Move> elements
         for node in self.getXmlNodesByName(['Move'], element):
             nodes.insert(0, node)
-        #if the <New> matches our old parent we've found a stage to undo
+        # if the <New> matches our old parent we've found a stage to undo
         for node in nodes:
             xml_old = node.getElementsByTagName('Old')[0]
             xml_new = node.getElementsByTagName('New')[0]
             if xml_new.childNodes[0].nodeValue == old:
                 matches.append(node)
-                #we should end up with this path when completed
+                # we should end up with this path when completed
                 final_old = xml_old.childNodes[0].nodeValue
         #undoing <Move>s
         for node in matches:
@@ -663,22 +720,31 @@ class MenuEditor(object):
                         name_node = node.getElementsByTagName('Name')[0]
                         name = name_node.childNodes[0].nodeValue
                         if name == os.path.split(new)[1]:
-                            #copy app and dir directory info from old <Menu>
-                            root_path = dom.getElementsByTagName('Menu')[0].getElementsByTagName('Name')[0].childNodes[0].nodeValue
-                            xml_menu = self.getXmlMenu(root_path + '/' + new, dom.documentElement, dom)
+                            # copy app and dir directory info from old <Menu>
+                            root_path = dom.getElementsByTagName(
+                                'Menu')[0].getElementsByTagName(
+                                    'Name')[0].childNodes[0].nodeValue
+                            xml_menu = self.getXmlMenu(
+                                root_path + '/' + new, dom.documentElement, dom)
                             for app_dir in node.getElementsByTagName('AppDir'):
                                 xml_menu.appendChild(app_dir)
-                            for dir_dir in node.getElementsByTagName('DirectoryDir'):
+                            for dir_dir in node.getElementsByTagName(
+                                    'DirectoryDir'):
                                 xml_menu.appendChild(dir_dir)
                             parent = node.parentNode
                             parent.removeChild(node)
                     node = dom.createElement('Move')
-                    node.appendChild(self.addXmlTextElement(node, 'Old', xml_old.childNodes[0].nodeValue, dom))
-                    node.appendChild(self.addXmlTextElement(node, 'New', os.path.join(new, path[1]), dom))
+                    node.appendChild(
+                        self.addXmlTextElement(node, 'Old',
+                            xml_old.childNodes[0].nodeValue, dom))
+                    node.appendChild(
+                        self.addXmlTextElement(node, 'New',
+                            os.path.join(new, path[1]), dom))
                     element.appendChild(node)
             if final_old == new:
                 return True
             node = dom.createElement('Move')
-            node.appendChild(self.addXmlTextElement(node, 'Old', final_old, dom))
+            node.appendChild(
+                self.addXmlTextElement(node, 'Old', final_old, dom))
             node.appendChild(self.addXmlTextElement(node, 'New', new, dom))
             return element.appendChild(node)
