@@ -527,7 +527,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <child>
-                              <object class="GtkTreeView" id="quicklists_treeview">
+                              <object class="GtkTreeView" id="actions_treeview">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="model">liststore5</property>
@@ -539,6 +539,9 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                     <property name="title" translatable="yes">Show</property>
                                     <child>
                                       <object class="GtkCellRendererToggle" id="cellrenderertoggle1"/>
+                                      <attributes>
+                                        <attribute name="active">0</attribute>
+                                      </attributes>
                                     </child>
                                   </object>
                                 </child>
@@ -548,6 +551,9 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                     <property name="expand">True</property>
                                     <child>
                                       <object class="GtkCellRendererText" id="cellrenderertext1"/>
+                                      <attributes>
+                                        <attribute name="text">1</attribute>
+                                      </attributes>
                                     </child>
                                   </object>
                                 </child>
@@ -556,6 +562,9 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                     <property name="title" translatable="yes">Command</property>
                                     <child>
                                       <object class="GtkCellRendererText" id="cellrenderertext2"/>
+                                      <attributes>
+                                        <attribute name="text">2</attribute>
+                                      </attributes>
                                     </child>
                                   </object>
                                 </child>
@@ -903,7 +912,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
             </child>
             <child>
               <object class="GtkRadioButton" id="quicklists_button">
-                <property name="label" translatable="yes">Quicklists</property>
+                <property name="label" translatable="yes">Actions</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
@@ -1075,7 +1084,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
   <object class="GtkListStore" id="liststore5">
     <columns>
       <!-- column-name quicklist_show_col -->
-      <column type="gchararray"/>
+      <column type="gboolean"/>
       <!-- column-name quicklist_name_col -->
       <column type="gchararray"/>
       <!-- column-name quicklist_command_col -->

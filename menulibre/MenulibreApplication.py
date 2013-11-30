@@ -260,7 +260,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     self.set_editor_keywords(entry['Keywords'])
                     self.set_editor_startupwmclass(entry['StartupWMClass'])
                     self.set_editor_categories(entry['Categories'])
-                    #print entry.get_actions()
+                    self.set_editor_actions(entry.get_actions())
                 else:
                     for widget in self.directory_hide_widgets:
                         widget.hide()
@@ -351,6 +351,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 except KeyError:
                     description = re.sub('(?!^)([A-Z]+)', r' \1', entry)
                 model.append([entry, description])
+                
+    def set_editor_actions(self, action_groups):
+        model = self.actions_treeview.get_model()
+        model.clear()
+        for name, displayed, command, show in action_groups:
+            model.append([show, displayed, command])
         
     def set_view(self, view_mode):
         if not view_mode:
@@ -384,6 +390,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.editor_keywords = builder.get_object('application_editor_keywords')
         self.editor_startupwmclass = builder.get_object('application_editor_startupwmclass')
         self.categories_treeview = builder.get_object('categories_treeview')
+        self.actions_treeview = builder.get_object('actions_treeview')
         
         self.view_container.show_all()
         

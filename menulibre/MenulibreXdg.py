@@ -100,6 +100,7 @@ class MenulibreDesktopEntry:
                     pass
                 
     def get_property(self, category, prop_name, locale_str=default_locale):
+        print 'get_property, %s, %s' % (category, prop_name)
         prop = self.get_named_property(category, prop_name, locale_str)
         if prop in ['true', 'false']:
             return prop == 'true'
@@ -117,19 +118,6 @@ class MenulibreDesktopEntry:
                         return self.properties[category]["%s[%s]" % (prop_name, locale_str.split('_')[0])]
                     except KeyError:
                         pass
-            if prop_name in ['Name', 'Comment'] and self.filename != None:
-                entry = xdg.DesktopEntry.DesktopEntry(self.filename)
-                if prop_name == 'Name': 
-                    value = entry.getName()
-                else: 
-                    value = entry.getComment()
-                try:
-                    return value.encode('utf-8')
-                except UnicodeDecodeError:
-                    try:
-                        return str(value)
-                    except UnicodeDecodeError:
-                        return self.properties[category][prop_name]
         try:
             return self.properties[category][prop_name]
         except KeyError:
