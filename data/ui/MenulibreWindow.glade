@@ -418,6 +418,9 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                     <property name="title" translatable="yes">Category</property>
                                     <child>
                                       <object class="GtkCellRendererText" id="cellrenderertext3"/>
+                                      <attributes>
+                                        <attribute name="text">0</attribute>
+                                      </attributes>
                                     </child>
                                   </object>
                                 </child>
@@ -426,6 +429,9 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                     <property name="title" translatable="yes">Description</property>
                                     <child>
                                       <object class="GtkCellRendererText" id="cellrenderertext4"/>
+                                      <attributes>
+                                        <attribute name="text">1</attribute>
+                                      </attributes>
                                     </child>
                                   </object>
                                 </child>

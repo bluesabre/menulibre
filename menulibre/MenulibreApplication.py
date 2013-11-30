@@ -7,12 +7,47 @@ from gi.repository import Gtk, Gio, GLib, GObject, Pango
 
 import sys
 import os
+import re
 
 import MenuEditor
 import MenulibreXdg
 from enums import Views, MenuItemTypes
 
 session = os.getenv("DESKTOP_SESSION")
+
+category_descriptions = {
+# Standard Items
+'AudioVideo': _('Multimedia'), 
+'Development': _('Development'),
+'Education': _('Education'),
+'Game': _('Games'),
+'Graphics': _('Graphics'),
+'Network': _('Internet'),
+'Office': _('Office'),
+'Settings': _('Settings'),
+'System': _('System'),
+'Utility': _('Accessories'),
+'WINE': _('WINE'),
+# Desktop Environment
+'DesktopSettings': _('Desktop configuration'),
+'PersonalSettings': _('User configuration'),
+'HardwareSettings': _('Hardware configuration'),
+# GNOME Specific
+'GNOME': _('GNOME application'),
+'GTK': _('GTK+ application'), 
+'X-GNOME-PersonalSettings': _('GNOME user configuration'),
+'X-GNOME-HardwareSettings': _('GNOME hardware configuration'),
+'X-GNOME-SystemSettings': _('GNOME system configuration'),
+'X-GNOME-Settings-Panel': _('GNOME system configuration'),
+# Xfce Specific
+'XFCE': _('Xfce menu item'),
+'X-XFCE': _('Xfce menu item'),
+'X-Xfce-Toplevel': _('Xfce toplevel menu item'),
+'X-XFCE-PersonalSettings': _('Xfce user configuration'),
+'X-XFCE-HardwareSettings': _('Xfce hardware configuration'),
+'X-XFCE-SettingsDialog': _('Xfce system configuration'),
+'X-XFCE-SystemSettings': _('Xfce system configuration'),
+}
 
 def set_entry_text(widget, text):
     if text is None:
@@ -224,6 +259,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     self.set_editor_mimetypes(entry['Mimetype'])
                     self.set_editor_keywords(entry['Keywords'])
                     self.set_editor_startupwmclass(entry['StartupWMClass'])
+                    self.set_editor_categories(entry['Categories'])
+                    #print entry.get_actions()
                 else:
                     for widget in self.directory_hide_widgets:
                         widget.hide()
@@ -301,6 +338,20 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def set_editor_startupwmclass(self, text):
         set_entry_text(self.editor_startupwmclass, text)
         
+    def set_editor_categories(self, entries_string):
+        entries = entries_string.split(';')
+        entries.sort()
+        model = self.categories_treeview.get_model()
+        model.clear()
+        for entry in entries:
+            entry = entry.strip()
+            if len(entry) > 0:
+                try:
+                    description = category_descriptions[entry]
+                except KeyError:
+                    description = re.sub('(?!^)([A-Z]+)', r' \1', entry)
+                model.append([entry, description])
+        
     def set_view(self, view_mode):
         if not view_mode:
             if session in ['gnome', 'ubuntu', 'ubuntu-2d']:
@@ -332,6 +383,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.editor_mimetypes = builder.get_object('application_editor_mimetypes')
         self.editor_keywords = builder.get_object('application_editor_keywords')
         self.editor_startupwmclass = builder.get_object('application_editor_startupwmclass')
+        self.categories_treeview = builder.get_object('categories_treeview')
         
         self.view_container.show_all()
         
