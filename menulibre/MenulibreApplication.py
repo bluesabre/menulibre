@@ -12,8 +12,6 @@ from .enums import MenuItemTypes, Views
 locale.textdomain('menulibre')
 
 
-
-
 session = os.getenv("DESKTOP_SESSION")
 
 category_descriptions = {
@@ -219,6 +217,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.set_view(Views.AUTO)
 
+        self.history_undo = list()
+        self.history_redo = list()
+
     def on_settings_group_changed(self, widget, user_data=None):
         if widget.get_active():
             self.settings_notebook.set_current_page(user_data)
@@ -423,7 +424,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.directory_hide_widgets.append(builder.get_object(widget_name))
 
         if view_mode == Views.CLASSIC:
-            treeview = builder.get_object('treeview1')
+            treeview = builder.get_object('classic_view_treeview')
 
             col = Gtk.TreeViewColumn("Item")
             col_cell_text = Gtk.CellRendererText()
@@ -442,6 +443,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             treeview.connect("cursor-changed",
                              self.on_treeview_cursor_changed, None)
 
+            move_up = builder.get_object('classic_view_move_up')
+            move_up.connect('clicked', self.move_iter, (treeview, -1))
+            move_down = builder.get_object('classic_view_move_down')
+            move_down.connect('clicked', self.move_iter, (treeview, 1))
+
             treeview.show_all()
 
         if view_mode == Views.MODERN:
@@ -453,6 +459,58 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             iconview.set_pixbuf_column(4)
 
             iconview.show_all()
+
+    def change_iter_parent(self, treeview, treemodel, treeiter,
+                                 new_parent, position):
+        # positition: 0=beginning, negative count from end
+        row_data = treemodel[treeiter][:]
+        n_children = treemodel.iter_n_children(new_parent)
+        if position == 0:
+            before_child = treemodel.iter_nth_child(new_parent, 0)
+            new_iter = treemodel.insert_before(new_parent, before_child,
+                                               row_data)
+        if position != 0:
+            if position > 0:
+                after_child = treemodel.iter_nth_child(new_parent, position)
+            else:
+                after_child = treemodel.iter_nth_child(new_parent,
+                                                       n_children + position)
+            new_iter = treemodel.insert_after(new_parent, after_child,
+                                              row_data)
+        treemodel.remove(treeiter)
+        path = treemodel.get_path(new_iter)
+        treeview.set_cursor(path)
+
+    def move_iter(self, widget, user_data):
+        treeview, relative_position = user_data
+        model = treeview.get_model()
+        sel = treeview.get_selection().get_selected()
+        if sel:
+            selected_iter = sel[1]
+            selected_type = model[selected_iter][2]
+            if relative_position < 0:
+                previous_iter = model.iter_previous(selected_iter)
+                if previous_iter:
+                    path = model.get_path(previous_iter)
+                    if selected_type != MenuItemTypes.DIRECTORY and \
+                            treeview.row_expanded(path):
+                        self.change_iter_parent(treeview, model, selected_iter,
+                                                previous_iter,
+                                                relative_position)
+                    else:
+                        model.move_before(selected_iter, previous_iter)
+            else:
+                next_iter = model.iter_next(selected_iter)
+                if next_iter:
+                    path = model.get_path(next_iter)
+                    if selected_type != MenuItemTypes.DIRECTORY and \
+                            treeview.row_expanded(path):
+                        self.change_iter_parent(treeview, model, selected_iter,
+                                                next_iter,
+                                                relative_position-1)
+                    else:
+                        model.move_after(selected_iter, next_iter)
+
 
     def on_add_launcher_cb(self, widget):
         print ('add launcher')
