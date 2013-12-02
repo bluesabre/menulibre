@@ -479,6 +479,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         sel = treeview.get_selection().get_selected()
         if sel:
             selected_iter = sel[1]
+            selected_type = model[selected_iter][2]
 
             # Move the row up if relative_position < 0
             if relative_position < 0:
@@ -488,8 +489,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             if sibling:
                 path = model.get_path(sibling)
-                # If the neighboring row is expanded, prepend/append to it.
-                if treeview.row_expanded(path):
+                # If the selected row is not a directory and
+                # the neighboring row is expanded, prepend/append to it.
+                if selected_type != MenuItemTypes.DIRECTORY and \
+                        treeview.row_expanded(path):
                     self.move_iter_down(treeview, selected_iter,
                                         sibling, relative_position)
                 else:
