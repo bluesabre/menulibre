@@ -461,12 +461,26 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             iconview.show_all()
 
     def move_iter(self, widget, user_data):
+        """Move the currently selected row up or down. If the neighboring row
+        is expanded, make the selected row a child of the neighbor row.
+
+        Keyword arguments:
+        widget -- the triggering GtkWidget
+        user_data -- list-packed parameters:
+            treeview -- the GtkTreeview being modified
+            relative_position -- 1 or -1, determines moving up or down
+
+        """
+        # Unpack the user data
         treeview, relative_position = user_data
+
+        # Get the current selected row
         model = treeview.get_model()
         sel = treeview.get_selection().get_selected()
         if sel:
             selected_iter = sel[1]
 
+            # Move the row up if relative_position < 0
             if relative_position < 0:
                 sibling = model.iter_previous(selected_iter)
             else:
@@ -474,20 +488,23 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             if sibling:
                 path = model.get_path(sibling)
+                # If the neighboring row is expanded, prepend/append to it.
                 if treeview.row_expanded(path):
                     self.move_iter_down(treeview, selected_iter,
                                         sibling, relative_position)
                 else:
+                    # Otherwise, just move down/up
                     if relative_position < 0:
                         model.move_before(selected_iter, sibling)
                     else:
                         model.move_after(selected_iter, sibling)
             else:
+                # If there is no neighboring row, move up a level.
                 self.move_iter_up(treeview, selected_iter,
                                       relative_position)
 
     def move_iter_up(self, treeview, treeiter, relative_position):
-        # Move TreeIter up a level (make sibling of parent)
+        """Move the specified iter up one level."""
         model = treeview.get_model()
         sibling = model.iter_parent(treeiter)
         if sibling is not None:
@@ -507,7 +524,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def move_iter_down(self, treeview, treeiter, parent_iter,
                              relative_position):
-        # Move TreeIter down a level (make sibling of child)
+        """Move the specified iter down one level."""
         model = treeview.get_model()
         row_data = model[treeiter][:]
         if relative_position < 0:
