@@ -499,6 +499,18 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                                 relative_position)
                     else:
                         model.move_before(selected_iter, previous_iter)
+                else:
+                    # Check if there is a parent node above this.
+                    before_child = model.iter_parent(selected_iter)
+                    if before_child is not None:
+                        parent_iter = model.iter_parent(before_child)
+                        row_data = model[selected_iter][:]
+                        new_iter = model.insert_before(parent_iter,
+                                                       before_child,
+                                                       row_data)
+                        model.remove(selected_iter)
+                        path = model.get_path(new_iter)
+                        treeview.set_cursor(path)
             else:
                 next_iter = model.iter_next(selected_iter)
                 if next_iter:
@@ -507,9 +519,21 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             treeview.row_expanded(path):
                         self.change_iter_parent(treeview, model, selected_iter,
                                                 next_iter,
-                                                relative_position-1)
+                                                relative_position - 1)
                     else:
                         model.move_after(selected_iter, next_iter)
+                else:
+                    # Check if there is a parent node below this.
+                    after_child = model.iter_parent(selected_iter)
+                    if after_child is not None:
+                        parent_iter = model.iter_parent(after_child)
+                        row_data = model[selected_iter][:]
+                        new_iter = model.insert_after(parent_iter,
+                                                       after_child,
+                                                       row_data)
+                        model.remove(selected_iter)
+                        path = model.get_path(new_iter)
+                        treeview.set_cursor(path)
 
 
     def on_add_launcher_cb(self, widget):
