@@ -460,27 +460,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             iconview.show_all()
 
-    def change_iter_parent(self, treeview, treemodel, treeiter,
-                                 new_parent, position):
-        # positition: 0=beginning, negative count from end
-        row_data = treemodel[treeiter][:]
-        n_children = treemodel.iter_n_children(new_parent)
-        if position == 0:
-            before_child = treemodel.iter_nth_child(new_parent, 0)
-            new_iter = treemodel.insert_before(new_parent, before_child,
-                                               row_data)
-        if position != 0:
-            if position > 0:
-                after_child = treemodel.iter_nth_child(new_parent, position)
-            else:
-                after_child = treemodel.iter_nth_child(new_parent,
-                                                       n_children + position)
-            new_iter = treemodel.insert_after(new_parent, after_child,
-                                              row_data)
-        treemodel.remove(treeiter)
-        path = treemodel.get_path(new_iter)
-        treeview.set_cursor(path)
-
     def move_iter(self, widget, user_data):
         treeview, relative_position = user_data
         model = treeview.get_model()
@@ -494,47 +473,61 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     path = model.get_path(previous_iter)
                     if selected_type != MenuItemTypes.DIRECTORY and \
                             treeview.row_expanded(path):
-                        self.change_iter_parent(treeview, model, selected_iter,
-                                                previous_iter,
-                                                relative_position)
+                        self.move_iter_down(treeview, selected_iter,
+                                            previous_iter, relative_position)
                     else:
                         model.move_before(selected_iter, previous_iter)
                 else:
-                    # Check if there is a parent node above this.
-                    before_child = model.iter_parent(selected_iter)
-                    if before_child is not None:
-                        parent_iter = model.iter_parent(before_child)
-                        row_data = model[selected_iter][:]
-                        new_iter = model.insert_before(parent_iter,
-                                                       before_child,
-                                                       row_data)
-                        model.remove(selected_iter)
-                        path = model.get_path(new_iter)
-                        treeview.set_cursor(path)
+                    self.move_iter_up(treeview, selected_iter,
+                                      relative_position)
             else:
                 next_iter = model.iter_next(selected_iter)
                 if next_iter:
                     path = model.get_path(next_iter)
                     if selected_type != MenuItemTypes.DIRECTORY and \
                             treeview.row_expanded(path):
-                        self.change_iter_parent(treeview, model, selected_iter,
-                                                next_iter,
-                                                relative_position - 1)
+                        self.move_iter_down(treeview, selected_iter, next_iter,
+                                            relative_position)
                     else:
                         model.move_after(selected_iter, next_iter)
                 else:
-                    # Check if there is a parent node below this.
-                    after_child = model.iter_parent(selected_iter)
-                    if after_child is not None:
-                        parent_iter = model.iter_parent(after_child)
-                        row_data = model[selected_iter][:]
-                        new_iter = model.insert_after(parent_iter,
-                                                       after_child,
-                                                       row_data)
-                        model.remove(selected_iter)
-                        path = model.get_path(new_iter)
-                        treeview.set_cursor(path)
+                    self.move_iter_up(treeview, selected_iter,
+                                      relative_position)
 
+    def move_iter_up(self, treeview, treeiter, relative_position):
+        # Move TreeIter up a level (make sibling of parent)
+        model = treeview.get_model()
+        sibling = model.iter_parent(treeiter)
+        if sibling is not None:
+            parent = model.iter_parent(sibling)
+            row_data = model[treeiter][:]
+            if relative_position < 0:
+                new_iter = model.insert_before(parent,
+                                               sibling,
+                                               row_data)
+            else:
+                new_iter = model.insert_after(parent,
+                                              sibling,
+                                              row_data)
+            model.remove(treeiter)
+            path = model.get_path(new_iter)
+            treeview.set_cursor(path)
+
+    def move_iter_down(self, treeview, treeiter, parent_iter,
+                             relative_position):
+        # Move TreeIter down a level (make sibling of child)
+        model = treeview.get_model()
+        row_data = model[treeiter][:]
+        if relative_position < 0:
+            n_children = model.iter_n_children(parent_iter)
+            sibling = model.iter_nth_child(parent_iter, n_children - 1)
+            new_iter = model.insert_after(parent_iter, sibling, row_data)
+        else:
+            sibling = model.iter_nth_child(parent_iter, 0)
+            new_iter = model.insert_before(parent_iter, sibling, row_data)
+        model.remove(treeiter)
+        path = model.get_path(new_iter)
+        treeview.set_cursor(path)
 
     def on_add_launcher_cb(self, widget):
         print ('add launcher')
