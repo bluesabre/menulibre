@@ -466,32 +466,24 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         sel = treeview.get_selection().get_selected()
         if sel:
             selected_iter = sel[1]
-            selected_type = model[selected_iter][2]
+
             if relative_position < 0:
-                previous_iter = model.iter_previous(selected_iter)
-                if previous_iter:
-                    path = model.get_path(previous_iter)
-                    if selected_type != MenuItemTypes.DIRECTORY and \
-                            treeview.row_expanded(path):
-                        self.move_iter_down(treeview, selected_iter,
-                                            previous_iter, relative_position)
-                    else:
-                        model.move_before(selected_iter, previous_iter)
-                else:
-                    self.move_iter_up(treeview, selected_iter,
-                                      relative_position)
+                sibling = model.iter_previous(selected_iter)
             else:
-                next_iter = model.iter_next(selected_iter)
-                if next_iter:
-                    path = model.get_path(next_iter)
-                    if selected_type != MenuItemTypes.DIRECTORY and \
-                            treeview.row_expanded(path):
-                        self.move_iter_down(treeview, selected_iter, next_iter,
-                                            relative_position)
-                    else:
-                        model.move_after(selected_iter, next_iter)
+                sibling = model.iter_next(selected_iter)
+
+            if sibling:
+                path = model.get_path(sibling)
+                if treeview.row_expanded(path):
+                    self.move_iter_down(treeview, selected_iter,
+                                        sibling, relative_position)
                 else:
-                    self.move_iter_up(treeview, selected_iter,
+                    if relative_position < 0:
+                        model.move_before(selected_iter, sibling)
+                    else:
+                        model.move_after(selected_iter, sibling)
+            else:
+                self.move_iter_up(treeview, selected_iter,
                                       relative_position)
 
     def move_iter_up(self, treeview, treeiter, relative_position):
