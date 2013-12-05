@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-04-17 20:50-0400\n"
-"PO-Revision-Date: 2012-11-29 13:43+0000\n"
-"Last-Translator: gogo <trebelnik2@gmail.com>\n"
+"PO-Revision-Date: 2013-12-04 05:59+0000\n"
+"Last-Translator: freedomrun <Unknown>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-05-05 05:36+0000\n"
-"X-Generator: Launchpad (build 16598)\n"
+"X-Launchpad-Export-Date: 2013-12-05 06:07+0000\n"
+"X-Generator: Launchpad (build 16863)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
@@ -135,11 +135,11 @@ msgstr "Aplikacija"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
 msgid "Categories"
-msgstr ""
+msgstr "Kategorije"
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Applications"
-msgstr ""
+msgstr "Aplikacije"
 
 #: ../data/ui/MenulibreWindow.ui.h:32
 msgid "<b>No applications found.</b>"
@@ -151,7 +151,7 @@ msgstr "Probaj pretražiti sve."
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Search Failed"
-msgstr ""
+msgstr "Pretraživanje Neuspješno"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "<big><b>Application Name</b></big>"
@@ -195,15 +195,15 @@ msgstr "Naziv"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Add category..."
-msgstr ""
+msgstr "Dodaj kategoriju..."
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Remove category"
-msgstr ""
+msgstr "Ukloni kategoriju"
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Clear categories"
-msgstr ""
+msgstr "Očisti kategorije"
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "<b>Categories</b>"
@@ -219,11 +219,11 @@ msgstr "Prikaži"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Shortcut Name"
-msgstr ""
+msgstr "Ime prečice"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Displayed Name"
-msgstr ""
+msgstr "Prikazano Ime"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Quicklists"
@@ -255,15 +255,15 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Move Up"
-msgstr ""
+msgstr "Pomakni Gore"
 
 #: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Move Down"
-msgstr ""
+msgstr "Pomakni Dolje"
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Application Settings"
-msgstr ""
+msgstr "Postavke Aplikacije"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "<big><b>Remove Launcher?</b></big>"
@@ -313,7 +313,7 @@ msgstr "Ured"
 #: ../menulibre/MenulibreWindow.py:84 ../menulibre/MenulibreWindow.py:292
 #: ../menulibre/MenulibreWindow.py:1242
 msgid "Other"
-msgstr ""
+msgstr "Ostalo"
 
 #: ../menulibre/MenulibreWindow.py:85 ../menulibre/MenulibreWindow.py:295
 #: ../menulibre/MenulibreWindow.py:1244
@@ -337,7 +337,7 @@ msgstr "WINE"
 #: ../menulibre/MenulibreWindow.py:140 ../menulibre/MenulibreWindow.py:552
 #: ../menulibre/MenulibreWindow.py:575
 msgid "Search Applications"
-msgstr ""
+msgstr "Pretraži Aplikacije"
 
 #: ../menulibre/MenulibreWindow.py:251
 msgid "Image"
@@ -352,7 +352,7 @@ msgstr ""
 #: ../menulibre/MenulibreWindow.py:564
 #, python-format
 msgid "Search %s"
-msgstr ""
+msgstr "Pretraži %s"
 
 #: ../menulibre/MenulibreWindow.py:582
 #, python-format
@@ -381,19 +381,19 @@ msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:909
 msgid "NewShortcut"
-msgstr ""
+msgstr "NovaPrečica"
 
 #: ../menulibre/MenulibreWindow.py:911
 msgid "New Shortcut"
-msgstr ""
+msgstr "Nova Prečica"
 
 #: ../menulibre/MenulibreWindow.py:1248
 msgid "Unknown"
-msgstr ""
+msgstr "Nepoznato"
 
 #: ../menulibre/MenulibreWindow.py:1419 ../menulibre/MenulibreWindow.py:1509
 msgid "All Applications"
-msgstr ""
+msgstr "Sve Aplikacije"
 
 #: ../menulibre/MenulibreWindow.py:1448
 msgid "Add a new application launcher"
@@ -401,11 +401,11 @@ msgstr ""
 
 #: ../menulibre/MenulibreWindow.py:1779
 msgid "Search Results"
-msgstr ""
+msgstr "Rezultati Pretraživanja"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:1
 msgid "Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
-msgstr ""
+msgstr "Autorska prava (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:2
 msgid ""
@@ -431,7 +431,7 @@ msgstr ""
 #: ../menulibre_lib/MenulibreXdg.py:171
 #, python-format
 msgid "'%s' is not a .desktop file"
-msgstr ""
+msgstr "'%s' nije .desktop datoteka"
 
 #: ../menulibre_lib/MenulibreXdg.py:174
 msgid "Initialized without required parameters."
@@ -440,7 +440,7 @@ msgstr ""
 #: ../menulibre_lib/MenulibreXdg.py:183
 #, python-format
 msgid "'%s' is not a .directory file"
-msgstr ""
+msgstr "'%s' nije .directory datoteka"
 
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages (-vv debugs menulibre_lib also)"
