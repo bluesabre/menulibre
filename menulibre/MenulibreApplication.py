@@ -213,14 +213,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.delete_button = builder.get_object('toolbar_delete')
 
-        self.view_container = builder.get_object('menulibre_window_container')
-
         self.treestore = MenuEditor.get_treestore()
+        self.editor = builder.get_object('application_editor')
 
         self.widgets = dict()
-        self.view_container.add(builder.get_object('classic_view'))
-        self.editor_container = builder.get_object("classic_view_container")
-        self.editor_container.add(builder.get_object('application_editor'))
         
         # Pack the Icon GtkButton and GtkImage widgets
         self.widgets['Icon'] = (
@@ -254,8 +250,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.widgets['StartupWMClass'] = builder.get_object('entry_StartupWMClass')
         self.categories_treeview = builder.get_object('categories_treeview')
         self.actions_treeview = builder.get_object('actions_treeview')
-
-        self.view_container.show_all()
 
         self.settings_notebook = builder.get_object('settings_notebook')
 
@@ -310,12 +304,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             treestore, treeiter = sel.get_selected()
             item_type = treestore[treeiter][2]
             if item_type == MenuItemTypes.SEPARATOR:
-                self.editor_container.get_children()[0].hide()
+                self.editor.hide()
                 self.set_value('Name', _("Separator"))
                 self.set_value('Comment', "")
                 self.set_value('Filename', None)
             else:
-                self.editor_container.get_children()[0].show()
+                self.editor.show()
 
                 displayed_name = treestore[treeiter][0]
                 comment = treestore[treeiter][1]
@@ -326,7 +320,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 self.set_value('Filename', filename)
 
                 if item_type == MenuItemTypes.APPLICATION:
-                    self.editor_container.get_children()[0].show_all()
+                    self.editor.show_all()
                     entry = MenulibreXdg.MenulibreDesktopEntry(filename)
                     for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
                                 'NoDisplay', 'GenericName', 'TryExec',
