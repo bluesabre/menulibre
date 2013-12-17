@@ -9,6 +9,8 @@ from gi.repository import Gio, GObject, Gtk, Pango
 from . import MenuEditor, MenulibreXdg
 from .enums import MenuItemTypes, Views
 
+from xml.sax.saxutils import escape
+
 locale.textdomain('menulibre')
 
 
@@ -215,7 +217,85 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.treestore = MenuEditor.get_treestore()
 
-        self.set_view(Views.AUTO)
+        self.widgets = dict()
+        self.view_container.add(builder.get_object('classic_view'))
+        self.editor_container = builder.get_object("classic_view_container")
+        self.editor_container.add(builder.get_object('application_editor'))
+        
+        # Pack the Icon GtkButton and GtkImage widgets
+        self.widgets['Icon'] = (
+            builder.get_object('button_Icon'),
+            builder.get_object('image_Icon'))
+            
+        # Pack the Name GtkButton, GtkLabel, and GtkEntry widgets
+        self.widgets['Name'] = (
+            builder.get_object('button_Name'),
+            builder.get_object('label_Name'),
+            builder.get_object('entry_Name'))
+            
+        # Pack the Comment GtkButton, GtkLabel, and GtkEntry widgets
+        self.widgets['Comment'] = (
+            builder.get_object('button_Comment'),
+            builder.get_object('label_Comment'),
+            builder.get_object('entry_Comment'))
+
+        self.widgets['Filename'] = builder.get_object('label_Filename')
+        self.widgets['Exec'] = builder.get_object('entry_Exec')
+        self.widgets['Path'] = builder.get_object('entry_Path')
+        self.widgets['Terminal'] = builder.get_object('switch_Terminal')
+        self.widgets['StartupNotify'] = builder.get_object('switch_StartupNotify')
+        self.widgets['NoDisplay'] = builder.get_object('switch_NoDisplay')
+        self.widgets['GenericName'] = builder.get_object('entry_GenericName')
+        self.widgets['TryExec'] = builder.get_object('entry_TryExec')
+        self.widgets['OnlyShowIn'] = builder.get_object('entry_OnlyShowIn')
+        self.widgets['NotShowIn'] = builder.get_object('entry_NotShowIn')
+        self.widgets['Mimetype'] = builder.get_object('entry_Mimetype')
+        self.widgets['Keywords'] = builder.get_object('entry_Keywords')
+        self.widgets['StartupWMClass'] = builder.get_object('entry_StartupWMClass')
+        self.categories_treeview = builder.get_object('categories_treeview')
+        self.actions_treeview = builder.get_object('actions_treeview')
+
+        self.view_container.show_all()
+
+        self.settings_notebook = builder.get_object('settings_notebook')
+
+        buttons = ['categories_button', 'quicklists_button', 'advanced_button']
+        for i in range(len(buttons)):
+            button = builder.get_object(buttons[i])
+            button.connect("clicked", self.on_settings_group_changed, i)
+            button.activate()
+
+        self.directory_hide_widgets = []
+        for widget_name in ['details_frame', 'settings_frame',
+                            'terminal_label', 'switch_Terminal',
+                            'notify_label', 'switch_StartupNotify']:
+            self.directory_hide_widgets.append(builder.get_object(widget_name))
+
+        treeview = builder.get_object('classic_view_treeview')
+
+        col = Gtk.TreeViewColumn("Item")
+        col_cell_text = Gtk.CellRendererText()
+        col_cell_text.set_property("ellipsize", Pango.EllipsizeMode.END)
+        col_cell_img = Gtk.CellRendererPixbuf()
+        col_cell_img.set_property("stock-size", Gtk.IconSize.LARGE_TOOLBAR)
+        col.pack_start(col_cell_img, False)
+        col.pack_start(col_cell_text, True)
+        col.add_attribute(col_cell_text, "markup", 0)
+        col.set_cell_data_func(col_cell_img, self.icon_name_func, None)
+        treeview.set_tooltip_column(1)
+
+        treeview.append_column(col)
+        treeview.set_model(self.treestore)
+
+        treeview.connect("cursor-changed",
+                         self.on_treeview_cursor_changed, None)
+
+        move_up = builder.get_object('classic_view_move_up')
+        move_up.connect('clicked', self.move_iter, (treeview, -1))
+        move_down = builder.get_object('classic_view_move_down')
+        move_down.connect('clicked', self.move_iter, (treeview, 1))
+
+        treeview.show_all()
 
         self.history_undo = list()
         self.history_redo = list()
@@ -231,9 +311,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             item_type = treestore[treeiter][2]
             if item_type == MenuItemTypes.SEPARATOR:
                 self.editor_container.get_children()[0].hide()
-                self.set_editor_name(_("Separator"))
-                self.set_editor_comment("")
-                self.set_editor_filename(None)
+                self.set_value('Name', _("Separator"))
+                self.set_value('Comment', "")
+                self.set_value('Filename', None)
             else:
                 self.editor_container.get_children()[0].show()
 
@@ -241,26 +321,18 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 comment = treestore[treeiter][1]
                 filename = treestore[treeiter][5]
                 self.set_editor_image(treestore[treeiter][4])
-                self.set_editor_name(displayed_name)
-                self.set_editor_comment(comment)
-                self.set_editor_filename(filename)
+                self.set_value('Name', displayed_name)
+                self.set_value('Comment', comment)
+                self.set_value('Filename', filename)
 
                 if item_type == MenuItemTypes.APPLICATION:
                     self.editor_container.get_children()[0].show_all()
                     entry = MenulibreXdg.MenulibreDesktopEntry(filename)
-                    self.set_editor_exec(entry['Exec'])
-                    self.set_editor_path(entry['Path'])
-                    self.set_editor_terminal(entry['Terminal'])
-                    self.set_editor_notify(entry['StartupNotify'])
-                    self.set_editor_nodisplay(entry['NoDisplay'])
-                    self.set_editor_genericname(entry['GenericName'])
-                    self.set_editor_tryexec(entry['TryExec'])
-                    self.set_editor_onlyshowin(entry['OnlyShowIn'])
-                    self.set_editor_notshowin(entry['NotShowIn'])
-                    self.set_editor_mimetypes(entry['Mimetype'])
-                    self.set_editor_keywords(entry['Keywords'])
-                    self.set_editor_startupwmclass(entry['StartupWMClass'])
-                    self.set_editor_categories(entry['Categories'])
+                    for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
+                                'NoDisplay', 'GenericName', 'TryExec',
+                                'OnlyShowIn', 'NotShowIn', 'Mimetype',
+                                'Keywords', 'StartupWMClass', 'Categories']:
+                        self.set_value(key, entry[key])
                     self.set_editor_actions(entry.get_actions())
                 else:
                     for widget in self.directory_hide_widgets:
@@ -271,26 +343,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         pass
 
     def set_editor_image(self, gicon):
+        button, image = self.widgets['Icon']
         if gicon:
-            self.editor_image.set_from_gicon(
-                gicon, self.editor_image.get_preferred_height()[0])
+            image.set_from_gicon(
+                gicon, image.get_preferred_height()[0])
         else:
-            self.editor_image.set_from_icon_name(
+            image.set_from_icon_name(
                 "application-default-icon", 48)
-
-    def set_editor_name(self, text):
-        if text is None:
-            text = ""
-        self.editor_name.set_label("<big><b>%s</b></big>" % text)
-        self.editor_name.set_tooltip_markup(
-            _("%s <i>(Click to modify.)</i>") % text)
-
-    def set_editor_comment(self, text):
-        if text is None:
-            text = ""
-        self.editor_comment.set_label(text)
-        self.editor_comment.set_tooltip_markup(
-            _("%s <i>(Click to modify.)</i>") % text)
 
     def set_editor_filename(self, filename):
         # Since the filename has changed, check if it is now writable...
@@ -304,45 +363,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         if filename is None:
             filename = ""
+            
+        widget = self.widgets['Filename']
 
-        self.editor_filename.set_label("<small><i>%s</i></small>" % filename)
-        self.editor_filename.set_tooltip_text(filename)
-
-    def set_editor_exec(self, text):
-        set_entry_text(self.editor_exec, text)
-
-    def set_editor_path(self, text):
-        set_entry_text(self.editor_path, text)
-
-    def set_editor_terminal(self, boolean):
-        set_toggle_active(self.editor_terminal, boolean)
-
-    def set_editor_notify(self, boolean):
-        set_toggle_active(self.editor_notify, boolean)
-
-    def set_editor_nodisplay(self, boolean):
-        set_toggle_active(self.editor_nodisplay, boolean)
-
-    def set_editor_genericname(self, text):
-        set_entry_text(self.editor_genericname, text)
-
-    def set_editor_tryexec(self, text):
-        set_entry_text(self.editor_tryexec, text)
-
-    def set_editor_onlyshowin(self, text):
-        set_entry_text(self.editor_onlyshowin, text)
-
-    def set_editor_notshowin(self, text):
-        set_entry_text(self.editor_notshowin, text)
-
-    def set_editor_mimetypes(self, text):
-        set_entry_text(self.editor_mimetypes, text)
-
-    def set_editor_keywords(self, text):
-        set_entry_text(self.editor_keywords, text)
-
-    def set_editor_startupwmclass(self, text):
-        set_entry_text(self.editor_startupwmclass, text)
+        widget.set_label("<small><i>%s</i></small>" % filename)
+        widget.set_tooltip_text(filename)
 
     def set_editor_categories(self, entries_string):
         entries = entries_string.split(';')
@@ -363,102 +388,50 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         model.clear()
         for name, displayed, command, show in action_groups:
             model.append([show, displayed, command])
-
-    def set_view(self, view_mode):
-        if not view_mode:
-            if session in ['gnome', 'ubuntu', 'ubuntu-2d']:
-                view_mode = Views.MODERN
+            
+    def set_value(self, key, value):
+        if key in ['Name', 'Comment']:
+            button, label, entry = self.widgets[key]
+            if key == 'Name':
+                format = "<big><b>%s</b></big>" % (value)
             else:
-                view_mode = Views.CLASSIC
-        builder = Gtk.Builder()
-        builder.add_from_file(self.ui_file)
-        try:
-            self.view_container.get_children()[0].destroy()
-        except:
-            pass
-        self.view_container.add(builder.get_object(view_mode))
-        self.editor_container = builder.get_object(view_mode + "_container")
-        self.editor_container.add(builder.get_object('application_editor'))
-        self.editor_image = builder.get_object('application_editor_image')
-        self.editor_name = builder.get_object('application_editor_name')
-        self.editor_comment = builder.get_object('application_editor_comment')
-        self.editor_filename = builder.get_object(
-            'application_editor_filename')
-        self.editor_exec = builder.get_object('application_editor_exec')
-        self.editor_path = builder.get_object('application_editor_path')
-        self.editor_terminal = builder.get_object(
-            'application_editor_terminal')
-        self.editor_notify = builder.get_object('application_editor_notify')
-        self.editor_nodisplay = builder.get_object(
-            'application_editor_nodisplay')
-        self.editor_genericname = builder.get_object(
-            'application_editor_genericname')
-        self.editor_tryexec = builder.get_object('application_editor_tryexec')
-        self.editor_onlyshowin = builder.get_object(
-            'application_editor_onlyshowin')
-        self.editor_notshowin = builder.get_object(
-            'application_editor_notshowin')
-        self.editor_mimetypes = builder.get_object(
-            'application_editor_mimetypes')
-        self.editor_keywords = builder.get_object(
-            'application_editor_keywords')
-        self.editor_startupwmclass = builder.get_object(
-            'application_editor_startupwmclass')
-        self.categories_treeview = builder.get_object('categories_treeview')
-        self.actions_treeview = builder.get_object('actions_treeview')
-
-        self.view_container.show_all()
-
-        self.settings_notebook = builder.get_object('settings_notebook')
-
-        buttons = ['categories_button', 'quicklists_button', 'advanced_button']
-        for i in range(len(buttons)):
-            button = builder.get_object(buttons[i])
-            button.connect("clicked", self.on_settings_group_changed, i)
-            button.activate()
-
-        self.directory_hide_widgets = []
-        for widget_name in ['details_frame', 'settings_frame',
-                            'terminal_label', 'application_editor_terminal',
-                            'notify_label', 'application_editor_notify']:
-            self.directory_hide_widgets.append(builder.get_object(widget_name))
-
-        if view_mode == Views.CLASSIC:
-            treeview = builder.get_object('classic_view_treeview')
-
-            col = Gtk.TreeViewColumn("Item")
-            col_cell_text = Gtk.CellRendererText()
-            col_cell_text.set_property("ellipsize", Pango.EllipsizeMode.END)
-            col_cell_img = Gtk.CellRendererPixbuf()
-            col_cell_img.set_property("stock-size", Gtk.IconSize.LARGE_TOOLBAR)
-            col.pack_start(col_cell_img, False)
-            col.pack_start(col_cell_text, True)
-            col.add_attribute(col_cell_text, "markup", 0)
-            col.set_cell_data_func(col_cell_img, self.icon_name_func, None)
-            treeview.set_tooltip_column(1)
-
-            treeview.append_column(col)
-            treeview.set_model(self.treestore)
-
-            treeview.connect("cursor-changed",
-                             self.on_treeview_cursor_changed, None)
-
-            move_up = builder.get_object('classic_view_move_up')
-            move_up.connect('clicked', self.move_iter, (treeview, -1))
-            move_down = builder.get_object('classic_view_move_down')
-            move_down.connect('clicked', self.move_iter, (treeview, 1))
-
-            treeview.show_all()
-
-        if view_mode == Views.MODERN:
-            iconview = builder.get_object('iconview1')
-
-            iconview.set_model(self.treestore)
-            iconview.set_text_column(0)
-            iconview.set_tooltip_column(1)
-            iconview.set_pixbuf_column(4)
-
-            iconview.show_all()
+                format = "%s" % (value)
+            tooltip = "%s <i>(Click to modify.)</i>" % (value)
+            
+            button.set_tooltip_markup(tooltip)
+            label.set_label(format)
+        elif key == 'Filename':
+            self.set_editor_filename(value)
+        elif key == 'Categories':
+            self.set_editor_categories(value)
+        else:
+            widget = self.widgets[key]
+            
+            if isinstance(widget, Gtk.Button):
+                widget.set_label(value)
+            elif isinstance(widget, Gtk.Label):
+                widget.set_label(value)
+            elif isinstance(widget, Gtk.Entry):
+                widget.set_text(value)
+            elif isinstance(widget, Gtk.Switch):
+                widget.set_active(value)
+            else:
+                print("Unknown widget: %s" % key)
+                
+    def get_value(self, key):
+        if key in ['Name', 'Comment']:
+            button, label, entry = self.widgets[key]
+            return entry.get_text()
+        else:
+            widget = self.widgets[key]
+            if isinstance(widget, Gtk.Button):
+                return widget.get_label()
+            elif isinstance(widget, Gtk.Label):
+                return widget.get_label()
+            elif isinstance(widget, Gtk.Entry):
+                return widget.get_text()
+            elif isinstance(widget, Gtk.Switch):
+                return widget.get_active()
 
     def move_iter(self, widget, user_data):
         """Move the currently selected row up or down. If the neighboring row
@@ -590,17 +563,7 @@ class Application(Gtk.Application):
         # start the application
         Gtk.Application.do_startup(self)
 
-        if session in ['gnome', 'ubuntu', 'ubuntu-2d']:
-            auto_view = _("Modern")
-        else:
-            auto_view = _("Classic")
-
         self.menu = Gio.Menu()
-        view_menu = Gio.Menu()
-        view_menu.append(_("Automatic (%s)") % auto_view, "app.switch_to_auto")
-        view_menu.append(_("Modern"), "app.switch_to_modern")
-        view_menu.append(_("Classic"), "app.switch_to_classic")
-        self.menu.append_submenu(_("View"), view_menu)
         self.menu.append(_("Help"), "app.help")
         self.menu.append(_("About"), "app.about")
         self.menu.append(_("Quit"), "app.quit")
@@ -608,18 +571,6 @@ class Application(Gtk.Application):
         if session == 'gnome':
             # Configure GMenu
             self.set_app_menu(self.menu)
-
-        switch_to_auto = Gio.SimpleAction.new("switch_to_auto", None)
-        switch_to_auto.connect("activate", self.switch_view, Views.AUTO)
-        self.add_action(switch_to_auto)
-
-        switch_to_modern = Gio.SimpleAction.new("switch_to_modern", None)
-        switch_to_modern.connect("activate", self.switch_view, Views.MODERN)
-        self.add_action(switch_to_modern)
-
-        switch_to_classic = Gio.SimpleAction.new("switch_to_classic", None)
-        switch_to_classic.connect("activate", self.switch_view, Views.CLASSIC)
-        self.add_action(switch_to_classic)
 
         help_action = Gio.SimpleAction.new("help", None)
         help_action.connect("activate", self.help_cb)
@@ -632,9 +583,6 @@ class Application(Gtk.Application):
         quit_action = Gio.SimpleAction.new("quit", None)
         quit_action.connect("activate", self.quit_cb)
         self.add_action(quit_action)
-
-    def switch_view(self, widget, data=None, view_mode=None):
-        self.win.set_view(view_mode)
 
     def help_cb(self, widget, data=None):
         print ('help')

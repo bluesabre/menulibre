@@ -13,7 +13,7 @@
         <property name="can_focus">False</property>
         <property name="spacing">6</property>
         <child>
-          <object class="GtkButton" id="button7">
+          <object class="GtkButton" id="button_Icon">
             <property name="width_request">48</property>
             <property name="height_request">48</property>
             <property name="visible">True</property>
@@ -21,7 +21,7 @@
             <property name="receives_default">True</property>
             <property name="relief">none</property>
             <child>
-              <object class="GtkImage" id="application_editor_image">
+              <object class="GtkImage" id="image_Icon">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="pixel_size">48</property>
@@ -42,14 +42,14 @@
             <property name="valign">center</property>
             <property name="orientation">vertical</property>
             <child>
-              <object class="GtkButton" id="button8">
+              <object class="GtkButton" id="button_Name">
                 <property name="height_request">32</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="relief">none</property>
                 <child>
-                  <object class="GtkLabel" id="application_editor_name">
+                  <object class="GtkLabel" id="label_Name">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="xalign">0</property>
@@ -66,14 +66,14 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="button9">
+              <object class="GtkButton" id="button_Comment">
                 <property name="height_request">28</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="relief">none</property>
                 <child>
-                  <object class="GtkLabel" id="application_editor_comment">
+                  <object class="GtkLabel" id="label_Comment">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="xalign">0</property>
@@ -160,7 +160,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                       <class name="linked"/>
                     </style>
                     <child>
-                      <object class="GtkEntry" id="application_editor_exec">
+                      <object class="GtkEntry" id="entry_Exec">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="invisible_char">•</property>
@@ -172,7 +172,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton" id="button10">
+                      <object class="GtkButton" id="button_Exec">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -202,7 +202,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                       <class name="linked"/>
                     </style>
                     <child>
-                      <object class="GtkEntry" id="application_editor_path">
+                      <object class="GtkEntry" id="entry_Path">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="invisible_char">•</property>
@@ -214,7 +214,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkButton" id="button11">
+                      <object class="GtkButton" id="button_Path">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
@@ -321,7 +321,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkSwitch" id="application_editor_terminal">
+                  <object class="GtkSwitch" id="switch_Terminal">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                   </object>
@@ -333,7 +333,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkSwitch" id="application_editor_notify">
+                  <object class="GtkSwitch" id="switch_StartupNotify">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                   </object>
@@ -345,7 +345,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkSwitch" id="application_editor_nodisplay">
+                  <object class="GtkSwitch" id="switch_NoDisplay">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                   </object>
@@ -642,7 +642,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                   <object class="GtkLabel" id="label12">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">Quicklists</property>
+                    <property name="label" translatable="yes">Actions</property>
                   </object>
                   <packing>
                     <property name="position">1</property>
@@ -771,7 +771,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="application_editor_genericname">
+                              <object class="GtkEntry" id="entry_GenericName">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="hexpand">True</property>
@@ -785,7 +785,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="application_editor_tryexec">
+                              <object class="GtkEntry" id="entry_TryExec">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="invisible_char">•</property>
@@ -798,7 +798,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="application_editor_onlyshowin">
+                              <object class="GtkEntry" id="entry_OnlyShowIn">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="invisible_char">•</property>
@@ -811,7 +811,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="application_editor_notshowin">
+                              <object class="GtkEntry" id="entry_NotShowIn">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="invisible_char">•</property>
@@ -824,7 +824,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="application_editor_mimetypes">
+                              <object class="GtkEntry" id="entry_Mimetype">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="invisible_char">•</property>
@@ -837,7 +837,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="application_editor_keywords">
+                              <object class="GtkEntry" id="entry_Keywords">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="invisible_char">•</property>
@@ -850,7 +850,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkEntry" id="application_editor_startupwmclass">
+                              <object class="GtkEntry" id="entry_StartupWMClass">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="invisible_char">•</property>
@@ -954,7 +954,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
       </packing>
     </child>
     <child>
-      <object class="GtkLabel" id="application_editor_filename">
+      <object class="GtkLabel" id="label_Filename">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="xalign">0</property>
@@ -1571,231 +1571,6 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
           </packing>
         </child>
       </object>
-    </child>
-  </object>
-  <object class="GtkBox" id="modern_view">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="orientation">vertical</property>
-    <child>
-      <object class="GtkButtonBox" id="breadcrumbs">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="border_width">6</property>
-        <property name="layout_style">start</property>
-        <style>
-          <class name="linked"/>
-        </style>
-        <child>
-          <object class="GtkRadioButton" id="breadcrumbs_home">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="receives_default">False</property>
-            <property name="xalign">0</property>
-            <property name="active">True</property>
-            <property name="draw_indicator">False</property>
-            <child>
-              <object class="GtkImage" id="image1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="stock">gtk-home</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">0</property>
-            <property name="non_homogeneous">True</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkRadioButton" id="breadcrumbs_category">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="receives_default">False</property>
-            <property name="xalign">0</property>
-            <property name="draw_indicator">False</property>
-            <property name="group">breadcrumbs_home</property>
-            <child>
-              <object class="GtkBox" id="box2">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="spacing">6</property>
-                <child>
-                  <object class="GtkImage" id="image2">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="icon_name">applications-other</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="label7">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">All Applications</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-            <property name="non_homogeneous">True</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkRadioButton" id="breadcrumbs_application">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="receives_default">False</property>
-            <property name="xalign">0</property>
-            <property name="draw_indicator">False</property>
-            <property name="group">breadcrumbs_home</property>
-            <child>
-              <object class="GtkBox" id="box3">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="spacing">6</property>
-                <child>
-                  <object class="GtkImage" id="image3">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="icon_name">application-x-executable</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkLabel" id="label9">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">My Application</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-            <property name="non_homogeneous">True</property>
-          </packing>
-        </child>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">0</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkNotebook" id="modern_notebook">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="show_tabs">False</property>
-        <child>
-          <object class="GtkScrolledWindow" id="scrolledwindow2">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="shadow_type">in</property>
-            <child>
-              <object class="GtkIconView" id="iconview1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="model">liststore2</property>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child type="tab">
-          <object class="GtkLabel" id="label1">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Home View</property>
-          </object>
-          <packing>
-            <property name="tab_fill">False</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkScrolledWindow" id="scrolledwindow3">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="shadow_type">in</property>
-            <child>
-              <object class="GtkIconView" id="iconview2">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="model">liststore3</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child type="tab">
-          <object class="GtkLabel" id="label2">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Applications View</property>
-          </object>
-          <packing>
-            <property name="position">1</property>
-            <property name="tab_fill">False</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkAlignment" id="modern_view_container">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <child>
-              <placeholder/>
-            </child>
-          </object>
-          <packing>
-            <property name="position">2</property>
-          </packing>
-        </child>
-        <child type="tab">
-          <object class="GtkLabel" id="label3">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Application Editor</property>
-          </object>
-          <packing>
-            <property name="position">2</property>
-            <property name="tab_fill">False</property>
-          </packing>
-        </child>
-      </object>
-      <packing>
-        <property name="expand">True</property>
-        <property name="fill">True</property>
-        <property name="position">1</property>
-      </packing>
     </child>
   </object>
 </interface>
