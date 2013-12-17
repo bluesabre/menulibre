@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
+  <object class="GtkImage" id="image5">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixel_size">16</property>
+    <property name="icon_name">document-new-symbolic</property>
+  </object>
   <object class="GtkImage" id="image10">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -24,12 +30,6 @@
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
     <property name="icon_name">edit-undo-symbolic</property>
-  </object>
-  <object class="GtkImage" id="image5">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixel_size">16</property>
-    <property name="icon_name">document-new-symbolic</property>
   </object>
   <object class="GtkImage" id="image6">
     <property name="visible">True</property>
@@ -439,7 +439,7 @@
                     <child>
                       <object class="GtkEntry" id="toolbar_search">
                         <property name="visible">True</property>
-                        <property name="can_focus">False</property>
+                        <property name="can_focus">True</property>
                         <property name="invisible_char">●</property>
                         <property name="primary_icon_name">edit-find-symbolic</property>
                         <property name="primary_icon_activatable">False</property>
@@ -510,6 +510,7 @@
                           <object class="GtkTreeView" id="classic_view_treeview">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
+                            <property name="has_focus">True</property>
                             <property name="model">liststore1</property>
                             <property name="headers_visible">False</property>
                             <property name="rules_hint">True</property>

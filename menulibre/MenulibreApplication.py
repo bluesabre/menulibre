@@ -7,7 +7,7 @@ from locale import gettext as _
 from gi.repository import Gio, GObject, Gtk, Pango
 
 from . import MenuEditor, MenulibreXdg
-from .enums import MenuItemTypes, Views
+from .enums import MenuItemTypes
 
 from xml.sax.saxutils import escape
 
@@ -76,11 +76,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.configure_application_menubar(builder)
         self.configure_application_toolbar(builder)
 
-        # Set up the applicaton browser
-        self.configure_application_treeview(builder)
-        
         # Set up the application editor
         self.configure_application_editor(builder)
+        
+        # Set up the applicaton browser
+        self.configure_application_treeview(builder)
 
         self.history_undo = list()
         self.history_redo = list()
@@ -202,10 +202,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def configure_application_toolbar(self, builder):
         self.delete_button = builder.get_object('toolbar_delete')
         
+        self.search_box = builder.get_object('toolbar_search')
+        self.search_box.connect('changed', self.on_search_changed)
+        self.search_box.connect('icon-press', self.on_search_cleared)
+        
     def configure_application_treeview(self, builder):
         self.treestore = MenuEditor.get_treestore()
         
-        treeview = builder.get_object('classic_view_treeview')
+        self.treeview = builder.get_object('classic_view_treeview')
 
         col = Gtk.TreeViewColumn("Item")
         col_cell_text = Gtk.CellRendererText()
@@ -216,20 +220,30 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         col.pack_start(col_cell_text, True)
         col.add_attribute(col_cell_text, "markup", 0)
         col.set_cell_data_func(col_cell_img, self.icon_name_func, None)
-        treeview.set_tooltip_column(1)
+        self.treeview.set_tooltip_column(1)
 
-        treeview.append_column(col)
-        treeview.set_model(self.treestore)
+        # Allow filtering/searching results
+        self.treefilter = self.treestore.filter_new()
+        self.treefilter.set_visible_func(self.treeview_match_func)
+        self.treeview.set_search_column(0)
+        self.treeview.set_search_entry(self.search_box)
 
-        treeview.connect("cursor-changed",
+        self.treeview.append_column(col)
+        self.treeview.set_model(self.treefilter)
+
+        self.treeview.connect("cursor-changed",
                          self.on_treeview_cursor_changed, None)
 
         move_up = builder.get_object('classic_view_move_up')
-        move_up.connect('clicked', self.move_iter, (treeview, -1))
+        move_up.connect('clicked', self.move_iter, (self.treeview, -1))
         move_down = builder.get_object('classic_view_move_down')
-        move_down.connect('clicked', self.move_iter, (treeview, 1))
+        move_down.connect('clicked', self.move_iter, (self.treeview, 1))
 
-        treeview.show_all()
+        self.treeview.show_all()
+        self.treeview.grab_focus()
+        
+        path = Gtk.TreePath.new_from_string("0")
+        self.treeview.set_cursor(path)
         
     def configure_application_editor(self, builder):
         # Settings Notebook, advanced configuration, fancy notebook
@@ -291,6 +305,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         sel = widget.get_selection()
         if sel:
             treestore, treeiter = sel.get_selected()
+            if not treestore:
+                return
+            if not treeiter:
+                return
             item_type = treestore[treeiter][2]
             if item_type == MenuItemTypes.SEPARATOR:
                 self.editor.hide()
@@ -324,6 +342,47 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def icon_name_func(self, col, renderer, treestore, treeiter, user_data):
         renderer.set_property("gicon", treestore[treeiter][3])
         pass
+        
+    def treeview_match_func(self, model, treeiter, data=None):
+        query = str(self.search_box.get_text().lower())
+        name, comment, item_type, icon, pixbuf, desktop = model[treeiter][:]
+        
+        if query == "":
+            return True
+        if item_type == MenuItemTypes.DIRECTORY:
+            return True
+        if item_type == MenuItemTypes.SEPARATOR:
+            return False
+
+        if not name:
+            name = ""
+        if not comment:
+            comment = ""
+
+        self.treeview.expand_all()
+        
+        if query in name.lower():
+            return True
+            
+        if query in comment.lower():
+            return True
+
+        return False
+        
+    def on_search_changed(self, widget, user_data=None):
+        query = widget.get_text()
+        
+        if len(query) == 0:
+            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, None)
+            
+        else:
+            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, 'edit-clear-symbolic')
+            self.treeview.expand_all()
+
+        self.treefilter.refilter()
+            
+    def on_search_cleared(self, widget, event, user_data=None):
+        widget.set_text("")
 
     def set_editor_image(self, gicon):
         button, image = self.widgets['Icon']
