@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
+  <object class="GtkImage" id="image10">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixel_size">16</property>
+    <property name="icon_name">edit-delete-symbolic</property>
+  </object>
   <object class="GtkImage" id="image11">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -13,23 +19,17 @@
     <property name="stock">gtk-open</property>
     <property name="icon-size">1</property>
   </object>
-  <object class="GtkImage" id="image5">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixel_size">16</property>
-    <property name="icon_name">document-new-symbolic</property>
-  </object>
-  <object class="GtkImage" id="image10">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixel_size">16</property>
-    <property name="icon_name">edit-delete-symbolic</property>
-  </object>
   <object class="GtkImage" id="image4">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
     <property name="icon_name">edit-undo-symbolic</property>
+  </object>
+  <object class="GtkImage" id="image5">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixel_size">16</property>
+    <property name="icon_name">document-new-symbolic</property>
   </object>
   <object class="GtkImage" id="image6">
     <property name="visible">True</property>
@@ -102,7 +102,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkImageMenuItem" id="menubar_new_launcher">
+                      <object class="GtkImageMenuItem" id="menubar_add_launcher">
                         <property name="label">imagemenuitem</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -1525,7 +1525,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                     <property name="receives_default">False</property>
                                     <property name="xalign">0</property>
                                     <property name="active">True</property>
-                                    <property name="draw_indicator">True</property>
+                                    <property name="draw_indicator">False</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -1540,7 +1540,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="draw_indicator">True</property>
+                                    <property name="draw_indicator">False</property>
                                     <property name="group">categories_button</property>
                                   </object>
                                   <packing>
@@ -1556,7 +1556,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                     <property name="can_focus">True</property>
                                     <property name="receives_default">False</property>
                                     <property name="xalign">0</property>
-                                    <property name="draw_indicator">True</property>
+                                    <property name="draw_indicator">False</property>
                                     <property name="group">categories_button</property>
                                   </object>
                                   <packing>

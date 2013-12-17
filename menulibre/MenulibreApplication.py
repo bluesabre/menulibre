@@ -51,18 +51,6 @@ category_descriptions = {
 }
 
 
-def set_entry_text(widget, text):
-    if text is None:
-        text = ""
-    widget.set_text(text)
-
-
-def set_toggle_active(widget, active):
-    if active is None:
-        active = False
-    widget.set_active(active)
-
-
 class MenulibreWindow(Gtk.ApplicationWindow):
     ui_file = 'data/ui/MenulibreWindow.glade'
 
@@ -80,6 +68,24 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         builder = Gtk.Builder()
         builder.add_from_file(self.ui_file)
 
+        # Set up the application window, steal the window contents for the GtkApplication.
+        self.configure_application_window(builder, app)
+
+        # Set up the actions, menubar, and toolbar
+        self.configure_application_actions(builder)
+        self.configure_application_menubar(builder)
+        self.configure_application_toolbar(builder)
+
+        # Set up the applicaton browser
+        self.configure_application_treeview(builder)
+        
+        # Set up the application editor
+        self.configure_application_editor(builder)
+
+        self.history_undo = list()
+        self.history_redo = list()
+        
+    def configure_application_window(self, builder, app):
         # Glade is unable to create a GtkApplication, so we have to reparent
         # the window contents to our new window. Here we get the contents.
         window = builder.get_object('menulibre_window')
@@ -95,7 +101,78 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.set_icon_name(window_icon)
         self.set_size_request(size_request[0], size_request[1])
         window_contents.reparent(self)
+        
+    def configure_application_actions(self, builder):
+        self.actions = {}
 
+        # Add Launcher
+        self.actions['add_launcher'] = Gtk.Action(  
+                                            'add_launcher', 
+                                            _('_Add Launcher...'),
+                                            _('Add Launcher...'),
+                                            Gtk.STOCK_NEW)
+                                            
+        # Save Launcher action and related widgets
+        self.actions['save_launcher'] = Gtk.Action(
+                                            'save_launcher', 
+                                            _('_Save'),
+                                            _('Save'),
+                                            Gtk.STOCK_SAVE)
+
+        # Undo action and related widgets
+        self.actions['undo'] = Gtk.Action(  'undo', 
+                                            _('_Undo'),
+                                            _('Undo'),
+                                            Gtk.STOCK_UNDO)
+                                            
+        # Redo action and related widgets
+        self.actions['redo'] = Gtk.Action(  'redo', 
+                                            _('_Redo'),
+                                            _('Redo'),
+                                            Gtk.STOCK_REDO)
+
+        # Revert action and related widgets
+        self.actions['revert'] = Gtk.Action('revert', 
+                                            _('_Revert'),
+                                            _('Revert'),
+                                            Gtk.STOCK_REVERT_TO_SAVED)
+                                            
+        # Quit action and related widgets
+        self.actions['quit'] = Gtk.Action(  'quit', 
+                                            _('_Quit'),
+                                            _('Quit'),
+                                            Gtk.STOCK_QUIT)
+                                            
+        # Help action and related widgets
+        self.actions['help'] = Gtk.Action(  'help', 
+                                            _('_Contents'),
+                                            _('Help'),
+                                            Gtk.STOCK_HELP)
+                                            
+        # About action and related widgets
+        self.actions['about'] = Gtk.Action( 'about', 
+                                            _('_About'),
+                                            _('About'),
+                                            Gtk.STOCK_ABOUT)
+                                            
+        self.actions['add_launcher'].connect('activate', 
+                                            self.on_add_launcher_cb)
+        self.actions['save_launcher'].connect('activate', 
+                                            self.on_save_launcher_cb)
+        self.actions['undo'].connect('activate', 
+                                            self.on_undo_cb)
+        self.actions['redo'].connect('activate', 
+                                            self.on_redo_cb)
+        self.actions['revert'].connect('activate', 
+                                            self.on_revert_cb)
+        self.actions['quit'].connect('activate', 
+                                            self.on_quit_cb)
+        self.actions['help'].connect('activate', 
+                                            self.on_help_cb)
+        self.actions['about'].connect('activate', 
+                                            self.on_about_cb)
+                                            
+    def configure_application_menubar(self, builder):
         # Configure Global Menu and AppMenu
         self.app_menu_button = None
         if session not in ['gnome', 'ubuntu', 'ubuntu-2d']:
@@ -115,105 +192,54 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         builder.get_object('menubar').set_visible(session in ['ubuntu',
                                                               'ubuntu-2d'])
-
-        self.actions = {}
-
-        # Add Launcher action and related widgets
-        action = Gtk.Action(_('add_launcher'), _('_Add Launcher...'),
-                            _('Add Launcher...'),
-                            Gtk.STOCK_NEW)
-        action.connect('activate', self.on_add_launcher_cb)
-        self.actions['add_launcher'] = action
-        # for widget_name in ['menubar_new_launcher', 'toolbar_new']:
-        for widget_name in ['menubar_new_launcher']:
-            widget = builder.get_object(widget_name)
-            widget.set_related_action(action)
+                                                              
+        for action_name in ['add_launcher', 'save_launcher', 'undo', 'redo', 
+                            'revert', 'quit', 'help', 'about']:
+            widget = builder.get_object("menubar_%s" % action_name)
+            widget.set_related_action(self.actions[action_name])
             widget.set_use_action_appearance(True)
-
-        # Save Launcher action and related widgets
-        action = Gtk.Action(_('save_launcher'), _('_Save'),
-                            _('Save'),
-                            Gtk.STOCK_SAVE)
-        action.connect('activate', self.on_save_launcher_cb)
-        self.actions['save_launcher'] = action
-        # for widget_name in ['menubar_save_launcher', 'toolbar_save']:
-        for widget_name in ['menubar_save_launcher']:
-            widget = builder.get_object(widget_name)
-            widget.set_related_action(action)
-            widget.set_use_action_appearance(True)
-
-        # Undo action and related widgets
-        action = Gtk.Action(_('undo'), _('_Undo'),
-                            _('Undo'),
-                            Gtk.STOCK_UNDO)
-        action.connect('activate', self.on_undo_cb)
-        self.actions['undo'] = action
-        # for widget_name in ['menubar_undo', 'toolbar_undo']:
-        for widget_name in ['menubar_undo']:
-            widget = builder.get_object(widget_name)
-            widget.set_related_action(action)
-            widget.set_use_action_appearance(True)
-
-        # Redo action and related widgets
-        action = Gtk.Action(_('redo'), _('_Redo'),
-                            _('Redo'),
-                            Gtk.STOCK_REDO)
-        action.connect('activate', self.on_redo_cb)
-        self.actions['redo'] = action
-        # for widget_name in ['menubar_redo', 'toolbar_redo']:
-        for widget_name in ['menubar_redo']:
-            widget = builder.get_object(widget_name)
-            widget.set_related_action(action)
-            widget.set_use_action_appearance(True)
-
-        # Revert action and related widgets
-        action = Gtk.Action(_('revert'), _('_Revert'),
-                            _('Revert'),
-                            Gtk.STOCK_REVERT_TO_SAVED)
-        action.connect('activate', self.on_revert_cb)
-        self.actions['revert'] = action
-        # for widget_name in ['menubar_revert', 'toolbar_revert']:
-        for widget_name in ['menubar_revert']:
-            widget = builder.get_object(widget_name)
-            widget.set_related_action(action)
-            widget.set_use_action_appearance(True)
-
-        # Quit action and related widgets
-        action = Gtk.Action(_('quit'), _('_Quit'),
-                            _('Quit'),
-                            Gtk.STOCK_QUIT)
-        action.connect('activate', self.on_quit_cb)
-        self.actions['quit'] = action
-        for widget_name in ['menubar_quit']:
-            widget = builder.get_object(widget_name)
-            widget.set_related_action(action)
-            widget.set_use_action_appearance(True)
-
-        # Help action and related widgets
-        action = Gtk.Action(_('help'), _('_Contents'),
-                            _('Help'),
-                            Gtk.STOCK_HELP)
-        action.connect('activate', self.on_help_cb)
-        self.actions['help'] = action
-        for widget_name in ['menubar_help']:
-            widget = builder.get_object(widget_name)
-            widget.set_related_action(action)
-            widget.set_use_action_appearance(True)
-
-        # About action and related widgets
-        action = Gtk.Action(_('about'), _('_About'),
-                            _('About'),
-                            Gtk.STOCK_ABOUT)
-        action.connect('activate', self.on_about_cb)
-        self.actions['about'] = action
-        for widget_name in ['menubar_about']:
-            widget = builder.get_object(widget_name)
-            widget.set_related_action(action)
-            widget.set_use_action_appearance(True)
-
+            
+    def configure_application_toolbar(self, builder):
         self.delete_button = builder.get_object('toolbar_delete')
-
+        
+    def configure_application_treeview(self, builder):
         self.treestore = MenuEditor.get_treestore()
+        
+        treeview = builder.get_object('classic_view_treeview')
+
+        col = Gtk.TreeViewColumn("Item")
+        col_cell_text = Gtk.CellRendererText()
+        col_cell_text.set_property("ellipsize", Pango.EllipsizeMode.END)
+        col_cell_img = Gtk.CellRendererPixbuf()
+        col_cell_img.set_property("stock-size", Gtk.IconSize.LARGE_TOOLBAR)
+        col.pack_start(col_cell_img, False)
+        col.pack_start(col_cell_text, True)
+        col.add_attribute(col_cell_text, "markup", 0)
+        col.set_cell_data_func(col_cell_img, self.icon_name_func, None)
+        treeview.set_tooltip_column(1)
+
+        treeview.append_column(col)
+        treeview.set_model(self.treestore)
+
+        treeview.connect("cursor-changed",
+                         self.on_treeview_cursor_changed, None)
+
+        move_up = builder.get_object('classic_view_move_up')
+        move_up.connect('clicked', self.move_iter, (treeview, -1))
+        move_down = builder.get_object('classic_view_move_down')
+        move_down.connect('clicked', self.move_iter, (treeview, 1))
+
+        treeview.show_all()
+        
+    def configure_application_editor(self, builder):
+        # Settings Notebook, advanced configuration, fancy notebook
+        self.settings_notebook = builder.get_object('settings_notebook')
+        buttons = ['categories_button', 'quicklists_button', 'advanced_button']
+        for i in range(len(buttons)):
+            button = builder.get_object(buttons[i])
+            button.connect("clicked", self.on_settings_group_changed, i)
+            button.activate()
+        
         self.editor = builder.get_object('application_editor')
 
         self.widgets = dict()
@@ -251,48 +277,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.categories_treeview = builder.get_object('categories_treeview')
         self.actions_treeview = builder.get_object('actions_treeview')
 
-        self.settings_notebook = builder.get_object('settings_notebook')
-
-        buttons = ['categories_button', 'quicklists_button', 'advanced_button']
-        for i in range(len(buttons)):
-            button = builder.get_object(buttons[i])
-            button.connect("clicked", self.on_settings_group_changed, i)
-            button.activate()
-
         self.directory_hide_widgets = []
         for widget_name in ['details_frame', 'settings_frame',
                             'terminal_label', 'switch_Terminal',
                             'notify_label', 'switch_StartupNotify']:
             self.directory_hide_widgets.append(builder.get_object(widget_name))
-
-        treeview = builder.get_object('classic_view_treeview')
-
-        col = Gtk.TreeViewColumn("Item")
-        col_cell_text = Gtk.CellRendererText()
-        col_cell_text.set_property("ellipsize", Pango.EllipsizeMode.END)
-        col_cell_img = Gtk.CellRendererPixbuf()
-        col_cell_img.set_property("stock-size", Gtk.IconSize.LARGE_TOOLBAR)
-        col.pack_start(col_cell_img, False)
-        col.pack_start(col_cell_text, True)
-        col.add_attribute(col_cell_text, "markup", 0)
-        col.set_cell_data_func(col_cell_img, self.icon_name_func, None)
-        treeview.set_tooltip_column(1)
-
-        treeview.append_column(col)
-        treeview.set_model(self.treestore)
-
-        treeview.connect("cursor-changed",
-                         self.on_treeview_cursor_changed, None)
-
-        move_up = builder.get_object('classic_view_move_up')
-        move_up.connect('clicked', self.move_iter, (treeview, -1))
-        move_down = builder.get_object('classic_view_move_down')
-        move_down.connect('clicked', self.move_iter, (treeview, 1))
-
-        treeview.show_all()
-
-        self.history_undo = list()
-        self.history_redo = list()
 
     def on_settings_group_changed(self, widget, user_data=None):
         if widget.get_active():
@@ -591,14 +580,13 @@ class Application(Gtk.Application):
         documenters = ["Sean Davis"]
 
         # Populate the AboutDialog with all the relevant details.
+        aboutdialog.set_title(_("About MenuLibre"))
         aboutdialog.set_program_name(_("MenuLibre"))
         aboutdialog.set_logo_icon_name("menulibre")
         aboutdialog.set_copyright(_("Copyright © 2012-2013 Sean Davis"))
         aboutdialog.set_authors(authors)
         aboutdialog.set_documenters(documenters)
         aboutdialog.set_website("https://launchpad.net/menulibre")
-
-        aboutdialog.set_title(_("About MenuLibre"))
 
         # Connect the signal to destroy the AboutDialog when Close is clicked.
         aboutdialog.connect("response", self.about_close_cb)
