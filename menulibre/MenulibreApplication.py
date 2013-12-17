@@ -343,14 +343,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         renderer.set_property("gicon", treestore[treeiter][3])
         pass
         
-    def treeview_match_func(self, model, treeiter, data=None):
-        query = str(self.search_box.get_text().lower())
+    def treeview_match(self, model, treeiter, query):
         name, comment, item_type, icon, pixbuf, desktop = model[treeiter][:]
         
-        if query == "":
-            return True
-        if item_type == MenuItemTypes.DIRECTORY:
-            return True
         if item_type == MenuItemTypes.SEPARATOR:
             return False
 
@@ -366,8 +361,29 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             
         if query in comment.lower():
             return True
+            
+        if item_type == MenuItemTypes.DIRECTORY:
+            return self.treeview_match_directory(query, model, treeiter)
 
         return False
+        
+    def treeview_match_directory(self, query, model, treeiter):
+        # Iterate through iter children, return True if any match and this should display.
+        
+        for child_i in range(model.iter_n_children(treeiter)):
+            child = model.iter_nth_child(treeiter, child_i)
+            if self.treeview_match(model, child, query):
+                return True
+                
+        return False
+        
+    def treeview_match_func(self, model, treeiter, data=None):
+        query = str(self.search_box.get_text().lower())
+        
+        if query == "":
+            return True
+            
+        return self.treeview_match(model, treeiter, query)
         
     def on_search_changed(self, widget, user_data=None):
         query = widget.get_text()
