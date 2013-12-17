@@ -4,7 +4,7 @@ import os
 import re
 from locale import gettext as _
 
-from gi.repository import Gio, GObject, Gtk, Pango
+from gi.repository import Gio, GObject, Gtk, Pango, Gdk
 
 from . import MenuEditor, MenulibreXdg
 from .enums import MenuItemTypes
@@ -13,6 +13,25 @@ from xml.sax.saxutils import escape
 
 locale.textdomain('menulibre')
 
+def check_keypress(event, keys):
+    if 'Control' in keys:
+        if not bool(event.get_state() & Gdk.ModifierType.CONTROL_MASK):
+            return False
+    if 'Alt' in keys:
+        if not bool(event.get_state() & Gdk.ModifierType.MOD1_MASK):
+            return False
+    if 'Shift' in keys:
+        if not bool(event.get_state() & Gdk.ModifierType.SHIFT_MASK):
+            return False
+    if 'Super' in keys:
+        if not bool(event.get_state() & Gdk.ModifierType.SUPER_MASK):
+            return False
+            
+    if Gdk.keyval_name(event.get_keyval()[1]).lower() not in keys:
+        return False
+        
+    return True
+            
 
 session = os.getenv("DESKTOP_SESSION")
 
@@ -101,6 +120,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.set_icon_name(window_icon)
         self.set_size_request(size_request[0], size_request[1])
         window_contents.reparent(self)
+        
+        self.connect('key-press-event', self.on_window_keypress_event)
         
     def configure_application_actions(self, builder):
         self.actions = {}
@@ -232,7 +253,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.treeview.set_model(self.treefilter)
 
         self.treeview.connect("cursor-changed",
-                         self.on_treeview_cursor_changed, None)
+                                self.on_treeview_cursor_changed, None)
+        self.treeview.connect("key-press-event",
+                                self.on_treeview_key_press_event, None)
 
         move_up = builder.get_object('classic_view_move_up')
         move_up.connect('clicked', self.move_iter, (self.treeview, -1))
@@ -296,10 +319,54 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             'terminal_label', 'switch_Terminal',
                             'notify_label', 'switch_StartupNotify']:
             self.directory_hide_widgets.append(builder.get_object(widget_name))
+            
+    def on_window_keypress_event(self, widget, event, user_data=None):
+        if check_keypress(event, ['Control', 'f']):
+            self.search_box.grab_focus()
+            return True
+        if check_keypress(event, ['Control', 's']):
+            print ("Save")
+        return False
+            
 
     def on_settings_group_changed(self, widget, user_data=None):
         if widget.get_active():
             self.settings_notebook.set_current_page(user_data)
+            
+    def get_treeview_selected_expanded(self, treeview):
+        sel = treeview.get_selection()
+        model, treeiter = sel.get_selected()
+        row = model[treeiter]
+        return treeview.row_expanded(row.path)
+            
+    def set_treeview_selected_expanded(self, treeview, expanded=True):
+        sel = treeview.get_selection()
+        model, treeiter = sel.get_selected()
+        row = model[treeiter]
+        if expanded:
+            treeview.expand_row(row.path, False)
+        else:
+            treeview.collapse_row(row.path)
+            
+    def toggle_treeview_selected_expanded(self, treeview):
+        expanded = self.get_treeview_selected_expanded(treeview)
+        self.set_treeview_selected_expanded(treeview, not expanded)
+
+    def on_treeview_key_press_event(self, widget, event, user_data=None):
+        if check_keypress(event, ['right']):
+            self.set_treeview_selected_expanded(widget, True)
+            return True
+        elif check_keypress(event, ['left']):
+            self.set_treeview_selected_expanded(widget, False)
+            return True
+        elif check_keypress(event, ['space']):
+            self.toggle_treeview_selected_expanded(widget)
+            return True
+        elif check_keypress(event, ['return']):
+            print ("Activate")
+            return True
+        return False
+        
 
     def on_treeview_cursor_changed(self, widget, selection):
         sel = widget.get_selection()
