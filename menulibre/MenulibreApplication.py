@@ -198,6 +198,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def configure_application_menubar(self, builder):
         # Configure Global Menu and AppMenu
         self.app_menu_button = None
+        placeholder = builder.get_object('app_menu_holder')
         if session not in ['gnome', 'ubuntu', 'ubuntu-2d']:
             # Create the AppMenu button on the rightside of the toolbar
             self.app_menu_button = Gtk.MenuButton()
@@ -210,8 +211,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.app_menu_button.show()
 
             # Pack the AppMenu button.
-            placeholder = builder.get_object('app_menu_holder')
             placeholder.add(self.app_menu_button)
+        else:
+            placeholder.hide()
 
         builder.get_object('menubar').set_visible(session in ['ubuntu',
                                                               'ubuntu-2d'])
@@ -519,6 +521,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         widget.set_label("<small><i>%s</i></small>" % filename)
         widget.set_tooltip_text(filename)
         
+        self.values['filename'] = filename
+        
     def get_editor_categories(self):
         model = self.categories_treeview.get_model()
         categories = ""
@@ -620,6 +624,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             return self.values[key]
         elif key == 'Categories':
             return self.get_editor_categories()
+        elif key == 'Filename':
+            return self.values['filename']
         else:
             widget = self.widgets[key]
             if isinstance(widget, Gtk.Button):
@@ -716,19 +722,52 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_add_launcher_cb(self, widget):
         print ('add launcher')
-
-    def on_save_launcher_cb(self, widget):
-        print ('[Desktop Entry]')
-        print ('Version=1.0')
-        for prop in ['Type', 'Name', 'GenericName', 'Comment', 'Icon', 'TryExec', 'Exec', 'Path', 'NoDisplay', 'Hidden', 'OnlyShowIn', 'NotShowIn', 'Categories', 'Keywords', 'MimeType', 'StartupWMClass', 'StartupNotify', 'Terminal', 'DBusActivatable']:
+        
+    def get_save_filename(self):
+        filename = self.get_value('Filename')
+        item_type = self.get_value('Type')
+        name = self.get_value('Name')
+        if filename is None or not os.access(filename, os.W_OK):
+            # Need to generate a new filename
+            if filename is None:
+                basename = name.lower().replace(' ', '-')
+            else:
+                basename = os.path.basename(filename)
+            name, ext = os.path.splitext(basename)
+            if item_type == 'Application':
+                path = "%s/.local/share/applications/" % os.getenv("HOME")
+            elif item_type == 'Directory':
+                path = "%s/.local/share/desktop-directories/" % os.getenv("HOME")
+            filename = "%s%s" % (path, basename)
+            count = 1
+            while os.path.exists(filename):
+                filename = "%s%s%i%s" % (path, name, count, ext)
+                count += 1
+        return filename
+        
+    def save_launcher(self):
+        filename = self.get_save_filename()
+        output = open(filename, 'w')
+        output.write('[Desktop Entry]\n')
+        output.write('Version=1.0\n')
+        for prop in ['Type', 'Name', 'GenericName', 'Comment', 'Icon', 
+                     'TryExec', 'Exec', 'Path', 'NoDisplay', 'Hidden', 
+                     'OnlyShowIn', 'NotShowIn', 'Categories', 'Keywords', 
+                     'MimeType', 'StartupWMClass', 'StartupNotify', 
+                     'Terminal', 'DBusActivatable']:
             value = self.get_value(prop)
             if value in [True, False]:
                 value = str(value).lower()
             if value:
-                print ('%s=%s' % (prop, value))
+                output.write('%s=%s\n' % (prop, value))
         actions = self.get_editor_actions()
         if actions:
-            print (actions)
+            output.write(actions)
+        output.close()
+        self.set_value('Filename', filename)
+
+    def on_save_launcher_cb(self, widget):
+        self.save_launcher()
 
     def on_undo_cb(self, widget):
         print ('undo')
@@ -759,7 +798,7 @@ class Application(Gtk.Application):
 
     def do_activate(self):
         self.win = MenulibreWindow(self)
-        self.win.show_all()
+        self.win.show()
 
         self.win.connect('about', self.about_cb)
         self.win.connect('help', self.help_cb)
