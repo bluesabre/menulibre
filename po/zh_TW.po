@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-04-17 20:50-0400\n"
-"PO-Revision-Date: 2013-01-14 15:52+0000\n"
-"Last-Translator: extraymond@gmail.com <extraymond@gmail.com>\n"
+"PO-Revision-Date: 2013-12-20 15:23+0000\n"
+"Last-Translator: Hugo Cheung <Unknown>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-12-05 06:07+0000\n"
-"X-Generator: Launchpad (build 16863)\n"
+"X-Launchpad-Export-Date: 2013-12-21 06:15+0000\n"
+"X-Generator: Launchpad (build 16872)\n"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Select an Icon"
@@ -35,323 +35,323 @@ msgstr "選擇一張影像"
 
 #: ../data/ui/MenulibreWindow.ui.h:5
 msgid "<b>Select Icon</b>"
-msgstr ""
+msgstr "<b>選擇圖示</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "48x48"
-msgstr ""
+msgstr "48x48"
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "32x32"
-msgstr ""
+msgstr "32x32"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "24x24"
-msgstr ""
+msgstr "24x24"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid "16x16"
-msgstr ""
+msgstr "16x16"
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "128x128"
-msgstr ""
+msgstr "128x128"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "<b>Preview</b>"
-msgstr ""
+msgstr "<b>預覽</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "Select an icon"
-msgstr ""
+msgstr "選擇圖示"
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "MenuLibre"
-msgstr ""
+msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "_File"
-msgstr ""
+msgstr "檔案(F)"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Add _New Launcher"
-msgstr ""
+msgstr "增加新啟動器(N)"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid "_Edit"
-msgstr ""
+msgstr "編輯(E)"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "_Help"
-msgstr ""
+msgstr "求助(H)"
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid "_Contents"
-msgstr ""
+msgstr "內容(C)"
 
 #: ../data/ui/MenulibreWindow.ui.h:19 ../menulibre/MenulibreWindow.py:1448
 msgid "Add Launcher"
-msgstr ""
+msgstr "增加啟動器"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Save All Changes"
-msgstr ""
+msgstr "儲存所有變更"
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
 msgid "Undo the last action"
-msgstr ""
+msgstr "還原上一動作"
 
 #: ../data/ui/MenulibreWindow.ui.h:23
 msgid "Undo"
-msgstr ""
+msgstr "還原"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Redo the last undone action"
-msgstr ""
+msgstr "重做剛取消的動作"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Redo"
-msgstr ""
+msgstr "重做"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Revert all changes to last saved state"
-msgstr ""
+msgstr "復原所有變更至最後儲存狀態"
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Revert"
-msgstr ""
+msgstr "復原"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Category"
-msgstr ""
+msgstr "類別"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application"
-msgstr ""
+msgstr "應用程式"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
 msgid "Categories"
-msgstr ""
+msgstr "分類"
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Applications"
-msgstr ""
+msgstr "應用程式"
 
 #: ../data/ui/MenulibreWindow.ui.h:32
 msgid "<b>No applications found.</b>"
-msgstr ""
+msgstr "<b>找不到應用程式。</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Try searching everything."
-msgstr ""
+msgstr "嘗試搜尋一切。"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Search Failed"
-msgstr ""
+msgstr "搜尋失敗"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "<big><b>Application Name</b></big>"
-msgstr ""
+msgstr "<big><b>應用程式名稱</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "<i>A quick snippet about your application.</i>"
-msgstr ""
+msgstr "<i>有關應用程式的備註。</i>"
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Command"
-msgstr ""
+msgstr "指令"
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Working Directory"
-msgstr ""
+msgstr "工作目錄"
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "<b>Application Settings</b>"
-msgstr ""
+msgstr "<b>應用程式設定</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Run in terminal"
-msgstr ""
+msgstr "在終端機運行"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
-msgstr ""
+msgstr "使用啟動通知"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Hide from menus"
-msgstr ""
+msgstr "從選單隱藏"
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "<b>Options</b>"
-msgstr ""
+msgstr "<b>選項</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:44 ../menulibre/MenulibreWindow.py:253
 msgid "Name"
-msgstr ""
+msgstr "名稱"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Add category..."
-msgstr ""
+msgstr "增加分類..."
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Remove category"
-msgstr ""
+msgstr "移除分類"
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Clear categories"
-msgstr ""
+msgstr "清除分類"
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "<b>Categories</b>"
-msgstr ""
+msgstr "<b>分類</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:49
 msgid "General Settings"
-msgstr ""
+msgstr "一般設定"
 
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Show"
-msgstr ""
+msgstr "顯示"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Shortcut Name"
-msgstr ""
+msgstr "快捷鍵名稱"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Displayed Name"
-msgstr ""
+msgstr "顯示名稱"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Quicklists"
-msgstr ""
+msgstr "快捷列表"
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Editor"
-msgstr ""
+msgstr "編輯器"
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid "label"
-msgstr ""
+msgstr "標籤"
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Delete this launcher..."
-msgstr ""
+msgstr "刪除這啟動器..."
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "<small>Filename</small>"
-msgstr ""
+msgstr "<small>檔案名</small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Add Quicklist"
-msgstr ""
+msgstr "增加快捷列表"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Remove Quicklist"
-msgstr ""
+msgstr "移除快捷列表"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Move Up"
-msgstr ""
+msgstr "上移"
 
 #: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Move Down"
-msgstr ""
+msgstr "下移"
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Application Settings"
-msgstr ""
+msgstr "應用程式設定"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "<big><b>Remove Launcher?</b></big>"
-msgstr ""
+msgstr "<big><b>移除快捷列表？</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid ""
 "Are you sure you wish to remove this launcher?  This cannot be undone."
-msgstr ""
+msgstr "你確定要移除這啟動器？這動作不能還原。"
 
 #: ../menulibre/MenulibreWindow.py:77 ../menulibre/MenulibreWindow.py:286
 #: ../menulibre/MenulibreWindow.py:1238
 msgid "Multimedia"
-msgstr ""
+msgstr "多媒體"
 
 #: ../menulibre/MenulibreWindow.py:78 ../menulibre/MenulibreWindow.py:271
 #: ../menulibre/MenulibreWindow.py:1228
 msgid "Development"
-msgstr ""
+msgstr "開發"
 
 #: ../menulibre/MenulibreWindow.py:79 ../menulibre/MenulibreWindow.py:274
 #: ../menulibre/MenulibreWindow.py:1230
 msgid "Education"
-msgstr ""
+msgstr "教育"
 
 #: ../menulibre/MenulibreWindow.py:80 ../menulibre/MenulibreWindow.py:277
 #: ../menulibre/MenulibreWindow.py:1232
 msgid "Games"
-msgstr ""
+msgstr "遊戲"
 
 #: ../menulibre/MenulibreWindow.py:81 ../menulibre/MenulibreWindow.py:280
 #: ../menulibre/MenulibreWindow.py:1234
 msgid "Graphics"
-msgstr ""
+msgstr "美工繪圖"
 
 #: ../menulibre/MenulibreWindow.py:82 ../menulibre/MenulibreWindow.py:283
 #: ../menulibre/MenulibreWindow.py:1236
 msgid "Internet"
-msgstr ""
+msgstr "互聯網"
 
 #: ../menulibre/MenulibreWindow.py:83 ../menulibre/MenulibreWindow.py:289
 #: ../menulibre/MenulibreWindow.py:1240
 msgid "Office"
-msgstr ""
+msgstr "辦公"
 
 #: ../menulibre/MenulibreWindow.py:84 ../menulibre/MenulibreWindow.py:292
 #: ../menulibre/MenulibreWindow.py:1242
 msgid "Other"
-msgstr ""
+msgstr "其他"
 
 #: ../menulibre/MenulibreWindow.py:85 ../menulibre/MenulibreWindow.py:295
 #: ../menulibre/MenulibreWindow.py:1244
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: ../menulibre/MenulibreWindow.py:86 ../menulibre/MenulibreWindow.py:298
 #: ../menulibre/MenulibreWindow.py:1246
 msgid "System"
-msgstr ""
+msgstr "系統"
 
 #: ../menulibre/MenulibreWindow.py:87 ../menulibre/MenulibreWindow.py:268
 #: ../menulibre/MenulibreWindow.py:1226
 msgid "Accessories"
-msgstr ""
+msgstr "附屬應用程式"
 
 #: ../menulibre/MenulibreWindow.py:88
 msgid "WINE"
-msgstr ""
+msgstr "WINE"
 
 #: ../menulibre/MenulibreWindow.py:140 ../menulibre/MenulibreWindow.py:552
 #: ../menulibre/MenulibreWindow.py:575
 msgid "Search Applications"
-msgstr ""
+msgstr "搜尋應用程式"
 
 #: ../menulibre/MenulibreWindow.py:251
 msgid "Image"
-msgstr ""
+msgstr "影像"
 
 #. Translators: Required menu item
 #: ../menulibre/MenulibreWindow.py:329
 #, python-format
 msgid "%s (Required)"
-msgstr ""
+msgstr "%s (必須)"
 
 #: ../menulibre/MenulibreWindow.py:564
 #, python-format
 msgid "Search %s"
-msgstr ""
+msgstr "搜尋%s"
 
 #: ../menulibre/MenulibreWindow.py:582
 #, python-format
@@ -359,6 +359,8 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "This cannot be undone."
 msgstr ""
+"你確定要移除\"%s\"？\n"
+"這動作不能還原。"
 
 #: ../menulibre/MenulibreWindow.py:591
 #, python-format
@@ -366,45 +368,47 @@ msgid ""
 "Are you sure you wish to remove \"%s\"?\n"
 "The menu item will be restored to system defaults."
 msgstr ""
+"你確定要移除\"%s\"？\n"
+"這選單項目將會還原至系統預設值。"
 
 #: ../menulibre/MenulibreWindow.py:600 ../menulibre/MenulibreWindow.py:1209
 #: ../menulibre/MenulibreWindow.py:1374 ../menulibre/MenulibreWindow.py:1524
 #: ../menulibre/MenulibreWindow.py:1729 ../menulibre/MenulibreWindow.py:1735
 #: ../menulibre_lib/MenulibreXdg.py:44
 msgid "New Menu Item"
-msgstr ""
+msgstr "新增選單項目"
 
 #: ../menulibre/MenulibreWindow.py:794 ../menulibre/MenulibreWindow.py:815
 msgid "Select an executable"
-msgstr ""
+msgstr "選擇執行檔"
 
 #: ../menulibre/MenulibreWindow.py:909
 msgid "NewShortcut"
-msgstr ""
+msgstr "新捷徑"
 
 #: ../menulibre/MenulibreWindow.py:911
 msgid "New Shortcut"
-msgstr ""
+msgstr "新增捷徑"
 
 #: ../menulibre/MenulibreWindow.py:1248
 msgid "Unknown"
-msgstr ""
+msgstr "不明"
 
 #: ../menulibre/MenulibreWindow.py:1419 ../menulibre/MenulibreWindow.py:1509
 msgid "All Applications"
-msgstr ""
+msgstr "所有應用程式"
 
 #: ../menulibre/MenulibreWindow.py:1448
 msgid "Add a new application launcher"
-msgstr ""
+msgstr "增加應用程式啟動器"
 
 #: ../menulibre/MenulibreWindow.py:1779
 msgid "Search Results"
-msgstr ""
+msgstr "搜尋結果"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:1
 msgid "Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
-msgstr ""
+msgstr "版權所有 (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
 
 #: ../data/ui/AboutMenulibreDialog.ui.h:2
 msgid ""
@@ -422,41 +426,51 @@ msgid ""
 "# You should have received a copy of the GNU General Public License along \n"
 "# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
 msgstr ""
+"# 版權所有 (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>\n"
+"# 本程式為自由軟件：您可依據自由軟件基金會所發表的 \n"
+"# GNU通用公共授權條款第三版，再次發佈和/或修改本程式。\n"
+"# \n"
+"# 本程式的發佈是基於相信它將會有用，但並沒任何保證； \n"
+"# 甚至沒有對適售性、良好質素或特定目的適用性的默示性保證。 \n"
+"# 詳情請參照GNU通用公共授權。\n"
+"# \n"
+"# 您應已收到附隨於本程式的GNU通用公共授權的副本。 \n"
+"# 如果沒有，請參照 <http://www.gnu.org/licenses/>。\n"
 
 #: ../menulibre_lib/MenulibreXdg.py:45
 msgid "A small descriptive blurb about this application."
-msgstr ""
+msgstr "有關這應用程式的備註。"
 
 #: ../menulibre_lib/MenulibreXdg.py:171
 #, python-format
 msgid "'%s' is not a .desktop file"
-msgstr ""
+msgstr "'%s'不是一.desktop檔"
 
 #: ../menulibre_lib/MenulibreXdg.py:174
 msgid "Initialized without required parameters."
-msgstr ""
+msgstr "在沒有必須參數下完成初始化"
 
 #: ../menulibre_lib/MenulibreXdg.py:183
 #, python-format
 msgid "'%s' is not a .directory file"
-msgstr ""
+msgstr "'%s'不是一.directory檔"
 
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages (-vv debugs menulibre_lib also)"
-msgstr ""
+msgstr "顯示除錯信息 (-vv debugs menulibre_lib)"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr ""
+msgstr "選單編輯器"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Edit System and User Menus with ease"
-msgstr ""
+msgstr "輕易編輯系統及使用者選單"
 
 #: ../menulibre.desktop.in.h:3
 msgid "Edit user menus"
-msgstr ""
+msgstr "編輯使用者選單"
 
 #: ../menulibre.desktop.in.h:4
 msgid "Edit system menus"
-msgstr ""
+msgstr "編輯系統選單"
