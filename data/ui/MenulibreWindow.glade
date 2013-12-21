@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <!-- interface-requires gtk+ 3.0 -->
-  <object class="GtkImage" id="image5">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixel_size">16</property>
-    <property name="icon_name">document-new-symbolic</property>
-  </object>
   <object class="GtkImage" id="image10">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -30,6 +24,12 @@
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
     <property name="icon_name">edit-undo-symbolic</property>
+  </object>
+  <object class="GtkImage" id="image5">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixel_size">16</property>
+    <property name="icon_name">document-new-symbolic</property>
   </object>
   <object class="GtkImage" id="image6">
     <property name="visible">True</property>
@@ -70,6 +70,8 @@
       <!-- column-name quicklist_show_col -->
       <column type="gboolean"/>
       <!-- column-name quicklist_name_col -->
+      <column type="gchararray"/>
+      <!-- column-name quicklist_displayed_col -->
       <column type="gchararray"/>
       <!-- column-name quicklist_command_col -->
       <column type="gchararray"/>
@@ -298,7 +300,7 @@
                           <class name="linked"/>
                         </style>
                         <child>
-                          <object class="GtkButton" id="toolbar_new">
+                          <object class="GtkButton" id="toolbar_add_launcher">
                             <property name="width_request">32</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
@@ -313,7 +315,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkButton" id="toolbar_save">
+                          <object class="GtkButton" id="toolbar_save_launcher">
                             <property name="width_request">32</property>
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
@@ -401,6 +403,7 @@
                         <property name="can_focus">False</property>
                         <property name="receives_default">True</property>
                         <property name="image">image10</property>
+                        <property name="always_show_image">True</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -623,21 +626,45 @@
                                 <property name="valign">center</property>
                                 <property name="orientation">vertical</property>
                                 <child>
-                                  <object class="GtkButton" id="button_Name">
-                                    <property name="height_request">32</property>
+                                  <object class="GtkBox" id="box2">
                                     <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="relief">none</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="orientation">vertical</property>
                                     <child>
-                                      <object class="GtkLabel" id="label_Name">
+                                      <object class="GtkButton" id="button_Name">
+                                        <property name="height_request">32</property>
                                         <property name="visible">True</property>
-                                        <property name="can_focus">False</property>
-                                        <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Application Name&lt;/b&gt;&lt;/big&gt;</property>
-                                        <property name="use_markup">True</property>
-                                        <property name="ellipsize">end</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">True</property>
+                                        <property name="relief">none</property>
+                                        <child>
+                                          <object class="GtkLabel" id="label_Name">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="xalign">0</property>
+                                            <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Application Name&lt;/b&gt;&lt;/big&gt;</property>
+                                            <property name="use_markup">True</property>
+                                            <property name="ellipsize">end</property>
+                                          </object>
+                                        </child>
                                       </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkEntry" id="entry_Name">
+                                        <property name="can_focus">False</property>
+                                        <property name="no_show_all">True</property>
+                                        <property name="invisible_char">•</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
                                     </child>
                                   </object>
                                   <packing>
@@ -647,20 +674,44 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="button_Comment">
-                                    <property name="height_request">28</property>
+                                  <object class="GtkBox" id="box3">
                                     <property name="visible">True</property>
-                                    <property name="can_focus">True</property>
-                                    <property name="receives_default">True</property>
-                                    <property name="relief">none</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="orientation">vertical</property>
                                     <child>
-                                      <object class="GtkLabel" id="label_Comment">
+                                      <object class="GtkButton" id="button_Comment">
+                                        <property name="height_request">28</property>
                                         <property name="visible">True</property>
-                                        <property name="can_focus">False</property>
-                                        <property name="xalign">0</property>
-                                        <property name="label" translatable="yes">Application Comment</property>
-                                        <property name="ellipsize">end</property>
+                                        <property name="can_focus">True</property>
+                                        <property name="receives_default">True</property>
+                                        <property name="relief">none</property>
+                                        <child>
+                                          <object class="GtkLabel" id="label_Comment">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="xalign">0</property>
+                                            <property name="label" translatable="yes">Application Comment</property>
+                                            <property name="ellipsize">end</property>
+                                          </object>
+                                        </child>
                                       </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">0</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkEntry" id="entry_Comment">
+                                        <property name="can_focus">False</property>
+                                        <property name="no_show_all">True</property>
+                                        <property name="invisible_char">•</property>
+                                      </object>
+                                      <packing>
+                                        <property name="expand">False</property>
+                                        <property name="fill">True</property>
+                                        <property name="position">1</property>
+                                      </packing>
                                     </child>
                                   </object>
                                   <packing>
@@ -705,12 +756,9 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="has_tooltip">True</property>
-                                        <property name="tooltip_markup" translatable="yes">Progam to execute, possibly with arguments.
+                                        <property name="tooltip_text" translatable="yes">"Exec": Program to execute, possibly with arguments. The Exec key is required if DBusActivatable is not set to true. Even if DBusActivatable is true, Exec should be specified for compatibility with implementations that do not understand DBusActivatable. 
 
-Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.html for advanced usage.</property>
-                                        <property name="tooltip_text" translatable="yes">Progam to execute, possibly with arguments.
-
-Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.html for advanced usage.</property>
+Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#exec-variables for a list of supported arguments.</property>
                                         <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Command</property>
                                       </object>
@@ -726,8 +774,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="has_tooltip">True</property>
-                                        <property name="tooltip_markup" translatable="yes">The working directory to run the program in.</property>
-                                        <property name="tooltip_text" translatable="yes">The working directory to run the program in.</property>
+                                        <property name="tooltip_text" translatable="yes">"Path": The working directory to run the program in. </property>
                                         <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Working Directory</property>
                                       </object>
@@ -870,8 +917,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="has_tooltip">True</property>
-                                        <property name="tooltip_markup" translatable="yes">Whether this program runs in a terminal window.</property>
-                                        <property name="tooltip_text" translatable="yes">Whether this program runs in a terminal window.</property>
+                                        <property name="tooltip_text" translatable="yes">"Terminal": Whether the program runs in a terminal window.</property>
                                         <property name="hexpand">True</property>
                                         <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Run in terminal</property>
@@ -888,8 +934,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="has_tooltip">True</property>
-                                        <property name="tooltip_markup" translatable="yes">Whether to use whatever startup notification is built in to either this application or toolkit.</property>
-                                        <property name="tooltip_text" translatable="yes">Whether to use whatever startup notification is built in to either this application or toolkit.</property>
+                                        <property name="tooltip_text" translatable="yes">"StartupNotify": If true, it is KNOWN that the application will send a "remove" message when started with the DESKTOP_STARTUP_ID environment variable set. If false, it is KNOWN that the application does not work with startup notification at all (does not shown any window, breaks even when using StartupWMClass, etc.). If absent, a reasonable handling is up to implementations (assuming false, using StartupWMClass, etc.).</property>
                                         <property name="hexpand">True</property>
                                         <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Use startup notification</property>
@@ -906,8 +951,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="has_tooltip">True</property>
-                                        <property name="tooltip_markup" translatable="yes">Whether to display this application in the menu.</property>
-                                        <property name="tooltip_text" translatable="yes">Whether to display this application in the menu.</property>
+                                        <property name="tooltip_text" translatable="yes">"NoDisplay": NoDisplay means "this application exists, but don't display it in the menus". This can be useful to e.g. associate this application with MIME types, so that it gets launched from a file manager (or other apps), without having a menu entry for it (there are tons of good reasons for this, including e.g. the netscape -remote, or kfmclient openURL kind of stuff).</property>
                                         <property name="hexpand">True</property>
                                         <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Hide from menus</property>
@@ -1155,7 +1199,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                                         <child>
                                                           <object class="GtkCellRendererText" id="cellrenderertext1"/>
                                                           <attributes>
-                                                            <attribute name="text">1</attribute>
+                                                            <attribute name="text">2</attribute>
                                                           </attributes>
                                                         </child>
                                                       </object>
@@ -1273,8 +1317,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="has_tooltip">True</property>
-                                                    <property name="tooltip_markup" translatable="yes">Generic name of the application, for example &amp;quot;Web Browser&amp;quot;.</property>
-                                                    <property name="tooltip_text" translatable="yes">Generic name of the application, for example "Web Browser".</property>
+                                                    <property name="tooltip_text" translatable="yes">"GenericName": Generic name of the application, for example "Web Browser". </property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Generic Name</property>
                                                   </object>
@@ -1290,8 +1333,9 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="has_tooltip">True</property>
-                                                    <property name="tooltip_markup" translatable="yes">A list of strings identifying the environments that should not display this desktop entry.</property>
-                                                    <property name="tooltip_text" translatable="yes">A list of strings identifying the environments that should not display this desktop entry.</property>
+                                                    <property name="tooltip_text" translatable="yes">"NotShowIn": A list of strings identifying the environments that should not display a given desktop entry. Only one of these keys, either OnlyShowIn or NotShowIn, may appear in a group.
+
+Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Not Shown In</property>
                                                   </object>
@@ -1307,8 +1351,9 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="has_tooltip">True</property>
-                                                    <property name="tooltip_markup" translatable="yes">A list of strings identifying the environments that should display this desktop entry.</property>
-                                                    <property name="tooltip_text" translatable="yes">A list of strings identifying the environments that should display this desktop entry.</property>
+                                                    <property name="tooltip_text" translatable="yes">"OnlyShowIn": A list of strings identifying the environments that should display a given desktop entry. Only one of these keys, either OnlyShowIn or NotShowIn, may appear in a group.
+
+Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Only Shown In</property>
                                                   </object>
@@ -1324,8 +1369,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="has_tooltip">True</property>
-                                                    <property name="tooltip_markup" translatable="yes">Path to an executable file on disk used to determine if the program is actually installed.</property>
-                                                    <property name="tooltip_text" translatable="yes">Path to an executable file on disk used to determine if the program is actually installed.</property>
+                                                    <property name="tooltip_text" translatable="yes">"TryExec": Path to an executable file on disk used to determine if the program is actually installed. If the path is not an absolute path, the file is looked up in the $PATH environment variable. If the file is not present or if it is not executable, the entry may be ignored (not be used in menus, for example). </property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Try Exec</property>
                                                   </object>
@@ -1341,8 +1385,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="has_tooltip">True</property>
-                                                    <property name="tooltip_markup" translatable="yes">The MIME type(s) supported by this application.</property>
-                                                    <property name="tooltip_text" translatable="yes">The MIME type(s) supported by this application.</property>
+                                                    <property name="tooltip_text" translatable="yes">"MimeType": The MIME type(s) supported by this application. </property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Mimetypes</property>
                                                   </object>
@@ -1358,8 +1401,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="has_tooltip">True</property>
-                                                    <property name="tooltip_markup" translatable="yes">A list of strings that may be used in addition to other metadata to describe this entry.</property>
-                                                    <property name="tooltip_text" translatable="yes">A list of strings that may be used in addition to other metadata to describe this entry.</property>
+                                                    <property name="tooltip_text" translatable="yes">"Keywords": A list of strings which may be used in addition to other metadata to describe this entry. This can be useful e.g. to facilitate searching through entries. The values are not meant for display, and should not be redundant with the values of Name or GenericName.</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Keywords</property>
                                                   </object>
@@ -1375,8 +1417,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="has_tooltip">True</property>
-                                                    <property name="tooltip_markup" translatable="yes">If specified, it is known that the application will map a least one window with the given string as its WM class or WM name hint.</property>
-                                                    <property name="tooltip_text" translatable="yes">If specified, it is known that the application will map a least one window with the given string as its WM class or WM name hint.</property>
+                                                    <property name="tooltip_text" translatable="yes">"StartupWMClass": If specified, it is known that the application will map at least one window with the given string as its WM class or WM name hint.</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Startup WM Class</property>
                                                   </object>
@@ -1482,6 +1523,62 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s06.ht
                                                   <packing>
                                                     <property name="left_attach">1</property>
                                                     <property name="top_attach">6</property>
+                                                    <property name="width">1</property>
+                                                    <property name="height">1</property>
+                                                  </packing>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkLabel" id="label1">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="tooltip_text" translatable="yes">"Hidden": Hidden should have been called Deleted. It means the user deleted (at his level) something that was present (at an upper level, e.g. in the system dirs). It's strictly equivalent to the .desktop file not existing at all, as far as that user is concerned. This can also be used to "uninstall" existing files (e.g. due to a renaming) - by letting make install install a file with Hidden=true in it.</property>
+                                                    <property name="xalign">0</property>
+                                                    <property name="label" translatable="yes">Hidden</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="left_attach">0</property>
+                                                    <property name="top_attach">7</property>
+                                                    <property name="width">1</property>
+                                                    <property name="height">1</property>
+                                                  </packing>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkLabel" id="label2">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="tooltip_text" translatable="yes">"DBusActivatable": A boolean value specifying if D-Bus activation is supported for this application. If this key is missing, the default value is false. If the value is true then implementations should ignore the Exec key and send a D-Bus message to launch the application. See D-Bus Activation for more information on how this works. Applications should still include Exec= lines in their desktop files for compatibility with implementations that do not understand the DBusActivatable key.</property>
+                                                    <property name="xalign">0</property>
+                                                    <property name="label" translatable="yes">DBUS Activatable</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="left_attach">0</property>
+                                                    <property name="top_attach">8</property>
+                                                    <property name="width">1</property>
+                                                    <property name="height">1</property>
+                                                  </packing>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkEntry" id="entry_Hidden">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="invisible_char">•</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="left_attach">1</property>
+                                                    <property name="top_attach">7</property>
+                                                    <property name="width">1</property>
+                                                    <property name="height">1</property>
+                                                  </packing>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkEntry" id="entry_DBusActivatable">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="invisible_char">•</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="left_attach">1</property>
+                                                    <property name="top_attach">8</property>
                                                     <property name="width">1</property>
                                                     <property name="height">1</property>
                                                   </packing>

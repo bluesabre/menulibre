@@ -89,6 +89,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Set up the application window, steal the window contents for the GtkApplication.
         self.configure_application_window(builder, app)
+        
+        self.values = dict()
 
         # Set up the actions, menubar, and toolbar
         self.configure_application_actions(builder)
@@ -220,8 +222,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             widget.set_related_action(self.actions[action_name])
             widget.set_use_action_appearance(True)
             
+    def activate_action_cb(self, widget, action_name):
+        self.actions[action_name].activate()
+            
     def configure_application_toolbar(self, builder):
         self.delete_button = builder.get_object('toolbar_delete')
+        
+        for action_name in ['add_launcher', 'save_launcher', 'undo', 'redo', 
+                            'revert']:
+            widget = builder.get_object("toolbar_%s" % action_name)
+            widget.connect("clicked", self.activate_action_cb, action_name)
         
         self.search_box = builder.get_object('toolbar_search')
         self.search_box.connect('changed', self.on_search_changed)
@@ -308,9 +318,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.widgets['TryExec'] = builder.get_object('entry_TryExec')
         self.widgets['OnlyShowIn'] = builder.get_object('entry_OnlyShowIn')
         self.widgets['NotShowIn'] = builder.get_object('entry_NotShowIn')
-        self.widgets['Mimetype'] = builder.get_object('entry_Mimetype')
+        self.widgets['MimeType'] = builder.get_object('entry_Mimetype')
         self.widgets['Keywords'] = builder.get_object('entry_Keywords')
         self.widgets['StartupWMClass'] = builder.get_object('entry_StartupWMClass')
+        self.widgets['Hidden'] = builder.get_object('entry_Hidden')
+        self.widgets['DBusActivatable'] = builder.get_object('entry_DBusActivatable')
         self.categories_treeview = builder.get_object('categories_treeview')
         self.actions_treeview = builder.get_object('actions_treeview')
 
@@ -376,19 +388,29 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 return
             if not treeiter:
                 return
+                
+            for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
+                        'NoDisplay', 'GenericName', 'TryExec',
+                        'OnlyShowIn', 'NotShowIn', 'MimeType',
+                        'Keywords', 'StartupWMClass', 'Categories']:
+                        self.set_value(key, None)
+            self.set_editor_actions(None)
+            self.set_editor_image(None)
+                
             item_type = treestore[treeiter][2]
             if item_type == MenuItemTypes.SEPARATOR:
                 self.editor.hide()
                 self.set_value('Name', _("Separator"))
                 self.set_value('Comment', "")
                 self.set_value('Filename', None)
+                self.set_value('Type', 'Separator')
             else:
                 self.editor.show()
 
                 displayed_name = treestore[treeiter][0]
                 comment = treestore[treeiter][1]
                 filename = treestore[treeiter][5]
-                self.set_editor_image(treestore[treeiter][4])
+                self.set_editor_image(treestore[treeiter][3], treestore[treeiter][4])
                 self.set_value('Name', displayed_name)
                 self.set_value('Comment', comment)
                 self.set_value('Filename', filename)
@@ -398,11 +420,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     entry = MenulibreXdg.MenulibreDesktopEntry(filename)
                     for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
                                 'NoDisplay', 'GenericName', 'TryExec',
-                                'OnlyShowIn', 'NotShowIn', 'Mimetype',
+                                'OnlyShowIn', 'NotShowIn', 'MimeType',
                                 'Keywords', 'StartupWMClass', 'Categories']:
                         self.set_value(key, entry[key])
                     self.set_editor_actions(entry.get_actions())
+                    self.set_value('Type', 'Application')
                 else:
+                    self.set_value('Type', 'Directory')
                     for widget in self.directory_hide_widgets:
                         widget.hide()
 
@@ -467,7 +491,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_search_cleared(self, widget, event, user_data=None):
         widget.set_text("")
 
-    def set_editor_image(self, gicon):
+    def set_editor_image(self, gicon, icon_name=None):
         button, image = self.widgets['Icon']
         if gicon:
             image.set_from_gicon(
@@ -475,6 +499,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         else:
             image.set_from_icon_name(
                 "application-default-icon", 48)
+        self.values['icon-name'] = icon_name
 
     def set_editor_filename(self, filename):
         # Since the filename has changed, check if it is now writable...
@@ -493,8 +518,17 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         widget.set_label("<small><i>%s</i></small>" % filename)
         widget.set_tooltip_text(filename)
+        
+    def get_editor_categories(self):
+        model = self.categories_treeview.get_model()
+        categories = ""
+        for row in model:
+            categories = "%s%s;" % (categories, row[0])
+        return categories
 
     def set_editor_categories(self, entries_string):
+        if not entries_string:
+            entries_string = ""
         entries = entries_string.split(';')
         entries.sort()
         model = self.categories_treeview.get_model()
@@ -507,15 +541,37 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 except KeyError:
                     description = re.sub('(?!^)([A-Z]+)', r' \1', entry)
                 model.append([entry, description])
+                
+    def get_editor_actions(self):
+        # Must be returned as a string
+        model = self.actions_treeview.get_model()
+        actions = "\nActions="
+        groups = "\n"
+        if len(model) == 0:
+            return None
+        for row in model:
+            show, name, displayed, executable = row[:]
+            if show:
+                actions = "%s%s;" % (actions, name)
+            group = "[Desktop Action %s]\n" \
+                    "Name=%s\n" \
+                    "Exec=%s\n" \
+                    "OnlyShowIn=Unity\n" % (name, displayed, executable)
+            groups = "%s\n%s" % (groups, group)
+        return actions + groups
 
     def set_editor_actions(self, action_groups):
         model = self.actions_treeview.get_model()
         model.clear()
+        if not action_groups:
+            return
         for name, displayed, command, show in action_groups:
-            model.append([show, displayed, command])
+            model.append([show, name, displayed, command])
             
     def set_value(self, key, value):
         if key in ['Name', 'Comment']:
+            if not value:
+                value = ""
             button, label, entry = self.widgets[key]
             if key == 'Name':
                 format = "<big><b>%s</b></big>" % (value)
@@ -524,21 +580,32 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             tooltip = "%s <i>(Click to modify.)</i>" % (value)
             
             button.set_tooltip_markup(tooltip)
+            entry.set_text(value)
             label.set_label(format)
         elif key == 'Filename':
             self.set_editor_filename(value)
         elif key == 'Categories':
             self.set_editor_categories(value)
+        elif key == 'Type':
+            self.values['Type'] = value
         else:
             widget = self.widgets[key]
             
             if isinstance(widget, Gtk.Button):
+                if not value:
+                    value = ""
                 widget.set_label(value)
             elif isinstance(widget, Gtk.Label):
+                if not value:
+                    value = ""
                 widget.set_label(value)
             elif isinstance(widget, Gtk.Entry):
+                if not value:
+                    value = ""
                 widget.set_text(value)
             elif isinstance(widget, Gtk.Switch):
+                if not value:
+                    value = False
                 widget.set_active(value)
             else:
                 print("Unknown widget: %s" % key)
@@ -547,6 +614,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if key in ['Name', 'Comment']:
             button, label, entry = self.widgets[key]
             return entry.get_text()
+        elif key == 'Icon':
+            return self.values['icon-name']
+        elif key == 'Type':
+            return self.values[key]
+        elif key == 'Categories':
+            return self.get_editor_categories()
         else:
             widget = self.widgets[key]
             if isinstance(widget, Gtk.Button):
@@ -557,6 +630,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 return widget.get_text()
             elif isinstance(widget, Gtk.Switch):
                 return widget.get_active()
+            else:
+                return None
 
     def move_iter(self, widget, user_data):
         """Move the currently selected row up or down. If the neighboring row
@@ -643,7 +718,17 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         print ('add launcher')
 
     def on_save_launcher_cb(self, widget):
-        print ('save launcher')
+        print ('[Desktop Entry]')
+        print ('Version=1.0')
+        for prop in ['Type', 'Name', 'GenericName', 'Comment', 'Icon', 'TryExec', 'Exec', 'Path', 'NoDisplay', 'Hidden', 'OnlyShowIn', 'NotShowIn', 'Categories', 'Keywords', 'MimeType', 'StartupWMClass', 'StartupNotify', 'Terminal', 'DBusActivatable']:
+            value = self.get_value(prop)
+            if value in [True, False]:
+                value = str(value).lower()
+            if value:
+                print ('%s=%s' % (prop, value))
+        actions = self.get_editor_actions()
+        if actions:
+            print (actions)
 
     def on_undo_cb(self, widget):
         print ('undo')
