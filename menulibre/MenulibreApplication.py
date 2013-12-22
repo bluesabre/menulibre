@@ -334,6 +334,67 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             'notify_label', 'switch_StartupNotify']:
             self.directory_hide_widgets.append(builder.get_object(widget_name))
             
+        for widget_name in ['Name', 'Comment']:
+            button = builder.get_object('button_%s' % widget_name)
+            cancel = builder.get_object('cancel_%s' % widget_name)
+            accept = builder.get_object('apply_%s' % widget_name)
+            button.connect('clicked', self.on_NameComment_clicked, 
+                                      widget_name, builder)
+            cancel.connect('clicked', self.on_NameComment_cancel, 
+                                      widget_name, builder)
+            accept.connect('clicked', self.on_NameComment_apply, 
+                                      widget_name, builder)
+                                      
+        for widget_name in ['Exec', 'Path']:
+            button = builder.get_object('button_%s' % widget_name)
+            button.connect('clicked', self.on_ExecPath_clicked, 
+                                      widget_name, builder)
+                                      
+    def on_NameComment_clicked(self, widget, widget_name, builder):
+        entry = builder.get_object('entry_%s' % widget_name)
+        box = builder.get_object('box_%s' % widget_name)
+        self.values[widget_name] = entry.get_text()
+        widget.hide()
+        box.show()
+        
+    def on_NameComment_cancel(self, widget, widget_name, builder):
+        entry = builder.get_object('entry_%s' % widget_name)
+        box = builder.get_object('box_%s' % widget_name)
+        button = builder.get_object('button_%s' % widget_name)
+        box.hide()
+        button.show()
+        self.set_value(widget_name, self.values[widget_name])
+        
+    def on_NameComment_apply(self, widget, widget_name, builder):
+        entry = builder.get_object('entry_%s' % widget_name)
+        box = builder.get_object('box_%s' % widget_name)
+        button = builder.get_object('button_%s' % widget_name)
+        box.hide()
+        button.show()
+        self.set_value(widget_name, entry.get_text())
+        
+    def on_ExecPath_clicked(self, widget, widget_name, builder):
+        entry = builder.get_object('entry_%s' % widget_name)
+        buttons = [
+            Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+            Gtk.STOCK_OK, Gtk.ResponseType.OK
+        ]
+        if widget_name == 'Path':
+            dialog = Gtk.FileChooserDialog(_("Select a working directory..."),
+                                           self, 
+                                           Gtk.FileChooserAction.SELECT_FOLDER,
+                                           buttons)
+        else:
+            dialog = Gtk.FileChooserDialog(_("Select an executable..."),
+                                           self, 
+                                           Gtk.FileChooserAction.OPEN,
+                                           buttons)
+        result = dialog.run()
+        dialog.hide()
+        if result == Gtk.ResponseType.OK:
+            entry.set_text(dialog.get_filename())
+        
+            
     def on_window_keypress_event(self, widget, event, user_data=None):
         if check_keypress(event, ['Control', 'f']):
             self.search_box.grab_focus()
