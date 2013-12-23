@@ -4,16 +4,16 @@ import os
 import re
 from locale import gettext as _
 
-from gi.repository import Gio, GObject, Gtk, Pango, Gdk
+from gi.repository import Gio, GObject, Gtk, Pango, Gdk, GdkPixbuf
 
 from . import MenuEditor, MenulibreXdg
 from .enums import MenuItemTypes
 
-from xml.sax.saxutils import escape
-
 locale.textdomain('menulibre')
 
+
 def check_keypress(event, keys):
+    """Compare keypress events with desired keys and return True if matched."""
     if 'Control' in keys:
         if not bool(event.get_state() & Gdk.ModifierType.CONTROL_MASK):
             return False
@@ -26,12 +26,12 @@ def check_keypress(event, keys):
     if 'Super' in keys:
         if not bool(event.get_state() & Gdk.ModifierType.SUPER_MASK):
             return False
-            
+
     if Gdk.keyval_name(event.get_keyval()[1]).lower() not in keys:
         return False
-        
+
     return True
-            
+
 
 session = os.getenv("DESKTOP_SESSION")
 
@@ -87,9 +87,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         builder = Gtk.Builder()
         builder.add_from_file(self.ui_file)
 
-        # Set up the application window, steal the window contents for the GtkApplication.
+        # Steal the window contents for the GtkApplication.
         self.configure_application_window(builder, app)
-        
+
         self.values = dict()
 
         # Set up the actions, menubar, and toolbar
@@ -99,13 +99,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Set up the application editor
         self.configure_application_editor(builder)
-        
+
         # Set up the applicaton browser
         self.configure_application_treeview(builder)
 
         self.history_undo = list()
         self.history_redo = list()
-        
+
     def configure_application_window(self, builder, app):
         # Glade is unable to create a GtkApplication, so we have to reparent
         # the window contents to our new window. Here we get the contents.
@@ -122,79 +122,79 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.set_icon_name(window_icon)
         self.set_size_request(size_request[0], size_request[1])
         window_contents.reparent(self)
-        
+
         self.connect('key-press-event', self.on_window_keypress_event)
-        
+
     def configure_application_actions(self, builder):
         self.actions = {}
 
         # Add Launcher
-        self.actions['add_launcher'] = Gtk.Action(  
-                                            'add_launcher', 
+        self.actions['add_launcher'] = Gtk.Action(
+                                            'add_launcher',
                                             _('_Add Launcher...'),
                                             _('Add Launcher...'),
                                             Gtk.STOCK_NEW)
-                                            
+
         # Save Launcher action and related widgets
         self.actions['save_launcher'] = Gtk.Action(
-                                            'save_launcher', 
+                                            'save_launcher',
                                             _('_Save'),
                                             _('Save'),
                                             Gtk.STOCK_SAVE)
 
         # Undo action and related widgets
-        self.actions['undo'] = Gtk.Action(  'undo', 
+        self.actions['undo'] = Gtk.Action('undo',
                                             _('_Undo'),
                                             _('Undo'),
                                             Gtk.STOCK_UNDO)
-                                            
+
         # Redo action and related widgets
-        self.actions['redo'] = Gtk.Action(  'redo', 
+        self.actions['redo'] = Gtk.Action('redo',
                                             _('_Redo'),
                                             _('Redo'),
                                             Gtk.STOCK_REDO)
 
         # Revert action and related widgets
-        self.actions['revert'] = Gtk.Action('revert', 
+        self.actions['revert'] = Gtk.Action('revert',
                                             _('_Revert'),
                                             _('Revert'),
                                             Gtk.STOCK_REVERT_TO_SAVED)
-                                            
+
         # Quit action and related widgets
-        self.actions['quit'] = Gtk.Action(  'quit', 
+        self.actions['quit'] = Gtk.Action('quit',
                                             _('_Quit'),
                                             _('Quit'),
                                             Gtk.STOCK_QUIT)
-                                            
+
         # Help action and related widgets
-        self.actions['help'] = Gtk.Action(  'help', 
+        self.actions['help'] = Gtk.Action('help',
                                             _('_Contents'),
                                             _('Help'),
                                             Gtk.STOCK_HELP)
-                                            
+
         # About action and related widgets
-        self.actions['about'] = Gtk.Action( 'about', 
+        self.actions['about'] = Gtk.Action('about',
                                             _('_About'),
                                             _('About'),
                                             Gtk.STOCK_ABOUT)
-                                            
-        self.actions['add_launcher'].connect('activate', 
+
+        self.actions['add_launcher'].connect('activate',
                                             self.on_add_launcher_cb)
-        self.actions['save_launcher'].connect('activate', 
+        self.actions['save_launcher'].connect('activate',
                                             self.on_save_launcher_cb)
-        self.actions['undo'].connect('activate', 
+        self.actions['undo'].connect('activate',
                                             self.on_undo_cb)
-        self.actions['redo'].connect('activate', 
+        self.actions['redo'].connect('activate',
                                             self.on_redo_cb)
-        self.actions['revert'].connect('activate', 
+        self.actions['revert'].connect('activate',
                                             self.on_revert_cb)
-        self.actions['quit'].connect('activate', 
+        self.actions['quit'].connect('activate',
                                             self.on_quit_cb)
-        self.actions['help'].connect('activate', 
+        self.actions['help'].connect('activate',
                                             self.on_help_cb)
-        self.actions['about'].connect('activate', 
+        self.actions['about'].connect('activate',
                                             self.on_about_cb)
-                                            
+
     def configure_application_menubar(self, builder):
         # Configure Global Menu and AppMenu
         self.app_menu_button = None
@@ -217,31 +217,30 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         builder.get_object('menubar').set_visible(session in ['ubuntu',
                                                               'ubuntu-2d'])
-                                                              
-        for action_name in ['add_launcher', 'save_launcher', 'undo', 'redo', 
+
+        for action_name in ['add_launcher', 'save_launcher', 'undo', 'redo',
                             'revert', 'quit', 'help', 'about']:
             widget = builder.get_object("menubar_%s" % action_name)
             widget.set_related_action(self.actions[action_name])
             widget.set_use_action_appearance(True)
-            
+
     def activate_action_cb(self, widget, action_name):
         self.actions[action_name].activate()
-            
+
     def configure_application_toolbar(self, builder):
         self.delete_button = builder.get_object('toolbar_delete')
-        
-        for action_name in ['add_launcher', 'save_launcher', 'undo', 'redo', 
+
+        for action_name in ['add_launcher', 'save_launcher', 'undo', 'redo',
                             'revert']:
             widget = builder.get_object("toolbar_%s" % action_name)
             widget.connect("clicked", self.activate_action_cb, action_name)
-        
+
         self.search_box = builder.get_object('toolbar_search')
-        self.search_box.connect('changed', self.on_search_changed)
         self.search_box.connect('icon-press', self.on_search_cleared)
-        
+
     def configure_application_treeview(self, builder):
-        self.treestore = MenuEditor.get_treestore()
-        
+        treestore = MenuEditor.get_treestore()
+
         self.treeview = builder.get_object('classic_view_treeview')
 
         col = Gtk.TreeViewColumn("Item")
@@ -256,13 +255,17 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.treeview.set_tooltip_column(1)
 
         # Allow filtering/searching results
-        self.treefilter = self.treestore.filter_new()
-        self.treefilter.set_visible_func(self.treeview_match_func)
+        treefilter = treestore.filter_new()
+        treefilter.set_visible_func(self.treeview_match_func)
         self.treeview.set_search_column(0)
+
+        self.search_box.connect('changed', self.on_search_changed,
+                                            treefilter, True)
+
         self.treeview.set_search_entry(self.search_box)
 
         self.treeview.append_column(col)
-        self.treeview.set_model(self.treefilter)
+        self.treeview.set_model(treefilter)
 
         self.treeview.connect("cursor-changed",
                                 self.on_treeview_cursor_changed, None)
@@ -276,10 +279,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.treeview.show_all()
         self.treeview.grab_focus()
-        
+
         path = Gtk.TreePath.new_from_string("0")
         self.treeview.set_cursor(path)
-        
+
     def configure_application_editor(self, builder):
         # Settings Notebook, advanced configuration, fancy notebook
         self.settings_notebook = builder.get_object('settings_notebook')
@@ -288,22 +291,22 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             button = builder.get_object(buttons[i])
             button.connect("clicked", self.on_settings_group_changed, i)
             button.activate()
-        
+
         self.editor = builder.get_object('application_editor')
 
         self.widgets = dict()
-        
+
         # Pack the Icon GtkButton and GtkImage widgets
         self.widgets['Icon'] = (
             builder.get_object('button_Icon'),
             builder.get_object('image_Icon'))
-            
+
         # Pack the Name GtkButton, GtkLabel, and GtkEntry widgets
         self.widgets['Name'] = (
             builder.get_object('button_Name'),
             builder.get_object('label_Name'),
             builder.get_object('entry_Name'))
-            
+
         # Pack the Comment GtkButton, GtkLabel, and GtkEntry widgets
         self.widgets['Comment'] = (
             builder.get_object('button_Comment'),
@@ -314,7 +317,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.widgets['Exec'] = builder.get_object('entry_Exec')
         self.widgets['Path'] = builder.get_object('entry_Path')
         self.widgets['Terminal'] = builder.get_object('switch_Terminal')
-        self.widgets['StartupNotify'] = builder.get_object('switch_StartupNotify')
+        self.widgets['StartupNotify'] = builder.get_object(
+                                                'switch_StartupNotify')
         self.widgets['NoDisplay'] = builder.get_object('switch_NoDisplay')
         self.widgets['GenericName'] = builder.get_object('entry_GenericName')
         self.widgets['TryExec'] = builder.get_object('entry_TryExec')
@@ -322,49 +326,180 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.widgets['NotShowIn'] = builder.get_object('entry_NotShowIn')
         self.widgets['MimeType'] = builder.get_object('entry_Mimetype')
         self.widgets['Keywords'] = builder.get_object('entry_Keywords')
-        self.widgets['StartupWMClass'] = builder.get_object('entry_StartupWMClass')
+        self.widgets['StartupWMClass'] = builder.get_object(
+                                                'entry_StartupWMClass')
         self.widgets['Hidden'] = builder.get_object('entry_Hidden')
-        self.widgets['DBusActivatable'] = builder.get_object('entry_DBusActivatable')
+        self.widgets['DBusActivatable'] = builder.get_object(
+                                                'entry_DBusActivatable')
         self.categories_treeview = builder.get_object('categories_treeview')
         self.actions_treeview = builder.get_object('actions_treeview')
+
+        self.previews = {
+                16: builder.get_object('preview_16'),
+                32: builder.get_object('preview_32'),
+                64: builder.get_object('preview_64'),
+                128: builder.get_object('preview_128')
+        }
 
         self.directory_hide_widgets = []
         for widget_name in ['details_frame', 'settings_frame',
                             'terminal_label', 'switch_Terminal',
                             'notify_label', 'switch_StartupNotify']:
             self.directory_hide_widgets.append(builder.get_object(widget_name))
-            
+
+        button = builder.get_object('button_Icon')
+        button.connect("clicked", self.on_Icon_clicked, builder)
+
+        self.icon_selection_treeview = \
+            builder.get_object('icon_selection_treeview')
+        entry = builder.get_object('icon_selection_search')
+        model = self.icon_selection_treeview.get_model()
+        model_filter = model.filter_new()
+        model_filter.set_visible_func(self.icon_selection_match_func, entry)
+        self.icon_selection_treeview.set_model(model_filter)
+        entry.connect("changed", self.on_search_changed, model_filter)
+
+        for widget_name in ['IconName', 'ImageFile']:
+            radio = builder.get_object('radiobutton_%s' % widget_name)
+            radio.connect("clicked", self.on_IconGroup_toggled,
+                                     widget_name, builder)
+            entry = builder.get_object('entry_%s' % widget_name)
+            entry.connect("changed", self.on_IconEntry_changed, widget_name)
+            button = builder.get_object('button_%s' % widget_name)
+            button.connect("clicked", self.on_IconButton_clicked,
+                                        widget_name, builder)
+
         for widget_name in ['Name', 'Comment']:
             button = builder.get_object('button_%s' % widget_name)
             cancel = builder.get_object('cancel_%s' % widget_name)
             accept = builder.get_object('apply_%s' % widget_name)
-            button.connect('clicked', self.on_NameComment_clicked, 
+            button.connect('clicked', self.on_NameComment_clicked,
                                       widget_name, builder)
-            cancel.connect('clicked', self.on_NameComment_cancel, 
+            cancel.connect('clicked', self.on_NameComment_cancel,
                                       widget_name, builder)
-            accept.connect('clicked', self.on_NameComment_apply, 
+            accept.connect('clicked', self.on_NameComment_apply,
                                       widget_name, builder)
-                                      
+
         for widget_name in ['Exec', 'Path']:
             button = builder.get_object('button_%s' % widget_name)
-            button.connect('clicked', self.on_ExecPath_clicked, 
+            button.connect('clicked', self.on_ExecPath_clicked,
                                       widget_name, builder)
-                                      
+
+    def load_icon_selection_treeview(self):
+        model = self.icon_selection_treeview.get_model().get_model()
+        for icon_name in self.icons_list:
+            model.append([icon_name])
+
+    def on_IconButton_clicked(self, widget, widget_name, builder):
+        if widget_name == 'IconName':
+            dialog = builder.get_object('icon_selection_dialog')
+            self.load_icon_selection_treeview()
+            response = dialog.run()
+            if response == Gtk.ResponseType.APPLY:
+                treeview = builder.get_object('icon_selection_treeview')
+                model, treeiter = treeview.get_selection().get_selected()
+                icon_name = model[treeiter][0]
+                entry = builder.get_object('entry_IconName')
+                entry.set_text(icon_name)
+            dialog.hide()
+        else:
+            buttons = [
+                Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
+                Gtk.STOCK_OK, Gtk.ResponseType.OK
+            ]
+            dialog = Gtk.FileChooserDialog("Select an image",
+                                            self,
+                                            Gtk.FileChooserAction.OPEN,
+                                            buttons)
+            if dialog.run() == Gtk.ResponseType.OK:
+                filename = dialog.get_filename()
+                entry = builder.get_object('entry_ImageFile')
+                entry.set_text(filename)
+            dialog.hide()
+
+    def on_IconEntry_changed(self, widget, widget_name):
+        text = widget.get_text()
+        if widget_name == 'IconName':
+            self.update_icon_preview(icon_name=text)
+        else:
+            self.update_icon_preview(filename=text)
+
+    def update_icon_preview(self, icon_name=None, filename=None):
+        if filename is not None:
+            if os.path.isfile(filename):
+                pixbuf = GdkPixbuf.Pixbuf.new_from_file(filename)
+                for size in [16, 32, 64, 128]:
+                    scaled = pixbuf.scale_simple(size, size,
+                                    GdkPixbuf.InterpType.HYPER)
+                    self.previews[size].set_from_pixbuf(scaled)
+                return
+            else:
+                icon_name = 'image-missing'
+
+        if icon_name not in self.icons_list:
+            icon_name = 'image-missing'
+
+        for size in [16, 32, 64, 128]:
+            self.previews[size].set_from_icon_name(icon_name, size)
+
+    def on_IconGroup_toggled(self, widget, group_name, builder):
+        if widget.get_active():
+            entry = builder.get_object('entry_%s' % group_name)
+            if group_name == 'IconName':
+                builder.get_object('box_IconName').set_sensitive(True)
+                builder.get_object('box_ImageFile').set_sensitive(False)
+                self.update_icon_preview(icon_name=entry.get_text())
+            else:
+                builder.get_object('box_ImageFile').set_sensitive(True)
+                builder.get_object('box_IconName').set_sensitive(False)
+                self.update_icon_preview(filename=entry.get_text())
+
+    def on_Icon_clicked(self, widget, builder):
+        self.icon_theme = Gtk.IconTheme.get_default()
+        self.icons_list = self.icon_theme.list_icons(None)
+        self.icons_list.sort()
+        dialog = builder.get_object('icon_dialog')
+        dialog.set_transient_for(self)
+        radio_IconName = builder.get_object('radiobutton_IconName')
+        radio_ImageFile = builder.get_object('radiobutton_ImageFile')
+        entry_IconName = builder.get_object('entry_IconName')
+        entry_ImageFile = builder.get_object('entry_ImageFile')
+        icon_name = self.values['icon-name']
+        if os.path.isfile(icon_name):
+            radio_ImageFile.set_active(True)
+            entry_ImageFile.set_text(icon_name)
+            self.update_icon_preview(filename=icon_name)
+            entry_IconName.set_text("")
+            entry_ImageFile.grab_focus()
+        else:
+            radio_IconName.set_active(True)
+            entry_IconName.set_text(icon_name)
+            self.update_icon_preview(icon_name=icon_name)
+            entry_ImageFile.set_text("")
+            entry_IconName.grab_focus()
+
+        response = dialog.run()
+        if response == Gtk.ResponseType.APPLY:
+            if radio_IconName.get_active():
+                self.set_value('Icon', entry_IconName.get_text())
+            else:
+                self.set_value('Icon', entry_ImageFile.get_text())
+        dialog.hide()
+
     def on_NameComment_clicked(self, widget, widget_name, builder):
         entry = builder.get_object('entry_%s' % widget_name)
         box = builder.get_object('box_%s' % widget_name)
         self.values[widget_name] = entry.get_text()
         widget.hide()
         box.show()
-        
+
     def on_NameComment_cancel(self, widget, widget_name, builder):
-        entry = builder.get_object('entry_%s' % widget_name)
         box = builder.get_object('box_%s' % widget_name)
         button = builder.get_object('button_%s' % widget_name)
         box.hide()
         button.show()
         self.set_value(widget_name, self.values[widget_name])
-        
+
     def on_NameComment_apply(self, widget, widget_name, builder):
         entry = builder.get_object('entry_%s' % widget_name)
         box = builder.get_object('box_%s' % widget_name)
@@ -372,7 +507,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         box.hide()
         button.show()
         self.set_value(widget_name, entry.get_text())
-        
+
     def on_ExecPath_clicked(self, widget, widget_name, builder):
         entry = builder.get_object('entry_%s' % widget_name)
         buttons = [
@@ -381,20 +516,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         ]
         if widget_name == 'Path':
             dialog = Gtk.FileChooserDialog(_("Select a working directory..."),
-                                           self, 
+                                           self,
                                            Gtk.FileChooserAction.SELECT_FOLDER,
                                            buttons)
         else:
             dialog = Gtk.FileChooserDialog(_("Select an executable..."),
-                                           self, 
+                                           self,
                                            Gtk.FileChooserAction.OPEN,
                                            buttons)
         result = dialog.run()
         dialog.hide()
         if result == Gtk.ResponseType.OK:
             entry.set_text(dialog.get_filename())
-        
-            
+
     def on_window_keypress_event(self, widget, event, user_data=None):
         if check_keypress(event, ['Control', 'f']):
             self.search_box.grab_focus()
@@ -402,18 +536,17 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if check_keypress(event, ['Control', 's']):
             print ("Save")
         return False
-            
 
     def on_settings_group_changed(self, widget, user_data=None):
         if widget.get_active():
             self.settings_notebook.set_current_page(user_data)
-            
+
     def get_treeview_selected_expanded(self, treeview):
         sel = treeview.get_selection()
         model, treeiter = sel.get_selected()
         row = model[treeiter]
         return treeview.row_expanded(row.path)
-            
+
     def set_treeview_selected_expanded(self, treeview, expanded=True):
         sel = treeview.get_selection()
         model, treeiter = sel.get_selected()
@@ -422,7 +555,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             treeview.expand_row(row.path, False)
         else:
             treeview.collapse_row(row.path)
-            
+
     def toggle_treeview_selected_expanded(self, treeview):
         expanded = self.get_treeview_selected_expanded(treeview)
         self.set_treeview_selected_expanded(treeview, not expanded)
@@ -441,7 +574,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             print ("Activate")
             return True
         return False
-        
 
     def on_treeview_cursor_changed(self, widget, selection):
         sel = widget.get_selection()
@@ -451,7 +583,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 return
             if not treeiter:
                 return
-                
+
             for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
                         'NoDisplay', 'GenericName', 'TryExec',
                         'OnlyShowIn', 'NotShowIn', 'MimeType',
@@ -459,7 +591,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                         self.set_value(key, None)
             self.set_editor_actions(None)
             self.set_editor_image(None)
-                
+
             item_type = treestore[treeiter][2]
             if item_type == MenuItemTypes.SEPARATOR:
                 self.editor.hide()
@@ -473,7 +605,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 displayed_name = treestore[treeiter][0]
                 comment = treestore[treeiter][1]
                 filename = treestore[treeiter][5]
-                self.set_editor_image(treestore[treeiter][3], treestore[treeiter][4])
+                self.set_editor_image(treestore[treeiter][3],
+                                      treestore[treeiter][4])
                 self.set_value('Name', displayed_name)
                 self.set_value('Comment', comment)
                 self.set_value('Filename', filename)
@@ -496,10 +629,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def icon_name_func(self, col, renderer, treestore, treeiter, user_data):
         renderer.set_property("gicon", treestore[treeiter][3])
         pass
-        
+
     def treeview_match(self, model, treeiter, query):
         name, comment, item_type, icon, pixbuf, desktop = model[treeiter][:]
-        
+
         if item_type == MenuItemTypes.SEPARATOR:
             return False
 
@@ -509,59 +642,82 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             comment = ""
 
         self.treeview.expand_all()
-        
+
         if query in name.lower():
             return True
-            
+
         if query in comment.lower():
             return True
-            
+
         if item_type == MenuItemTypes.DIRECTORY:
             return self.treeview_match_directory(query, model, treeiter)
 
         return False
-        
+
     def treeview_match_directory(self, query, model, treeiter):
-        # Iterate through iter children, return True if any match and this should display.
-        
+        # Check if any children match, and if so, show this directory.
+
         for child_i in range(model.iter_n_children(treeiter)):
             child = model.iter_nth_child(treeiter, child_i)
             if self.treeview_match(model, child, query):
                 return True
-                
+
         return False
-        
+
     def treeview_match_func(self, model, treeiter, data=None):
         query = str(self.search_box.get_text().lower())
-        
+
         if query == "":
             return True
-            
-        return self.treeview_match(model, treeiter, query)
-        
-    def on_search_changed(self, widget, user_data=None):
-        query = widget.get_text()
-        
-        if len(query) == 0:
-            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, None)
-            
-        else:
-            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, 'edit-clear-symbolic')
-            self.treeview.expand_all()
 
-        self.treefilter.refilter()
-            
+        return self.treeview_match(model, treeiter, query)
+
+    def icon_selection_match_func(self, model, treeiter, entry):
+        query = str(entry.get_text().lower())
+
+        if query == "":
+            return True
+
+        return query in model[treeiter][0].lower()
+
+    def on_search_changed(self, widget, treefilter, expand=False):
+        query = widget.get_text()
+
+        if len(query) == 0:
+            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
+                                            None)
+
+        else:
+            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
+                                            'edit-clear-symbolic')
+            if expand:
+                self.treeview.expand_all()
+
+        treefilter.refilter()
+
     def on_search_cleared(self, widget, event, user_data=None):
         widget.set_text("")
 
     def set_editor_image(self, gicon, icon_name=None):
         button, image = self.widgets['Icon']
-        if gicon:
+        if gicon is not None:
             image.set_from_gicon(
                 gicon, image.get_preferred_height()[0])
         else:
-            image.set_from_icon_name(
-                "application-default-icon", 48)
+            if icon_name is not None:
+                icon_theme = Gtk.IconTheme.get_default()
+                if icon_theme.has_icon(icon_name):
+                    image.set_from_icon_name(icon_name, 48)
+                elif os.path.isfile(icon_name):
+                    pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon_name)
+                    size = image.get_preferred_height()[1]
+                    scaled = pixbuf.scale_simple(size, size,
+                                                    GdkPixbuf.InterpType.HYPER)
+                    image.set_from_pixbuf(scaled)
+                else:
+                    image.set_from_icon_name("application-default-icon", 48)
+            else:
+                image.set_from_icon_name("application-default-icon", 48)
         self.values['icon-name'] = icon_name
 
     def set_editor_filename(self, filename):
@@ -576,14 +732,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         if filename is None:
             filename = ""
-            
+
         widget = self.widgets['Filename']
 
         widget.set_label("<small><i>%s</i></small>" % filename)
         widget.set_tooltip_text(filename)
-        
+
         self.values['filename'] = filename
-        
+
     def get_editor_categories(self):
         model = self.categories_treeview.get_model()
         categories = ""
@@ -606,7 +762,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 except KeyError:
                     description = re.sub('(?!^)([A-Z]+)', r' \1', entry)
                 model.append([entry, description])
-                
+
     def get_editor_actions(self):
         # Must be returned as a string
         model = self.actions_treeview.get_model()
@@ -632,30 +788,32 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             return
         for name, displayed, command, show in action_groups:
             model.append([show, name, displayed, command])
-            
+
     def set_value(self, key, value):
         if key in ['Name', 'Comment']:
             if not value:
                 value = ""
             button, label, entry = self.widgets[key]
             if key == 'Name':
-                format = "<big><b>%s</b></big>" % (value)
+                markup = "<big><b>%s</b></big>" % (value)
             else:
-                format = "%s" % (value)
+                markup = "%s" % (value)
             tooltip = "%s <i>(Click to modify.)</i>" % (value)
-            
+
             button.set_tooltip_markup(tooltip)
             entry.set_text(value)
-            label.set_label(format)
+            label.set_label(markup)
         elif key == 'Filename':
             self.set_editor_filename(value)
         elif key == 'Categories':
             self.set_editor_categories(value)
         elif key == 'Type':
             self.values['Type'] = value
+        elif key == 'Icon':
+            self.set_editor_image(gicon=None, icon_name=value)
         else:
             widget = self.widgets[key]
-            
+
             if isinstance(widget, Gtk.Button):
                 if not value:
                     value = ""
@@ -673,8 +831,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     value = False
                 widget.set_active(value)
             else:
-                print("Unknown widget: %s" % key)
-                
+                print(("Unknown widget: %s" % key))
+
     def get_value(self, key):
         if key in ['Name', 'Comment']:
             button, label, entry = self.widgets[key]
@@ -783,7 +941,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_add_launcher_cb(self, widget):
         print ('add launcher')
-        
+
     def get_save_filename(self):
         filename = self.get_value('Filename')
         item_type = self.get_value('Type')
@@ -798,23 +956,24 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             if item_type == 'Application':
                 path = "%s/.local/share/applications/" % os.getenv("HOME")
             elif item_type == 'Directory':
-                path = "%s/.local/share/desktop-directories/" % os.getenv("HOME")
+                path = "%s/.local/share/desktop-directories/" % \
+                        os.getenv("HOME")
             filename = "%s%s" % (path, basename)
             count = 1
             while os.path.exists(filename):
                 filename = "%s%s%i%s" % (path, name, count, ext)
                 count += 1
         return filename
-        
+
     def save_launcher(self):
         filename = self.get_save_filename()
         output = open(filename, 'w')
         output.write('[Desktop Entry]\n')
         output.write('Version=1.0\n')
-        for prop in ['Type', 'Name', 'GenericName', 'Comment', 'Icon', 
-                     'TryExec', 'Exec', 'Path', 'NoDisplay', 'Hidden', 
-                     'OnlyShowIn', 'NotShowIn', 'Categories', 'Keywords', 
-                     'MimeType', 'StartupWMClass', 'StartupNotify', 
+        for prop in ['Type', 'Name', 'GenericName', 'Comment', 'Icon',
+                     'TryExec', 'Exec', 'Path', 'NoDisplay', 'Hidden',
+                     'OnlyShowIn', 'NotShowIn', 'Categories', 'Keywords',
+                     'MimeType', 'StartupWMClass', 'StartupNotify',
                      'Terminal', 'DBusActivatable']:
             value = self.get_value(prop)
             if value in [True, False]:
