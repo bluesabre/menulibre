@@ -1658,7 +1658,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spe
                                               <class name="inline-toolbar"/>
                                             </style>
                                             <child>
-                                              <object class="GtkToolButton" id="toolbutton1">
+                                              <object class="GtkToolButton" id="categories_add">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="label" translatable="yes">Add</property>
@@ -1671,7 +1671,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spe
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkToolButton" id="toolbutton2">
+                                              <object class="GtkToolButton" id="categories_remove">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="label" translatable="yes">Remove</property>
@@ -1684,7 +1684,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spe
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkToolButton" id="toolbutton3">
+                                              <object class="GtkToolButton" id="categories_clear">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="label" translatable="yes">Clear</property>
@@ -1787,7 +1787,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spe
                                               <class name="inline-toolbar"/>
                                             </style>
                                             <child>
-                                              <object class="GtkToolButton" id="toolbutton4">
+                                              <object class="GtkToolButton" id="actions_add">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                                 <property name="label" translatable="yes">Add</property>
@@ -1800,7 +1800,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spe
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkToolButton" id="toolbutton5">
+                                              <object class="GtkToolButton" id="actions_remove">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                                 <property name="label" translatable="yes">Remove</property>
@@ -1813,7 +1813,7 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spe
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkToolButton" id="toolbutton6">
+                                              <object class="GtkToolButton" id="actions_clear">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                                 <property name="label" translatable="yes">Clear</property>

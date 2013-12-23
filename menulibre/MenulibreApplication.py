@@ -385,6 +385,60 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             button.connect('clicked', self.on_ExecPath_clicked,
                                       widget_name, builder)
 
+        # Categories
+        treeview = builder.get_object('categories_treeview')
+        add_button = builder.get_object('categories_add')
+        add_button.connect("clicked", self.on_categories_add, treeview)
+        remove_button = builder.get_object('categories_remove')
+        remove_button.connect("clicked", self.on_categories_remove, treeview)
+        clear_button = builder.get_object('categories_clear')
+        clear_button.connect("clicked", self.on_categories_clear, treeview)
+
+        # Actions
+        treeview = builder.get_object('actions_treeview')
+        add_button = builder.get_object('actions_add')
+        add_button.connect("clicked", self.on_actions_add, treeview)
+        remove_button = builder.get_object('actions_remove')
+        remove_button.connect("clicked", self.on_actions_remove, treeview)
+        clear_button = builder.get_object('actions_clear')
+        clear_button.connect("clicked", self.on_actions_clear, treeview)
+
+    def on_categories_add(self, widget, treeview):
+        #TODO: Implement fully
+        self.treeview_add(treeview, ['', ''])
+
+    def on_categories_remove(self, widget, treeview):
+        #TODO: Implement fully
+        self.treeview_remove(treeview)
+
+    def on_categories_clear(self, widget, treeview):
+        #TODO: Implement fully
+        self.treeview_clear(treeview)
+
+    def on_actions_add(self, widget, treeview):
+        #TODO: Implement fully
+        self.treeview_add(treeview, [False, '', '', ''])
+
+    def on_actions_remove(self, widget, treeview):
+        #TODO: Implement fully
+        self.treeview_remove(treeview)
+
+    def on_actions_clear(self, widget, treeview):
+        #TODO: Implement fully
+        self.treeview_clear(treeview)
+
+    def treeview_add(self, treeview, row_data):
+        model = treeview.get_model()
+        model.append(row_data)
+
+    def treeview_remove(self, treeview):
+        model, treeiter = treeview.get_selection().get_selected()
+        model.remove(treeiter)
+
+    def treeview_clear(self, treeview):
+        model = treeview.get_model()
+        model.clear()
+
     def load_icon_selection_treeview(self):
         model = self.icon_selection_treeview.get_model().get_model()
         for icon_name in self.icons_list:
