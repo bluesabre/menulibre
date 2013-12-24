@@ -255,17 +255,20 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.treeview.set_tooltip_column(1)
 
         # Allow filtering/searching results
-        treefilter = treestore.filter_new()
-        treefilter.set_visible_func(self.treeview_match_func)
-        self.treeview.set_search_column(0)
+        #treefilter = treestore.filter_new()
+        #treefilter.set_visible_func(self.treeview_match_func)
+        #self.treeview.set_search_column(0)
 
-        self.search_box.connect('changed', self.on_search_changed,
-                                            treefilter, True)
+        self.search_box.connect('changed', self.on_app_search_changed,
+                                            self.treeview, True)
+
+        self.browser_toolbar = builder.get_object('browser_toolbar')
 
         self.treeview.set_search_entry(self.search_box)
 
         self.treeview.append_column(col)
-        self.treeview.set_model(treefilter)
+        #self.treeview.set_model(treefilter)
+        self.treeview.set_model(treestore)
 
         self.treeview.connect("cursor-changed",
                                 self.on_treeview_cursor_changed, None)
@@ -734,6 +737,42 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         return query in model[treeiter][0].lower()
 
+    def on_app_search_changed(self, widget, treeview, expand=False):
+        query = widget.get_text()
+        model = treeview.get_model()
+
+        if len(query) == 0:
+            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
+                                            None)
+            if isinstance(model, Gtk.TreeModelFilter):
+                f_model, f_iter = treeview.get_selection().get_selected()
+                row_data = f_model[f_iter][:]
+
+                model = model.get_model()
+                treeview.set_model(model)
+                treeview.expand_all()
+                selected_iter = self.get_iter_by_data(row_data, model,
+                                                        parent=None)
+
+                #FIXME: Doesn't work...
+                treeview.set_model(model)
+                path = model.get_path(selected_iter)
+                treeview.set_cursor(path)
+            self.browser_toolbar.set_sensitive(True)
+
+        else:
+            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
+                                            'edit-clear-symbolic')
+            if expand:
+                self.treeview.expand_all()
+
+            if not isinstance(model, Gtk.TreeModelFilter):
+                model = model.filter_new()
+                treeview.set_model(model)
+                model.set_visible_func(self.treeview_match_func)
+            self.browser_toolbar.set_sensitive(False)
+            model.refilter()
+
     def on_search_changed(self, widget, treefilter, expand=False):
         query = widget.get_text()
 
@@ -927,11 +966,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         treeview, relative_position = user_data
 
         # Get the current selected row
-        model = treeview.get_model()
+        #model = treeview.get_model().get_model()
         sel = treeview.get_selection().get_selected()
         if sel:
-            selected_iter = sel[1]
+            model, selected_iter = sel
+            #selected_iter = sel[1]
             selected_type = model[selected_iter][2]
+            print (selected_type)
+            #model = model.get_model()
 
             # Move the row up if relative_position < 0
             if relative_position < 0:
@@ -945,20 +987,33 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 # the neighboring row is expanded, prepend/append to it.
                 if selected_type != MenuItemTypes.DIRECTORY and \
                         treeview.row_expanded(path):
-                    self.move_iter_down(treeview, selected_iter,
+                    self.move_iter_down_level(treeview, selected_iter,
                                         sibling, relative_position)
                 else:
                     # Otherwise, just move down/up
                     if relative_position < 0:
                         model.move_before(selected_iter, sibling)
+                        #self.move_iter_before(model, selected_iter, sibling)
                     else:
                         model.move_after(selected_iter, sibling)
+                        #self.move_iter_after(model, selected_iter, sibling)
             else:
                 # If there is no neighboring row, move up a level.
-                self.move_iter_up(treeview, selected_iter,
+                self.move_iter_up_level(treeview, selected_iter,
                                       relative_position)
 
-    def move_iter_up(self, treeview, treeiter, relative_position):
+    def get_iter_by_data(self, row_data, model, parent=None):
+        for n_child in range(model.iter_n_children(parent)):
+            treeiter = model.iter_nth_child(parent, n_child)
+            if model[treeiter][:] == row_data:
+                return treeiter
+            if model.iter_n_children(treeiter) != 0:
+                value = self.get_iter_by_data(row_data, model, treeiter)
+                if value is not None:
+                    return value
+        return None
+
+    def move_iter_up_level(self, treeview, treeiter, relative_position):
         """Move the specified iter up one level."""
         model = treeview.get_model()
         sibling = model.iter_parent(treeiter)
@@ -977,7 +1032,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             path = model.get_path(new_iter)
             treeview.set_cursor(path)
 
-    def move_iter_down(self, treeview, treeiter, parent_iter,
+    def move_iter_down_level(self, treeview, treeiter, parent_iter,
                              relative_position):
         """Move the specified iter down one level."""
         model = treeview.get_model()
