@@ -6,7 +6,7 @@ from locale import gettext as _
 
 from gi.repository import Gio, GObject, Gtk, Pango, Gdk, GdkPixbuf
 
-from . import MenuEditor, MenulibreXdg
+from . import MenuEditor, MenulibreXdg, XmlMenuElementTree
 from .enums import MenuItemTypes
 
 locale.textdomain('menulibre')
@@ -429,6 +429,34 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_actions_clear(self, widget, treeview):
         #TODO: Implement fully
         self.treeview_clear(treeview)
+
+    #def print_children(self, model, parent=None, level=0):
+    def print_children(self, model, model_parent=None, menu_parent=None):
+        for n_child in range(model.iter_n_children(model_parent)):
+            treeiter = model.iter_nth_child(model_parent, n_child)
+            name, comment, item_type, gicon, icon, desktop = model[treeiter][:]
+            if item_type == MenuItemTypes.DIRECTORY:
+                next_element = menu_parent.addMenu(name)
+                layout = next_element.addLayout()
+                layout.addMerge("menus")
+                if model.iter_n_children(treeiter) != 0:
+                    self.print_children(model, treeiter, layout)
+                layout.addMerge("files")
+
+            elif item_type == MenuItemTypes.APPLICATION:
+                next_element = menu_parent.addFilename(
+                                                os.path.basename(desktop))
+
+    def treeview_to_xml(self, treeview):
+        # Here goes...
+        model = treeview.get_model()
+        menu_name = "Xfce"
+        merge_file = "/etc/xdg/xdg-xubuntu/menus/xfce-applications.menu"
+        filename = "/home/sean/Desktop/test.txt"
+        menu = XmlMenuElementTree.XmlMenuElementTree(menu_name, merge_file)
+        root = menu.getroot()
+        self.print_children(model, menu_parent=root)
+        menu.write(filename)
 
     def treeview_add(self, treeview, row_data):
         model = treeview.get_model()
@@ -964,12 +992,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """
         # Unpack the user data
         treeview, relative_position = user_data
+        self.treeview_to_xml(treeview)
 
         # Get the current selected row
         #model = treeview.get_model().get_model()
         sel = treeview.get_selection().get_selected()
         if sel:
             model, selected_iter = sel
+
             #selected_iter = sel[1]
             selected_type = model[selected_iter][2]
             print (selected_type)
