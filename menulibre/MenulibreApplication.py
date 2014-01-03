@@ -26,7 +26,8 @@ def check_keypress(event, keys):
     if 'Super' in keys:
         if not bool(event.get_state() & Gdk.ModifierType.SUPER_MASK):
             return False
-
+    if 'Escape' in keys:
+        keys[keys.index('Escape')] = 'escape'
     if Gdk.keyval_name(event.get_keyval()[1]).lower() not in keys:
         return False
 
@@ -378,12 +379,24 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             button = builder.get_object('button_%s' % widget_name)
             cancel = builder.get_object('cancel_%s' % widget_name)
             accept = builder.get_object('apply_%s' % widget_name)
+            entry = builder.get_object('entry_%s' % widget_name)
             button.connect('clicked', self.on_NameComment_clicked,
                                       widget_name, builder)
             cancel.connect('clicked', self.on_NameComment_cancel,
                                       widget_name, builder)
             accept.connect('clicked', self.on_NameComment_apply,
                                       widget_name, builder)
+            entry.connect('key-press-event',
+                                      self.on_NameComment_key_press_event,
+                                      widget_name, builder)
+
+        # Button Focus events
+        for widget_name in ['Name', 'Comment', 'Icon']:
+            button = builder.get_object('button_%s' % widget_name)
+            button.connect('focus-in-event',
+                            self.on_NameCommentIcon_focus_in_event)
+            button.connect('focus-out-event',
+                            self.on_NameCommentIcon_focus_out_event)
 
         # Configure the Exec/Path widgets.
         for widget_name in ['Exec', 'Path']:
@@ -444,32 +457,28 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_categories_add(self, widget):
         """Add a new row to the Categories TreeView."""
-        #TODO: Implement fully
+        #TODO: Implement on_categories_add()
         self.treeview_add(self.categories_treeview, ['', ''])
 
     def on_categories_remove(self, widget):
         """Remove the currently selected row from the Categories TreeView."""
-        #TODO: Implement fully
         self.treeview_remove(self.categories_treeview)
 
     def on_categories_clear(self, widget):
         """Clear all rows from the Categories TreeView."""
-        #TODO: Implement fully
         self.treeview_clear(self.categories_treeview)
 
     def on_actions_add(self, widget):
         """Add a new row to the Actions TreeView."""
-        #TODO: Implement fully
-        self.treeview_add(self.actions_treeview, [False, '', '', ''])
+        #TODO: Implement on_actions_add()
+        self.treeview_add(self.actions_treeview, [True, '', '', ''])
 
     def on_actions_remove(self, widget):
         """Remove the currently selected row from the Actions TreeView."""
-        #TODO: Implement fully
         self.treeview_remove(self.actions_treeview)
 
     def on_actions_clear(self, widget):
         """Clear all rows from the Actions TreeView."""
-        #TODO: Implement fully
         self.treeview_clear(self.actions_treeview)
 
     def model_children_to_xml(self, model, model_parent=None, menu_parent=None):
@@ -505,7 +514,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 menu_parent.addFilename(os.path.basename(desktop))
 
             elif item_type == MenuItemTypes.SEPARATOR:
-                #TODO: Add Separator functionality.
+                #TODO: Add Separator functionality to model_children_to_xml()
                 pass
 
     def treeview_to_xml(self, treeview):
@@ -527,7 +536,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def treeview_remove(self, treeview):
         """Remove the selected row from the treeview."""
         model, treeiter = treeview.get_selection().get_selected()
-        model.remove(treeiter)
+        if model is not None and treeiter is not None:
+            model.remove(treeiter)
 
     def treeview_clear(self, treeview):
         """Remove all items from the treeview."""
@@ -672,6 +682,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 self.set_value('Icon', entry_ImageFile.get_text())
         dialog.hide()
 
+    def on_NameCommentIcon_focus_in_event(self, button, event):
+        """Make the selected focused widget more noticeable."""
+        button.set_relief(Gtk.ReliefStyle.NORMAL)
+
+    def on_NameCommentIcon_focus_out_event(self, button, event):
+        """Make the selected focused widget less noticeable."""
+        button.set_relief(Gtk.ReliefStyle.NONE)
+
+    def on_NameComment_key_press_event(self, widget, ev, widget_name, builder):
+        """Handle cancelling the Name/Comment dialogs with Escape."""
+        if check_keypress(ev, ['Escape']):
+            self.on_NameComment_cancel(widget, widget_name, builder)
+
     def on_NameComment_clicked(self, widget, widget_name, builder):
         """Show the Name/Comment editor widgets when the button is clicked."""
         entry = builder.get_object('entry_%s' % widget_name)
@@ -679,6 +702,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.values[widget_name] = entry.get_text()
         widget.hide()
         box.show()
+        entry.grab_focus()
 
     def on_NameComment_cancel(self, widget, widget_name, builder):
         """Hide the Name/Comment editor widgets when canceled."""
@@ -687,6 +711,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         box.hide()
         button.show()
         self.set_value(widget_name, self.values[widget_name])
+        button.grab_focus()
 
     def on_NameComment_apply(self, widget, widget_name, builder):
         """Update the Name/Comment fields when the values are to be updated."""
@@ -718,6 +743,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         dialog.hide()
         if result == Gtk.ResponseType.OK:
             entry.set_text(dialog.get_filename())
+        entry.grab_focus()
 
     def on_window_keypress_event(self, widget, event, user_data=None):
         """Handle window keypress events."""
@@ -727,8 +753,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             return True
         # Ctrl-S (Save)
         if check_keypress(event, ['Control', 's']):
-            #TODO: Implement Save
-            pass
+            self.actions['save_launcher'].activate()
+            return True
         return False
 
     def on_settings_group_changed(self, widget, page_number):
@@ -771,10 +797,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Spacebar toggles the expansion of the selected row.
         elif check_keypress(event, ['space']):
             self.toggle_treeview_selected_expanded(widget)
-            return True
-        # Enter activates the selected row.
-        elif check_keypress(event, ['return']):
-            #TODO: Implement Activation.
             return True
         return False
 
