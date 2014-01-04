@@ -151,7 +151,10 @@ def lookup_category_description(spec_name):
         pass
 
     # Regex <3 Split CamelCase into separate words.
-    description = re.sub('(?!^)([A-Z]+)', r' \1', spec_name)
+    try:
+        description = re.sub('(?!^)([A-Z]+)', r' \1', spec_name)
+    except TypeError:
+        description = _("Other")
     return description
 
 
@@ -588,6 +591,38 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         treeview.append_column(column_text)
 
         self.categories_treefilter.refilter()
+
+    def cleanup_categories(self):
+        """Cleanup the Categories treeview. Remove any rows where category
+        has not been set and sort alphabetically."""
+        self.cleanup_treeview(self.categories_treeview, [0], sort=True)
+
+    def cleanup_actions(self):
+        """Cleanup the Actions treeview. Remove any rows where name or command
+        have not been set."""
+        self.cleanup_treeview(self.actions_treeview, [2, 3])
+
+    def cleanup_treeview(self, treeview, key_columns, sort=False):
+        """Cleanup a treeview"""
+        rows = []
+
+        model = treeview.get_model()
+        for row in model:
+            row_data = row[:]
+            append_row = True
+            for key_column in key_columns:
+                text = row_data[key_column].lower()
+                if len(text) == 0:
+                    append_row = False
+            if append_row:
+                rows.append(row_data)
+
+        if sort:
+            rows = sorted(rows, key=lambda row_data: row_data[key_columns[0]])
+
+        model.clear()
+        for row in rows:
+            model.append(row)
 
     def categories_treefilter_func(self, model, treeiter, data=None):
         """Only show ThisEntry when there are child items."""
@@ -1554,6 +1589,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Save the current launcher details."""
         # Get the filename to be used.
         filename = self.get_save_filename()
+
+        # Cleanup invalid entries and reorder the Categories and Actions
+        self.cleanup_categories()
+        self.cleanup_actions()
 
         # Open the file and start writing.
         with open(filename, 'w') as output:
