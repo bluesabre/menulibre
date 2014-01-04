@@ -543,6 +543,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         remove_button.connect("clicked", self.on_actions_remove)
         clear_button = builder.get_object('actions_clear')
         clear_button.connect("clicked", self.on_actions_clear)
+        move_up = builder.get_object('actions_move_up')
+        move_up.connect('clicked', self.move_action, (self.actions_treeview,
+                                                        -1))
+        move_down = builder.get_object('actions_move_down')
+        move_down.connect('clicked', self.move_action, (self.actions_treeview,
+                                                        1))
         renderer = builder.get_object('actions_show_renderer')
         renderer.connect('toggled', self.on_actions_show_toggled, model)
         renderer = builder.get_object('actions_name_renderer')
@@ -722,6 +728,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def treeview_to_xml(self, treeview):
         """Write the current treeview to the -applications.menu file."""
         model = treeview.get_model()
+        #TODO: Remove the hardcoded paths.
         menu_name = "Xfce"
         merge_file = "/etc/xdg/xdg-xubuntu/menus/xfce-applications.menu"
         filename = "/home/sean/Desktop/test.txt"
@@ -1017,7 +1024,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
                         'NoDisplay', 'GenericName', 'TryExec',
                         'OnlyShowIn', 'NotShowIn', 'MimeType',
-                        'Keywords', 'StartupWMClass', 'Categories']:
+                        'Keywords', 'StartupWMClass', 'Categories',
+                        'Hidden', 'DBusActivatable']:
                         self.set_value(key, None)
 
             # Clear the Actions and Icon.
@@ -1053,7 +1061,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
                                 'NoDisplay', 'GenericName', 'TryExec',
                                 'OnlyShowIn', 'NotShowIn', 'MimeType',
-                                'Keywords', 'StartupWMClass', 'Categories']:
+                                'Keywords', 'StartupWMClass', 'Categories',
+                                'Hidden', 'DBusActivatable']:
                         self.set_value(key, entry[key])
                     self.set_editor_actions(entry.get_actions())
                     self.set_value('Type', 'Application')
@@ -1437,6 +1446,23 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 return widget.get_active()
             else:
                 return None
+
+    def move_action(self, widget, user_data):
+        """Move row in Actions treeview."""
+        # Unpack the user data
+        treeview, relative_position = user_data
+
+        sel = treeview.get_selection().get_selected()
+        if sel:
+            model, selected_iter = sel
+
+            # Move the row up if relative_position < 0
+            if relative_position < 0:
+                sibling = model.iter_previous(selected_iter)
+                model.move_before(selected_iter, sibling)
+            else:
+                sibling = model.iter_next(selected_iter)
+                model.move_after(selected_iter, sibling)
 
     def move_iter(self, widget, user_data):
         """Move the currently selected row up or down. If the neighboring row
