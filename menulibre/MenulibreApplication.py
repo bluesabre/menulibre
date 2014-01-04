@@ -448,12 +448,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Actions Treeview and Inline Toolbar
         self.actions_treeview = builder.get_object('actions_treeview')
+        model = self.actions_treeview.get_model()
         add_button = builder.get_object('actions_add')
         add_button.connect("clicked", self.on_actions_add)
         remove_button = builder.get_object('actions_remove')
         remove_button.connect("clicked", self.on_actions_remove)
         clear_button = builder.get_object('actions_clear')
         clear_button.connect("clicked", self.on_actions_clear)
+        renderer = builder.get_object('actions_show_renderer')
+        renderer.connect('toggled', self.on_actions_show_toggled, model)
+        renderer = builder.get_object('actions_name_renderer')
+        renderer.connect('edited', self.on_actions_text_edited, model, 2)
+        renderer = builder.get_object('actions_command_renderer')
+        renderer.connect('edited', self.on_actions_text_edited, model, 3)
 
     def on_categories_add(self, widget):
         """Add a new row to the Categories TreeView."""
@@ -468,10 +475,28 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Clear all rows from the Categories TreeView."""
         self.treeview_clear(self.categories_treeview)
 
+    def on_actions_text_edited(self, w, row, new_text, model, col):
+        """Edited callback function to enable modifications to a cell."""
+        model[row][col] = new_text
+
+    def on_actions_show_toggled(self, cell, path, model=None):
+        """Toggled callback function to enable modifications to a cell."""
+        treeiter = model.get_iter(path)
+        model.set_value(treeiter, 0, not cell.get_active())
+
     def on_actions_add(self, widget):
         """Add a new row to the Actions TreeView."""
-        #TODO: Implement on_actions_add()
-        self.treeview_add(self.actions_treeview, [True, '', '', ''])
+        model = self.actions_treeview.get_model()
+        existing = list()
+        for row in model:
+            existing.append(row[1])
+        name = 'NewShortcut'
+        n = 1
+        while name in existing:
+            name = 'NewShortcut%i' % n
+            n += 1
+        displayed = _("New Shortcut")
+        self.treeview_add(self.actions_treeview, [True, name, displayed, ''])
 
     def on_actions_remove(self, widget):
         """Remove the currently selected row from the Actions TreeView."""
