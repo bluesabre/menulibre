@@ -70,6 +70,90 @@ category_descriptions = {
     'X-XFCE-SystemSettings': _('Xfce system configuration'),
 }
 
+category_groups = {
+    'Utility': (
+        'Accessibility', 'Archiving', 'Calculator', 'Clock',
+        'Compression', 'FileTools', 'TextEditor', 'TextTools'
+    ),
+    'Development': (
+        'Building', 'Debugger', 'IDE', 'GUIDesigner', 'Profiling',
+        'RevisionControl', 'Translation', 'WebDevelopment'
+    ),
+    'Education': (
+        'Art', 'ArtificialIntelligence', 'Astronomy', 'Biology',
+        'Chemistry', 'ComputerScience', 'Construction',
+        'DataVisualization', 'Economy', 'Electricity', 'Geography',
+        'Geology', 'Geoscience', 'History', 'Humanities',
+        'ImageProcessing', 'Languages', 'Literature', 'Maps', 'Math',
+        'MedicalSoftware', 'Music', 'NumericalAnalysis',
+        'ParallelComputing', 'Physics', 'Robotics', 'Spirituality',
+        'Sports'
+    ),
+    'Game': (
+        'ActionGame', 'AdventureGame', 'ArcadeGame', 'BoardGame',
+        'BlocksGame', 'CardGame', 'Emulator', 'KidsGame', 'LogicGame',
+        'RolePlaying', 'Shooter', 'Simulation', 'SportsGame',
+        'StrategyGame'
+    ),
+    'Graphics': (
+        '2DGraphics', '3DGraphics', 'OCR', 'Photography', 'Publishing',
+        'RasterGraphics', 'Scanning', 'VectorGraphics', 'Viewer'
+    ),
+    'Network': (
+        'Chat', 'Dialup', 'Feed', 'FileTransfer', 'HamRadio',
+        'InstantMessaging', 'IRCClient', 'Monitor', 'News', 'P2P',
+        'RemoteAccess', 'Telephony', 'TelephonyTools', 'WebBrowser',
+        'WebDevelopment'
+    ),
+    'AudioVideo': (
+        'AudioVideoEditing', 'DiscBurning', 'Midi', 'Mixer', 'Player',
+        'Recorder', 'Sequencer', 'Tuner', 'TV'
+    ),
+    'Office': (
+        'Calendar', 'ContactManagement', 'Database', 'Dictionary',
+        'Chart', 'Email', 'Finance', 'FlowChart', 'PDA', 'Photography',
+        'ProjectManagement', 'Presentation', 'Publishing',
+        'Spreadsheet', 'WordProcessor'
+    ),
+    _('Other'): (
+        'Amusement', 'ConsoleOnly', 'Core', 'Documentation',
+        'Electronics', 'Engineering', 'GNOME', 'GTK', 'Java', 'KDE',
+        'Motif', 'Qt', 'XFCE'
+    ),
+    'Settings': (
+        'Accessibility', 'DesktopSettings', 'HardwareSettings',
+        'PackageManager', 'Printing', 'Security'
+    ),
+    'System': (
+        'Emulator', 'FileManager', 'Filesystem', 'FileTools', 'Monitor',
+        'Security', 'TerminalEmulator'
+    )
+}
+
+# Create a reverse-lookup
+category_lookup = dict()
+for key in list(category_groups.keys()):
+    for item in category_groups[key]:
+        category_lookup[item] = key
+
+
+def lookup_category_description(spec_name):
+    """Return a valid description string for a spec entry."""
+    try:
+        return category_descriptions[spec_name]
+    except KeyError:
+        pass
+
+    try:
+        group = category_lookup[spec_name]
+        return lookup_category_description(group)
+    except KeyError:
+        pass
+
+    # Regex <3 Split CamelCase into separate words.
+    description = re.sub('(?!^)([A-Z]+)', r' \1', spec_name)
+    return description
+
 
 class MenulibreWindow(Gtk.ApplicationWindow):
     """The Menulibre application window."""
@@ -445,6 +529,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         remove_button.connect("clicked", self.on_categories_remove)
         clear_button = builder.get_object('categories_clear')
         clear_button.connect("clicked", self.on_categories_clear)
+        self.configure_categories_treeview(builder)
 
         # Actions Treeview and Inline Toolbar
         self.actions_treeview = builder.get_object('actions_treeview')
@@ -462,9 +547,66 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         renderer = builder.get_object('actions_command_renderer')
         renderer.connect('edited', self.on_actions_text_edited, model, 3)
 
+    def configure_categories_treeview(self, builder):
+        """Set the up combobox in the categories treeview editor."""
+        # Populate the ListStore.
+        self.categories_treestore = Gtk.TreeStore(str)
+        self.categories_treefilter = self.categories_treestore.filter_new()
+        self.categories_treefilter.set_visible_func(
+                self.categories_treefilter_func)
+
+        keys = list(category_groups.keys())
+        keys.sort()
+        keys.append(_('ThisEntry'))
+
+        for key in keys:
+            parent = self.categories_treestore.append(None, [key])
+            try:
+                for category in category_groups[key]:
+                    self.categories_treestore.append(parent, [category])
+            except KeyError:
+                pass
+
+        # Create the TreeView...
+        treeview = builder.get_object('categories_treeview')
+
+        renderer_combo = Gtk.CellRendererCombo()
+        renderer_combo.set_property("editable", True)
+        renderer_combo.set_property("model", self.categories_treefilter)
+        renderer_combo.set_property("text-column", 0)
+        renderer_combo.set_property("has-entry", False)
+        renderer_combo.set_property("placeholder-text", _("Select a category"))
+        renderer_combo.connect("edited", self.on_category_combo_changed)
+
+        column_combo = Gtk.TreeViewColumn(_("Category Name"),
+                                            renderer_combo, text=0)
+        treeview.append_column(column_combo)
+
+        renderer_text = Gtk.CellRendererText()
+        column_text = Gtk.TreeViewColumn(_("Description"),
+                                            renderer_text, text=1)
+        treeview.append_column(column_text)
+
+        self.categories_treefilter.refilter()
+
+    def categories_treefilter_func(self, model, treeiter, data=None):
+        """Only show ThisEntry when there are child items."""
+        row = model[treeiter]
+        if row.get_parent() is not None:
+            return True
+        if row[0] == _('This Entry'):
+            return model.iter_n_children(treeiter) != 0
+        return True
+
+    def on_category_combo_changed(self, widget, path, text):
+        """Set the active iter to the new text."""
+        model = self.categories_treeview.get_model()
+        model[path][0] = text
+        description = lookup_category_description(text)
+        model[path][1] = description
+
     def on_categories_add(self, widget):
         """Add a new row to the Categories TreeView."""
-        #TODO: Implement on_categories_add()
         self.treeview_add(self.categories_treeview, ['', ''])
 
     def on_categories_remove(self, widget):
@@ -1114,16 +1256,27 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         model = self.categories_treeview.get_model()
         model.clear()
 
+        # Clear the ThisEntry category list.
+        this_index = self.categories_treestore.iter_n_children(None) - 1
+        this_entry = self.categories_treestore.iter_nth_child(None, this_index)
+        for i in range(self.categories_treestore.iter_n_children(this_entry)):
+            child_iter = self.categories_treestore.iter_nth_child(this_entry, 0)
+            self.categories_treestore.remove(child_iter)
+
         # Cleanup the entry text and generate a description.
         for entry in entries:
             entry = entry.strip()
             if len(entry) > 0:
-                try:
-                    description = category_descriptions[entry]
-                except KeyError:
-                    # Regex <3 Split CamelCase into separate words.
-                    description = re.sub('(?!^)([A-Z]+)', r' \1', entry)
+                description = lookup_category_description(entry)
                 model.append([entry, description])
+
+                # Add unknown entries to the category list...
+                category_keys = list(category_groups.keys()) + \
+                                list(category_lookup.keys())
+                if entry not in category_keys:
+                    self.categories_treestore.append(this_entry, [entry])
+
+        self.categories_treefilter.refilter()
 
     def get_editor_actions(self):
         """Return the .desktop formatted actions."""
