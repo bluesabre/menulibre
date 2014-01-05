@@ -706,12 +706,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         basename = os.path.basename(directory_str)
         name, ext = os.path.splitext(basename)
 
-        print(name)
-
         # Handle directories like xfce-development
         if name.startswith(prefix):
             name = name[len(prefix):]
-            return name.title()
+            name = name.title()
 
         # Handle X-GNOME, X-XFCE
         if name.startswith("X-"):
@@ -726,8 +724,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             non_camel = re.sub('(?!^)([A-Z]+)', r' \1', condensed)
             return non_camel
 
+        print(name)
+
         # GNOME...
-        if name == 'AudioVideo':
+        if name == 'AudioVideo' or name == 'Audio-Video':
             return 'Multimedia'
 
         if name == 'Game':
@@ -740,10 +740,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             return 'Accessories'
 
         if name == 'System-Tools':
-            return 'System'
+            if prefix == 'lxde-':
+                return 'Administration'
+            else:
+                return 'System'
 
         if name == 'Settings':
-            return 'Preferences'
+            if prefix == 'lxde-':
+                return 'DesktopSettings'
+            else:
+                return 'Preferences'
 
         if name == 'Settings-System':
             return 'Administration'
