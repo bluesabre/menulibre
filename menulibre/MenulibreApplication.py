@@ -703,12 +703,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             if 'cinnamon' in os.environ.get('DESKTOP_SESSION', ''):
                 prefix = 'cinnamon-'
 
-        print (("Prefix: %s" % prefix))
-
         basename = os.path.basename(directory_str)
         name, ext = os.path.splitext(basename)
-
-        print (("Name: %s" % name))
 
         # Handle directories like xfce-development
         if name.startswith(prefix):
@@ -720,17 +716,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # Handle X-GNOME, X-XFCE
             condensed = name.split('-', 2)[-1]
             non_camel = re.sub('(?!^)([A-Z]+)', r' \1', condensed)
-            print(("Return: %s" % non_camel))
             return non_camel
 
         # Cleanup ArcadeGames and others as per the norm.
         if name.endswith('Games') and name != 'Games':
             condensed = name[:-5]
             non_camel = re.sub('(?!^)([A-Z]+)', r' \1', condensed)
-            print(("Return: %s" % non_camel))
             return non_camel
-
-        print (("Name: %s" % name))
 
         # GNOME...
         if name == 'AudioVideo' or name == 'Audio-Video':
