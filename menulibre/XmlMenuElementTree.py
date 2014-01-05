@@ -51,6 +51,23 @@ class XmlMenuElement(Element):
         SubElement(menu, "Name").text = menu_name
         return menu
 
+    def addMenuname(self, menu_name):
+        """Add a menuname <Menuname> to this XmlMenuElement.
+
+        Return a reference to that menuname XmlMenuElement."""
+        element = XmlMenuElement("Menuname")
+        element.text = menu_name
+        self.append(element)
+        return element
+
+    def addSeparator(self):
+        """Add a <Separator> element to this XmlMenuElement.
+
+        Return a reference to that separator XmlMenuElement."""
+        element = XmlMenuElement("Separator")
+        self.append(element)
+        return element
+
     def addMergeFile(self, filename, merge_type="parent"):
         """Add a merge file <MergeFile> to this XmlMenuElement.
 

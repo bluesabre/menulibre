@@ -32,6 +32,8 @@ locale.textdomain('menulibre')
 
 icon_theme = Gtk.IconTheme.get_default()
 
+menu_name = ""
+
 
 def get_default_menu():
     """Return the filename of the default application menu."""
@@ -175,6 +177,8 @@ def get_menus():
     menu = MenuEditor()
     structure = []
     toplevels = []
+    global menu_name
+    menu_name = menu.tree.get_root_directory().get_menu_id()
     for child in menu.getMenus(None):
         toplevels.append(child)
     for top in toplevels:

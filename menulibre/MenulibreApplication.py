@@ -6,10 +6,14 @@ from locale import gettext as _
 
 from gi.repository import Gio, GObject, Gtk, Pango, Gdk, GdkPixbuf
 
-from . import MenuEditor, MenulibreXdg, XmlMenuElementTree
+from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
 from .enums import MenuItemTypes
 
 locale.textdomain('menulibre')
+
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def check_keypress(event, keys):
@@ -689,52 +693,99 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Clear all rows from the Actions TreeView."""
         self.treeview_clear(self.actions_treeview)
 
-    def model_children_to_xml(self, model, model_parent=None, menu_parent=None):
-        """Add child menu items to menu_parent from model_parent."""
-        # For each child iter...
+    def get_directory_name(self, directory_str):
+        prefix = os.environ.get('XDG_MENU_PREFIX', '')
+
+        basename = os.path.basename(directory_str)
+        name, ext = os.path.splitext(basename)
+
+        if name.startswith(prefix):
+            name = name[len(prefix):]
+            return name.title()
+
+        return name
+
+    def model_to_xml_menus(self, model, model_parent=None, menu_parent=None):
         for n_child in range(model.iter_n_children(model_parent)):
             treeiter = model.iter_nth_child(model_parent, n_child)
 
             # Extract the menu item details.
             name, comment, item_type, gicon, icon, desktop = model[treeiter][:]
 
-            # If it's a directory...
             if item_type == MenuItemTypes.DIRECTORY:
                 # Add a menu child.
-                next_element = menu_parent.addMenu(name)
+                directory_name = self.get_directory_name(desktop)
+                next_element = menu_parent.addMenu(directory_name)
 
-                # Add a layout to that menu.
-                layout = next_element.addLayout()
+                # Do Menus
+                self.model_to_xml_menus(model, treeiter, next_element)
 
-                # Add a merge for any submenus.
-                layout.addMerge("menus")
+                # Do Layouts
+                self.model_to_xml_layout(model, treeiter, next_element)
 
-                # If there are any children nodes, append them.
-                if model.iter_n_children(treeiter) != 0:
-                    self.model_children_to_xml(model, treeiter, layout)
-
-                # Add a merge for any new/unincluded menu items.
-                layout.addMerge("files")
-
-            # If it's an application...
             elif item_type == MenuItemTypes.APPLICATION:
-                # Append the menu item.
-                menu_parent.addFilename(os.path.basename(desktop))
+                pass
 
             elif item_type == MenuItemTypes.SEPARATOR:
-                #TODO: Add Separator functionality to model_children_to_xml()
                 pass
+
+    def model_to_xml_layout(self, model, model_parent=None, menu_parent=None):
+        layout = menu_parent.addLayout()
+
+        # Add a merge for any submenus.
+        layout.addMerge("menus")
+
+        for n_child in range(model.iter_n_children(model_parent)):
+            treeiter = model.iter_nth_child(model_parent, n_child)
+
+            # Extract the menu item details.
+            name, comment, item_type, gicon, icon, desktop = model[treeiter][:]
+
+            if item_type == MenuItemTypes.DIRECTORY:
+                directory_name = self.get_directory_name(desktop)
+                layout.addMenuname(directory_name)
+
+            elif item_type == MenuItemTypes.APPLICATION:
+                layout.addFilename(os.path.basename(desktop))
+
+            elif item_type == MenuItemTypes.SEPARATOR:
+                layout.addSeparator()
+
+        # Add a merge for any new/unincluded menu items.
+        layout.addMerge("files")
+
+        return layout
+
+    def model_children_to_xml(self, model, model_parent=None, menu_parent=None):
+        """Add child menu items to menu_parent from model_parent."""
+        # For each child iter...
+
+        # Menus First...
+        self.model_to_xml_menus(model, model_parent, menu_parent)
+
+        # Layouts Second...
+        self.model_to_xml_layout(model, model_parent, menu_parent)
 
     def treeview_to_xml(self, treeview):
         """Write the current treeview to the -applications.menu file."""
+        logger.info("test")
         model = treeview.get_model()
-        #TODO: Remove the hardcoded paths.
-        menu_name = "Xfce"
-        merge_file = "/etc/xdg/xdg-xubuntu/menus/xfce-applications.menu"
-        filename = "/home/sean/Desktop/test.txt"
+
+        # Get the necessary details
+        menu_name = MenuEditor.menu_name
+        menu_file = MenuEditor.get_default_menu()
+        merge_file = util.getSystemMenuPath(menu_file)
+        filename = "%s%s%s" % (util.getUserMenuPath(),
+                                os.path.sep,
+                                menu_file)
+
+        # Create the menu XML
         menu = XmlMenuElementTree.XmlMenuElementTree(menu_name, merge_file)
         root = menu.getroot()
+        #layout = root.addLayout()
         self.model_children_to_xml(model, menu_parent=root)
+
+        # Write the file.
         menu.write(filename)
 
     def treeview_add(self, treeview, row_data):
@@ -1418,8 +1469,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     value = False
                 widget.set_active(value)
             else:
-                #TODO: add logger.debug here.
-                print(("Unknown widget: %s" % key))
+                logger.warning(("Unknown widget: %s" % key))
 
     def get_value(self, key):
         """Return the value stored for the specified key."""
@@ -1477,18 +1527,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """
         # Unpack the user data
         treeview, relative_position = user_data
-        self.treeview_to_xml(treeview)
 
         # Get the current selected row
-        #model = treeview.get_model().get_model()
         sel = treeview.get_selection().get_selected()
         if sel:
             model, selected_iter = sel
 
-            #selected_iter = sel[1]
             selected_type = model[selected_iter][2]
-            print (selected_type)
-            #model = model.get_model()
 
             # Move the row up if relative_position < 0
             if relative_position < 0:
@@ -1516,6 +1561,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 # If there is no neighboring row, move up a level.
                 self.move_iter_up_level(treeview, selected_iter,
                                       relative_position)
+
+        self.treeview_to_xml(treeview)
 
     def get_iter_by_data(self, row_data, model, parent=None):
         """Search the TreeModel for a row matching row_data.
@@ -1595,10 +1642,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             # Get the save location of the launcher base on type.
             if item_type == 'Application':
-                path = "%s/.local/share/applications/" % os.getenv("HOME")
+                path = util.getUserItemPath()
             elif item_type == 'Directory':
-                path = "%s/.local/share/desktop-directories/" % \
-                        os.getenv("HOME")
+                path = util.getUserDirectoryPath()
 
             # Create the new base filename.
             filename = "%s%s" % (path, basename)
