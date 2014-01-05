@@ -845,9 +845,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         menu_name = MenuEditor.menu_name
         menu_file = MenuEditor.get_default_menu()
         merge_file = util.getSystemMenuPath(menu_file)
-        filename = "%s%s%s" % (util.getUserMenuPath(),
-                                os.path.sep,
-                                menu_file)
+        filename = os.path.join(util.getUserMenuPath(), menu_file)
 
         # Create the menu XML
         menu = XmlMenuElementTree.XmlMenuElementTree(menu_name, merge_file)
@@ -1717,12 +1715,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 path = util.getUserDirectoryPath()
 
             # Create the new base filename.
-            filename = "%s%s" % (path, basename)
+            filename = os.path.join(path, basename)
 
             # Append numbers as necessary to make the filename unique.
             count = 1
             while os.path.exists(filename):
-                filename = "%s%s%i%s" % (path, name, count, ext)
+                new_basename = "%s%i%s" % (name, count, ext)
+                filename = os.path.join(path, new_basename)
                 count += 1
 
         return filename
