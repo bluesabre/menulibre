@@ -694,26 +694,39 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.treeview_clear(self.actions_treeview)
 
     def get_directory_name(self, directory_str):
+        """Return the directory name to be used in the XML file."""
+        # Get the menu prefix
         prefix = os.environ.get('XDG_MENU_PREFIX', '')
+
+        # Cinnamon doesn't set this variable
+        if prefix == "":
+            if 'cinnamon' in os.environ.get('DESKTOP_SESSION', ''):
+                prefix = 'cinnamon-'
 
         basename = os.path.basename(directory_str)
         name, ext = os.path.splitext(basename)
 
+        print(name)
+
+        # Handle directories like xfce-development
         if name.startswith(prefix):
             name = name[len(prefix):]
             return name.title()
 
-        if name.endswith('Games'):
-            condensed = name[:-5]
-            non_camel = re.sub('(?!^)([A-Z]+)', r' \1', condensed)
-            return non_camel
-
+        # Handle X-GNOME, X-XFCE
         if name.startswith("X-"):
             # Handle X-GNOME, X-XFCE
             condensed = name.split('-', 2)[-1]
             non_camel = re.sub('(?!^)([A-Z]+)', r' \1', condensed)
             return non_camel
 
+        # Cleanup ArcadeGames and others as per the norm.
+        if name.endswith('Games'):
+            condensed = name[:-5]
+            non_camel = re.sub('(?!^)([A-Z]+)', r' \1', condensed)
+            return non_camel
+
+        # GNOME...
         if name == 'AudioVideo':
             return 'Multimedia'
 
@@ -741,9 +754,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if name == 'Utility-Accessibility':
             return 'Universal Access'
 
+        # We tried, just return the name.
         return name
 
     def model_to_xml_menus(self, model, model_parent=None, menu_parent=None):
+        """Append the <Menu> elements to menu_parent."""
         for n_child in range(model.iter_n_children(model_parent)):
             treeiter = model.iter_nth_child(model_parent, n_child)
 
@@ -752,8 +767,15 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             if item_type == MenuItemTypes.DIRECTORY:
                 # Add a menu child.
-                directory_name = self.get_directory_name(desktop)
-                next_element = menu_parent.addMenu(directory_name)
+                if desktop is None:
+                    # Cinnamon fix.
+                    if name == 'wine-wine':
+                        next_element = menu_parent.addMenu(name)
+                    else:
+                        continue
+                else:
+                    directory_name = self.get_directory_name(desktop)
+                    next_element = menu_parent.addMenu(directory_name)
 
                 # Do Menus
                 self.model_to_xml_menus(model, treeiter, next_element)
@@ -768,6 +790,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 pass
 
     def model_to_xml_layout(self, model, model_parent=None, menu_parent=None):
+        """Append the <Layout> element to menu_parent."""
         layout = menu_parent.addLayout()
 
         # Add a merge for any submenus.
@@ -780,8 +803,15 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             name, comment, item_type, gicon, icon, desktop = model[treeiter][:]
 
             if item_type == MenuItemTypes.DIRECTORY:
-                directory_name = self.get_directory_name(desktop)
-                layout.addMenuname(directory_name)
+                if desktop is None:
+                    # Cinnamon fix.
+                    if name == 'wine-wine':
+                        layout.addMenuname(name)
+                    else:
+                        continue
+                else:
+                    directory_name = self.get_directory_name(desktop)
+                    layout.addMenuname(directory_name)
 
             elif item_type == MenuItemTypes.APPLICATION:
                 layout.addFilename(os.path.basename(desktop))
@@ -796,8 +826,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def model_children_to_xml(self, model, model_parent=None, menu_parent=None):
         """Add child menu items to menu_parent from model_parent."""
-        # For each child iter...
-
         # Menus First...
         self.model_to_xml_menus(model, model_parent, menu_parent)
 

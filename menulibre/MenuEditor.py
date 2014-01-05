@@ -38,6 +38,12 @@ menu_name = ""
 def get_default_menu():
     """Return the filename of the default application menu."""
     prefix = os.environ.get('XDG_MENU_PREFIX', '')
+
+    # Cinnamon doesn't set this variable
+    if prefix == "":
+        if 'cinnamon' in os.environ.get('DESKTOP_SESSION', ''):
+            prefix = 'cinnamon-'
+
     return prefix + 'applications.menu'
 
 
@@ -88,6 +94,7 @@ def menu_to_treestore(treestore, parent, menu_items):
             tooltip = _("Separator")
             filename = None
             icon = None
+            icon_name = ""
         else:
             displayed_name = escape(item[2]['display_name'])
             if not item[2]['show']:
