@@ -703,6 +703,44 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             name = name[len(prefix):]
             return name.title()
 
+        if name.endswith('Games'):
+            condensed = name[:-5]
+            non_camel = re.sub('(?!^)([A-Z]+)', r' \1', condensed)
+            return non_camel
+
+        if name.startswith("X-"):
+            # Handle X-GNOME, X-XFCE
+            condensed = name.split('-', 2)[-1]
+            non_camel = re.sub('(?!^)([A-Z]+)', r' \1', condensed)
+            return non_camel
+
+        if name == 'AudioVideo':
+            return 'Multimedia'
+
+        if name == 'Game':
+            return 'Games'
+
+        if name == 'Network':
+            return 'Internet'
+
+        if name == 'Utility':
+            return 'Accessories'
+
+        if name == 'System-Tools':
+            return 'System'
+
+        if name == 'Settings':
+            return 'Preferences'
+
+        if name == 'Settings-System':
+            return 'Administration'
+
+        if name == 'GnomeScience':
+            return 'Science'
+
+        if name == 'Utility-Accessibility':
+            return 'Universal Access'
+
         return name
 
     def model_to_xml_menus(self, model, model_parent=None, menu_parent=None):
