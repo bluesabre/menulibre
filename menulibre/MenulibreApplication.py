@@ -1732,6 +1732,23 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         return filename
 
+    def update_treeview(self, model, treeiter, name, comment, item_type,
+                        icon_name, filename):
+
+        model[treeiter][0] = name
+        model[treeiter][1] = comment
+        model[treeiter][2] = item_type
+
+        if os.path.isfile(icon_name):
+            gfile = Gio.File.parse_name(icon_name)
+            icon = Gio.FileIcon.new(gfile)
+        else:
+            icon = Gio.ThemedIcon.new(icon_name)
+        model[treeiter][3] = icon
+
+        model[treeiter][4] = icon_name
+        model[treeiter][5] = filename
+
     def save_launcher(self):
         """Save the current launcher details."""
         # Get the filename to be used.
@@ -1740,6 +1757,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Cleanup invalid entries and reorder the Categories and Actions
         self.cleanup_categories()
         self.cleanup_actions()
+
+        model, treeiter = self.treeview.get_selection().get_selected()
+        item_type = model[treeiter][2]
 
         # Open the file and start writing.
         with open(filename, 'w') as output:
@@ -1761,6 +1781,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Set the editor to the new filename.
         self.set_value('Filename', filename)
+
+        # Update the selected iter with the new details.
+        name = self.get_value('Name')
+        comment = self.get_value('Comment')
+        icon_name = self.get_value('Icon')
+        self.update_treeview(model, treeiter, name, comment, item_type,
+                            icon_name, filename)
 
     def on_save_launcher_cb(self, widget):
         """Save Launcher callback function."""
