@@ -236,53 +236,59 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Add Launcher
         self.actions['add_launcher'] = Gtk.Action(
-                                            'add_launcher',
-                                            _('_Add Launcher...'),
-                                            _('Add Launcher...'),
-                                            Gtk.STOCK_NEW)
+                                            name = 'add_launcher',
+                                            label = _('_Add Launcher...'),
+                                            tooltip = _('Add Launcher...'),
+                                            stock_id = Gtk.STOCK_NEW)
 
         # Save Launcher
         self.actions['save_launcher'] = Gtk.Action(
-                                            'save_launcher',
-                                            _('_Save'),
-                                            _('Save'),
-                                            Gtk.STOCK_SAVE)
+                                            name = 'save_launcher',
+                                            label = _('_Save'),
+                                            tooltip = _('Save'),
+                                            stock_id = Gtk.STOCK_SAVE)
 
         # Undo
-        self.actions['undo'] = Gtk.Action('undo',
-                                            _('_Undo'),
-                                            _('Undo'),
-                                            Gtk.STOCK_UNDO)
+        self.actions['undo'] = Gtk.Action(
+                                            name = 'undo',
+                                            label = _('_Undo'),
+                                            tooltip = _('Undo'),
+                                            stock_id = Gtk.STOCK_UNDO)
 
         # Redo
-        self.actions['redo'] = Gtk.Action('redo',
-                                            _('_Redo'),
-                                            _('Redo'),
-                                            Gtk.STOCK_REDO)
+        self.actions['redo'] = Gtk.Action(
+                                            name = 'redo',
+                                            label = _('_Redo'),
+                                            tooltip = _('Redo'),
+                                            stock_id = Gtk.STOCK_REDO)
 
         # Revert
-        self.actions['revert'] = Gtk.Action('revert',
-                                            _('_Revert'),
-                                            _('Revert'),
-                                            Gtk.STOCK_REVERT_TO_SAVED)
+        self.actions['revert'] = Gtk.Action(
+                                            name = 'revert',
+                                            label = _('_Revert'),
+                                            tooltip = _('Revert'),
+                                            stock_id = Gtk.STOCK_REVERT_TO_SAVED)
 
         # Quit
-        self.actions['quit'] = Gtk.Action('quit',
-                                            _('_Quit'),
-                                            _('Quit'),
-                                            Gtk.STOCK_QUIT)
+        self.actions['quit'] = Gtk.Action(
+                                            name = 'quit',
+                                            label = _('_Quit'),
+                                            tooltip = _('Quit'),
+                                            stock_id = Gtk.STOCK_QUIT)
 
         # Help
-        self.actions['help'] = Gtk.Action('help',
-                                            _('_Contents'),
-                                            _('Help'),
-                                            Gtk.STOCK_HELP)
+        self.actions['help'] = Gtk.Action(
+                                            name = 'help',
+                                            label = _('_Contents'),
+                                            tooltip = _('Help'),
+                                            stock_id = Gtk.STOCK_HELP)
 
         # About
-        self.actions['about'] = Gtk.Action('about',
-                                            _('_About'),
-                                            _('About'),
-                                            Gtk.STOCK_ABOUT)
+        self.actions['about'] = Gtk.Action(
+                                            name = 'about',
+                                            label = _('_About'),
+                                            tooltip = _('About'),
+                                            stock_id = Gtk.STOCK_ABOUT)
 
         # Connect the GtkAction events.
         self.actions['add_launcher'].connect('activate',
