@@ -702,12 +702,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def get_directory_name(self, directory_str):
         """Return the directory name to be used in the XML file."""
         # Get the menu prefix
-        prefix = os.environ.get('XDG_MENU_PREFIX', '')
-
-        # Cinnamon doesn't set this variable
-        if prefix == "":
-            if 'cinnamon' in os.environ.get('DESKTOP_SESSION', ''):
-                prefix = 'cinnamon-'
+        prefix = MenuEditor.get_default_menu_prefix()
 
         basename = os.path.basename(directory_str)
         name, ext = os.path.splitext(basename)
@@ -824,7 +819,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     layout.addMenuname(directory_name)
 
             elif item_type == MenuItemTypes.APPLICATION:
-                layout.addFilename(os.path.basename(desktop))
+                try:
+                    layout.addFilename(os.path.basename(desktop))
+                except AttributeError:
+                    print (str(model[treeiter][:]))
 
             elif item_type == MenuItemTypes.SEPARATOR:
                 layout.addSeparator()
@@ -901,14 +899,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Image File
         else:
-            buttons = [
-                Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
-                Gtk.STOCK_OK, Gtk.ResponseType.OK
-            ]
-            dialog = Gtk.FileChooserDialog("Select an image",
-                                            self,
-                                            Gtk.FileChooserAction.OPEN,
-                                            buttons)
+            dialog = Gtk.FileChooserDialog( title=_("Select an image"),
+                                            transient_for=self,
+                                            action=Gtk.FileChooserAction.OPEN)
+            dialog.add_buttons( _("Cancel"), Gtk.ResponseType.CANCEL,
+                                _("OK"), Gtk.ResponseType.OK)
             if dialog.run() == Gtk.ResponseType.OK:
                 filename = dialog.get_filename()
                 entry = builder.get_object('entry_ImageFile')
@@ -1059,20 +1054,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_ExecPath_clicked(self, widget, widget_name, builder):
         """Show the file selection dialog when Exec/Path Browse is clicked."""
         entry = builder.get_object('entry_%s' % widget_name)
-        buttons = [
-            Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
-            Gtk.STOCK_OK, Gtk.ResponseType.OK
-        ]
         if widget_name == 'Path':
-            dialog = Gtk.FileChooserDialog(_("Select a working directory..."),
-                                           self,
-                                           Gtk.FileChooserAction.SELECT_FOLDER,
-                                           buttons)
+            dialog = Gtk.FileChooserDialog(title=_("Select a working directory..."),
+                                           transient_for=self,
+                                           action=Gtk.FileChooserAction.SELECT_FOLDER)
         else:
-            dialog = Gtk.FileChooserDialog(_("Select an executable..."),
-                                           self,
-                                           Gtk.FileChooserAction.OPEN,
-                                           buttons)
+            dialog = Gtk.FileChooserDialog(title=_("Select an executable..."),
+                                           transient_for=self,
+                                           action=Gtk.FileChooserAction.OPEN)
+        dialog.add_buttons( _("Cancel"), Gtk.ResponseType.CANCEL,
+                            _("OK"), Gtk.ResponseType.OK)
         result = dialog.run()
         dialog.hide()
         if result == Gtk.ResponseType.OK:
@@ -1687,10 +1678,72 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         path = model.get_path(new_iter)
         treeview.set_cursor(path)
 
+    def get_required_categories(self, directory):
+        print ("Requesting Category for %s" % str(directory))
+        prefix = MenuEditor.get_default_menu_prefix()
+        if directory is not None:
+            basename = os.path.basename(directory)
+            name, ext = os.path.splitext(basename)
+
+            # Handle directories like xfce-development
+            if name.startswith(prefix):
+                name = name[len(prefix):]
+                name = name.title()
+
+            print (name)
+
+            if name == 'Accessories':
+                return ['Utility']
+
+            if name == 'Games':
+                return ['Game']
+
+            if name == 'Multimedia':
+                return ['AudioVideo']
+
+            else:
+                return [name]
+        else:
+            # Get The Toplevel item if necessary...
+            if prefix == 'xfce-':
+                return ['X-XFCE', 'X-Xfce-Toplevel']
+        return []
+
     def on_add_launcher_cb(self, widget):
         """Add Launcher callback function."""
-        #TODO: Implement AddLauncher
-        print ('add launcher')
+        # Insert a New Launcher item below the current selected item
+        model, treeiter = self.treeview.get_selection().get_selected()
+
+        name = _("New Launcher")
+        comment = ""
+        item_type = MenuItemTypes.APPLICATION
+        icon_name = "application-default-icon"
+        icon = Gio.ThemedIcon.new(icon_name)
+        filename = None
+        row_data = [name, comment, item_type, icon, icon_name, filename]
+
+        path = model.get_path(treeiter)
+        if path.up():
+            try:
+                parent = model.get_iter(path)
+                categories = self.get_required_categories(model[parent][5])
+            except:
+                parent = None
+        else:
+            parent = None
+
+        if parent is None:
+            # Toplevel Category
+            categories = self.get_required_categories(None)
+        new_iter = model.insert_after(parent, treeiter)
+        for i in range(len(row_data)):
+            model[new_iter][i] = row_data[i]
+
+        # Select the New Launcher item.
+        path = model.get_path(new_iter)
+        self.treeview.set_cursor(path)
+
+        self.set_editor_categories(';'.join(categories))
 
     def get_save_filename(self):
         """Determime the filename to be used to store the launcher.
@@ -1717,8 +1770,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # Get the save location of the launcher base on type.
             if item_type == 'Application':
                 path = util.getUserItemPath()
+                ext = '.desktop'
             elif item_type == 'Directory':
                 path = util.getUserDirectoryPath()
+                ext = '.directory'
 
             # Create the new base filename.
             filename = os.path.join(path, basename)

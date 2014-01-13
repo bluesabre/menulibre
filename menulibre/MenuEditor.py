@@ -34,9 +34,8 @@ icon_theme = Gtk.IconTheme.get_default()
 
 menu_name = ""
 
-
-def get_default_menu():
-    """Return the filename of the default application menu."""
+def get_default_menu_prefix():
+    """Return the default menu prefix."""
     prefix = os.environ.get('XDG_MENU_PREFIX', '')
 
     # Cinnamon doesn't set this variable
@@ -44,7 +43,12 @@ def get_default_menu():
         if 'cinnamon' in os.environ.get('DESKTOP_SESSION', ''):
             prefix = 'cinnamon-'
 
-    return prefix + 'applications.menu'
+    return prefix
+
+
+def get_default_menu():
+    """Return the filename of the default application menu."""
+    return '%s%s' % (get_default_menu_prefix(), 'applications.menu')
 
 
 def on_icon_theme_changed(icon_theme, treestore):
