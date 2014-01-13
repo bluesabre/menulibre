@@ -1688,7 +1688,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         treeview.set_cursor(path)
 
     def get_required_categories(self, directory):
-        print ("Requesting Category for %s" % str(directory))
         prefix = MenuEditor.get_default_menu_prefix()
         if directory is not None:
             basename = os.path.basename(directory)
@@ -1698,8 +1697,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             if name.startswith(prefix):
                 name = name[len(prefix):]
                 name = name.title()
-
-            print (name)
 
             if name == 'Accessories':
                 return ['Utility']
@@ -1866,38 +1863,41 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         details = _("This cannot be undone.")
         dialog.set_markup("<b><big>%s</big></b>\n\n%s" % (question, details))
         if dialog.run() == Gtk.ResponseType.OK:
-            if os.path.exists(filename):
-                os.remove(filename)
-            basename = os.path.basename(filename)
-            filename = None
-            # Find the original
-            for path in GLib.get_system_data_dirs():
-                if item_type == MenuItemTypes.APPLICATION:
-                    file_path = os.path.join(path, 'applications', basename)
+            if filename is not None:
+                if os.path.exists(filename):
+                    os.remove(filename)
+                basename = os.path.basename(filename)
+                filename = None
+                # Find the original
+                for path in GLib.get_system_data_dirs():
+                    if item_type == MenuItemTypes.APPLICATION:
+                        file_path = os.path.join(path, 'applications', basename)
+                    else:
+                        file_path = os.path.join(path, 'desktop-directories', basename)
+                    if os.path.isfile(file_path):
+                        filename = file_path
+                        break
+                if filename:
+                    # Original found, replace.
+                    entry = MenulibreXdg.MenulibreDesktopEntry(filename)
+                    name = entry['Name']
+                    comment = entry['Comment']
+                    icon_name = entry['Icon']
+                    if os.path.isfile(icon_name):
+                        gfile = Gio.File.parse_name(icon_name)
+                        icon = Gio.FileIcon.new(gfile)
+                    else:
+                        icon = Gio.ThemedIcon.new(icon_name)
+                    model[treeiter][0] = name
+                    model[treeiter][1] = comment
+                    model[treeiter][2] = item_type
+                    model[treeiter][3] = icon
+                    model[treeiter][4] = icon_name
+                    model[treeiter][5] = filename
                 else:
-                    file_path = os.path.join(path, 'desktop-directories', basename)
-                if os.path.isfile(file_path):
-                    filename = file_path
-                    break
-            if filename:
-                # Original found, replace.
-                entry = MenulibreXdg.MenulibreDesktopEntry(filename)
-                name = entry['Name']
-                comment = entry['Comment']
-                icon_name = entry['Icon']
-                if os.path.isfile(icon_name):
-                    gfile = Gio.File.parse_name(icon_name)
-                    icon = Gio.FileIcon.new(gfile)
-                else:
-                    icon = Gio.ThemedIcon.new(icon_name)
-                model[treeiter][0] = name
-                model[treeiter][1] = comment
-                model[treeiter][2] = item_type
-                model[treeiter][3] = icon
-                model[treeiter][4] = icon_name
-                model[treeiter][5] = filename
+                    # Model not found, delete this row.
+                    model.remove(treeiter)
             else:
-                # Model not found, delete this row.
                 model.remove(treeiter)
         path = model.get_path(treeiter)
         self.treeview.set_cursor(path)
