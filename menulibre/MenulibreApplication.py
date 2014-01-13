@@ -4,7 +4,7 @@ import os
 import re
 from locale import gettext as _
 
-from gi.repository import Gio, GObject, Gtk, Pango, Gdk, GdkPixbuf
+from gi.repository import Gio, GObject, Gtk, Pango, Gdk, GdkPixbuf, GLib
 
 from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
 from .enums import MenuItemTypes
@@ -269,6 +269,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                             tooltip = _('Revert'),
                                             stock_id = Gtk.STOCK_REVERT_TO_SAVED)
 
+        # Delete
+        self.actions['delete'] = Gtk.Action(
+                                            name = 'delete',
+                                            label = _('_Delete'),
+                                            tooltip = _('Delete'),
+                                            stock_id = Gtk.STOCK_DELETE)
+
         # Quit
         self.actions['quit'] = Gtk.Action(
                                             name = 'quit',
@@ -301,6 +308,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                             self.on_redo_cb)
         self.actions['revert'].connect('activate',
                                             self.on_revert_cb)
+        self.actions['delete'].connect('activate',
+                                            self.on_delete_cb)
         self.actions['quit'].connect('activate',
                                             self.on_quit_cb)
         self.actions['help'].connect('activate',
@@ -348,9 +357,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def configure_application_toolbar(self, builder):
         """Configure the application toolbar."""
-        # Configure the Add, Save, Undo, Redo, Revert widgets.
+        # Configure the Add, Save, Undo, Redo, Revert, Delete widgets.
         for action_name in ['add_launcher', 'save_launcher', 'undo', 'redo',
-                            'revert']:
+                            'revert', 'delete']:
             widget = builder.get_object("toolbar_%s" % action_name)
             widget.connect("clicked", self.activate_action_cb, action_name)
 
@@ -1844,6 +1853,56 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.update_treeview(model, treeiter, name, comment, item_type,
                             icon_name, filename)
 
+    def delete_launcher(self):
+        """Delete the selected launcher."""
+        model, treeiter = self.treeview.get_selection().get_selected()
+        name = model[treeiter][0]
+        item_type = model[treeiter][2]
+        filename = model[treeiter][5]
+        dialog = Gtk.MessageDialog(transient_for=self, modal=True,
+                                    message_type=Gtk.MessageType.QUESTION,
+                                    buttons=Gtk.ButtonsType.OK_CANCEL)
+        question = _("Are you sure you want to delete \"%s\"?") % name
+        details = _("This cannot be undone.")
+        dialog.set_markup("<b><big>%s</big></b>\n\n%s" % (question, details))
+        if dialog.run() == Gtk.ResponseType.OK:
+            if os.path.exists(filename):
+                os.remove(filename)
+            basename = os.path.basename(filename)
+            filename = None
+            # Find the original
+            for path in GLib.get_system_data_dirs():
+                if item_type == MenuItemTypes.APPLICATION:
+                    file_path = os.path.join(path, 'applications', basename)
+                else:
+                    file_path = os.path.join(path, 'desktop-directories', basename)
+                if os.path.isfile(file_path):
+                    filename = file_path
+                    break
+            if filename:
+                # Original found, replace.
+                entry = MenulibreXdg.MenulibreDesktopEntry(filename)
+                name = entry['Name']
+                comment = entry['Comment']
+                icon_name = entry['Icon']
+                if os.path.isfile(icon_name):
+                    gfile = Gio.File.parse_name(icon_name)
+                    icon = Gio.FileIcon.new(gfile)
+                else:
+                    icon = Gio.ThemedIcon.new(icon_name)
+                model[treeiter][0] = name
+                model[treeiter][1] = comment
+                model[treeiter][2] = item_type
+                model[treeiter][3] = icon
+                model[treeiter][4] = icon_name
+                model[treeiter][5] = filename
+            else:
+                # Model not found, delete this row.
+                model.remove(treeiter)
+        path = model.get_path(treeiter)
+        self.treeview.set_cursor(path)
+        dialog.destroy()
+
     def on_save_launcher_cb(self, widget):
         """Save Launcher callback function."""
         self.save_launcher()
@@ -1862,6 +1921,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Revert callback function."""
         #TODO: Implement Revert.
         print ('revert')
+
+    def on_delete_cb(self, widget):
+        """Delete callback function."""
+        self.delete_launcher()
 
     def on_quit_cb(self, widget):
         """Quit callback function.  Send the quit signal to the parent

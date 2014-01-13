@@ -587,8 +587,6 @@
     <property name="use_fallback">True</property>
   </object>
   <object class="GtkListStore" id="liststore1"/>
-  <object class="GtkListStore" id="liststore2"/>
-  <object class="GtkListStore" id="liststore3"/>
   <object class="GtkListStore" id="liststore4">
     <columns>
       <!-- column-name cat_name_col -->
@@ -609,6 +607,8 @@
       <column type="gchararray"/>
     </columns>
   </object>
+  <object class="GtkListStore" id="liststore2"/>
+  <object class="GtkListStore" id="liststore3"/>
   <object class="GtkListStore" id="liststore6">
     <columns>
       <!-- column-name icon_name -->
