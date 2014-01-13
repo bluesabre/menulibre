@@ -1856,12 +1856,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         name = model[treeiter][0]
         item_type = model[treeiter][2]
         filename = model[treeiter][5]
+        question = _("Are you sure you want to delete \"%s\"?") % name
         dialog = Gtk.MessageDialog(transient_for=self, modal=True,
                                     message_type=Gtk.MessageType.QUESTION,
-                                    buttons=Gtk.ButtonsType.OK_CANCEL)
-        question = _("Are you sure you want to delete \"%s\"?") % name
+                                    buttons=Gtk.ButtonsType.OK_CANCEL,
+                                    text=question)
+        
         details = _("This cannot be undone.")
-        dialog.set_markup("<b><big>%s</big></b>\n\n%s" % (question, details))
+        dialog.format_secondary_markup(details)
         if dialog.run() == Gtk.ResponseType.OK:
             if filename is not None:
                 if os.path.exists(filename):
