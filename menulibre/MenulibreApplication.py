@@ -162,6 +162,106 @@ def lookup_category_description(spec_name):
     return description
 
 
+class MenulibreHistory(GObject.GObject):
+    """The MenulibreHistory object. This stores all history for Menulibre and
+    allows for Undo/Redo/Revert functionality."""
+
+    __gsignals__ = {
+        'undo-changed': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_BOOLEAN,
+                        (GObject.TYPE_BOOLEAN,)),
+        'redo-changed': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_BOOLEAN,
+                        (GObject.TYPE_BOOLEAN,))
+    }
+
+    def __init__(self):
+        """Intialize the MenulibreHistory object."""
+        GObject.GObject.__init__(self)
+        self._undo = []
+        self._redo = []
+        self._restore = dict()
+
+    def append(self, key, before, after):
+        """Add a new change to the History, clear the redo."""
+        print(("History Append: %s, %s, %s" % (key, before, after)))
+        self._append_undo(key, before, after)
+        self._clear_redo()
+
+    def store(self, key, value):
+        """Store an original value to be used for reverting."""
+        self._restore[key] = value
+
+    def restore(self):
+        """Return a copy of the restore dictionary."""
+        return self._restore.copy()
+
+    def undo(self):
+        """Return the next key-value pair to undo, push it to redo."""
+        key, before, after = self._pop_undo()
+        print(("History Undo: %s, %s" % (key, before)))
+        self._append_redo(key, before, after)
+        return (key, before)
+
+    def redo(self):
+        """Return the next key-value pair to redo, push it to undo."""
+        key, before, after = self._pop_redo()
+        print(("History Redo: %s, %s" % (key, after)))
+        self._append_undo(key, before, after)
+        return (key, after)
+
+    def clear(self):
+        """Clear all history items."""
+        print("History Clear")
+        self._clear_undo()
+        self._clear_redo()
+        self._restore.clear()
+
+    def _append_undo(self, key, before, after):
+        """Internal append_undo function. Emit 'undo-changed' if the undo stack
+        now contains a history."""
+        self._undo.append((key, before, after))
+        if len(self._undo) == 1:
+            self.emit('undo-changed', True)
+
+    def _pop_undo(self):
+        """Internal pop_undo function. Emit 'undo-changed' if the undo stack is
+        now empty."""
+        history = self._undo.pop()
+        if len(self._undo) == 0:
+            self.emit('undo-changed', False)
+        return history
+
+    def _clear_undo(self):
+        """Internal clear_undo function. Emit 'undo-changed' if the undo stack
+        previously had items."""
+        has_history = len(self._undo) > 0
+        self._undo.clear()
+        if has_history:
+            self.emit('undo-changed', False)
+
+    def _clear_redo(self):
+        """Internal clear_redo function. Emit 'redo-changed' if the redo stack
+        previously had items."""
+        has_history = len(self._redo) > 0
+        self._redo.clear()
+        if has_history:
+            self.emit('redo-changed', False)
+
+    def _append_redo(self, key, before, after):
+        """Internal append_redo function. Emit 'redo-changed' if the redo stack
+        now contains a history."""
+        self._redo.append((key, before, after))
+        if len(self._redo) == 1:
+            self.emit('redo-changed', True)
+
+    def _pop_redo(self):
+        """Internal pop_redo function. Emit 'redo-changed' if the redo stack is
+        now empty."""
+        history = self._redo.pop()
+        if len(self._redo) == 0:
+            self.emit('redo-changed', False)
+        return history
+
+
 class MenulibreWindow(Gtk.ApplicationWindow):
     """The Menulibre application window."""
     ui_file = 'data/ui/MenulibreWindow.glade'
@@ -197,8 +297,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Set up the applicaton browser
         self.configure_application_treeview(builder)
 
-        self.history_undo = list()
-        self.history_redo = list()
+        self.history = MenulibreHistory()
+        self.history.connect('undo-changed', self.on_undo_changed)
+        self.history.connect('redo-changed', self.on_redo_changed)
 
     def configure_application_window(self, builder, app):
         """Glade is currently unable to create a GtkApplicationWindow.  This
@@ -236,66 +337,66 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Add Launcher
         self.actions['add_launcher'] = Gtk.Action(
-                                            name = 'add_launcher',
-                                            label = _('_Add Launcher...'),
-                                            tooltip = _('Add Launcher...'),
-                                            stock_id = Gtk.STOCK_NEW)
+                                            name='add_launcher',
+                                            label=_('_Add Launcher...'),
+                                            tooltip=_('Add Launcher...'),
+                                            stock_id=Gtk.STOCK_NEW)
 
         # Save Launcher
         self.actions['save_launcher'] = Gtk.Action(
-                                            name = 'save_launcher',
-                                            label = _('_Save'),
-                                            tooltip = _('Save'),
-                                            stock_id = Gtk.STOCK_SAVE)
+                                            name='save_launcher',
+                                            label=_('_Save'),
+                                            tooltip=_('Save'),
+                                            stock_id=Gtk.STOCK_SAVE)
 
         # Undo
         self.actions['undo'] = Gtk.Action(
-                                            name = 'undo',
-                                            label = _('_Undo'),
-                                            tooltip = _('Undo'),
-                                            stock_id = Gtk.STOCK_UNDO)
+                                            name='undo',
+                                            label=_('_Undo'),
+                                            tooltip=_('Undo'),
+                                            stock_id=Gtk.STOCK_UNDO)
 
         # Redo
         self.actions['redo'] = Gtk.Action(
-                                            name = 'redo',
-                                            label = _('_Redo'),
-                                            tooltip = _('Redo'),
-                                            stock_id = Gtk.STOCK_REDO)
+                                            name='redo',
+                                            label=_('_Redo'),
+                                            tooltip=_('Redo'),
+                                            stock_id=Gtk.STOCK_REDO)
 
         # Revert
         self.actions['revert'] = Gtk.Action(
-                                            name = 'revert',
-                                            label = _('_Revert'),
-                                            tooltip = _('Revert'),
-                                            stock_id = Gtk.STOCK_REVERT_TO_SAVED)
+                                            name='revert',
+                                            label=_('_Revert'),
+                                            tooltip=_('Revert'),
+                                            stock_id=Gtk.STOCK_REVERT_TO_SAVED)
 
         # Delete
         self.actions['delete'] = Gtk.Action(
-                                            name = 'delete',
-                                            label = _('_Delete'),
-                                            tooltip = _('Delete'),
-                                            stock_id = Gtk.STOCK_DELETE)
+                                            name='delete',
+                                            label=_('_Delete'),
+                                            tooltip=_('Delete'),
+                                            stock_id=Gtk.STOCK_DELETE)
 
         # Quit
         self.actions['quit'] = Gtk.Action(
-                                            name = 'quit',
-                                            label = _('_Quit'),
-                                            tooltip = _('Quit'),
-                                            stock_id = Gtk.STOCK_QUIT)
+                                            name='quit',
+                                            label=_('_Quit'),
+                                            tooltip=_('Quit'),
+                                            stock_id=Gtk.STOCK_QUIT)
 
         # Help
         self.actions['help'] = Gtk.Action(
-                                            name = 'help',
-                                            label = _('_Contents'),
-                                            tooltip = _('Help'),
-                                            stock_id = Gtk.STOCK_HELP)
+                                            name='help',
+                                            label=_('_Contents'),
+                                            tooltip=_('Help'),
+                                            stock_id=Gtk.STOCK_HELP)
 
         # About
         self.actions['about'] = Gtk.Action(
-                                            name = 'about',
-                                            label = _('_About'),
-                                            tooltip = _('About'),
-                                            stock_id = Gtk.STOCK_ABOUT)
+                                            name='about',
+                                            label=_('_About'),
+                                            tooltip=_('About'),
+                                            stock_id=Gtk.STOCK_ABOUT)
 
         # Connect the GtkAction events.
         self.actions['add_launcher'].connect('activate',
@@ -362,6 +463,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             'revert', 'delete']:
             widget = builder.get_object("toolbar_%s" % action_name)
             widget.connect("clicked", self.activate_action_cb, action_name)
+
+        # Undo/Redo
+        self.undo_button = builder.get_object('toolbar_undo')
+        self.redo_button = builder.get_object('toolbar_redo')
 
         # Configure the Delete widget.
         self.delete_button = builder.get_object('toolbar_delete')
@@ -617,6 +722,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.categories_treefilter.refilter()
 
+    def on_undo_changed(self, history, enabled):
+        print (enabled)
+        self.undo_button.set_sensitive(enabled)
+
+    def on_redo_changed(self, history, enabled):
+        print('redo')
+        self.redo_button.set_sensitive(enabled)
+
     def cleanup_categories(self):
         """Cleanup the Categories treeview. Remove any rows where category
         has not been set and sort alphabetically."""
@@ -831,7 +944,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 try:
                     layout.addFilename(os.path.basename(desktop))
                 except AttributeError:
-                    print (str(model[treeiter][:]))
+                    print((str(model[treeiter][:])))
 
             elif item_type == MenuItemTypes.SEPARATOR:
                 layout.addSeparator()
@@ -908,10 +1021,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Image File
         else:
-            dialog = Gtk.FileChooserDialog( title=_("Select an image"),
+            dialog = Gtk.FileChooserDialog(title=_("Select an image"),
                                             transient_for=self,
                                             action=Gtk.FileChooserAction.OPEN)
-            dialog.add_buttons( _("Cancel"), Gtk.ResponseType.CANCEL,
+            dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL,
                                 _("OK"), Gtk.ResponseType.OK)
             if dialog.run() == Gtk.ResponseType.OK:
                 filename = dialog.get_filename()
@@ -1058,20 +1171,23 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         button = builder.get_object('button_%s' % widget_name)
         box.hide()
         button.show()
-        self.set_value(widget_name, entry.get_text())
+        new_value = entry.get_text()
+        self.history.append(widget_name, self.values[widget_name], new_value)
+        self.set_value(widget_name, new_value)
 
     def on_ExecPath_clicked(self, widget, widget_name, builder):
         """Show the file selection dialog when Exec/Path Browse is clicked."""
         entry = builder.get_object('entry_%s' % widget_name)
         if widget_name == 'Path':
-            dialog = Gtk.FileChooserDialog(title=_("Select a working directory..."),
-                                           transient_for=self,
-                                           action=Gtk.FileChooserAction.SELECT_FOLDER)
+            dialog = Gtk.FileChooserDialog(
+                                    title=_("Select a working directory..."),
+                                    transient_for=self,
+                                    action=Gtk.FileChooserAction.SELECT_FOLDER)
         else:
             dialog = Gtk.FileChooserDialog(title=_("Select an executable..."),
                                            transient_for=self,
                                            action=Gtk.FileChooserAction.OPEN)
-        dialog.add_buttons( _("Cancel"), Gtk.ResponseType.CANCEL,
+        dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL,
                             _("OK"), Gtk.ResponseType.OK)
         result = dialog.run()
         dialog.hide()
@@ -1861,7 +1977,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                     message_type=Gtk.MessageType.QUESTION,
                                     buttons=Gtk.ButtonsType.OK_CANCEL,
                                     text=question)
-        
+
         details = _("This cannot be undone.")
         dialog.format_secondary_markup(details)
         if dialog.run() == Gtk.ResponseType.OK:
@@ -1875,7 +1991,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     if item_type == MenuItemTypes.APPLICATION:
                         file_path = os.path.join(path, 'applications', basename)
                     else:
-                        file_path = os.path.join(path, 'desktop-directories', basename)
+                        file_path = os.path.join(path, 'desktop-directories',
+                                                basename)
                     if os.path.isfile(file_path):
                         filename = file_path
                         break
@@ -1911,13 +2028,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_undo_cb(self, widget):
         """Undo callback function."""
-        #TODO: Implement Undo.
-        print ('undo')
+        key, value = self.history.undo()
+        self.set_value(key, value)
 
     def on_redo_cb(self, widget):
         """Redo callback function."""
-        #TODO: Implement Redo.
-        print ('redo')
+        key, value = self.history.redo()
+        self.set_value(key, value)
 
     def on_revert_cb(self, widget):
         """Revert callback function."""
