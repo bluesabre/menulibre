@@ -179,9 +179,12 @@ class MenulibreHistory(GObject.GObject):
         self._undo = []
         self._redo = []
         self._restore = dict()
+        self._block = False
 
     def append(self, key, before, after):
         """Add a new change to the History, clear the redo."""
+        if self._block == True:
+            return
         print(("History Append: %s, %s, %s" % (key, before, after)))
         self._append_undo(key, before, after)
         self._clear_redo()
@@ -214,6 +217,16 @@ class MenulibreHistory(GObject.GObject):
         self._clear_undo()
         self._clear_redo()
         self._restore.clear()
+
+    def block(self):
+        """Block all future history changes."""
+        print("Blocking updates")
+        self._block = True
+
+    def unblock(self):
+        """Unblock all future history changes."""
+        print("Unblocking updates")
+        self._block = False
 
     def _append_undo(self, key, before, after):
         """Internal append_undo function. Emit 'undo-changed' if the undo stack
@@ -281,6 +294,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         builder = Gtk.Builder()
         builder.add_from_file(self.ui_file)
 
+        # Set up History
+        self.history = MenulibreHistory()
+        self.history.connect('undo-changed', self.on_undo_changed)
+        self.history.connect('redo-changed', self.on_redo_changed)
+
         # Steal the window contents for the GtkApplication.
         self.configure_application_window(builder, app)
 
@@ -296,10 +314,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Set up the applicaton browser
         self.configure_application_treeview(builder)
-
-        self.history = MenulibreHistory()
-        self.history.connect('undo-changed', self.on_undo_changed)
-        self.history.connect('redo-changed', self.on_redo_changed)
 
     def configure_application_window(self, builder, app):
         """Glade is currently unable to create a GtkApplicationWindow.  This
@@ -723,10 +737,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.categories_treefilter.refilter()
 
     def on_undo_changed(self, history, enabled):
+        """Toggle undo functionality when history is changed."""
         print (enabled)
         self.undo_button.set_sensitive(enabled)
 
     def on_redo_changed(self, history, enabled):
+        """Toggle redo functionality when history is changed."""
         print('redo')
         self.redo_button.set_sensitive(enabled)
 
@@ -1161,7 +1177,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         button = builder.get_object('button_%s' % widget_name)
         box.hide()
         button.show()
+        self.history.block()
         self.set_value(widget_name, self.values[widget_name])
+        self.history.unblock()
         button.grab_focus()
 
     def on_NameComment_apply(self, widget, widget_name, builder):
@@ -1172,7 +1190,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         box.hide()
         button.show()
         new_value = entry.get_text()
-        self.history.append(widget_name, self.values[widget_name], new_value)
+        #self.history.append(widget_name, self.values[widget_name], new_value)
         self.set_value(widget_name, new_value)
 
     def on_ExecPath_clicked(self, widget, widget_name, builder):
@@ -1192,7 +1210,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         result = dialog.run()
         dialog.hide()
         if result == Gtk.ResponseType.OK:
-            entry.set_text(dialog.get_filename())
+            self.set_value(widget_name, dialog.get_filename())
         entry.grab_focus()
 
     def on_window_keypress_event(self, widget, event, user_data=None):
@@ -1261,6 +1279,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             if not treeiter:
                 return
 
+            # Prevent updates to history.
+            self.history.block()
+
             # Clear the individual entries.
             for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
                         'NoDisplay', 'GenericName', 'TryExec',
@@ -1290,8 +1311,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 displayed_name = treestore[treeiter][0]
                 comment = treestore[treeiter][1]
                 filename = treestore[treeiter][5]
-                self.set_editor_image(treestore[treeiter][3],
-                                      treestore[treeiter][4])
+                self.set_value('Icon', treestore[treeiter][4])
+                #self.set_editor_image(treestore[treeiter][3],
+                #                      treestore[treeiter][4])
                 self.set_value('Name', displayed_name)
                 self.set_value('Comment', comment)
                 self.set_value('Filename', filename)
@@ -1312,10 +1334,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     for widget in self.directory_hide_widgets:
                         widget.hide()
 
+            # Renable updates to history.
+            self.history.unblock()
+
     def icon_name_func(self, col, renderer, treestore, treeiter, user_data):
         """CellRenderer function to set the gicon for each row."""
         renderer.set_property("gicon", treestore[treeiter][3])
-        pass
 
     def treeview_match(self, model, treeiter, query):
         """Match subfunction for filtering search results."""
@@ -1606,8 +1630,21 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         for name, displayed, command, show in action_groups:
             model.append([show, name, displayed, command])
 
+    def get_inner_value(self, key):
+        """t"""
+        try:
+            return self.values[key]
+        except:
+            return None
+
+    def set_inner_value(self, key, value):
+        """t"""
+        self.values[key] = value
+
     def set_value(self, key, value):
         """Set the DesktopSpec key, value pair in the editor."""
+        self.history.append(key, self.get_inner_value(key), value)
+        self.set_inner_value(key, value)
         # Name and Comment must formatted correctly for their buttons.
         if key in ['Name', 'Comment']:
             if not value:
@@ -1804,6 +1841,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         treeview.set_cursor(path)
 
     def get_required_categories(self, directory):
+        """Return the list of required categories for a directory string."""
         prefix = MenuEditor.get_default_menu_prefix()
         if directory is not None:
             basename = os.path.basename(directory)
@@ -1911,6 +1949,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def update_treeview(self, model, treeiter, name, comment, item_type,
                         icon_name, filename):
+        """Update the application treeview selected row data."""
 
         model[treeiter][0] = name
         model[treeiter][1] = comment
@@ -2029,12 +2068,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_undo_cb(self, widget):
         """Undo callback function."""
         key, value = self.history.undo()
+        self.history.block()
         self.set_value(key, value)
+        self.history.unblock()
 
     def on_redo_cb(self, widget):
         """Redo callback function."""
         key, value = self.history.redo()
+        self.history.block()
         self.set_value(key, value)
+        self.history.unblock()
 
     def on_revert_cb(self, widget):
         """Revert callback function."""
