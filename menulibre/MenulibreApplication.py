@@ -809,6 +809,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         model[path][0] = text
         description = lookup_category_description(text)
         model[path][1] = description
+        self.set_value('Categories', self.get_editor_categories())
 
     def on_categories_add(self, widget):
         """Add a new row to the Categories TreeView."""
@@ -817,10 +818,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_categories_remove(self, widget):
         """Remove the currently selected row from the Categories TreeView."""
         self.treeview_remove(self.categories_treeview)
+        self.set_value('Categories', self.get_editor_categories())
 
     def on_categories_clear(self, widget):
         """Clear all rows from the Categories TreeView."""
         self.treeview_clear(self.categories_treeview)
+        self.set_value('Categories', self.get_editor_categories())
 
     def on_actions_text_edited(self, w, row, new_text, model, col):
         """Edited callback function to enable modifications to a cell."""
@@ -2018,6 +2021,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon_name = self.get_value('Icon')
         self.update_treeview(model, treeiter, name, comment, item_type,
                             icon_name, filename)
+        self.history.clear()
 
     def delete_launcher(self):
         """Delete the selected launcher."""

@@ -267,25 +267,3 @@ class MenuEditor(object):
                 contents.append(item)
             item_type = item_iter.next()
         return contents
-
-    def writeMenu(self, menu, **kwargs):
-        """Keep me around until NewDirectory is implemented"""
-        if menu is not None:
-            file_id = os.path.split(menu.get_desktop_file_path())[1]
-            file_path = menu.get_desktop_file_path()
-            keyfile = GLib.KeyFile()
-            keyfile.load_from_file(file_path, util.KEY_FILE_FLAGS)
-        elif menu is None and 'Name' not in kwargs:
-            raise Exception('New menus need a name')
-        else:
-            file_id = util.getUniqueFileId(kwargs['Name'], '.directory')
-            keyfile = GLib.KeyFile()
-
-        util.fillKeyFile(keyfile, kwargs)
-
-        contents, length = keyfile.to_data()
-
-        path = os.path.join(util.getUserDirectoryPath(), file_id)
-        with open(path, 'w') as f:
-            f.write(contents)
-        return file_id
