@@ -592,6 +592,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             'DBusActivatable': builder.get_object('entry_DBusActivatable')
         }
 
+        # Configure the switches
+        for widget_name in ['Terminal', 'StartupNotify', 'NoDisplay']:
+            widget = self.widgets[widget_name]
+            widget.connect('notify::active', self.on_switch_toggle, widget_name)
+
         # These widgets are hidden when the selected item is a Directory.
         self.directory_hide_widgets = []
         for widget_name in ['details_frame', 'settings_frame',
@@ -622,6 +627,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             self.on_NameCommentIcon_focus_in_event)
             button.connect('focus-out-event',
                             self.on_NameCommentIcon_focus_out_event)
+
+        # Commit changes to entries when focusing out.
+        for widget_name in ['Exec', 'Path', 'GenericName', 'TryExec',
+                            'OnlyShowIn', 'NotShowIn', 'MimeType', 'Keywords',
+                            'StartupWMClass', 'Hidden', 'DBusActivatable']:
+            self.widgets[widget_name].connect('focus-out-event',
+                            self.on_entry_focus_out_event, widget_name)
 
         # Configure the Exec/Path widgets.
         for widget_name in ['Exec', 'Path']:
@@ -693,6 +705,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         renderer.connect('edited', self.on_actions_text_edited, model, 2)
         renderer = builder.get_object('actions_command_renderer')
         renderer.connect('edited', self.on_actions_text_edited, model, 3)
+
+    def on_switch_toggle(self, widget, status, widget_name):
+        """Connect switch toggle event for storing in history."""
+        self.set_value(widget_name, widget.get_active())
 
     def configure_categories_treeview(self, builder):
         """Set the up combobox in the categories treeview editor."""
@@ -1112,7 +1128,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         entry_ImageFile = builder.get_object('entry_ImageFile')
 
         # Get the current icon name.
-        icon_name = self.values['icon-name']
+        icon_name = self.values['Icon']
 
         # If the current icon name is actually a filename...
         if os.path.isfile(icon_name):
@@ -1148,6 +1164,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             else:
                 self.set_value('Icon', entry_ImageFile.get_text())
         dialog.hide()
+
+    def on_entry_focus_out_event(self, widget, event, widget_name):
+        self.set_value(widget_name, widget.get_text())
 
     def on_NameCommentIcon_focus_in_event(self, button, event):
         """Make the selected focused widget more noticeable."""
@@ -1279,6 +1298,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             if not treeiter:
                 return
 
+            # Clear history
+            self.history.clear()
+
             # Prevent updates to history.
             self.history.block()
 
@@ -1312,8 +1334,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 comment = treestore[treeiter][1]
                 filename = treestore[treeiter][5]
                 self.set_value('Icon', treestore[treeiter][4])
-                #self.set_editor_image(treestore[treeiter][3],
-                #                      treestore[treeiter][4])
                 self.set_value('Name', displayed_name)
                 self.set_value('Comment', comment)
                 self.set_value('Filename', filename)
@@ -1483,39 +1503,31 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Generic search cleared callback function."""
         widget.set_text("")
 
-    def set_editor_image(self, gicon, icon_name=None):
+    def set_editor_image(self, icon_name):
         """Set the editor Icon button image."""
         button, image = self.widgets['Icon']
 
-        # If the Gio.Icon is defined, use it.
-        if gicon is not None:
-            image.set_from_gicon(
-                gicon, image.get_preferred_height()[0])
+        if icon_name is not None:
+            # Load the Icon Theme.
+            icon_theme = Gtk.IconTheme.get_default()
 
-        # Otherwise, use the icon-name.
-        else:
-            if icon_name is not None:
-                # Load the Icon Theme.
-                icon_theme = Gtk.IconTheme.get_default()
+            # If the Icon Theme has the icon, set the image to that icon.
+            if icon_theme.has_icon(icon_name):
+                image.set_from_icon_name(icon_name, 48)
 
-                # If the Icon Theme has the icon, set the image to that icon.
-                if icon_theme.has_icon(icon_name):
-                    image.set_from_icon_name(icon_name, 48)
+            # If the icon name is actually a file, render it to the Image.
+            elif os.path.isfile(icon_name):
+                pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon_name)
+                size = image.get_preferred_height()[1]
+                scaled = pixbuf.scale_simple(size, size,
+                                                GdkPixbuf.InterpType.HYPER)
+                image.set_from_pixbuf(scaled)
 
-                # If the icon name is actually a file, render it to the Image.
-                elif os.path.isfile(icon_name):
-                    pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon_name)
-                    size = image.get_preferred_height()[1]
-                    scaled = pixbuf.scale_simple(size, size,
-                                                    GdkPixbuf.InterpType.HYPER)
-                    image.set_from_pixbuf(scaled)
-
-                # Fallback icon.
-                else:
-                    image.set_from_icon_name("application-default-icon", 48)
+            # Fallback icon.
             else:
                 image.set_from_icon_name("application-default-icon", 48)
-        self.values['icon-name'] = icon_name
+        else:
+            image.set_from_icon_name("application-default-icon", 48)
 
     def set_editor_filename(self, filename):
         """Set the editor filename."""
@@ -1643,6 +1655,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def set_value(self, key, value):
         """Set the DesktopSpec key, value pair in the editor."""
+        if self.get_inner_value(key) == value:
+            return
         self.history.append(key, self.get_inner_value(key), value)
         self.set_inner_value(key, value)
         # Name and Comment must formatted correctly for their buttons.
@@ -1666,7 +1680,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         elif key == 'Categories':
             self.set_editor_categories(value)
         elif key == 'Icon':
-            self.set_editor_image(gicon=None, icon_name=value)
+            self.set_editor_image(value)
 
         # Type is just stored.
         elif key == 'Type':
@@ -1704,7 +1718,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             button, label, entry = self.widgets[key]
             return entry.get_text()
         elif key == 'Icon':
-            return self.values['icon-name']
+            return self.values[key]
         elif key == 'Type':
             return self.values[key]
         elif key == 'Categories':
