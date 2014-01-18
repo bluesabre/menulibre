@@ -26,7 +26,7 @@ except ImportError:
 
 
 def indent(elem, level=0):
-    """Indentation code taken from SOURCE to make XML output easier to read."""
+    """Indentation code to make XML output easier to read."""
     i = "\n" + level * "\t"
     if len(elem):
         if not elem.text or not elem.text.strip():
@@ -145,21 +145,3 @@ class XmlMenuElementTree(ElementTree):
         with open(output_file, 'w') as f:
             f.write(header)
             ElementTree(copy).write(f, encoding='unicode')
-
-if __name__ == '__main__':
-    # Test for standard menu...
-    menu = XmlMenuElementTree("Xfce",
-            "/etc/xdg/xdg-xubuntu/menus/xfce-applications.menu")
-    root = menu.getroot()
-    submenu = root.addMenu("Graphics")
-    layout = submenu.addLayout()
-    layout.addMerge("menus")
-    for filename in ['agave.desktop', 'evince.desktop', 'gimp.desktop',
-                    'gthumb-import.desktop', 'gthumb.desktop',
-                    'display.im6.desktop', 'libreoffice-draw.desktop',
-                    'eog.desktop', 'evince-previewer.desktop',
-                    'ristretto.desktop', 'shotwell.desktop',
-                    'shotwell-viewer.desktop', 'simple-scan.desktop']:
-        layout.addFilename(filename)
-    layout.addMerge("files")
-    menu.write("test.txt")

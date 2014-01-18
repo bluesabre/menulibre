@@ -18,6 +18,9 @@
 import sys
 import os
 
+import gi
+gi.require_version('Gtk', '3.0')
+
 # Get project root directory (enable symlink and trunk execution)
 PROJECT_ROOT_DIRECTORY = os.path.abspath(
     os.path.dirname(os.path.dirname(os.path.realpath(sys.argv[0]))))

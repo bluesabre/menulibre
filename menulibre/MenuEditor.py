@@ -3,6 +3,9 @@
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
 #   Copyright (C) 2012-2014 Sean Davis <smd.seandavis@gmail.com>
 #
+#   Portions of this file are adapted from Alacarte Menu Editor,
+#   Copyright (C) 2006 Travis Watkins, Heinrich Wendel
+#
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published
 #   by the Free Software Foundation.
@@ -25,7 +28,7 @@ from xml.sax.saxutils import escape
 from gi.repository import GdkPixbuf, Gio, GLib, GMenu, Gtk
 
 from . import util
-from .enums import MenuItemTypes
+from .util import MenuItemTypes
 
 locale.textdomain('menulibre')
 
@@ -197,8 +200,35 @@ def get_menus():
     return structure
 
 
+def removeWhitespaceNodes(node):
+    """Remove whitespace nodes from the xml dom."""
+    remove_list = []
+    for child in node.childNodes:
+        if child.nodeType == xml.dom.minidom.Node.TEXT_NODE:
+            child.data = child.data.strip()
+            if not child.data.strip():
+                remove_list.append(child)
+        elif child.hasChildNodes():
+            removeWhitespaceNodes(child)
+    for node in remove_list:
+        node.parentNode.removeChild(node)
+
+
+def getUserMenuXml(tree):
+    """Return the header portions of the menu xml file."""
+    system_file = util.getSystemMenuPath(
+            os.path.basename(tree.get_canonical_menu_path()))
+    name = tree.get_root_directory().get_menu_id()
+    menu_xml = "<!DOCTYPE Menu PUBLIC '-//freedesktop//DTD Menu 1.0//EN'" \
+               " 'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>\n"
+    menu_xml += "<Menu>\n  <Name>" + name + "</Name>\n  "
+    menu_xml += "<MergeFile type=\"parent\">" + system_file + \
+                "</MergeFile>\n</Menu>\n"
+    return menu_xml
+
+
 class MenuEditor(object):
-    """MenuEditor"""
+    """MenuEditor class, adapted and minimized from Alacarte Menu Editor."""
 
     def __init__(self, basename=None):
         """init"""
@@ -222,8 +252,8 @@ class MenuEditor(object):
             self.dom = xml.dom.minidom.parse(self.path)
         except (IOError, xml.parsers.expat.ExpatError):
             self.dom = xml.dom.minidom.parseString(
-                util.getUserMenuXml(self.tree))
-        util.removeWhitespaceNodes(self.dom)
+                getUserMenuXml(self.tree))
+        removeWhitespaceNodes(self.dom)
 
     def load(self):
         """load"""

@@ -23,7 +23,7 @@ from locale import gettext as _
 from gi.repository import Gio, GObject, Gtk, Pango, Gdk, GdkPixbuf, GLib
 
 from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
-from .enums import MenuItemTypes
+from .util import MenuItemTypes
 import menulibre_lib
 
 locale.textdomain('menulibre')
