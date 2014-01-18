@@ -1,48 +1,31 @@
-# -*- coding: utf-8 -*-
-#   Alacarte Menu Editor - Simple fd.o Compliant Menu Editor
-#   Copyright (C) 2006  Travis Watkins
+#!/usr/bin/python3
+# -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
+#   MenuLibre - Advanced fd.o Compliant Menu Editor
+#   Copyright (C) 2012-2014 Sean Davis <smd.seandavis@gmail.com>
 #
-#   This library is free software; you can redistribute it and/or
-#   modify it under the terms of the GNU Library General Public
-#   License as published by the Free Software Foundation; either
-#   version 2 of the License, or (at your option) any later version.
+#   This program is free software: you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License version 3, as published
+#   by the Free Software Foundation.
 #
-#   This library is distributed in the hope that it will be useful,
-#   but WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-#   Library General Public License for more details.
+#   This program is distributed in the hope that it will be useful, but
+#   WITHOUT ANY WARRANTY; without even the implied warranties of
+#   MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#   PURPOSE.  See the GNU General Public License for more details.
 #
-#   You should have received a copy of the GNU Library General Public
-#   License along with this library; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#   You should have received a copy of the GNU General Public License along
+#   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
 import xml.dom.minidom
-from collections import Sequence
 
 import gi
 gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk, GdkPixbuf, GMenu, GLib
-
-DESKTOP_GROUP = GLib.KEY_FILE_DESKTOP_GROUP
-KEY_FILE_FLAGS = GLib.KeyFileFlags.KEEP_COMMENTS | \
-                 GLib.KeyFileFlags.KEEP_TRANSLATIONS
-
-
-def fillKeyFile(keyfile, items):
-    for key, item in list(items.items()):
-        if item is None:
-            continue
-
-        if isinstance(item, bool):
-            keyfile.set_boolean(DESKTOP_GROUP, key, item)
-        elif isinstance(item, str):
-            keyfile.set_string(DESKTOP_GROUP, key, item)
-        elif isinstance(item, Sequence):
-            keyfile.set_string_list(DESKTOP_GROUP, key, item)
+from gi.repository import GLib
 
 
 def getUniqueFileId(name, extension):
+    """Return a unique filename to use for a new .desktop file."""
+    print('getUniqueFileId')
     append = 0
     while 1:
         if append == 0:
@@ -63,37 +46,9 @@ def getUniqueFileId(name, extension):
     return filename
 
 
-def getUniqueRedoFile(filepath):
-    append = 0
-    while 1:
-        new_filepath = filepath + '.redo-' + str(append)
-        if not os.path.isfile(new_filepath):
-            break
-        else:
-            append += 1
-    return new_filepath
-
-
-def getUniqueUndoFile(filepath):
-    filename, extension = os.path.split(filepath)[1].rsplit('.', 1)
-    append = 0
-    while 1:
-        if extension == 'desktop':
-            path = getUserItemPath()
-        elif extension == 'directory':
-            path = getUserDirectoryPath()
-        elif extension == 'menu':
-            path = getUserMenuPath()
-        new_filepath = os.path.join(path, '%s.%s.undo-%s;' %
-                                          (filename, extension, str(append)))
-        if not os.path.isfile(new_filepath):
-            break
-        else:
-            append += 1
-    return new_filepath
-
-
 def getItemPath(file_id):
+    """Return the path to the system-installed .desktop file."""
+    print('getItemPath')
     for path in GLib.get_system_data_dirs():
         file_path = os.path.join(path, 'applications', file_id)
         if os.path.isfile(file_path):
@@ -102,6 +57,8 @@ def getItemPath(file_id):
 
 
 def getUserItemPath():
+    """Return the path to the user applications directory."""
+    print('getUserItemPath')
     item_dir = os.path.join(GLib.get_user_data_dir(), 'applications')
     if not os.path.isdir(item_dir):
         os.makedirs(item_dir)
@@ -109,6 +66,8 @@ def getUserItemPath():
 
 
 def getDirectoryPath(file_id):
+    """Return the path to the system-installed .directory file."""
+    print('getDirectoryPath')
     for path in GLib.get_system_data_dirs():
         file_path = os.path.join(path, 'desktop-directories', file_id)
         if os.path.isfile(file_path):
@@ -117,6 +76,8 @@ def getDirectoryPath(file_id):
 
 
 def getUserDirectoryPath():
+    """Return the path to the user desktop-directories directory."""
+    print('getUserDirectoryPath')
     menu_dir = os.path.join(GLib.get_user_data_dir(), 'desktop-directories')
     if not os.path.isdir(menu_dir):
         os.makedirs(menu_dir)
@@ -124,6 +85,7 @@ def getUserDirectoryPath():
 
 
 def getUserMenuPath():
+    """Return the path to the user menus directory."""
     menu_dir = os.path.join(GLib.get_user_config_dir(), 'menus')
     if not os.path.isdir(menu_dir):
         os.makedirs(menu_dir)
@@ -131,6 +93,8 @@ def getUserMenuPath():
 
 
 def getSystemMenuPath(file_id):
+    """Return the path to the system-installed menu file."""
+    print('getSystemMenuPath')
     for path in GLib.get_system_config_dirs():
         file_path = os.path.join(path, 'menus', file_id)
         if os.path.isfile(file_path):
@@ -139,8 +103,10 @@ def getSystemMenuPath(file_id):
 
 
 def getUserMenuXml(tree):
+    """Return the header portions of the menu xml file."""
+    print('getUserMenuXml')
     system_file = getSystemMenuPath(
-    os.path.basename(tree.get_canonical_menu_path()))
+            os.path.basename(tree.get_canonical_menu_path()))
     name = tree.get_root_directory().get_menu_id()
     menu_xml = "<!DOCTYPE Menu PUBLIC '-//freedesktop//DTD Menu 1.0//EN'" \
                " 'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>\n"
@@ -150,38 +116,8 @@ def getUserMenuXml(tree):
     return menu_xml
 
 
-def getIcon(item):
-    pixbuf = None
-    if item is None:
-        return None
-
-    if isinstance(item, GMenu.TreeDirectory):
-        gicon = item.get_icon()
-    elif isinstance(item, GMenu.TreeEntry):
-        app_info = item.get_app_info()
-        gicon = app_info.get_icon()
-    else:
-        return None
-
-    if gicon is None:
-        return None
-
-    icon_theme = Gtk.IconTheme.get_default()
-    info = icon_theme.lookup_by_gicon(gicon, 24, 0)
-    if info is None:
-        return None
-    try:
-        pixbuf = info.load_icon()
-    except GLib.GError:
-        return None
-    if pixbuf is None:
-        return None
-    if pixbuf.get_width() != 24 or pixbuf.get_height() != 24:
-        pixbuf = pixbuf.scale_simple(24, 24, GdkPixbuf.InterpType.HYPER)
-    return pixbuf
-
-
 def removeWhitespaceNodes(node):
+    """Remove whitespace nodes from the xml dom."""
     remove_list = []
     for child in node.childNodes:
         if child.nodeType == xml.dom.minidom.Node.TEXT_NODE:

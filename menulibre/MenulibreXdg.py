@@ -1,28 +1,26 @@
+#!/usr/bin/python3
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
-# BEGIN LICENSE
-# Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>
-# This program is free software: you can redistribute it and/or modify it
-# under the terms of the GNU General Public License version 3, as published
-# by the Free Software Foundation.
+#   MenuLibre - Advanced fd.o Compliant Menu Editor
+#   Copyright (C) 2012-2014 Sean Davis <smd.seandavis@gmail.com>
 #
-# This program is distributed in the hope that it will be useful, but
-# WITHOUT ANY WARRANTY; without even the implied warranties of
-# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
-# PURPOSE.  See the GNU General Public License for more details.
+#   This program is free software: you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License version 3, as published
+#   by the Free Software Foundation.
 #
-# You should have received a copy of the GNU General Public License along
-# with this program.  If not, see <http://www.gnu.org/licenses/>.
-# END LICENSE
+#   This program is distributed in the hope that it will be useful, but
+#   WITHOUT ANY WARRANTY; without even the implied warranties of
+#   MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#   PURPOSE.  See the GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License along
+#   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import locale
 import os
 from collections import OrderedDict
 from locale import gettext as _
 
-from xdg import BaseDirectory
-
 locale.textdomain('menulibre')
-
 
 
 sudo = os.getuid() == 0
@@ -34,6 +32,7 @@ class MenulibreDesktopEntry:
     """Basic class for Desktop Entry files"""
 
     def __init__(self, filename=None):
+        """Initialize the MenulibreDesktopEntry instance."""
         self.filename = filename
         self.properties = OrderedDict()
         self.text = ""
@@ -56,33 +55,24 @@ class MenulibreDesktopEntry:
             self.properties['Desktop Entry']['Categories'] = ''
 
     def __getitem__(self, prop_name):
+        """Get property from this object like a dictionary."""
         return self.get_property('Desktop Entry', prop_name, default_locale)
 
     def __setitem__(self, prop_name, prop_value):
+        """Set property to this object like a dictionary."""
         self.properties['Desktop Entry'][prop_name] = prop_value
         if prop_name in ['Name', 'Comment']:
             prop_name = "%s[%s]" % (prop_name, default_locale)
             self.properties['Desktop Entry'][prop_name] = prop_value
 
-    def __str__(self):
-        text = ""
-        for category in self.properties:
-            text += '[%s]\n' % category
-            for key in self.properties[category]:
-                if key.startswith("*Blank"):
-                    text += "\n"
-                elif key == "*OriginalName":
-                    pass
-                else:
-                    text += "%s=%s\n" % (key, self.properties[category][key])
-        return text
-
     def load_properties(self, filename):
+        """Load the properties."""
         input_file = open(filename)
         self.load_properties_from_text(input_file.read())
         input_file.close()
 
     def load_properties_from_text(self, text):
+        """Load the properties from a string."""
         current_property = ""
         self.text = text
         blank_count = 0
@@ -109,6 +99,7 @@ class MenulibreDesktopEntry:
                     pass
 
     def get_property(self, category, prop_name, locale_str=default_locale):
+        """Return the value of the specified property."""
         prop = self.get_named_property(category, prop_name, locale_str)
         if prop in ['true', 'false']:
             return prop == 'true'
@@ -117,6 +108,7 @@ class MenulibreDesktopEntry:
         return prop
 
     def get_named_property(self, category, prop_name, locale_str=None):
+        """Return the value of the specified named property."""
         if locale_str:
             try:
                 return self.properties[category]["%s[%s]" %
@@ -134,6 +126,7 @@ class MenulibreDesktopEntry:
             return ""
 
     def get_actions(self):
+        """Return a list of the Unity action groups."""
         quicklists = []
         if self.get_property('Desktop Entry', 'Actions') != '':
             enabled_quicklists = self.get_property(
@@ -159,84 +152,3 @@ class MenulibreDesktopEntry:
                     quicklists.append(
                         (name, displayed_name, command, enabled))
         return quicklists
-
-    def write(self, filename=None):
-        if filename:
-            self.filename = filename
-        out_file = open(self.filename, 'w')
-        out_file.write(str(self))
-        out_file.close()
-
-
-class Application(MenulibreDesktopEntry):
-
-    def __init__(self, filename=None, name=None):
-        if filename:
-            if not filename.endswith('.desktop'):
-                raise ValueError(_("\'%s\' is not a .desktop file") % filename)
-        else:
-            if not name:
-                raise ValueError(_("Initialized without required parameters."))
-        MenulibreDesktopEntry.__init__(self, filename)
-        if name:
-            if name != 'MenulibreNewLauncher':
-                self.properties['Desktop Entry']['Name'] = name
-
-
-class Directory(MenulibreDesktopEntry):
-
-    def __init__(self, filename):
-        if not filename.endswith('.directory'):
-            raise ValueError(_("\'%s\' is not a .directory file") % filename)
-        MenulibreDesktopEntry.__init__(self, filename)
-
-
-def get_application_paths():
-    data_dirs = BaseDirectory.xdg_data_dirs
-    data_dirs.reverse()
-
-    if sudo:
-        data_dirs = data_dirs[:-1]
-
-    application_paths = []
-    for path in data_dirs:
-        path = os.path.join(path, 'applications')
-        if path not in application_paths and os.path.isdir(path):
-            application_paths.append(path)
-
-    return application_paths
-
-
-def get_applications():
-    """Return all installed applications for the current user.  If the
-    program is started as root, only show system launchers."""
-    applications = dict()
-
-    for path in get_application_paths():
-        for root, dirs, files in os.walk(path):
-            for filename in files:
-                if filename.endswith('.desktop'):
-                    applications[filename] = Application(
-                        os.path.join(root, filename))
-
-    return applications
-
-
-def load_properties_from_text(text):
-    properties = OrderedDict()
-    current_property = ""
-    blank_count = 0
-    for line in text.split('\n'):
-        if line.startswith('[') and line.endswith(']'):
-            current_property = line[1:-1]
-            properties[current_property] = OrderedDict()
-        elif '=' in line:
-            key, value = line.split('=', 1)
-            properties[current_property][key] = value
-        elif line.strip() == '':
-            try:
-                properties[current_property]['*Blank%i' % blank_count] = None
-                blank_count += 1
-            except KeyError:
-                pass
-    return properties
