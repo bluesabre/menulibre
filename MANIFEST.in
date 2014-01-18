@@ -1,0 +1,6 @@
+include AUTHORS ChangeLog COPYING menulibre.desktop README
+include bin/*
+recursive-include data *.svg *.ui
+recursive-include menulibre *.py
+recursive-include menulibre_lib *.py
+recursive-include po *.pot *.po *.in

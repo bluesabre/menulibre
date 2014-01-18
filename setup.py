@@ -21,9 +21,8 @@ import sys
 try:
     import DistUtilsExtra.auto
 except ImportError:
-    print("To build menulibre you need "
-          "https://launchpad.net/python-distutils-extra",
-          file=sys.stderr)  # lint:ok
+    sys.stderr.write("To build menulibre you need "
+          "https://launchpad.net/python-distutils-extra\n")
     sys.exit(1)
 assert DistUtilsExtra.auto.__version__ >= '2.18', \
         'needs DistUtilsExtra.auto >= 2.18'
@@ -48,8 +47,8 @@ def update_config(libdir, values={}):
         fout.close()
         fin.close()
         os.rename(fout.name, fin.name)
-    except (OSError, IOError) as e:
-        print ("ERROR: Can't find %s" % filename)
+    except (OSError, IOError):
+        print(("ERROR: Can't find %s" % filename))
         sys.exit(1)
     return oldvalues
 
@@ -71,12 +70,12 @@ def move_icon_file(root, target_data, prefix):
         icon_file = os.path.realpath(icon_file)
 
         if not os.path.exists(old_icon_file):
-            print ("ERROR: Can't find", old_icon_file)
+            print(("ERROR: Can't find", old_icon_file))
             sys.exit(1)
         if not os.path.exists(icon_path):
             os.makedirs(icon_path)
         if old_icon_file != icon_file:
-            print("Moving icon file: %s -> %s" % (old_icon_file, icon_file))
+            print(("Moving icon file: %s -> %s" % (old_icon_file, icon_file)))
             os.rename(old_icon_file, icon_file)
 
     return icon_file
@@ -107,13 +106,15 @@ def update_desktop_file(filename, target_pkgdata, target_scripts):
         fout.close()
         fin.close()
         os.rename(fout.name, fin.name)
-    except (OSError, IOError) as e:
-        print ("ERROR: Can't find %s" % filename)
+    except (OSError, IOError):
+        print(("ERROR: Can't find %s" % filename))
         sys.exit(1)
 
 
 class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
+    """Command Class to install and update the directory."""
     def run(self):
+        """Run the setup commands."""
         DistUtilsExtra.auto.install_auto.run(self)
 
         if not self.root:
@@ -122,25 +123,25 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
         if not self.prefix:
             self.prefix = ''
 
-        print("=== Installing %s, version %s ===" %
-            (self.distribution.get_name(), self.distribution.get_version()))
+        print(("=== Installing %s, version %s ===" %
+            (self.distribution.get_name(), self.distribution.get_version())))
 
-        print("Root: %s" % self.root)
-        print("Prefix: %s\n" % self.prefix)
+        print(("Root: %s" % self.root))
+        print(("Prefix: %s\n" % self.prefix))
 
         target_data = os.path.relpath(self.install_data, self.root) + '/'
         target_pkgdata = target_data + 'share/menulibre/'
         target_scripts = os.path.relpath(self.install_scripts, self.root) + '/'
-
-        print("=== Target Data ===")
-        print("Relative: %s" % target_data)
-        print("Absolute: %s\n" % os.path.realpath(target_data))
+        print(("Relative: %s" % target_data))
+        print(("Relative: %s" % target_pkgdata))
+        print(("Relative: %s" % target_scripts))
+        print(("Absolute: %s\n" % os.path.realpath(target_scripts)))
         print("=== Target PackageData ===")
-        print("Relative: %s" % target_pkgdata)
-        print("Absolute: %s\n" % os.path.realpath(target_pkgdata))
+        print(("Relative: %s" % target_pkgdata))
+        print(("Absolute: %s\n" % os.path.realpath(target_pkgdata)))
         print("=== Target Scripts ===")
-        print("Relative: %s" % target_scripts)
-        print("Absolute: %s\n" % os.path.realpath(target_scripts))
+        print(("Relative: %s" % target_scripts))
+        print(("Absolute: %s\n" % os.path.realpath(target_scripts)))
 
         # Navigate out of site-packages
         data_directory = "../../%s" % target_pkgdata
@@ -149,13 +150,13 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
         update_config(self.install_lib, values)
 
         desktop_file = get_desktop_file(self.root, target_data, self.prefix)
-        print("Desktop File: %s\n" % desktop_file)
-        icon_file = move_icon_file(self.root, target_data, self.prefix)
+        print(("Desktop File: %s\n" % desktop_file))
+        move_icon_file(self.root, target_data, self.prefix)
         update_desktop_file(desktop_file, target_pkgdata, target_scripts)
 
 DistUtilsExtra.auto.setup(
     name='menulibre',
-    version='0.1',
+    version='2.0',
     license='GPL-3',
     author='Sean Davis',
     author_email='smd.seandavis@gmail.com',
