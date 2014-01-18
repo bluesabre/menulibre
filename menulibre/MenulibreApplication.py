@@ -2256,6 +2256,7 @@ class Application(Gtk.Application):
 
         # Connect the signal to destroy the AboutDialog when Close is clicked.
         aboutdialog.connect("response", self.about_close_cb)
+        aboutdialog.set_transient_for(self.win)
 
         # Show the AboutDialog.
         aboutdialog.show()
