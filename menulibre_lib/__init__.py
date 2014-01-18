@@ -19,6 +19,6 @@
 
 while keeping its api constant'''
 #lint:disable
-from . helpers import get_builder, set_up_logging
+from . helpers import get_builder, set_up_logging, show_uri
 from . menulibreconfig import get_version
 #lint:enable

@@ -28,8 +28,5 @@ PROJECT_ROOT_DIRECTORY = os.path.abspath(
 # Add project root directory to python search path
 sys.path.append(PROJECT_ROOT_DIRECTORY)
 
-from menulibre import MenulibreApplication
-
-app = MenulibreApplication.Application()
-exit_status = app.run(sys.argv)
-sys.exit(exit_status)
+import menulibre
+menulibre.main()

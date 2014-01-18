@@ -14,3 +14,33 @@
 #
 #   You should have received a copy of the GNU General Public License along
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import optparse
+import sys
+
+from locale import gettext as _
+
+from menulibre import MenulibreApplication
+
+from menulibre_lib import set_up_logging, get_version
+
+
+def parse_options():
+    """Support for command line options"""
+    parser = optparse.OptionParser(version="%%prog %s" % get_version())
+    parser.add_option(
+        "-v", "--verbose", action="count", dest="verbose",
+        help=_("Show debug messages"))
+    (options, args) = parser.parse_args()
+
+    set_up_logging(options)
+
+
+def main():
+    """Main application for Menulibre"""
+    parse_options()
+
+    # Run the application.
+    app = MenulibreApplication.Application()
+    exit_status = app.run()
+    sys.exit(exit_status)

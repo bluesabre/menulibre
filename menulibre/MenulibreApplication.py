@@ -15,7 +15,6 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import locale
 import os
 import re
 from locale import gettext as _
@@ -26,10 +25,8 @@ from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
 from .util import MenuItemTypes
 import menulibre_lib
 
-locale.textdomain('menulibre')
-
 import logging
-logger = logging.getLogger('mugshot')
+logger = logging.getLogger('menulibre')
 
 
 def check_keypress(event, keys):
@@ -2248,8 +2245,22 @@ class Application(Gtk.Application):
 
     def help_cb(self, widget, data=None):
         """Help callback function."""
-        #TODO: Implement Help.
-        pass
+        question = _("Do you want to read the MenuLibre manual online?")
+        dialog = Gtk.MessageDialog(transient_for=self.win, modal=True,
+                                    message_type=Gtk.MessageType.QUESTION,
+                                    buttons=Gtk.ButtonsType.NONE,
+                                    text=question)
+        dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
+        dialog.add_button(_("Read Online"), Gtk.ResponseType.OK)
+        dialog.set_title(_("Online Documentation"))
+        details = _("You will be redirected to the documentation website "
+                    "where the help pages are maintained.")
+        dialog.format_secondary_markup(details)
+        if dialog.run() == Gtk.ResponseType.OK:
+            help_url = "http://wiki.smdavis.us/doku.php?id=menulibre-docs"
+            logger.debug("Navigating to help page, %s" % help_url)
+            menulibre_lib.show_uri(self.win, help_url)
+        dialog.destroy()
 
     def about_cb(self, widget, data=None):
         """About callback function.  Display the AboutDialog."""
