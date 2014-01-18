@@ -132,10 +132,9 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
         target_data = os.path.relpath(self.install_data, self.root) + '/'
         target_pkgdata = target_data + 'share/menulibre/'
         target_scripts = os.path.relpath(self.install_scripts, self.root) + '/'
+        print("=== Target Data ===")
         print(("Relative: %s" % target_data))
-        print(("Relative: %s" % target_pkgdata))
-        print(("Relative: %s" % target_scripts))
-        print(("Absolute: %s\n" % os.path.realpath(target_scripts)))
+        print(("Absolute: %s\n" % os.path.realpath(target_data)))
         print("=== Target PackageData ===")
         print(("Relative: %s" % target_pkgdata))
         print(("Absolute: %s\n" % os.path.realpath(target_pkgdata)))
