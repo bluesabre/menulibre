@@ -8,12 +8,12 @@ from gi.repository import Gio, GObject, Gtk, Pango, Gdk, GdkPixbuf, GLib
 
 from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
 from .enums import MenuItemTypes
+import menulibre_lib
 
 locale.textdomain('menulibre')
 
 import logging
-
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('mugshot')
 
 
 def check_keypress(event, keys):
@@ -222,10 +222,12 @@ class MenulibreHistory(GObject.GObject):
 
     def block(self):
         """Block all future history changes."""
+        logger.debug('Blocking history updates')
         self._block = True
 
     def unblock(self):
         """Unblock all future history changes."""
+        logger.debug('Unblocking history updates')
         self._block = False
 
     def _append_undo(self, key, before, after):
@@ -285,7 +287,6 @@ class MenulibreHistory(GObject.GObject):
 
 class MenulibreWindow(Gtk.ApplicationWindow):
     """The Menulibre application window."""
-    ui_file = 'data/ui/MenulibreWindow.glade'
 
     __gsignals__ = {
         'about': (GObject.SIGNAL_RUN_FIRST, GObject.TYPE_NONE,
@@ -299,8 +300,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def __init__(self, app):
         """Initialize the Menulibre application."""
         # Initialize the GtkBuilder to get our widgets from Glade.
-        builder = Gtk.Builder()
-        builder.add_from_file(self.ui_file)
+        builder = menulibre_lib.get_builder('MenulibreWindow')
 
         # Set up History
         self.history = MenulibreHistory()
@@ -2252,6 +2252,7 @@ class Application(Gtk.Application):
         aboutdialog.set_authors(authors)
         aboutdialog.set_documenters(documenters)
         aboutdialog.set_website("https://launchpad.net/menulibre")
+        aboutdialog.set_version(menulibre_lib.get_version())
 
         # Connect the signal to destroy the AboutDialog when Close is clicked.
         aboutdialog.connect("response", self.about_close_cb)
