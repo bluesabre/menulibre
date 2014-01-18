@@ -160,8 +160,10 @@ DistUtilsExtra.auto.setup(
     license='GPL-3',
     author='Sean Davis',
     author_email='smd.seandavis@gmail.com',
-    #description='UI for managing …',
-    #long_description='Here a longer description',
+    description='advanced menu editor with support for Unity actions',
+    long_description='An advanced menu editor that provides modern features '
+                     'and full Unity action support. Suitable for lightweight '
+                     'desktop environments.',
     url='https://launchpad.net/menulibre',
     cmdclass={'install': InstallAndUpdateDataDirectory}
     )

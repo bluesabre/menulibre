@@ -1,4 +1,4 @@
-include AUTHORS ChangeLog COPYING menulibre.desktop README
+include AUTHORS ChangeLog COPYING menulibre.desktop.in README
 include bin/*
 recursive-include data *.svg *.ui
 recursive-include menulibre *.py
