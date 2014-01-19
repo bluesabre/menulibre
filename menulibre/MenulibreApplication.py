@@ -2094,62 +2094,60 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             icon_name, filename)
         self.history.clear()
 
-    def delete_launcher(self):
+    def delete_separator(self, treeview, model, treeiter):
+        """Remove a separator row from the treeview, update the menu files."""
+        path = model.get_path(treeiter)
+        model.remove(treeiter)
+        if path:
+            self.treeview.set_cursor(path)
+
+        self.treeview_to_xml(treeview)
+
+    def delete_launcher(self, treeview, model, treeiter):
         """Delete the selected launcher."""
-        model, treeiter = self.treeview.get_selection().get_selected()
         name = model[treeiter][0]
         item_type = model[treeiter][2]
         filename = model[treeiter][5]
-        question = _("Are you sure you want to delete \"%s\"?") % name
-        dialog = Gtk.MessageDialog(transient_for=self, modal=True,
-                                    message_type=Gtk.MessageType.QUESTION,
-                                    buttons=Gtk.ButtonsType.OK_CANCEL,
-                                    text=question)
-
-        details = _("This cannot be undone.")
-        dialog.format_secondary_markup(details)
-        if dialog.run() == Gtk.ResponseType.OK:
-            if filename is not None:
-                if os.path.exists(filename):
-                    os.remove(filename)
-                basename = os.path.basename(filename)
-                filename = None
-                # Find the original
-                for path in GLib.get_system_data_dirs():
-                    if item_type == MenuItemTypes.APPLICATION:
-                        file_path = os.path.join(path, 'applications', basename)
-                    else:
-                        file_path = os.path.join(path, 'desktop-directories',
-                                                basename)
-                    if os.path.isfile(file_path):
-                        filename = file_path
-                        break
-                if filename:
-                    # Original found, replace.
-                    entry = MenulibreXdg.MenulibreDesktopEntry(filename)
-                    name = entry['Name']
-                    comment = entry['Comment']
-                    icon_name = entry['Icon']
-                    if os.path.isfile(icon_name):
-                        gfile = Gio.File.parse_name(icon_name)
-                        icon = Gio.FileIcon.new(gfile)
-                    else:
-                        icon = Gio.ThemedIcon.new(icon_name)
-                    model[treeiter][0] = name
-                    model[treeiter][1] = comment
-                    model[treeiter][2] = item_type
-                    model[treeiter][3] = icon
-                    model[treeiter][4] = icon_name
-                    model[treeiter][5] = filename
+        if filename is not None:
+            if os.path.exists(filename):
+                os.remove(filename)
+            basename = os.path.basename(filename)
+            filename = None
+            # Find the original
+            for path in GLib.get_system_data_dirs():
+                if item_type == MenuItemTypes.APPLICATION:
+                    file_path = os.path.join(path, 'applications', basename)
                 else:
-                    # Model not found, delete this row.
-                    model.remove(treeiter)
+                    file_path = os.path.join(path, 'desktop-directories',
+                                            basename)
+                if os.path.isfile(file_path):
+                    filename = file_path
+                    break
+            if filename:
+                # Original found, replace.
+                entry = MenulibreXdg.MenulibreDesktopEntry(filename)
+                name = entry['Name']
+                comment = entry['Comment']
+                icon_name = entry['Icon']
+                if os.path.isfile(icon_name):
+                    gfile = Gio.File.parse_name(icon_name)
+                    icon = Gio.FileIcon.new(gfile)
+                else:
+                    icon = Gio.ThemedIcon.new(icon_name)
+                model[treeiter][0] = name
+                model[treeiter][1] = comment
+                model[treeiter][2] = item_type
+                model[treeiter][3] = icon
+                model[treeiter][4] = icon_name
+                model[treeiter][5] = filename
             else:
+                # Model not found, delete this row.
                 model.remove(treeiter)
+        else:
+            model.remove(treeiter)
         path = model.get_path(treeiter)
         if path:
             self.treeview.set_cursor(path)
-        dialog.destroy()
 
     def restore_launcher(self):
         """Revert the current launcher."""
@@ -2206,7 +2204,31 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_delete_cb(self, widget):
         """Delete callback function."""
-        self.delete_launcher()
+        model, treeiter = self.treeview.get_selection().get_selected()
+        name = model[treeiter][0]
+        item_type = model[treeiter][2]
+
+        # Prepare the strings
+        if item_type == MenuItemTypes.SEPARATOR:
+            question = _("Are you sure you want to delete this separator?")
+            delete_func = self.delete_separator
+        else:
+            question = _("Are you sure you want to delete \"%s\"?") % name
+            delete_func = self.delete_launcher
+        details = _("This cannot be undone.")
+
+        # Set up the dialog
+        dialog = Gtk.MessageDialog(transient_for=self, modal=True,
+                                    message_type=Gtk.MessageType.QUESTION,
+                                    buttons=Gtk.ButtonsType.OK_CANCEL,
+                                    text=question)
+        dialog.format_secondary_markup(details)
+
+        # Run
+        if dialog.run() == Gtk.ResponseType.OK:
+            delete_func(self.treeview, model, treeiter)
+
+        dialog.destroy()
 
     def on_quit_cb(self, widget):
         """Quit callback function.  Send the quit signal to the parent
