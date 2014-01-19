@@ -438,7 +438,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.actions['add_launcher'].connect('activate',
                                             self.on_add_launcher_cb)
         self.actions['save_launcher'].connect('activate',
-                                            self.on_save_launcher_cb)
+                                            self.on_save_launcher_cb, builder)
         self.actions['undo'].connect('activate',
                                             self.on_undo_cb)
         self.actions['redo'].connect('activate',
@@ -560,7 +560,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Configure the treeview events.
         self.treeview.connect("cursor-changed",
-                                self.on_treeview_cursor_changed, None)
+                                self.on_treeview_cursor_changed, None, builder)
         self.treeview.connect("key-press-event",
                                 self.on_treeview_key_press_event, None)
 
@@ -641,6 +641,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                       widget_name, builder)
             entry.connect('key-press-event',
                                       self.on_NameComment_key_press_event,
+                                      widget_name, builder)
+            entry.connect('activate', self.on_NameComment_activate,
                                       widget_name, builder)
 
         # Button Focus events
@@ -1216,6 +1218,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if check_keypress(ev, ['Escape']):
             self.on_NameComment_cancel(widget, widget_name, builder)
 
+    def on_NameComment_activate(self, widget, widget_name, builder):
+        """Activate apply button on Enter press."""
+        self.on_NameComment_apply(widget, widget_name, builder)
+
     def on_NameComment_clicked(self, widget, widget_name, builder):
         """Show the Name/Comment editor widgets when the button is clicked."""
         entry = builder.get_object('entry_%s' % widget_name)
@@ -1229,10 +1235,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Hide the Name/Comment editor widgets when canceled."""
         box = builder.get_object('box_%s' % widget_name)
         button = builder.get_object('button_%s' % widget_name)
+        entry = builder.get_object('entry_%s' % widget_name)
         box.hide()
         button.show()
         self.history.block()
-        self.set_value(widget_name, self.values[widget_name])
+        entry.set_text(self.values[widget_name])
         self.history.unblock()
         button.grab_focus()
 
@@ -1244,7 +1251,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         box.hide()
         button.show()
         new_value = entry.get_text()
-        #self.history.append(widget_name, self.values[widget_name], new_value)
         self.set_value(widget_name, new_value)
 
     def on_ExecPath_clicked(self, widget, widget_name, builder):
@@ -1322,7 +1328,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             return True
         return False
 
-    def on_treeview_cursor_changed(self, widget, selection):
+    def on_treeview_cursor_changed(self, widget, selection, builder):
         """Update the editor frame when the selected row is changed."""
         # Check if the selection is valid.
         sel = widget.get_selection()
@@ -1335,6 +1341,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             # Clear history
             self.history.clear()
+
+            # Hide the Name and Comment editors
+            builder.get_object('box_Name').hide()
+            builder.get_object('box_Comment').hide()
 
             # Prevent updates to history.
             self.history.block()
@@ -2157,8 +2167,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Unblock updates
         self.history.unblock()
 
-    def on_save_launcher_cb(self, widget):
+    def on_save_launcher_cb(self, widget, builder):
         """Save Launcher callback function."""
+        self.on_NameComment_apply(None, 'Name', builder)
+        self.on_NameComment_apply(None, 'Comment', builder)
         self.save_launcher()
 
     def on_undo_cb(self, widget):
