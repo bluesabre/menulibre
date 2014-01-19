@@ -36,6 +36,9 @@ icon_theme = Gtk.IconTheme.get_default()
 
 menu_name = ""
 
+import logging
+logger = logging.getLogger('menulibre')
+
 
 def get_default_menu_prefix():
     """Return the default menu prefix."""
@@ -45,6 +48,10 @@ def get_default_menu_prefix():
     if prefix == "":
         if 'cinnamon' in os.environ.get('DESKTOP_SESSION', ''):
             prefix = 'cinnamon-'
+
+    if len(prefix) == 0:
+        logger.warning("No menu prefix found, MenuLibre will not function "
+                        "properly.")
 
     return prefix
 
