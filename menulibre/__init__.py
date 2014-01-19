@@ -42,5 +42,5 @@ def main():
 
     # Run the application.
     app = MenulibreApplication.Application()
-    exit_status = app.run()
+    exit_status = app.run(None)
     sys.exit(exit_status)
