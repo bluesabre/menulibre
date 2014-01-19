@@ -251,6 +251,7 @@ class MenuEditor(object):
 
         self.path = os.path.join(
             util.getUserMenuPath(), self.tree.props.menu_basename)
+        logger.debug("Using menu: %s" % self.path)
         self.loadDOM()
 
     def loadDOM(self):

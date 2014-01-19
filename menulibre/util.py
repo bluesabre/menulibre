@@ -34,7 +34,6 @@ MenuItemTypes = enum(
 
 def getItemPath(file_id):
     """Return the path to the system-installed .desktop file."""
-    print('getItemPath')
     for path in GLib.get_system_data_dirs():
         file_path = os.path.join(path, 'applications', file_id)
         if os.path.isfile(file_path):

@@ -30,7 +30,7 @@ assert DistUtilsExtra.auto.__version__ >= '2.18', \
 
 def update_config(libdir, values={}):
     """Update the configuration file at installation time."""
-    filename = os.path.join(libdir, 'menulibre_lib/menulibreconfig.py')
+    filename = os.path.join(libdir, 'menulibre_lib', 'menulibreconfig.py')
     oldvalues = {}
     try:
         fin = open(filename, 'r')
@@ -55,17 +55,18 @@ def update_config(libdir, values={}):
 
 def move_icon_file(root, target_data, prefix):
     """Move the icon files to their installation prefix."""
-    old_icon_path = os.path.normpath(root + target_data +
-                                    '/share/menulibre/media')
+    old_icon_path = os.path.normpath(
+            os.path.join(root, target_data, 'share', 'menulibre', 'media'))
     for icon_size in ['16x16', '24x24', '48x48', '64x64', 'scalable']:
         if icon_size == 'scalable':
-            old_icon_file = old_icon_path + '/menulibre.svg'
+            old_icon_file = os.path.join(old_icon_path, 'menulibre.svg')
         else:
-            old_icon_file = old_icon_path + '/menulibre_%s.svg' % \
-                            icon_size.split('x')[0]
-        icon_path = os.path.normpath(root + target_data +
-                                    '/share/icons/hicolor/%s/apps' % icon_size)
-        icon_file = icon_path + '/menulibre.svg'
+            old_icon_file = os.path.join(old_icon_path,
+                            'menulibre_%s.svg' % icon_size.split('x')[0])
+        icon_path = os.path.normpath(
+                os.path.join(root, target_data, 'share', 'icons', 'hicolor',
+                        icon_size, 'apps'))
+        icon_file = os.path.join(icon_path, 'menulibre.svg')
         old_icon_file = os.path.realpath(old_icon_file)
         icon_file = os.path.realpath(icon_file)
 
@@ -83,8 +84,9 @@ def move_icon_file(root, target_data, prefix):
 
 def get_desktop_file(root, target_data, prefix):
     """Move the desktop file to its installation prefix."""
-    desktop_path = os.path.realpath(root + target_data + '/share/applications')
-    desktop_file = desktop_path + '/menulibre.desktop'
+    desktop_path = os.path.realpath(
+            os.path.join(root, target_data, 'share', 'applications'))
+    desktop_file = os.path.join(desktop_path, 'menulibre.desktop')
     return desktop_file
 
 
@@ -129,9 +131,9 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
         print(("Root: %s" % self.root))
         print(("Prefix: %s\n" % self.prefix))
 
-        target_data = os.path.relpath(self.install_data, self.root) + '/'
-        target_pkgdata = target_data + 'share/menulibre/'
-        target_scripts = os.path.relpath(self.install_scripts, self.root) + '/'
+        target_data = os.path.relpath(self.install_data, self.root)
+        target_pkgdata = os.path.join(target_data, 'share', 'menulibre')
+        target_scripts = os.path.relpath(self.install_scripts, self.root)
         print("=== Target Data ===")
         print(("Relative: %s" % target_data))
         print(("Absolute: %s\n" % os.path.realpath(target_data)))
@@ -143,7 +145,7 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
         print(("Absolute: %s\n" % os.path.realpath(target_scripts)))
 
         # Navigate out of site-packages
-        data_directory = "../../%s" % target_pkgdata
+        data_directory = os.path.join("..", "..", target_pkgdata)
         values = {'__menulibre_data_directory__': "'%s'" % (data_directory),
                   '__version__': "'%s'" % self.distribution.get_version()}
         update_config(self.install_lib, values)
