@@ -72,11 +72,14 @@ def set_up_logging(opts):
     lib_logger.addHandler(lib_logger_sh)
 
     # Set the logging level to show debug messages.
-    if opts.verbose:
-        logger.setLevel(logging.DEBUG)
-        logger.debug('logging enabled')
-    if opts.verbose > 1:
-        lib_logger.setLevel(logging.DEBUG)
+    try:
+        if opts.verbose:
+            logger.setLevel(logging.DEBUG)
+            logger.debug('logging enabled')
+        if opts.verbose > 1:
+            lib_logger.setLevel(logging.DEBUG)
+    except TypeError:
+        pass
 
 
 def show_uri(parent, link):
