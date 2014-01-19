@@ -374,8 +374,22 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Add Launcher
         self.actions['add_launcher'] = Gtk.Action(
                                             name='add_launcher',
-                                            label=_('_Add Launcher...'),
+                                            label=_('Add _Launcher...'),
                                             tooltip=_('Add Launcher...'),
+                                            stock_id=Gtk.STOCK_NEW)
+
+        # Add Directory
+        self.actions['add_directory'] = Gtk.Action(
+                                            name='add_directory',
+                                            label=_('Add _Directory...'),
+                                            tooltip=_('Add Directory...'),
+                                            stock_id=Gtk.STOCK_NEW)
+
+        # Add Separator
+        self.actions['add_separator'] = Gtk.Action(
+                                            name='add_separator',
+                                            label=_('_Add Separator...'),
+                                            tooltip=_('Add Separator...'),
                                             stock_id=Gtk.STOCK_NEW)
 
         # Save Launcher
@@ -437,6 +451,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Connect the GtkAction events.
         self.actions['add_launcher'].connect('activate',
                                             self.on_add_launcher_cb)
+        self.actions['add_directory'].connect('activate',
+                                            self.on_add_directory_cb)
+        self.actions['add_separator'].connect('activate',
+                                            self.on_add_separator_cb)
         self.actions['save_launcher'].connect('activate',
                                             self.on_save_launcher_cb, builder)
         self.actions['undo'].connect('activate',
@@ -495,10 +513,29 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def configure_application_toolbar(self, builder):
         """Configure the application toolbar."""
         # Configure the Add, Save, Undo, Redo, Revert, Delete widgets.
-        for action_name in ['add_launcher', 'save_launcher', 'undo', 'redo',
+        for action_name in ['save_launcher', 'undo', 'redo',
                             'revert', 'delete']:
             widget = builder.get_object("toolbar_%s" % action_name)
             widget.connect("clicked", self.activate_action_cb, action_name)
+
+        for action_name in ['add_launcher', 'add_directory', 'add_separator']:
+            widget = builder.get_object('menubar_%s' % action_name)
+            widget.connect('activate', self.activate_action_cb, action_name)
+            widget = builder.get_object('popup_%s' % action_name)
+            widget.connect('activate', self.activate_action_cb, action_name)
+
+        # Add Launcher/Directory/Separator
+        button = Gtk.MenuButton()
+        image = Gtk.Image.new_from_icon_name("list-add-symbolic",
+                                                 Gtk.IconSize.MENU)
+        button.set_image(image)
+
+        popup = builder.get_object('add_popup_menu')
+        button.set_popup(popup)
+
+        box = builder.get_object('box_add')
+        box.pack_start(button, True, True, 0)
+        button.show_all()
 
         # Undo/Redo/Revert
         self.undo_button = builder.get_object('toolbar_undo')
@@ -1989,6 +2026,69 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.treeview.set_cursor(path)
 
         self.set_editor_categories(';'.join(categories))
+
+    def on_add_directory_cb(self, widget):
+        """Add Directory callback function."""
+        # Insert a New Launcher item below the current selected item
+        model, treeiter = self.treeview.get_selection().get_selected()
+
+        name = _("New Directory")
+        comment = ""
+        item_type = MenuItemTypes.DIRECTORY
+        icon_name = "applications-other"
+        icon = Gio.ThemedIcon.new(icon_name)
+        filename = None
+        row_data = [name, comment, item_type, icon, icon_name, filename]
+
+        path = model.get_path(treeiter)
+        if path.up():
+            try:
+                parent = model.get_iter(path)
+            except:
+                parent = None
+        else:
+            parent = None
+
+        new_iter = model.insert_after(parent, treeiter)
+        for i in range(len(row_data)):
+            model[new_iter][i] = row_data[i]
+
+        # Select the New Launcher item.
+        path = model.get_path(new_iter)
+        self.treeview.set_cursor(path)
+
+    def on_add_separator_cb(self, widget):
+        """Add Separator callback function."""
+        # Insert a Separator item below the current selected item
+        model, treeiter = self.treeview.get_selection().get_selected()
+
+        name = "--------------------"
+        tooltip = _("Separator")
+        filename = None
+        icon = None
+        icon_name = ""
+        item_type = MenuItemTypes.SEPARATOR
+        filename = None
+        row_data = [name, tooltip, item_type, icon, icon_name, filename]
+
+        path = model.get_path(treeiter)
+        if path.up():
+            try:
+                parent = model.get_iter(path)
+            except:
+                parent = None
+        else:
+            parent = None
+
+        new_iter = model.insert_after(parent, treeiter)
+        for i in range(len(row_data)):
+            model[new_iter][i] = row_data[i]
+
+        # Select the Separator item.
+        path = model.get_path(new_iter)
+        self.treeview.set_cursor(path)
+
+        self.treeview_to_xml(self.treeview)
 
     def get_save_filename(self):
         """Determime the filename to be used to store the launcher.
