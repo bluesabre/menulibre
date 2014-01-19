@@ -2012,7 +2012,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 ext = '.directory'
 
             # Create the new base filename.
-            filename = os.path.join(path, basename)
+            filename = os.path.join(path, name)
             filename = "%s%s" % (filename, ext)
 
             # Append numbers as necessary to make the filename unique.
@@ -2046,6 +2046,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Save the current launcher details."""
         # Get the filename to be used.
         filename = self.get_save_filename()
+        logger.debug("Saving launcher as \"%s\"" % filename)
 
         # Cleanup invalid entries and reorder the Categories and Actions
         self.cleanup_categories()
@@ -2176,7 +2177,20 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_revert_cb(self, widget):
         """Revert callback function."""
-        self.restore_launcher()
+        question = _("Are you sure you want to restore this launcher?")
+        dialog = Gtk.MessageDialog(transient_for=self, modal=True,
+                                    message_type=Gtk.MessageType.QUESTION,
+                                    buttons=Gtk.ButtonsType.NONE,
+                                    text=question)
+        dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
+        dialog.add_button(_("Restore Launcher"), Gtk.ResponseType.OK)
+        dialog.set_title(_("Restore Launcher"))
+        details = _("All changes since the last saved state will be lost "
+                    "and cannot be restored automatically.")
+        dialog.format_secondary_markup(details)
+        if dialog.run() == Gtk.ResponseType.OK:
+            self.restore_launcher()
+        dialog.destroy()
 
     def on_delete_cb(self, widget):
         """Delete callback function."""
