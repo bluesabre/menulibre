@@ -57,7 +57,7 @@ def move_icon_file(root, target_data, prefix):
     """Move the icon files to their installation prefix."""
     old_icon_path = os.path.normpath(
             os.path.join(root, target_data, 'share', 'menulibre', 'media'))
-    for icon_size in ['16x16', '24x24', '48x48', '64x64', 'scalable']:
+    for icon_size in ['16x16', '24x24', '32x32', '48x48', '64x64', 'scalable']:
         if icon_size == 'scalable':
             old_icon_file = os.path.join(old_icon_path, 'menulibre.svg')
         else:
@@ -90,7 +90,7 @@ def get_desktop_file(root, target_data, prefix):
     return desktop_file
 
 
-def update_desktop_file(filename, target_pkgdata, target_scripts):
+def update_desktop_file(filename, script_path):
     """Update the desktop file with prefixed paths."""
     try:
         fin = open(filename, 'r')
@@ -99,7 +99,7 @@ def update_desktop_file(filename, target_pkgdata, target_scripts):
         for line in fin:
             if 'Exec=' in line:
                 cmd = line.split("=")[1].split(None, 1)
-                line = "Exec=%s" % (target_scripts + 'menulibre')
+                line = "Exec=%s" % os.path.join(script_path, 'menulibre')
                 if len(cmd) > 1:
                     line += " %s" % cmd[1].strip()  # Add script arguments back
                 line += "\n"
@@ -119,41 +119,50 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
         """Run the setup commands."""
         DistUtilsExtra.auto.install_auto.run(self)
 
-        if not self.root:
-            self.root = ''
+        print(("=== Installing %s, version %s ===" %
+            (self.distribution.get_name(), self.distribution.get_version())))
 
         if not self.prefix:
             self.prefix = ''
 
-        print(("=== Installing %s, version %s ===" %
-            (self.distribution.get_name(), self.distribution.get_version())))
+        if self.root:
+            target_data = os.path.relpath(self.install_data, self.root) + os.sep
+            target_pkgdata = os.path.join(target_data, 'share', 'menulibre', '')
+            target_scripts = os.path.join(self.install_scripts, '')
+
+            data_dir = os.path.join(self.prefix, 'share', 'menulibre', '')
+            script_path = os.path.join(self.prefix, 'bin')
+        else:
+            # --user install
+            self.root = ''
+            target_data = os.path.relpath(self.install_data) + os.sep
+            target_pkgdata = os.path.join(target_data, 'share', 'menulibre', '')
+            target_scripts = os.path.join(self.install_scripts, '')
+
+            # Use absolute paths
+            target_data = os.path.realpath(target_data)
+            target_pkgdata = os.path.realpath(target_pkgdata)
+            target_scripts = os.path.realpath(target_scripts)
+
+            data_dir = target_pkgdata
+            script_path = target_scripts
 
         print(("Root: %s" % self.root))
         print(("Prefix: %s\n" % self.prefix))
 
-        target_data = os.path.relpath(self.install_data, self.root) + os.sep
-        target_pkgdata = os.path.join(target_data, 'share', 'menulibre') + \
-                                                                        os.sep
-        target_scripts = os.path.relpath(self.install_scripts, self.root) + \
-                                                                        os.sep
-
-        # Use absolute paths
-        target_data = os.path.realpath(target_data)
-        target_pkgdata = os.path.realpath(target_pkgdata)
-        target_scripts = os.path.realpath(target_scripts)
-
         print(("Target Data:    %s" % target_data))
         print(("Target PkgData: %s" % target_pkgdata))
         print(("Target Scripts: %s\n" % target_scripts))
+        print(("MenuLibre Data Directory: %s" % data_dir))
 
-        values = {'__menulibre_data_directory__': "'%s'" % (target_pkgdata),
+        values = {'__menulibre_data_directory__': "'%s'" % (data_dir),
                   '__version__': "'%s'" % self.distribution.get_version()}
         update_config(self.install_lib, values)
 
         desktop_file = get_desktop_file(self.root, target_data, self.prefix)
         print(("Desktop File: %s\n" % desktop_file))
         move_icon_file(self.root, target_data, self.prefix)
-        update_desktop_file(desktop_file, target_pkgdata, target_scripts)
+        update_desktop_file(desktop_file, script_path)
 
 DistUtilsExtra.auto.setup(
     name='menulibre',
