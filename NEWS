@@ -1,0 +1,16 @@
+MenuLibre                                                                  NEWS
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+20 Jan 2014, MenuLibre 2.0
+
+- General:
+  . MenuLibre has been rewritten from the ground up for full compliance with
+    the FreeDesktop.org Desktop File and Menu specifications.
+  . Menu editing has been added for users of traditional desktop environments.
+  . Fallbacks were added for improperly configured environments, more can be
+    added as necessary.
+  . The interface has been overhauled and now adapts to the desktop 
+    environment.
+    . GNOME users will find that the GNOME app menu is now used like a proper
+      GNOME application.
+    . Unity users will continue to have the menubar available for HUD support.
+    . All other environments will have a cog menu on the right-hand side.
