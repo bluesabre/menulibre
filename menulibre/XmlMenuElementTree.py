@@ -24,6 +24,13 @@ except ImportError:
     from xml.etree.ElementTree import ElementTree, Element, SubElement
 #lint:enable
 
+import os
+
+from . import util
+from .util import MenuItemTypes
+
+from . import MenuEditor
+
 
 def indent(elem, level=0):
     """Indentation code to make XML output easier to read."""
@@ -145,3 +152,103 @@ class XmlMenuElementTree(ElementTree):
         with open(output_file, 'w') as f:
             f.write(header)
             ElementTree(copy).write(f, encoding='unicode')
+
+
+def model_to_xml_menus(model, model_parent=None, menu_parent=None):
+    """Append the <Menu> elements to menu_parent."""
+    for n_child in range(model.iter_n_children(model_parent)):
+        treeiter = model.iter_nth_child(model_parent, n_child)
+
+        # Extract the menu item details.
+        name, comment, item_type, gicon, icon, desktop = model[treeiter][:]
+
+        if item_type == MenuItemTypes.DIRECTORY:
+            # Add a menu child.
+            if desktop is None:
+                # Cinnamon fix.
+                if name == 'wine-wine':
+                    next_element = menu_parent.addMenu(name)
+                else:
+                    continue
+            else:
+                directory_name = util.getDirectoryName(desktop)
+                next_element = menu_parent.addMenu(directory_name)
+
+            # Do Menus
+            model_to_xml_menus(model, treeiter, next_element)
+
+            # Do Layouts
+            model_to_xml_layout(model, treeiter, next_element)
+
+        elif item_type == MenuItemTypes.APPLICATION:
+            pass
+
+        elif item_type == MenuItemTypes.SEPARATOR:
+            pass
+
+
+def model_to_xml_layout(model, model_parent=None, menu_parent=None):
+    """Append the <Layout> element to menu_parent."""
+    layout = menu_parent.addLayout()
+
+    # Add a merge for any submenus.
+    layout.addMerge("menus")
+
+    for n_child in range(model.iter_n_children(model_parent)):
+        treeiter = model.iter_nth_child(model_parent, n_child)
+
+        # Extract the menu item details.
+        name, comment, item_type, gicon, icon, desktop = model[treeiter][:]
+
+        if item_type == MenuItemTypes.DIRECTORY:
+            if desktop is None:
+                # Cinnamon fix.
+                if name == 'wine-wine':
+                    layout.addMenuname(name)
+                else:
+                    continue
+            else:
+                directory_name = util.getDirectoryName(desktop)
+                layout.addMenuname(directory_name)
+
+        elif item_type == MenuItemTypes.APPLICATION:
+            try:
+                layout.addFilename(os.path.basename(desktop))
+            except AttributeError:
+                pass
+
+        elif item_type == MenuItemTypes.SEPARATOR:
+            layout.addSeparator()
+
+    # Add a merge for any new/unincluded menu items.
+    layout.addMerge("files")
+
+    return layout
+
+
+def model_children_to_xml(model, model_parent=None, menu_parent=None):
+    """Add child menu items to menu_parent from model_parent."""
+    # Menus First...
+    model_to_xml_menus(model, model_parent, menu_parent)
+
+    # Layouts Second...
+    model_to_xml_layout(model, model_parent, menu_parent)
+
+
+def treeview_to_xml(treeview):
+    """Write the current treeview to the -applications.menu file."""
+    model = treeview.get_model()
+
+    # Get the necessary details
+    menu_name = MenuEditor.menu_name
+    menu_file = MenuEditor.get_default_menu()
+    merge_file = util.getSystemMenuPath(menu_file)
+    filename = os.path.join(util.getUserMenuPath(), menu_file)
+
+    # Create the menu XML
+    menu = XmlMenuElementTree(menu_name, merge_file)
+    root = menu.getroot()
+    model_children_to_xml(model, menu_parent=root)
+
+    # Write the file.
+    menu.write(filename)

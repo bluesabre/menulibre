@@ -40,25 +40,9 @@ import logging
 logger = logging.getLogger('menulibre')
 
 
-def get_default_menu_prefix():
-    """Return the default menu prefix."""
-    prefix = os.environ.get('XDG_MENU_PREFIX', '')
-
-    # Cinnamon doesn't set this variable
-    if prefix == "":
-        if 'cinnamon' in os.environ.get('DESKTOP_SESSION', ''):
-            prefix = 'cinnamon-'
-
-    if len(prefix) == 0:
-        logger.warning("No menu prefix found, MenuLibre will not function "
-                        "properly.")
-
-    return prefix
-
-
 def get_default_menu():
     """Return the filename of the default application menu."""
-    return '%s%s' % (get_default_menu_prefix(), 'applications.menu')
+    return '%s%s' % (util.getDefaultMenuPrefix(), 'applications.menu')
 
 
 def on_icon_theme_changed(icon_theme, treestore):
