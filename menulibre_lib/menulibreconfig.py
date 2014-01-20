@@ -53,12 +53,7 @@ def get_data_path():
     and /usr/share/menulibre in an installed version but this path
     is specified at installation time.
     """
-
-    # Get pathname absolute or relative.
-    path = os.path.join(
-        os.path.dirname(__file__), __menulibre_data_directory__)
-
-    abs_data_path = os.path.abspath(path)
+    abs_data_path = os.path.abspath(__menulibre_data_directory__)
     if not os.path.exists(abs_data_path):
         raise project_path_not_found
 

@@ -147,8 +147,7 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
         print(("Absolute: %s\n" % os.path.realpath(target_scripts)))
 
         # Navigate out of site-packages
-        data_directory = os.path.join("..", "..", target_pkgdata)
-        values = {'__menulibre_data_directory__': "'%s'" % (data_directory),
+        values = {'__menulibre_data_directory__': "'%s'" % (target_pkgdata),
                   '__version__': "'%s'" % self.distribution.get_version()}
         update_config(self.install_lib, values)
 
