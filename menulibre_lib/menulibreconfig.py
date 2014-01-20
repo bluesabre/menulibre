@@ -55,6 +55,7 @@ def get_data_path():
     """
     abs_data_path = os.path.abspath(__menulibre_data_directory__)
     if not os.path.exists(abs_data_path):
+        print (abs_data_path)
         raise project_path_not_found
 
     return abs_data_path

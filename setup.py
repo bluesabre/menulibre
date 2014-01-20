@@ -136,17 +136,16 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
                                                                         os.sep
         target_scripts = os.path.relpath(self.install_scripts, self.root) + \
                                                                         os.sep
-        print("=== Target Data ===")
-        print(("Relative: %s" % target_data))
-        print(("Absolute: %s\n" % os.path.realpath(target_data)))
-        print("=== Target PackageData ===")
-        print(("Relative: %s" % target_pkgdata))
-        print(("Absolute: %s\n" % os.path.realpath(target_pkgdata)))
-        print("=== Target Scripts ===")
-        print(("Relative: %s" % target_scripts))
-        print(("Absolute: %s\n" % os.path.realpath(target_scripts)))
 
-        # Navigate out of site-packages
+        # Use absolute paths
+        target_data = os.path.realpath(target_data)
+        target_pkgdata = os.path.realpath(target_pkgdata)
+        target_scripts = os.path.realpath(target_scripts)
+
+        print("Target Data:    %s" % target_data)
+        print("Target PkgData: %s" % target_pkgdata)
+        print("Target Scripts: %s\n" % target_scripts)
+
         values = {'__menulibre_data_directory__': "'%s'" % (target_pkgdata),
                   '__version__': "'%s'" % self.distribution.get_version()}
         update_config(self.install_lib, values)
