@@ -606,7 +606,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.treeview.grab_focus()
 
         # Select the topmost item.
+        self.last_selected_path = -1
         self.treeview.set_cursor(Gtk.TreePath.new_from_string("0"))
+
+        # Configure the Selection
+        selection = self.treeview.get_selection()
+        selection.set_select_function(self.on_treeview_selection)
 
     def configure_application_editor(self, builder):
         """Configure the editor frame."""
@@ -1293,6 +1298,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             if not treeiter:
                 return
 
+            # Do nothing if we didn't change path
+            path = str(treestore.get_path(treeiter))
+            if path == self.last_selected_path:
+                return
+            self.last_selected_path = path
+
             # Clear history
             self.history.clear()
 
@@ -1355,6 +1366,39 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             # Renable updates to history.
             self.history.unblock()
+
+    def on_treeview_selection(self, sel, store, path, is_selected):
+        """Save changes on cursor change."""
+        if is_selected and self.save_button.get_sensitive():
+            question = _("Do you want to save the changes before leaving this "
+                        "launcher?")
+            details = _("If you don't save the launcher, all the changes "
+                        "will be lost.")
+            dialog = Gtk.MessageDialog(transient_for=self, modal=True,
+                                        message_type=Gtk.MessageType.QUESTION,
+                                        buttons=Gtk.ButtonsType.NONE,
+                                        text=question)
+            dialog.format_secondary_markup(details)
+            dialog.set_title(_("Save Changes"))
+            dialog.add_button(_("Don't Save"), Gtk.ResponseType.NO)
+            dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
+            dialog.add_button(_("Save"), Gtk.ResponseType.YES)
+
+            response = dialog.run()
+            dialog.destroy()
+            # Cancel prevents leaving this launcher.
+            if response == Gtk.ResponseType.CANCEL:
+                return False
+            # Don't Save allows leaving this launcher, deleting 'new'.
+            elif response == Gtk.ResponseType.NO:
+                return True
+            # Save and move on.
+            else:
+                self.save_launcher()
+                return True
+            return False
+        else:
+            return True
 
     def icon_name_func(self, col, renderer, treestore, treeiter, user_data):
         """CellRenderer function to set the gicon for each row."""
@@ -1912,6 +1956,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.set_editor_categories(';'.join(categories))
 
+        self.save_button.set_sensitive(True)
+
     def add_directory(self):
         """Add Directory callback function."""
         # Insert a New Launcher item below the current selected item
@@ -1941,6 +1987,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Select the New Launcher item.
         path = model.get_path(new_iter)
         self.treeview.set_cursor(path)
+        self.save_button.set_sensitive(True)
 
     def add_separator(self):
         """Add Separator callback function."""
@@ -1972,6 +2019,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Select the Separator item.
         path = model.get_path(new_iter)
         self.treeview.set_cursor(path)
+        self.save_button.set_sensitive(True)
 
         self.update_menus()
 
@@ -2022,6 +2070,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def delete_separator(self, treeview, model, treeiter):
         """Remove a separator row from the treeview, update the menu files."""
+        self.last_selected_path = -1
         path = model.get_path(treeiter)
         model.remove(treeiter)
         if path:
@@ -2031,6 +2080,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def delete_launcher(self, treeview, model, treeiter):
         """Delete the selected launcher."""
+        self.last_selected_path = -1
         name = model[treeiter][0]
         item_type = model[treeiter][2]
         filename = model[treeiter][5]
