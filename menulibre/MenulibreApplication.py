@@ -365,6 +365,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Connect any window-specific events.
         self.connect('key-press-event', self.on_window_keypress_event)
+        self.connect('delete-event', self.on_window_delete_event)
 
     def configure_application_actions(self, builder):
         """Configure the GtkActions that are used in the Menulibre
@@ -532,6 +533,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         box = builder.get_object('box_add')
         box.pack_start(button, True, True, 0)
         button.show_all()
+
+        # Save
+        self.save_button = builder.get_object('toolbar_save_launcher')
 
         # Undo/Redo/Revert
         self.undo_button = builder.get_object('toolbar_undo')
@@ -826,6 +830,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_revert_changed(self, history, enabled):
         """Toggle revert functionality when history is changed."""
         self.revert_button.set_sensitive(enabled)
+        self.save_button.set_sensitive(enabled)
+        self.actions['save_launcher'].set_sensitive(enabled)
 
 # Generic Treeview functions
     def treeview_add(self, treeview, row_data):
@@ -976,6 +982,37 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if check_keypress(event, ['Control', 's']):
             self.actions['save_launcher'].activate()
             return True
+        return False
+
+    def on_window_delete_event(self, widget, event):
+        """Save changes on close."""
+        if self.save_button.get_sensitive():
+            # Unsaved changes
+            question = _("Do you want to save the changes before closing?")
+            details = _("If you don't save the launcher, all the changes "
+                        "will be lost.'")
+            dialog = Gtk.MessageDialog(transient_for=self, modal=True,
+                                        message_type=Gtk.MessageType.QUESTION,
+                                        buttons=Gtk.ButtonsType.NONE,
+                                        text=question)
+            dialog.format_secondary_markup(details)
+            dialog.set_title(_("Save Changes"))
+            dialog.add_button(_("Don't Save"), Gtk.ResponseType.NO)
+            dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
+            dialog.add_button(_("Save"), Gtk.ResponseType.YES)
+
+            response = dialog.run()
+            dialog.destroy()
+            # Cancel prevents the application from closing.
+            if response == Gtk.ResponseType.CANCEL:
+                return True
+            # Don't Save allows the application to close.
+            elif response == Gtk.ResponseType.NO:
+                return False
+            # Save and close.
+            else:
+                self.save_launcher()
+                return False
         return False
 
 # Improved navigation of the Name, Comment, and Icon widgets
