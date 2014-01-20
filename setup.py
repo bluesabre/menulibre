@@ -180,5 +180,6 @@ DistUtilsExtra.auto.setup(
                      'and full Unity action support. Suitable for lightweight '
                      'desktop environments.',
     url='https://launchpad.net/menulibre',
+    data_files=[('share/man/man1', ['menulibre.1'])],
     cmdclass={'install': InstallAndUpdateDataDirectory}
     )
