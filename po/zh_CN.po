@@ -1,45 +1,49 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Chinese (Simplified) translation for menulibre
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the menulibre package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-20 09:38-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2012-08-15 05:49+0000\n"
+"Last-Translator: Wang Dianjin <Unknown>\n"
+"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-12-05 06:07+0000\n"
+"X-Generator: Launchpad (build 16863)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr ""
+msgstr "菜单编辑器"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:1
+#, fuzzy
 msgid "Add _Launcher"
-msgstr ""
+msgstr "添加启动器"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
+#, fuzzy
 msgid "Add _Directory"
-msgstr ""
+msgstr "工作目录"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Add _Separator"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:4
+#, fuzzy
 msgid "Icon Selection"
-msgstr ""
+msgstr "选择图标"
 
 #: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1006
 #: ../menulibre/MenulibreApplication.py:1130
@@ -56,15 +60,16 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "Icon Name"
-msgstr ""
+msgstr "图标名称"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Image File"
-msgstr ""
+msgstr "图像文件"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
+#, fuzzy
 msgid "<b>Select an image</b>"
-msgstr ""
+msgstr "选择一张图像"
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "16px"
@@ -84,15 +89,17 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "<b>Preview</b>"
-msgstr ""
+msgstr "<b>预览</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
+#, fuzzy
 msgid "Select an icon..."
-msgstr ""
+msgstr "选择图标"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
+#, fuzzy
 msgid "<b>Select an icon</b>"
-msgstr ""
+msgstr "<b>选择图标</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "column"
@@ -101,23 +108,24 @@ msgstr ""
 #: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:356
 #: ../menulibre/MenulibreApplication.py:2313
 msgid "MenuLibre"
-msgstr ""
+msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "_File"
-msgstr ""
+msgstr "文件(_F)"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "_Edit"
-msgstr ""
+msgstr "编辑(_E)"
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "_Help"
-msgstr ""
+msgstr "帮助(_H)"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
+#, fuzzy
 msgid "Save Launcher"
-msgstr ""
+msgstr "添加启动器"
 
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:407
 msgid "Undo"
@@ -145,11 +153,12 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "<big><b>Application Name</b></big>"
-msgstr ""
+msgstr "<big><b>应用名称</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
+#, fuzzy
 msgid "Application Comment"
-msgstr ""
+msgstr "应用"
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid ""
@@ -164,7 +173,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Command"
-msgstr ""
+msgstr "命令"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "\"Path\": The working directory to run the program in. "
@@ -172,15 +181,16 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Working Directory"
-msgstr ""
+msgstr "工作目录"
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Browse..."
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:38
+#, fuzzy
 msgid "<b>Application Details</b>"
-msgstr ""
+msgstr "<b>应用设置</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "\"Terminal\": Whether the program runs in a terminal window."
@@ -188,7 +198,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Run in terminal"
-msgstr ""
+msgstr "在终端中运行"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid ""
@@ -202,7 +212,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Use startup notification"
-msgstr ""
+msgstr "使用启动通知"
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid ""
@@ -216,11 +226,11 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Hide from menus"
-msgstr ""
+msgstr "从 menus 中隐藏"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Options</b>"
-msgstr ""
+msgstr "<b>选项</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Add"
@@ -240,15 +250,16 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Show"
-msgstr ""
+msgstr "显示"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
+#, fuzzy
 msgid "Actions"
-msgstr ""
+msgstr "应用"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid ""
@@ -365,8 +376,9 @@ msgid "Advanced"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:76
+#, fuzzy
 msgid "<small><i>Filename</i></small>"
-msgstr ""
+msgstr "<small>文件名</small>"
 
 #: ../menulibre/__init__.py:33
 msgid "Show debug messages"
@@ -380,47 +392,47 @@ msgstr ""
 #. Standard Items
 #: ../menulibre/MenulibreApplication.py:58
 msgid "Multimedia"
-msgstr ""
+msgstr "多媒体"
 
 #: ../menulibre/MenulibreApplication.py:59
 msgid "Development"
-msgstr ""
+msgstr "开发"
 
 #: ../menulibre/MenulibreApplication.py:60
 msgid "Education"
-msgstr ""
+msgstr "教育"
 
 #: ../menulibre/MenulibreApplication.py:61
 msgid "Games"
-msgstr ""
+msgstr "游戏"
 
 #: ../menulibre/MenulibreApplication.py:62
 msgid "Graphics"
-msgstr ""
+msgstr "图形"
 
 #: ../menulibre/MenulibreApplication.py:63
 msgid "Internet"
-msgstr ""
+msgstr "互联网"
 
 #: ../menulibre/MenulibreApplication.py:64
 msgid "Office"
-msgstr ""
+msgstr "办公"
 
 #: ../menulibre/MenulibreApplication.py:65
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: ../menulibre/MenulibreApplication.py:66
 msgid "System"
-msgstr ""
+msgstr "系统"
 
 #: ../menulibre/MenulibreApplication.py:67
 msgid "Accessories"
-msgstr ""
+msgstr "附件"
 
 #: ../menulibre/MenulibreApplication.py:68
 msgid "WINE"
-msgstr ""
+msgstr "WINE"
 
 #. Desktop Environment
 #: ../menulibre/MenulibreApplication.py:70
@@ -428,8 +440,9 @@ msgid "Desktop configuration"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:71
+#, fuzzy
 msgid "User configuration"
-msgstr ""
+msgstr "使用启动通知"
 
 #: ../menulibre/MenulibreApplication.py:72
 msgid "Hardware configuration"
@@ -437,12 +450,14 @@ msgstr ""
 
 #. GNOME Specific
 #: ../menulibre/MenulibreApplication.py:74
+#, fuzzy
 msgid "GNOME application"
-msgstr ""
+msgstr "应用"
 
 #: ../menulibre/MenulibreApplication.py:75
+#, fuzzy
 msgid "GTK+ application"
-msgstr ""
+msgstr "应用"
 
 #: ../menulibre/MenulibreApplication.py:76
 msgid "GNOME user configuration"
@@ -486,20 +501,23 @@ msgid "Other"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:378
+#, fuzzy
 msgid "Add _Launcher..."
-msgstr ""
+msgstr "添加启动器"
 
 #: ../menulibre/MenulibreApplication.py:379
+#, fuzzy
 msgid "Add Launcher..."
-msgstr ""
+msgstr "添加启动器"
 
 #: ../menulibre/MenulibreApplication.py:385
 msgid "Add _Directory..."
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:386
+#, fuzzy
 msgid "Add Directory..."
-msgstr ""
+msgstr "工作目录"
 
 #: ../menulibre/MenulibreApplication.py:392
 msgid "_Add Separator..."
@@ -546,12 +564,13 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:441
 msgid "_Contents"
-msgstr ""
+msgstr "内容(_C)"
 
 #: ../menulibre/MenulibreApplication.py:442
 #: ../menulibre/MenulibreApplication.py:2263
+#, fuzzy
 msgid "Help"
-msgstr ""
+msgstr "帮助(_H)"
 
 #: ../menulibre/MenulibreApplication.py:448
 msgid "_About"
@@ -572,12 +591,14 @@ msgid "ThisEntry"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:804
+#, fuzzy
 msgid "Select a category"
-msgstr ""
+msgstr "选择一个图标"
 
 #: ../menulibre/MenulibreApplication.py:807
+#, fuzzy
 msgid "Category Name"
-msgstr ""
+msgstr "分类"
 
 #: ../menulibre/MenulibreApplication.py:812
 msgid "Description"
@@ -602,8 +623,9 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1004
 #: ../menulibre/MenulibreApplication.py:1382
+#, fuzzy
 msgid "Save Changes"
-msgstr ""
+msgstr "保存全部更改"
 
 #: ../menulibre/MenulibreApplication.py:1005
 #: ../menulibre/MenulibreApplication.py:1383
@@ -611,8 +633,9 @@ msgid "Don't Save"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1127
+#, fuzzy
 msgid "Select an image"
-msgstr ""
+msgstr "选择一张图像"
 
 #: ../menulibre/MenulibreApplication.py:1131
 #: ../menulibre/MenulibreApplication.py:1238
@@ -620,12 +643,14 @@ msgid "OK"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1230
+#, fuzzy
 msgid "Select a working directory..."
-msgstr ""
+msgstr "工作目录"
 
 #: ../menulibre/MenulibreApplication.py:1234
+#, fuzzy
 msgid "Select an executable..."
-msgstr ""
+msgstr "选择一张图像"
 
 #: ../menulibre/MenulibreApplication.py:1373
 msgid "Do you want to save the changes before leaving this launcher?"
@@ -640,21 +665,25 @@ msgid "You do not have permission to delete this file."
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1928
+#, fuzzy
 msgid "New Launcher"
-msgstr ""
+msgstr "添加新启动器(_N)"
 
 #: ../menulibre/MenulibreApplication.py:1966
+#, fuzzy
 msgid "New Directory"
-msgstr ""
+msgstr "工作目录"
 
 #: ../menulibre/MenulibreApplication.py:2179
+#, fuzzy
 msgid "Are you sure you want to restore this launcher?"
-msgstr ""
+msgstr "您确定要移除该启动器吗？此操作无法撤销。"
 
 #: ../menulibre/MenulibreApplication.py:2185
 #: ../menulibre/MenulibreApplication.py:2186
+#, fuzzy
 msgid "Restore Launcher"
-msgstr ""
+msgstr "添加启动器"
 
 #: ../menulibre/MenulibreApplication.py:2187
 msgid ""
@@ -695,8 +724,9 @@ msgstr ""
 
 #. Populate the AboutDialog with all the relevant details.
 #: ../menulibre/MenulibreApplication.py:2312
+#, fuzzy
 msgid "About MenuLibre"
-msgstr ""
+msgstr "MenuLibre"
 
 #: ../menulibre/MenulibreApplication.py:2315
 msgid "Copyright © 2012-2014 Sean Davis"
@@ -709,3 +739,66 @@ msgstr ""
 #: ../menulibre/MenulibreXdg.py:48
 msgid "A small descriptive blurb about this application."
 msgstr ""
+
+#~ msgid "48x48"
+#~ msgstr "48x48"
+
+#~ msgid "32x32"
+#~ msgstr "32x32"
+
+#~ msgid "24x24"
+#~ msgstr "24x24"
+
+#~ msgid "16x16"
+#~ msgstr "16x16"
+
+#~ msgid "128x128"
+#~ msgstr "128x128"
+
+#~ msgid "Undo the last action"
+#~ msgstr "撤销上次操作"
+
+#~ msgid "Redo the last undone action"
+#~ msgstr "重做上次撤销的操作"
+
+#~ msgid "Revert all changes to last saved state"
+#~ msgstr "将全部更改还原到上次保存的状态"
+
+#~ msgid "<b>No applications found.</b>"
+#~ msgstr "<b>未发现应用程序。</b>"
+
+#~ msgid "Try searching everything."
+#~ msgstr "尝试搜索。"
+
+#~ msgid "<i>A quick snippet about your application.</i>"
+#~ msgstr "<i>关于您应用程序的简介。</i>"
+
+#~ msgid "<b>Categories</b>"
+#~ msgstr "<b>分类</b>"
+
+#~ msgid "General Settings"
+#~ msgstr "常规设置"
+
+#~ msgid "Quicklists"
+#~ msgstr "快捷列表"
+
+#~ msgid "Editor"
+#~ msgstr "编辑器"
+
+#~ msgid "label"
+#~ msgstr "标签"
+
+#~ msgid "Delete this launcher..."
+#~ msgstr "删除该启动器..."
+
+#~ msgid "<big><b>Remove Launcher?</b></big>"
+#~ msgstr "<big><b>移除启动器？</b></big>"
+
+#~ msgid "Image"
+#~ msgstr "图像"
+
+#~ msgid "Show debug messages (-vv debugs menulibre_lib also)"
+#~ msgstr "显示调试信息(-vv 亦调试 menulibre_lib)"
+
+#~ msgid "Edit System and User Menus with ease"
+#~ msgstr "轻松编辑系统和用户菜单"

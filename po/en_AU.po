@@ -1,21 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# English (Australia) translation for menulibre
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the menulibre package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-20 09:38-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2013-10-22 02:47+0000\n"
+"Last-Translator: Jackson Doak <Doak.jackson@gmail.com>\n"
+"Language-Team: English (Australia) <en_AU@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-12-05 06:07+0000\n"
+"X-Generator: Launchpad (build 16863)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -26,8 +27,9 @@ msgid "Add or remove applications from the menu"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:1
+#, fuzzy
 msgid "Add _Launcher"
-msgstr ""
+msgstr "Add Launcher"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Add _Directory"
@@ -38,8 +40,9 @@ msgid "Add _Separator"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:4
+#, fuzzy
 msgid "Icon Selection"
-msgstr ""
+msgstr "Select an icon"
 
 #: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1006
 #: ../menulibre/MenulibreApplication.py:1130
@@ -56,15 +59,16 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "Icon Name"
-msgstr ""
+msgstr "Icon Name"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Image File"
-msgstr ""
+msgstr "Image File"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
+#, fuzzy
 msgid "<b>Select an image</b>"
-msgstr ""
+msgstr "Select an Image"
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "16px"
@@ -84,15 +88,17 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "<b>Preview</b>"
-msgstr ""
+msgstr "<b>Preview</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
+#, fuzzy
 msgid "Select an icon..."
-msgstr ""
+msgstr "Select an icon"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
+#, fuzzy
 msgid "<b>Select an icon</b>"
-msgstr ""
+msgstr "<b>Select Icon</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "column"
@@ -101,23 +107,24 @@ msgstr ""
 #: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:356
 #: ../menulibre/MenulibreApplication.py:2313
 msgid "MenuLibre"
-msgstr ""
+msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "_File"
-msgstr ""
+msgstr "_File"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "_Edit"
-msgstr ""
+msgstr "_Edit"
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "_Help"
-msgstr ""
+msgstr "_Help"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
+#, fuzzy
 msgid "Save Launcher"
-msgstr ""
+msgstr "Add Launcher"
 
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:407
 msgid "Undo"
@@ -486,12 +493,14 @@ msgid "Other"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:378
+#, fuzzy
 msgid "Add _Launcher..."
-msgstr ""
+msgstr "Add Launcher"
 
 #: ../menulibre/MenulibreApplication.py:379
+#, fuzzy
 msgid "Add Launcher..."
-msgstr ""
+msgstr "Add Launcher"
 
 #: ../menulibre/MenulibreApplication.py:385
 msgid "Add _Directory..."
@@ -546,12 +555,13 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:441
 msgid "_Contents"
-msgstr ""
+msgstr "_Contents"
 
 #: ../menulibre/MenulibreApplication.py:442
 #: ../menulibre/MenulibreApplication.py:2263
+#, fuzzy
 msgid "Help"
-msgstr ""
+msgstr "_Help"
 
 #: ../menulibre/MenulibreApplication.py:448
 msgid "_About"
@@ -572,8 +582,9 @@ msgid "ThisEntry"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:804
+#, fuzzy
 msgid "Select a category"
-msgstr ""
+msgstr "Select an Icon"
 
 #: ../menulibre/MenulibreApplication.py:807
 msgid "Category Name"
@@ -602,8 +613,9 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1004
 #: ../menulibre/MenulibreApplication.py:1382
+#, fuzzy
 msgid "Save Changes"
-msgstr ""
+msgstr "Save All Changes"
 
 #: ../menulibre/MenulibreApplication.py:1005
 #: ../menulibre/MenulibreApplication.py:1383
@@ -611,8 +623,9 @@ msgid "Don't Save"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1127
+#, fuzzy
 msgid "Select an image"
-msgstr ""
+msgstr "Select an Image"
 
 #: ../menulibre/MenulibreApplication.py:1131
 #: ../menulibre/MenulibreApplication.py:1238
@@ -620,12 +633,14 @@ msgid "OK"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1230
+#, fuzzy
 msgid "Select a working directory..."
-msgstr ""
+msgstr "Select an icon"
 
 #: ../menulibre/MenulibreApplication.py:1234
+#, fuzzy
 msgid "Select an executable..."
-msgstr ""
+msgstr "Select an Image"
 
 #: ../menulibre/MenulibreApplication.py:1373
 msgid "Do you want to save the changes before leaving this launcher?"
@@ -640,8 +655,9 @@ msgid "You do not have permission to delete this file."
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1928
+#, fuzzy
 msgid "New Launcher"
-msgstr ""
+msgstr "Add _New Launcher"
 
 #: ../menulibre/MenulibreApplication.py:1966
 msgid "New Directory"
@@ -653,8 +669,9 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2185
 #: ../menulibre/MenulibreApplication.py:2186
+#, fuzzy
 msgid "Restore Launcher"
-msgstr ""
+msgstr "Add Launcher"
 
 #: ../menulibre/MenulibreApplication.py:2187
 msgid ""
@@ -695,8 +712,9 @@ msgstr ""
 
 #. Populate the AboutDialog with all the relevant details.
 #: ../menulibre/MenulibreApplication.py:2312
+#, fuzzy
 msgid "About MenuLibre"
-msgstr ""
+msgstr "MenuLibre"
 
 #: ../menulibre/MenulibreApplication.py:2315
 msgid "Copyright © 2012-2014 Sean Davis"
@@ -709,3 +727,18 @@ msgstr ""
 #: ../menulibre/MenulibreXdg.py:48
 msgid "A small descriptive blurb about this application."
 msgstr ""
+
+#~ msgid "48x48"
+#~ msgstr "48x48"
+
+#~ msgid "32x32"
+#~ msgstr "32x32"
+
+#~ msgid "24x24"
+#~ msgstr "24x24"
+
+#~ msgid "16x16"
+#~ msgstr "16x16"
+
+#~ msgid "128x128"
+#~ msgstr "128x128"

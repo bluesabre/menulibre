@@ -1,45 +1,49 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Croatian translation for menulibre
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the menulibre package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-20 09:38-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2013-12-04 05:59+0000\n"
+"Last-Translator: freedomrun <Unknown>\n"
+"Language-Team: Croatian <hr@li.org>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-12-05 06:07+0000\n"
+"X-Generator: Launchpad (build 16863)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr ""
+msgstr "Uređivač izbornika"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:1
+#, fuzzy
 msgid "Add _Launcher"
-msgstr ""
+msgstr "Dodaj pokretač"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
+#, fuzzy
 msgid "Add _Directory"
-msgstr ""
+msgstr "Radni direktorij"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Add _Separator"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:4
+#, fuzzy
 msgid "Icon Selection"
-msgstr ""
+msgstr "Odaberi ikonu"
 
 #: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1006
 #: ../menulibre/MenulibreApplication.py:1130
@@ -56,15 +60,16 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "Icon Name"
-msgstr ""
+msgstr "Naziv ikone"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Image File"
-msgstr ""
+msgstr "Datoteka slike"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
+#, fuzzy
 msgid "<b>Select an image</b>"
-msgstr ""
+msgstr "Odaberi sliku"
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "16px"
@@ -84,15 +89,17 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "<b>Preview</b>"
-msgstr ""
+msgstr "<b>Pogled</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
+#, fuzzy
 msgid "Select an icon..."
-msgstr ""
+msgstr "Odaberi ikonu"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
+#, fuzzy
 msgid "<b>Select an icon</b>"
-msgstr ""
+msgstr "<b>Odaberi Ikonu</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "column"
@@ -101,35 +108,36 @@ msgstr ""
 #: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:356
 #: ../menulibre/MenulibreApplication.py:2313
 msgid "MenuLibre"
-msgstr ""
+msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "_File"
-msgstr ""
+msgstr "_Datoteka"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "_Edit"
-msgstr ""
+msgstr "_Uredi"
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "_Help"
-msgstr ""
+msgstr "_Pomoć"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
+#, fuzzy
 msgid "Save Launcher"
-msgstr ""
+msgstr "Dodaj pokretač"
 
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:407
 msgid "Undo"
-msgstr ""
+msgstr "Poništi"
 
 #: ../data/ui/MenulibreWindow.ui.h:24 ../menulibre/MenulibreApplication.py:414
 msgid "Redo"
-msgstr ""
+msgstr "Ponovi"
 
 #: ../data/ui/MenulibreWindow.ui.h:25 ../menulibre/MenulibreApplication.py:421
 msgid "Revert"
-msgstr ""
+msgstr "Vrati izvorno"
 
 #: ../data/ui/MenulibreWindow.ui.h:26 ../menulibre/MenulibreApplication.py:428
 msgid "Delete"
@@ -137,19 +145,20 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Move Up"
-msgstr ""
+msgstr "Pomakni Gore"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Move Down"
-msgstr ""
+msgstr "Pomakni Dolje"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "<big><b>Application Name</b></big>"
-msgstr ""
+msgstr "<big><b>Naziv aplikacije</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
+#, fuzzy
 msgid "Application Comment"
-msgstr ""
+msgstr "Aplikacija"
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid ""
@@ -164,7 +173,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Command"
-msgstr ""
+msgstr "Naredba"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "\"Path\": The working directory to run the program in. "
@@ -172,15 +181,16 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Working Directory"
-msgstr ""
+msgstr "Radni direktorij"
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Browse..."
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:38
+#, fuzzy
 msgid "<b>Application Details</b>"
-msgstr ""
+msgstr "<b>Postavke aplikacije</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "\"Terminal\": Whether the program runs in a terminal window."
@@ -188,7 +198,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Run in terminal"
-msgstr ""
+msgstr "Pokreni u terminalu"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid ""
@@ -202,7 +212,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Use startup notification"
-msgstr ""
+msgstr "Koristi upozorenje pri pokretanju"
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid ""
@@ -216,11 +226,11 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Hide from menus"
-msgstr ""
+msgstr "Sakrij od izbornika"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Options</b>"
-msgstr ""
+msgstr "<b>Mogućnosti</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Add"
@@ -236,19 +246,20 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:49
 msgid "Categories"
-msgstr ""
+msgstr "Kategorije"
 
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Show"
-msgstr ""
+msgstr "Prikaži"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Name"
-msgstr ""
+msgstr "Naziv"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
+#, fuzzy
 msgid "Actions"
-msgstr ""
+msgstr "Aplikacije"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid ""
@@ -365,8 +376,9 @@ msgid "Advanced"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:76
+#, fuzzy
 msgid "<small><i>Filename</i></small>"
-msgstr ""
+msgstr "<small>Naziv-datoteke</small>"
 
 #: ../menulibre/__init__.py:33
 msgid "Show debug messages"
@@ -380,47 +392,47 @@ msgstr ""
 #. Standard Items
 #: ../menulibre/MenulibreApplication.py:58
 msgid "Multimedia"
-msgstr ""
+msgstr "Multimedija"
 
 #: ../menulibre/MenulibreApplication.py:59
 msgid "Development"
-msgstr ""
+msgstr "Razvoj"
 
 #: ../menulibre/MenulibreApplication.py:60
 msgid "Education"
-msgstr ""
+msgstr "Edukacija"
 
 #: ../menulibre/MenulibreApplication.py:61
 msgid "Games"
-msgstr ""
+msgstr "Igre"
 
 #: ../menulibre/MenulibreApplication.py:62
 msgid "Graphics"
-msgstr ""
+msgstr "Grafika"
 
 #: ../menulibre/MenulibreApplication.py:63
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../menulibre/MenulibreApplication.py:64
 msgid "Office"
-msgstr ""
+msgstr "Ured"
 
 #: ../menulibre/MenulibreApplication.py:65
 msgid "Settings"
-msgstr ""
+msgstr "Postavke"
 
 #: ../menulibre/MenulibreApplication.py:66
 msgid "System"
-msgstr ""
+msgstr "Sustav"
 
 #: ../menulibre/MenulibreApplication.py:67
 msgid "Accessories"
-msgstr ""
+msgstr "Pomagala"
 
 #: ../menulibre/MenulibreApplication.py:68
 msgid "WINE"
-msgstr ""
+msgstr "WINE"
 
 #. Desktop Environment
 #: ../menulibre/MenulibreApplication.py:70
@@ -428,8 +440,9 @@ msgid "Desktop configuration"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:71
+#, fuzzy
 msgid "User configuration"
-msgstr ""
+msgstr "Koristi upozorenje pri pokretanju"
 
 #: ../menulibre/MenulibreApplication.py:72
 msgid "Hardware configuration"
@@ -437,12 +450,14 @@ msgstr ""
 
 #. GNOME Specific
 #: ../menulibre/MenulibreApplication.py:74
+#, fuzzy
 msgid "GNOME application"
-msgstr ""
+msgstr "Aplikacija"
 
 #: ../menulibre/MenulibreApplication.py:75
+#, fuzzy
 msgid "GTK+ application"
-msgstr ""
+msgstr "Aplikacija"
 
 #: ../menulibre/MenulibreApplication.py:76
 msgid "GNOME user configuration"
@@ -483,53 +498,63 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:135
 #: ../menulibre/MenulibreApplication.py:174
 msgid "Other"
-msgstr ""
+msgstr "Ostalo"
 
 #: ../menulibre/MenulibreApplication.py:378
+#, fuzzy
 msgid "Add _Launcher..."
-msgstr ""
+msgstr "Dodaj pokretač"
 
 #: ../menulibre/MenulibreApplication.py:379
+#, fuzzy
 msgid "Add Launcher..."
-msgstr ""
+msgstr "Dodaj pokretač"
 
 #: ../menulibre/MenulibreApplication.py:385
+#, fuzzy
 msgid "Add _Directory..."
-msgstr ""
+msgstr "Dodaj kategoriju..."
 
 #: ../menulibre/MenulibreApplication.py:386
+#, fuzzy
 msgid "Add Directory..."
-msgstr ""
+msgstr "Dodaj kategoriju..."
 
 #: ../menulibre/MenulibreApplication.py:392
+#, fuzzy
 msgid "_Add Separator..."
-msgstr ""
+msgstr "Dodaj kategoriju..."
 
 #: ../menulibre/MenulibreApplication.py:393
+#, fuzzy
 msgid "Add Separator..."
-msgstr ""
+msgstr "Dodaj kategoriju..."
 
 #: ../menulibre/MenulibreApplication.py:399
+#, fuzzy
 msgid "_Save"
-msgstr ""
+msgstr "Spremi"
 
 #: ../menulibre/MenulibreApplication.py:400
 #: ../menulibre/MenulibreApplication.py:1007
 #: ../menulibre/MenulibreApplication.py:1385
 msgid "Save"
-msgstr ""
+msgstr "Spremi"
 
 #: ../menulibre/MenulibreApplication.py:406
+#, fuzzy
 msgid "_Undo"
-msgstr ""
+msgstr "Poništi"
 
 #: ../menulibre/MenulibreApplication.py:413
+#, fuzzy
 msgid "_Redo"
-msgstr ""
+msgstr "Ponovi"
 
 #: ../menulibre/MenulibreApplication.py:420
+#, fuzzy
 msgid "_Revert"
-msgstr ""
+msgstr "Vrati izvorno"
 
 #: ../menulibre/MenulibreApplication.py:427
 msgid "_Delete"
@@ -546,12 +571,13 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:441
 msgid "_Contents"
-msgstr ""
+msgstr "_Sadržaj"
 
 #: ../menulibre/MenulibreApplication.py:442
 #: ../menulibre/MenulibreApplication.py:2263
+#, fuzzy
 msgid "Help"
-msgstr ""
+msgstr "_Pomoć"
 
 #: ../menulibre/MenulibreApplication.py:448
 msgid "_About"
@@ -565,19 +591,21 @@ msgstr ""
 #. Create a new column.
 #: ../menulibre/MenulibreApplication.py:561
 msgid "Search Results"
-msgstr ""
+msgstr "Rezultati Pretraživanja"
 
 #: ../menulibre/MenulibreApplication.py:786
 msgid "ThisEntry"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:804
+#, fuzzy
 msgid "Select a category"
-msgstr ""
+msgstr "Odaberi ikonu"
 
 #: ../menulibre/MenulibreApplication.py:807
+#, fuzzy
 msgid "Category Name"
-msgstr ""
+msgstr "Kategorija"
 
 #: ../menulibre/MenulibreApplication.py:812
 msgid "Description"
@@ -589,7 +617,7 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:946
 msgid "New Shortcut"
-msgstr ""
+msgstr "Nova Prečica"
 
 #. Unsaved changes
 #: ../menulibre/MenulibreApplication.py:996
@@ -602,8 +630,9 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1004
 #: ../menulibre/MenulibreApplication.py:1382
+#, fuzzy
 msgid "Save Changes"
-msgstr ""
+msgstr "Spremi sve promjene"
 
 #: ../menulibre/MenulibreApplication.py:1005
 #: ../menulibre/MenulibreApplication.py:1383
@@ -611,8 +640,9 @@ msgid "Don't Save"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1127
+#, fuzzy
 msgid "Select an image"
-msgstr ""
+msgstr "Odaberi sliku"
 
 #: ../menulibre/MenulibreApplication.py:1131
 #: ../menulibre/MenulibreApplication.py:1238
@@ -620,12 +650,14 @@ msgid "OK"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1230
+#, fuzzy
 msgid "Select a working directory..."
-msgstr ""
+msgstr "Radni direktorij"
 
 #: ../menulibre/MenulibreApplication.py:1234
+#, fuzzy
 msgid "Select an executable..."
-msgstr ""
+msgstr "Odaberi sliku"
 
 #: ../menulibre/MenulibreApplication.py:1373
 msgid "Do you want to save the changes before leaving this launcher?"
@@ -640,21 +672,26 @@ msgid "You do not have permission to delete this file."
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1928
+#, fuzzy
 msgid "New Launcher"
-msgstr ""
+msgstr "Dodaj _novi pokretač"
 
 #: ../menulibre/MenulibreApplication.py:1966
+#, fuzzy
 msgid "New Directory"
-msgstr ""
+msgstr "Radni direktorij"
 
 #: ../menulibre/MenulibreApplication.py:2179
+#, fuzzy
 msgid "Are you sure you want to restore this launcher?"
 msgstr ""
+"Sigurno želite ukloniti ovaj pokretač?  Ova radnja se ne može poništiti."
 
 #: ../menulibre/MenulibreApplication.py:2185
 #: ../menulibre/MenulibreApplication.py:2186
+#, fuzzy
 msgid "Restore Launcher"
-msgstr ""
+msgstr "Dodaj pokretač"
 
 #: ../menulibre/MenulibreApplication.py:2187
 msgid ""
@@ -695,12 +732,14 @@ msgstr ""
 
 #. Populate the AboutDialog with all the relevant details.
 #: ../menulibre/MenulibreApplication.py:2312
+#, fuzzy
 msgid "About MenuLibre"
-msgstr ""
+msgstr "MenuLibre"
 
 #: ../menulibre/MenulibreApplication.py:2315
+#, fuzzy
 msgid "Copyright © 2012-2014 Sean Davis"
-msgstr ""
+msgstr "Autorska prava (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
 
 #: ../menulibre/MenulibreXdg.py:46
 msgid "New Menu Item"
@@ -709,3 +748,102 @@ msgstr ""
 #: ../menulibre/MenulibreXdg.py:48
 msgid "A small descriptive blurb about this application."
 msgstr ""
+
+#~ msgid "48x48"
+#~ msgstr "48x48"
+
+#~ msgid "32x32"
+#~ msgstr "32x32"
+
+#~ msgid "24x24"
+#~ msgstr "24x24"
+
+#~ msgid "16x16"
+#~ msgstr "16x16"
+
+#~ msgid "128x128"
+#~ msgstr "128x128"
+
+#~ msgid "Undo the last action"
+#~ msgstr "Poništi zadnju radnju"
+
+#~ msgid "Redo the last undone action"
+#~ msgstr "Vrati zadnje poništenu radnju"
+
+#~ msgid "Revert all changes to last saved state"
+#~ msgstr "Vrati sve stavke na posljednje spremljeno stanje"
+
+#~ msgid "<b>No applications found.</b>"
+#~ msgstr "<b>Nema pronađenih aplikacija.</b>"
+
+#~ msgid "Try searching everything."
+#~ msgstr "Probaj pretražiti sve."
+
+#~ msgid "Search Failed"
+#~ msgstr "Pretraživanje Neuspješno"
+
+#~ msgid "<i>A quick snippet about your application.</i>"
+#~ msgstr "<i>Kratak opis vaše aplikacije.</i>"
+
+#~ msgid "Remove category"
+#~ msgstr "Ukloni kategoriju"
+
+#~ msgid "Clear categories"
+#~ msgstr "Očisti kategorije"
+
+#~ msgid "<b>Categories</b>"
+#~ msgstr "<b>Kategorije</b>"
+
+#~ msgid "General Settings"
+#~ msgstr "Opće postavke"
+
+#~ msgid "Shortcut Name"
+#~ msgstr "Ime prečice"
+
+#~ msgid "Displayed Name"
+#~ msgstr "Prikazano Ime"
+
+#~ msgid "Editor"
+#~ msgstr "Uređivač"
+
+#~ msgid "label"
+#~ msgstr "oznaka"
+
+#~ msgid "Delete this launcher..."
+#~ msgstr "Obriši ovaj pokretač..."
+
+#~ msgid "Application Settings"
+#~ msgstr "Postavke Aplikacije"
+
+#~ msgid "<big><b>Remove Launcher?</b></big>"
+#~ msgstr "<big><b>Ukloni pokretač?</b></big>"
+
+#~ msgid "Search Applications"
+#~ msgstr "Pretraži Aplikacije"
+
+#~ msgid "Image"
+#~ msgstr "Slika"
+
+#~ msgid "Search %s"
+#~ msgstr "Pretraži %s"
+
+#~ msgid "NewShortcut"
+#~ msgstr "NovaPrečica"
+
+#~ msgid "Unknown"
+#~ msgstr "Nepoznato"
+
+#~ msgid "All Applications"
+#~ msgstr "Sve Aplikacije"
+
+#~ msgid "'%s' is not a .desktop file"
+#~ msgstr "'%s' nije .desktop datoteka"
+
+#~ msgid "'%s' is not a .directory file"
+#~ msgstr "'%s' nije .directory datoteka"
+
+#~ msgid "Show debug messages (-vv debugs menulibre_lib also)"
+#~ msgstr "Prikaži poruke otklanjanja greške (-vv debugs menulibre_lib also)"
+
+#~ msgid "Edit System and User Menus with ease"
+#~ msgstr "Uredite s lakoćom izbornike korisnika i sustava"

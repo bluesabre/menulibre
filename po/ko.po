@@ -1,45 +1,49 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Korean translation for menulibre
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# This file is distributed under the same license as the menulibre package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-20 09:38-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2013-02-24 05:12+0000\n"
+"Last-Translator: Sang-hyeon Lee <Unknown>\n"
+"Language-Team: Korean <ko@li.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-12-05 06:07+0000\n"
+"X-Generator: Launchpad (build 16863)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr ""
+msgstr "메뉴 편집기"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:1
+#, fuzzy
 msgid "Add _Launcher"
-msgstr ""
+msgstr "런처 추가"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
+#, fuzzy
 msgid "Add _Directory"
-msgstr ""
+msgstr "작업중인 폴더"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Add _Separator"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:4
+#, fuzzy
 msgid "Icon Selection"
-msgstr ""
+msgstr "아이콘 선택"
 
 #: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1006
 #: ../menulibre/MenulibreApplication.py:1130
@@ -56,15 +60,16 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "Icon Name"
-msgstr ""
+msgstr "아이콘 이름"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Image File"
-msgstr ""
+msgstr "이미지 파일"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
+#, fuzzy
 msgid "<b>Select an image</b>"
-msgstr ""
+msgstr "이미지 선택"
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "16px"
@@ -84,15 +89,17 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "<b>Preview</b>"
-msgstr ""
+msgstr "<b>미리보기</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
+#, fuzzy
 msgid "Select an icon..."
-msgstr ""
+msgstr "아이콘 선택"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
+#, fuzzy
 msgid "<b>Select an icon</b>"
-msgstr ""
+msgstr "<b>아이콘 선택</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "column"
@@ -101,35 +108,36 @@ msgstr ""
 #: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:356
 #: ../menulibre/MenulibreApplication.py:2313
 msgid "MenuLibre"
-msgstr ""
+msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "_File"
-msgstr ""
+msgstr "파일(_F)"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "_Edit"
-msgstr ""
+msgstr "편집(_E)"
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "_Help"
-msgstr ""
+msgstr "도움말(_H)"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
+#, fuzzy
 msgid "Save Launcher"
-msgstr ""
+msgstr "런처 추가"
 
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:407
 msgid "Undo"
-msgstr ""
+msgstr "실행취소"
 
 #: ../data/ui/MenulibreWindow.ui.h:24 ../menulibre/MenulibreApplication.py:414
 msgid "Redo"
-msgstr ""
+msgstr "재실행"
 
 #: ../data/ui/MenulibreWindow.ui.h:25 ../menulibre/MenulibreApplication.py:421
 msgid "Revert"
-msgstr ""
+msgstr "되돌리기"
 
 #: ../data/ui/MenulibreWindow.ui.h:26 ../menulibre/MenulibreApplication.py:428
 msgid "Delete"
@@ -145,11 +153,12 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "<big><b>Application Name</b></big>"
-msgstr ""
+msgstr "<big><b>프로그램 이름</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
+#, fuzzy
 msgid "Application Comment"
-msgstr ""
+msgstr "프로그램"
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid ""
@@ -172,15 +181,16 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Working Directory"
-msgstr ""
+msgstr "작업중인 폴더"
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Browse..."
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:38
+#, fuzzy
 msgid "<b>Application Details</b>"
-msgstr ""
+msgstr "<b>응용프로그램 설정</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "\"Terminal\": Whether the program runs in a terminal window."
@@ -188,7 +198,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Run in terminal"
-msgstr ""
+msgstr "터미널에서 실행"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid ""
@@ -202,7 +212,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Use startup notification"
-msgstr ""
+msgstr "시작 알림을 사용"
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid ""
@@ -216,11 +226,11 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Hide from menus"
-msgstr ""
+msgstr "메뉴에서 숨기기"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Options</b>"
-msgstr ""
+msgstr "<b>옵션</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Add"
@@ -240,15 +250,16 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Show"
-msgstr ""
+msgstr "보기"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Name"
-msgstr ""
+msgstr "이름"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
+#, fuzzy
 msgid "Actions"
-msgstr ""
+msgstr "프로그램"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid ""
@@ -365,8 +376,9 @@ msgid "Advanced"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:76
+#, fuzzy
 msgid "<small><i>Filename</i></small>"
-msgstr ""
+msgstr "<small>파일이름</small>"
 
 #: ../menulibre/__init__.py:33
 msgid "Show debug messages"
@@ -380,47 +392,47 @@ msgstr ""
 #. Standard Items
 #: ../menulibre/MenulibreApplication.py:58
 msgid "Multimedia"
-msgstr ""
+msgstr "멀티미디어"
 
 #: ../menulibre/MenulibreApplication.py:59
 msgid "Development"
-msgstr ""
+msgstr "개발"
 
 #: ../menulibre/MenulibreApplication.py:60
 msgid "Education"
-msgstr ""
+msgstr "교육"
 
 #: ../menulibre/MenulibreApplication.py:61
 msgid "Games"
-msgstr ""
+msgstr "게임"
 
 #: ../menulibre/MenulibreApplication.py:62
 msgid "Graphics"
-msgstr ""
+msgstr "그래픽"
 
 #: ../menulibre/MenulibreApplication.py:63
 msgid "Internet"
-msgstr ""
+msgstr "인터넷"
 
 #: ../menulibre/MenulibreApplication.py:64
 msgid "Office"
-msgstr ""
+msgstr "사무"
 
 #: ../menulibre/MenulibreApplication.py:65
 msgid "Settings"
-msgstr ""
+msgstr "설정"
 
 #: ../menulibre/MenulibreApplication.py:66
 msgid "System"
-msgstr ""
+msgstr "시스템"
 
 #: ../menulibre/MenulibreApplication.py:67
 msgid "Accessories"
-msgstr ""
+msgstr "보조프로그램"
 
 #: ../menulibre/MenulibreApplication.py:68
 msgid "WINE"
-msgstr ""
+msgstr "WINE"
 
 #. Desktop Environment
 #: ../menulibre/MenulibreApplication.py:70
@@ -428,8 +440,9 @@ msgid "Desktop configuration"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:71
+#, fuzzy
 msgid "User configuration"
-msgstr ""
+msgstr "시작 알림을 사용"
 
 #: ../menulibre/MenulibreApplication.py:72
 msgid "Hardware configuration"
@@ -437,12 +450,14 @@ msgstr ""
 
 #. GNOME Specific
 #: ../menulibre/MenulibreApplication.py:74
+#, fuzzy
 msgid "GNOME application"
-msgstr ""
+msgstr "프로그램"
 
 #: ../menulibre/MenulibreApplication.py:75
+#, fuzzy
 msgid "GTK+ application"
-msgstr ""
+msgstr "프로그램"
 
 #: ../menulibre/MenulibreApplication.py:76
 msgid "GNOME user configuration"
@@ -486,20 +501,23 @@ msgid "Other"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:378
+#, fuzzy
 msgid "Add _Launcher..."
-msgstr ""
+msgstr "런처 추가"
 
 #: ../menulibre/MenulibreApplication.py:379
+#, fuzzy
 msgid "Add Launcher..."
-msgstr ""
+msgstr "런처 추가"
 
 #: ../menulibre/MenulibreApplication.py:385
 msgid "Add _Directory..."
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:386
+#, fuzzy
 msgid "Add Directory..."
-msgstr ""
+msgstr "작업중인 폴더"
 
 #: ../menulibre/MenulibreApplication.py:392
 msgid "_Add Separator..."
@@ -510,26 +528,30 @@ msgid "Add Separator..."
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:399
+#, fuzzy
 msgid "_Save"
-msgstr ""
+msgstr "저장"
 
 #: ../menulibre/MenulibreApplication.py:400
 #: ../menulibre/MenulibreApplication.py:1007
 #: ../menulibre/MenulibreApplication.py:1385
 msgid "Save"
-msgstr ""
+msgstr "저장"
 
 #: ../menulibre/MenulibreApplication.py:406
+#, fuzzy
 msgid "_Undo"
-msgstr ""
+msgstr "실행취소"
 
 #: ../menulibre/MenulibreApplication.py:413
+#, fuzzy
 msgid "_Redo"
-msgstr ""
+msgstr "재실행"
 
 #: ../menulibre/MenulibreApplication.py:420
+#, fuzzy
 msgid "_Revert"
-msgstr ""
+msgstr "되돌리기"
 
 #: ../menulibre/MenulibreApplication.py:427
 msgid "_Delete"
@@ -546,12 +568,13 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:441
 msgid "_Contents"
-msgstr ""
+msgstr "목록(_C)"
 
 #: ../menulibre/MenulibreApplication.py:442
 #: ../menulibre/MenulibreApplication.py:2263
+#, fuzzy
 msgid "Help"
-msgstr ""
+msgstr "도움말(_H)"
 
 #: ../menulibre/MenulibreApplication.py:448
 msgid "_About"
@@ -572,12 +595,14 @@ msgid "ThisEntry"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:804
+#, fuzzy
 msgid "Select a category"
-msgstr ""
+msgstr "아이콘 선택"
 
 #: ../menulibre/MenulibreApplication.py:807
+#, fuzzy
 msgid "Category Name"
-msgstr ""
+msgstr "카테고리"
 
 #: ../menulibre/MenulibreApplication.py:812
 msgid "Description"
@@ -602,8 +627,9 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1004
 #: ../menulibre/MenulibreApplication.py:1382
+#, fuzzy
 msgid "Save Changes"
-msgstr ""
+msgstr "모든 변경 사항 저장하기"
 
 #: ../menulibre/MenulibreApplication.py:1005
 #: ../menulibre/MenulibreApplication.py:1383
@@ -611,8 +637,9 @@ msgid "Don't Save"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1127
+#, fuzzy
 msgid "Select an image"
-msgstr ""
+msgstr "이미지 선택"
 
 #: ../menulibre/MenulibreApplication.py:1131
 #: ../menulibre/MenulibreApplication.py:1238
@@ -620,12 +647,14 @@ msgid "OK"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1230
+#, fuzzy
 msgid "Select a working directory..."
-msgstr ""
+msgstr "작업중인 폴더"
 
 #: ../menulibre/MenulibreApplication.py:1234
+#, fuzzy
 msgid "Select an executable..."
-msgstr ""
+msgstr "이미지 선택"
 
 #: ../menulibre/MenulibreApplication.py:1373
 msgid "Do you want to save the changes before leaving this launcher?"
@@ -640,21 +669,25 @@ msgid "You do not have permission to delete this file."
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1928
+#, fuzzy
 msgid "New Launcher"
-msgstr ""
+msgstr "새로운 런처 추가(_N)"
 
 #: ../menulibre/MenulibreApplication.py:1966
+#, fuzzy
 msgid "New Directory"
-msgstr ""
+msgstr "작업중인 폴더"
 
 #: ../menulibre/MenulibreApplication.py:2179
+#, fuzzy
 msgid "Are you sure you want to restore this launcher?"
-msgstr ""
+msgstr "정말 이 런처를 삭제하길 원하십니까? 이 작업은 되돌릴 수 없습니다."
 
 #: ../menulibre/MenulibreApplication.py:2185
 #: ../menulibre/MenulibreApplication.py:2186
+#, fuzzy
 msgid "Restore Launcher"
-msgstr ""
+msgstr "런처 추가"
 
 #: ../menulibre/MenulibreApplication.py:2187
 msgid ""
@@ -695,8 +728,9 @@ msgstr ""
 
 #. Populate the AboutDialog with all the relevant details.
 #: ../menulibre/MenulibreApplication.py:2312
+#, fuzzy
 msgid "About MenuLibre"
-msgstr ""
+msgstr "MenuLibre"
 
 #: ../menulibre/MenulibreApplication.py:2315
 msgid "Copyright © 2012-2014 Sean Davis"
@@ -709,3 +743,63 @@ msgstr ""
 #: ../menulibre/MenulibreXdg.py:48
 msgid "A small descriptive blurb about this application."
 msgstr ""
+
+#~ msgid "48x48"
+#~ msgstr "48x48"
+
+#~ msgid "32x32"
+#~ msgstr "32x32"
+
+#~ msgid "24x24"
+#~ msgstr "24x24"
+
+#~ msgid "16x16"
+#~ msgstr "16x16"
+
+#~ msgid "128x128"
+#~ msgstr "128x128"
+
+#~ msgid "Undo the last action"
+#~ msgstr "마지막 실행을 되돌림"
+
+#~ msgid "Redo the last undone action"
+#~ msgstr "가장 최근의 동작을 다시 실행"
+
+#~ msgid "Revert all changes to last saved state"
+#~ msgstr "가장 최근의 저장 상태로 되돌리기"
+
+#~ msgid "<b>No applications found.</b>"
+#~ msgstr "<b>프로그램을 찾을 수 없습니다.</b>"
+
+#~ msgid "Try searching everything."
+#~ msgstr "모든 사항을 검색합니다."
+
+#~ msgid "<i>A quick snippet about your application.</i>"
+#~ msgstr "<i>응용프로그램에 대한 빠른 미리보기</b>"
+
+#~ msgid "<b>Categories</b>"
+#~ msgstr "<b>분류</b>"
+
+#~ msgid "General Settings"
+#~ msgstr "일반 설정"
+
+#~ msgid "Editor"
+#~ msgstr "편집기"
+
+#~ msgid "label"
+#~ msgstr "레이블"
+
+#~ msgid "Delete this launcher..."
+#~ msgstr "이 런처 삭제"
+
+#~ msgid "<big><b>Remove Launcher?</b></big>"
+#~ msgstr "<big><b>런처를 제거합니까?</b></big>"
+
+#~ msgid "Image"
+#~ msgstr "이미지"
+
+#~ msgid "Show debug messages (-vv debugs menulibre_lib also)"
+#~ msgstr "디버그 메시지 보여주기 (-vv debugs menulibre_lib also)"
+
+#~ msgid "Edit System and User Menus with ease"
+#~ msgstr "쉽게 시스템 및 사용자메뉴 편집"
