@@ -1,1 +1,16 @@
-Menulibre README *add details later*
+MenuLibre is an advanced FreeDesktop.org compliant menu editor.
+
+All fields specified in the FreeDesktop.org Desktop Entry and Menu 
+specifications are available to quickly update.
+Additionally, MenuLibre provides an editor for the launcher actions 
+used by applications such as Unity and Plank.
+
+Dependencies: gir1.2-gdkpixbuf-2.0, gir1.2-glib-2.0, 
+    gir1.2-gmenu-3.0 (>= 3.5.3), gir1.2-gtk-3.0, 
+    gnome-menus (>= 3.5.3), python3, python3-gi (>= 3.0)
+
+Please report comments, suggestions, and bugs to:
+    Sean Davis <smd.seandavis@gmail.com>
+
+Check for new versions at:
+    https://launchpad.net/menulibre
