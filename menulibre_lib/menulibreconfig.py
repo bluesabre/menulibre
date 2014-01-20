@@ -55,7 +55,7 @@ def get_data_path():
     """
     if __menulibre_data_directory__ == '../data/':
         path = os.path.join(
-59         os.path.dirname(__file__), __menulibre_data_directory__)
+            os.path.dirname(__file__), __menulibre_data_directory__)
         abs_data_path = os.path.abspath(path)
     else:
         abs_data_path = os.path.abspath(__menulibre_data_directory__)
