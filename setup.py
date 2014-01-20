@@ -142,9 +142,9 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
         target_pkgdata = os.path.realpath(target_pkgdata)
         target_scripts = os.path.realpath(target_scripts)
 
-        print("Target Data:    %s" % target_data)
-        print("Target PkgData: %s" % target_pkgdata)
-        print("Target Scripts: %s\n" % target_scripts)
+        print(("Target Data:    %s" % target_data))
+        print(("Target PkgData: %s" % target_pkgdata))
+        print(("Target Scripts: %s\n" % target_scripts))
 
         values = {'__menulibre_data_directory__': "'%s'" % (target_pkgdata),
                   '__version__': "'%s'" % self.distribution.get_version()}
