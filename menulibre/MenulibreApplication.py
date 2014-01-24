@@ -611,7 +611,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Configure the Selection
         selection = self.treeview.get_selection()
-        selection.set_select_function(self.on_treeview_selection)
+        selection.set_select_function(self.on_treeview_selection, None)
 
     def configure_application_editor(self, builder):
         """Configure the editor frame."""
@@ -1367,7 +1367,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # Renable updates to history.
             self.history.unblock()
 
-    def on_treeview_selection(self, sel, store, path, is_selected):
+    def on_treeview_selection(self, sel, store, path, is_selected,
+                                user_data=None):
         """Save changes on cursor change."""
         if is_selected and self.save_button.get_sensitive():
             question = _("Do you want to save the changes before leaving this "

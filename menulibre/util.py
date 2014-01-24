@@ -18,6 +18,9 @@
 import os
 import re
 
+import getpass
+import psutil
+
 from gi.repository import GLib
 
 import logging
@@ -36,6 +39,20 @@ MenuItemTypes = enum(
 )
 
 
+def getProcessList():
+    """Return a list of unique process names for the current user."""
+    username = getpass.getuser()
+    pids = psutil.get_pid_list()
+    processes = []
+    for pid in pids:
+        process = psutil.Process(pid)
+        if process.username == username:
+            name = process.name
+            if name not in processes:
+                processes.append(process.name)
+    return processes
+
+
 def getDefaultMenuPrefix():
     """Return the default menu prefix."""
     prefix = os.environ.get('XDG_MENU_PREFIX', '')
@@ -44,6 +61,11 @@ def getDefaultMenuPrefix():
     if prefix == "":
         if 'cinnamon' in os.environ.get('DESKTOP_SESSION', ''):
             prefix = 'cinnamon-'
+
+    if prefix == "":
+        processes = getProcessList()
+        if 'xfce4-panel' in processes:
+            prefix = 'xfce-'
 
     if len(prefix) == 0:
         logger.warning("No menu prefix found, MenuLibre will not function "
