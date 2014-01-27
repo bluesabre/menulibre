@@ -1,5 +1,13 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+26 Jan 2014, MenuLibre 2.0.1
+
+- General:
+  . Additional fallback code for detecting the user session
+  . python-gi API fixes for Debian (Fixes LP: #1271914)
+- setup.py
+  . Do not install *.pot files.
+
 20 Jan 2014, MenuLibre 2.0
 
 - General:
