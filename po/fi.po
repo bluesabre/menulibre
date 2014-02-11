@@ -6,45 +6,40 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-01-20 09:38-0500\n"
 "PO-Revision-Date: 2013-07-19 09:59+0000\n"
 "Last-Translator: Pasi Lallinaho <pasi@shimmerproject.org>\n"
 "Language-Team: Finnish <fi@li.org>\n"
-"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-12-05 06:07+0000\n"
-"X-Generator: Launchpad (build 16863)\n"
+"X-Launchpad-Export-Date: 2014-02-11 06:37+0000\n"
+"X-Generator: Launchpad (build 16916)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
 msgstr "Valikkomuokkain"
 
 #: ../menulibre.desktop.in.h:2
-#, fuzzy
 msgid "Add or remove applications from the menu"
-msgstr "Lisää uusi sovelluskäynnistin"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:1
-#, fuzzy
 msgid "Add _Launcher"
-msgstr "Lisää käynnistin"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:2
-#, fuzzy
 msgid "Add _Directory"
-msgstr "Työkansio"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Add _Separator"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:4
-#, fuzzy
 msgid "Icon Selection"
-msgstr "Valitse kuvake"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1006
 #: ../menulibre/MenulibreApplication.py:1130
@@ -68,9 +63,8 @@ msgid "Image File"
 msgstr "Kuvatiedosto"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
-#, fuzzy
 msgid "<b>Select an image</b>"
-msgstr "Valitse kuva"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "16px"
@@ -93,14 +87,12 @@ msgid "<b>Preview</b>"
 msgstr "<b>Esikatselu</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
-#, fuzzy
 msgid "Select an icon..."
-msgstr "Valitse kuvake"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:16
-#, fuzzy
 msgid "<b>Select an icon</b>"
-msgstr "<b>Valitse kuvake</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "column"
@@ -124,9 +116,8 @@ msgid "_Help"
 msgstr "_Ohje"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
-#, fuzzy
 msgid "Save Launcher"
-msgstr "Lisää käynnistin"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:407
 msgid "Undo"
@@ -157,9 +148,8 @@ msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>Sovelluksen nimi</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
-#, fuzzy
 msgid "Application Comment"
-msgstr "Sovellus"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid ""
@@ -189,9 +179,8 @@ msgid "Browse..."
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:38
-#, fuzzy
 msgid "<b>Application Details</b>"
-msgstr "<b>Sovelluksen asetukset</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "\"Terminal\": Whether the program runs in a terminal window."
@@ -258,14 +247,13 @@ msgid "Name"
 msgstr "Nimi"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
-#, fuzzy
 msgid "Actions"
-msgstr "Sovellukset"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid ""
-"\"GenericName\": Generic name of the application, for example \"Web Browser"
-"\". "
+"\"GenericName\": Generic name of the application, for example \"Web "
+"Browser\". "
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:54
@@ -377,9 +365,8 @@ msgid "Advanced"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:76
-#, fuzzy
 msgid "<small><i>Filename</i></small>"
-msgstr "<small>Tiedoston nimi</small>"
+msgstr ""
 
 #: ../menulibre/__init__.py:33
 msgid "Show debug messages"
@@ -441,9 +428,8 @@ msgid "Desktop configuration"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:71
-#, fuzzy
 msgid "User configuration"
-msgstr "Käytä käytnnistyksen huomautusta"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:72
 msgid "Hardware configuration"
@@ -451,14 +437,12 @@ msgstr ""
 
 #. GNOME Specific
 #: ../menulibre/MenulibreApplication.py:74
-#, fuzzy
 msgid "GNOME application"
-msgstr "Sovellus"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:75
-#, fuzzy
 msgid "GTK+ application"
-msgstr "Sovellus"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:76
 msgid "GNOME user configuration"
@@ -476,9 +460,8 @@ msgstr ""
 #. Xfce Specific
 #: ../menulibre/MenulibreApplication.py:81
 #: ../menulibre/MenulibreApplication.py:82
-#, fuzzy
 msgid "Xfce menu item"
-msgstr "Uusi valikkokohta"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:83
 msgid "Xfce toplevel menu item"
@@ -503,39 +486,32 @@ msgid "Other"
 msgstr "Muut"
 
 #: ../menulibre/MenulibreApplication.py:378
-#, fuzzy
 msgid "Add _Launcher..."
-msgstr "Lisää käynnistin"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:379
-#, fuzzy
 msgid "Add Launcher..."
-msgstr "Lisää käynnistin"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:385
-#, fuzzy
 msgid "Add _Directory..."
-msgstr "Lisää kategoria..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:386
-#, fuzzy
 msgid "Add Directory..."
-msgstr "Lisää kategoria..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:392
-#, fuzzy
 msgid "_Add Separator..."
-msgstr "Lisää kategoria..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:393
-#, fuzzy
 msgid "Add Separator..."
-msgstr "Lisää kategoria..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:399
-#, fuzzy
 msgid "_Save"
-msgstr "Tallenna"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:400
 #: ../menulibre/MenulibreApplication.py:1007
@@ -544,19 +520,16 @@ msgid "Save"
 msgstr "Tallenna"
 
 #: ../menulibre/MenulibreApplication.py:406
-#, fuzzy
 msgid "_Undo"
-msgstr "Kumoa"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:413
-#, fuzzy
 msgid "_Redo"
-msgstr "Tee uudelleen"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:420
-#, fuzzy
 msgid "_Revert"
-msgstr "Palauta ennalleen"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:427
 msgid "_Delete"
@@ -577,9 +550,8 @@ msgstr "_Sisällys"
 
 #: ../menulibre/MenulibreApplication.py:442
 #: ../menulibre/MenulibreApplication.py:2263
-#, fuzzy
 msgid "Help"
-msgstr "_Ohje"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:448
 msgid "_About"
@@ -600,14 +572,12 @@ msgid "ThisEntry"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:804
-#, fuzzy
 msgid "Select a category"
-msgstr "Valitse kuvake"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:807
-#, fuzzy
 msgid "Category Name"
-msgstr "Kategoria"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:812
 msgid "Description"
@@ -632,9 +602,8 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1004
 #: ../menulibre/MenulibreApplication.py:1382
-#, fuzzy
 msgid "Save Changes"
-msgstr "Tallenna kaikki muutokset"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1005
 #: ../menulibre/MenulibreApplication.py:1383
@@ -642,9 +611,8 @@ msgid "Don't Save"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1127
-#, fuzzy
 msgid "Select an image"
-msgstr "Valitse kuva"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1131
 #: ../menulibre/MenulibreApplication.py:1238
@@ -652,14 +620,12 @@ msgid "OK"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1230
-#, fuzzy
 msgid "Select a working directory..."
-msgstr "Työkansio"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1234
-#, fuzzy
 msgid "Select an executable..."
-msgstr "Valitse suoritettava kohde"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1373
 msgid "Do you want to save the changes before leaving this launcher?"
@@ -674,27 +640,21 @@ msgid "You do not have permission to delete this file."
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1928
-#, fuzzy
 msgid "New Launcher"
-msgstr "_Lisää uusi käynnistin"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1966
-#, fuzzy
 msgid "New Directory"
-msgstr "Työkansio"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2179
-#, fuzzy
 msgid "Are you sure you want to restore this launcher?"
 msgstr ""
-"Oletko varma että haluat poistaa tämän käynnistimen? Tätä toimintoa ei voi "
-"kumota."
 
 #: ../menulibre/MenulibreApplication.py:2185
 #: ../menulibre/MenulibreApplication.py:2186
-#, fuzzy
 msgid "Restore Launcher"
-msgstr "Lisää käynnistin"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2187
 msgid ""
@@ -707,11 +667,9 @@ msgid "Are you sure you want to delete this separator?"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2205
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr ""
-"Oletko varma että haluat poistaa käynnistimen \"%s\"?\n"
-"Tätä toimintoa ei voi kumota."
 
 #: ../menulibre/MenulibreApplication.py:2207
 msgid "This cannot be undone."
@@ -737,9 +695,8 @@ msgstr ""
 
 #. Populate the AboutDialog with all the relevant details.
 #: ../menulibre/MenulibreApplication.py:2312
-#, fuzzy
 msgid "About MenuLibre"
-msgstr "MenuLibre"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2315
 msgid "Copyright © 2012-2014 Sean Davis"
@@ -752,133 +709,3 @@ msgstr "Uusi valikkokohta"
 #: ../menulibre/MenulibreXdg.py:48
 msgid "A small descriptive blurb about this application."
 msgstr "Lyhyt kuvaus tästä sovelluksesta."
-
-#~ msgid "48x48"
-#~ msgstr "48x48"
-
-#~ msgid "32x32"
-#~ msgstr "32x32"
-
-#~ msgid "24x24"
-#~ msgstr "24x24"
-
-#~ msgid "16x16"
-#~ msgstr "16x16"
-
-#~ msgid "128x128"
-#~ msgstr "128x128"
-
-#~ msgid "Undo the last action"
-#~ msgstr "Kumoa viimeisin toiminto"
-
-#~ msgid "Redo the last undone action"
-#~ msgstr "Tee viimeisin kumottu toiminto uudelleen"
-
-#~ msgid "Revert all changes to last saved state"
-#~ msgstr ""
-#~ "Palauta ennalleen kaikki muutokset ja palaa viimeiseen tallennettuun "
-#~ "tilaan"
-
-#~ msgid "<b>No applications found.</b>"
-#~ msgstr "<b>Sovelluksia ei löytynyt.</b>"
-
-#~ msgid "Try searching everything."
-#~ msgstr "Kokeile hakea kaikkea."
-
-#~ msgid "Search Failed"
-#~ msgstr "Haku epäonnistui."
-
-#~ msgid "<i>A quick snippet about your application.</i>"
-#~ msgstr "<i>Lyhyt kuvaus sovelluksestasi.</i>"
-
-#~ msgid "Remove category"
-#~ msgstr "Poista kategoria"
-
-#~ msgid "Clear categories"
-#~ msgstr "Tyhjennä kategoriat"
-
-#~ msgid "<b>Categories</b>"
-#~ msgstr "<b>Kategoriat</b>"
-
-#~ msgid "General Settings"
-#~ msgstr "Yleiset asetukset"
-
-#~ msgid "Shortcut Name"
-#~ msgstr "Pikakuvakkeen nimi"
-
-#~ msgid "Displayed Name"
-#~ msgstr "Näytettävä nimi"
-
-#~ msgid "Quicklists"
-#~ msgstr "Pikavalikot"
-
-#~ msgid "Editor"
-#~ msgstr "Tekstieditori"
-
-#~ msgid "label"
-#~ msgstr "nimi"
-
-#~ msgid "Delete this launcher..."
-#~ msgstr "Poista tämä käynnistin..."
-
-#~ msgid "Add Quicklist"
-#~ msgstr "Lisää pikavalikko"
-
-#~ msgid "Remove Quicklist"
-#~ msgstr "Poista pikavalikko"
-
-#~ msgid "Application Settings"
-#~ msgstr "Sovelluksen asetukset"
-
-#~ msgid "<big><b>Remove Launcher?</b></big>"
-#~ msgstr "<big><b>Poista tämä käynnistin?</b></big>"
-
-#~ msgid "Search Applications"
-#~ msgstr "Etsi sovelluksia"
-
-#~ msgid "Image"
-#~ msgstr "Kuva"
-
-#~ msgid "%s (Required)"
-#~ msgstr "%s (vaadittu)"
-
-#~ msgid "Search %s"
-#~ msgstr "Etsi kohteesta %s"
-
-#~ msgid ""
-#~ "Are you sure you wish to remove \"%s\"?\n"
-#~ "The menu item will be restored to system defaults."
-#~ msgstr ""
-#~ "Oletko varma että haluat poistaa käynnistimen \"%s\"?\n"
-#~ "Tämän käynnistimen asetukset palautetaan järjestelmän oletusasetuksiksi."
-
-#~ msgid "NewShortcut"
-#~ msgstr "UusiPikakuvake"
-
-#~ msgid "Unknown"
-#~ msgstr "Tuntematon"
-
-#~ msgid "All Applications"
-#~ msgstr "Kaikki sovellukset"
-
-#~ msgid "'%s' is not a .desktop file"
-#~ msgstr "'%s' ei ole .desktop -tiedosto"
-
-#~ msgid "Initialized without required parameters."
-#~ msgstr "Alustettu ilman vaadittavia parametrejä."
-
-#~ msgid "'%s' is not a .directory file"
-#~ msgstr "'%s' ei ole .directory -tiedosto"
-
-#~ msgid "Show debug messages (-vv debugs menulibre_lib also)"
-#~ msgstr ""
-#~ "Näytä virheilmoitukset (-vv näyttää myös menulibre_libin virheilmoitukset)"
-
-#~ msgid "Edit System and User Menus with ease"
-#~ msgstr "Muokkaa järjestelmä- ja käyttävalikoita helposti"
-
-#~ msgid "Edit user menus"
-#~ msgstr "Muokkaa käyttäjävalikoita"
-
-#~ msgid "Edit system menus"
-#~ msgstr "Muokkaa järjestelmävalikoita"

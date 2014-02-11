@@ -6,45 +6,40 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-01-20 09:38-0500\n"
 "PO-Revision-Date: 2013-05-28 10:23+0000\n"
 "Last-Translator: ub <xenolith0bytetestcomgreen@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-12-05 06:07+0000\n"
-"X-Generator: Launchpad (build 16863)\n"
+"X-Launchpad-Export-Date: 2014-02-11 06:37+0000\n"
+"X-Generator: Launchpad (build 16916)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
 msgstr "メニュー・エディター"
 
 #: ../menulibre.desktop.in.h:2
-#, fuzzy
 msgid "Add or remove applications from the menu"
-msgstr "アプリケーション・ランチャを追加"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:1
-#, fuzzy
 msgid "Add _Launcher"
-msgstr "ランチャーを追加"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:2
-#, fuzzy
 msgid "Add _Directory"
-msgstr "作業ディレクトリー"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Add _Separator"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:4
-#, fuzzy
 msgid "Icon Selection"
-msgstr "アイコンを選択"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1006
 #: ../menulibre/MenulibreApplication.py:1130
@@ -68,9 +63,8 @@ msgid "Image File"
 msgstr "画像ファイル"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
-#, fuzzy
 msgid "<b>Select an image</b>"
-msgstr "画像を選択"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "16px"
@@ -93,14 +87,12 @@ msgid "<b>Preview</b>"
 msgstr "<b>プレビュー</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
-#, fuzzy
 msgid "Select an icon..."
-msgstr "アイコンを選択"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:16
-#, fuzzy
 msgid "<b>Select an icon</b>"
-msgstr "<b>アイコンを選択</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "column"
@@ -124,9 +116,8 @@ msgid "_Help"
 msgstr "ヘルプ(_H)"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
-#, fuzzy
 msgid "Save Launcher"
-msgstr "ランチャーを追加"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:407
 msgid "Undo"
@@ -157,9 +148,8 @@ msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>アプリケーション名</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
-#, fuzzy
 msgid "Application Comment"
-msgstr "アプリケーション"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid ""
@@ -189,9 +179,8 @@ msgid "Browse..."
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:38
-#, fuzzy
 msgid "<b>Application Details</b>"
-msgstr "<b>アプリケーションの設定</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "\"Terminal\": Whether the program runs in a terminal window."
@@ -258,14 +247,13 @@ msgid "Name"
 msgstr "名前"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
-#, fuzzy
 msgid "Actions"
-msgstr "アプリケーション"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid ""
-"\"GenericName\": Generic name of the application, for example \"Web Browser"
-"\". "
+"\"GenericName\": Generic name of the application, for example \"Web "
+"Browser\". "
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:54
@@ -377,9 +365,8 @@ msgid "Advanced"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:76
-#, fuzzy
 msgid "<small><i>Filename</i></small>"
-msgstr "<small>ファイル名</small>"
+msgstr ""
 
 #: ../menulibre/__init__.py:33
 msgid "Show debug messages"
@@ -441,9 +428,8 @@ msgid "Desktop configuration"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:71
-#, fuzzy
 msgid "User configuration"
-msgstr "起動の通知"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:72
 msgid "Hardware configuration"
@@ -451,14 +437,12 @@ msgstr ""
 
 #. GNOME Specific
 #: ../menulibre/MenulibreApplication.py:74
-#, fuzzy
 msgid "GNOME application"
-msgstr "アプリケーション"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:75
-#, fuzzy
 msgid "GTK+ application"
-msgstr "アプリケーション"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:76
 msgid "GNOME user configuration"
@@ -476,9 +460,8 @@ msgstr ""
 #. Xfce Specific
 #: ../menulibre/MenulibreApplication.py:81
 #: ../menulibre/MenulibreApplication.py:82
-#, fuzzy
 msgid "Xfce menu item"
-msgstr "新しいメニューアイテム"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:83
 msgid "Xfce toplevel menu item"
@@ -503,39 +486,32 @@ msgid "Other"
 msgstr "その他"
 
 #: ../menulibre/MenulibreApplication.py:378
-#, fuzzy
 msgid "Add _Launcher..."
-msgstr "ランチャーを追加"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:379
-#, fuzzy
 msgid "Add Launcher..."
-msgstr "ランチャーを追加"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:385
-#, fuzzy
 msgid "Add _Directory..."
-msgstr "カテゴリーの追加..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:386
-#, fuzzy
 msgid "Add Directory..."
-msgstr "カテゴリーの追加..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:392
-#, fuzzy
 msgid "_Add Separator..."
-msgstr "カテゴリーの追加..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:393
-#, fuzzy
 msgid "Add Separator..."
-msgstr "カテゴリーの追加..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:399
-#, fuzzy
 msgid "_Save"
-msgstr "保存"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:400
 #: ../menulibre/MenulibreApplication.py:1007
@@ -544,19 +520,16 @@ msgid "Save"
 msgstr "保存"
 
 #: ../menulibre/MenulibreApplication.py:406
-#, fuzzy
 msgid "_Undo"
-msgstr "アンドゥ"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:413
-#, fuzzy
 msgid "_Redo"
-msgstr "リドゥ"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:420
-#, fuzzy
 msgid "_Revert"
-msgstr "戻す"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:427
 msgid "_Delete"
@@ -577,9 +550,8 @@ msgstr "目次(_C)"
 
 #: ../menulibre/MenulibreApplication.py:442
 #: ../menulibre/MenulibreApplication.py:2263
-#, fuzzy
 msgid "Help"
-msgstr "ヘルプ(_H)"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:448
 msgid "_About"
@@ -600,14 +572,12 @@ msgid "ThisEntry"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:804
-#, fuzzy
 msgid "Select a category"
-msgstr "アイコンを選択"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:807
-#, fuzzy
 msgid "Category Name"
-msgstr "カテゴリー"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:812
 msgid "Description"
@@ -632,9 +602,8 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1004
 #: ../menulibre/MenulibreApplication.py:1382
-#, fuzzy
 msgid "Save Changes"
-msgstr "変更を保存"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1005
 #: ../menulibre/MenulibreApplication.py:1383
@@ -642,9 +611,8 @@ msgid "Don't Save"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1127
-#, fuzzy
 msgid "Select an image"
-msgstr "画像を選択"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1131
 #: ../menulibre/MenulibreApplication.py:1238
@@ -652,14 +620,12 @@ msgid "OK"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1230
-#, fuzzy
 msgid "Select a working directory..."
-msgstr "作業ディレクトリー"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1234
-#, fuzzy
 msgid "Select an executable..."
-msgstr "実行ファイルを選択"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1373
 msgid "Do you want to save the changes before leaving this launcher?"
@@ -674,25 +640,21 @@ msgid "You do not have permission to delete this file."
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1928
-#, fuzzy
 msgid "New Launcher"
-msgstr "ランチャーを追加(_N)"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1966
-#, fuzzy
 msgid "New Directory"
-msgstr "作業ディレクトリー"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2179
-#, fuzzy
 msgid "Are you sure you want to restore this launcher?"
-msgstr "ランチャーを消そうとしています。この操作は取り消せません。"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2185
 #: ../menulibre/MenulibreApplication.py:2186
-#, fuzzy
 msgid "Restore Launcher"
-msgstr "ランチャーを追加"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2187
 msgid ""
@@ -705,11 +667,9 @@ msgid "Are you sure you want to delete this separator?"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2205
-#, fuzzy, python-format
+#, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr ""
-"\"%s\"を削除しますか？\n"
-"この操作は取り消せません。"
 
 #: ../menulibre/MenulibreApplication.py:2207
 msgid "This cannot be undone."
@@ -735,14 +695,12 @@ msgstr ""
 
 #. Populate the AboutDialog with all the relevant details.
 #: ../menulibre/MenulibreApplication.py:2312
-#, fuzzy
 msgid "About MenuLibre"
-msgstr "MenuLibre"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2315
-#, fuzzy
 msgid "Copyright © 2012-2014 Sean Davis"
-msgstr "Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>"
+msgstr ""
 
 #: ../menulibre/MenulibreXdg.py:46
 msgid "New Menu Item"
@@ -751,163 +709,3 @@ msgstr "新しいメニューアイテム"
 #: ../menulibre/MenulibreXdg.py:48
 msgid "A small descriptive blurb about this application."
 msgstr "このアプリの簡単な紹介"
-
-#~ msgid "48x48"
-#~ msgstr "48x48"
-
-#~ msgid "32x32"
-#~ msgstr "32x32"
-
-#~ msgid "24x24"
-#~ msgstr "24x24"
-
-#~ msgid "16x16"
-#~ msgstr "16x16"
-
-#~ msgid "128x128"
-#~ msgstr "128x128"
-
-#~ msgid "Undo the last action"
-#~ msgstr "最後の操作をアンドゥ"
-
-#~ msgid "Redo the last undone action"
-#~ msgstr "最後の取り消し操作をリドゥ"
-
-#~ msgid "Revert all changes to last saved state"
-#~ msgstr "最後に保存した状態に戻す"
-
-#~ msgid "<b>No applications found.</b>"
-#~ msgstr "<b>アプリが見つかりません。</b>"
-
-#~ msgid "Try searching everything."
-#~ msgstr "すべて検索"
-
-#~ msgid "Search Failed"
-#~ msgstr "検索失敗"
-
-#~ msgid "<i>A quick snippet about your application.</i>"
-#~ msgstr "アプリケーションの概要"
-
-#~ msgid "Remove category"
-#~ msgstr "カテゴリーの削除"
-
-#~ msgid "Clear categories"
-#~ msgstr "カテゴリーのクリア"
-
-#~ msgid "<b>Categories</b>"
-#~ msgstr "<b>カテゴリー</b>"
-
-#~ msgid "General Settings"
-#~ msgstr "一般"
-
-#~ msgid "Shortcut Name"
-#~ msgstr "ショートカット名"
-
-#~ msgid "Displayed Name"
-#~ msgstr "表示名"
-
-#~ msgid "Quicklists"
-#~ msgstr "クイックリスト"
-
-#~ msgid "Editor"
-#~ msgstr "編集"
-
-#~ msgid "label"
-#~ msgstr "ラベル"
-
-#~ msgid "Delete this launcher..."
-#~ msgstr "ランチャーを削除..."
-
-#~ msgid "Add Quicklist"
-#~ msgstr "クイックリストの追加"
-
-#~ msgid "Remove Quicklist"
-#~ msgstr "クイックリストの削除"
-
-#~ msgid "Application Settings"
-#~ msgstr "アプリケーションの設定"
-
-#~ msgid "<big><b>Remove Launcher?</b></big>"
-#~ msgstr "<big><b>ランチャーを削除しますか？</b></big>"
-
-#~ msgid "Search Applications"
-#~ msgstr "アプリケーションを検索"
-
-#~ msgid "Image"
-#~ msgstr "画像"
-
-#~ msgid "%s (Required)"
-#~ msgstr "%s (必要)"
-
-#~ msgid "Search %s"
-#~ msgstr "%sを検索"
-
-#~ msgid ""
-#~ "Are you sure you wish to remove \"%s\"?\n"
-#~ "The menu item will be restored to system defaults."
-#~ msgstr ""
-#~ "\"%s\"を削除しますか？\n"
-#~ "メニューアイテムはシステムのデフォルトに戻ります。"
-
-#~ msgid "NewShortcut"
-#~ msgstr "新しいショートカット"
-
-#~ msgid "Unknown"
-#~ msgstr "不明"
-
-#~ msgid "All Applications"
-#~ msgstr "すべてのアプリケーション"
-
-#~ msgid ""
-#~ "# Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>\n"
-#~ "# This program is free software: you can redistribute it and/or modify "
-#~ "it \n"
-#~ "# under the terms of the GNU General Public License version 3, as "
-#~ "published \n"
-#~ "# by the Free Software Foundation.\n"
-#~ "# \n"
-#~ "# This program is distributed in the hope that it will be useful, but \n"
-#~ "# WITHOUT ANY WARRANTY; without even the implied warranties of \n"
-#~ "# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR \n"
-#~ "# PURPOSE.  See the GNU General Public License for more details.\n"
-#~ "# \n"
-#~ "# You should have received a copy of the GNU General Public License "
-#~ "along \n"
-#~ "# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
-#~ msgstr ""
-#~ "# Copyright (C) 2012-2013 Sean Davis <smd.seandavis@gmail.com>\n"
-#~ "# This program is free software: you can redistribute it and/or modify "
-#~ "it \n"
-#~ "# under the terms of the GNU General Public License version 3, as "
-#~ "published \n"
-#~ "# by the Free Software Foundation.\n"
-#~ "# \n"
-#~ "# This program is distributed in the hope that it will be useful, but \n"
-#~ "# WITHOUT ANY WARRANTY; without even the implied warranties of \n"
-#~ "# MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR \n"
-#~ "# PURPOSE.  See the GNU General Public License for more details.\n"
-#~ "# \n"
-#~ "# You should have received a copy of the GNU General Public License "
-#~ "along \n"
-#~ "# with this program.  If not, see <http://www.gnu.org/licenses/>.\n"
-
-#~ msgid "'%s' is not a .desktop file"
-#~ msgstr "%sは .desktopファイルではありません"
-
-#~ msgid "Initialized without required parameters."
-#~ msgstr "パラメーターなしで初期化"
-
-#~ msgid "'%s' is not a .directory file"
-#~ msgstr "%sは .directoryファイルではありません"
-
-#~ msgid "Show debug messages (-vv debugs menulibre_lib also)"
-#~ msgstr "デバッグ・メッセージを表示(-vv debugs menulibre_lib also)"
-
-#~ msgid "Edit System and User Menus with ease"
-#~ msgstr "システムとユーザーメニューを簡単に編集"
-
-#~ msgid "Edit user menus"
-#~ msgstr "ユーザーメニューの編集"
-
-#~ msgid "Edit system menus"
-#~ msgstr "システムメニューの編集"
