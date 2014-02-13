@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-01-20 09:38-0500\n"
-"PO-Revision-Date: 2013-04-19 11:17+0000\n"
-"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
+"PO-Revision-Date: 2014-02-12 18:15+0000\n"
+"Last-Translator: Rodion R. <rodikr2005@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-02-11 06:37+0000\n"
+"X-Launchpad-Export-Date: 2014-02-13 06:44+0000\n"
 "X-Generator: Launchpad (build 16916)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -23,23 +23,23 @@ msgstr "Редактор меню"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
-msgstr ""
+msgstr "Добавить или удалить приложения из меню"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Add _Launcher"
-msgstr ""
+msgstr "Добавить кнопку _запуска"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Add _Directory"
-msgstr ""
+msgstr "Добавить _каталог"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Add _Separator"
-msgstr ""
+msgstr "Добавить _разделитель"
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Icon Selection"
-msgstr ""
+msgstr "Выбор значка"
 
 #: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1006
 #: ../menulibre/MenulibreApplication.py:1130
@@ -48,11 +48,11 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:2184
 #: ../menulibre/MenulibreApplication.py:2290
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "Apply"
-msgstr ""
+msgstr "Применить"
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "Icon Name"
@@ -64,23 +64,23 @@ msgstr "Файл изображения"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid "<b>Select an image</b>"
-msgstr ""
+msgstr "<b>Выберите изображение</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "64px"
-msgstr ""
+msgstr "64px"
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "128px"
-msgstr ""
+msgstr "128px"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "<b>Preview</b>"
@@ -88,11 +88,11 @@ msgstr "<b>Предварительный просмотр</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Select an icon..."
-msgstr ""
+msgstr "Выберите значок..."
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid "<b>Select an icon</b>"
-msgstr ""
+msgstr "<b>Выберите значок</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "column"
@@ -117,7 +117,7 @@ msgstr "_Справка"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
 msgid "Save Launcher"
-msgstr ""
+msgstr "Соханить кнопку запуска"
 
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:407
 msgid "Undo"
@@ -133,7 +133,7 @@ msgstr "Восстановить"
 
 #: ../data/ui/MenulibreWindow.ui.h:26 ../menulibre/MenulibreApplication.py:428
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Move Up"
@@ -224,7 +224,7 @@ msgstr "<b>Опции</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Add"
-msgstr ""
+msgstr "Добавить"
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Remove"
@@ -319,7 +319,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Keywords"
-msgstr ""
+msgstr "Ключевые слова"
 
 #: ../data/ui/MenulibreWindow.ui.h:69
 msgid ""
@@ -370,12 +370,12 @@ msgstr ""
 
 #: ../menulibre/__init__.py:33
 msgid "Show debug messages"
-msgstr ""
+msgstr "Показывать отладочные сообщения"
 
 #: ../menulibre/MenuEditor.py:92 ../menulibre/MenulibreApplication.py:1334
 #: ../menulibre/MenulibreApplication.py:1998
 msgid "Separator"
-msgstr ""
+msgstr "Разделитель"
 
 #. Standard Items
 #: ../menulibre/MenulibreApplication.py:58
@@ -438,11 +438,11 @@ msgstr ""
 #. GNOME Specific
 #: ../menulibre/MenulibreApplication.py:74
 msgid "GNOME application"
-msgstr ""
+msgstr "GNOME приложение"
 
 #: ../menulibre/MenulibreApplication.py:75
 msgid "GTK+ application"
-msgstr ""
+msgstr "GTK+ приложение"
 
 #: ../menulibre/MenulibreApplication.py:76
 msgid "GNOME user configuration"
@@ -461,7 +461,7 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:81
 #: ../menulibre/MenulibreApplication.py:82
 msgid "Xfce menu item"
-msgstr ""
+msgstr "Элемент меню Xfce"
 
 #: ../menulibre/MenulibreApplication.py:83
 msgid "Xfce toplevel menu item"
@@ -487,15 +487,15 @@ msgstr "Прочее"
 
 #: ../menulibre/MenulibreApplication.py:378
 msgid "Add _Launcher..."
-msgstr ""
+msgstr "Добавить кнопку _запуска..."
 
 #: ../menulibre/MenulibreApplication.py:379
 msgid "Add Launcher..."
-msgstr ""
+msgstr "Добавить кнопку запуска..."
 
 #: ../menulibre/MenulibreApplication.py:385
 msgid "Add _Directory..."
-msgstr ""
+msgstr "Добавить _каталог..."
 
 #: ../menulibre/MenulibreApplication.py:386
 msgid "Add Directory..."
@@ -645,16 +645,16 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1966
 msgid "New Directory"
-msgstr ""
+msgstr "Новый каталог"
 
 #: ../menulibre/MenulibreApplication.py:2179
 msgid "Are you sure you want to restore this launcher?"
-msgstr ""
+msgstr "Вы уверены, что хотите восстановить эту кнопку запуска?"
 
 #: ../menulibre/MenulibreApplication.py:2185
 #: ../menulibre/MenulibreApplication.py:2186
 msgid "Restore Launcher"
-msgstr ""
+msgstr "Восстановить кнопку запуска"
 
 #: ../menulibre/MenulibreApplication.py:2187
 msgid ""
@@ -669,7 +669,7 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:2205
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr ""
+msgstr "Вы уверены, что хотите удалить \"%s\"?"
 
 #: ../menulibre/MenulibreApplication.py:2207
 msgid "This cannot be undone."
@@ -696,11 +696,11 @@ msgstr ""
 #. Populate the AboutDialog with all the relevant details.
 #: ../menulibre/MenulibreApplication.py:2312
 msgid "About MenuLibre"
-msgstr ""
+msgstr "О MenuLibre"
 
 #: ../menulibre/MenulibreApplication.py:2315
 msgid "Copyright © 2012-2014 Sean Davis"
-msgstr ""
+msgstr "Авторские права © 2012—2014 Sean Davis"
 
 #: ../menulibre/MenulibreXdg.py:46
 msgid "New Menu Item"
