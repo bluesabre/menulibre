@@ -2069,6 +2069,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             icon_name, filename)
         self.history.clear()
 
+        self.update_menus()
+
     def delete_separator(self, treeview, model, treeiter):
         """Remove a separator row from the treeview, update the menu files."""
         self.last_selected_path = -1
