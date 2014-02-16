@@ -124,6 +124,30 @@ class XmlMenuElement(Element):
         self.append(element)
         return element
 
+    def addInclude(self):
+        """Add an include <Include> to this XmlMenuElement.
+
+        Return a reference to that include XmlMenuElement"""
+        element = XmlMenuElement("Include")
+        self.append(element)
+        return element
+
+    def addCategory(self, category):
+        """Add a category <Category> to this XmlMenuElement. Used primarily for
+        Include and Exclude.
+
+        Return a reference to that category XmlMenuElement."""
+        element = XmlMenuElement("Category")
+        element.text = category
+        self.append(element)
+        return element
+
+    def addDefaults(self):
+        """Add Default Menu Items"""
+        SubElement(self, "DefaultAppDirs")
+        SubElement(self, "DefaultDirectoryDirs")
+        SubElement(self, "DefaultMergeDirs")
+
 
 class XmlMenuElementTree(ElementTree):
     """An extension of the ElementTree.ElementTree class which simplifies the
@@ -134,6 +158,13 @@ class XmlMenuElementTree(ElementTree):
         - menu_name    Name of the menu (e.g. Xfce, Gnome)
         - merge_file   Merge file, used for extending an existing menu."""
         root = XmlMenuElement("Menu", menu_name=menu_name)
+        root.addDefaults()
+
+        # Xfce toplevel support
+        if menu_name == 'Xfce':
+            include = root.addInclude()
+            include.addCategory("X-Xfce-Toplevel")
+
         if merge_file:
             root.addMergeFile(merge_file)
         super().__init__(root)
