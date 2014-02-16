@@ -31,6 +31,9 @@ from .util import MenuItemTypes
 
 from . import MenuEditor
 
+# Store user desktop directory location
+directories = util.getUserDirectoryPath()
+
 
 def indent(elem, level=0):
     """Indentation code to make XML output easier to read."""
@@ -66,13 +69,16 @@ class XmlMenuElement(Element):
         if menu_name:
             SubElement(self, "Name").text = menu_name
 
-    def addMenu(self, menu_name):
+    def addMenu(self, menu_name, filename=None):
         """Add a submenu <Menu> to this XmlMenuElement.
 
         Return a reference to that submenu XmlMenuElement."""
         menu = XmlMenuElement("Menu")
         self.append(menu)
         SubElement(menu, "Name").text = menu_name
+        if filename:
+            if filename.startswith(directories):
+                SubElement(menu, "DirectoryDir").text = directories
         return menu
 
     def addMenuname(self, menu_name):
@@ -203,7 +209,7 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
                     continue
             else:
                 directory_name = util.getDirectoryName(desktop)
-                next_element = menu_parent.addMenu(directory_name)
+                next_element = menu_parent.addMenu(directory_name, desktop)
 
             # Do Menus
             model_to_xml_menus(model, treeiter, next_element)
