@@ -1952,6 +1952,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Add launcher on directory should add to that directory
         if model[treeiter][2] == MenuItemTypes.DIRECTORY:
             new_iter = model.prepend(treeiter)
+            self.treeview.expand_row(model[treeiter].path, False)
         else:
             new_iter = model.insert_after(parent, treeiter)
         for i in range(len(row_data)):
