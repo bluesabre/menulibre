@@ -17,6 +17,7 @@
 
 import os
 import re
+import subprocess
 from locale import gettext as _
 
 from gi.repository import Gio, GObject, Gtk, Pango, Gdk, GdkPixbuf, GLib
@@ -1947,7 +1948,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if parent is None:
             # Toplevel Category
             categories = util.getRequiredCategories(None)
-        new_iter = model.insert_after(parent, treeiter)
+
+        # Add launcher on directory should add to that directory
+        if model[treeiter][2] == MenuItemTypes.DIRECTORY:
+            new_iter = model.prepend(treeiter)
+        else:
+            new_iter = model.insert_after(parent, treeiter)
         for i in range(len(row_data)):
             model[new_iter][i] = row_data[i]
 
@@ -2057,6 +2063,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             actions = self.get_editor_actions_string()
             if actions:
                 output.write(actions)
+
+        # Install the new item in its directory...
+        parent = model.iter_parent(treeiter)
+        parent_filename = model[parent][-1]
+        if parent_filename.startswith(util.getUserDirectoryPath()):
+            subprocess.call(["xdg-desktop-menu", "install", "--novendor",
+                            parent_filename, filename])
 
         # Set the editor to the new filename.
         self.set_value('Filename', filename)
