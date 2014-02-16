@@ -1393,6 +1393,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 return False
             # Don't Save allows leaving this launcher, deleting 'new'.
             elif response == Gtk.ResponseType.NO:
+                sel = self.treeview.get_selection()
+                if sel:
+                    treestore, treeiter = sel.get_selected()
+                    if not treestore:
+                        pass
+                    elif not treeiter:
+                        pass
+                    else:
+                        filename = treestore[treeiter][-1]
+                        if filename is None:
+                            self.delete_launcher(self.treeview, treestore,
+                                                treeiter)
+                            return False
                 return True
             # Save and move on.
             else:
@@ -2107,6 +2120,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         name = model[treeiter][0]
         item_type = model[treeiter][2]
         filename = model[treeiter][5]
+        treepath = model.get_path(treeiter)
         if filename is not None:
             if os.path.exists(filename):
                 os.remove(filename)
@@ -2144,9 +2158,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 model.remove(treeiter)
         else:
             model.remove(treeiter)
-        path = model.get_path(treeiter)
-        if path:
-            self.treeview.set_cursor(path)
+        if treepath:
+            self.treeview.set_cursor(treepath)
 
     def restore_launcher(self):
         """Revert the current launcher."""
