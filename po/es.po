@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-02-26 07:13+0000\n"
+"X-Launchpad-Export-Date: 2014-02-27 06:28+0000\n"
 "X-Generator: Launchpad (build 16935)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -113,7 +113,7 @@ msgstr "_Editar"
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "_Help"
-msgstr "_Ayuda"
+msgstr "Ay_uda"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
 msgid "Save Launcher"
@@ -145,7 +145,7 @@ msgstr "Mover hacia abajo"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Nombre de la aplicación</ b></big>"
+msgstr "<big><b>Nombre de la aplicación</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:30
 msgid "Application Comment"
