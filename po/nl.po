@@ -1,0 +1,725 @@
+# Dutch translation for menulibre
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the menulibre package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: menulibre\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-02-16 09:15-0500\n"
+"PO-Revision-Date: 2014-02-27 23:00+0000\n"
+"Last-Translator: Pjotr12345 <Unknown>\n"
+"Language-Team: Dutch <nl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2014-02-28 07:18+0000\n"
+"X-Generator: Launchpad (build 16948)\n"
+
+#: ../menulibre.desktop.in.h:1
+msgid "Menu Editor"
+msgstr "Menubewerker"
+
+#: ../menulibre.desktop.in.h:2
+msgid "Add or remove applications from the menu"
+msgstr "Toepassingen aan het menu toevoegen of daaruit verwijderen"
+
+#: ../data/ui/MenulibreWindow.ui.h:1
+msgid "Add _Launcher"
+msgstr "_Starter toevoegen"
+
+#: ../data/ui/MenulibreWindow.ui.h:2
+msgid "Add _Directory"
+msgstr "_Map toevoegen"
+
+#: ../data/ui/MenulibreWindow.ui.h:3
+msgid "Add _Separator"
+msgstr "Scheidings_lijn toevoegen"
+
+#: ../data/ui/MenulibreWindow.ui.h:4
+msgid "Icon Selection"
+msgstr "Pictogramselectie"
+
+#: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1007
+#: ../menulibre/MenulibreApplication.py:1131
+#: ../menulibre/MenulibreApplication.py:1238
+#: ../menulibre/MenulibreApplication.py:1386
+#: ../menulibre/MenulibreApplication.py:2221
+#: ../menulibre/MenulibreApplication.py:2327
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: ../data/ui/MenulibreWindow.ui.h:6
+msgid "Apply"
+msgstr "Toepassen"
+
+#: ../data/ui/MenulibreWindow.ui.h:7
+msgid "Icon Name"
+msgstr "Pictogramnaam"
+
+#: ../data/ui/MenulibreWindow.ui.h:8
+msgid "Image File"
+msgstr "Afbeeldingbestand"
+
+#: ../data/ui/MenulibreWindow.ui.h:9
+msgid "<b>Select an image</b>"
+msgstr "<b>Kies een afbeelding</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:10
+msgid "16px"
+msgstr "16px"
+
+#: ../data/ui/MenulibreWindow.ui.h:11
+msgid "32px"
+msgstr "32px"
+
+#: ../data/ui/MenulibreWindow.ui.h:12
+msgid "64px"
+msgstr "64px"
+
+#: ../data/ui/MenulibreWindow.ui.h:13
+msgid "128px"
+msgstr "128px"
+
+#: ../data/ui/MenulibreWindow.ui.h:14
+msgid "<b>Preview</b>"
+msgstr "<b>Voorbeeld</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:15
+msgid "Select an icon..."
+msgstr "Kies een pictogram…"
+
+#: ../data/ui/MenulibreWindow.ui.h:16
+msgid "<b>Select an icon</b>"
+msgstr "<b>Kies een pictogram</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:17
+msgid "column"
+msgstr "kolom"
+
+#: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:357
+#: ../menulibre/MenulibreApplication.py:2350
+msgid "MenuLibre"
+msgstr "MenuLibre"
+
+#: ../data/ui/MenulibreWindow.ui.h:19
+msgid "_File"
+msgstr "_Bestand"
+
+#: ../data/ui/MenulibreWindow.ui.h:20
+msgid "_Edit"
+msgstr "Be_werken"
+
+#: ../data/ui/MenulibreWindow.ui.h:21
+msgid "_Help"
+msgstr "_Hulp"
+
+#: ../data/ui/MenulibreWindow.ui.h:22
+msgid "Save Launcher"
+msgstr "Starter opslaan"
+
+#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:408
+msgid "Undo"
+msgstr "Ongedaan maken"
+
+#: ../data/ui/MenulibreWindow.ui.h:24 ../menulibre/MenulibreApplication.py:415
+msgid "Redo"
+msgstr "Opnieuw uitvoeren"
+
+#: ../data/ui/MenulibreWindow.ui.h:25 ../menulibre/MenulibreApplication.py:422
+msgid "Revert"
+msgstr "Terugdraaien"
+
+#: ../data/ui/MenulibreWindow.ui.h:26 ../menulibre/MenulibreApplication.py:429
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: ../data/ui/MenulibreWindow.ui.h:27
+msgid "Move Up"
+msgstr "Omhoog verplaatsen"
+
+#: ../data/ui/MenulibreWindow.ui.h:28
+msgid "Move Down"
+msgstr "Omlaag verplaatsen"
+
+#: ../data/ui/MenulibreWindow.ui.h:29
+msgid "<big><b>Application Name</b></big>"
+msgstr "<big><b>Naam van toepassing</b></big>"
+
+#: ../data/ui/MenulibreWindow.ui.h:30
+msgid "Application Comment"
+msgstr "Commentaar bij toepassing"
+
+#: ../data/ui/MenulibreWindow.ui.h:31
+msgid ""
+"\"Exec\": Program to execute, possibly with arguments. The Exec key is "
+"required if DBusActivatable is not set to true. Even if DBusActivatable is "
+"true, Exec should be specified for compatibility with implementations that "
+"do not understand DBusActivatable. \n"
+"\n"
+"Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
+"spec-latest.html#exec-variables for a list of supported arguments."
+msgstr ""
+"\"Exec\": Programma om uit te voeren, eventueel met argumenten. De Exec-"
+"toets is vereist indien DBusActivatable niet ingesteld is op 'waar'. Zelfs "
+"indien DBusActivatable 'waar' is,  zou Exec opgegeven moeten zijn voor "
+"verenigbaarheid met implementaties die DBusActivatable niet begrijpen. \n"
+"\n"
+"Zie a.u.b. http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
+"spec-latest.html#exec-variables voor een lijst van ondersteunde argumenten."
+
+#: ../data/ui/MenulibreWindow.ui.h:34
+msgid "Command"
+msgstr "Opdracht"
+
+#: ../data/ui/MenulibreWindow.ui.h:35
+msgid "\"Path\": The working directory to run the program in. "
+msgstr "'Pad': de werkmap om het programma in te draaien. "
+
+#: ../data/ui/MenulibreWindow.ui.h:36
+msgid "Working Directory"
+msgstr "Werkmap"
+
+#: ../data/ui/MenulibreWindow.ui.h:37
+msgid "Browse..."
+msgstr "Doorzoeken..."
+
+#: ../data/ui/MenulibreWindow.ui.h:38
+msgid "<b>Application Details</b>"
+msgstr "<b>Bijzonderheden van de toepassing</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:39
+msgid "\"Terminal\": Whether the program runs in a terminal window."
+msgstr "'Terminal': of het programma in een terminalvenster draait."
+
+#: ../data/ui/MenulibreWindow.ui.h:40
+msgid "Run in terminal"
+msgstr "In terminal draaien"
+
+#: ../data/ui/MenulibreWindow.ui.h:41
+msgid ""
+"\"StartupNotify\": If true, it is KNOWN that the application will send a "
+"\"remove\" message when started with the DESKTOP_STARTUP_ID environment "
+"variable set. If false, it is KNOWN that the application does not work with "
+"startup notification at all (does not shown any window, breaks even when "
+"using StartupWMClass, etc.). If absent, a reasonable handling is up to "
+"implementations (assuming false, using StartupWMClass, etc.)."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:42
+msgid "Use startup notification"
+msgstr "Opstartmelding gebruiken"
+
+#: ../data/ui/MenulibreWindow.ui.h:43
+msgid ""
+"\"NoDisplay\": NoDisplay means \"this application exists, but don't display "
+"it in the menus\". This can be useful to e.g. associate this application "
+"with MIME types, so that it gets launched from a file manager (or other "
+"apps), without having a menu entry for it (there are tons of good reasons "
+"for this, including e.g. the netscape -remote, or kfmclient openURL kind of "
+"stuff)."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:44
+msgid "Hide from menus"
+msgstr "Verbergen in menu's"
+
+#: ../data/ui/MenulibreWindow.ui.h:45
+msgid "<b>Options</b>"
+msgstr "<b>Opties</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:46
+msgid "Add"
+msgstr "Toevoegen"
+
+#: ../data/ui/MenulibreWindow.ui.h:47
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: ../data/ui/MenulibreWindow.ui.h:48
+msgid "Clear"
+msgstr "Wissen"
+
+#: ../data/ui/MenulibreWindow.ui.h:49
+msgid "Categories"
+msgstr "Categorieën"
+
+#: ../data/ui/MenulibreWindow.ui.h:50
+msgid "Show"
+msgstr "Tonen"
+
+#: ../data/ui/MenulibreWindow.ui.h:51
+msgid "Name"
+msgstr "Naam"
+
+#: ../data/ui/MenulibreWindow.ui.h:52
+msgid "Actions"
+msgstr "Acties"
+
+#: ../data/ui/MenulibreWindow.ui.h:53
+msgid ""
+"\"GenericName\": Generic name of the application, for example \"Web "
+"Browser\". "
+msgstr ""
+"'GeneriekeNaam': generieke naam van de toepassing, bijvoorbeeld "
+"'Tekstverwerker'. "
+
+#: ../data/ui/MenulibreWindow.ui.h:54
+msgid "Generic Name"
+msgstr "Generieke naam"
+
+#: ../data/ui/MenulibreWindow.ui.h:55
+msgid ""
+"\"NotShowIn\": A list of strings identifying the environments that should "
+"not display a given desktop entry. Only one of these keys, either OnlyShowIn "
+"or NotShowIn, may appear in a group.\n"
+"\n"
+"Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE, Old"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:58
+msgid "Not Shown In"
+msgstr "Niet getoond in"
+
+#: ../data/ui/MenulibreWindow.ui.h:59
+msgid ""
+"\"OnlyShowIn\": A list of strings identifying the environments that should "
+"display a given desktop entry. Only one of these keys, either OnlyShowIn or "
+"NotShowIn, may appear in a group.\n"
+"\n"
+"Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE, Old"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:62
+msgid "Only Shown In"
+msgstr "Alleen getoond in"
+
+#: ../data/ui/MenulibreWindow.ui.h:63
+msgid ""
+"\"TryExec\": Path to an executable file on disk used to determine if the "
+"program is actually installed. If the path is not an absolute path, the file "
+"is looked up in the $PATH environment variable. If the file is not present "
+"or if it is not executable, the entry may be ignored (not be used in menus, "
+"for example). "
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:64
+msgid "Try Exec"
+msgstr "Probeer Exec"
+
+#: ../data/ui/MenulibreWindow.ui.h:65
+msgid "\"MimeType\": The MIME type(s) supported by this application. "
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:66
+msgid "Mimetypes"
+msgstr "Bestandtypen"
+
+#: ../data/ui/MenulibreWindow.ui.h:67
+msgid ""
+"\"Keywords\": A list of strings which may be used in addition to other "
+"metadata to describe this entry. This can be useful e.g. to facilitate "
+"searching through entries. The values are not meant for display, and should "
+"not be redundant with the values of Name or GenericName."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:68
+msgid "Keywords"
+msgstr "Trefwoorden"
+
+#: ../data/ui/MenulibreWindow.ui.h:69
+msgid ""
+"\"StartupWMClass\": If specified, it is known that the application will map "
+"at least one window with the given string as its WM class or WM name hint."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:70
+msgid "Startup WM Class"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:71
+msgid ""
+"\"Hidden\": Hidden should have been called Deleted. It means the user "
+"deleted (at his level) something that was present (at an upper level, e.g. "
+"in the system dirs). It's strictly equivalent to the .desktop file not "
+"existing at all, as far as that user is concerned. This can also be used to "
+"\"uninstall\" existing files (e.g. due to a renaming) - by letting make "
+"install install a file with Hidden=true in it."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:72
+msgid "Hidden"
+msgstr "Verborgen"
+
+#: ../data/ui/MenulibreWindow.ui.h:73
+msgid ""
+"\"DBusActivatable\": A boolean value specifying if D-Bus activation is "
+"supported for this application. If this key is missing, the default value is "
+"false. If the value is true then implementations should ignore the Exec key "
+"and send a D-Bus message to launch the application. See D-Bus Activation for "
+"more information on how this works. Applications should still include Exec= "
+"lines in their desktop files for compatibility with implementations that do "
+"not understand the DBusActivatable key."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:74
+msgid "DBUS Activatable"
+msgstr "DBUS-activeerbaar"
+
+#: ../data/ui/MenulibreWindow.ui.h:75
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+#: ../data/ui/MenulibreWindow.ui.h:76
+msgid "<small><i>Filename</i></small>"
+msgstr "<small><i>Bestandnaam</i></small>"
+
+#: ../menulibre/__init__.py:33
+msgid "Show debug messages"
+msgstr "Foutopsporingsberichten tonen"
+
+#: ../menulibre/MenuEditor.py:92 ../menulibre/MenulibreApplication.py:1335
+#: ../menulibre/MenulibreApplication.py:2019
+msgid "Separator"
+msgstr "Scheidingsteken"
+
+#. Standard Items
+#: ../menulibre/MenulibreApplication.py:59
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: ../menulibre/MenulibreApplication.py:60
+msgid "Development"
+msgstr "Ontwikkeling"
+
+#: ../menulibre/MenulibreApplication.py:61
+msgid "Education"
+msgstr "Onderwijs"
+
+#: ../menulibre/MenulibreApplication.py:62
+msgid "Games"
+msgstr "Spellen"
+
+#: ../menulibre/MenulibreApplication.py:63
+msgid "Graphics"
+msgstr "Grafisch"
+
+#: ../menulibre/MenulibreApplication.py:64
+msgid "Internet"
+msgstr "Internet"
+
+#: ../menulibre/MenulibreApplication.py:65
+msgid "Office"
+msgstr "Kantoor"
+
+#: ../menulibre/MenulibreApplication.py:66
+msgid "Settings"
+msgstr "Instellingen"
+
+#: ../menulibre/MenulibreApplication.py:67
+msgid "System"
+msgstr "Systeem"
+
+#: ../menulibre/MenulibreApplication.py:68
+msgid "Accessories"
+msgstr "Hulpmiddelen"
+
+#: ../menulibre/MenulibreApplication.py:69
+msgid "WINE"
+msgstr "WINE"
+
+#. Desktop Environment
+#: ../menulibre/MenulibreApplication.py:71
+msgid "Desktop configuration"
+msgstr "Bureaubladinstelling"
+
+#: ../menulibre/MenulibreApplication.py:72
+msgid "User configuration"
+msgstr "Gebruikerinstelling"
+
+#: ../menulibre/MenulibreApplication.py:73
+msgid "Hardware configuration"
+msgstr "Apparatuurinstelling"
+
+#. GNOME Specific
+#: ../menulibre/MenulibreApplication.py:75
+msgid "GNOME application"
+msgstr "GNOME-toepassing"
+
+#: ../menulibre/MenulibreApplication.py:76
+msgid "GTK+ application"
+msgstr "GTK+ toepassing"
+
+#: ../menulibre/MenulibreApplication.py:77
+msgid "GNOME user configuration"
+msgstr "GNOME-gebruikerinstelling"
+
+#: ../menulibre/MenulibreApplication.py:78
+msgid "GNOME hardware configuration"
+msgstr "GNOME-apparatuurinstelling"
+
+#: ../menulibre/MenulibreApplication.py:79
+#: ../menulibre/MenulibreApplication.py:80
+msgid "GNOME system configuration"
+msgstr "GNOME-systeeminstelling"
+
+#. Xfce Specific
+#: ../menulibre/MenulibreApplication.py:82
+#: ../menulibre/MenulibreApplication.py:83
+msgid "Xfce menu item"
+msgstr "Xfce-menu-onderdeel"
+
+#: ../menulibre/MenulibreApplication.py:84
+msgid "Xfce toplevel menu item"
+msgstr "Xfce -menu-onderdeel voor bovenste niveau"
+
+#: ../menulibre/MenulibreApplication.py:85
+msgid "Xfce user configuration"
+msgstr "Xfce-gebruikerinstelling"
+
+#: ../menulibre/MenulibreApplication.py:86
+msgid "Xfce hardware configuration"
+msgstr "Xfce-apparatuurinstelling"
+
+#: ../menulibre/MenulibreApplication.py:87
+#: ../menulibre/MenulibreApplication.py:88
+msgid "Xfce system configuration"
+msgstr "Xfce-systeeminstelling"
+
+#: ../menulibre/MenulibreApplication.py:136
+#: ../menulibre/MenulibreApplication.py:175
+msgid "Other"
+msgstr "Overig"
+
+#: ../menulibre/MenulibreApplication.py:379
+msgid "Add _Launcher..."
+msgstr "Starter toevoegen..."
+
+#: ../menulibre/MenulibreApplication.py:380
+msgid "Add Launcher..."
+msgstr "Starter toevoegen..."
+
+#: ../menulibre/MenulibreApplication.py:386
+msgid "Add _Directory..."
+msgstr "Map toevoegen..."
+
+#: ../menulibre/MenulibreApplication.py:387
+msgid "Add Directory..."
+msgstr "Map toevoegen..."
+
+#: ../menulibre/MenulibreApplication.py:393
+msgid "_Add Separator..."
+msgstr "Scheidingsteken toevoegen..."
+
+#: ../menulibre/MenulibreApplication.py:394
+msgid "Add Separator..."
+msgstr "Scheidingsteken toevoegen..."
+
+#: ../menulibre/MenulibreApplication.py:400
+msgid "_Save"
+msgstr "Op_slaan"
+
+#: ../menulibre/MenulibreApplication.py:401
+#: ../menulibre/MenulibreApplication.py:1008
+#: ../menulibre/MenulibreApplication.py:1387
+msgid "Save"
+msgstr "Opslaan"
+
+#: ../menulibre/MenulibreApplication.py:407
+msgid "_Undo"
+msgstr "_Ongedaan maken"
+
+#: ../menulibre/MenulibreApplication.py:414
+msgid "_Redo"
+msgstr "Op_nieuw uitvoeren"
+
+#: ../menulibre/MenulibreApplication.py:421
+msgid "_Revert"
+msgstr "Te_rugdraaien"
+
+#: ../menulibre/MenulibreApplication.py:428
+msgid "_Delete"
+msgstr "_Verwijderen"
+
+#: ../menulibre/MenulibreApplication.py:435
+msgid "_Quit"
+msgstr "A_fsluiten"
+
+#: ../menulibre/MenulibreApplication.py:436
+#: ../menulibre/MenulibreApplication.py:2302
+msgid "Quit"
+msgstr "Afsluiten"
+
+#: ../menulibre/MenulibreApplication.py:442
+msgid "_Contents"
+msgstr "Inhoud"
+
+#: ../menulibre/MenulibreApplication.py:443
+#: ../menulibre/MenulibreApplication.py:2300
+msgid "Help"
+msgstr "Hulp"
+
+#: ../menulibre/MenulibreApplication.py:449
+msgid "_About"
+msgstr "Over"
+
+#: ../menulibre/MenulibreApplication.py:450
+#: ../menulibre/MenulibreApplication.py:2301
+msgid "About"
+msgstr "Over"
+
+#. Create a new column.
+#: ../menulibre/MenulibreApplication.py:562
+msgid "Search Results"
+msgstr "Zoekresultaten"
+
+#: ../menulibre/MenulibreApplication.py:787
+msgid "ThisEntry"
+msgstr "DitInvoerveld"
+
+#: ../menulibre/MenulibreApplication.py:805
+msgid "Select a category"
+msgstr "Kies een categorie"
+
+#: ../menulibre/MenulibreApplication.py:808
+msgid "Category Name"
+msgstr "Categorienaam"
+
+#: ../menulibre/MenulibreApplication.py:813
+msgid "Description"
+msgstr "Beschrijving"
+
+#: ../menulibre/MenulibreApplication.py:892
+msgid "This Entry"
+msgstr "Dit invoerveld"
+
+#: ../menulibre/MenulibreApplication.py:947
+msgid "New Shortcut"
+msgstr "Nieuwe snelkoppeling"
+
+#. Unsaved changes
+#: ../menulibre/MenulibreApplication.py:997
+msgid "Do you want to save the changes before closing?"
+msgstr "Wilt u de veranderingen opslaan voor het afsluiten?"
+
+#: ../menulibre/MenulibreApplication.py:998
+msgid "If you don't save the launcher, all the changes will be lost.'"
+msgstr "Als u de starter niet opslaat, gaan alle veranderingen verloren."
+
+#: ../menulibre/MenulibreApplication.py:1005
+#: ../menulibre/MenulibreApplication.py:1384
+msgid "Save Changes"
+msgstr "Wijzigingen opslaan"
+
+#: ../menulibre/MenulibreApplication.py:1006
+#: ../menulibre/MenulibreApplication.py:1385
+msgid "Don't Save"
+msgstr "Niet opslaan"
+
+#: ../menulibre/MenulibreApplication.py:1128
+msgid "Select an image"
+msgstr "Kies een afbeelding"
+
+#: ../menulibre/MenulibreApplication.py:1132
+#: ../menulibre/MenulibreApplication.py:1239
+msgid "OK"
+msgstr "OK"
+
+#: ../menulibre/MenulibreApplication.py:1231
+msgid "Select a working directory..."
+msgstr "Kies een werkmap..."
+
+#: ../menulibre/MenulibreApplication.py:1235
+msgid "Select an executable..."
+msgstr "Kies een uitvoerbaar bestand..."
+
+#: ../menulibre/MenulibreApplication.py:1375
+msgid "Do you want to save the changes before leaving this launcher?"
+msgstr "Wilt u de veranderingen opslaan alvorens deze starter te verlaten?"
+
+#: ../menulibre/MenulibreApplication.py:1377
+msgid "If you don't save the launcher, all the changes will be lost."
+msgstr ""
+"Indien u de starter niet opslaat, zullen alle veranderingen verloren gaan."
+
+#: ../menulibre/MenulibreApplication.py:1591
+msgid "You do not have permission to delete this file."
+msgstr "U hebt geen rechten om dit bestand te verwijderen."
+
+#: ../menulibre/MenulibreApplication.py:1943
+msgid "New Launcher"
+msgstr "Nieuwe starter"
+
+#: ../menulibre/MenulibreApplication.py:1987
+msgid "New Directory"
+msgstr "Nieuwe map"
+
+#: ../menulibre/MenulibreApplication.py:2216
+msgid "Are you sure you want to restore this launcher?"
+msgstr "Weet u zeker dat u deze starter wil herstellen?"
+
+#: ../menulibre/MenulibreApplication.py:2222
+#: ../menulibre/MenulibreApplication.py:2223
+msgid "Restore Launcher"
+msgstr "Starter herstellen"
+
+#: ../menulibre/MenulibreApplication.py:2224
+msgid ""
+"All changes since the last saved state will be lost and cannot be restored "
+"automatically."
+msgstr ""
+"Alle veranderingen sedert de laatst opgeslagen status zullen verloren gaan "
+"en kunnen niet automatisch worden hersteld."
+
+#: ../menulibre/MenulibreApplication.py:2239
+msgid "Are you sure you want to delete this separator?"
+msgstr "Weet u zeker dat u dit scheidingsteken wil verwijderen?"
+
+#: ../menulibre/MenulibreApplication.py:2242
+#, python-format
+msgid "Are you sure you want to delete \"%s\"?"
+msgstr "Weet u zeker dat u '%s' wil verwijderen?"
+
+#: ../menulibre/MenulibreApplication.py:2244
+msgid "This cannot be undone."
+msgstr "Dit kan niet ongedaan worden gemaakt."
+
+#: ../menulibre/MenulibreApplication.py:2322
+msgid "Do you want to read the MenuLibre manual online?"
+msgstr "Wilt u de gebruiksaanwijzing voor MenuLibre lezen op het internet?"
+
+#: ../menulibre/MenulibreApplication.py:2328
+msgid "Read Online"
+msgstr "Lezen op het internet"
+
+#: ../menulibre/MenulibreApplication.py:2329
+msgid "Online Documentation"
+msgstr "Documentatie op het internet"
+
+#: ../menulibre/MenulibreApplication.py:2330
+msgid ""
+"You will be redirected to the documentation website where the help pages are "
+"maintained."
+msgstr ""
+"U zult worden doorgeleid naar de documentatiewebsite waar de hulppagina's "
+"worden onderhouden."
+
+#. Populate the AboutDialog with all the relevant details.
+#: ../menulibre/MenulibreApplication.py:2349
+msgid "About MenuLibre"
+msgstr "Over MenuLibre"
+
+#: ../menulibre/MenulibreApplication.py:2352
+msgid "Copyright © 2012-2014 Sean Davis"
+msgstr "Auteursrecht © 2012-2014 Sean Davis"
+
+#: ../menulibre/MenulibreXdg.py:46
+msgid "New Menu Item"
+msgstr "Nieuw menu-onderdeel"
+
+#: ../menulibre/MenulibreXdg.py:48
+msgid "A small descriptive blurb about this application."
+msgstr "Een kleine beschrijvende tekst over deze toepassing."
