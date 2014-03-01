@@ -1948,26 +1948,37 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         filename = None
         row_data = [name, comment, item_type, icon, icon_name, filename]
 
-        path = model.get_path(treeiter)
-        if path.up():
-            try:
-                parent = model.get_iter(path)
-                categories = util.getRequiredCategories(model[parent][5])
-            except:
-                parent = None
-        else:
-            parent = None
+        parent = None
 
-        if parent is None:
-            # Toplevel Category
-            categories = util.getRequiredCategories(None)
-
-        # Add launcher on directory should add to that directory
+        # Currently selected item is a directory, take its categories.
         if model[treeiter][2] == MenuItemTypes.DIRECTORY:
+            parent = treeiter
+
+            # Place new launchers inside of the directories they are added to.
             new_iter = model.prepend(treeiter)
             self.treeview.expand_row(model[treeiter].path, False)
+
+        # Currently selected item is not a directory, but has a parent.
         else:
+            path = model.get_path(treeiter)
+            if path.up():
+                try:
+                    parent = model.get_iter(path)
+                except:
+                    parent = None
+
+            # Insert new launchers after the currently selected item.
             new_iter = model.insert_after(parent, treeiter)
+
+        # If a parent item was found, use its categories for this launcher.
+        if parent is not None:
+            # Parent was found, take its categories.
+            categories = util.getRequiredCategories(model[parent][5])
+        else:
+            # Parent was not found, this is a toplevel category
+            categories = util.getRequiredCategories(None)
+
+        # Populate the new launcher with the default data.
         for i in range(len(row_data)):
             model[new_iter][i] = row_data[i]
 
