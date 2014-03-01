@@ -1,16 +1,16 @@
-# Chinese (Traditional) translation for menulibre
-# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# Chinese (Hong Kong) translation for menulibre
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the menulibre package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-02-16 09:15-0500\n"
-"PO-Revision-Date: 2014-03-01 05:44+0000\n"
+"PO-Revision-Date: 2014-03-01 05:45+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
-"Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
+"Language-Team: Chinese (Hong Kong) <zh_HK@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,27 +19,27 @@ msgstr ""
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr "選單編輯器"
+msgstr ""
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
-msgstr "在選單加入或移除應用程式"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Add _Launcher"
-msgstr "加入啟動器(_L)"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Add _Directory"
-msgstr "加入目錄(_D)"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Add _Separator"
-msgstr "加入分隔符(_S)"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Icon Selection"
-msgstr "選取圖示"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1007
 #: ../menulibre/MenulibreApplication.py:1131
@@ -48,23 +48,23 @@ msgstr "選取圖示"
 #: ../menulibre/MenulibreApplication.py:2221
 #: ../menulibre/MenulibreApplication.py:2327
 msgid "Cancel"
-msgstr "取消"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "Apply"
-msgstr "套用"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "Icon Name"
-msgstr "圖示名稱"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Image File"
-msgstr "影像檔"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid "<b>Select an image</b>"
-msgstr "<b>選取影像</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "16px"
@@ -84,72 +84,72 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "<b>Preview</b>"
-msgstr "<b>預覽</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Select an icon..."
-msgstr "選取圖示..."
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid "<b>Select an icon</b>"
-msgstr "<b>選取圖示</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "column"
-msgstr "欄"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:357
 #: ../menulibre/MenulibreApplication.py:2350
 msgid "MenuLibre"
-msgstr "MenuLibre"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "_File"
-msgstr "檔案(_F)"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "_Edit"
-msgstr "編輯(_E)"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "_Help"
-msgstr "求助(_H)"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:22
 msgid "Save Launcher"
-msgstr "儲存啟動器"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:408
 msgid "Undo"
-msgstr "復原"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:24 ../menulibre/MenulibreApplication.py:415
 msgid "Redo"
-msgstr "重做"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:25 ../menulibre/MenulibreApplication.py:422
 msgid "Revert"
-msgstr "還原"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:26 ../menulibre/MenulibreApplication.py:429
 msgid "Delete"
-msgstr "刪除"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Move Up"
-msgstr "上移"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Move Down"
-msgstr "下移"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>應用程式名稱</b></big>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:30
 msgid "Application Comment"
-msgstr "應用程式註解"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid ""
@@ -161,39 +161,34 @@ msgid ""
 "Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
 "spec-latest.html#exec-variables for a list of supported arguments."
 msgstr ""
-"\"Exec\"：要執行的程式，或可帶有引數。若 DBusActivatable 未有設有「真」就必須要有 Exec 鍵。即使 "
-"DBusActivatable 設為「真」，應指定 Exec 以相容於不認識 DBusActivatable 的程式。\n"
-"\n"
-"支援引數的清單請見 http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
-"spec-latest.html#exec-variables 。"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Command"
-msgstr "指令"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "\"Path\": The working directory to run the program in. "
-msgstr "\"Path\"：該程式運行的工作目錄。 "
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Working Directory"
-msgstr "工作目錄"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Browse..."
-msgstr "瀏覽..."
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "<b>Application Details</b>"
-msgstr "<b>應用程式詳情</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "\"Terminal\": Whether the program runs in a terminal window."
-msgstr "\"Terminal\"：該程式是否在終端機運行。"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Run in terminal"
-msgstr "在終端機運行"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid ""
@@ -207,7 +202,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Use startup notification"
-msgstr "使用啟動通知"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid ""
@@ -221,49 +216,49 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Hide from menus"
-msgstr "從選單隱藏"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Options</b>"
-msgstr "<b>選項</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Add"
-msgstr "加入"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Remove"
-msgstr "移除"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Clear"
-msgstr "清除"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:49
 msgid "Categories"
-msgstr "分類"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Show"
-msgstr "顯示"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Name"
-msgstr "名稱"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Actions"
-msgstr "動作"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid ""
 "\"GenericName\": Generic name of the application, for example \"Web "
 "Browser\". "
-msgstr "\"GenericName\"：應用程式的通用名稱，例如「網頁瀏覽器」。 "
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Generic Name"
-msgstr "通用名稱"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid ""
@@ -308,11 +303,11 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:65
 msgid "\"MimeType\": The MIME type(s) supported by this application. "
-msgstr "\"MimeType\"：此應用程式支援的 MIME 類型。 "
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Mimetypes"
-msgstr "MIME 類型"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:67
 msgid ""
@@ -324,7 +319,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Keywords"
-msgstr "關鍵字"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:69
 msgid ""
@@ -334,7 +329,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Startup WM Class"
-msgstr "啟動 WM 類別"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:71
 msgid ""
@@ -348,7 +343,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:72
 msgid "Hidden"
-msgstr "隱藏"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:73
 msgid ""
@@ -363,214 +358,214 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:74
 msgid "DBUS Activatable"
-msgstr "可由 DBUS 啟動"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:75
 msgid "Advanced"
-msgstr "進階"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:76
 msgid "<small><i>Filename</i></small>"
-msgstr "<small><i>檔案名稱</i></small>"
+msgstr ""
 
 #: ../menulibre/__init__.py:33
 msgid "Show debug messages"
-msgstr "顯示除錯訊息"
+msgstr ""
 
 #: ../menulibre/MenuEditor.py:92 ../menulibre/MenulibreApplication.py:1335
 #: ../menulibre/MenulibreApplication.py:2019
 msgid "Separator"
-msgstr "分隔符"
+msgstr ""
 
 #. Standard Items
 #: ../menulibre/MenulibreApplication.py:59
 msgid "Multimedia"
-msgstr "多媒體"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:60
 msgid "Development"
-msgstr "開發"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:61
 msgid "Education"
-msgstr "教育"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:62
 msgid "Games"
-msgstr "遊戲"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:63
 msgid "Graphics"
-msgstr "美工繪圖"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:64
 msgid "Internet"
-msgstr "網際網路"
+msgstr "互聯網"
 
 #: ../menulibre/MenulibreApplication.py:65
 msgid "Office"
-msgstr "辦公"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:66
 msgid "Settings"
-msgstr "設定"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:67
 msgid "System"
-msgstr "系統"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:68
 msgid "Accessories"
-msgstr "附屬應用程式"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:69
 msgid "WINE"
-msgstr "WINE"
+msgstr ""
 
 #. Desktop Environment
 #: ../menulibre/MenulibreApplication.py:71
 msgid "Desktop configuration"
-msgstr "桌面設定"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:72
 msgid "User configuration"
-msgstr "使用者設定"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:73
 msgid "Hardware configuration"
-msgstr "硬體設定"
+msgstr ""
 
 #. GNOME Specific
 #: ../menulibre/MenulibreApplication.py:75
 msgid "GNOME application"
-msgstr "GNOME 應用程式"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:76
 msgid "GTK+ application"
-msgstr "GTK+ 應用程式"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:77
 msgid "GNOME user configuration"
-msgstr "GNOME 使用者設定"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:78
 msgid "GNOME hardware configuration"
-msgstr "GNOME 硬體設定"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:79
 #: ../menulibre/MenulibreApplication.py:80
 msgid "GNOME system configuration"
-msgstr "GNOME 系統設定"
+msgstr ""
 
 #. Xfce Specific
 #: ../menulibre/MenulibreApplication.py:82
 #: ../menulibre/MenulibreApplication.py:83
 msgid "Xfce menu item"
-msgstr "Xfce 選單項目"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:84
 msgid "Xfce toplevel menu item"
-msgstr "Xfce 頂層選單項目"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:85
 msgid "Xfce user configuration"
-msgstr "Xfce 使用者設定"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:86
 msgid "Xfce hardware configuration"
-msgstr "Xfce 硬體設定"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:87
 #: ../menulibre/MenulibreApplication.py:88
 msgid "Xfce system configuration"
-msgstr "Xfce 系統設定"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:136
 #: ../menulibre/MenulibreApplication.py:175
 msgid "Other"
-msgstr "其他"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:379
 msgid "Add _Launcher..."
-msgstr "加入啟動器(_L)..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:380
 msgid "Add Launcher..."
-msgstr "加入啟動器..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:386
 msgid "Add _Directory..."
-msgstr "加入目錄(_D)..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:387
 msgid "Add Directory..."
-msgstr "加入目錄..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:393
 msgid "_Add Separator..."
-msgstr "加入分隔符(_A)..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:394
 msgid "Add Separator..."
-msgstr "加入分隔符..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:400
 msgid "_Save"
-msgstr "儲存(_S)"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:401
 #: ../menulibre/MenulibreApplication.py:1008
 #: ../menulibre/MenulibreApplication.py:1387
 msgid "Save"
-msgstr "儲存"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:407
 msgid "_Undo"
-msgstr "復原(_U)"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:414
 msgid "_Redo"
-msgstr "重做(_R)"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:421
 msgid "_Revert"
-msgstr "還原(_R)"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:428
 msgid "_Delete"
-msgstr "刪除(_D)"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:435
 msgid "_Quit"
-msgstr "結束(_Q)"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:436
 #: ../menulibre/MenulibreApplication.py:2302
 msgid "Quit"
-msgstr "結束"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:442
 msgid "_Contents"
-msgstr "目錄(_C)"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:443
 #: ../menulibre/MenulibreApplication.py:2300
 msgid "Help"
-msgstr "求助"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:449
 msgid "_About"
-msgstr "關於(_A)"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:450
 #: ../menulibre/MenulibreApplication.py:2301
 msgid "About"
-msgstr "關於"
+msgstr ""
 
 #. Create a new column.
 #: ../menulibre/MenulibreApplication.py:562
 msgid "Search Results"
-msgstr "搜尋結果"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:787
 msgid "ThisEntry"
@@ -578,139 +573,139 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:805
 msgid "Select a category"
-msgstr "選取分類"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:808
 msgid "Category Name"
-msgstr "分類名稱"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:813
 msgid "Description"
-msgstr "說明"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:892
 msgid "This Entry"
-msgstr "此項目"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:947
 msgid "New Shortcut"
-msgstr "新增捷徑"
+msgstr ""
 
 #. Unsaved changes
 #: ../menulibre/MenulibreApplication.py:997
 msgid "Do you want to save the changes before closing?"
-msgstr "關閉前是否儲存變更？"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:998
 msgid "If you don't save the launcher, all the changes will be lost.'"
-msgstr "如不儲存啟動器，所有變更都會丟失。"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1005
 #: ../menulibre/MenulibreApplication.py:1384
 msgid "Save Changes"
-msgstr "儲存變更"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1006
 #: ../menulibre/MenulibreApplication.py:1385
 msgid "Don't Save"
-msgstr "不儲存"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1128
 msgid "Select an image"
-msgstr "選取影像"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1132
 #: ../menulibre/MenulibreApplication.py:1239
 msgid "OK"
-msgstr "確定"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1231
 msgid "Select a working directory..."
-msgstr "選取工作目錄..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1235
 msgid "Select an executable..."
-msgstr "選取執行檔..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1375
 msgid "Do you want to save the changes before leaving this launcher?"
-msgstr "離開此啟動器前是否儲存變更？"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1377
 msgid "If you don't save the launcher, all the changes will be lost."
-msgstr "如不儲存啟動器，所有變更都會丟失。"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1591
 msgid "You do not have permission to delete this file."
-msgstr "無權限刪除此檔案。"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1943
 msgid "New Launcher"
-msgstr "新增啟動器"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1987
 msgid "New Directory"
-msgstr "新增目錄"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2216
 msgid "Are you sure you want to restore this launcher?"
-msgstr "是否還原此啟動器？"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2222
 #: ../menulibre/MenulibreApplication.py:2223
 msgid "Restore Launcher"
-msgstr "還原啟動器"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2224
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
-msgstr "在對上一次儲存的狀態之後所有變更都會丟失，並且無法自動還原。"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2239
 msgid "Are you sure you want to delete this separator?"
-msgstr "是否確定刪除此分隔符？"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2242
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "是否確定刪除 \"%s\"？"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2244
 msgid "This cannot be undone."
-msgstr "這將無法復原。"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2322
 msgid "Do you want to read the MenuLibre manual online?"
-msgstr "是否閱讀線上 MenuLibre 使用手冊？"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2328
 msgid "Read Online"
-msgstr "上線閱讀"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2329
 msgid "Online Documentation"
-msgstr "線上說明文件"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2330
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
-msgstr "會重導向至線上說明文件網站。"
+msgstr ""
 
 #. Populate the AboutDialog with all the relevant details.
 #: ../menulibre/MenulibreApplication.py:2349
 msgid "About MenuLibre"
-msgstr "關於 MenuLibre"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2352
 msgid "Copyright © 2012-2014 Sean Davis"
-msgstr "著作權 © 2012-2014 Sean Davis"
+msgstr ""
 
 #: ../menulibre/MenulibreXdg.py:46
 msgid "New Menu Item"
-msgstr "新增選單項目"
+msgstr ""
 
 #: ../menulibre/MenulibreXdg.py:48
 msgid "A small descriptive blurb about this application."
-msgstr "有關這應用程式的備註。"
+msgstr ""
