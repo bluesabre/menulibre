@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-01 10:16-0500\n"
+"POT-Creation-Date: 2014-03-01 10:22-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,72 +86,60 @@ msgstr ""
 msgid "<b>Preview</b>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:15
-msgid "Select an icon..."
-msgstr ""
-
-#: ../data/ui/MenulibreWindow.ui.h:16
-msgid "<b>Select an icon</b>"
-msgstr ""
-
-#: ../data/ui/MenulibreWindow.ui.h:17
-msgid "column"
-msgstr ""
-
-#: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:357
+#: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:357
 #: ../menulibre/MenulibreApplication.py:2360
 msgid "MenuLibre"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:19
+#: ../data/ui/MenulibreWindow.ui.h:16
 msgid "_File"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:20
+#: ../data/ui/MenulibreWindow.ui.h:17
 msgid "_Edit"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:21
+#: ../data/ui/MenulibreWindow.ui.h:18
 msgid "_Help"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:22
+#: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Save Launcher"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:408
+#: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:408
 msgid "Undo"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:24 ../menulibre/MenulibreApplication.py:415
+#: ../data/ui/MenulibreWindow.ui.h:21 ../menulibre/MenulibreApplication.py:415
 msgid "Redo"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:25 ../menulibre/MenulibreApplication.py:422
+#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:422
 msgid "Revert"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:26 ../menulibre/MenulibreApplication.py:429
+#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:429
 msgid "Delete"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:27
+#: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Move Up"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:28
+#: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Move Down"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:29
+#: ../data/ui/MenulibreWindow.ui.h:26
 msgid "<big><b>Application Name</b></big>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:30
+#: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Application Comment"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:31
+#: ../data/ui/MenulibreWindow.ui.h:28
 msgid ""
 "\"Exec\": Program to execute, possibly with arguments. The Exec key is "
 "required if DBusActivatable is not set to true. Even if DBusActivatable is "
@@ -162,35 +150,35 @@ msgid ""
 "spec-latest.html#exec-variables for a list of supported arguments."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:34
+#: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Command"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:35
+#: ../data/ui/MenulibreWindow.ui.h:32
 msgid "\"Path\": The working directory to run the program in. "
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:36
+#: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Working Directory"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:37
+#: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Browse..."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:38
+#: ../data/ui/MenulibreWindow.ui.h:35
 msgid "<b>Application Details</b>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:39
+#: ../data/ui/MenulibreWindow.ui.h:36
 msgid "\"Terminal\": Whether the program runs in a terminal window."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:40
+#: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Run in terminal"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:41
+#: ../data/ui/MenulibreWindow.ui.h:38
 msgid ""
 "\"StartupNotify\": If true, it is KNOWN that the application will send a "
 "\"remove\" message when started with the DESKTOP_STARTUP_ID environment "
@@ -200,11 +188,11 @@ msgid ""
 "implementations (assuming false, using StartupWMClass, etc.)."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:42
+#: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Use startup notification"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:43
+#: ../data/ui/MenulibreWindow.ui.h:40
 msgid ""
 "\"NoDisplay\": NoDisplay means \"this application exists, but don't display "
 "it in the menus\". This can be useful to e.g. associate this application "
@@ -214,53 +202,53 @@ msgid ""
 "stuff)."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:44
+#: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Hide from menus"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:45
+#: ../data/ui/MenulibreWindow.ui.h:42
 msgid "<b>Options</b>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:46
+#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Add"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:47
+#: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Remove"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:48
+#: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Clear"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:49
+#: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Categories"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:50
+#: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Show"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:51
+#: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Name"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:52
+#: ../data/ui/MenulibreWindow.ui.h:49
 msgid "Actions"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:53
+#: ../data/ui/MenulibreWindow.ui.h:50
 msgid ""
 "\"GenericName\": Generic name of the application, for example \"Web Browser"
 "\". "
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:54
+#: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Generic Name"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:55
+#: ../data/ui/MenulibreWindow.ui.h:52
 msgid ""
 "\"NotShowIn\": A list of strings identifying the environments that should "
 "not display a given desktop entry. Only one of these keys, either OnlyShowIn "
@@ -270,11 +258,11 @@ msgid ""
 "XFCE, Old"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:58
+#: ../data/ui/MenulibreWindow.ui.h:55
 msgid "Not Shown In"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:59
+#: ../data/ui/MenulibreWindow.ui.h:56
 msgid ""
 "\"OnlyShowIn\": A list of strings identifying the environments that should "
 "display a given desktop entry. Only one of these keys, either OnlyShowIn or "
@@ -284,11 +272,11 @@ msgid ""
 "XFCE, Old"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:62
+#: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Only Shown In"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:63
+#: ../data/ui/MenulibreWindow.ui.h:60
 msgid ""
 "\"TryExec\": Path to an executable file on disk used to determine if the "
 "program is actually installed. If the path is not an absolute path, the file "
@@ -297,19 +285,19 @@ msgid ""
 "for example). "
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:64
+#: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Try Exec"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:65
+#: ../data/ui/MenulibreWindow.ui.h:62
 msgid "\"MimeType\": The MIME type(s) supported by this application. "
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:66
+#: ../data/ui/MenulibreWindow.ui.h:63
 msgid "Mimetypes"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:67
+#: ../data/ui/MenulibreWindow.ui.h:64
 msgid ""
 "\"Keywords\": A list of strings which may be used in addition to other "
 "metadata to describe this entry. This can be useful e.g. to facilitate "
@@ -317,21 +305,21 @@ msgid ""
 "not be redundant with the values of Name or GenericName."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:68
+#: ../data/ui/MenulibreWindow.ui.h:65
 msgid "Keywords"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:69
+#: ../data/ui/MenulibreWindow.ui.h:66
 msgid ""
 "\"StartupWMClass\": If specified, it is known that the application will map "
 "at least one window with the given string as its WM class or WM name hint."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:70
+#: ../data/ui/MenulibreWindow.ui.h:67
 msgid "Startup WM Class"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:71
+#: ../data/ui/MenulibreWindow.ui.h:68
 msgid ""
 "\"Hidden\": Hidden should have been called Deleted. It means the user "
 "deleted (at his level) something that was present (at an upper level, e.g. "
@@ -341,11 +329,11 @@ msgid ""
 "install install a file with Hidden=true in it."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:72
+#: ../data/ui/MenulibreWindow.ui.h:69
 msgid "Hidden"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:73
+#: ../data/ui/MenulibreWindow.ui.h:70
 msgid ""
 "\"DBusActivatable\": A boolean value specifying if D-Bus activation is "
 "supported for this application. If this key is missing, the default value is "
@@ -356,16 +344,28 @@ msgid ""
 "not understand the DBusActivatable key."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:74
+#: ../data/ui/MenulibreWindow.ui.h:71
 msgid "DBUS Activatable"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:75
+#: ../data/ui/MenulibreWindow.ui.h:72
 msgid "Advanced"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:76
+#: ../data/ui/MenulibreWindow.ui.h:73
 msgid "<small><i>Filename</i></small>"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:74
+msgid "Select an icon..."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:75
+msgid "<b>Select an icon</b>"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:76
+msgid "column"
 msgstr ""
 
 #: ../menulibre/__init__.py:33

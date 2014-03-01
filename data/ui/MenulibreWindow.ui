@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.16.1 -->
 <interface>
-  <!-- interface-requires gtk+ 3.0 -->
+  <requires lib="gtk+" version="3.6"/>
   <object class="GtkMenu" id="add_popup_menu">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -58,19 +59,13 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-open</property>
-    <property name="icon-size">1</property>
+    <property name="icon_size">1</property>
   </object>
   <object class="GtkImage" id="image12">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-open</property>
-    <property name="icon-size">1</property>
-  </object>
-  <object class="GtkImage" id="image2">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixel_size">16</property>
-    <property name="icon_name">dialog-apply</property>
+    <property name="icon_size">1</property>
   </object>
   <object class="GtkImage" id="image13">
     <property name="visible">True</property>
@@ -78,51 +73,17 @@
     <property name="pixel_size">16</property>
     <property name="icon_name">dialog-apply</property>
   </object>
-  <object class="GtkImage" id="image3">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixel_size">16</property>
-    <property name="icon_name">dialog-cancel</property>
-  </object>
-  <object class="GtkImage" id="image4">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixel_size">16</property>
-    <property name="icon_name">edit-undo-symbolic</property>
-    <property name="use_fallback">True</property>
-  </object>
-  <object class="GtkImage" id="image7">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixel_size">16</property>
-    <property name="icon_name">edit-redo-symbolic</property>
-    <property name="use_fallback">True</property>
-  </object>
-  <object class="GtkImage" id="image8">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixel_size">16</property>
-    <property name="icon_name">document-save-symbolic</property>
-    <property name="use_fallback">True</property>
-  </object>
-  <object class="GtkImage" id="image9">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixel_size">16</property>
-    <property name="icon_name">view-refresh-symbolic</property>
-    <property name="use_fallback">True</property>
-  </object>
   <object class="GtkImage" id="image14">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-open</property>
-    <property name="icon-size">1</property>
+    <property name="icon_size">1</property>
   </object>
   <object class="GtkImage" id="image15">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-open</property>
-    <property name="icon-size">1</property>
+    <property name="icon_size">1</property>
   </object>
   <object class="GtkDialog" id="icon_dialog">
     <property name="can_focus">False</property>
@@ -160,6 +121,8 @@
                 <property name="label" translatable="yes">Apply</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="can_default">True</property>
+                <property name="has_default">True</property>
                 <property name="receives_default">True</property>
               </object>
               <packing>
@@ -240,14 +203,12 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="hexpand">True</property>
-                            <style>
-                              <class name="linked"/>
-                            </style>
                             <child>
                               <object class="GtkEntry" id="entry_IconName">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="invisible_char">•</property>
+                                <property name="activates_default">True</property>
                               </object>
                               <packing>
                                 <property name="expand">True</property>
@@ -268,6 +229,9 @@
                                 <property name="position">1</property>
                               </packing>
                             </child>
+                            <style>
+                              <class name="linked"/>
+                            </style>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
@@ -282,14 +246,12 @@
                             <property name="sensitive">False</property>
                             <property name="can_focus">False</property>
                             <property name="hexpand">True</property>
-                            <style>
-                              <class name="linked"/>
-                            </style>
                             <child>
                               <object class="GtkEntry" id="entry_ImageFile">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="invisible_char">•</property>
+                                <property name="activates_default">True</property>
                               </object>
                               <packing>
                                 <property name="expand">True</property>
@@ -310,6 +272,9 @@
                                 <property name="position">1</property>
                               </packing>
                             </child>
+                            <style>
+                              <class name="linked"/>
+                            </style>
                           </object>
                           <packing>
                             <property name="left_attach">1</property>
@@ -442,165 +407,45 @@
       <action-widget response="-10">button4</action-widget>
     </action-widgets>
   </object>
-  <object class="GtkDialog" id="icon_selection_dialog">
-    <property name="width_request">640</property>
-    <property name="height_request">480</property>
+  <object class="GtkImage" id="image2">
+    <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="title" translatable="yes">Select an icon...</property>
-    <property name="modal">True</property>
-    <property name="window_position">center-on-parent</property>
-    <property name="destroy_with_parent">True</property>
-    <property name="type_hint">dialog</property>
-    <child internal-child="vbox">
-      <object class="GtkBox" id="dialog-vbox2">
-        <property name="can_focus">False</property>
-        <property name="orientation">vertical</property>
-        <property name="spacing">2</property>
-        <child internal-child="action_area">
-          <object class="GtkButtonBox" id="dialog-action_area2">
-            <property name="can_focus">False</property>
-            <property name="layout_style">end</property>
-            <child>
-              <object class="GtkButton" id="icon_selection_cancel">
-                <property name="label" translatable="yes">Cancel</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="receives_default">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="icon_selection_apply">
-                <property name="label" translatable="yes">Apply</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="receives_default">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="pack_type">end</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkBox" id="box18">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="border_width">6</property>
-            <property name="orientation">vertical</property>
-            <property name="spacing">6</property>
-            <child>
-              <object class="GtkBox" id="box7">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <child>
-                  <object class="GtkLabel" id="label7">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">&lt;b&gt;Select an icon&lt;/b&gt;</property>
-                    <property name="use_markup">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkEntry" id="icon_selection_search">
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="invisible_char">•</property>
-                    <property name="primary_icon_name">edit-find-symbolic</property>
-                    <property name="primary_icon_activatable">False</property>
-                    <property name="primary_icon_sensitive">False</property>
-                    <property name="placeholder_text">Search</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="pack_type">end</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkScrolledWindow" id="scrolledwindow2">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="shadow_type">in</property>
-                <child>
-                  <object class="GtkTreeView" id="icon_selection_treeview">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="model">liststore6</property>
-                    <property name="headers_visible">False</property>
-                    <property name="headers_clickable">False</property>
-                    <child internal-child="selection">
-                      <object class="GtkTreeSelection" id="treeview-selection"/>
-                    </child>
-                    <child>
-                      <object class="GtkTreeViewColumn" id="treeviewcolumn6">
-                        <property name="title" translatable="yes">column</property>
-                        <property name="sort_column_id">1</property>
-                        <child>
-                          <object class="GtkCellRendererPixbuf" id="icon_selection_pixbuf_renderer">
-                            <property name="width">32</property>
-                            <property name="height">32</property>
-                            <property name="stock_size">5</property>
-                          </object>
-                          <attributes>
-                            <attribute name="icon-name">0</attribute>
-                          </attributes>
-                        </child>
-                        <child>
-                          <object class="GtkCellRendererText" id="cellrenderertext5"/>
-                          <attributes>
-                            <attribute name="text">0</attribute>
-                          </attributes>
-                        </child>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="fill">True</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-      </object>
-    </child>
-    <action-widgets>
-      <action-widget response="-6">icon_selection_cancel</action-widget>
-      <action-widget response="-10">icon_selection_apply</action-widget>
-    </action-widgets>
+    <property name="pixel_size">16</property>
+    <property name="icon_name">dialog-apply</property>
+  </object>
+  <object class="GtkImage" id="image3">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixel_size">16</property>
+    <property name="icon_name">dialog-cancel</property>
+  </object>
+  <object class="GtkImage" id="image4">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixel_size">16</property>
+    <property name="icon_name">edit-undo-symbolic</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image7">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixel_size">16</property>
+    <property name="icon_name">edit-redo-symbolic</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image8">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixel_size">16</property>
+    <property name="icon_name">document-save-symbolic</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image9">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixel_size">16</property>
+    <property name="icon_name">view-refresh-symbolic</property>
+    <property name="use_fallback">True</property>
   </object>
   <object class="GtkListStore" id="liststore1"/>
   <object class="GtkListStore" id="liststore2"/>
@@ -622,12 +467,6 @@
       <!-- column-name quicklist_displayed_col -->
       <column type="gchararray"/>
       <!-- column-name quicklist_command_col -->
-      <column type="gchararray"/>
-    </columns>
-  </object>
-  <object class="GtkListStore" id="liststore6">
-    <columns>
-      <!-- column-name icon_name -->
       <column type="gchararray"/>
     </columns>
   </object>
@@ -805,9 +644,6 @@
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="show_arrow">False</property>
-            <style>
-              <class name="primary-toolbar"/>
-            </style>
             <child>
               <object class="GtkToolItem" id="toolbar_left">
                 <property name="height_request">32</property>
@@ -860,9 +696,6 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="homogeneous">True</property>
-                        <style>
-                          <class name="linked"/>
-                        </style>
                         <child>
                           <object class="GtkButton" id="toolbar_undo">
                             <property name="width_request">32</property>
@@ -895,6 +728,9 @@
                             <property name="position">2</property>
                           </packing>
                         </child>
+                        <style>
+                          <class name="linked"/>
+                        </style>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -938,6 +774,7 @@
               </object>
               <packing>
                 <property name="expand">False</property>
+                <property name="homogeneous">False</property>
               </packing>
             </child>
             <child>
@@ -1004,6 +841,9 @@
                 <property name="homogeneous">True</property>
               </packing>
             </child>
+            <style>
+              <class name="primary-toolbar"/>
+            </style>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -1059,9 +899,6 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="icon_size">1</property>
-                        <style>
-                          <class name="inline-toolbar"/>
-                        </style>
                         <child>
                           <object class="GtkToolButton" id="classic_view_move_up">
                             <property name="visible">True</property>
@@ -1088,6 +925,9 @@
                             <property name="homogeneous">True</property>
                           </packing>
                         </child>
+                        <style>
+                          <class name="inline-toolbar"/>
+                        </style>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1180,9 +1020,6 @@
                                       <object class="GtkBox" id="box_Name">
                                         <property name="can_focus">False</property>
                                         <property name="no_show_all">True</property>
-                                        <style>
-                                          <class name="linked"/>
-                                        </style>
                                         <child>
                                           <object class="GtkEntry" id="entry_Name">
                                             <property name="visible">True</property>
@@ -1222,6 +1059,9 @@
                                             <property name="position">2</property>
                                           </packing>
                                         </child>
+                                        <style>
+                                          <class name="linked"/>
+                                        </style>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -1268,9 +1108,6 @@
                                       <object class="GtkBox" id="box_Comment">
                                         <property name="can_focus">False</property>
                                         <property name="no_show_all">True</property>
-                                        <style>
-                                          <class name="linked"/>
-                                        </style>
                                         <child>
                                           <object class="GtkEntry" id="entry_Comment">
                                             <property name="visible">True</property>
@@ -1310,6 +1147,9 @@
                                             <property name="position">2</property>
                                           </packing>
                                         </child>
+                                        <style>
+                                          <class name="linked"/>
+                                        </style>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -1394,15 +1234,11 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spe
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="hexpand">True</property>
-                                        <style>
-                                          <class name="linked"/>
-                                        </style>
                                         <child>
                                           <object class="GtkEntry" id="entry_Exec">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="invisible_char">•</property>
-                                            <property name="invisible_char_set">True</property>
                                           </object>
                                           <packing>
                                             <property name="expand">True</property>
@@ -1427,6 +1263,9 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spe
                                             <property name="position">1</property>
                                           </packing>
                                         </child>
+                                        <style>
+                                          <class name="linked"/>
+                                        </style>
                                       </object>
                                       <packing>
                                         <property name="left_attach">1</property>
@@ -1439,15 +1278,11 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spe
                                       <object class="GtkBox" id="box17">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <style>
-                                          <class name="linked"/>
-                                        </style>
                                         <child>
                                           <object class="GtkEntry" id="entry_Path">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="invisible_char">•</property>
-                                            <property name="invisible_char_set">True</property>
                                           </object>
                                           <packing>
                                             <property name="expand">True</property>
@@ -1472,6 +1307,9 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spe
                                             <property name="position">1</property>
                                           </packing>
                                         </child>
+                                        <style>
+                                          <class name="linked"/>
+                                        </style>
                                       </object>
                                       <packing>
                                         <property name="left_attach">1</property>
@@ -1671,9 +1509,6 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spe
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                             <property name="icon_size">1</property>
-                                            <style>
-                                              <class name="inline-toolbar"/>
-                                            </style>
                                             <child>
                                               <object class="GtkToolButton" id="categories_add">
                                                 <property name="visible">True</property>
@@ -1713,6 +1548,9 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spe
                                                 <property name="homogeneous">True</property>
                                               </packing>
                                             </child>
+                                            <style>
+                                              <class name="inline-toolbar"/>
+                                            </style>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>
@@ -1806,9 +1644,6 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spe
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                             <property name="icon_size">1</property>
-                                            <style>
-                                              <class name="inline-toolbar"/>
-                                            </style>
                                             <child>
                                               <object class="GtkToolButton" id="actions_add">
                                                 <property name="visible">True</property>
@@ -1874,6 +1709,9 @@ Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spe
                                                 <property name="homogeneous">True</property>
                                               </packing>
                                             </child>
+                                            <style>
+                                              <class name="inline-toolbar"/>
+                                            </style>
                                           </object>
                                           <packing>
                                             <property name="expand">False</property>
@@ -2035,7 +1873,6 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                                     <property name="can_focus">True</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="invisible_char">•</property>
-                                                    <property name="invisible_char_set">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -2049,7 +1886,6 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">True</property>
                                                     <property name="invisible_char">•</property>
-                                                    <property name="invisible_char_set">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -2063,7 +1899,6 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">True</property>
                                                     <property name="invisible_char">•</property>
-                                                    <property name="invisible_char_set">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -2077,7 +1912,6 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">True</property>
                                                     <property name="invisible_char">•</property>
-                                                    <property name="invisible_char_set">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -2091,7 +1925,6 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">True</property>
                                                     <property name="invisible_char">•</property>
-                                                    <property name="invisible_char_set">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -2105,7 +1938,6 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">True</property>
                                                     <property name="invisible_char">•</property>
-                                                    <property name="invisible_char_set">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -2119,7 +1951,6 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">True</property>
                                                     <property name="invisible_char">•</property>
-                                                    <property name="invisible_char_set">True</property>
                                                   </object>
                                                   <packing>
                                                     <property name="left_attach">1</property>
@@ -2213,9 +2044,6 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="layout_style">center</property>
-                                <style>
-                                  <class name="linked"/>
-                                </style>
                                 <child>
                                   <object class="GtkRadioButton" id="categories_button">
                                     <property name="label" translatable="yes">Categories</property>
@@ -2264,6 +2092,9 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                     <property name="position">2</property>
                                   </packing>
                                 </child>
+                                <style>
+                                  <class name="linked"/>
+                                </style>
                               </object>
                             </child>
                           </object>
@@ -2309,5 +2140,171 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
         </child>
       </object>
     </child>
+  </object>
+  <object class="GtkListStore" id="liststore6">
+    <columns>
+      <!-- column-name icon_name -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkDialog" id="icon_selection_dialog">
+    <property name="width_request">640</property>
+    <property name="height_request">480</property>
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Select an icon...</property>
+    <property name="modal">True</property>
+    <property name="window_position">center-on-parent</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="type_hint">dialog</property>
+    <child internal-child="vbox">
+      <object class="GtkBox" id="dialog-vbox2">
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox" id="dialog-action_area2">
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="icon_selection_cancel">
+                <property name="label" translatable="yes">Cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="icon_selection_apply">
+                <property name="label" translatable="yes">Apply</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="box18">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="border_width">6</property>
+            <property name="orientation">vertical</property>
+            <property name="spacing">6</property>
+            <child>
+              <object class="GtkBox" id="box7">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <child>
+                  <object class="GtkLabel" id="label7">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">&lt;b&gt;Select an icon&lt;/b&gt;</property>
+                    <property name="use_markup">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="icon_selection_search">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="invisible_char">•</property>
+                    <property name="primary_icon_name">edit-find-symbolic</property>
+                    <property name="primary_icon_activatable">False</property>
+                    <property name="primary_icon_sensitive">False</property>
+                    <property name="placeholder_text">Search</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="pack_type">end</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow" id="scrolledwindow2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="shadow_type">in</property>
+                <child>
+                  <object class="GtkTreeView" id="icon_selection_treeview">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="model">liststore6</property>
+                    <property name="headers_visible">False</property>
+                    <property name="headers_clickable">False</property>
+                    <child internal-child="selection">
+                      <object class="GtkTreeSelection" id="treeview-selection"/>
+                    </child>
+                    <child>
+                      <object class="GtkTreeViewColumn" id="treeviewcolumn6">
+                        <property name="title" translatable="yes">column</property>
+                        <property name="sort_column_id">1</property>
+                        <child>
+                          <object class="GtkCellRendererPixbuf" id="icon_selection_pixbuf_renderer">
+                            <property name="width">32</property>
+                            <property name="height">32</property>
+                            <property name="stock_size">5</property>
+                          </object>
+                          <attributes>
+                            <attribute name="icon-name">0</attribute>
+                          </attributes>
+                        </child>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext5"/>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="-6">icon_selection_cancel</action-widget>
+      <action-widget response="-10">icon_selection_apply</action-widget>
+    </action-widgets>
   </object>
 </interface>
