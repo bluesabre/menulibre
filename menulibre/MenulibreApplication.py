@@ -516,11 +516,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             widget = builder.get_object("toolbar_%s" % action_name)
             widget.connect("clicked", self.activate_action_cb, action_name)
 
+        self.action_items = dict()
+
         for action_name in ['add_launcher', 'add_directory', 'add_separator']:
+            self.action_items[action_name] = []
             widget = builder.get_object('menubar_%s' % action_name)
             widget.connect('activate', self.activate_action_cb, action_name)
+            self.action_items[action_name].append(widget)
             widget = builder.get_object('popup_%s' % action_name)
             widget.connect('activate', self.activate_action_cb, action_name)
+            self.action_items[action_name].append(widget)
 
         # Add Launcher/Directory/Separator
         button = Gtk.MenuButton()
@@ -1365,6 +1370,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     for widget in self.directory_hide_widgets:
                         widget.hide()
 
+            # Update the Add Directory menu item
+            self.update_add_directory(treestore, treeiter)
+
             # Renable updates to history.
             self.history.unblock()
 
@@ -1933,6 +1941,32 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def update_menus(self):
         """Update the menu files."""
         XmlMenuElementTree.treeview_to_xml(self.treeview)
+
+    def update_add_directory(self, treestore, treeiter):
+        """Prevent adding subdirectories to system menus."""
+        add_enabled = True
+        prefix = util.getDefaultMenuPrefix()
+
+        path = treestore.get_path(treeiter)
+        while path.up():
+            try:
+                parent = treestore.get_iter(path)
+                filename = treestore[parent][-1]
+                if os.path.basename(filename).startswith(prefix):
+                    add_enabled = False
+            except:
+                pass
+
+        if add_enabled:
+            tooltip = None
+        else:
+            tooltip = _("Cannot add subdirectories to preinstalled"
+                        " system paths.")
+
+        self.actions['add_directory'].set_sensitive(add_enabled)
+        for widget in self.action_items['add_directory']:
+            widget.set_sensitive(add_enabled)
+            widget.set_tooltip_text(tooltip)
 
 # Action Functions
     def add_launcher(self):
