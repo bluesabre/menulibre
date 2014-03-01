@@ -2090,17 +2090,25 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 output.write(actions)
 
         # Install the new item in its directory...
-        cmd_list = ["xdg-desktop-menu", "install", "--novendor"]
-        parents = []
-        parent = model.iter_parent(treeiter)
-        while parent is not None:
-            parent_filename = model[parent][-1]
-            parents.append(parent_filename)
-            parent = model.iter_parent(parent)
-        parents.reverse()
-        cmd_list = cmd_list + parents
-        cmd_list.append(filename)
-        subprocess.call(cmd_list)
+        if filename.endswith('.desktop'):
+            menu_install = True
+            menu_prefix = util.getDefaultMenuPrefix()
+            cmd_list = ["xdg-desktop-menu", "install", "--novendor"]
+            parents = []
+            parent = model.iter_parent(treeiter)
+            while parent is not None:
+                parent_filename = model[parent][-1]
+                # Do not do this method if this is a known system directory.
+                if os.path.basename(parent_filename).startswith(menu_prefix):
+                    menu_install = False
+                parents.append(parent_filename)
+                parent = model.iter_parent(parent)
+            parents.reverse()
+            cmd_list = cmd_list + parents
+            cmd_list.append(filename)
+            if menu_install:
+                logger.debug("Executing Command: %s" % str(cmd_list))
+                subprocess.call(cmd_list)
 
         # Set the editor to the new filename.
         self.set_value('Filename', filename)
