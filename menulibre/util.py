@@ -116,12 +116,39 @@ def getUserMenuPath():
     return menu_dir
 
 
+def getUserLauncherPath(basename):
+    """Return the user-installed path to a .desktop or .directory file."""
+    if basename.endswith('.desktop'):
+        check_dir = "applications"
+    else:
+        check_dir = "desktop-directories"
+    path = os.path.join(GLib.get_user_data_dir(), check_dir)
+    filename = os.path.join(path, basename)
+    if os.path.isfile(filename):
+        return filename
+    return None
+
+
 def getSystemMenuPath(file_id):
     """Return the path to the system-installed menu file."""
     for path in GLib.get_system_config_dirs():
         file_path = os.path.join(path, 'menus', file_id)
         if os.path.isfile(file_path):
             return file_path
+    return None
+
+
+def getSystemLauncherPath(basename):
+    """Return the system-installed path to a .desktop or .directory file."""
+    if basename.endswith('.desktop'):
+        check_dir = "applications"
+    else:
+        check_dir = "desktop-directories"
+    for path in GLib.get_system_data_dirs():
+        path = os.path.join(path, check_dir)
+        filename = os.path.join(path, basename)
+        if os.path.isfile(filename):
+            return filename
     return None
 
 

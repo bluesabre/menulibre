@@ -1304,6 +1304,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             if not treeiter:
                 return
 
+            missing = False
+
             # Do nothing if we didn't change path
             path = str(treestore.get_path(treeiter))
             if path == self.last_selected_path:
@@ -1344,37 +1346,69 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             # Otherwise, show the editor and update the values.
             else:
-                self.editor.show()
-
-                displayed_name = treestore[treeiter][0]
-                comment = treestore[treeiter][1]
                 filename = treestore[treeiter][5]
-                self.set_value('Icon', treestore[treeiter][4], store=True)
-                self.set_value('Name', displayed_name, store=True)
-                self.set_value('Comment', comment, store=True)
-                self.set_value('Filename', filename, store=True)
+                new_launcher = filename is None
 
-                if item_type == MenuItemTypes.APPLICATION:
-                    self.editor.show_all()
-                    entry = MenulibreXdg.MenulibreDesktopEntry(filename)
-                    for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
-                                'NoDisplay', 'GenericName', 'TryExec',
-                                'OnlyShowIn', 'NotShowIn', 'MimeType',
-                                'Keywords', 'StartupWMClass', 'Categories',
-                                'Hidden', 'DBusActivatable']:
-                        self.set_value(key, entry[key], store=True)
-                    self.set_value('Actions', entry.get_actions(), store=True)
-                    self.set_value('Type', 'Application')
+                # Check if this file still exists, those tricksy hobbitses...
+                if (not new_launcher) and (not os.path.isfile(filename)):
+                    # If it does not, try to fallback...
+                    basename = os.path.basename(filename)
+                    filename = util.getSystemLauncherPath(basename)
+                    if filename is not None:
+                        treestore[treeiter][5] = filename
+
+                if new_launcher or (filename is not None):
+                    self.editor.show()
+                    displayed_name = treestore[treeiter][0]
+                    comment = treestore[treeiter][1]
+
+                    self.set_value('Icon', treestore[treeiter][4], store=True)
+                    self.set_value('Name', displayed_name, store=True)
+                    self.set_value('Comment', comment, store=True)
+                    self.set_value('Filename', filename, store=True)
+
+                    if item_type == MenuItemTypes.APPLICATION:
+                        self.editor.show_all()
+                        entry = MenulibreXdg.MenulibreDesktopEntry(filename)
+                        for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
+                                    'NoDisplay', 'GenericName', 'TryExec',
+                                    'OnlyShowIn', 'NotShowIn', 'MimeType',
+                                    'Keywords', 'StartupWMClass', 'Categories',
+                                    'Hidden', 'DBusActivatable']:
+                            self.set_value(key, entry[key], store=True)
+                        self.set_value('Actions', entry.get_actions(),
+                                                                    store=True)
+                        self.set_value('Type', 'Application')
+                    else:
+                        self.set_value('Type', 'Directory')
+                        for widget in self.directory_hide_widgets:
+                            widget.hide()
+
                 else:
-                    self.set_value('Type', 'Directory')
-                    for widget in self.directory_hide_widgets:
-                        widget.hide()
+                    # Display a dialog saying this item is missing
+                    primary = _("No Longer Installed")
+                    secondary = _("This launcher has been removed from the "
+                                  "system.\nSelecting the next available item.")
+                    dialog = Gtk.MessageDialog(transient_for=self, modal=True,
+                                    message_type=Gtk.MessageType.INFO,
+                                    buttons=Gtk.ButtonsType.NONE,
+                                    text=primary)
+                    dialog.format_secondary_markup(secondary)
+                    dialog.add_button(_("OK"), Gtk.ResponseType.OK)
+                    dialog.run()
+                    dialog.destroy()
+                    # Mark this item as missing to delete it later.
+                    missing = True
 
             # Update the Add Directory menu item
             self.update_add_directory(treestore, treeiter)
 
             # Renable updates to history.
             self.history.unblock()
+
+            # Remove this item if it happens to be gone.
+            if missing:
+                self.delete_launcher(self.treeview, treestore, treeiter)
 
     def on_treeview_selection(self, sel, store, path, is_selected,
                                 user_data=None):
@@ -2178,16 +2212,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             basename = os.path.basename(filename)
 
             # Check if there was an original version of this launcher.
-            original = None
-            for path in GLib.get_system_data_dirs():
-                if item_type == MenuItemTypes.APPLICATION:
-                    file_path = os.path.join(path, 'applications', basename)
-                else:
-                    file_path = os.path.join(path, 'desktop-directories',
-                                            basename)
-                if os.path.isfile(file_path):
-                    original = file_path
-                    break
+            original = util.getSystemLauncherPath(basename)
 
             # If there was not an original, uninstall the below menu items.
             if original is None and item_type == MenuItemTypes.DIRECTORY:
@@ -2211,12 +2236,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     return directories, applications
 
                 # Remove the items using xdg-desktop-menu uninstall
-                cmd_list = ["xdg-desktop-menu", "uninstall"]
                 dirs, apps = get_delete_items(model, treeiter)
                 dirs.append(filename)
-                cmd_list = cmd_list + dirs + apps
-                logger.debug("Executing Command: %s" % str(cmd_list))
-                subprocess.call(cmd_list)
+                if len(apps) > 0:
+                    cmd_list = ["xdg-desktop-menu", "uninstall"]
+                    cmd_list = cmd_list + dirs + apps
+                    logger.debug("Executing Command: %s" % str(cmd_list))
+                    subprocess.call(cmd_list)
 
                 # Remove the items from the system.
                 for item in dirs + apps:

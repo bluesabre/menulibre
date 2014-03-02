@@ -37,8 +37,11 @@ class MenulibreDesktopEntry:
         self.properties = OrderedDict()
         self.text = ""
         if filename:
-            self.load_properties(filename)
-            self.id = os.path.basename(filename)
+            if os.path.isfile(filename):
+                self.load_properties(filename)
+                self.id = os.path.basename(filename)
+            else:
+                pass
         else:
             self.properties['Desktop Entry'] = OrderedDict()
             self.properties['Desktop Entry']['Version'] = '1.0'
