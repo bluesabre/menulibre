@@ -529,6 +529,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Add Launcher/Directory/Separator
         button = Gtk.MenuButton()
+        self.action_items['add_button'] = [button]
         image = Gtk.Image.new_from_icon_name("list-add-symbolic",
                                                  Gtk.IconSize.MENU)
         button.set_image(image)
@@ -1550,6 +1551,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             treeview.set_headers_visible(False)
             self.browser_toolbar.set_sensitive(True)
 
+            # Enable add functionality
+            for name in ['add_launcher', 'add_directory', 'add_separator',
+                        'add_button']:
+                for widget in self.action_items[name]:
+                    widget.set_sensitive(True)
+                if name in self.actions:
+                    self.actions[name].set_sensitive(True)
+
         # If the entry has a query...
         else:
             # Show the clear button.
@@ -1569,6 +1578,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # Show the "Search Results" header and disable the inline toolbar.
             treeview.set_headers_visible(True)
             self.browser_toolbar.set_sensitive(False)
+
+            # Disable add functionality
+            for name in ['add_launcher', 'add_directory', 'add_separator',
+                        'add_button']:
+                for widget in self.action_items[name]:
+                    widget.set_sensitive(False)
+                if name in self.actions:
+                    self.actions[name].set_sensitive(False)
 
             # Rerun the filter.
             model.refilter()
