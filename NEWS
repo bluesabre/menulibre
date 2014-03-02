@@ -1,5 +1,27 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+02 Mar 2014, MenuLibre 2.0.2
+
+- General:
+  . Save the position of newly added launchers
+  . Automatically save newly added separator items
+  . Improved menu cleanup when items are removed
+- Directories:
+  . Improved directory and subdirectory (un)installation
+  . Disable adding subdirectories to system-installed paths
+- Usability:
+  . Add new launchers to the directory they are placed on
+  . Automatically expand directories new launchers are being added to
+  . Delete unsaved new launchers and directories
+  . Disable Add Launcher/Directory/Separator when searching
+  . Icon Selection dialogs made more keyboard-accessible
+  . Manual icon selection now has a filter to only display images
+- Xfce:
+  . Fix adding top-level menu items to the Xfce Applications menu
+- Bug Fixes:
+  . Better handle uninstalled items (Fixes LP: #1277747)
+
+
 26 Jan 2014, MenuLibre 2.0.1
 
 - General:
@@ -7,6 +29,7 @@ MenuLibre                                                                  NEWS
   . python-gi API fixes for Debian (Fixes LP: #1271914)
 - setup.py
   . Do not install *.pot files.
+
 
 20 Jan 2014, MenuLibre 2.0
 
