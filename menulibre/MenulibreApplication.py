@@ -740,6 +740,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.icon_selection_treeview.connect("row-activated",
                                             self.icon_selection_row_activated,
                                             button)
+        self.icon_selection_treeview.connect("cursor-changed",
+                        self.on_icon_selection_cursor_changed, None, button)
 
         # Configure the IconType selection.
         for widget_name in ['IconName', 'ImageFile']:
@@ -1191,7 +1193,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         return query in model[treeiter][0].lower()
 
     def icon_selection_row_activated(self, widget, path, column, button):
+        """Allow row activation to select the icon and close the dialog."""
         button.activate()
+
+    def on_icon_selection_cursor_changed(self, widget, selection, button):
+        """When the cursor selects a row, make the Apply button sensitive."""
+        button.set_sensitive(True)
 
 # Name and Comment Widgets
     def on_NameComment_key_press_event(self, widget, ev, widget_name, builder):
@@ -1403,10 +1410,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                   "system.\nSelecting the next available item.")
                     dialog = Gtk.MessageDialog(transient_for=self, modal=True,
                                     message_type=Gtk.MessageType.INFO,
-                                    buttons=Gtk.ButtonsType.NONE,
+                                    buttons=Gtk.ButtonsType.OK,
                                     text=primary)
                     dialog.format_secondary_markup(secondary)
-                    dialog.add_button(_("OK"), Gtk.ResponseType.OK)
                     dialog.run()
                     dialog.destroy()
                     # Mark this item as missing to delete it later.
