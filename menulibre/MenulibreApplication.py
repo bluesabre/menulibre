@@ -2153,7 +2153,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Select the Separator item.
         path = model.get_path(new_iter)
         self.treeview.set_cursor(path)
-        self.save_button.set_sensitive(True)
+        self.save_button.set_sensitive(False)
 
         self.update_menus()
 
