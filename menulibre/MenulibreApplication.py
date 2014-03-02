@@ -2175,11 +2175,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         filename = model[treeiter][5]
         treepath = model.get_path(treeiter)
         if filename is not None:
-            if os.path.exists(filename):
-                os.remove(filename)
             basename = os.path.basename(filename)
-            filename = None
-            # Find the original
+
+            # Check if there was an original version of this launcher.
+            original = None
             for path in GLib.get_system_data_dirs():
                 if item_type == MenuItemTypes.APPLICATION:
                     file_path = os.path.join(path, 'applications', basename)
@@ -2187,11 +2186,58 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     file_path = os.path.join(path, 'desktop-directories',
                                             basename)
                 if os.path.isfile(file_path):
-                    filename = file_path
+                    original = file_path
                     break
-            if filename:
+
+            # If there was not an original, uninstall the below menu items.
+            if original is None and item_type == MenuItemTypes.DIRECTORY:
+                def get_delete_items(tmp_model, tmp_treeiter):
+                    """Recursing delete items getter."""
+                    directories = []
+                    applications = []
+                    if model.iter_has_child(tmp_treeiter):
+                        for i in range(model.iter_n_children(tmp_treeiter)):
+                            child_iter = model.iter_nth_child(tmp_treeiter, i)
+                            filename = tmp_model[child_iter][-1]
+                            if filename is not None:
+                                if filename.endswith('.directory'):
+                                    d, a = get_delete_items(tmp_model,
+                                        child_iter)
+                                    directories = directories + d
+                                    applications = applications + a
+                                    directories.append(filename)
+                                else:
+                                    applications.append(filename)
+                    return directories, applications
+
+                # Remove the items using xdg-desktop-menu uninstall
+                cmd_list = ["xdg-desktop-menu", "uninstall"]
+                dirs, apps = get_delete_items(model, treeiter)
+                dirs.append(filename)
+                cmd_list = cmd_list + dirs + apps
+                logger.debug("Executing Command: %s" % str(cmd_list))
+                subprocess.call(cmd_list)
+
+                # Remove the items from the system.
+                for item in dirs + apps:
+                    try:
+                        os.remove(item)
+                    except:
+                        pass
+
+                # Force one more update.
+                subprocess.call(["xdg-desktop-menu", "forceupdate"])
+
+                # Cleanup now defunct files in applications-merged
+                self.cleanup_applications_merged()
+
+            # If this item still exists, delete it.
+            if os.path.exists(filename):
+                os.remove(filename)
+
+            if original is not None:
                 # Original found, replace.
-                entry = MenulibreXdg.MenulibreDesktopEntry(filename)
+                entry = MenulibreXdg.MenulibreDesktopEntry(original)
                 name = entry['Name']
                 comment = entry['Comment']
                 icon_name = entry['Icon']
@@ -2205,7 +2251,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 model[treeiter][2] = item_type
                 model[treeiter][3] = icon
                 model[treeiter][4] = icon_name
-                model[treeiter][5] = filename
+                model[treeiter][5] = original
             else:
                 # Model not found, delete this row.
                 model.remove(treeiter)
@@ -2213,6 +2259,49 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             model.remove(treeiter)
         if treepath:
             self.treeview.set_cursor(treepath)
+
+        self.update_menus()
+
+    def cleanup_applications_merged(self):
+        """Cleanup items from ~/.config/menus/applications-merged"""
+        # xdg-desktop-menu installs menu files in
+        # ~/.config/menus/applications-merged, but does remove them correctly.
+        merged_dir = os.path.join(GLib.get_user_config_dir(),
+                                    "menus", "applications-merged")
+
+        # Get the list of installed user directories to compare with.
+        directories_dir = os.path.join(GLib.get_home_dir(),
+            ".local", "share", "desktop-directories")
+        if os.path.isdir(directories_dir):
+            directories = os.listdir(directories_dir)
+        else:
+            directories = []
+
+        # Check if applications-merged actually exists...
+        if os.path.isdir(merged_dir):
+            for menufile in os.listdir(merged_dir):
+                menufile = os.path.join(merged_dir, menufile)
+                remove_file = False
+
+                # Only interested in .menu files
+                if os.path.isfile(menufile) and menufile.endswith('.menu'):
+                    logger.debug("Checking if %s is still valid..." %
+                                menufile)
+
+                    # Read the menufile to see if it has a valid directory.
+                    with open(menufile) as menufile_tmp:
+                        for line in menufile_tmp.readlines():
+                            if "<Directory>" in line:
+                                menuname = line.split('<Directory>')[1]
+                                menuname = menuname.split('</Directory>')[0]
+                                menuname = menuname.strip()
+
+                                # If a listed directory is not installed, remove
+                                if menuname not in directories:
+                                    remove_file = True
+                    if remove_file:
+                        logger.debug("Removing useless %s" % menufile)
+                        os.remove(menufile)
 
     def restore_launcher(self):
         """Revert the current launcher."""
