@@ -1140,6 +1140,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                             action=Gtk.FileChooserAction.OPEN)
             dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL,
                                 _("OK"), Gtk.ResponseType.OK)
+            file_filter = Gtk.FileFilter()
+            file_filter.set_name(_("Images"))
+            file_filter.add_mime_type("image/*")
+            dialog.add_filter(file_filter)
             if dialog.run() == Gtk.ResponseType.OK:
                 filename = dialog.get_filename()
                 entry = builder.get_object('entry_ImageFile')
