@@ -6,11 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-03-01 23:48-0500\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-03-02 08:02-0500\n"
 "PO-Revision-Date: 2014-02-10 23:30+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,12 +42,12 @@ msgstr "加入分隔符(_S)"
 msgid "Icon Selection"
 msgstr "選取圖示"
 
-#: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1017
-#: ../menulibre/MenulibreApplication.py:1141
-#: ../menulibre/MenulibreApplication.py:1255
-#: ../menulibre/MenulibreApplication.py:1440
-#: ../menulibre/MenulibreApplication.py:2416
-#: ../menulibre/MenulibreApplication.py:2522
+#: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1019
+#: ../menulibre/MenulibreApplication.py:1143
+#: ../menulibre/MenulibreApplication.py:1262
+#: ../menulibre/MenulibreApplication.py:1446
+#: ../menulibre/MenulibreApplication.py:2422
+#: ../menulibre/MenulibreApplication.py:2528
 msgid "Cancel"
 msgstr "取消"
 
@@ -87,7 +88,7 @@ msgid "<b>Preview</b>"
 msgstr "<b>預覽</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:357
-#: ../menulibre/MenulibreApplication.py:2545
+#: ../menulibre/MenulibreApplication.py:2551
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
@@ -124,252 +125,320 @@ msgid "Delete"
 msgstr "刪除"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
+#, fuzzy
+msgid "Search terms…"
+msgstr "搜尋結果"
+
+#: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Move Up"
 msgstr "上移"
 
-#: ../data/ui/MenulibreWindow.ui.h:25
+#: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Move Down"
 msgstr "下移"
 
-#: ../data/ui/MenulibreWindow.ui.h:26
+#: ../data/ui/MenulibreWindow.ui.h:27
 msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>應用程式名稱</b></big>"
 
-#: ../data/ui/MenulibreWindow.ui.h:27
+#: ../data/ui/MenulibreWindow.ui.h:28
+#, fuzzy
+msgid "Application Name"
+msgstr "應用程式註解"
+
+#: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application Comment"
 msgstr "應用程式註解"
 
-#: ../data/ui/MenulibreWindow.ui.h:28
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:825
+msgid "Description"
+msgstr "說明"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:32
+#, fuzzy
 msgid ""
 "\"Exec\": Program to execute, possibly with arguments. The Exec key is "
-"required if DBusActivatable is not set to true. Even if DBusActivatable is "
-"true, Exec should be specified for compatibility with implementations that "
-"do not understand DBusActivatable. \n"
+"required\n"
+"if DBusActivatable is not set to true. Even if DBusActivatable is true, "
+"Exec\n"
+"should be specified for compatibility with implementations that do not\n"
+"understand DBusActivatable. \n"
 "\n"
-"Please see http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
-"spec-latest.html#exec-variables for a list of supported arguments."
+"Please see\n"
+"http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables\n"
+"for a list of supported arguments."
 msgstr ""
-"\"Exec\"：要執行的程式，或可帶有引數。若 DBusActivatable 未有設有「真」就必須要有 Exec 鍵。即使 "
-"DBusActivatable 設為「真」，應指定 Exec 以相容於不認識 DBusActivatable 的程式。\n"
+"\"Exec\"：要執行的程式，或可帶有引數。若 DBusActivatable 未有設有「真」就必須"
+"要有 Exec 鍵。即使 DBusActivatable 設為「真」，應指定 Exec 以相容於不認識 "
+"DBusActivatable 的程式。\n"
 "\n"
-"支援引數的清單請見 http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
-"spec-latest.html#exec-variables 。"
+"支援引數的清單請見 http://standards.freedesktop.org/desktop-entry-spec/"
+"desktop-entry-spec-latest.html#exec-variables 。"
 
-#: ../data/ui/MenulibreWindow.ui.h:31
+#: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Command"
 msgstr "指令"
 
-#: ../data/ui/MenulibreWindow.ui.h:32
-msgid "\"Path\": The working directory to run the program in. "
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:42
+#, fuzzy
+msgid "\"Path\": The working directory to run the program in."
 msgstr "\"Path\"：該程式運行的工作目錄。 "
 
-#: ../data/ui/MenulibreWindow.ui.h:33
+#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Working Directory"
 msgstr "工作目錄"
 
-#: ../data/ui/MenulibreWindow.ui.h:34
-msgid "Browse..."
+#: ../data/ui/MenulibreWindow.ui.h:44
+#, fuzzy
+msgid "Browse…"
 msgstr "瀏覽..."
 
-#: ../data/ui/MenulibreWindow.ui.h:35
+#: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Application Details</b>"
 msgstr "<b>應用程式詳情</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:36
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:47
 msgid "\"Terminal\": Whether the program runs in a terminal window."
 msgstr "\"Terminal\"：該程式是否在終端機運行。"
 
-#: ../data/ui/MenulibreWindow.ui.h:37
+#: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Run in terminal"
 msgstr "在終端機運行"
 
-#: ../data/ui/MenulibreWindow.ui.h:38
-msgid ""
-"\"StartupNotify\": If true, it is KNOWN that the application will send a "
-"\"remove\" message when started with the DESKTOP_STARTUP_ID environment "
-"variable set. If false, it is KNOWN that the application does not work with "
-"startup notification at all (does not shown any window, breaks even when "
-"using StartupWMClass, etc.). If absent, a reasonable handling is up to "
-"implementations (assuming false, using StartupWMClass, etc.)."
-msgstr ""
-
-#: ../data/ui/MenulibreWindow.ui.h:39
-msgid "Use startup notification"
-msgstr "使用啟動通知"
-
-#: ../data/ui/MenulibreWindow.ui.h:40
-msgid ""
-"\"NoDisplay\": NoDisplay means \"this application exists, but don't display "
-"it in the menus\". This can be useful to e.g. associate this application "
-"with MIME types, so that it gets launched from a file manager (or other "
-"apps), without having a menu entry for it (there are tons of good reasons "
-"for this, including e.g. the netscape -remote, or kfmclient openURL kind of "
-"stuff)."
-msgstr ""
-
-#: ../data/ui/MenulibreWindow.ui.h:41
-msgid "Hide from menus"
-msgstr "從選單隱藏"
-
-#: ../data/ui/MenulibreWindow.ui.h:42
-msgid "<b>Options</b>"
-msgstr "<b>選項</b>"
-
-#: ../data/ui/MenulibreWindow.ui.h:43
-msgid "Add"
-msgstr "加入"
-
-#: ../data/ui/MenulibreWindow.ui.h:44
-msgid "Remove"
-msgstr "移除"
-
-#: ../data/ui/MenulibreWindow.ui.h:45
-msgid "Clear"
-msgstr "清除"
-
-#: ../data/ui/MenulibreWindow.ui.h:46
-msgid "Categories"
-msgstr "分類"
-
-#: ../data/ui/MenulibreWindow.ui.h:47
-msgid "Show"
-msgstr "顯示"
-
-#: ../data/ui/MenulibreWindow.ui.h:48
-msgid "Name"
-msgstr "名稱"
-
-#: ../data/ui/MenulibreWindow.ui.h:49
-msgid "Actions"
-msgstr "動作"
-
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid ""
-"\"GenericName\": Generic name of the application, for example \"Web "
-"Browser\". "
-msgstr "\"GenericName\"：應用程式的通用名稱，例如「網頁瀏覽器」。 "
-
-#: ../data/ui/MenulibreWindow.ui.h:51
-msgid "Generic Name"
-msgstr "通用名稱"
-
-#: ../data/ui/MenulibreWindow.ui.h:52
-msgid ""
-"\"NotShowIn\": A list of strings identifying the environments that should "
-"not display a given desktop entry. Only one of these keys, either OnlyShowIn "
-"or NotShowIn, may appear in a group.\n"
-"\n"
-"Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-"XFCE, Old"
-msgstr ""
-
-#: ../data/ui/MenulibreWindow.ui.h:55
-msgid "Not Shown In"
+"\"StartupNotify\": If true, it is KNOWN that the application will send a "
+"\"remove\"\n"
+"message when started with the DESKTOP_STARTUP_ID environment variable set. "
+"If\n"
+"false, it is KNOWN that the application does not work with startup "
+"notification\n"
+"at all (does not shown any window, breaks even when using StartupWMClass, "
+"etc.).\n"
+"If absent, a reasonable handling is up to implementations (assuming false,\n"
+"using StartupWMClass, etc.)."
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:56
+msgid "Use startup notification"
+msgstr "使用啟動通知"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:58
 msgid ""
-"\"OnlyShowIn\": A list of strings identifying the environments that should "
-"display a given desktop entry. Only one of these keys, either OnlyShowIn or "
+"\"NoDisplay\": NoDisplay means \"this application exists, but don't display "
+"it in\n"
+"the menus\". This can be useful to e.g. associate this application with "
+"MIME\n"
+"types, so that it gets launched from a file manager (or other apps), "
+"without\n"
+"having a menu entry for it (there are tons of good reasons for this,\n"
+"including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:63
+msgid "Hide from menus"
+msgstr "從選單隱藏"
+
+#: ../data/ui/MenulibreWindow.ui.h:64
+msgid "<b>Options</b>"
+msgstr "<b>選項</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:65
+msgid "Add"
+msgstr "加入"
+
+#: ../data/ui/MenulibreWindow.ui.h:66
+msgid "Remove"
+msgstr "移除"
+
+#: ../data/ui/MenulibreWindow.ui.h:67
+msgid "Clear"
+msgstr "清除"
+
+#: ../data/ui/MenulibreWindow.ui.h:68
+msgid "Categories"
+msgstr "分類"
+
+#: ../data/ui/MenulibreWindow.ui.h:69
+msgid "Show"
+msgstr "顯示"
+
+#: ../data/ui/MenulibreWindow.ui.h:70
+msgid "Name"
+msgstr "名稱"
+
+#: ../data/ui/MenulibreWindow.ui.h:71
+#, fuzzy
+msgid "Action Name"
+msgstr "圖示名稱"
+
+#: ../data/ui/MenulibreWindow.ui.h:72
+msgid "Actions"
+msgstr "動作"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:74
+#, fuzzy
+msgid ""
+"\"GenericName\": Generic name of the application, for example \"Web Browser"
+"\"."
+msgstr "\"GenericName\"：應用程式的通用名稱，例如「網頁瀏覽器」。 "
+
+#: ../data/ui/MenulibreWindow.ui.h:75
+msgid "Generic Name"
+msgstr "通用名稱"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:77
+msgid ""
+"\"NotShowIn\": A list of strings identifying the environments that should "
+"not\n"
+"display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
 "NotShowIn, may appear in a group.\n"
 "\n"
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:59
+#: ../data/ui/MenulibreWindow.ui.h:82
+msgid "Not Shown In"
+msgstr ""
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:84
+msgid ""
+"\"OnlyShowIn\": A list of strings identifying the environments that should\n"
+"display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
+"NotShowIn, may appear in a group.\n"
+"\n"
+"Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE, Old"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:89
 msgid "Only Shown In"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:60
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:91
 msgid ""
 "\"TryExec\": Path to an executable file on disk used to determine if the "
-"program is actually installed. If the path is not an absolute path, the file "
-"is looked up in the $PATH environment variable. If the file is not present "
-"or if it is not executable, the entry may be ignored (not be used in menus, "
-"for example). "
+"program\n"
+"is actually installed. If the path is not an absolute path, the file is "
+"looked\n"
+"up in the $PATH environment variable. If the file is not present or if it "
+"is\n"
+"not executable, the entry may be ignored (not be used in menus, for "
+"example). "
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:61
+#: ../data/ui/MenulibreWindow.ui.h:95
 msgid "Try Exec"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:62
-msgid "\"MimeType\": The MIME type(s) supported by this application. "
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:97
+#, fuzzy
+msgid "\"MimeType\": The MIME type(s) supported by this application."
 msgstr "\"MimeType\"：此應用程式支援的 MIME 類型。 "
 
-#: ../data/ui/MenulibreWindow.ui.h:63
+#: ../data/ui/MenulibreWindow.ui.h:98
 msgid "Mimetypes"
 msgstr "MIME 類型"
 
-#: ../data/ui/MenulibreWindow.ui.h:64
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:100
 msgid ""
 "\"Keywords\": A list of strings which may be used in addition to other "
-"metadata to describe this entry. This can be useful e.g. to facilitate "
-"searching through entries. The values are not meant for display, and should "
-"not be redundant with the values of Name or GenericName."
+"metadata\n"
+"to describe this entry. This can be useful e.g. to facilitate searching "
+"through\n"
+"entries. The values are not meant for display, and should not be redundant\n"
+"with the values of Name or GenericName."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:65
+#: ../data/ui/MenulibreWindow.ui.h:104
 msgid "Keywords"
 msgstr "關鍵字"
 
-#: ../data/ui/MenulibreWindow.ui.h:66
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:106
 msgid ""
 "\"StartupWMClass\": If specified, it is known that the application will map "
-"at least one window with the given string as its WM class or WM name hint."
+"at\n"
+"least one window with the given string as its WM class or WM name hint."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:67
+#: ../data/ui/MenulibreWindow.ui.h:108
 msgid "Startup WM Class"
 msgstr "啟動 WM 類別"
 
-#: ../data/ui/MenulibreWindow.ui.h:68
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:110
 msgid ""
 "\"Hidden\": Hidden should have been called Deleted. It means the user "
-"deleted (at his level) something that was present (at an upper level, e.g. "
-"in the system dirs). It's strictly equivalent to the .desktop file not "
-"existing at all, as far as that user is concerned. This can also be used to "
-"\"uninstall\" existing files (e.g. due to a renaming) - by letting make "
-"install install a file with Hidden=true in it."
+"deleted\n"
+"(at his level) something that was present (at an upper level, e.g. in the\n"
+"system dirs). It's strictly equivalent to the .desktop file not existing at\n"
+"all, as far as that user is concerned. This can also be used to \"uninstall"
+"\"\n"
+"existing files (e.g. due to a renaming) - by letting make install install a\n"
+"file with Hidden=true in it."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:69
+#: ../data/ui/MenulibreWindow.ui.h:116
 msgid "Hidden"
 msgstr "隱藏"
 
-#: ../data/ui/MenulibreWindow.ui.h:70
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:118
 msgid ""
 "\"DBusActivatable\": A boolean value specifying if D-Bus activation is "
-"supported for this application. If this key is missing, the default value is "
-"false. If the value is true then implementations should ignore the Exec key "
-"and send a D-Bus message to launch the application. See D-Bus Activation for "
-"more information on how this works. Applications should still include Exec= "
-"lines in their desktop files for compatibility with implementations that do "
-"not understand the DBusActivatable key."
+"supported\n"
+"for this application. If this key is missing, the default value is false. "
+"If\n"
+"the value is true then implementations should ignore the Exec key and send "
+"a\n"
+"D-Bus message to launch the application. See D-Bus Activation for more\n"
+"information on how this works. Applications should still include Exec= "
+"lines\n"
+"in their desktop files for compatibility with implementations that do not\n"
+"understand the DBusActivatable key."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:71
+#: ../data/ui/MenulibreWindow.ui.h:125
 msgid "DBUS Activatable"
 msgstr "可由 DBUS 啟動"
 
-#: ../data/ui/MenulibreWindow.ui.h:72
+#: ../data/ui/MenulibreWindow.ui.h:126
 msgid "Advanced"
 msgstr "進階"
 
-#: ../data/ui/MenulibreWindow.ui.h:73
+#: ../data/ui/MenulibreWindow.ui.h:127
 msgid "<small><i>Filename</i></small>"
 msgstr "<small><i>檔案名稱</i></small>"
 
-#: ../data/ui/MenulibreWindow.ui.h:74
-msgid "Select an icon..."
+#: ../data/ui/MenulibreWindow.ui.h:128
+#, fuzzy
+msgid "Select an icon…"
 msgstr "選取圖示..."
 
-#: ../data/ui/MenulibreWindow.ui.h:75
+#: ../data/ui/MenulibreWindow.ui.h:129
 msgid "<b>Select an icon</b>"
 msgstr "<b>選取圖示</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:76
+#: ../data/ui/MenulibreWindow.ui.h:130
+#, fuzzy
+msgid "Search"
+msgstr "搜尋結果"
+
+#: ../data/ui/MenulibreWindow.ui.h:131
 msgid "column"
 msgstr "欄"
 
@@ -377,8 +446,8 @@ msgstr "欄"
 msgid "Show debug messages"
 msgstr "顯示除錯訊息"
 
-#: ../menulibre/MenuEditor.py:92 ../menulibre/MenulibreApplication.py:1354
-#: ../menulibre/MenulibreApplication.py:2126
+#: ../menulibre/MenuEditor.py:92 ../menulibre/MenulibreApplication.py:1361
+#: ../menulibre/MenulibreApplication.py:2132
 msgid "Separator"
 msgstr "分隔符"
 
@@ -519,8 +588,8 @@ msgid "_Save"
 msgstr "儲存(_S)"
 
 #: ../menulibre/MenulibreApplication.py:401
-#: ../menulibre/MenulibreApplication.py:1018
-#: ../menulibre/MenulibreApplication.py:1441
+#: ../menulibre/MenulibreApplication.py:1020
+#: ../menulibre/MenulibreApplication.py:1447
 msgid "Save"
 msgstr "儲存"
 
@@ -545,7 +614,7 @@ msgid "_Quit"
 msgstr "結束(_Q)"
 
 #: ../menulibre/MenulibreApplication.py:436
-#: ../menulibre/MenulibreApplication.py:2497
+#: ../menulibre/MenulibreApplication.py:2503
 msgid "Quit"
 msgstr "結束"
 
@@ -554,7 +623,7 @@ msgid "_Contents"
 msgstr "目錄(_C)"
 
 #: ../menulibre/MenulibreApplication.py:443
-#: ../menulibre/MenulibreApplication.py:2495
+#: ../menulibre/MenulibreApplication.py:2501
 msgid "Help"
 msgstr "求助"
 
@@ -563,7 +632,7 @@ msgid "_About"
 msgstr "關於(_A)"
 
 #: ../menulibre/MenulibreApplication.py:450
-#: ../menulibre/MenulibreApplication.py:2496
+#: ../menulibre/MenulibreApplication.py:2502
 msgid "About"
 msgstr "關於"
 
@@ -572,158 +641,153 @@ msgstr "關於"
 msgid "Search Results"
 msgstr "搜尋結果"
 
-#: ../menulibre/MenulibreApplication.py:797
+#: ../menulibre/MenulibreApplication.py:799
 msgid "ThisEntry"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:815
+#: ../menulibre/MenulibreApplication.py:817
 msgid "Select a category"
 msgstr "選取分類"
 
-#: ../menulibre/MenulibreApplication.py:818
+#: ../menulibre/MenulibreApplication.py:820
 msgid "Category Name"
 msgstr "分類名稱"
 
-#: ../menulibre/MenulibreApplication.py:823
-msgid "Description"
-msgstr "說明"
-
-#: ../menulibre/MenulibreApplication.py:902
+#: ../menulibre/MenulibreApplication.py:904
 msgid "This Entry"
 msgstr "此項目"
 
-#: ../menulibre/MenulibreApplication.py:957
+#: ../menulibre/MenulibreApplication.py:959
 msgid "New Shortcut"
 msgstr "新增捷徑"
 
 #. Unsaved changes
-#: ../menulibre/MenulibreApplication.py:1007
+#: ../menulibre/MenulibreApplication.py:1009
 msgid "Do you want to save the changes before closing?"
 msgstr "關閉前是否儲存變更？"
 
-#: ../menulibre/MenulibreApplication.py:1008
+#: ../menulibre/MenulibreApplication.py:1010
 msgid "If you don't save the launcher, all the changes will be lost.'"
 msgstr "如不儲存啟動器，所有變更都會丟失。"
 
-#: ../menulibre/MenulibreApplication.py:1015
-#: ../menulibre/MenulibreApplication.py:1438
+#: ../menulibre/MenulibreApplication.py:1017
+#: ../menulibre/MenulibreApplication.py:1444
 msgid "Save Changes"
 msgstr "儲存變更"
 
-#: ../menulibre/MenulibreApplication.py:1016
-#: ../menulibre/MenulibreApplication.py:1439
+#: ../menulibre/MenulibreApplication.py:1018
+#: ../menulibre/MenulibreApplication.py:1445
 msgid "Don't Save"
 msgstr "不儲存"
 
-#: ../menulibre/MenulibreApplication.py:1138
+#: ../menulibre/MenulibreApplication.py:1140
 msgid "Select an image"
 msgstr "選取影像"
 
-#: ../menulibre/MenulibreApplication.py:1142
-#: ../menulibre/MenulibreApplication.py:1256
-#: ../menulibre/MenulibreApplication.py:1409
+#: ../menulibre/MenulibreApplication.py:1144
+#: ../menulibre/MenulibreApplication.py:1263
 msgid "OK"
 msgstr "確定"
 
-#: ../menulibre/MenulibreApplication.py:1144
+#: ../menulibre/MenulibreApplication.py:1146
 msgid "Images"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1248
+#: ../menulibre/MenulibreApplication.py:1255
 msgid "Select a working directory..."
 msgstr "選取工作目錄..."
 
-#: ../menulibre/MenulibreApplication.py:1252
+#: ../menulibre/MenulibreApplication.py:1259
 msgid "Select an executable..."
 msgstr "選取執行檔..."
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1401
+#: ../menulibre/MenulibreApplication.py:1408
 msgid "No Longer Installed"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1402
+#: ../menulibre/MenulibreApplication.py:1409
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1429
+#: ../menulibre/MenulibreApplication.py:1435
 msgid "Do you want to save the changes before leaving this launcher?"
 msgstr "離開此啟動器前是否儲存變更？"
 
-#: ../menulibre/MenulibreApplication.py:1431
+#: ../menulibre/MenulibreApplication.py:1437
 msgid "If you don't save the launcher, all the changes will be lost."
 msgstr "如不儲存啟動器，所有變更都會丟失。"
 
-#: ../menulibre/MenulibreApplication.py:1661
+#: ../menulibre/MenulibreApplication.py:1667
 msgid "You do not have permission to delete this file."
 msgstr "無權限刪除此檔案。"
 
-#: ../menulibre/MenulibreApplication.py:2025
+#: ../menulibre/MenulibreApplication.py:2031
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2039
+#: ../menulibre/MenulibreApplication.py:2045
 msgid "New Launcher"
 msgstr "新增啟動器"
 
-#: ../menulibre/MenulibreApplication.py:2094
+#: ../menulibre/MenulibreApplication.py:2100
 msgid "New Directory"
 msgstr "新增目錄"
 
-#: ../menulibre/MenulibreApplication.py:2411
+#: ../menulibre/MenulibreApplication.py:2417
 msgid "Are you sure you want to restore this launcher?"
 msgstr "是否還原此啟動器？"
 
-#: ../menulibre/MenulibreApplication.py:2417
-#: ../menulibre/MenulibreApplication.py:2418
+#: ../menulibre/MenulibreApplication.py:2423
+#: ../menulibre/MenulibreApplication.py:2424
 msgid "Restore Launcher"
 msgstr "還原啟動器"
 
-#: ../menulibre/MenulibreApplication.py:2419
+#: ../menulibre/MenulibreApplication.py:2425
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr "在對上一次儲存的狀態之後所有變更都會丟失，並且無法自動還原。"
 
-#: ../menulibre/MenulibreApplication.py:2434
+#: ../menulibre/MenulibreApplication.py:2440
 msgid "Are you sure you want to delete this separator?"
 msgstr "是否確定刪除此分隔符？"
 
-#: ../menulibre/MenulibreApplication.py:2437
+#: ../menulibre/MenulibreApplication.py:2443
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "是否確定刪除 \"%s\"？"
 
-#: ../menulibre/MenulibreApplication.py:2439
+#: ../menulibre/MenulibreApplication.py:2445
 msgid "This cannot be undone."
 msgstr "這將無法復原。"
 
-#: ../menulibre/MenulibreApplication.py:2517
+#: ../menulibre/MenulibreApplication.py:2523
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr "是否閱讀線上 MenuLibre 使用手冊？"
 
-#: ../menulibre/MenulibreApplication.py:2523
+#: ../menulibre/MenulibreApplication.py:2529
 msgid "Read Online"
 msgstr "上線閱讀"
 
-#: ../menulibre/MenulibreApplication.py:2524
+#: ../menulibre/MenulibreApplication.py:2530
 msgid "Online Documentation"
 msgstr "線上說明文件"
 
-#: ../menulibre/MenulibreApplication.py:2525
+#: ../menulibre/MenulibreApplication.py:2531
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr "會重導向至線上說明文件網站。"
 
 #. Populate the AboutDialog with all the relevant details.
-#: ../menulibre/MenulibreApplication.py:2544
+#: ../menulibre/MenulibreApplication.py:2550
 msgid "About MenuLibre"
 msgstr "關於 MenuLibre"
 
-#: ../menulibre/MenulibreApplication.py:2547
+#: ../menulibre/MenulibreApplication.py:2553
 msgid "Copyright © 2012-2014 Sean Davis"
 msgstr "著作權 © 2012-2014 Sean Davis"
 
