@@ -736,6 +736,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         model_filter.set_visible_func(self.icon_selection_match_func, entry)
         self.icon_selection_treeview.set_model(model_filter)
         entry.connect("changed", self.on_search_changed, model_filter)
+        button = builder.get_object('icon_selection_apply')
+        self.icon_selection_treeview.connect("row-activated",
+                                            self.icon_selection_row_activated,
+                                            button)
 
         # Configure the IconType selection.
         for widget_name in ['IconName', 'ImageFile']:
@@ -1181,6 +1185,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             return True
 
         return query in model[treeiter][0].lower()
+
+    def icon_selection_row_activated(self, widget, path, column, button):
+        button.activate()
 
 # Name and Comment Widgets
     def on_NameComment_key_press_event(self, widget, ev, widget_name, builder):
