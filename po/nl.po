@@ -6,16 +6,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-02 08:02-0500\n"
-"PO-Revision-Date: 2014-02-27 22:16+0000\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-03-02 08:31-0500\n"
+"PO-Revision-Date: 2014-03-02 22:12+0000\n"
 "Last-Translator: Pjotr12345 <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-02 05:31+0000\n"
+"X-Launchpad-Export-Date: 2014-03-03 05:47+0000\n"
 "X-Generator: Launchpad (build 16948)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -125,9 +124,8 @@ msgid "Delete"
 msgstr "Verwijderen"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
-#, fuzzy
 msgid "Search terms…"
-msgstr "Zoekresultaten"
+msgstr "Zoektermen..."
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Move Up"
@@ -142,9 +140,8 @@ msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>Naam van toepassing</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
-#, fuzzy
 msgid "Application Name"
-msgstr "Commentaar bij toepassing"
+msgstr "Naam van toepassing"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application Comment"
@@ -156,7 +153,6 @@ msgstr "Beschrijving"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:32
-#, fuzzy
 msgid ""
 "\"Exec\": Program to execute, possibly with arguments. The Exec key is "
 "required\n"
@@ -170,13 +166,6 @@ msgid ""
 "latest.html#exec-variables\n"
 "for a list of supported arguments."
 msgstr ""
-"\"Exec\": Programma om uit te voeren, eventueel met argumenten. De Exec-"
-"toets is vereist indien DBusActivatable niet ingesteld is op 'waar'. Zelfs "
-"indien DBusActivatable 'waar' is,  zou Exec opgegeven moeten zijn voor "
-"verenigbaarheid met implementaties die DBusActivatable niet begrijpen. \n"
-"\n"
-"Zie a.u.b. http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
-"spec-latest.html#exec-variables voor een lijst van ondersteunde argumenten."
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Command"
@@ -184,18 +173,16 @@ msgstr "Opdracht"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:42
-#, fuzzy
 msgid "\"Path\": The working directory to run the program in."
-msgstr "'Pad': de werkmap om het programma in te draaien. "
+msgstr "'Path': de werkmap om het programma in te draaien."
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Working Directory"
 msgstr "Werkmap"
 
 #: ../data/ui/MenulibreWindow.ui.h:44
-#, fuzzy
 msgid "Browse…"
-msgstr "Doorzoeken..."
+msgstr "Verkennen..."
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Application Details</b>"
@@ -208,7 +195,7 @@ msgstr "'Terminal': of het programma in een terminalvenster draait."
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Run in terminal"
-msgstr "In terminal draaien"
+msgstr "In terminalvenster draaien"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:50
@@ -275,9 +262,8 @@ msgid "Name"
 msgstr "Naam"
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-#, fuzzy
 msgid "Action Name"
-msgstr "Pictogramnaam"
+msgstr "Naam van actie"
 
 #: ../data/ui/MenulibreWindow.ui.h:72
 msgid "Actions"
@@ -285,13 +271,11 @@ msgstr "Acties"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:74
-#, fuzzy
 msgid ""
-"\"GenericName\": Generic name of the application, for example \"Web Browser"
-"\"."
+"\"GenericName\": Generic name of the application, for example \"Web "
+"Browser\"."
 msgstr ""
-"'GeneriekeNaam': generieke naam van de toepassing, bijvoorbeeld "
-"'Tekstverwerker'. "
+"'GenericName': soortnaam van de toepassing, bijvoorbeeld 'webbrowser'."
 
 #: ../data/ui/MenulibreWindow.ui.h:75
 msgid "Generic Name"
@@ -349,6 +333,7 @@ msgstr "Probeer Exec"
 #: ../data/ui/MenulibreWindow.ui.h:97
 msgid "\"MimeType\": The MIME type(s) supported by this application."
 msgstr ""
+"'MimeType': de bestandsoorten die door deze toepassing worden ondersteund."
 
 #: ../data/ui/MenulibreWindow.ui.h:98
 msgid "Mimetypes"
@@ -388,8 +373,8 @@ msgid ""
 "deleted\n"
 "(at his level) something that was present (at an upper level, e.g. in the\n"
 "system dirs). It's strictly equivalent to the .desktop file not existing at\n"
-"all, as far as that user is concerned. This can also be used to \"uninstall"
-"\"\n"
+"all, as far as that user is concerned. This can also be used to "
+"\"uninstall\"\n"
 "existing files (e.g. due to a renaming) - by letting make install install a\n"
 "file with Hidden=true in it."
 msgstr ""
@@ -427,18 +412,16 @@ msgid "<small><i>Filename</i></small>"
 msgstr "<small><i>Bestandnaam</i></small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:128
-#, fuzzy
 msgid "Select an icon…"
-msgstr "Kies een pictogram…"
+msgstr "Kies een pictogram..."
 
 #: ../data/ui/MenulibreWindow.ui.h:129
 msgid "<b>Select an icon</b>"
 msgstr "<b>Kies een pictogram</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:130
-#, fuzzy
 msgid "Search"
-msgstr "Zoekresultaten"
+msgstr "Zoeken"
 
 #: ../data/ui/MenulibreWindow.ui.h:131
 msgid "column"
@@ -541,7 +524,7 @@ msgstr "Xfce-menu-onderdeel"
 
 #: ../menulibre/MenulibreApplication.py:84
 msgid "Xfce toplevel menu item"
-msgstr "Xfce -menu-onderdeel voor bovenste niveau"
+msgstr "Onderdeel voor bovenste niveau van Xfce-menu"
 
 #: ../menulibre/MenulibreApplication.py:85
 msgid "Xfce user configuration"
@@ -645,7 +628,7 @@ msgstr "Zoekresultaten"
 
 #: ../menulibre/MenulibreApplication.py:799
 msgid "ThisEntry"
-msgstr "DitInvoerveld"
+msgstr "ThisEntry"
 
 #: ../menulibre/MenulibreApplication.py:817
 msgid "Select a category"
@@ -693,7 +676,7 @@ msgstr "OK"
 
 #: ../menulibre/MenulibreApplication.py:1146
 msgid "Images"
-msgstr ""
+msgstr "Afbeeldingen"
 
 #: ../menulibre/MenulibreApplication.py:1255
 msgid "Select a working directory..."
@@ -706,13 +689,15 @@ msgstr "Kies een uitvoerbaar bestand..."
 #. Display a dialog saying this item is missing
 #: ../menulibre/MenulibreApplication.py:1408
 msgid "No Longer Installed"
-msgstr ""
+msgstr "Niet meer geïnstalleerd"
 
 #: ../menulibre/MenulibreApplication.py:1409
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
+"Deze starter is verwijderd uit het systeem.\n"
+"Het volgende beschikbare onderdeel wordt gekozen."
 
 #: ../menulibre/MenulibreApplication.py:1435
 msgid "Do you want to save the changes before leaving this launcher?"
@@ -729,7 +714,7 @@ msgstr "U hebt geen rechten om dit bestand te verwijderen."
 
 #: ../menulibre/MenulibreApplication.py:2031
 msgid "Cannot add subdirectories to preinstalled system paths."
-msgstr ""
+msgstr "Kan geen submappen toevoegen aan voorgeïnstalleerde systeempaden."
 
 #: ../menulibre/MenulibreApplication.py:2045
 msgid "New Launcher"
@@ -787,7 +772,7 @@ msgid ""
 "maintained."
 msgstr ""
 "U zult worden doorgeleid naar de documentatiewebsite waar de hulppagina's "
-"worden onderhouden."
+"worden bijgehouden."
 
 #. Populate the AboutDialog with all the relevant details.
 #: ../menulibre/MenulibreApplication.py:2550

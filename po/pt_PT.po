@@ -6,16 +6,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-02 08:02-0500\n"
-"PO-Revision-Date: 2014-02-10 23:30+0000\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-03-02 08:31-0500\n"
+"PO-Revision-Date: 2014-01-23 23:32+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Portuguese (Portugal) <pt_PT@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-02 05:31+0000\n"
+"X-Launchpad-Export-Date: 2014-03-03 05:47+0000\n"
 "X-Generator: Launchpad (build 16948)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -125,9 +124,8 @@ msgid "Delete"
 msgstr "Apagar"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
-#, fuzzy
 msgid "Search terms…"
-msgstr "Resultados da pesquisa"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Move Up"
@@ -142,9 +140,8 @@ msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>Nome da Aplicação</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
-#, fuzzy
 msgid "Application Name"
-msgstr "Comentários sobre a aplicação"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application Comment"
@@ -156,7 +153,6 @@ msgstr "Descrição"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:32
-#, fuzzy
 msgid ""
 "\"Exec\": Program to execute, possibly with arguments. The Exec key is "
 "required\n"
@@ -170,15 +166,6 @@ msgid ""
 "latest.html#exec-variables\n"
 "for a list of supported arguments."
 msgstr ""
-"\"Exec\": Programa a executar, possivelmente com argumentos. A chave Exec é "
-"necessária se DBusActivatable não estiver definido como verdadeiro. Mesmo "
-"que DBusActivatable esteja definido como verdadeiro, Exec deve ser "
-"especificado para compatibilidade com implementações que não entendem "
-"DBusActivatable. \n"
-"\n"
-"Por favor consulte http://standards.freedesktop.org/desktop-entry-spec/"
-"desktop-entry-spec-latest.html#exec-variables para uma lista de argumentos "
-"suportados."
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Command"
@@ -186,18 +173,16 @@ msgstr "Comando"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:42
-#, fuzzy
 msgid "\"Path\": The working directory to run the program in."
-msgstr "\"Caminho\": O diretório de trabalho onde executar o programa. "
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Working Directory"
 msgstr "Diretório de trabalho"
 
 #: ../data/ui/MenulibreWindow.ui.h:44
-#, fuzzy
 msgid "Browse…"
-msgstr "Navegar..."
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Application Details</b>"
@@ -214,7 +199,6 @@ msgstr "Executar em terminal"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:50
-#, fuzzy
 msgid ""
 "\"StartupNotify\": If true, it is KNOWN that the application will send a "
 "\"remove\"\n"
@@ -227,13 +211,6 @@ msgid ""
 "If absent, a reasonable handling is up to implementations (assuming false,\n"
 "using StartupWMClass, etc.)."
 msgstr ""
-"\"StartupNotify\": Se verdadeiro, SABE-SE que a aplicação enviará uma "
-"mensagem de \"remover\" quando iniciada com a variável de ambiente "
-"DESKTOP_STARTUP_ID definida. Se falso, SABE-SE que a aplicação não funciona "
-"de todo com a notificação de inicialização (não é mostrada qualquer janela, "
-"e crasha mesmo quando se usa StartupWMClass, etc.). Se ausente, um "
-"tratamento razoável depende de implementações (assumindo falso, usando "
-"StartupWMClass, etc.)"
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Use startup notification"
@@ -241,7 +218,6 @@ msgstr "Utilizar a notificação de inicialização"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:58
-#, fuzzy
 msgid ""
 "\"NoDisplay\": NoDisplay means \"this application exists, but don't display "
 "it in\n"
@@ -252,12 +228,6 @@ msgid ""
 "having a menu entry for it (there are tons of good reasons for this,\n"
 "including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
 msgstr ""
-"\"NoDisplay\": Nodisplay significa \"esta aplicação existe, mas não a mostre "
-"nos menus\". Isto pode ser útil para, por exemplo, associar esta aplicação "
-"com tipos MIME, para que ela seja lançada a partir de um gestor de ficheiros "
-"(ou outras aplicações), sem ter uma entrada de menu para ela (há toneladas "
-"de boas razões para isto, incluindo por exemplo o netscape-remote, ou coisas "
-"do tipo openURL kfmclient)."
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "Hide from menus"
@@ -292,9 +262,8 @@ msgid "Name"
 msgstr "Nome"
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-#, fuzzy
 msgid "Action Name"
-msgstr "Nome do Ícone"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:72
 msgid "Actions"
@@ -302,12 +271,10 @@ msgstr "Ações"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:74
-#, fuzzy
 msgid ""
-"\"GenericName\": Generic name of the application, for example \"Web Browser"
-"\"."
+"\"GenericName\": Generic name of the application, for example \"Web "
+"Browser\"."
 msgstr ""
-"\"GenericName\": Nome genérico da aplicação, por exemplo, \"Web Browser\". "
 
 #: ../data/ui/MenulibreWindow.ui.h:75
 msgid "Generic Name"
@@ -315,7 +282,6 @@ msgstr "Nome Genérico"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:77
-#, fuzzy
 msgid ""
 "\"NotShowIn\": A list of strings identifying the environments that should "
 "not\n"
@@ -325,13 +291,6 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
-"\"NotShowIn\": Lista de nomes identificando os ambientes que não devem "
-"mostrar uma determinada entrada de desktop. Apenas uma destas chaves, ou "
-"OnlyShowIn ou NotShowIn, podem aparecer num grupo.\n"
-"\n"
-"\n"
-"Os valores possíveis incluem: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, "
-"Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:82
 msgid "Not Shown In"
@@ -339,7 +298,6 @@ msgstr "Não mostrar em"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:84
-#, fuzzy
 msgid ""
 "\"OnlyShowIn\": A list of strings identifying the environments that should\n"
 "display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
@@ -348,13 +306,6 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
-"\"NotShowIn\": Lista de nomes identificando os ambientes que devem mostrar "
-"uma determinada entrada de desktop. Apenas uma destas chaves, ou OnlyShowIn "
-"ou NotShowIn, podem aparecer num grupo.\n"
-"\n"
-"\n"
-"Os valores possíveis incluem: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, "
-"Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:89
 msgid "Only Shown In"
@@ -362,7 +313,6 @@ msgstr "Apenas mostrar em"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:91
-#, fuzzy
 msgid ""
 "\"TryExec\": Path to an executable file on disk used to determine if the "
 "program\n"
@@ -373,11 +323,6 @@ msgid ""
 "not executable, the entry may be ignored (not be used in menus, for "
 "example). "
 msgstr ""
-"\"TryExec\": Caminho para um ficheiro executável no disco usado para "
-"determinar se o programa está realmente instalado. Se o caminho não é um "
-"caminho absoluto, o ficheiro é procurado na variável de ambiente $PATH. Se o "
-"ficheiro não estiver presente ou se não for executável, a entrada pode ser "
-"ignorada (não pode ser usado em menus, por exemplo). "
 
 #: ../data/ui/MenulibreWindow.ui.h:95
 msgid "Try Exec"
@@ -385,9 +330,8 @@ msgstr "Experimentar Exec"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:97
-#, fuzzy
 msgid "\"MimeType\": The MIME type(s) supported by this application."
-msgstr "\"MimeType\": O tipo de MIME(s) suportados por esta aplicação. "
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:98
 msgid "Mimetypes"
@@ -395,7 +339,6 @@ msgstr "Tipos de Mime"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:100
-#, fuzzy
 msgid ""
 "\"Keywords\": A list of strings which may be used in addition to other "
 "metadata\n"
@@ -404,10 +347,6 @@ msgid ""
 "entries. The values are not meant for display, and should not be redundant\n"
 "with the values of Name or GenericName."
 msgstr ""
-"\"Keywords\": Uma lista de nomes que podem ser usados em adição a outros "
-"metadados para descrever esta entrada. Isto pode ser útil por exemplo para "
-"facilitar a pesquisa através de entradas. Os valores não são destinados para "
-"exibição e não devem ser redundantes com os valores do Nome ou Nome Genérico."
 
 #: ../data/ui/MenulibreWindow.ui.h:104
 msgid "Keywords"
@@ -415,15 +354,11 @@ msgstr "Palavras-chave"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:106
-#, fuzzy
 msgid ""
 "\"StartupWMClass\": If specified, it is known that the application will map "
 "at\n"
 "least one window with the given string as its WM class or WM name hint."
 msgstr ""
-"\"StartupWMClass\": Se especificado, sabe-se que a aplicação irá mapear pelo "
-"menos uma janela com a cadeia de caracteres dada como a sua classe WM ou "
-"sugestão de nome WM."
 
 #: ../data/ui/MenulibreWindow.ui.h:108
 msgid "Startup WM Class"
@@ -431,24 +366,16 @@ msgstr "Classe WM de inicialização"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:110
-#, fuzzy
 msgid ""
 "\"Hidden\": Hidden should have been called Deleted. It means the user "
 "deleted\n"
 "(at his level) something that was present (at an upper level, e.g. in the\n"
 "system dirs). It's strictly equivalent to the .desktop file not existing at\n"
-"all, as far as that user is concerned. This can also be used to \"uninstall"
-"\"\n"
+"all, as far as that user is concerned. This can also be used to "
+"\"uninstall\"\n"
 "existing files (e.g. due to a renaming) - by letting make install install a\n"
 "file with Hidden=true in it."
 msgstr ""
-"\"Hidden\": Oculto deveria ter sido chamado Excluído. Significa que o "
-"utilizador excluiu (neste nível) algo que estava presente (a um nível "
-"superior, por exemplo nos diretórios do sistema). É estritamente equivalente "
-"à não existência do ficheiro .desktop no que a esse utilizador diz respeito. "
-"Isto pode também ser usado para \"desinstalar\" ficheiros existentes (por "
-"exemplo, devido a uma renomeação) - deixando o comando make install instalar "
-"um ficheiro nele com o valor Oculto=verdadeiro."
 
 #: ../data/ui/MenulibreWindow.ui.h:116
 msgid "Hidden"
@@ -456,7 +383,6 @@ msgstr "Oculto"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:118
-#, fuzzy
 msgid ""
 "\"DBusActivatable\": A boolean value specifying if D-Bus activation is "
 "supported\n"
@@ -470,14 +396,6 @@ msgid ""
 "in their desktop files for compatibility with implementations that do not\n"
 "understand the DBusActivatable key."
 msgstr ""
-"\"DBusActivatable\": Um valor booleano que especifica se a ativação D-Bus é "
-"compatível com esta aplicação. Se esta chave estiver em falta, o valor "
-"padrão é falso. Se o valor for verdadeiro então as implementações devem "
-"ignorar a chave Exec e enviar uma mensagem de D-Bus para iniciar a "
-"aplicação. Ver Ativação de D-Bus para obter mais informações sobre como isto "
-"funciona. As aplicações ainda devem incluir Exec= lines nos seus ficheiros "
-"de desktop para compatibilidade com implementações que não entendam a chave "
-"DBusActivatable."
 
 #: ../data/ui/MenulibreWindow.ui.h:125
 msgid "DBUS Activatable"
@@ -492,18 +410,16 @@ msgid "<small><i>Filename</i></small>"
 msgstr "<small><i>Nome do ficheiro</i></small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:128
-#, fuzzy
 msgid "Select an icon…"
-msgstr "Selecione um ícone..."
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:129
 msgid "<b>Select an icon</b>"
 msgstr "<b>Selecione um ícone</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:130
-#, fuzzy
 msgid "Search"
-msgstr "Resultados da pesquisa"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:131
 msgid "column"

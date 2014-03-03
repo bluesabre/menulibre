@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-02 08:02-0500\n"
-"PO-Revision-Date: 2014-02-10 23:30+0000\n"
+"POT-Creation-Date: 2014-03-02 08:31-0500\n"
+"PO-Revision-Date: 2014-01-24 08:52+0000\n"
 "Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
 "Language-Team: polski <>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-02 05:31+0000\n"
+"X-Launchpad-Export-Date: 2014-03-03 05:47+0000\n"
 "X-Generator: Launchpad (build 16948)\n"
+"Language: \n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -125,9 +125,8 @@ msgid "Delete"
 msgstr "Usuń"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
-#, fuzzy
 msgid "Search terms…"
-msgstr "Wyniki wyszukiwania"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Move Up"
@@ -142,9 +141,8 @@ msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>Nazwa programu</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
-#, fuzzy
 msgid "Application Name"
-msgstr "Komentarz do programu"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application Comment"
@@ -176,18 +174,16 @@ msgstr "Polecenie"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:42
-#, fuzzy
 msgid "\"Path\": The working directory to run the program in."
-msgstr "\"Ścieżka\": Katalog roboczy, w którym uruchamia się program. "
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Working Directory"
 msgstr "Katalog roboczy"
 
 #: ../data/ui/MenulibreWindow.ui.h:44
-#, fuzzy
 msgid "Browse…"
-msgstr "Przeglądaj..."
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Application Details</b>"
@@ -267,9 +263,8 @@ msgid "Name"
 msgstr "Nazwa"
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-#, fuzzy
 msgid "Action Name"
-msgstr "Nazwa ikony"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:72
 msgid "Actions"
@@ -277,13 +272,10 @@ msgstr "Działania"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:74
-#, fuzzy
 msgid ""
-"\"GenericName\": Generic name of the application, for example \"Web Browser"
-"\"."
+"\"GenericName\": Generic name of the application, for example \"Web "
+"Browser\"."
 msgstr ""
-"\"Nazwa ogólna\": Nazwa ogólna programu, na przykład \"Przeglądarka "
-"internetowa\". "
 
 #: ../data/ui/MenulibreWindow.ui.h:75
 msgid "Generic Name"
@@ -380,8 +372,8 @@ msgid ""
 "deleted\n"
 "(at his level) something that was present (at an upper level, e.g. in the\n"
 "system dirs). It's strictly equivalent to the .desktop file not existing at\n"
-"all, as far as that user is concerned. This can also be used to \"uninstall"
-"\"\n"
+"all, as far as that user is concerned. This can also be used to "
+"\"uninstall\"\n"
 "existing files (e.g. due to a renaming) - by letting make install install a\n"
 "file with Hidden=true in it."
 msgstr ""
@@ -419,18 +411,16 @@ msgid "<small><i>Filename</i></small>"
 msgstr "<small><i>Nazwa pliku</i></small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:128
-#, fuzzy
 msgid "Select an icon…"
-msgstr "Wybierz ikonę..."
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:129
 msgid "<b>Select an icon</b>"
 msgstr "<b>Wybierz ikonę</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:130
-#, fuzzy
 msgid "Search"
-msgstr "Wyniki wyszukiwania"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:131
 msgid "column"

@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-02 08:02-0500\n"
-"PO-Revision-Date: 2014-02-10 23:30+0000\n"
+"POT-Creation-Date: 2014-03-02 08:31-0500\n"
+"PO-Revision-Date: 2013-05-29 03:05+0000\n"
 "Last-Translator: k3dar7 <k3dar7@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
-"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-02 05:31+0000\n"
+"X-Launchpad-Export-Date: 2014-03-03 05:47+0000\n"
 "X-Generator: Launchpad (build 16948)\n"
+"Language: cs\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -125,9 +125,8 @@ msgid "Delete"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:24
-#, fuzzy
 msgid "Search terms…"
-msgstr "Výsledky vyhledávání"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Move Up"
@@ -142,9 +141,8 @@ msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>Název aplikace</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
-#, fuzzy
 msgid "Application Name"
-msgstr "<big><b>Název aplikace</b></big>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application Comment"
@@ -265,9 +263,8 @@ msgid "Name"
 msgstr "Název"
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-#, fuzzy
 msgid "Action Name"
-msgstr "Ikona - název"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:72
 msgid "Actions"
@@ -276,8 +273,8 @@ msgstr ""
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:74
 msgid ""
-"\"GenericName\": Generic name of the application, for example \"Web Browser"
-"\"."
+"\"GenericName\": Generic name of the application, for example \"Web "
+"Browser\"."
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:75
@@ -375,8 +372,8 @@ msgid ""
 "deleted\n"
 "(at his level) something that was present (at an upper level, e.g. in the\n"
 "system dirs). It's strictly equivalent to the .desktop file not existing at\n"
-"all, as far as that user is concerned. This can also be used to \"uninstall"
-"\"\n"
+"all, as far as that user is concerned. This can also be used to "
+"\"uninstall\"\n"
 "existing files (e.g. due to a renaming) - by letting make install install a\n"
 "file with Hidden=true in it."
 msgstr ""
@@ -422,9 +419,8 @@ msgid "<b>Select an icon</b>"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:130
-#, fuzzy
 msgid "Search"
-msgstr "Výsledky vyhledávání"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:131
 msgid "column"

@@ -6,16 +6,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-02 08:02-0500\n"
-"PO-Revision-Date: 2014-02-10 23:30+0000\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-03-02 08:31-0500\n"
+"PO-Revision-Date: 2014-03-01 05:44+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-02 05:31+0000\n"
+"X-Launchpad-Export-Date: 2014-03-03 05:47+0000\n"
 "X-Generator: Launchpad (build 16948)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -125,9 +124,8 @@ msgid "Delete"
 msgstr "刪除"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
-#, fuzzy
 msgid "Search terms…"
-msgstr "搜尋結果"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Move Up"
@@ -142,9 +140,8 @@ msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>應用程式名稱</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
-#, fuzzy
 msgid "Application Name"
-msgstr "應用程式註解"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application Comment"
@@ -156,7 +153,6 @@ msgstr "說明"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:32
-#, fuzzy
 msgid ""
 "\"Exec\": Program to execute, possibly with arguments. The Exec key is "
 "required\n"
@@ -170,12 +166,6 @@ msgid ""
 "latest.html#exec-variables\n"
 "for a list of supported arguments."
 msgstr ""
-"\"Exec\"：要執行的程式，或可帶有引數。若 DBusActivatable 未有設有「真」就必須"
-"要有 Exec 鍵。即使 DBusActivatable 設為「真」，應指定 Exec 以相容於不認識 "
-"DBusActivatable 的程式。\n"
-"\n"
-"支援引數的清單請見 http://standards.freedesktop.org/desktop-entry-spec/"
-"desktop-entry-spec-latest.html#exec-variables 。"
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Command"
@@ -183,18 +173,16 @@ msgstr "指令"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:42
-#, fuzzy
 msgid "\"Path\": The working directory to run the program in."
-msgstr "\"Path\"：該程式運行的工作目錄。 "
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Working Directory"
 msgstr "工作目錄"
 
 #: ../data/ui/MenulibreWindow.ui.h:44
-#, fuzzy
 msgid "Browse…"
-msgstr "瀏覽..."
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Application Details</b>"
@@ -274,9 +262,8 @@ msgid "Name"
 msgstr "名稱"
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-#, fuzzy
 msgid "Action Name"
-msgstr "圖示名稱"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:72
 msgid "Actions"
@@ -284,11 +271,10 @@ msgstr "動作"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:74
-#, fuzzy
 msgid ""
-"\"GenericName\": Generic name of the application, for example \"Web Browser"
-"\"."
-msgstr "\"GenericName\"：應用程式的通用名稱，例如「網頁瀏覽器」。 "
+"\"GenericName\": Generic name of the application, for example \"Web "
+"Browser\"."
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:75
 msgid "Generic Name"
@@ -344,9 +330,8 @@ msgstr ""
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:97
-#, fuzzy
 msgid "\"MimeType\": The MIME type(s) supported by this application."
-msgstr "\"MimeType\"：此應用程式支援的 MIME 類型。 "
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:98
 msgid "Mimetypes"
@@ -386,8 +371,8 @@ msgid ""
 "deleted\n"
 "(at his level) something that was present (at an upper level, e.g. in the\n"
 "system dirs). It's strictly equivalent to the .desktop file not existing at\n"
-"all, as far as that user is concerned. This can also be used to \"uninstall"
-"\"\n"
+"all, as far as that user is concerned. This can also be used to "
+"\"uninstall\"\n"
 "existing files (e.g. due to a renaming) - by letting make install install a\n"
 "file with Hidden=true in it."
 msgstr ""
@@ -425,18 +410,16 @@ msgid "<small><i>Filename</i></small>"
 msgstr "<small><i>檔案名稱</i></small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:128
-#, fuzzy
 msgid "Select an icon…"
-msgstr "選取圖示..."
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:129
 msgid "<b>Select an icon</b>"
 msgstr "<b>選取圖示</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:130
-#, fuzzy
 msgid "Search"
-msgstr "搜尋結果"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:131
 msgid "column"
