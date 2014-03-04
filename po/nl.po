@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-03-02 08:31-0500\n"
-"PO-Revision-Date: 2014-03-02 22:12+0000\n"
+"PO-Revision-Date: 2014-03-03 18:24+0000\n"
 "Last-Translator: Pjotr12345 <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-03 05:47+0000\n"
+"X-Launchpad-Export-Date: 2014-03-04 08:23+0000\n"
 "X-Generator: Launchpad (build 16948)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -166,6 +166,16 @@ msgid ""
 "latest.html#exec-variables\n"
 "for a list of supported arguments."
 msgstr ""
+"'Exec': programma om uit te voeren, eventueel met argumenten. De Exec-\n"
+"sleutel is vereist indien DBusActivatable niet is ingesteld op 'waar'. "
+"Zelfs\n"
+"als DBusActivatable is ingesteld op 'waar', zou Exec moeten worden\n"
+"opgegeven voor verenigbaarheid met implementaties die DBusActivatable\n"
+"niet begrijpen.\n"
+"\n"
+"Voor een lijst van ondersteunde argumenten zie:\n"
+"http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables"
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Command"
@@ -211,6 +221,15 @@ msgid ""
 "If absent, a reasonable handling is up to implementations (assuming false,\n"
 "using StartupWMClass, etc.)."
 msgstr ""
+"'StartupNotify': indien ingesteld op 'true', dan is het BEKEND dat de "
+"toepassing\n"
+"een 'verwijder'-boodschap zal verzenden wanneer gestart met de omgevings-\n"
+"variabele DESKTOP_STARTUP_ID ingesteld. Indien 'false', dan is het BEKEND\n"
+"dat de toepassing sowieso niet werkt met opstartmelding (toont geen "
+"venster,\n"
+"disfunctioneert zelfs met gebruikmaking van StartupWMClass, enz.). \n"
+"Indien afwezig, dan is een redelijke afhandeling aan de implementaties\n"
+"('false' als aanname, gebruikmaken van StartupWMClass, enz.)."
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Use startup notification"
@@ -228,6 +247,12 @@ msgid ""
 "having a menu entry for it (there are tons of good reasons for this,\n"
 "including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
 msgstr ""
+"'NoDisplay': NoDisplay betekent 'deze toepassing bestaat, maar toon\n"
+"haar niet in het menu'. Dit kan nuttig zijn om deze toepassing\n"
+"bijvoorbeeld te associëren met bestandtypes (MIME), zodat zij wordt\n"
+"gestart vanuit een bestandbeheerder (of andere toepassingen), zonder\n"
+"een menu-onderdeel te hebben (er zijn veel goede redenen hiervoor,\n"
+"waaronder bijvoorbeeld netscape -remote of kfmclient openURL)."
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "Hide from menus"
@@ -292,6 +317,11 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"'NotShowIn': een lijst van tekenreeksen die de omgevingen bepalen die\n"
+"een bepaald menu-onderdeel niet zouden moeten tonen. Slechts\n"
+"één van deze sleutels, hetzij OnlyShowIn of NotShowIn, mogen\n"
+"vóórkomen in een groep. Mogelijke waarden omvatten:\n"
+"GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:82
 msgid "Not Shown In"
@@ -307,6 +337,11 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"'OnlyShowIn': een lijst van tekenreeksen die de omgevingen bepalen die\n"
+"een bepaald menu-onderdeel zouden moeten tonen. Slechts één\n"
+"van deze sleutels, hetzij OnlyShowIn of NotShowIn, mogen vóórkomen\n"
+"in een groep. Mogelijke waarden omvatten:\n"
+"GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:89
 msgid "Only Shown In"
@@ -324,6 +359,11 @@ msgid ""
 "not executable, the entry may be ignored (not be used in menus, for "
 "example). "
 msgstr ""
+"'TryExec': pad naar een uitvoerbaar bestand op de schijf dat wordt gebruikt\n"
+"om te bepalen of het programma daadwerkelijk is geïnstalleerd. Indien het\n"
+"pad geen absoluut pad is, dan wordt het bestand opgezocht in de omgevings-\n"
+"variabele $PATH. Indien het bestand niet aanwezig is of niet-uitvoerbaar,\n"
+"dan kan het onderdeel worden genegeerd (bijv. niet gebruikt in menu's). "
 
 #: ../data/ui/MenulibreWindow.ui.h:95
 msgid "Try Exec"
@@ -332,12 +372,11 @@ msgstr "Probeer Exec"
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:97
 msgid "\"MimeType\": The MIME type(s) supported by this application."
-msgstr ""
-"'MimeType': de bestandsoorten die door deze toepassing worden ondersteund."
+msgstr "'MimeType': de bestandsoort(en) die deze toepassing ondersteunt."
 
 #: ../data/ui/MenulibreWindow.ui.h:98
 msgid "Mimetypes"
-msgstr "Bestandtypen"
+msgstr "Bestandtypen (MIME)"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:100
@@ -349,6 +388,11 @@ msgid ""
 "entries. The values are not meant for display, and should not be redundant\n"
 "with the values of Name or GenericName."
 msgstr ""
+"'Sleutelwoorden': een lijst van tekenreeksen die kunnen worden gebruikt\n"
+"als toevoeging op andere metagegevens om dit onderdeel te beschrijven.\n"
+"Dit kan bijv. nuttig zijn om zoeken in menu-onderdelen te\n"
+"vergemakkelijken. De waarden zijn niet bedoeld om getoond te worden,\n"
+"en mogen niet hetzelfde zijn als de waarden Name of GenericName."
 
 #: ../data/ui/MenulibreWindow.ui.h:104
 msgid "Keywords"
@@ -361,10 +405,13 @@ msgid ""
 "at\n"
 "least one window with the given string as its WM class or WM name hint."
 msgstr ""
+"'StartupWMClass': als opgegeven, dan is het bekend dat de toepassing\n"
+"zich op tenminste één venster zal tonen met de opgegeven\n"
+"tekenreeks als zijn WM-klasse of WM-naamtoespeling."
 
 #: ../data/ui/MenulibreWindow.ui.h:108
 msgid "Startup WM Class"
-msgstr ""
+msgstr "Startup WM Class"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:110
@@ -378,6 +425,13 @@ msgid ""
 "existing files (e.g. due to a renaming) - by letting make install install a\n"
 "file with Hidden=true in it."
 msgstr ""
+"'Hidden': Hidden had eigenlijk Deleted moeten heten. Het betekent dat\n"
+"de gebruiker (op zijn niveau) iets gewist heeft dat aanwezig was (in een\n"
+"bovenliggend niveau, bijv. in de systeemmappen). Het komt precies\n"
+"overeen met een .desktop-bestand dat niet bestaat, voor zover het\n"
+"die gebruiker betreft. Dit kan ook worden gebruikt om bestaande\n"
+"bestanden te 'deïnstalleren' (bijv. wegens een hernoeming) - door\n"
+"make install een bestand te laten installeren met Hidden=true erin."
 
 #: ../data/ui/MenulibreWindow.ui.h:116
 msgid "Hidden"
@@ -398,6 +452,14 @@ msgid ""
 "in their desktop files for compatibility with implementations that do not\n"
 "understand the DBusActivatable key."
 msgstr ""
+"'DBusActivatable': een booleaanse waarde die opgeeft of D-Bus-activatie\n"
+"wordt ondersteund voor deze toepassing. Indien deze sleutel ontbreekt, is\n"
+"de standaardwaarde 'false'. Indien de waarde 'true' is, dan zouden\n"
+"implementaties de Exec-sleutel moeten negeren en een D-Bus-boodschap\n"
+"moeten verzenden om de toepassing te starten. Zie D-Bus Activation voor\n"
+"meer informatie over hoe dit werkt. Toepassingen moeten nog steeds\n"
+"'Exec='-regels in hun bureaubladbestanden hebben voor verenigbaarheid\n"
+"met implementaties die de sleutel DBusActivatable niet begrijpen."
 
 #: ../data/ui/MenulibreWindow.ui.h:125
 msgid "DBUS Activatable"
@@ -640,7 +702,7 @@ msgstr "Categorienaam"
 
 #: ../menulibre/MenulibreApplication.py:904
 msgid "This Entry"
-msgstr "Dit invoerveld"
+msgstr "Dit menu-onderdeel"
 
 #: ../menulibre/MenulibreApplication.py:959
 msgid "New Shortcut"
