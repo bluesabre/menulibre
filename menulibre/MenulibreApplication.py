@@ -2037,6 +2037,17 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             widget.set_tooltip_text(tooltip)
 
 # Action Functions
+    def get_parent(self, model, treeiter):
+        """Get the parent iterator for the current treeiter"""
+        parent = None
+        path = model.get_path(treeiter)
+        if path.up():
+            try:
+                parent = model.get_iter(path)
+            except:
+                parent = None
+        return parent
+
     def add_launcher(self):
         """Add Launcher callback function."""
         # Insert a New Launcher item below the current selected item
@@ -2062,12 +2073,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Currently selected item is not a directory, but has a parent.
         else:
-            path = model.get_path(treeiter)
-            if path.up():
-                try:
-                    parent = model.get_iter(path)
-                except:
-                    parent = None
+            parent = self.get_parent(model, treeiter)
 
             # Insert new launchers after the currently selected item.
             new_iter = model.insert_after(parent, treeiter)
@@ -2166,12 +2172,24 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         filename = util.getSaveFilename(name, filename, item_type)
         logger.debug("Saving launcher as \"%s\"" % filename)
 
+        model, treeiter = self.treeview.get_selection().get_selected()
+        item_type = model[treeiter][2]
+
+        # Make sure required categories are in place.
+        parent = self.get_parent(model, treeiter)
+        if parent is not None:
+            # Parent was found, take its categories.
+            required_categories = util.getRequiredCategories(model[parent][5])
+        else:
+            # Parent was not found, this is a toplevel category
+            required_categories = util.getRequiredCategories(None)
+        current_categories = self.get_value('Categories').split(';')
+        all_categories = current_categories + required_categories
+        self.set_editor_categories(';'.join(all_categories))
+
         # Cleanup invalid entries and reorder the Categories and Actions
         self.cleanup_categories()
         self.cleanup_actions()
-
-        model, treeiter = self.treeview.get_selection().get_selected()
-        item_type = model[treeiter][2]
 
         # Open the file and start writing.
         with open(filename, 'w') as output:
