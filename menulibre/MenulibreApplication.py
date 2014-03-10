@@ -1859,6 +1859,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 if not value:
                     value = False
                 widget.set_active(value)
+                # If "Hide from menus", also clear Hidden setting.
+                if key == 'NoDisplay' and value is False:
+                    self.set_value('Hidden', "")
             else:
                 logger.warning(("Unknown widget: %s" % key))
 
