@@ -2187,7 +2187,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # Parent was not found, this is a toplevel category
             required_categories = util.getRequiredCategories(None)
         current_categories = self.get_value('Categories').split(';')
-        all_categories = current_categories + required_categories
+        all_categories = current_categories
+        for category in required_categories:
+            if category not in all_categories:
+                all_categories.append(category)
         self.set_editor_categories(';'.join(all_categories))
 
         # Cleanup invalid entries and reorder the Categories and Actions
