@@ -1,5 +1,12 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+11 Mar 2014, NenuLibre 2.0.3
+
+- General:
+  . When saving, guarantee the launcher menus' categories are included
+  . Sync visibility with NoDisplay and Hidden properties
+
+
 02 Mar 2014, MenuLibre 2.0.2
 
 - General:
