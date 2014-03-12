@@ -1,0 +1,13 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+export DH_VERBOSE=1
+
+%:
+	dh $@ --with python3 --buildsystem=pybuild
+
+override_dh_installchanglogs:
+	dh_installchangeslogs NEWS
+
+override_dh_auto_install:
+	LC_ALL=C.UTF-8 dh_auto_install

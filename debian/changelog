@@ -1,0 +1,20 @@
+menulibre (2.0.2-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Better handling of uninstalled items (LP: #1277747)
+
+ -- Jackson Doak <noskcaj@ubuntu.com>  Mon, 03 Mar 2014 06:16:23 +1100
+
+menulibre (2.0.1-1) unstable; urgency=medium
+
+  * New upstream release. Closes: #736796
+  * debian/copyright: Use GPL3 rather than GPL3+
+  * debian/control: Change section to utils
+
+ -- Jackson Doak <noskcaj@ubuntu.com>  Mon, 27 Jan 2014 12:21:11 +1100
+
+menulibre (2.0-1) unstable; urgency=medium
+
+  * Initial Release. Closes: #731427
+
+ -- Jackson Doak <noskcaj@ubuntu.com>  Mon, 20 Jan 2014 15:30:57 +1100
