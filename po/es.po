@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-09 22:10-0400\n"
-"PO-Revision-Date: 2014-02-26 03:09+0000\n"
-"Last-Translator: Ra <hal90001@live.com>\n"
+"PO-Revision-Date: 2014-03-14 06:04+0000\n"
+"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-11 06:06+0000\n"
-"X-Generator: Launchpad (build 16948)\n"
+"X-Launchpad-Export-Date: 2014-03-14 06:55+0000\n"
+"X-Generator: Launchpad (build 16963)\n"
 "Language: es\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -126,7 +126,7 @@ msgstr "Borrar"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Search terms…"
-msgstr ""
+msgstr "Términos de búsqueda…"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Move Up"
@@ -142,7 +142,7 @@ msgstr "<big><b>Nombre de la aplicación</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Application Name"
-msgstr ""
+msgstr "Nombre de la aplicación"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application Comment"
@@ -183,7 +183,7 @@ msgstr "Directorio de trabajo"
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Browse…"
-msgstr ""
+msgstr "Examinar…"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Application Details</b>"
@@ -264,7 +264,7 @@ msgstr "Nombre"
 
 #: ../data/ui/MenulibreWindow.ui.h:71
 msgid "Action Name"
-msgstr ""
+msgstr "Nombre de la acción"
 
 #: ../data/ui/MenulibreWindow.ui.h:72
 msgid "Actions"
@@ -276,6 +276,7 @@ msgid ""
 "\"GenericName\": Generic name of the application, for example \"Web "
 "Browser\"."
 msgstr ""
+"«GenericName»: el nombre genérico de la aplicación, p. ej., «Navegador»."
 
 #: ../data/ui/MenulibreWindow.ui.h:75
 msgid "Generic Name"
@@ -333,6 +334,7 @@ msgstr "Probar Ejecutable"
 #: ../data/ui/MenulibreWindow.ui.h:97
 msgid "\"MimeType\": The MIME type(s) supported by this application."
 msgstr ""
+"«MimeType»: los tipos de contenido (MIME) admitidos por la aplicación."
 
 #: ../data/ui/MenulibreWindow.ui.h:98
 msgid "Mimetypes"
@@ -412,7 +414,7 @@ msgstr "<small><i>Nombre del archivo</ i></ small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:128
 msgid "Select an icon…"
-msgstr ""
+msgstr "Seleccione un icono…"
 
 #: ../data/ui/MenulibreWindow.ui.h:129
 msgid "<b>Select an icon</b>"
@@ -420,7 +422,7 @@ msgstr "<b>Seleccione un icono</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:130
 msgid "Search"
-msgstr ""
+msgstr "Buscar"
 
 #: ../data/ui/MenulibreWindow.ui.h:131
 msgid "column"
@@ -675,7 +677,7 @@ msgstr "Aceptar"
 
 #: ../menulibre/MenulibreApplication.py:1146
 msgid "Images"
-msgstr ""
+msgstr "Imágenes"
 
 #: ../menulibre/MenulibreApplication.py:1255
 msgid "Select a working directory..."

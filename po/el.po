@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-09 22:10-0400\n"
-"PO-Revision-Date: 2013-05-07 07:39+0000\n"
+"PO-Revision-Date: 2014-03-13 11:10+0000\n"
 "Last-Translator: Filippos Kolyvas <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-11 06:05+0000\n"
-"X-Generator: Launchpad (build 16948)\n"
+"X-Launchpad-Export-Date: 2014-03-14 06:55+0000\n"
+"X-Generator: Launchpad (build 16963)\n"
 "Language: el\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -24,23 +24,23 @@ msgstr "Επεξεργαστής μενού"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
-msgstr ""
+msgstr "Προσθήκη ή αφαίρεση εφαρμογών από το μενού"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Add _Launcher"
-msgstr ""
+msgstr "Προσθήκη _εκκινητή"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Add _Directory"
-msgstr ""
+msgstr "Προσθήκη _καταλόγου"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Add _Separator"
-msgstr ""
+msgstr "Προσθήκη _διαχωριστικού"
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Icon Selection"
-msgstr ""
+msgstr "Επιλογή εικονιδίου"
 
 #: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1019
 #: ../menulibre/MenulibreApplication.py:1143
@@ -49,11 +49,11 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:2446
 #: ../menulibre/MenulibreApplication.py:2552
 msgid "Cancel"
-msgstr ""
+msgstr "Ακύρωση"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "Apply"
-msgstr ""
+msgstr "Εφαρμογή"
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "Icon Name"
@@ -65,23 +65,23 @@ msgstr "Αρχείο εικόνας"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid "<b>Select an image</b>"
-msgstr ""
+msgstr "<b>Επιλέξτε μαι εικόνα</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "64px"
-msgstr ""
+msgstr "64px"
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "128px"
-msgstr ""
+msgstr "128px"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "<b>Preview</b>"
@@ -106,7 +106,7 @@ msgstr "_Βοήθεια"
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Save Launcher"
-msgstr ""
+msgstr "Αποθήκευση εκκινητή"
 
 #: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:408
 msgid "Undo"
@@ -122,11 +122,11 @@ msgstr "Επαναφορά"
 
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:429
 msgid "Delete"
-msgstr ""
+msgstr "Διαγραφή"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Search terms…"
-msgstr ""
+msgstr "Όροι αναζήτησης..."
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Move Up"
@@ -142,15 +142,15 @@ msgstr "<big><b>Όνομα εφαρμογής</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Application Name"
-msgstr ""
+msgstr "Όνομα εφαρμογής"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application Comment"
-msgstr ""
+msgstr "Σχόλιο εφαρμογής"
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:825
 msgid "Description"
-msgstr ""
+msgstr "Περιγραφή"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:32
@@ -167,6 +167,18 @@ msgid ""
 "latest.html#exec-variables\n"
 "for a list of supported arguments."
 msgstr ""
+"\"Exec\": Πρόγραμμα προς εκτέλεση, πιθανώς με πρόσθετες επιλογές. Το κλειδί "
+"Exec είναι απαραίτητο\n"
+"αν το  DBusActivatable δεν έχει οριστεί ως αληθές (true). Ακόμα και αν το "
+"DBusActivatable\n"
+"είναι αληθές (true), το Exec θα πρέπει να ορίζεται για λόγους συμβατότητας "
+"με υλοποιήσεις\n"
+"που δεν καταλαβαίνουν το  DBusActivatable. \n"
+"\n"
+"Παρακαλώ δείτε το\n"
+"http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables\n"
+"για μια λίστα υποστηριζόμενων επιλογών."
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Command"
@@ -176,6 +188,7 @@ msgstr "Εντολή"
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "\"Path\": The working directory to run the program in."
 msgstr ""
+"\"Path\": Ο κατάλογος εργασίας στον οποίο θα εκτελεστεί το πρόγραμμα."
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Working Directory"
@@ -183,16 +196,16 @@ msgstr "Κατάλογος εργασίας"
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Browse…"
-msgstr ""
+msgstr "Περιήγηση…"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Application Details</b>"
-msgstr ""
+msgstr "<b>Λεπτομέρειες εφαρμογής</b>"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "\"Terminal\": Whether the program runs in a terminal window."
-msgstr ""
+msgstr "\"Terminal\": Αν το πρόγραμμα τρέχει σε ένα παράθυρο τερματικού."
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Run in terminal"
@@ -212,6 +225,17 @@ msgid ""
 "If absent, a reasonable handling is up to implementations (assuming false,\n"
 "using StartupWMClass, etc.)."
 msgstr ""
+"\"StartupNotify\": Αν είναι αληθές (true), τότε ΕΙΝΑΙ ΓΝΩΣΤΟ πως η εφαρμογή "
+"θα στείλει ένα \n"
+"μήνυμα \"remove\" όταν εκκινείται με την παράμετρο DESKTOP_STARTUP_ID να "
+"έχει οριστεί.\n"
+"Αν είναι ψευδές (false), ΕΙΝΑΙ ΓΝΩΣΤΟ πως η εφαρμογή δεν λειτουργεί καθόλου "
+"με την ειδοποίηση\n"
+"εκκίνησης (δεν εμφανίζει κάποιο παράθυρο, καταρρέει κατά τη χρήση του "
+"StartupWMClass κτλ).\n"
+"Αν λείπει, ο χειρισμός εξαρτάται από την εκάστοτε υλοποίηση (πχ προϋπόθεση "
+"του false,\n"
+"χρήση του StartupWMClass κτλ)."
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Use startup notification"
@@ -229,6 +253,15 @@ msgid ""
 "having a menu entry for it (there are tons of good reasons for this,\n"
 "including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
 msgstr ""
+"\"NoDisplay\": Το NoDisplay σημαίνει »αυτή η εφαρμογή υπάρχει, αλλά να μην "
+"εμφανίζεται\n"
+"στα μενού». Αυτό μπορεί να είναι χρήσιμο πχ για να συσχετίζεται μια εφαρμογή "
+"με τύπους\n"
+"MIME, ώστε να εκτελείται από τον διαχειριστή αρχείων (ή άλλες εφαρμογές) "
+"χωρίς να υπάρχει\n"
+"καταχώρηση μενού γι αυτήν (υπάρχουν ένα σωρό καλοί λόγοι γι αυτό, "
+"συμπεριλαβανομένου\n"
+"του netscape -remote, ή του kfmclient openURL για παράδειγμα)."
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "Hide from menus"
@@ -240,15 +273,15 @@ msgstr "<b>Επιλογές</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:65
 msgid "Add"
-msgstr ""
+msgstr "Προσθήκη"
 
 #: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Remove"
-msgstr ""
+msgstr "Αφαίρεση"
 
 #: ../data/ui/MenulibreWindow.ui.h:67
 msgid "Clear"
-msgstr ""
+msgstr "Εκκαθάριση"
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Categories"
@@ -264,11 +297,11 @@ msgstr "Όνομα"
 
 #: ../data/ui/MenulibreWindow.ui.h:71
 msgid "Action Name"
-msgstr ""
+msgstr "Όνομα ενέργειας"
 
 #: ../data/ui/MenulibreWindow.ui.h:72
 msgid "Actions"
-msgstr ""
+msgstr "Ενέργειες"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:74
@@ -276,10 +309,12 @@ msgid ""
 "\"GenericName\": Generic name of the application, for example \"Web "
 "Browser\"."
 msgstr ""
+"\"GenericName\": Γενικό όνομα της εφαρμογής, για παράδειγμα  «Περιηγητής "
+"ιστού»."
 
 #: ../data/ui/MenulibreWindow.ui.h:75
 msgid "Generic Name"
-msgstr ""
+msgstr "Γενικό όνομα"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:77
@@ -292,10 +327,19 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"\"NotShowIn\": Μια λίστα αλφαριθμητικών επιλογών που ορίζουν τα περιβάλλοντα "
+"στα\n"
+"οποία δεν θα πρέπει να εμφανίζεται μια δεδομένη καταχώρηση. Μόνο ένα από τα "
+"δύο\n"
+"παρακάτω κλειδιά, είτε το OnlyShowIn είτε το NotShowIn μπορούν να "
+"εμφανίζονται.\n"
+"\n"
+"Οι πιθανές τιμές περιλαμβάνουν τα: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, "
+"Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:82
 msgid "Not Shown In"
-msgstr ""
+msgstr "Να μην εμφανίζεται σε"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:84
@@ -307,10 +351,17 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"\"OnlyShowIn\": Μια λίστα αλφαριθμητικών επιλογών που ορίζουν τα "
+"περιβάλλοντα στα\n"
+"οποία θα εμφανίζεται μια δεδομένη καταχώρηση. Μόνο ένα από τα δύο παρακάτω\n"
+"κλειδιά, είτε το OnlyShowIn είτε το NotShowIn μπορούν να εμφανίζονται.\n"
+"\n"
+"Οι πιθανές τιμές περιλαμβάνουν τα: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, "
+"Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:89
 msgid "Only Shown In"
-msgstr ""
+msgstr "Να εμφανίζεται μόνο σε"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:91
@@ -324,19 +375,28 @@ msgid ""
 "not executable, the entry may be ignored (not be used in menus, for "
 "example). "
 msgstr ""
+"\"TryExec\": Η διαδρομή προς ένα εκτελέσιμο αρχείο στο δίσκο που "
+"χρησιμοποιείται ώστε να\n"
+"καθοριστεί αν το πρόγραμμα έχει όντως εγκατασταθεί. Αν η διαδρομή δεν είναι "
+"απόλυτη, το\n"
+"αρχείο θα αναζητηθεί στη μεταβλητή $PATH του περιβάλλοντος. Αν το αρχείο δεν "
+"βρεθεί ή\n"
+"δεν είναι εκτελέσιμο, η καταχώρηση μπορεί να αγνοηθεί (να μη χρησιμοποιείται "
+"στα μενού\n"
+"για παράδειγμα). "
 
 #: ../data/ui/MenulibreWindow.ui.h:95
 msgid "Try Exec"
-msgstr ""
+msgstr "Προσπάθεια να εκτελεστεί"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:97
 msgid "\"MimeType\": The MIME type(s) supported by this application."
-msgstr ""
+msgstr "\"MimeType\": Ο τύπος ή οι τύποι MIME που υποστηρίζει η εφαρμογή."
 
 #: ../data/ui/MenulibreWindow.ui.h:98
 msgid "Mimetypes"
-msgstr ""
+msgstr "Τύποι mime"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:100
@@ -348,10 +408,17 @@ msgid ""
 "entries. The values are not meant for display, and should not be redundant\n"
 "with the values of Name or GenericName."
 msgstr ""
+"\"Keywords\": Μια λίστα αλφαριθμητικών η οποία μπορεί να χρησιμοποιηθεί "
+"επιπρόσθετα\n"
+"με άλλα μεταδεδομένα για την περιγραφή της εφαρμογής. Αυτό μπορεί να είναι "
+"χρήσιμο\n"
+"πχ για την αναζήτηση μεταξύ εφαρμογών. Οι τιμές δεν προορίζονται για προβολή "
+"και δεν\n"
+"θα πρέπει να είναι μια περιττή επανάληψη των τιμών Name ή GenericName."
 
 #: ../data/ui/MenulibreWindow.ui.h:104
 msgid "Keywords"
-msgstr ""
+msgstr "Λέξεις κλειδιά"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:106
@@ -360,10 +427,13 @@ msgid ""
 "at\n"
 "least one window with the given string as its WM class or WM name hint."
 msgstr ""
+"\"StartupWMClass\": Αν έχει οριστεί, τότε είναι γνωστό πως η εφαρμογή θα\n"
+"χαρτογραφήσει ένα τουλάχιστον παράθυρο με το δοθέν αλφαριθμητικό της\n"
+"κλάσης WM ή της υπόδειξης ονόματος WM του."
 
 #: ../data/ui/MenulibreWindow.ui.h:108
 msgid "Startup WM Class"
-msgstr ""
+msgstr "Έναρξη κλάσης WM (διαχειριστή παραθύρων)"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:110
