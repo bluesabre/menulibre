@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-03-09 22:10-0400\n"
-"PO-Revision-Date: 2014-02-23 23:31+0000\n"
+"PO-Revision-Date: 2014-03-14 13:02+0000\n"
 "Last-Translator: Tobias Bannert <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-11 06:05+0000\n"
-"X-Generator: Launchpad (build 16948)\n"
+"X-Launchpad-Export-Date: 2014-03-15 07:26+0000\n"
+"X-Generator: Launchpad (build 16963)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -141,7 +141,7 @@ msgstr "<big><b>Name der Anwendung</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Application Name"
-msgstr ""
+msgstr "Anwendungsname"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application Comment"
@@ -182,7 +182,7 @@ msgstr "Arbeitsverzeichnis"
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Browse…"
-msgstr ""
+msgstr "Durchsuchen …"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Application Details</b>"
@@ -263,7 +263,7 @@ msgstr "Name"
 
 #: ../data/ui/MenulibreWindow.ui.h:71
 msgid "Action Name"
-msgstr ""
+msgstr "Aktionsname"
 
 #: ../data/ui/MenulibreWindow.ui.h:72
 msgid "Actions"
@@ -411,7 +411,7 @@ msgstr "<small><i>Dateiname</i></small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:128
 msgid "Select an icon…"
-msgstr ""
+msgstr "Symbol auswählen …"
 
 #: ../data/ui/MenulibreWindow.ui.h:129
 msgid "<b>Select an icon</b>"
@@ -419,7 +419,7 @@ msgstr "<b>Ein Symbol auswählen</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:130
 msgid "Search"
-msgstr ""
+msgstr "Suchen"
 
 #: ../data/ui/MenulibreWindow.ui.h:131
 msgid "column"
@@ -674,7 +674,7 @@ msgstr "OK"
 
 #: ../menulibre/MenulibreApplication.py:1146
 msgid "Images"
-msgstr ""
+msgstr "Bilder"
 
 #: ../menulibre/MenulibreApplication.py:1255
 msgid "Select a working directory..."
@@ -687,7 +687,7 @@ msgstr "Eine ausführbare Datei auswählen …"
 #. Display a dialog saying this item is missing
 #: ../menulibre/MenulibreApplication.py:1408
 msgid "No Longer Installed"
-msgstr ""
+msgstr "Nicht mehr installiert"
 
 #: ../menulibre/MenulibreApplication.py:1409
 msgid ""
