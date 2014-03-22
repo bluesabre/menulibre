@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-09 22:10-0400\n"
-"PO-Revision-Date: 2013-05-28 10:23+0000\n"
+"PO-Revision-Date: 2014-03-21 11:06+0000\n"
 "Last-Translator: ub <xenolith0bytetestcomgreen@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-03-11 06:05+0000\n"
-"X-Generator: Launchpad (build 16948)\n"
+"X-Launchpad-Export-Date: 2014-03-22 07:00+0000\n"
+"X-Generator: Launchpad (build 16967)\n"
 "Language: ja\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -24,23 +24,23 @@ msgstr "メニュー・エディター"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
-msgstr ""
+msgstr "メニューにあるアプリの追加と削除"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Add _Launcher"
-msgstr ""
+msgstr "ランチャー追加(_L)"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Add _Directory"
-msgstr ""
+msgstr "ディレクトリー追加(_D)"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Add _Separator"
-msgstr ""
+msgstr "セパレータ追加(_S)"
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Icon Selection"
-msgstr ""
+msgstr "アイコン選択"
 
 #: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1019
 #: ../menulibre/MenulibreApplication.py:1143
@@ -49,11 +49,11 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:2446
 #: ../menulibre/MenulibreApplication.py:2552
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "Apply"
-msgstr ""
+msgstr "適用"
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "Icon Name"
@@ -65,23 +65,23 @@ msgstr "画像ファイル"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid "<b>Select an image</b>"
-msgstr ""
+msgstr "<b>画像選択</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "64px"
-msgstr ""
+msgstr "64px"
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "128px"
-msgstr ""
+msgstr "128px"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "<b>Preview</b>"
@@ -106,7 +106,7 @@ msgstr "ヘルプ(_H)"
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Save Launcher"
-msgstr ""
+msgstr "ランチャーを保存"
 
 #: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:408
 msgid "Undo"
@@ -122,7 +122,7 @@ msgstr "戻す"
 
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:429
 msgid "Delete"
-msgstr ""
+msgstr "削除"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Search terms…"
@@ -142,15 +142,15 @@ msgstr "<big><b>アプリケーション名</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Application Name"
-msgstr ""
+msgstr "アプリケーション名"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application Comment"
-msgstr ""
+msgstr "アプリケーションの解説"
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:825
 msgid "Description"
-msgstr ""
+msgstr "種類"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:32
