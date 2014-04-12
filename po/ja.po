@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-09 22:10-0400\n"
-"PO-Revision-Date: 2014-04-10 08:00+0000\n"
+"PO-Revision-Date: 2014-04-12 01:41+0000\n"
 "Last-Translator: ub <xenolith0bytetestcomgreen@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-11 05:56+0000\n"
+"X-Launchpad-Export-Date: 2014-04-12 09:21+0000\n"
 "X-Generator: Launchpad (build 16976)\n"
 "Language: ja\n"
 
@@ -167,6 +167,13 @@ msgid ""
 "latest.html#exec-variables\n"
 "for a list of supported arguments."
 msgstr ""
+"\"Exec\": 実行するプログラムと引数。DBusActivatableがtrueでなければ Execキーが\n"
+"必要です。DBusActivatableがtrueでもDBusActivatableを正しく実装していないもの\n"
+"との互換性のために Execを指定すべきです。\n"
+"\n"
+"サポートしている引数のリストは以下を参照してください。\n"
+"http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables"
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Command"
@@ -175,7 +182,7 @@ msgstr "コマンド"
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "\"Path\": The working directory to run the program in."
-msgstr ""
+msgstr "\"Path\": プログラムを実行する作業ディレクトリー"
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Working Directory"
@@ -192,7 +199,7 @@ msgstr "<b>アプリケーションの詳細</b>"
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "\"Terminal\": Whether the program runs in a terminal window."
-msgstr ""
+msgstr "\"Terminal\": プログラムを端末を使って実行"
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Run in terminal"
@@ -212,6 +219,10 @@ msgid ""
 "If absent, a reasonable handling is up to implementations (assuming false,\n"
 "using StartupWMClass, etc.)."
 msgstr ""
+"\"StartupNotify\": trueならアプリケーションは起動時に環境変数 DESKTOP_STARTUP_IDとともに\n"
+"\"remove\"メッセージを送ります。falseならアプリケーションは起動時の通知をまったく行いません。\n"
+"StartupWMClassなどを使用するときでも)\n"
+"指定がなければ扱いは実装によります。(falseと仮定してStartupWMClassを使うなど)"
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Use startup notification"
@@ -229,6 +240,9 @@ msgid ""
 "having a menu entry for it (there are tons of good reasons for this,\n"
 "including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
 msgstr ""
+"\"NoDisplay\": NoDisplayとは \"このアプリは存在するけどメニューには表示されない\"という意味です。\n"
+"これはMINEタイプに関係するアプリケーションには便利です。\n"
+"(たとえば netscape -remote や kfmclient openURLなど多くの利点があります)"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "Hide from menus"
@@ -275,11 +289,11 @@ msgstr "アクション"
 msgid ""
 "\"GenericName\": Generic name of the application, for example \"Web "
 "Browser\"."
-msgstr ""
+msgstr "\"GenericName\": \"ウェブブラウザー\"のようなアプリケーションの一般的な名前"
 
 #: ../data/ui/MenulibreWindow.ui.h:75
 msgid "Generic Name"
-msgstr "一般名"
+msgstr "Generic Name"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:77
@@ -292,10 +306,14 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"\"NotShowIn\": デスクトップエントリーを表示しないデスクトップ環境のリスト。\n"
+"OnlyShowInかNotShowInのどちらかにひとつだけキーが置かれるでしょう。\n"
+"\n"
+"例えば:: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:82
 msgid "Not Shown In"
-msgstr "限定非表示"
+msgstr "Not Shown In"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:84
@@ -307,10 +325,14 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"\"OnlyShowIn\": デスクトップエントリーを表示するデスクトップ環境のリスト。\n"
+"OnlyShowInかNotShowInのどちらかにひとつだけキーが置かれるでしょう。\n"
+"\n"
+"例えば: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:89
 msgid "Only Shown In"
-msgstr "限定表示"
+msgstr "Only Shown In"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:91
@@ -324,19 +346,23 @@ msgid ""
 "not executable, the entry may be ignored (not be used in menus, for "
 "example). "
 msgstr ""
+"\"TryExec\":ログラムが実際にインストールされているか調べるパス。\n"
+"絶対パスでなければ環境変数 $PATH で探します。ファイルが見つからない場合や\n"
+"実行可能でなければこのエントリーは無視されます。\n"
+"(例えばメニューで使われないなど) "
 
 #: ../data/ui/MenulibreWindow.ui.h:95
 msgid "Try Exec"
-msgstr ""
+msgstr "Try Exec"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:97
 msgid "\"MimeType\": The MIME type(s) supported by this application."
-msgstr ""
+msgstr "\"MimeType\": このアプリケーションがサポートしているMIMEタイプ"
 
 #: ../data/ui/MenulibreWindow.ui.h:98
 msgid "Mimetypes"
-msgstr "MIME タイプ"
+msgstr "Mimetypes"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:100
@@ -348,10 +374,14 @@ msgid ""
 "entries. The values are not meant for display, and should not be redundant\n"
 "with the values of Name or GenericName."
 msgstr ""
+"\"Keywords\": 他のメタデータに加えて使用される文字列のリスト。\n"
+"これはエントリーを検索するときに便利です。\n"
+"この値は表示されません、またNameやGenericNameの値と重複\n"
+"すべきではありません。"
 
 #: ../data/ui/MenulibreWindow.ui.h:104
 msgid "Keywords"
-msgstr "キーワード"
+msgstr "Keywords"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:106
@@ -360,10 +390,12 @@ msgid ""
 "at\n"
 "least one window with the given string as its WM class or WM name hint."
 msgstr ""
+"\"StartupWMClass\": 指定すればアプリケーションは少なくともひとつのウィンドウは\n"
+"与えられた文字で WM class や WM name hint をマッピングします。"
 
 #: ../data/ui/MenulibreWindow.ui.h:108
 msgid "Startup WM Class"
-msgstr ""
+msgstr "Startup WM Class"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:110
@@ -377,10 +409,14 @@ msgid ""
 "existing files (e.g. due to a renaming) - by letting make install install a\n"
 "file with Hidden=true in it."
 msgstr ""
+"\"Hidden\": Hidden は消去と呼ぶべきでした。ユーザーが存在する(上位レベル、システムディレクトリ)\n"
+"何かを(ユーザーのレベルで)消去することを意味します。\n"
+"ユーザーに関する限り .desktopファイルがまったく存在しないのと同じ意味です。\n"
+"これには既存のファイルを Hidden=trueでインストールすることで \"uninstall\" する使い方もあります。"
 
 #: ../data/ui/MenulibreWindow.ui.h:116
 msgid "Hidden"
-msgstr "非表示"
+msgstr "Hidden"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:118
@@ -397,10 +433,16 @@ msgid ""
 "in their desktop files for compatibility with implementations that do not\n"
 "understand the DBusActivatable key."
 msgstr ""
+"\"DBusActivatable\":このアプリケーションがDBUSアクティベーションをサポートしている\n"
+"かどうか論理値で指定します。このキーがなければデフォルト値はfalseです。\n"
+"値がtrueならExecキーは無視してアプリケーションを起動するためにD-Busメッセージを\n"
+"送る実装になっているはずです。詳しくは D-Bus Activation を参照してください。\n"
+"DBusActivatableを理解しない実装との互換性のためにデスクトップファイルには\n"
+"Exec= の行が残されています。"
 
 #: ../data/ui/MenulibreWindow.ui.h:125
 msgid "DBUS Activatable"
-msgstr ""
+msgstr "DBUS Activatable"
 
 #: ../data/ui/MenulibreWindow.ui.h:126
 msgid "Advanced"
@@ -783,4 +825,4 @@ msgstr "新しいメニューアイテム"
 
 #: ../menulibre/MenulibreXdg.py:51
 msgid "A small descriptive blurb about this application."
-msgstr "このアプリの簡単な紹介"
+msgstr "このアプリケーションの簡単な紹介"
