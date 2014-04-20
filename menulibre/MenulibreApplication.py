@@ -2141,7 +2141,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Insert a Separator item below the current selected item
         model, treeiter = self.treeview.get_selection().get_selected()
 
-        name = "<span strikethrough=\"true\">                    </span>"
+        name = "<s>                    </s>"
         tooltip = _("Separator")
         filename = None
         icon = None

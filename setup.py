@@ -92,7 +92,7 @@ def move_icon_file(root, target_data, prefix):
 
     # Media is now empty
     if len(os.listdir(old_icon_path)) == 0:
-        print(("Removing emptry directory: %s" % old_icon_path))
+        print(("Removing empty directory: %s" % old_icon_path))
         os.rmdir(old_icon_path)
 
     return icon_file

@@ -88,8 +88,7 @@ def menu_to_treestore(treestore, parent, menu_items):
     for item in menu_items:
         item_type = item[0]
         if item_type == MenuItemTypes.SEPARATOR:
-            displayed_name = \
-                "<span strikethrough=\"true\">                    </span>"
+            displayed_name = "<s>                    </s>"
             tooltip = _("Separator")
             filename = None
             icon = None
