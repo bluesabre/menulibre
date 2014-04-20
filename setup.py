@@ -57,16 +57,27 @@ def move_icon_file(root, target_data, prefix):
     """Move the icon files to their installation prefix."""
     old_icon_path = os.path.normpath(
             os.path.join(root, target_data, 'share', 'menulibre', 'media'))
-    for icon_size in ['16x16', '24x24', '32x32', '48x48', '64x64', 'scalable']:
-        if icon_size == 'scalable':
-            old_icon_file = os.path.join(old_icon_path, 'menulibre.svg')
+    for icon_size in ['16x16', '24x24', '32x32', '48x48', '64x64', 'scalable',
+                      'pixmap']:
+        # Install menulibre.png to share/pixmaps
+        if icon_size == 'pixmap':
+            old_icon_file = os.path.join(old_icon_path, 'menulibre.png')
+            icon_path = os.path.normpath(
+                        os.path.join(root, target_data, 'share', 'pixmaps'))
+            icon_file = os.path.join(icon_path, 'menulibre.png')
+        # Install everything else to share/icons/hicolor
         else:
-            old_icon_file = os.path.join(old_icon_path,
-                            'menulibre_%s.svg' % icon_size.split('x')[0])
-        icon_path = os.path.normpath(
-                os.path.join(root, target_data, 'share', 'icons', 'hicolor',
-                        icon_size, 'apps'))
-        icon_file = os.path.join(icon_path, 'menulibre.svg')
+            if icon_size == 'scalable':
+                old_icon_file = os.path.join(old_icon_path, 'menulibre.svg')
+            else:
+                old_icon_file = os.path.join(old_icon_path,
+                                'menulibre_%s.svg' % icon_size.split('x')[0])
+            icon_path = os.path.normpath(
+                    os.path.join(root, target_data, 'share', 'icons', 'hicolor',
+                                 icon_size, 'apps'))
+            icon_file = os.path.join(icon_path, 'menulibre.svg')
+
+        # Get the real paths.
         old_icon_file = os.path.realpath(old_icon_file)
         icon_file = os.path.realpath(icon_file)
 
