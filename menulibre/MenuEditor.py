@@ -104,7 +104,7 @@ def menu_to_treestore(treestore, parent, menu_items):
 
         treeiter = treestore.append(
             parent, [displayed_name, tooltip, item_type,
-            icon, icon_name, filename])
+            icon, icon_name, filename, False])
 
         if item_type == MenuItemTypes.DIRECTORY:
             treestore = menu_to_treestore(treestore, treeiter, item[3])
@@ -114,8 +114,8 @@ def menu_to_treestore(treestore, parent, menu_items):
 
 def get_treestore():
     """Get the TreeStore implementation of the current menu."""
-    # Name, Comment, MenuItemType, GIcon (TreeView), icon-name, Filename
-    treestore = Gtk.TreeStore(str, str, int, Gio.Icon, str, str)
+    # Name, Comment, MenuItemType, GIcon (TreeView), icon-name, Filename, exp
+    treestore = Gtk.TreeStore(str, str, int, Gio.Icon, str, str, bool)
     icon_theme.connect("changed", on_icon_theme_changed, treestore)
     menu = get_menus()[0]
     return menu_to_treestore(treestore, None, menu)

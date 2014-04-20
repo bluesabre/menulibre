@@ -611,6 +611,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                 self.on_treeview_cursor_changed, None, builder)
         self.treeview.connect("key-press-event",
                                 self.on_treeview_key_press_event, None)
+        self.treeview.connect("row-expanded",
+                                self.on_treeview_row_expansion, True)
+        self.treeview.connect("row-collapsed",
+                                self.on_treeview_row_expansion, False)
 
         # Show the treeview, grab focus.
         self.treeview.show_all()
@@ -1278,6 +1282,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.settings_notebook.set_current_page(page_number)
 
 # Applications Treeview
+    def on_treeview_row_expansion(self, treeview, treeiter, column, expanded):
+        if self.browser_toolbar.get_sensitive():
+            model = treeview.get_model()
+            row = model[treeiter]
+            row[6] = expanded
+
     def get_treeview_selected_expanded(self, treeview):
         """Return True if the selected row is currently expanded."""
         sel = treeview.get_selection()
@@ -1465,7 +1475,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     elif not treeiter:
                         pass
                     else:
-                        filename = treestore[treeiter][-1]
+                        filename = treestore[treeiter][5]
                         if filename is None:
                             self.delete_launcher(self.treeview, treestore,
                                                 treeiter)
@@ -1485,7 +1495,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def treeview_match(self, model, treeiter, query):
         """Match subfunction for filtering search results."""
-        name, comment, item_type, icon, pixbuf, desktop = model[treeiter][:]
+        name, comment, item_type, icon, pixbuf, desktop, expanded = \
+                model[treeiter][:]
 
         # Hide separators in the search results.
         if item_type == MenuItemTypes.SEPARATOR:
@@ -1553,7 +1564,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 # Restore the original model.
                 model = model.get_model()
                 treeview.set_model(model)
-                treeview.expand_all()
+
+                # Restore expanded items (lp 1307000)
+                treeview.collapse_all()
+                for n_child in range(model.iter_n_children(None)):
+                    treeiter = model.iter_nth_child(None, n_child)
+                    row = model[treeiter]
+                    if row[6]:
+                        treeview.expand_row(row.path, False)
 
                 # Try to get the row that was selected previously.
                 if (f_model is not None) and (f_iter is not None):
@@ -1586,6 +1604,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
                                             'edit-clear-symbolic')
 
+            # Show the "Search Results" header and disable the inline toolbar.
+            treeview.set_headers_visible(True)
+            self.browser_toolbar.set_sensitive(False)
+
             # If specified, expand the treeview.
             if expand:
                 self.treeview.expand_all()
@@ -1595,10 +1617,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 model = model.filter_new()
                 treeview.set_model(model)
                 model.set_visible_func(self.treeview_match_func)
-
-            # Show the "Search Results" header and disable the inline toolbar.
-            treeview.set_headers_visible(True)
-            self.browser_toolbar.set_sensitive(False)
 
             # Disable add functionality
             for name in ['add_launcher', 'add_directory', 'add_separator',
@@ -2026,7 +2044,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         while path.up():
             try:
                 parent = treestore.get_iter(path)
-                filename = treestore[parent][-1]
+                filename = treestore[parent][5]
                 if os.path.basename(filename).startswith(prefix):
                     add_enabled = False
             except:
@@ -2227,7 +2245,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             parents = []
             parent = model.iter_parent(treeiter)
             while parent is not None:
-                parent_filename = model[parent][-1]
+                parent_filename = model[parent][5]
                 # Do not do this method if this is a known system directory.
                 if os.path.basename(parent_filename).startswith(menu_prefix):
                     menu_install = False
@@ -2250,6 +2268,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.update_treeview(model, treeiter, name, comment, item_type,
                             icon_name, filename)
         self.history.clear()
+
+        #TODO: Add this to the expanded items if this is determined to be good.
+        #parent_iter = self.get_parent(model, treeiter)
+        #while parent_iter is not None:
+        #    row = model[parent_iter]
+        #    row[6] = True
+        #    parent_iter = self.get_parent(model, parent_iter)
 
         # Do not save menu layout if in search mode (lp #1306999)
         if self.browser_toolbar.get_sensitive():
@@ -2287,7 +2312,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     if model.iter_has_child(tmp_treeiter):
                         for i in range(model.iter_n_children(tmp_treeiter)):
                             child_iter = model.iter_nth_child(tmp_treeiter, i)
-                            filename = tmp_model[child_iter][-1]
+                            filename = tmp_model[child_iter][5]
                             if filename is not None:
                                 if filename.endswith('.directory'):
                                     d, a = get_delete_items(tmp_model,
