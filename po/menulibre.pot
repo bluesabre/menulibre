@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-09 22:10-0400\n"
+"POT-Creation-Date: 2014-04-20 07:51-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,12 +41,12 @@ msgstr ""
 msgid "Icon Selection"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1019
-#: ../menulibre/MenulibreApplication.py:1143
-#: ../menulibre/MenulibreApplication.py:1262
-#: ../menulibre/MenulibreApplication.py:1446
-#: ../menulibre/MenulibreApplication.py:2446
-#: ../menulibre/MenulibreApplication.py:2552
+#: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1023
+#: ../menulibre/MenulibreApplication.py:1147
+#: ../menulibre/MenulibreApplication.py:1266
+#: ../menulibre/MenulibreApplication.py:1450
+#: ../menulibre/MenulibreApplication.py:2450
+#: ../menulibre/MenulibreApplication.py:2556
 msgid "Cancel"
 msgstr ""
 
@@ -86,8 +86,8 @@ msgstr ""
 msgid "<b>Preview</b>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:357
-#: ../menulibre/MenulibreApplication.py:2575
+#: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:361
+#: ../menulibre/MenulibreApplication.py:2579
 msgid "MenuLibre"
 msgstr ""
 
@@ -107,19 +107,19 @@ msgstr ""
 msgid "Save Launcher"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:408
+#: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:412
 msgid "Undo"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:21 ../menulibre/MenulibreApplication.py:415
+#: ../data/ui/MenulibreWindow.ui.h:21 ../menulibre/MenulibreApplication.py:419
 msgid "Redo"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:422
+#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:426
 msgid "Revert"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:429
+#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:433
 msgid "Delete"
 msgstr ""
 
@@ -147,7 +147,7 @@ msgstr ""
 msgid "Application Comment"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:825
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:829
 msgid "Description"
 msgstr ""
 
@@ -429,8 +429,8 @@ msgstr ""
 msgid "Show debug messages"
 msgstr ""
 
-#: ../menulibre/MenuEditor.py:92 ../menulibre/MenulibreApplication.py:1361
-#: ../menulibre/MenulibreApplication.py:2141
+#: ../menulibre/MenuEditor.py:92 ../menulibre/MenulibreApplication.py:1365
+#: ../menulibre/MenulibreApplication.py:2145
 msgid "Separator"
 msgstr ""
 
@@ -538,239 +538,239 @@ msgid "Xfce system configuration"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:136
-#: ../menulibre/MenulibreApplication.py:175
+#: ../menulibre/MenulibreApplication.py:179
 msgid "Other"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:379
+#: ../menulibre/MenulibreApplication.py:383
 msgid "Add _Launcher..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:380
+#: ../menulibre/MenulibreApplication.py:384
 msgid "Add Launcher..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:386
+#: ../menulibre/MenulibreApplication.py:390
 msgid "Add _Directory..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:387
+#: ../menulibre/MenulibreApplication.py:391
 msgid "Add Directory..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:393
+#: ../menulibre/MenulibreApplication.py:397
 msgid "_Add Separator..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:394
+#: ../menulibre/MenulibreApplication.py:398
 msgid "Add Separator..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:400
+#: ../menulibre/MenulibreApplication.py:404
 msgid "_Save"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:401
-#: ../menulibre/MenulibreApplication.py:1020
-#: ../menulibre/MenulibreApplication.py:1447
+#: ../menulibre/MenulibreApplication.py:405
+#: ../menulibre/MenulibreApplication.py:1024
+#: ../menulibre/MenulibreApplication.py:1451
 msgid "Save"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:407
+#: ../menulibre/MenulibreApplication.py:411
 msgid "_Undo"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:414
+#: ../menulibre/MenulibreApplication.py:418
 msgid "_Redo"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:421
+#: ../menulibre/MenulibreApplication.py:425
 msgid "_Revert"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:428
+#: ../menulibre/MenulibreApplication.py:432
 msgid "_Delete"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:435
+#: ../menulibre/MenulibreApplication.py:439
 msgid "_Quit"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:436
-#: ../menulibre/MenulibreApplication.py:2527
+#: ../menulibre/MenulibreApplication.py:440
+#: ../menulibre/MenulibreApplication.py:2531
 msgid "Quit"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:442
+#: ../menulibre/MenulibreApplication.py:446
 msgid "_Contents"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:443
-#: ../menulibre/MenulibreApplication.py:2525
+#: ../menulibre/MenulibreApplication.py:447
+#: ../menulibre/MenulibreApplication.py:2529
 msgid "Help"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:449
+#: ../menulibre/MenulibreApplication.py:453
 msgid "_About"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:450
-#: ../menulibre/MenulibreApplication.py:2526
+#: ../menulibre/MenulibreApplication.py:454
+#: ../menulibre/MenulibreApplication.py:2530
 msgid "About"
 msgstr ""
 
 #. Create a new column.
-#: ../menulibre/MenulibreApplication.py:568
+#: ../menulibre/MenulibreApplication.py:572
 msgid "Search Results"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:799
+#: ../menulibre/MenulibreApplication.py:803
 msgid "ThisEntry"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:817
+#: ../menulibre/MenulibreApplication.py:821
 msgid "Select a category"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:820
+#: ../menulibre/MenulibreApplication.py:824
 msgid "Category Name"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:904
+#: ../menulibre/MenulibreApplication.py:908
 msgid "This Entry"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:959
+#: ../menulibre/MenulibreApplication.py:963
 msgid "New Shortcut"
 msgstr ""
 
 #. Unsaved changes
-#: ../menulibre/MenulibreApplication.py:1009
+#: ../menulibre/MenulibreApplication.py:1013
 msgid "Do you want to save the changes before closing?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1010
+#: ../menulibre/MenulibreApplication.py:1014
 msgid "If you don't save the launcher, all the changes will be lost.'"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1017
-#: ../menulibre/MenulibreApplication.py:1444
+#: ../menulibre/MenulibreApplication.py:1021
+#: ../menulibre/MenulibreApplication.py:1448
 msgid "Save Changes"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1018
-#: ../menulibre/MenulibreApplication.py:1445
+#: ../menulibre/MenulibreApplication.py:1022
+#: ../menulibre/MenulibreApplication.py:1449
 msgid "Don't Save"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1140
+#: ../menulibre/MenulibreApplication.py:1144
 msgid "Select an image"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1144
-#: ../menulibre/MenulibreApplication.py:1263
+#: ../menulibre/MenulibreApplication.py:1148
+#: ../menulibre/MenulibreApplication.py:1267
 msgid "OK"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1146
+#: ../menulibre/MenulibreApplication.py:1150
 msgid "Images"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1255
+#: ../menulibre/MenulibreApplication.py:1259
 msgid "Select a working directory..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1259
+#: ../menulibre/MenulibreApplication.py:1263
 msgid "Select an executable..."
 msgstr ""
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1408
+#: ../menulibre/MenulibreApplication.py:1412
 msgid "No Longer Installed"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1409
+#: ../menulibre/MenulibreApplication.py:1413
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1435
+#: ../menulibre/MenulibreApplication.py:1439
 msgid "Do you want to save the changes before leaving this launcher?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1437
+#: ../menulibre/MenulibreApplication.py:1441
 msgid "If you don't save the launcher, all the changes will be lost."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1667
+#: ../menulibre/MenulibreApplication.py:1671
 msgid "You do not have permission to delete this file."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2034
+#: ../menulibre/MenulibreApplication.py:2038
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2059
+#: ../menulibre/MenulibreApplication.py:2063
 msgid "New Launcher"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2109
+#: ../menulibre/MenulibreApplication.py:2113
 msgid "New Directory"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2441
+#: ../menulibre/MenulibreApplication.py:2445
 msgid "Are you sure you want to restore this launcher?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2447
-#: ../menulibre/MenulibreApplication.py:2448
+#: ../menulibre/MenulibreApplication.py:2451
+#: ../menulibre/MenulibreApplication.py:2452
 msgid "Restore Launcher"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2449
+#: ../menulibre/MenulibreApplication.py:2453
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2464
+#: ../menulibre/MenulibreApplication.py:2468
 msgid "Are you sure you want to delete this separator?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2467
+#: ../menulibre/MenulibreApplication.py:2471
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2469
+#: ../menulibre/MenulibreApplication.py:2473
 msgid "This cannot be undone."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2547
+#: ../menulibre/MenulibreApplication.py:2551
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2553
+#: ../menulibre/MenulibreApplication.py:2557
 msgid "Read Online"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2554
+#: ../menulibre/MenulibreApplication.py:2558
 msgid "Online Documentation"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2555
+#: ../menulibre/MenulibreApplication.py:2559
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr ""
 
 #. Populate the AboutDialog with all the relevant details.
-#: ../menulibre/MenulibreApplication.py:2574
+#: ../menulibre/MenulibreApplication.py:2578
 msgid "About MenuLibre"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2577
+#: ../menulibre/MenulibreApplication.py:2581
 msgid "Copyright © 2012-2014 Sean Davis"
 msgstr ""
 

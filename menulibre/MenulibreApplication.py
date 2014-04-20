@@ -148,6 +148,10 @@ category_groups = {
     )
 }
 
+# Add support for X-Xfce-Toplevel items for XFCE environments.
+if util.getDefaultMenuPrefix() == 'xfce-':
+    category_groups['Xfce'] = ('X-Xfce-Toplevel',)
+
 # Create a reverse-lookup
 category_lookup = dict()
 for key in list(category_groups.keys()):
