@@ -2251,7 +2251,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             icon_name, filename)
         self.history.clear()
 
-        self.update_menus()
+        # Do not save menu layout if in search mode (lp #1306999)
+        if self.browser_toolbar.get_sensitive():
+            self.update_menus()
 
     def delete_separator(self, treeview, model, treeiter):
         """Remove a separator row from the treeview, update the menu files."""
@@ -2348,7 +2350,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if treepath:
             self.treeview.set_cursor(treepath)
 
-        self.update_menus()
+        # Do not save menu layout if in search mode (lp #1306999)
+        if self.browser_toolbar.get_sensitive():
+            self.update_menus()
 
     def cleanup_applications_merged(self):
         """Cleanup items from ~/.config/menus/applications-merged"""
