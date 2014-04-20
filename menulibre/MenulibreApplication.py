@@ -1274,7 +1274,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         result = dialog.run()
         dialog.hide()
         if result == Gtk.ResponseType.OK:
-            self.set_value(widget_name, dialog.get_filename())
+            filename = dialog.get_filename()
+            if widget_name == 'Exec':
+                # Handle spaces to script filenames (lp 1214815)
+                if ' ' in filename:
+                    filename = '\"%s\"' % filename
+            self.set_value(widget_name, filename)
         entry.grab_focus()
 
 # Settings Fancy Notebook
