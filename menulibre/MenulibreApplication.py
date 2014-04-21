@@ -1585,6 +1585,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     row_data = f_model[f_iter][:]
                     selected_iter = self.get_iter_by_data(row_data, model,
                                                             parent=None)
+
                 # If that fails, just select the first iter.
                 else:
                     selected_iter = model.get_iter_first()
@@ -2047,15 +2048,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         add_enabled = True
         prefix = util.getDefaultMenuPrefix()
 
-        path = treestore.get_path(treeiter)
-        while path.up():
-            try:
-                parent = treestore.get_iter(path)
-                filename = treestore[parent][5]
-                if os.path.basename(filename).startswith(prefix):
-                    add_enabled = False
-            except:
-                pass
+        parent_iter = self.get_parent(treestore, treeiter)
+        while parent_iter is not None:
+            filename = treestore[parent_iter][5]
+            if os.path.basename(filename).startswith(prefix):
+                add_enabled = False
+            parent_iter = self.get_parent(treestore, parent_iter)
 
         if add_enabled:
             tooltip = None
@@ -2074,10 +2072,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         parent = None
         path = model.get_path(treeiter)
         if path.up():
-            try:
-                parent = model.get_iter(path)
-            except:
-                parent = None
+            if path.get_depth() > 0:
+                try:
+                    parent = model.get_iter(path)
+                except:
+                    parent = None
         return parent
 
     def add_launcher(self):
@@ -2141,16 +2140,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon_name = "applications-other"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
-        row_data = [name, comment, item_type, icon, icon_name, filename]
+        row_data = [name, comment, item_type, icon, icon_name, filename, False]
 
-        path = model.get_path(treeiter)
-        if path.up():
-            try:
-                parent = model.get_iter(path)
-            except:
-                parent = None
-        else:
-            parent = None
+        parent = self.get_parent(model, treeiter)
 
         new_iter = model.insert_after(parent, treeiter)
         for i in range(len(row_data)):
@@ -2175,14 +2167,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         filename = None
         row_data = [name, tooltip, item_type, icon, icon_name, filename]
 
-        path = model.get_path(treeiter)
-        if path.up():
-            try:
-                parent = model.get_iter(path)
-            except:
-                parent = None
-        else:
-            parent = None
+        parent = self.get_parent(model, treeiter)
 
         new_iter = model.insert_after(parent, treeiter)
         for i in range(len(row_data)):
