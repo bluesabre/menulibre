@@ -1,6 +1,22 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-11 Mar 2014, NenuLibre 2.0.3
+UNRELEASED, MenuLibre 2.0.4
+
+- General:
+  . Strikethrough is now used to make separators look better
+  . Window is now properly centered at startup
+  . Fixed all instances of 
+   Gtk-CRITICAL **: gtk_tree_model_get_iter: assertion 'path->depth > 0' failed
+  . Updated translations
+- Bug Fixes:
+  . Enable X-Xfce-Toplevel at any time when using Xfce (LP: #1309468)
+  . Install menulibre icon to pixmaps directory (LP: #1307469)
+  . Do not save menu layout when in search mode (LP: #1306999)
+  . Restore expanded/collapsed menus after finished searching (LP: #1307000)
+  . Properly support spaces in the Exec line (LP: #1214815)
+
+
+11 Mar 2014, MenuLibre 2.0.3
 
 - General:
   . When saving, guarantee the launcher menus' categories are included
