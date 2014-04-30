@@ -45,12 +45,6 @@ def get_default_menu():
     return '%s%s' % (util.getDefaultMenuPrefix(), 'applications.menu')
 
 
-def on_icon_theme_changed(icon_theme, treestore):
-    """Update the displayed icons when the icon theme changes."""
-    for row in treestore:
-        row[4] = load_icon(row[3], 48)
-
-
 def load_fallback_icon(icon_size):
     """If icon loading fails, load a fallback icon instead."""
     info = icon_theme.lookup_icon(
@@ -116,7 +110,6 @@ def get_treestore():
     """Get the TreeStore implementation of the current menu."""
     # Name, Comment, MenuItemType, GIcon (TreeView), icon-name, Filename, exp
     treestore = Gtk.TreeStore(str, str, int, Gio.Icon, str, str, bool)
-    icon_theme.connect("changed", on_icon_theme_changed, treestore)
     menu = get_menus()[0]
     return menu_to_treestore(treestore, None, menu)
 
