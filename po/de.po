@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-04-20 20:43-0400\n"
-"PO-Revision-Date: 2014-03-14 13:02+0000\n"
-"Last-Translator: Tobias Bannert <Unknown>\n"
+"PO-Revision-Date: 2014-05-01 11:40+0000\n"
+"Last-Translator: Jonatan Zeidler <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-30 06:39+0000\n"
+"X-Launchpad-Export-Date: 2014-05-02 06:42+0000\n"
 "X-Generator: Launchpad (build 16985)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr "Menübearbeiter"
+msgstr "Menüeditor"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
@@ -125,7 +125,7 @@ msgstr "Löschen"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Search terms…"
-msgstr ""
+msgstr "Suchbegriffe …"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Move Up"
@@ -166,6 +166,16 @@ msgid ""
 "latest.html#exec-variables\n"
 "for a list of supported arguments."
 msgstr ""
+"„Befehl“: Programm, das ausgeführt werden soll, ggf. mit Argumenten. \n"
+"Der Befehl ist erforderlich, es sei denn DBusActivatable ist auf wahr "
+"gesetzt.\n"
+"Aber selbst dann sollte der Befehl angegeben werden für die Kompatibilität\n"
+"mit Implementierungen, die DBusActivatable nicht verstehen.\n"
+"\n"
+"Auf\n"
+"http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables\n"
+"findet sich eine Liste mit unterstützten Argumenten."
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Command"
@@ -175,6 +185,7 @@ msgstr "Befehl"
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "\"Path\": The working directory to run the program in."
 msgstr ""
+"„Pfad“: Das Arbeitsverzeichnis, in dem das Programm ausgeführt werden soll."
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Working Directory"
@@ -228,6 +239,14 @@ msgid ""
 "having a menu entry for it (there are tons of good reasons for this,\n"
 "including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
 msgstr ""
+"„Im Menü verstecken“: Im Menü verstecken bedeutet, die Anwendung "
+"exisitiert,\n"
+"aber wird nicht im Menü angezeigt. Das kann beispielsweise nützlich sein, "
+"wenn\n"
+"die Anwendung mit MIME-Typen verknüpft wird, so dass sie von einer Datei-\n"
+"verwaltung oder anderen Anwendungen gestaret werden kann, ohne einen\n"
+"Menüeintrag zu brauchen (es gibt massenhaft weitere Gründe, warum das\n"
+"nützlich ist, z.B. netscape -remote oder etwas wie kfmclient openURL)."
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "Hide from menus"
@@ -275,6 +294,8 @@ msgid ""
 "\"GenericName\": Generic name of the application, for example \"Web "
 "Browser\"."
 msgstr ""
+"„Allgemeiner Name“: Allgemeiner Name der Anwendung, zum Beispiel \"Web "
+"Browser\"."
 
 #: ../data/ui/MenulibreWindow.ui.h:75
 msgid "Generic Name"
@@ -291,6 +312,13 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"„Nicht anzeigen in“: Eine Liste von Zeichenketten, welche die Umgebungen "
+"angeben,\n"
+"in denen der Eintrag nicht angezeigt werden soll. In einer Gruppe sollte "
+"entweder \n"
+"nur „Nicht anzeigen in“ oder „Nur anzeigen in“ auftauchen.\n"
+"\n"
+"Mögliche Werte: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:82
 msgid "Not Shown In"
@@ -306,6 +334,13 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"„Nur anzeigen in“: Eine Liste von Zeichenketten, welche die Umgebungen "
+"angeben,\n"
+"in denen der Eintrag angezeigt werden soll. In einer Gruppe sollte entweder "
+"\n"
+"nur „Nicht anzeigen in“ oder „Nur anzeigen in“ auftauchen.\n"
+"\n"
+"Mögliche Werte: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:89
 msgid "Only Shown In"
@@ -323,15 +358,23 @@ msgid ""
 "not executable, the entry may be ignored (not be used in menus, for "
 "example). "
 msgstr ""
+"„Abfragebefehl“: Pfad zu einer ausführbaren Datei auf der Festplatte, die\n"
+"genutzt werden kann, um herauszuginden, ob ein Programm bereits installiert\n"
+"ist. Falls der Pfad nicht absolut ist, die Datei in der $PATH-"
+"Umgebungsvariable\n"
+"gesucht. Falls die Datei nicht existiert oder nicht ausführbar ist, sollte "
+"der \n"
+"Eintrag ignoriert werden (z.B. in Menüs) "
 
 #: ../data/ui/MenulibreWindow.ui.h:95
 msgid "Try Exec"
-msgstr ""
+msgstr "Abfragebefehl"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:97
 msgid "\"MimeType\": The MIME type(s) supported by this application."
 msgstr ""
+"„Mime-Typ“: Die MIME-Typen, die von dieser Anwendung unterstützt werden."
 
 #: ../data/ui/MenulibreWindow.ui.h:98
 msgid "Mimetypes"
@@ -347,6 +390,12 @@ msgid ""
 "entries. The values are not meant for display, and should not be redundant\n"
 "with the values of Name or GenericName."
 msgstr ""
+"„Schlagwörter“: Eine Liste von Zeichenketten, welche nützlich sein können,\n"
+"um den Eintrag zu beschreiben, zusätzlich zu den Metadaten. Das kann\n"
+"beispielsweise nützlich sein, um eine Suche nach den Einträge "
+"durchzuführen.\n"
+"Diese Werte sind nicht für die Anzeige gedacht und sollten nicht redundant\n"
+"zu den Werten des Namens bzw. Allgemeinen Namens sein."
 
 #: ../data/ui/MenulibreWindow.ui.h:104
 msgid "Keywords"
@@ -359,10 +408,13 @@ msgid ""
 "at\n"
 "least one window with the given string as its WM class or WM name hint."
 msgstr ""
+"„Start-WM-Klasse“: Falls angegeben, ist es bekannt, dass die Anwendung\n"
+"mindestens ein Fenster mit der gegebenen Zeichenkette als WM-Klasse\n"
+"oder WM-Namenshinweis verbinden wird."
 
 #: ../data/ui/MenulibreWindow.ui.h:108
 msgid "Startup WM Class"
-msgstr ""
+msgstr "Start-WM-Klasse"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:110
