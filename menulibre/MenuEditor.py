@@ -265,11 +265,19 @@ class MenuEditor(object):
         contents = []
         item_iter = item.iter()
         item_type = item_iter.next()
+        
+        found_directories = []
 
         while item_type != GMenu.TreeItemType.INVALID:
             item = None
             if item_type == GMenu.TreeItemType.DIRECTORY:
                 item = item_iter.get_directory()
+                desktop = item.get_desktop_file_path()
+                if desktop in found_directories:
+                    # Do not include duplicate directories.
+                    item = None
+                else:
+                    found_directories.append(desktop)
             elif item_type == GMenu.TreeItemType.ENTRY:
                 item = item_iter.get_entry()
             elif item_type == GMenu.TreeItemType.HEADER:

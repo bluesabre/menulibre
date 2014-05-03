@@ -156,6 +156,7 @@ def getDirectoryName(directory_str):
     """Return the directory name to be used in the XML file."""
     # Get the menu prefix
     prefix = getDefaultMenuPrefix()
+    has_prefix = False
 
     basename = os.path.basename(directory_str)
     name, ext = os.path.splitext(basename)
@@ -164,6 +165,7 @@ def getDirectoryName(directory_str):
     if name.startswith(prefix):
         name = name[len(prefix):]
         name = name.title()
+        has_prefix = True
 
     # Handle X-GNOME, X-XFCE
     if name.startswith("X-"):
@@ -200,6 +202,8 @@ def getDirectoryName(directory_str):
     if name == 'Settings':
         if prefix == 'lxde-':
             return 'DesktopSettings'
+        elif has_prefix and prefix == 'xfce-':
+            return name
         else:
             return 'Preferences'
 

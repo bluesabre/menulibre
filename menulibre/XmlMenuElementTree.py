@@ -35,6 +35,10 @@ from . import MenuEditor
 directories = util.getUserDirectoryPath()
 
 
+# Prevent gnome-menus crash
+processed_directories = []
+
+
 def indent(elem, level=0):
     """Indentation code to make XML output easier to read."""
     i = "\n" + level * "\t"
@@ -202,6 +206,11 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
                 model[treeiter][:]
 
         if item_type == MenuItemTypes.DIRECTORY:
+            # Do not save duplicate directories.
+            global processed_directories
+            if desktop in processed_directories:
+                continue
+            
             # Add a menu child.
             if desktop is None:
                 # Cinnamon fix.
@@ -241,6 +250,13 @@ def model_to_xml_layout(model, model_parent=None, menu_parent=None):
                 model[treeiter][:]
 
         if item_type == MenuItemTypes.DIRECTORY:
+            # Do not save duplicate directories.
+            global processed_directories
+            if desktop in processed_directories:
+                continue
+            else:
+                processed_directories.append(desktop)
+
             if desktop is None:
                 # Cinnamon fix.
                 if name == 'wine-wine':
@@ -268,6 +284,10 @@ def model_to_xml_layout(model, model_parent=None, menu_parent=None):
 
 def model_children_to_xml(model, model_parent=None, menu_parent=None):
     """Add child menu items to menu_parent from model_parent."""
+    # Prevent menu duplication that crashes gnome-menus
+    global processed_directories
+    processed_directories = []
+    
     # Menus First...
     model_to_xml_menus(model, model_parent, menu_parent)
 
