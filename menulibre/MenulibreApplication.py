@@ -1941,6 +1941,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if sel:
             model, selected_iter = sel
 
+            # Get current required categories
+            parent = self.get_parent(model, selected_iter)
+            if parent:
+                categories = util.getRequiredCategories(model[parent][5])
+            else:
+                categories = util.getRequiredCategories(None)
+
             selected_type = model[selected_iter][2]
 
             # Move the row up if relative_position < 0
@@ -1955,20 +1962,42 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 # the neighboring row is expanded, prepend/append to it.
                 if selected_type != MenuItemTypes.DIRECTORY and \
                         treeview.row_expanded(path):
-                    self.move_iter_down_level(treeview, selected_iter,
+                    selected_iter = self.move_iter_down_level(treeview,
+                                        selected_iter,
                                         sibling, relative_position)
                 else:
                     # Otherwise, just move down/up
                     if relative_position < 0:
                         model.move_before(selected_iter, sibling)
-                        #self.move_iter_before(model, selected_iter, sibling)
                     else:
                         model.move_after(selected_iter, sibling)
-                        #self.move_iter_after(model, selected_iter, sibling)
             else:
                 # If there is no neighboring row, move up a level.
-                self.move_iter_up_level(treeview, selected_iter,
-                                      relative_position)
+                selected_iter = self.move_iter_up_level(treeview,
+                                        selected_iter,
+                                        relative_position)
+
+            # Get new required categories
+            parent = self.get_parent(model, selected_iter)
+            if parent:
+                new_categories = util.getRequiredCategories(model[parent][5])
+            else:
+                new_categories = util.getRequiredCategories(None)
+
+            # Replace required categories
+            if categories != new_categories:
+                editor_categories = self.get_editor_categories()
+                split_categories = editor_categories.split(';')
+                for category in categories:
+                    if category in split_categories:
+                        split_categories.remove(category)
+                for category in new_categories:
+                    if category not in split_categories:
+                        split_categories.append(category)
+                split_categories.sort()
+                editor_categories = ';'.join(split_categories)
+                self.set_editor_categories(editor_categories)
+                self.update_launcher_categories(categories, new_categories)
 
         self.update_menus()
 
@@ -2004,6 +2033,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             model.remove(treeiter)
             path = model.get_path(new_iter)
             treeview.set_cursor(path)
+        return new_iter
 
     def move_iter_down_level(self, treeview, treeiter, parent_iter,
                              relative_position):
@@ -2020,6 +2050,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         model.remove(treeiter)
         path = model.get_path(new_iter)
         treeview.set_cursor(path)
+        return new_iter
 
 # Update Functions
     def update_treeview(self, model, treeiter, name, comment, item_type,
@@ -2271,6 +2302,64 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Do not save menu layout if in search mode (lp #1306999)
         if self.browser_toolbar.get_sensitive():
             self.update_menus()
+
+    def update_launcher_categories(self, remove, add):
+        original_filename = self.get_value('Filename')
+        if not os.path.isfile(original_filename):
+            return
+        item_type = self.get_value('Type')
+        name = self.get_value('Name')
+        save_filename = util.getSaveFilename(name, original_filename, item_type)
+        logger.debug("Saving launcher as \"%s\"" % save_filename)
+
+        model, treeiter = self.treeview.get_selection().get_selected()
+
+        # Get the original contents
+        with open(original_filename, 'r') as original:
+            contents = original.readlines()
+
+        # Write the new contents
+        with open(save_filename, 'w') as new:
+            updated_categories = False
+            for line in contents:
+                # Update the first instance of Categories
+                if line.startswith('Categories=') and not updated_categories:
+                    # Cleanup the line
+                    line = line.strip()
+
+                    # Get the current unmodified values
+                    key, value = line.split('=')
+                    categories = value.split(';')
+
+                    # Remove the old required categories
+                    for category in remove:
+                        if category in categories:
+                            categories.remove(category)
+
+                    # Add the new required categories
+                    for category in add:
+                        if category not in categories:
+                            categories.append(category)
+
+                    # Remove empty categories
+                    for category in categories:
+                        if category.strip() == "":
+                            try:
+                                categories.remove(category)
+                            except:
+                                pass
+
+                    categories.sort()
+
+                    # Commit the changes
+                    value = ';'.join(categories)
+                    line = 'Categories=' + value + '\n'
+                    updated_categories = True
+                new.write(line)
+
+        # Set the editor to the new filename.
+        self.set_value('Filename', save_filename)
+        model[treeiter][5] = save_filename
 
     def delete_separator(self, treeview, model, treeiter):
         """Remove a separator row from the treeview, update the menu files."""

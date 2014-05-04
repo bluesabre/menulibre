@@ -14,6 +14,9 @@ UNRELEASED, MenuLibre 2.0.4
   . Do not save menu layout when in search mode (LP: #1306999)
   . Restore expanded/collapsed menus after finished searching (LP: #1307000)
   . Properly support spaces in the Exec line (LP: #1214815)
+  . Conflicted directory label for xfce-settings.directory (LP: #1313276)
+  . preprocess_layout_info: assertion failed (LP: #1307729)
+  . Moving launchers to another category do not save immediately (LP: #1313586)
 
 
 11 Mar 2014, MenuLibre 2.0.3

@@ -265,7 +265,7 @@ class MenuEditor(object):
         contents = []
         item_iter = item.iter()
         item_type = item_iter.next()
-        
+
         found_directories = []
 
         while item_type != GMenu.TreeItemType.INVALID:

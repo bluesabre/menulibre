@@ -210,7 +210,7 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
             global processed_directories
             if desktop in processed_directories:
                 continue
-            
+
             # Add a menu child.
             if desktop is None:
                 # Cinnamon fix.
@@ -287,7 +287,7 @@ def model_children_to_xml(model, model_parent=None, menu_parent=None):
     # Prevent menu duplication that crashes gnome-menus
     global processed_directories
     processed_directories = []
-    
+
     # Menus First...
     model_to_xml_menus(model, model_parent, menu_parent)
 
