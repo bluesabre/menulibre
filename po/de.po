@@ -7,19 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-04-20 20:43-0400\n"
-"PO-Revision-Date: 2014-05-01 11:40+0000\n"
-"Last-Translator: Jonatan Zeidler <Unknown>\n"
+"POT-Creation-Date: 2014-05-03 08:01-0400\n"
+"PO-Revision-Date: 2014-05-03 19:12+0000\n"
+"Last-Translator: Tobias Bannert <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-05-02 06:42+0000\n"
+"X-Launchpad-Export-Date: 2014-05-04 06:23+0000\n"
 "X-Generator: Launchpad (build 16985)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr "Menüeditor"
+msgstr "Menübearbeiter"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
@@ -481,7 +481,7 @@ msgstr "Spalte"
 msgid "Show debug messages"
 msgstr "Diagnosemeldungen anzeigen"
 
-#: ../menulibre/MenuEditor.py:92 ../menulibre/MenulibreApplication.py:1382
+#: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1382
 #: ../menulibre/MenulibreApplication.py:2162
 msgid "Separator"
 msgstr "Trennlinie"
@@ -757,7 +757,7 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1697
 msgid "You do not have permission to delete this file."
-msgstr ""
+msgstr "Sie haben keine Berechtigung diese Datei zu löschen."
 
 #: ../menulibre/MenulibreApplication.py:2061
 msgid "Cannot add subdirectories to preinstalled system paths."
