@@ -1907,7 +1907,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         elif key == 'Categories':
             return self.get_editor_categories()
         elif key == 'Filename':
-            return self.values['filename']
+            if 'filename' in list(self.values.keys()):
+                return self.values['filename']
         else:
             widget = self.widgets[key]
             if isinstance(widget, Gtk.Button):
@@ -1920,6 +1921,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 return widget.get_active()
             else:
                 return None
+        return None
 
 # TreeView iter tricks
     def move_iter(self, widget, user_data):
