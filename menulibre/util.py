@@ -255,6 +255,9 @@ def getSaveFilename(name, filename, item_type):
 
     Return the filename to be used."""
     # Check if the filename is writeable. If not, generate a new one.
+    if filename is None:
+        unique = True
+
     if filename is None or len(filename) == 0 or \
             not os.access(filename, os.W_OK):
         # No filename, make one from the launcher name.
@@ -276,15 +279,37 @@ def getSaveFilename(name, filename, item_type):
             path = getUserDirectoryPath()
             ext = '.directory'
 
-        # Create the new base filename.
-        filename = os.path.join(path, name)
-        filename = "%s%s" % (filename, ext)
-
-        # Append numbers as necessary to make the filename unique.
+        # Index for unique filenames.
         count = 1
-        while os.path.exists(filename):
-            new_basename = "%s%i%s" % (name, count, ext)
-            filename = os.path.join(path, new_basename)
-            count += 1
+
+        # Be sure to not overwrite system launchers if new.
+        if unique:
+            # Check for the system version of the launcher.
+            if getSystemLauncherPath("%s%s" % (name, ext)) is not None:
+                # If found, check for any additional ones.
+                while getSystemLauncherPath("%s%i%s" % (name, count, ext)) \
+                        is not None:
+                    count += 1
+
+                # Now be sure to not overwrite locally installed ones.
+                filename = os.path.join(path, name)
+                filename = "%s%i%s" % (filename, count, ext)
+
+                # Append numbers as necessary to make the filename unique.
+                while os.path.exists(filename):
+                    new_basename = "%s%i%s" % (name, count, ext)
+                    filename = os.path.join(path, new_basename)
+                    count += 1
+
+        else:
+            # Create the new base filename.
+            filename = os.path.join(path, name)
+            filename = "%s%s" % (filename, ext)
+
+            # Append numbers as necessary to make the filename unique.
+            while os.path.exists(filename):
+                new_basename = "%s%i%s" % (name, count, ext)
+                filename = os.path.join(path, new_basename)
+                count += 1
 
     return filename
