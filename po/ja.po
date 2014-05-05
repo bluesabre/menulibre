@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-03 08:01-0400\n"
+"POT-Creation-Date: 2014-05-04 09:50-0400\n"
 "PO-Revision-Date: 2014-04-12 01:41+0000\n"
 "Last-Translator: ub <xenolith0bytetestcomgreen@gmail.com>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-05-04 06:23+0000\n"
+"X-Launchpad-Export-Date: 2014-05-05 06:26+0000\n"
 "X-Generator: Launchpad (build 16985)\n"
 "Language: ja\n"
 
@@ -46,8 +46,8 @@ msgstr "アイコン選択"
 #: ../menulibre/MenulibreApplication.py:1153
 #: ../menulibre/MenulibreApplication.py:1272
 #: ../menulibre/MenulibreApplication.py:1467
-#: ../menulibre/MenulibreApplication.py:2471
-#: ../menulibre/MenulibreApplication.py:2577
+#: ../menulibre/MenulibreApplication.py:2560
+#: ../menulibre/MenulibreApplication.py:2666
 msgid "Cancel"
 msgstr "キャンセル"
 
@@ -88,7 +88,7 @@ msgid "<b>Preview</b>"
 msgstr "<b>プレビュー</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:362
-#: ../menulibre/MenulibreApplication.py:2600
+#: ../menulibre/MenulibreApplication.py:2689
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
@@ -473,7 +473,7 @@ msgid "Show debug messages"
 msgstr "デバッグメッセージの表示"
 
 #: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1382
-#: ../menulibre/MenulibreApplication.py:2162
+#: ../menulibre/MenulibreApplication.py:2193
 msgid "Separator"
 msgstr "セパレーター"
 
@@ -640,7 +640,7 @@ msgid "_Quit"
 msgstr "終了(_Q)"
 
 #: ../menulibre/MenulibreApplication.py:442
-#: ../menulibre/MenulibreApplication.py:2552
+#: ../menulibre/MenulibreApplication.py:2641
 msgid "Quit"
 msgstr "終了"
 
@@ -649,7 +649,7 @@ msgid "_Contents"
 msgstr "目次(_C)"
 
 #: ../menulibre/MenulibreApplication.py:449
-#: ../menulibre/MenulibreApplication.py:2550
+#: ../menulibre/MenulibreApplication.py:2639
 msgid "Help"
 msgstr "ヘルプ"
 
@@ -658,7 +658,7 @@ msgid "_About"
 msgstr "このアプリケーションについて(_A)"
 
 #: ../menulibre/MenulibreApplication.py:456
-#: ../menulibre/MenulibreApplication.py:2551
+#: ../menulibre/MenulibreApplication.py:2640
 msgid "About"
 msgstr "MenuLibreについて"
 
@@ -752,70 +752,70 @@ msgstr "ランチャーを保存しないと、すべての変更を失います
 msgid "You do not have permission to delete this file."
 msgstr "このファイルを削除する権限がありません。"
 
-#: ../menulibre/MenulibreApplication.py:2061
+#: ../menulibre/MenulibreApplication.py:2092
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr "インストールされているシステムのパスにサブディレクトリを追加できません。"
 
-#: ../menulibre/MenulibreApplication.py:2087
+#: ../menulibre/MenulibreApplication.py:2118
 msgid "New Launcher"
 msgstr "新しいランチャー"
 
-#: ../menulibre/MenulibreApplication.py:2137
+#: ../menulibre/MenulibreApplication.py:2168
 msgid "New Directory"
 msgstr "新しいディレクトリ"
 
-#: ../menulibre/MenulibreApplication.py:2466
+#: ../menulibre/MenulibreApplication.py:2555
 msgid "Are you sure you want to restore this launcher?"
 msgstr "ランチャーを復元しますか？"
 
-#: ../menulibre/MenulibreApplication.py:2472
-#: ../menulibre/MenulibreApplication.py:2473
+#: ../menulibre/MenulibreApplication.py:2561
+#: ../menulibre/MenulibreApplication.py:2562
 msgid "Restore Launcher"
 msgstr "ランチャーの復元"
 
-#: ../menulibre/MenulibreApplication.py:2474
+#: ../menulibre/MenulibreApplication.py:2563
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr "最後に保存されたすべての変更はなくなり、自動的には復元されませんん。"
 
-#: ../menulibre/MenulibreApplication.py:2489
+#: ../menulibre/MenulibreApplication.py:2578
 msgid "Are you sure you want to delete this separator?"
 msgstr "このセパレーターを本当に削除しますか？"
 
-#: ../menulibre/MenulibreApplication.py:2492
+#: ../menulibre/MenulibreApplication.py:2581
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "\"%s\" を本当に削除してもよろしいですか？"
 
-#: ../menulibre/MenulibreApplication.py:2494
+#: ../menulibre/MenulibreApplication.py:2583
 msgid "This cannot be undone."
 msgstr "これは元に戻せません"
 
-#: ../menulibre/MenulibreApplication.py:2572
+#: ../menulibre/MenulibreApplication.py:2661
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr "MenuLibreのマニュアルをオンラインで読みますか？"
 
-#: ../menulibre/MenulibreApplication.py:2578
+#: ../menulibre/MenulibreApplication.py:2667
 msgid "Read Online"
 msgstr "オンラインで読む"
 
-#: ../menulibre/MenulibreApplication.py:2579
+#: ../menulibre/MenulibreApplication.py:2668
 msgid "Online Documentation"
 msgstr "オンラインドキュメント"
 
-#: ../menulibre/MenulibreApplication.py:2580
+#: ../menulibre/MenulibreApplication.py:2669
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr "ドキュメントのWebサイトにある、メンテナンスされているヘルプのページにリダイレクトされるでしょう。"
 
 #. Populate the AboutDialog with all the relevant details.
-#: ../menulibre/MenulibreApplication.py:2599
+#: ../menulibre/MenulibreApplication.py:2688
 msgid "About MenuLibre"
 msgstr "MenuLibreについて"
 
-#: ../menulibre/MenulibreApplication.py:2602
+#: ../menulibre/MenulibreApplication.py:2691
 msgid "Copyright © 2012-2014 Sean Davis"
 msgstr "Copyright © 2012-2014 Sean Davis"
 
