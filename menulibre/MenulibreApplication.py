@@ -2160,6 +2160,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.set_editor_categories(';'.join(categories))
 
+        self.actions['save_launcher'].set_sensitive(True)
         self.save_button.set_sensitive(True)
 
     def add_directory(self):
@@ -2184,6 +2185,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Select the New Launcher item.
         path = model.get_path(new_iter)
         self.treeview.set_cursor(path)
+
+        self.actions['save_launcher'].set_sensitive(True)
         self.save_button.set_sensitive(True)
 
     def add_separator(self):
