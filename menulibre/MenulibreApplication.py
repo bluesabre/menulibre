@@ -719,6 +719,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.widgets[widget_name].connect('focus-out-event',
                             self.on_entry_focus_out_event, widget_name)
 
+        # Enable saving on any edit with an Entry.
+        for widget_name in ['Exec', 'Path', 'GenericName', 'TryExec',
+                            'OnlyShowIn', 'NotShowIn', 'MimeType', 'Keywords',
+                            'StartupWMClass', 'Hidden', 'DBusActivatable']:
+            self.widgets[widget_name].connect("changed",
+                            self.on_entry_changed, widget_name)
+
         # Configure the Exec/Path widgets.
         for widget_name in ['Exec', 'Path']:
             button = builder.get_object('button_%s' % widget_name)
@@ -1255,6 +1262,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_entry_focus_out_event(self, widget, event, widget_name):
         """Store the new value in the history when changing fields."""
         self.set_value(widget_name, widget.get_text())
+
+    def on_entry_changed(self, widget, widget_name):
+        """Enable saving when an entry has been modified."""
+        self.actions['save_launcher'].set_sensitive(True)
+        self.save_button.set_sensitive(True)
 
 # Browse button functionality for Exec and Path widgets.
     def on_ExecPath_clicked(self, widget, widget_name, builder):
