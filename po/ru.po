@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-05-04 09:50-0400\n"
+"POT-Creation-Date: 2014-05-05 20:19-0400\n"
 "PO-Revision-Date: 2014-04-23 19:57+0000\n"
 "Last-Translator: Rodion R. <rodikr2005@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-05-05 06:26+0000\n"
-"X-Generator: Launchpad (build 16985)\n"
+"X-Launchpad-Export-Date: 2014-05-06 07:24+0000\n"
+"X-Generator: Launchpad (build 16996)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -45,8 +45,8 @@ msgstr "Выбор значка"
 #: ../menulibre/MenulibreApplication.py:1153
 #: ../menulibre/MenulibreApplication.py:1272
 #: ../menulibre/MenulibreApplication.py:1467
-#: ../menulibre/MenulibreApplication.py:2560
-#: ../menulibre/MenulibreApplication.py:2666
+#: ../menulibre/MenulibreApplication.py:2565
+#: ../menulibre/MenulibreApplication.py:2671
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -87,7 +87,7 @@ msgid "<b>Preview</b>"
 msgstr "<b>Предварительный просмотр</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:362
-#: ../menulibre/MenulibreApplication.py:2689
+#: ../menulibre/MenulibreApplication.py:2694
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
@@ -430,7 +430,7 @@ msgid "Show debug messages"
 msgstr "Показывать отладочные сообщения"
 
 #: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1382
-#: ../menulibre/MenulibreApplication.py:2193
+#: ../menulibre/MenulibreApplication.py:2198
 msgid "Separator"
 msgstr "Разделитель"
 
@@ -597,7 +597,7 @@ msgid "_Quit"
 msgstr "_Выход"
 
 #: ../menulibre/MenulibreApplication.py:442
-#: ../menulibre/MenulibreApplication.py:2641
+#: ../menulibre/MenulibreApplication.py:2646
 msgid "Quit"
 msgstr "Выход"
 
@@ -606,7 +606,7 @@ msgid "_Contents"
 msgstr "_Содержание"
 
 #: ../menulibre/MenulibreApplication.py:449
-#: ../menulibre/MenulibreApplication.py:2639
+#: ../menulibre/MenulibreApplication.py:2644
 msgid "Help"
 msgstr "Справка"
 
@@ -615,7 +615,7 @@ msgid "_About"
 msgstr "_О программе"
 
 #: ../menulibre/MenulibreApplication.py:456
-#: ../menulibre/MenulibreApplication.py:2640
+#: ../menulibre/MenulibreApplication.py:2645
 msgid "About"
 msgstr "О программе"
 
@@ -707,70 +707,70 @@ msgstr "Если не сохранить кнопку запуска, все и�
 msgid "You do not have permission to delete this file."
 msgstr "У вас нет прав для удаления этого файла."
 
-#: ../menulibre/MenulibreApplication.py:2092
+#: ../menulibre/MenulibreApplication.py:2094
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2118
+#: ../menulibre/MenulibreApplication.py:2120
 msgid "New Launcher"
 msgstr "Новая кнопка запуска"
 
-#: ../menulibre/MenulibreApplication.py:2168
+#: ../menulibre/MenulibreApplication.py:2171
 msgid "New Directory"
 msgstr "Новый каталог"
 
-#: ../menulibre/MenulibreApplication.py:2555
+#: ../menulibre/MenulibreApplication.py:2560
 msgid "Are you sure you want to restore this launcher?"
 msgstr "Вы уверены, что хотите восстановить эту кнопку запуска?"
 
-#: ../menulibre/MenulibreApplication.py:2561
-#: ../menulibre/MenulibreApplication.py:2562
+#: ../menulibre/MenulibreApplication.py:2566
+#: ../menulibre/MenulibreApplication.py:2567
 msgid "Restore Launcher"
 msgstr "Восстановить кнопку запуска"
 
-#: ../menulibre/MenulibreApplication.py:2563
+#: ../menulibre/MenulibreApplication.py:2568
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2578
+#: ../menulibre/MenulibreApplication.py:2583
 msgid "Are you sure you want to delete this separator?"
 msgstr "Вы действительно хотите удалить разделитель?"
 
-#: ../menulibre/MenulibreApplication.py:2581
+#: ../menulibre/MenulibreApplication.py:2586
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Вы уверены, что хотите удалить \"%s\"?"
 
-#: ../menulibre/MenulibreApplication.py:2583
+#: ../menulibre/MenulibreApplication.py:2588
 msgid "This cannot be undone."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2661
+#: ../menulibre/MenulibreApplication.py:2666
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr "Хотите прочитать руководство MenuLibre онлайн?"
 
-#: ../menulibre/MenulibreApplication.py:2667
+#: ../menulibre/MenulibreApplication.py:2672
 msgid "Read Online"
 msgstr "Читать онлайн"
 
-#: ../menulibre/MenulibreApplication.py:2668
+#: ../menulibre/MenulibreApplication.py:2673
 msgid "Online Documentation"
 msgstr "Онлайн-документация"
 
-#: ../menulibre/MenulibreApplication.py:2669
+#: ../menulibre/MenulibreApplication.py:2674
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr ""
 
 #. Populate the AboutDialog with all the relevant details.
-#: ../menulibre/MenulibreApplication.py:2688
+#: ../menulibre/MenulibreApplication.py:2693
 msgid "About MenuLibre"
 msgstr "О MenuLibre"
 
-#: ../menulibre/MenulibreApplication.py:2691
+#: ../menulibre/MenulibreApplication.py:2696
 msgid "Copyright © 2012-2014 Sean Davis"
 msgstr "Авторские права © 2012—2014 Sean Davis"
 
