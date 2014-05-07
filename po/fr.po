@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-05 20:19-0400\n"
-"PO-Revision-Date: 2014-05-05 11:05+0000\n"
+"PO-Revision-Date: 2014-05-06 11:50+0000\n"
 "Last-Translator: Urien Desterres <urien.desterres@gmail.com>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-05-06 07:24+0000\n"
+"X-Launchpad-Export-Date: 2014-05-07 07:02+0000\n"
 "X-Generator: Launchpad (build 16996)\n"
 "Language: frnech\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -380,6 +380,13 @@ msgid ""
 "entries. The values are not meant for display, and should not be redundant\n"
 "with the values of Name or GenericName."
 msgstr ""
+"« Mots-clés » : une liste de chaines pouvant être utilisée en plus d’autres "
+"métadonnées\n"
+"pour décrire cette entrée. Peut être utile pour faciliter la recherche parmi "
+"les entrées.\n"
+"Les valeurs n’ont pas pour but d’être affichées et devraient différer de "
+"celles\n"
+"du Nom ou du Nom générique."
 
 #: ../data/ui/MenulibreWindow.ui.h:104
 msgid "Keywords"
@@ -432,7 +439,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:125
 msgid "DBUS Activatable"
-msgstr ""
+msgstr "DBUS Activable"
 
 #: ../data/ui/MenulibreWindow.ui.h:126
 msgid "Advanced"
@@ -515,15 +522,15 @@ msgstr "WINE"
 #. Desktop Environment
 #: ../menulibre/MenulibreApplication.py:71
 msgid "Desktop configuration"
-msgstr ""
+msgstr "Configuration du bureau"
 
 #: ../menulibre/MenulibreApplication.py:72
 msgid "User configuration"
-msgstr ""
+msgstr "Configuration utilisateur"
 
 #: ../menulibre/MenulibreApplication.py:73
 msgid "Hardware configuration"
-msgstr ""
+msgstr "Configuration matérielle"
 
 #. GNOME Specific
 #: ../menulibre/MenulibreApplication.py:75
@@ -536,16 +543,16 @@ msgstr "Application GTK+"
 
 #: ../menulibre/MenulibreApplication.py:77
 msgid "GNOME user configuration"
-msgstr ""
+msgstr "Configuration utilisateur GNOME"
 
 #: ../menulibre/MenulibreApplication.py:78
 msgid "GNOME hardware configuration"
-msgstr ""
+msgstr "Configuration matérielle GNOME"
 
 #: ../menulibre/MenulibreApplication.py:79
 #: ../menulibre/MenulibreApplication.py:80
 msgid "GNOME system configuration"
-msgstr ""
+msgstr "Configuration systèmen GNOME"
 
 #. Xfce Specific
 #: ../menulibre/MenulibreApplication.py:82
@@ -555,20 +562,20 @@ msgstr "Élément du menu Xfce"
 
 #: ../menulibre/MenulibreApplication.py:84
 msgid "Xfce toplevel menu item"
-msgstr ""
+msgstr "Élément de menu Xfce de premier niveau"
 
 #: ../menulibre/MenulibreApplication.py:85
 msgid "Xfce user configuration"
-msgstr ""
+msgstr "Configuration utilisateur Xfce"
 
 #: ../menulibre/MenulibreApplication.py:86
 msgid "Xfce hardware configuration"
-msgstr ""
+msgstr "Configuration matérielle Xfce"
 
 #: ../menulibre/MenulibreApplication.py:87
 #: ../menulibre/MenulibreApplication.py:88
 msgid "Xfce system configuration"
-msgstr ""
+msgstr "Configuration système Xfce"
 
 #: ../menulibre/MenulibreApplication.py:136
 #: ../menulibre/MenulibreApplication.py:179
@@ -636,7 +643,7 @@ msgstr "Quitter"
 
 #: ../menulibre/MenulibreApplication.py:448
 msgid "_Contents"
-msgstr "_Contenus"
+msgstr "Guide d’utilisation"
 
 #: ../menulibre/MenulibreApplication.py:449
 #: ../menulibre/MenulibreApplication.py:2644
@@ -659,11 +666,11 @@ msgstr "Résultats de la recherche"
 
 #: ../menulibre/MenulibreApplication.py:809
 msgid "ThisEntry"
-msgstr ""
+msgstr "Cette entrée"
 
 #: ../menulibre/MenulibreApplication.py:827
 msgid "Select a category"
-msgstr ""
+msgstr "Sélectionnez une catégorie"
 
 #: ../menulibre/MenulibreApplication.py:830
 msgid "Category Name"
@@ -671,7 +678,7 @@ msgstr "Nom de la catégorie"
 
 #: ../menulibre/MenulibreApplication.py:914
 msgid "This Entry"
-msgstr ""
+msgstr "Cette entrée"
 
 #: ../menulibre/MenulibreApplication.py:969
 msgid "New Shortcut"
@@ -705,7 +712,7 @@ msgstr "Sélectionner une image"
 #: ../menulibre/MenulibreApplication.py:1154
 #: ../menulibre/MenulibreApplication.py:1273
 msgid "OK"
-msgstr "OK"
+msgstr "Valider"
 
 #: ../menulibre/MenulibreApplication.py:1156
 msgid "Images"
