@@ -17,6 +17,8 @@ UNRELEASED, MenuLibre 2.0.4
   . Conflicted directory label for xfce-settings.directory (LP: #1313276)
   . preprocess_layout_info: assertion failed (LP: #1307729)
   . Moving launchers to another category do not save immediately (LP: #1313586)
+  . Enable saving a launcher any time a field is modified (LP: #1315878)
+  . New launchers are replaced with existing ones when removed (LP: #1315890)
 
 
 11 Mar 2014, MenuLibre 2.0.3
