@@ -248,6 +248,10 @@ class MenulibreHistory(GObject.GObject):
         logger.debug('Unblocking history updates')
         self._block = False
 
+    def is_blocked(self):
+        """Is History allowed currently?"""
+        return self._block
+
     def _append_undo(self, key, before, after):
         """Internal append_undo function. Emit 'undo-changed' if the undo stack
         now contains a history."""
@@ -1265,8 +1269,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_entry_changed(self, widget, widget_name):
         """Enable saving when an entry has been modified."""
-        self.actions['save_launcher'].set_sensitive(True)
-        self.save_button.set_sensitive(True)
+        if not self.history.is_blocked():
+            self.actions['save_launcher'].set_sensitive(True)
+            self.save_button.set_sensitive(True)
 
 # Browse button functionality for Exec and Path widgets.
     def on_ExecPath_clicked(self, widget, widget_name, builder):
