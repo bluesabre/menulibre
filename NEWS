@@ -20,6 +20,7 @@ UNRELEASED, MenuLibre 2.0.4
   . Enable saving a launcher any time a field is modified (LP: #1315878)
   . New launchers are replaced with existing ones when removed (LP: #1315890)
   . Launchers in new directory have X-Xfce-Toplevel category (LP: #1315874)
+  . Add launchers to empty categories (LP: #1318209)
 
 
 11 Mar 2014, MenuLibre 2.0.3

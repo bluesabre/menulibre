@@ -1959,6 +1959,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         sel = treeview.get_selection().get_selected()
         if sel:
             model, selected_iter = sel
+            selected_type = model[selected_iter][2]
 
             # Get current required categories
             parent = self.get_parent(model, selected_iter)
@@ -1967,31 +1968,50 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             else:
                 categories = util.getRequiredCategories(None)
 
-            selected_type = model[selected_iter][2]
-
             # Move the row up if relative_position < 0
             if relative_position < 0:
-                sibling = model.iter_previous(selected_iter)
+                sibling_iter = model.iter_previous(selected_iter)
             else:
-                sibling = model.iter_next(selected_iter)
+                sibling_iter = model.iter_next(selected_iter)
 
-            if sibling:
-                path = model.get_path(sibling)
-                # If the selected row is not a directory and
-                # the neighboring row is expanded, prepend/append to it.
-                if selected_type != MenuItemTypes.DIRECTORY and \
-                        treeview.row_expanded(path):
+            if sibling_iter:
+                sibling_path = model.get_path(sibling_iter)
+
+                # Determine where the item is being inserted.
+                move_down = False
+
+                # What is the neighboring item?
+                sibling_type = model[sibling_iter][2]
+
+                # Sibling Directory
+                if sibling_type == MenuItemTypes.DIRECTORY:
+                    # Do not move directories into other directories.
+                    if selected_type == MenuItemTypes.DIRECTORY:
+                        move_down = False
+
+                    # Append or Prepend to expanded directories.
+                    elif treeview.row_expanded(sibling_path):
+                        move_down = True
+
+                    # Append to childless directories (lp: #1318209)
+                    elif not model.iter_has_child(sibling_iter):
+                        move_down = True
+
+                # Insert the selected item into the directory.
+                if move_down:
                     selected_iter = self.move_iter_down_level(treeview,
                                         selected_iter,
-                                        sibling, relative_position)
+                                        sibling_iter, relative_position)
+
+                # Move the selected item before or after the sibling item.
                 else:
-                    # Otherwise, just move down/up
                     if relative_position < 0:
-                        model.move_before(selected_iter, sibling)
+                        model.move_before(selected_iter, sibling_iter)
                     else:
-                        model.move_after(selected_iter, sibling)
+                        model.move_after(selected_iter, sibling_iter)
+
+            # If there is no neighboring row, move up a level.
             else:
-                # If there is no neighboring row, move up a level.
                 selected_iter = self.move_iter_up_level(treeview,
                                         selected_iter,
                                         relative_position)
@@ -2059,14 +2079,18 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Move the specified iter down one level."""
         model = treeview.get_model()
         row_data = model[treeiter][:]
-        if relative_position < 0:
-            n_children = model.iter_n_children(parent_iter)
-            sibling = model.iter_nth_child(parent_iter, n_children - 1)
-            new_iter = model.insert_after(parent_iter, sibling, row_data)
+        if model.iter_has_child(parent_iter):
+            if relative_position < 0:
+                n_children = model.iter_n_children(parent_iter)
+                sibling = model.iter_nth_child(parent_iter, n_children - 1)
+                new_iter = model.insert_after(parent_iter, sibling, row_data)
+            else:
+                sibling = model.iter_nth_child(parent_iter, 0)
+                new_iter = model.insert_before(parent_iter, sibling, row_data)
         else:
-            sibling = model.iter_nth_child(parent_iter, 0)
-            new_iter = model.insert_before(parent_iter, sibling, row_data)
+            new_iter = model.insert(parent_iter, 0, row_data)
         model.remove(treeiter)
+        treeview.expand_row(model[parent_iter].path, False)
         path = model.get_path(new_iter)
         treeview.set_cursor(path)
         return new_iter
@@ -2091,6 +2115,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def update_menus(self):
         """Update the menu files."""
+        print("updating menus")
         XmlMenuElementTree.treeview_to_xml(self.treeview)
 
     def update_add_directory(self, treestore, treeiter):
