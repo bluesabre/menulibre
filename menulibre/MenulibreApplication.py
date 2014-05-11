@@ -2069,10 +2069,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 new_iter = model.insert_after(parent,
                                               sibling,
                                               row_data)
+
+            # Install/Uninstall items from directories.
+            filename = row_data[5]
+            self.xdg_menu_install(model, new_iter, filename)
+            self.xdg_menu_uninstall(model, treeiter, filename)
+
             model.remove(treeiter)
             path = model.get_path(new_iter)
             treeview.set_cursor(path)
-        return new_iter
+            return new_iter
 
     def move_iter_down_level(self, treeview, treeiter, parent_iter,
                              relative_position):
@@ -2089,6 +2095,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 new_iter = model.insert_before(parent_iter, sibling, row_data)
         else:
             new_iter = model.insert(parent_iter, 0, row_data)
+
+        # Install/Uninstall items from directories.
+        filename = row_data[5]
+        self.xdg_menu_install(model, new_iter, filename)
+        self.xdg_menu_uninstall(model, treeiter, filename)
+
         model.remove(treeiter)
         treeview.expand_row(model[parent_iter].path, False)
         path = model.get_path(new_iter)
@@ -2115,7 +2127,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def update_menus(self):
         """Update the menu files."""
-        print("updating menus")
         XmlMenuElementTree.treeview_to_xml(self.treeview)
 
     def update_add_directory(self, treestore, treeiter):
@@ -2308,25 +2319,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 output.write(actions)
 
         # Install the new item in its directory...
-        if filename.endswith('.desktop'):
-            menu_install = True
-            menu_prefix = util.getDefaultMenuPrefix()
-            cmd_list = ["xdg-desktop-menu", "install", "--novendor"]
-            parents = []
-            parent = model.iter_parent(treeiter)
-            while parent is not None:
-                parent_filename = model[parent][5]
-                # Do not do this method if this is a known system directory.
-                if os.path.basename(parent_filename).startswith(menu_prefix):
-                    menu_install = False
-                parents.append(parent_filename)
-                parent = model.iter_parent(parent)
-            parents.reverse()
-            cmd_list = cmd_list + parents
-            cmd_list.append(filename)
-            if menu_install:
-                logger.debug("Executing Command: %s" % str(cmd_list))
-                subprocess.call(cmd_list)
+        self.xdg_menu_install(model, treeiter, filename)
 
         # Set the editor to the new filename.
         self.set_value('Filename', filename)
@@ -2339,16 +2332,43 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             icon_name, filename)
         self.history.clear()
 
-        #TODO: Add this to the expanded items if this is determined to be good.
-        #parent_iter = self.get_parent(model, treeiter)
-        #while parent_iter is not None:
-        #    row = model[parent_iter]
-        #    row[6] = True
-        #    parent_iter = self.get_parent(model, parent_iter)
-
         # Do not save menu layout if in search mode (lp #1306999)
         if self.browser_toolbar.get_sensitive():
             self.update_menus()
+
+    def xdg_menu_install(self, model, treeiter, filename):
+        if filename.endswith('.desktop'):
+            menu_install = True
+            menu_prefix = util.getDefaultMenuPrefix()
+            parents = []
+            parent = model.iter_parent(treeiter)
+            while parent is not None:
+                parent_filename = model[parent][5]
+                # Do not do this method if this is a known system directory.
+                if os.path.basename(parent_filename).startswith(menu_prefix):
+                    menu_install = False
+                parents.append(parent_filename)
+                parent = model.iter_parent(parent)
+            parents.reverse()
+            if menu_install:
+                MenulibreXdg.desktop_menu_install(parents, [filename])
+
+    def xdg_menu_uninstall(self, model, treeiter, filename):
+        if filename.endswith('.desktop'):
+            menu_install = True
+            menu_prefix = util.getDefaultMenuPrefix()
+            parents = []
+            parent = model.iter_parent(treeiter)
+            while parent is not None:
+                parent_filename = model[parent][5]
+                # Do not do this method if this is a known system directory.
+                if os.path.basename(parent_filename).startswith(menu_prefix):
+                    menu_install = False
+                parents.append(parent_filename)
+                parent = model.iter_parent(parent)
+            parents.reverse()
+            if menu_install:
+                MenulibreXdg.desktop_menu_uninstall(parents, [filename])
 
     def update_launcher_categories(self, remove, add):
         original_filename = self.get_value('Filename')

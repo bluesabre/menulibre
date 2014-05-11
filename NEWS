@@ -21,6 +21,8 @@ UNRELEASED, MenuLibre 2.0.4
   . New launchers are replaced with existing ones when removed (LP: #1315890)
   . Launchers in new directory have X-Xfce-Toplevel category (LP: #1315874)
   . Add launchers to empty categories (LP: #1318209)
+  . Implement xdg-desktop-menu uninstall to prevent leftover items 
+   (LP: #1318235)
 
 
 11 Mar 2014, MenuLibre 2.0.3

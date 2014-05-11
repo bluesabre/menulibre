@@ -20,6 +20,10 @@ import os
 from collections import OrderedDict
 from locale import gettext as _
 
+import subprocess
+
+from gi.repository import GLib
+
 locale.textdomain('menulibre')
 
 
@@ -155,3 +159,58 @@ class MenulibreDesktopEntry:
                     quicklists.append(
                         (name, displayed_name, command, enabled))
         return quicklists
+
+
+def desktop_menu_install(directory_files, desktop_files):
+    """Install one or more applications in a submenu of the desktop menu
+    system.  If multiple directory files are provided each file will represent
+    a submenu within the menu that preceeds it, creating a nested menu
+    hierarchy (sub-sub-menus). The menu entries themselves will be added to
+    the last submenu. """
+    if len(directory_files) == 0 or len(desktop_files) == 0:
+        return
+    cmd_list = ["xdg-desktop-menu", "install", "--novendor"]
+    cmd_list = cmd_list + directory_files + desktop_files
+    subprocess.call(cmd_list)
+
+
+def desktop_menu_uninstall(directory_files, desktop_files):
+    """Remove applications or submenus from the desktop menu system
+    previously installed with xdg-desktop-menu install."""
+    if len(directory_files) == 0 or len(desktop_files) == 0:
+        return
+    # xdg-desktop-menu uninstall does not work... implement ourselves.
+    basenames = []
+    for filename in directory_files:
+        basenames.append(os.path.basename(filename))
+    basenames.sort()
+    base_filename = os.path.basename(desktop_files[0])
+
+    # Find the file with all the details to remove the filename.
+    merged_dir = os.path.join(GLib.get_user_config_dir(),
+                                    "menus", "applications-merged")
+
+    for filename in os.listdir(merged_dir):
+        filename = os.path.join(merged_dir, filename)
+        found_directories = []
+        filename_found = False
+        with open(filename, 'r') as open_file:
+            write_contents = ""
+            for line in open_file:
+                if "<Filename>" in line:
+                    if base_filename in line:
+                        filename_found = True
+                    else:
+                        write_contents += line
+                else:
+                    write_contents += line
+                if "<Directory>" in line:
+                    line = line.split("<Directory>")[1]
+                    line = line.split("</Directory>")[0]
+                    found_directories.append(line)
+        if filename_found:
+            found_directories.sort()
+            if basenames == found_directories:
+                with open(filename, 'w') as open_file:
+                    open_file.write(write_contents)
+                return
