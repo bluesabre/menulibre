@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-08 05:48-0400\n"
+"POT-Creation-Date: 2014-05-10 14:59-0400\n"
 "PO-Revision-Date: 2014-01-23 06:17+0000\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-05-10 07:52+0000\n"
+"X-Launchpad-Export-Date: 2014-05-11 07:05+0000\n"
 "X-Generator: Launchpad (build 16996)\n"
 "Language: ms\n"
 
@@ -46,8 +46,8 @@ msgstr "Pemilihan Ikon"
 #: ../menulibre/MenulibreApplication.py:1164
 #: ../menulibre/MenulibreApplication.py:1289
 #: ../menulibre/MenulibreApplication.py:1484
-#: ../menulibre/MenulibreApplication.py:2582
-#: ../menulibre/MenulibreApplication.py:2688
+#: ../menulibre/MenulibreApplication.py:2607
+#: ../menulibre/MenulibreApplication.py:2713
 msgid "Cancel"
 msgstr "Batal"
 
@@ -88,7 +88,7 @@ msgid "<b>Preview</b>"
 msgstr "<b>Pratonton</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:366
-#: ../menulibre/MenulibreApplication.py:2711
+#: ../menulibre/MenulibreApplication.py:2736
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
@@ -435,7 +435,7 @@ msgid "Show debug messages"
 msgstr "Tunjuk mesej nyahpepijat"
 
 #: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1399
-#: ../menulibre/MenulibreApplication.py:2215
+#: ../menulibre/MenulibreApplication.py:2240
 msgid "Separator"
 msgstr "Pemisah"
 
@@ -602,7 +602,7 @@ msgid "_Quit"
 msgstr "_Keluar"
 
 #: ../menulibre/MenulibreApplication.py:446
-#: ../menulibre/MenulibreApplication.py:2663
+#: ../menulibre/MenulibreApplication.py:2688
 msgid "Quit"
 msgstr "Keluar"
 
@@ -611,7 +611,7 @@ msgid "_Contents"
 msgstr "_Kandungan"
 
 #: ../menulibre/MenulibreApplication.py:453
-#: ../menulibre/MenulibreApplication.py:2661
+#: ../menulibre/MenulibreApplication.py:2686
 msgid "Help"
 msgstr "Bantuan"
 
@@ -620,7 +620,7 @@ msgid "_About"
 msgstr "_Perihal"
 
 #: ../menulibre/MenulibreApplication.py:460
-#: ../menulibre/MenulibreApplication.py:2662
+#: ../menulibre/MenulibreApplication.py:2687
 msgid "About"
 msgstr "Perihal"
 
@@ -717,28 +717,28 @@ msgstr ""
 msgid "You do not have permission to delete this file."
 msgstr "Anda tidak mempunyai keizinan memadam fail ini."
 
-#: ../menulibre/MenulibreApplication.py:2111
+#: ../menulibre/MenulibreApplication.py:2136
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr "Tidak dapat tambah sub-direktori ke laluan sistem pra-pasang."
 
-#: ../menulibre/MenulibreApplication.py:2137
+#: ../menulibre/MenulibreApplication.py:2162
 msgid "New Launcher"
 msgstr "Pelancar Baharu"
 
-#: ../menulibre/MenulibreApplication.py:2188
+#: ../menulibre/MenulibreApplication.py:2213
 msgid "New Directory"
 msgstr "Direktori Baharu"
 
-#: ../menulibre/MenulibreApplication.py:2577
+#: ../menulibre/MenulibreApplication.py:2602
 msgid "Are you sure you want to restore this launcher?"
 msgstr "Anda pasti mahu pulihkan pelancar ini?"
 
-#: ../menulibre/MenulibreApplication.py:2583
-#: ../menulibre/MenulibreApplication.py:2584
+#: ../menulibre/MenulibreApplication.py:2608
+#: ../menulibre/MenulibreApplication.py:2609
 msgid "Restore Launcher"
 msgstr "Pulih Pelancar"
 
-#: ../menulibre/MenulibreApplication.py:2585
+#: ../menulibre/MenulibreApplication.py:2610
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
@@ -746,32 +746,32 @@ msgstr ""
 "Semua perubahan semenjak keadaan tersimpan terakhir akan hilang dan tidak "
 "dapat dipulihkan secara automatik."
 
-#: ../menulibre/MenulibreApplication.py:2600
+#: ../menulibre/MenulibreApplication.py:2625
 msgid "Are you sure you want to delete this separator?"
 msgstr "Anda pasti mahu memadam pemisah ini?"
 
-#: ../menulibre/MenulibreApplication.py:2603
+#: ../menulibre/MenulibreApplication.py:2628
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Anda pasti ingin memadam \"%s\"?"
 
-#: ../menulibre/MenulibreApplication.py:2605
+#: ../menulibre/MenulibreApplication.py:2630
 msgid "This cannot be undone."
 msgstr "Ini tidak boleh dikembalikan seperti sebelum."
 
-#: ../menulibre/MenulibreApplication.py:2683
+#: ../menulibre/MenulibreApplication.py:2708
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr "Anda mahu baca panduan atas-talian MenuLibre?"
 
-#: ../menulibre/MenulibreApplication.py:2689
+#: ../menulibre/MenulibreApplication.py:2714
 msgid "Read Online"
 msgstr "Baca Atas Talian"
 
-#: ../menulibre/MenulibreApplication.py:2690
+#: ../menulibre/MenulibreApplication.py:2715
 msgid "Online Documentation"
 msgstr "Dokumentasi Talian"
 
-#: ../menulibre/MenulibreApplication.py:2691
+#: ../menulibre/MenulibreApplication.py:2716
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
@@ -780,11 +780,11 @@ msgstr ""
 "diselenggara."
 
 #. Populate the AboutDialog with all the relevant details.
-#: ../menulibre/MenulibreApplication.py:2710
+#: ../menulibre/MenulibreApplication.py:2735
 msgid "About MenuLibre"
 msgstr "Perihal MenuLibre"
 
-#: ../menulibre/MenulibreApplication.py:2713
+#: ../menulibre/MenulibreApplication.py:2738
 msgid "Copyright © 2012-2014 Sean Davis"
 msgstr "Hakcipta © 2012-2014 Sean Davis"
 
