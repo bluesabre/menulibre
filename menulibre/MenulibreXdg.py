@@ -169,7 +169,7 @@ def desktop_menu_install(directory_files, desktop_files):
     the last submenu. """
     if len(directory_files) == 0 or len(desktop_files) == 0:
         return
-    cmd_list = ["xdg-desktop-menu", "install", "--novendor"]
+    cmd_list = ["xdg-desktop-menu", "install"]
     cmd_list = cmd_list + directory_files + desktop_files
     subprocess.call(cmd_list)
 
