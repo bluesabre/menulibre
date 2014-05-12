@@ -273,7 +273,8 @@ class MenuEditor(object):
             if item_type == GMenu.TreeItemType.DIRECTORY:
                 item = item_iter.get_directory()
                 desktop = item.get_desktop_file_path()
-                if desktop in found_directories:
+                if desktop is None or desktop in found_directories:
+                    # Do not include directories without filenames.
                     # Do not include duplicate directories.
                     item = None
                 else:
