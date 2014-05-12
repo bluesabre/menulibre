@@ -2273,10 +2273,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def save_launcher(self):
         """Save the current launcher details."""
         # Get the filename to be used.
-        filename = self.get_value('Filename')
+        original_filename = self.get_value('Filename')
         item_type = self.get_value('Type')
         name = self.get_value('Name')
-        filename = util.getSaveFilename(name, filename, item_type)
+        filename = util.getSaveFilename(name, original_filename, item_type)
         logger.debug("Saving launcher as \"%s\"" % filename)
 
         model, treeiter = self.treeview.get_selection().get_selected()
@@ -2332,6 +2332,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.update_treeview(model, treeiter, name, comment, item_type,
                             icon_name, filename)
         self.history.clear()
+
+        # Update all instances
+        self.update_launcher_instances(model, treeiter, original_filename)
 
         # Do not save menu layout if in search mode (lp #1306999)
         if self.browser_toolbar.get_sensitive():
@@ -2429,6 +2432,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.set_value('Filename', save_filename)
         model[treeiter][5] = save_filename
 
+        # Update all instances
+        self.update_launcher_instances(model, treeiter, original_filename)
+
     def delete_separator(self, treeview, model, treeiter):
         """Remove a separator row from the treeview, update the menu files."""
         self.last_selected_path = -1
@@ -2439,18 +2445,29 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.update_menus()
 
-    def get_n_launcher_instances(self, model, parent, filename):
-        """Return the number of instances a launcher has in the menu."""
-        count = 0
+    def get_launcher_instances(self, model, parent, filename):
+        """Get all instances of the specified launcher from the treeview."""
+        treeiters = []
         for n_child in range(model.iter_n_children(parent)):
             treeiter = model.iter_nth_child(parent, n_child)
             iter_filename = model[treeiter][5]
             if iter_filename == filename:
-                count += 1
+                treeiters.append(treeiter)
             if model.iter_has_child(treeiter):
-                count += self.get_n_launcher_instances(model, treeiter,
-                                                       filename)
-        return count
+                treeiters += self.get_launcher_instances(model, treeiter,
+                                                         filename)
+        return treeiters
+
+    def get_n_launcher_instances(self, model, filename):
+        """Return the number of instances a launcher has in the menu."""
+        return len(self.get_launcher_instances(model, None, filename))
+
+    def update_launcher_instances(self, model, treeiter, filename):
+        """Update all same launchers with the new information."""
+        row_data = model[treeiter][:]
+        for instance in self.get_launcher_instances(model, None, filename):
+            for i in range(len(row_data)):
+                model[instance][i] = row_data[i]
 
     def delete_launcher(self, treeview, model, treeiter):
         """Delete the selected launcher."""
@@ -2510,7 +2527,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             # If this item still exists, and there are no other instances,
             # delete it.
-            if self.get_n_launcher_instances(model, None, filename) <= 1:
+            if self.get_n_launcher_instances(model, filename) <= 1:
                 if os.path.exists(filename):
                     os.remove(filename)
             # If there are other instances, remove these categories.
@@ -2543,6 +2560,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             else:
                 # Model not found, delete this row.
                 model.remove(treeiter)
+                treeiter = None
+
+            # Update all instances
+            if treeiter is not None:
+                self.update_launcher_instances(model, treeiter, filename)
         else:
             model.remove(treeiter)
         if treepath:
