@@ -261,7 +261,7 @@ def getSaveFilename(name, filename, item_type):
             not os.access(filename, os.W_OK):
         # No filename, make one from the launcher name.
         if filename is None or len(filename) == 0:
-            basename = name.lower().replace(' ', '-')
+            basename = "menulibre-" + name.lower().replace(' ', '-')
 
         # Use the current filename as a base.
         else:

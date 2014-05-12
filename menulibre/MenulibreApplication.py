@@ -161,6 +161,8 @@ for key in list(category_groups.keys()):
 
 def lookup_category_description(spec_name):
     """Return a valid description string for a spec entry."""
+    #if spec_name.startswith("menulibre-"):
+    #    return _("User Category")
     try:
         return category_descriptions[spec_name]
     except KeyError:
