@@ -2382,7 +2382,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             return
         item_type = self.get_value('Type')
         name = self.get_value('Name')
-        save_filename = util.getSaveFilename(name, original_filename, item_type)
+        save_filename = util.getSaveFilename(name, original_filename,
+                                             item_type, force_update=True)
         logger.debug("Saving launcher as \"%s\"" % save_filename)
 
         model, treeiter = self.treeview.get_selection().get_selected()
@@ -2431,7 +2432,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 new.write(line)
 
         # Set the editor to the new filename.
-        self.set_value('Filename', save_filename)
+        self.set_editor_filename(save_filename)
         model[treeiter][5] = save_filename
 
         # Update all instances
@@ -2529,7 +2530,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             # If this item still exists, and there are no other instances,
             # delete it.
-            if self.get_n_launcher_instances(model, filename) <= 1:
+            if original is not None or \
+                    self.get_n_launcher_instances(model, filename) <= 1:
                 if os.path.exists(filename):
                     os.remove(filename)
             # If there are other instances, remove these categories.

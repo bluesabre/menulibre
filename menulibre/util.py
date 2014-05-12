@@ -250,17 +250,16 @@ def getRequiredCategories(directory):
     return []
 
 
-def getSaveFilename(name, filename, item_type):
+def getSaveFilename(name, filename, item_type, force_update=False):
     """Determime the filename to be used to store the launcher.
 
     Return the filename to be used."""
     # Check if the filename is writeable. If not, generate a new one.
-    unique = filename is None
+    unique = filename is None or len(filename) == 0
 
-    if filename is None or len(filename) == 0 or \
-            not os.access(filename, os.W_OK):
+    if unique or not os.access(filename, os.W_OK):
         # No filename, make one from the launcher name.
-        if filename is None or len(filename) == 0:
+        if unique:
             basename = "menulibre-" + name.lower().replace(' ', '-')
 
         # Use the current filename as a base.
@@ -315,6 +314,9 @@ def getSaveFilename(name, filename, item_type):
             # Create the new base filename.
             filename = os.path.join(path, name)
             filename = "%s%s" % (filename, ext)
+
+            if force_update:
+                return filename
 
             # Append numbers as necessary to make the filename unique.
             while os.path.exists(filename):
