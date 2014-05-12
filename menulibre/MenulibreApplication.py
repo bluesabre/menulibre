@@ -2156,13 +2156,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def get_parent(self, model, treeiter):
         """Get the parent iterator for the current treeiter"""
         parent = None
-        path = model.get_path(treeiter)
-        if path.up():
-            if path.get_depth() > 0:
-                try:
-                    parent = model.get_iter(path)
-                except:
-                    parent = None
+        if treeiter:
+            path = model.get_path(treeiter)
+            if path.up():
+                if path.get_depth() > 0:
+                    try:
+                        parent = model.get_iter(path)
+                    except:
+                        parent = None
         return parent
 
     def add_launcher(self):
@@ -2438,6 +2439,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.update_menus()
 
+    def get_n_launcher_instances(self, model, parent, filename):
+        """Return the number of instances a launcher has in the menu."""
+        count = 0
+        for n_child in range(model.iter_n_children(parent)):
+            treeiter = model.iter_nth_child(parent, n_child)
+            iter_filename = model[treeiter][5]
+            if iter_filename == filename:
+                count += 1
+            if model.iter_has_child(treeiter):
+                count += self.get_n_launcher_instances(model, treeiter,
+                                                       filename)
+        return count
+
     def delete_launcher(self, treeview, model, treeiter):
         """Delete the selected launcher."""
         self.last_selected_path = -1
@@ -2494,9 +2508,20 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 # Cleanup now defunct files in applications-merged
                 self.cleanup_applications_merged()
 
-            # If this item still exists, delete it.
-            if os.path.exists(filename):
-                os.remove(filename)
+            # If this item still exists, and there are no other instances,
+            # delete it.
+            if self.get_n_launcher_instances(model, None, filename) <= 1:
+                if os.path.exists(filename):
+                    os.remove(filename)
+            # If there are other instances, remove these categories.
+            else:
+                # Get current required categories
+                parent = self.get_parent(model, treeiter)
+                if parent:
+                    categories = util.getRequiredCategories(model[parent][5])
+                else:
+                    categories = util.getRequiredCategories(None)
+                self.update_launcher_categories(categories, [])
 
             if original is not None:
                 # Original found, replace.
