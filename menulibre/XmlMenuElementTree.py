@@ -235,12 +235,13 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
             pass
 
 
-def model_to_xml_layout(model, model_parent=None, menu_parent=None):
+def model_to_xml_layout(model, model_parent=None, menu_parent=None, merge=True):
     """Append the <Layout> element to menu_parent."""
     layout = menu_parent.addLayout()
 
-    # Add a merge for any submenus.
-    layout.addMerge("menus")
+    # Add a merge for any submenus (except toplevel)
+    if merge:
+        layout.addMerge("menus")
 
     for n_child in range(model.iter_n_children(model_parent)):
         treeiter = model.iter_nth_child(model_parent, n_child)
@@ -276,8 +277,9 @@ def model_to_xml_layout(model, model_parent=None, menu_parent=None):
         elif item_type == MenuItemTypes.SEPARATOR:
             layout.addSeparator()
 
-    # Add a merge for any new/unincluded menu items.
-    layout.addMerge("files")
+    # Add a merge for any new/unincluded menu items (except toplevel).
+    if merge:
+        layout.addMerge("files")
 
     return layout
 
@@ -292,7 +294,7 @@ def model_children_to_xml(model, model_parent=None, menu_parent=None):
     model_to_xml_menus(model, model_parent, menu_parent)
 
     # Layouts Second...
-    model_to_xml_layout(model, model_parent, menu_parent)
+    model_to_xml_layout(model, model_parent, menu_parent, merge=False)
 
 
 def treeview_to_xml(treeview):

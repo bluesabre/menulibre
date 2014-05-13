@@ -167,8 +167,16 @@ def desktop_menu_install(directory_files, desktop_files):
     a submenu within the menu that preceeds it, creating a nested menu
     hierarchy (sub-sub-menus). The menu entries themselves will be added to
     the last submenu. """
+    # Check for the minimum required arguments
     if len(directory_files) == 0 or len(desktop_files) == 0:
         return
+
+    # Do not install to system paths.
+    for path in GLib.get_system_config_dirs():
+        for filename in directory_files:
+            if filename.startswith(path):
+                return
+
     cmd_list = ["xdg-desktop-menu", "install", "--novendor"]
     cmd_list = cmd_list + directory_files + desktop_files
     subprocess.call(cmd_list)
@@ -177,8 +185,16 @@ def desktop_menu_install(directory_files, desktop_files):
 def desktop_menu_uninstall(directory_files, desktop_files):
     """Remove applications or submenus from the desktop menu system
     previously installed with xdg-desktop-menu install."""
+    # Check for the minimum required arguments
     if len(directory_files) == 0 or len(desktop_files) == 0:
         return
+
+    # Do not uninstall from system paths.
+    for path in GLib.get_system_config_dirs():
+        for filename in directory_files:
+            if filename.startswith(path):
+                return
+
     # xdg-desktop-menu uninstall does not work... implement ourselves.
     basenames = []
     for filename in directory_files:
