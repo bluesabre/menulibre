@@ -1,0 +1,789 @@
+# Basque translation for menulibre
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the menulibre package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: menulibre\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2014-05-13 21:45-0400\n"
+"PO-Revision-Date: 2014-06-16 20:07+0000\n"
+"Last-Translator: Ibai Oihanguren Sala <Unknown>\n"
+"Language-Team: Basque <eu@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2014-06-17 06:33+0000\n"
+"X-Generator: Launchpad (build 17045)\n"
+
+#: ../menulibre.desktop.in.h:1
+msgid "Menu Editor"
+msgstr "Menu-editorea"
+
+#: ../menulibre.desktop.in.h:2
+msgid "Add or remove applications from the menu"
+msgstr "Gehitu edo kendu menuko aplikazioak"
+
+#: ../data/ui/MenulibreWindow.ui.h:1
+msgid "Add _Launcher"
+msgstr "Gehitu _abiarazlea"
+
+#: ../data/ui/MenulibreWindow.ui.h:2
+msgid "Add _Directory"
+msgstr "Gehitu _direktorioa"
+
+#: ../data/ui/MenulibreWindow.ui.h:3
+msgid "Add _Separator"
+msgstr "Gehitu _bereizlea"
+
+#: ../data/ui/MenulibreWindow.ui.h:4
+msgid "Icon Selection"
+msgstr "Hautatu ikonoa"
+
+#: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1042
+#: ../menulibre/MenulibreApplication.py:1166
+#: ../menulibre/MenulibreApplication.py:1291
+#: ../menulibre/MenulibreApplication.py:1486
+#: ../menulibre/MenulibreApplication.py:2678
+#: ../menulibre/MenulibreApplication.py:2784
+msgid "Cancel"
+msgstr "Utzi"
+
+#: ../data/ui/MenulibreWindow.ui.h:6
+msgid "Apply"
+msgstr "Aplikatu"
+
+#: ../data/ui/MenulibreWindow.ui.h:7
+msgid "Icon Name"
+msgstr "Ikonoaren izena"
+
+#: ../data/ui/MenulibreWindow.ui.h:8
+msgid "Image File"
+msgstr "Irudi-fitxategia"
+
+#: ../data/ui/MenulibreWindow.ui.h:9
+msgid "<b>Select an image</b>"
+msgstr "<b>Hautatu irudi bat</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:10
+msgid "16px"
+msgstr "16px"
+
+#: ../data/ui/MenulibreWindow.ui.h:11
+msgid "32px"
+msgstr "32px"
+
+#: ../data/ui/MenulibreWindow.ui.h:12
+msgid "64px"
+msgstr "64px"
+
+#: ../data/ui/MenulibreWindow.ui.h:13
+msgid "128px"
+msgstr "128px"
+
+#: ../data/ui/MenulibreWindow.ui.h:14
+msgid "<b>Preview</b>"
+msgstr "<b>Aurrebista</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:368
+#: ../menulibre/MenulibreApplication.py:2807
+msgid "MenuLibre"
+msgstr "MenuLibre"
+
+#: ../data/ui/MenulibreWindow.ui.h:16
+msgid "_File"
+msgstr "_Fitxategia"
+
+#: ../data/ui/MenulibreWindow.ui.h:17
+msgid "_Edit"
+msgstr "_Editatu"
+
+#: ../data/ui/MenulibreWindow.ui.h:18
+msgid "_Help"
+msgstr "_Laguntza"
+
+#: ../data/ui/MenulibreWindow.ui.h:19
+msgid "Save Launcher"
+msgstr "Gorde abiarazlea"
+
+#: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:420
+msgid "Undo"
+msgstr "Desegin"
+
+#: ../data/ui/MenulibreWindow.ui.h:21 ../menulibre/MenulibreApplication.py:427
+msgid "Redo"
+msgstr "Berregin"
+
+#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:434
+msgid "Revert"
+msgstr "Leheneratu"
+
+#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:441
+msgid "Delete"
+msgstr "Ezabatu"
+
+#: ../data/ui/MenulibreWindow.ui.h:24
+msgid "Search terms…"
+msgstr "Bilaketa-terminoak..."
+
+#: ../data/ui/MenulibreWindow.ui.h:25
+msgid "Move Up"
+msgstr "Eraman gora"
+
+#: ../data/ui/MenulibreWindow.ui.h:26
+msgid "Move Down"
+msgstr "Eraman behera"
+
+#: ../data/ui/MenulibreWindow.ui.h:27
+msgid "<big><b>Application Name</b></big>"
+msgstr "<big><b>Aplikazioaren izena</b></big>"
+
+#: ../data/ui/MenulibreWindow.ui.h:28
+msgid "Application Name"
+msgstr "Aplikazioaren izena"
+
+#: ../data/ui/MenulibreWindow.ui.h:29
+msgid "Application Comment"
+msgstr "Aplikazioaren iruzkina"
+
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:848
+msgid "Description"
+msgstr "Deskribapena"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:32
+msgid ""
+"\"Exec\": Program to execute, possibly with arguments. The Exec key is "
+"required\n"
+"if DBusActivatable is not set to true. Even if DBusActivatable is true, "
+"Exec\n"
+"should be specified for compatibility with implementations that do not\n"
+"understand DBusActivatable. \n"
+"\n"
+"Please see\n"
+"http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables\n"
+"for a list of supported arguments."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:40
+msgid "Command"
+msgstr "Agindua"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:42
+msgid "\"Path\": The working directory to run the program in."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:43
+msgid "Working Directory"
+msgstr "Lan-direktorioa"
+
+#: ../data/ui/MenulibreWindow.ui.h:44
+msgid "Browse…"
+msgstr "Arakatu..."
+
+#: ../data/ui/MenulibreWindow.ui.h:45
+msgid "<b>Application Details</b>"
+msgstr "<b>Aplikazioaren xehetasunak</b>"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:47
+msgid "\"Terminal\": Whether the program runs in a terminal window."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:48
+msgid "Run in terminal"
+msgstr "Exekutatu terminalean"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:50
+msgid ""
+"\"StartupNotify\": If true, it is KNOWN that the application will send a "
+"\"remove\"\n"
+"message when started with the DESKTOP_STARTUP_ID environment variable set. "
+"If\n"
+"false, it is KNOWN that the application does not work with startup "
+"notification\n"
+"at all (does not shown any window, breaks even when using StartupWMClass, "
+"etc.).\n"
+"If absent, a reasonable handling is up to implementations (assuming false,\n"
+"using StartupWMClass, etc.)."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:56
+msgid "Use startup notification"
+msgstr "Erabili abioko jakinarazpena"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:58
+msgid ""
+"\"NoDisplay\": NoDisplay means \"this application exists, but don't display "
+"it in\n"
+"the menus\". This can be useful to e.g. associate this application with "
+"MIME\n"
+"types, so that it gets launched from a file manager (or other apps), "
+"without\n"
+"having a menu entry for it (there are tons of good reasons for this,\n"
+"including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:63
+msgid "Hide from menus"
+msgstr "Ezkutatu menuetatik"
+
+#: ../data/ui/MenulibreWindow.ui.h:64
+msgid "<b>Options</b>"
+msgstr "<b>Aukerak</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:65
+msgid "Add"
+msgstr "Gehitu"
+
+#: ../data/ui/MenulibreWindow.ui.h:66
+msgid "Remove"
+msgstr "Kendu"
+
+#: ../data/ui/MenulibreWindow.ui.h:67
+msgid "Clear"
+msgstr "Garbitu"
+
+#: ../data/ui/MenulibreWindow.ui.h:68
+msgid "Categories"
+msgstr "Kategoriak"
+
+#: ../data/ui/MenulibreWindow.ui.h:69
+msgid "Show"
+msgstr "Erakutsi"
+
+#: ../data/ui/MenulibreWindow.ui.h:70
+msgid "Name"
+msgstr "Izena"
+
+#: ../data/ui/MenulibreWindow.ui.h:71
+msgid "Action Name"
+msgstr "Ekintzaren izena"
+
+#: ../data/ui/MenulibreWindow.ui.h:72
+msgid "Actions"
+msgstr "Ekintzak"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:74
+msgid ""
+"\"GenericName\": Generic name of the application, for example \"Web "
+"Browser\"."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:75
+msgid "Generic Name"
+msgstr "Izen generikoa"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:77
+msgid ""
+"\"NotShowIn\": A list of strings identifying the environments that should "
+"not\n"
+"display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
+"NotShowIn, may appear in a group.\n"
+"\n"
+"Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE, Old"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:82
+msgid "Not Shown In"
+msgstr "Ez erakutsi hemen"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:84
+msgid ""
+"\"OnlyShowIn\": A list of strings identifying the environments that should\n"
+"display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
+"NotShowIn, may appear in a group.\n"
+"\n"
+"Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE, Old"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:89
+msgid "Only Shown In"
+msgstr "Hemen soilik erakutsi"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:91
+msgid ""
+"\"TryExec\": Path to an executable file on disk used to determine if the "
+"program\n"
+"is actually installed. If the path is not an absolute path, the file is "
+"looked\n"
+"up in the $PATH environment variable. If the file is not present or if it "
+"is\n"
+"not executable, the entry may be ignored (not be used in menus, for "
+"example). "
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:95
+msgid "Try Exec"
+msgstr "Exekuzio-proba"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:97
+msgid "\"MimeType\": The MIME type(s) supported by this application."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:98
+msgid "Mimetypes"
+msgstr "Mime motak"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:100
+msgid ""
+"\"Keywords\": A list of strings which may be used in addition to other "
+"metadata\n"
+"to describe this entry. This can be useful e.g. to facilitate searching "
+"through\n"
+"entries. The values are not meant for display, and should not be redundant\n"
+"with the values of Name or GenericName."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:104
+msgid "Keywords"
+msgstr "Gako-hitzak"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:106
+msgid ""
+"\"StartupWMClass\": If specified, it is known that the application will map "
+"at\n"
+"least one window with the given string as its WM class or WM name hint."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:108
+msgid "Startup WM Class"
+msgstr "Abioko leiho-kudeatzailearen klasea"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:110
+msgid ""
+"\"Hidden\": Hidden should have been called Deleted. It means the user "
+"deleted\n"
+"(at his level) something that was present (at an upper level, e.g. in the\n"
+"system dirs). It's strictly equivalent to the .desktop file not existing at\n"
+"all, as far as that user is concerned. This can also be used to "
+"\"uninstall\"\n"
+"existing files (e.g. due to a renaming) - by letting make install install a\n"
+"file with Hidden=true in it."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:116
+msgid "Hidden"
+msgstr "Ezkutatuta"
+
+#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
+#: ../data/ui/MenulibreWindow.ui.h:118
+msgid ""
+"\"DBusActivatable\": A boolean value specifying if D-Bus activation is "
+"supported\n"
+"for this application. If this key is missing, the default value is false. "
+"If\n"
+"the value is true then implementations should ignore the Exec key and send "
+"a\n"
+"D-Bus message to launch the application. See D-Bus Activation for more\n"
+"information on how this works. Applications should still include Exec= "
+"lines\n"
+"in their desktop files for compatibility with implementations that do not\n"
+"understand the DBusActivatable key."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:125
+msgid "DBUS Activatable"
+msgstr "DBUS aktibagarria"
+
+#: ../data/ui/MenulibreWindow.ui.h:126
+msgid "Advanced"
+msgstr "Aurreratua"
+
+#: ../data/ui/MenulibreWindow.ui.h:127
+msgid "<small><i>Filename</i></small>"
+msgstr "<small><i>Fitxategi-izena</i></small>"
+
+#: ../data/ui/MenulibreWindow.ui.h:128
+msgid "Select an icon…"
+msgstr "Hautatu ikono bat..."
+
+#: ../data/ui/MenulibreWindow.ui.h:129
+msgid "<b>Select an icon</b>"
+msgstr "<b>Hautatu ikono bat</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:130
+msgid "Search"
+msgstr "Bilatu"
+
+#: ../data/ui/MenulibreWindow.ui.h:131
+msgid "column"
+msgstr "zutabea"
+
+#: ../menulibre/__init__.py:33
+msgid "Show debug messages"
+msgstr "Erakutsi arazketa-mezuak"
+
+#: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1401
+#: ../menulibre/MenulibreApplication.py:2254
+msgid "Separator"
+msgstr "Bereizlea"
+
+#. Standard Items
+#: ../menulibre/MenulibreApplication.py:59
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: ../menulibre/MenulibreApplication.py:60
+msgid "Development"
+msgstr "Garapena"
+
+#: ../menulibre/MenulibreApplication.py:61
+msgid "Education"
+msgstr "Hezkuntza"
+
+#: ../menulibre/MenulibreApplication.py:62
+msgid "Games"
+msgstr "Jokoak"
+
+#: ../menulibre/MenulibreApplication.py:63
+msgid "Graphics"
+msgstr "Grafikoak"
+
+#: ../menulibre/MenulibreApplication.py:64
+msgid "Internet"
+msgstr "Internet"
+
+#: ../menulibre/MenulibreApplication.py:65
+msgid "Office"
+msgstr "Bulegoa"
+
+#: ../menulibre/MenulibreApplication.py:66
+msgid "Settings"
+msgstr "Ezarpenak"
+
+#: ../menulibre/MenulibreApplication.py:67
+msgid "System"
+msgstr "Sistema"
+
+#: ../menulibre/MenulibreApplication.py:68
+msgid "Accessories"
+msgstr "Gehigarriak"
+
+#: ../menulibre/MenulibreApplication.py:69
+msgid "WINE"
+msgstr "WINE"
+
+#. Desktop Environment
+#: ../menulibre/MenulibreApplication.py:71
+msgid "Desktop configuration"
+msgstr "Mahaigainaren konfigurazioa"
+
+#: ../menulibre/MenulibreApplication.py:72
+msgid "User configuration"
+msgstr "Erabiltzaile-konfigurazioa"
+
+#: ../menulibre/MenulibreApplication.py:73
+msgid "Hardware configuration"
+msgstr "Hardware-konfigurazioa"
+
+#. GNOME Specific
+#: ../menulibre/MenulibreApplication.py:75
+msgid "GNOME application"
+msgstr "GNOME aplikazioa"
+
+#: ../menulibre/MenulibreApplication.py:76
+msgid "GTK+ application"
+msgstr "GTK+ aplikazioa"
+
+#: ../menulibre/MenulibreApplication.py:77
+msgid "GNOME user configuration"
+msgstr "GNOMErako erabiltzaile-konfigurazioa"
+
+#: ../menulibre/MenulibreApplication.py:78
+msgid "GNOME hardware configuration"
+msgstr "GNOMErako hardware-konfigurazioa"
+
+#: ../menulibre/MenulibreApplication.py:79
+#: ../menulibre/MenulibreApplication.py:80
+msgid "GNOME system configuration"
+msgstr "GNOMErako sistema-konfigurazioa"
+
+#. Xfce Specific
+#: ../menulibre/MenulibreApplication.py:82
+#: ../menulibre/MenulibreApplication.py:83
+msgid "Xfce menu item"
+msgstr "Xfce menu-elementua"
+
+#: ../menulibre/MenulibreApplication.py:84
+msgid "Xfce toplevel menu item"
+msgstr "Xfce-rako goi mailako menu-elementua"
+
+#: ../menulibre/MenulibreApplication.py:85
+msgid "Xfce user configuration"
+msgstr "Xfce-rako erabiltzaile-konfigurazioa"
+
+#: ../menulibre/MenulibreApplication.py:86
+msgid "Xfce hardware configuration"
+msgstr "Xfce-rako hardware-konfigurazioa"
+
+#: ../menulibre/MenulibreApplication.py:87
+#: ../menulibre/MenulibreApplication.py:88
+msgid "Xfce system configuration"
+msgstr "Xfce-rako sistema-konfigurazioa"
+
+#: ../menulibre/MenulibreApplication.py:136
+#: ../menulibre/MenulibreApplication.py:181
+msgid "Other"
+msgstr "Bestelakoa"
+
+#: ../menulibre/MenulibreApplication.py:391
+msgid "Add _Launcher..."
+msgstr "Gehitu _abiarazlea..."
+
+#: ../menulibre/MenulibreApplication.py:392
+msgid "Add Launcher..."
+msgstr "Gehitu abiarazlea..."
+
+#: ../menulibre/MenulibreApplication.py:398
+msgid "Add _Directory..."
+msgstr "Gehitu _direktorioa..."
+
+#: ../menulibre/MenulibreApplication.py:399
+msgid "Add Directory..."
+msgstr "Gehitu direktorioa..."
+
+#: ../menulibre/MenulibreApplication.py:405
+msgid "_Add Separator..."
+msgstr "Gehitu _bereizlea..."
+
+#: ../menulibre/MenulibreApplication.py:406
+msgid "Add Separator..."
+msgstr "Gehitu _bereizlea..."
+
+#: ../menulibre/MenulibreApplication.py:412
+msgid "_Save"
+msgstr "_Gorde"
+
+#: ../menulibre/MenulibreApplication.py:413
+#: ../menulibre/MenulibreApplication.py:1043
+#: ../menulibre/MenulibreApplication.py:1487
+msgid "Save"
+msgstr "Gorde"
+
+#: ../menulibre/MenulibreApplication.py:419
+msgid "_Undo"
+msgstr "_Desegin"
+
+#: ../menulibre/MenulibreApplication.py:426
+msgid "_Redo"
+msgstr "_Berregin"
+
+#: ../menulibre/MenulibreApplication.py:433
+msgid "_Revert"
+msgstr "_Leheneratu"
+
+#: ../menulibre/MenulibreApplication.py:440
+msgid "_Delete"
+msgstr "_Ezabatu"
+
+#: ../menulibre/MenulibreApplication.py:447
+msgid "_Quit"
+msgstr "_Irten"
+
+#: ../menulibre/MenulibreApplication.py:448
+#: ../menulibre/MenulibreApplication.py:2759
+msgid "Quit"
+msgstr "Irten"
+
+#: ../menulibre/MenulibreApplication.py:454
+msgid "_Contents"
+msgstr "_Edukiak"
+
+#: ../menulibre/MenulibreApplication.py:455
+#: ../menulibre/MenulibreApplication.py:2757
+msgid "Help"
+msgstr "Laguntza"
+
+#: ../menulibre/MenulibreApplication.py:461
+msgid "_About"
+msgstr "_Honi buruz"
+
+#: ../menulibre/MenulibreApplication.py:462
+#: ../menulibre/MenulibreApplication.py:2758
+msgid "About"
+msgstr "Honi buruz"
+
+#. Create a new column.
+#: ../menulibre/MenulibreApplication.py:580
+msgid "Search Results"
+msgstr "Bilaketaren emaitzak"
+
+#: ../menulibre/MenulibreApplication.py:822
+msgid "ThisEntry"
+msgstr "SarreraHau"
+
+#: ../menulibre/MenulibreApplication.py:840
+msgid "Select a category"
+msgstr "Hautatu kategoria bat"
+
+#: ../menulibre/MenulibreApplication.py:843
+msgid "Category Name"
+msgstr "Kategoriaren izena"
+
+#: ../menulibre/MenulibreApplication.py:927
+msgid "This Entry"
+msgstr "Sarrera hau"
+
+#: ../menulibre/MenulibreApplication.py:982
+msgid "New Shortcut"
+msgstr "Laster-tekla berria"
+
+#. Unsaved changes
+#: ../menulibre/MenulibreApplication.py:1032
+msgid "Do you want to save the changes before closing?"
+msgstr "Itxi aurretik aldaketak gorde nahi dituzu?"
+
+#: ../menulibre/MenulibreApplication.py:1033
+msgid "If you don't save the launcher, all the changes will be lost.'"
+msgstr "Ez baduzu abiarazlea gordetzen, aldaketa guztiak galduko dira.'"
+
+#: ../menulibre/MenulibreApplication.py:1040
+#: ../menulibre/MenulibreApplication.py:1484
+msgid "Save Changes"
+msgstr "Gorde aldaketak"
+
+#: ../menulibre/MenulibreApplication.py:1041
+#: ../menulibre/MenulibreApplication.py:1485
+msgid "Don't Save"
+msgstr "Ez gorde"
+
+#: ../menulibre/MenulibreApplication.py:1163
+msgid "Select an image"
+msgstr "Hautatu irudi bat"
+
+#: ../menulibre/MenulibreApplication.py:1167
+#: ../menulibre/MenulibreApplication.py:1292
+msgid "OK"
+msgstr "Ados"
+
+#: ../menulibre/MenulibreApplication.py:1169
+msgid "Images"
+msgstr "Irudiak"
+
+#: ../menulibre/MenulibreApplication.py:1284
+msgid "Select a working directory..."
+msgstr "Hautatu lan-direktorio bat..."
+
+#: ../menulibre/MenulibreApplication.py:1288
+msgid "Select an executable..."
+msgstr "Hautatu exekutagarri bat..."
+
+#. Display a dialog saying this item is missing
+#: ../menulibre/MenulibreApplication.py:1448
+msgid "No Longer Installed"
+msgstr "Orain ez dago instalatuta"
+
+#: ../menulibre/MenulibreApplication.py:1449
+msgid ""
+"This launcher has been removed from the system.\n"
+"Selecting the next available item."
+msgstr ""
+"Abiarazlea sistematik ezabatu da.\n"
+"Hurrengo elementu eskuragarria hautatzen."
+
+#: ../menulibre/MenulibreApplication.py:1475
+msgid "Do you want to save the changes before leaving this launcher?"
+msgstr "Abiarazle honetatik irten aurretik aldaketak gorde nahi dituzu?"
+
+#: ../menulibre/MenulibreApplication.py:1477
+msgid "If you don't save the launcher, all the changes will be lost."
+msgstr "Ez baduzu abiarazlea gordetzen, aldaketa guztiak galduko dira."
+
+#: ../menulibre/MenulibreApplication.py:1716
+msgid "You do not have permission to delete this file."
+msgstr "Ez duzu fitxategi hau ezabatzeko baimenik."
+
+#: ../menulibre/MenulibreApplication.py:2149
+msgid "Cannot add subdirectories to preinstalled system paths."
+msgstr ""
+"Ezin da azpidirektoriorik gehitu aurreinstalatutako sistemaren bide-izenetan."
+
+#: ../menulibre/MenulibreApplication.py:2176
+msgid "New Launcher"
+msgstr "Abiarazle berria"
+
+#: ../menulibre/MenulibreApplication.py:2227
+msgid "New Directory"
+msgstr "Direktorio berria"
+
+#: ../menulibre/MenulibreApplication.py:2673
+msgid "Are you sure you want to restore this launcher?"
+msgstr "Ziur abiarazlea leheneratu nahi duzula?"
+
+#: ../menulibre/MenulibreApplication.py:2679
+#: ../menulibre/MenulibreApplication.py:2680
+msgid "Restore Launcher"
+msgstr "Leheneratu abiarazlea"
+
+#: ../menulibre/MenulibreApplication.py:2681
+msgid ""
+"All changes since the last saved state will be lost and cannot be restored "
+"automatically."
+msgstr ""
+"Gordetako azken unetik egindako aldaketak galduko dira eta ezingo dira "
+"automatikoki berreskuratu."
+
+#: ../menulibre/MenulibreApplication.py:2696
+msgid "Are you sure you want to delete this separator?"
+msgstr "Ziur bereizle hau ezabatu nahi duzula?"
+
+#: ../menulibre/MenulibreApplication.py:2699
+#, python-format
+msgid "Are you sure you want to delete \"%s\"?"
+msgstr "Ziur \"%s\" ezabatu nahi duzula?"
+
+#: ../menulibre/MenulibreApplication.py:2701
+msgid "This cannot be undone."
+msgstr "Hau ezin da desegin."
+
+#: ../menulibre/MenulibreApplication.py:2779
+msgid "Do you want to read the MenuLibre manual online?"
+msgstr "MenuLibre-ren eskuliburua linean irakurri nahi duzu?"
+
+#: ../menulibre/MenulibreApplication.py:2785
+msgid "Read Online"
+msgstr "Irakurri linean"
+
+#: ../menulibre/MenulibreApplication.py:2786
+msgid "Online Documentation"
+msgstr "Dokumentazioa linean"
+
+#: ../menulibre/MenulibreApplication.py:2787
+msgid ""
+"You will be redirected to the documentation website where the help pages are "
+"maintained."
+msgstr ""
+"Laguntza-orriak mantentzen diren dokumentazio-wegunera berbideratuko zaitugu."
+
+#. Populate the AboutDialog with all the relevant details.
+#: ../menulibre/MenulibreApplication.py:2806
+msgid "About MenuLibre"
+msgstr "MenuLibre-ri buruz"
+
+#: ../menulibre/MenulibreApplication.py:2809
+msgid "Copyright © 2012-2014 Sean Davis"
+msgstr "Copyright © 2012-2014 Sean Davis"
+
+#: ../menulibre/MenulibreXdg.py:53
+msgid "New Menu Item"
+msgstr "Menu-elementu berria"
+
+#: ../menulibre/MenulibreXdg.py:55
+msgid "A small descriptive blurb about this application."
+msgstr "Aplikazioaren deskribapen txiki bat."
