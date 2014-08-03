@@ -2343,6 +2343,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.update_menus()
 
     def xdg_menu_install(self, model, treeiter, filename):
+        if filename is None:
+            return
         if filename.endswith('.desktop'):
             menu_install = True
             menu_prefix = util.getDefaultMenuPrefix()
@@ -2360,6 +2362,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 MenulibreXdg.desktop_menu_install(parents, [filename])
 
     def xdg_menu_uninstall(self, model, treeiter, filename):
+        if filename is None:
+            return
         if filename.endswith('.desktop'):
             menu_install = True
             menu_prefix = util.getDefaultMenuPrefix()
