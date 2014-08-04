@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-13 21:45-0400\n"
+"POT-Creation-Date: 2014-08-03 13:05-0400\n"
 "PO-Revision-Date: 2014-04-15 05:10+0000\n"
 "Last-Translator: GenghisKhan <genghiskhan@gmx.ca>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-05-15 06:07+0000\n"
-"X-Generator: Launchpad (build 17007)\n"
+"X-Launchpad-Export-Date: 2014-08-04 06:22+0000\n"
+"X-Generator: Launchpad (build 17147)\n"
 "Language: he\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -46,8 +46,8 @@ msgstr "מבחר צלמית"
 #: ../menulibre/MenulibreApplication.py:1166
 #: ../menulibre/MenulibreApplication.py:1291
 #: ../menulibre/MenulibreApplication.py:1486
-#: ../menulibre/MenulibreApplication.py:2678
-#: ../menulibre/MenulibreApplication.py:2784
+#: ../menulibre/MenulibreApplication.py:2682
+#: ../menulibre/MenulibreApplication.py:2788
 msgid "Cancel"
 msgstr "ביטול"
 
@@ -88,7 +88,7 @@ msgid "<b>Preview</b>"
 msgstr "<b>תצוגה מקדימה</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:368
-#: ../menulibre/MenulibreApplication.py:2807
+#: ../menulibre/MenulibreApplication.py:2811
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
@@ -279,7 +279,7 @@ msgstr "‏\"GenericName\": שם כללי של היישום, לדוגמא \"דפ
 
 #: ../data/ui/MenulibreWindow.ui.h:75
 msgid "Generic Name"
-msgstr ""
+msgstr "שם כללי"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:77
@@ -301,7 +301,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:82
 msgid "Not Shown In"
-msgstr ""
+msgstr "לא מוצג בתוך"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:84
@@ -322,7 +322,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:89
 msgid "Only Shown In"
-msgstr ""
+msgstr "מוצג רק בתוך"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:91
@@ -348,7 +348,7 @@ msgstr "‏\"MimeType\": טיפוס(י) MIME נתמכים על ידי יישום
 
 #: ../data/ui/MenulibreWindow.ui.h:98
 msgid "Mimetypes"
-msgstr ""
+msgstr "טיפוסי Mime"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:100
@@ -363,7 +363,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:104
 msgid "Keywords"
-msgstr ""
+msgstr "מילות מפתח"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:106
@@ -610,7 +610,7 @@ msgid "_Quit"
 msgstr "י_ציאה"
 
 #: ../menulibre/MenulibreApplication.py:448
-#: ../menulibre/MenulibreApplication.py:2759
+#: ../menulibre/MenulibreApplication.py:2763
 msgid "Quit"
 msgstr "יציאה"
 
@@ -619,7 +619,7 @@ msgid "_Contents"
 msgstr "_תכנים"
 
 #: ../menulibre/MenulibreApplication.py:455
-#: ../menulibre/MenulibreApplication.py:2757
+#: ../menulibre/MenulibreApplication.py:2761
 msgid "Help"
 msgstr "עזרה"
 
@@ -628,7 +628,7 @@ msgid "_About"
 msgstr "_אודות"
 
 #: ../menulibre/MenulibreApplication.py:462
-#: ../menulibre/MenulibreApplication.py:2758
+#: ../menulibre/MenulibreApplication.py:2762
 msgid "About"
 msgstr "אודות"
 
@@ -734,58 +734,58 @@ msgstr "משגר חדש"
 msgid "New Directory"
 msgstr "ספריה חדשה"
 
-#: ../menulibre/MenulibreApplication.py:2673
+#: ../menulibre/MenulibreApplication.py:2677
 msgid "Are you sure you want to restore this launcher?"
 msgstr "האם אתה בטוח כי ברצונך לשחזר את משגר זה?"
 
-#: ../menulibre/MenulibreApplication.py:2679
-#: ../menulibre/MenulibreApplication.py:2680
+#: ../menulibre/MenulibreApplication.py:2683
+#: ../menulibre/MenulibreApplication.py:2684
 msgid "Restore Launcher"
 msgstr "שחזר משגר"
 
-#: ../menulibre/MenulibreApplication.py:2681
+#: ../menulibre/MenulibreApplication.py:2685
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2696
+#: ../menulibre/MenulibreApplication.py:2700
 msgid "Are you sure you want to delete this separator?"
 msgstr "האם אתה בטוח כי ברצונך למחוק את חוצץ זה?"
 
-#: ../menulibre/MenulibreApplication.py:2699
+#: ../menulibre/MenulibreApplication.py:2703
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "האם אתה בטוח כי ברצונך למחוק את \"%s\"?"
 
-#: ../menulibre/MenulibreApplication.py:2701
+#: ../menulibre/MenulibreApplication.py:2705
 msgid "This cannot be undone."
 msgstr "פעולה זו לא ניתנת לביטול."
 
-#: ../menulibre/MenulibreApplication.py:2779
+#: ../menulibre/MenulibreApplication.py:2783
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr "האם ברצונך לקרוא את המדריך המקוון של MenuLibre?"
 
-#: ../menulibre/MenulibreApplication.py:2785
+#: ../menulibre/MenulibreApplication.py:2789
 msgid "Read Online"
 msgstr "קרא באופן מקוון"
 
-#: ../menulibre/MenulibreApplication.py:2786
+#: ../menulibre/MenulibreApplication.py:2790
 msgid "Online Documentation"
 msgstr "תיעוד מקוון"
 
-#: ../menulibre/MenulibreApplication.py:2787
+#: ../menulibre/MenulibreApplication.py:2791
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr ""
 
 #. Populate the AboutDialog with all the relevant details.
-#: ../menulibre/MenulibreApplication.py:2806
+#: ../menulibre/MenulibreApplication.py:2810
 msgid "About MenuLibre"
 msgstr "אודות MenuLibre"
 
-#: ../menulibre/MenulibreApplication.py:2809
+#: ../menulibre/MenulibreApplication.py:2813
 msgid "Copyright © 2012-2014 Sean Davis"
 msgstr "זכויות יוצרים © 2012-2014 Sean Davis"
 
