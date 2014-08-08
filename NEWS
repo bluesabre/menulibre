@@ -1,11 +1,19 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+08 Aug 2014, MenuLibre 2.0.5
+
+- General:
+  . Updated translations
+- Bug Fixes:
+  . AttributeError when moving unsaved launcher (LP: #1349763)
+
+
 13 May 2014, MenuLibre 2.0.4
 
 - General:
   . Strikethrough is now used to make separators look better
   . Window is now properly centered at startup
-  . Fixed all instances of 
+  . Fixed all instances of
    Gtk-CRITICAL **: gtk_tree_model_get_iter: assertion 'path->depth > 0' failed
   . Updated translations
 - Bug Fixes:
@@ -21,7 +29,7 @@ MenuLibre                                                                  NEWS
   . New launchers are replaced with existing ones when removed (LP: #1315890)
   . Launchers in new directory have X-Xfce-Toplevel category (LP: #1315874)
   . Add launchers to empty categories (LP: #1318209)
-  . Implement xdg-desktop-menu uninstall to prevent leftover items 
+  . Implement xdg-desktop-menu uninstall to prevent leftover items
    (LP: #1318235)
 
 
@@ -71,7 +79,7 @@ MenuLibre                                                                  NEWS
   . Menu editing has been added for users of traditional desktop environments.
   . Fallbacks were added for improperly configured environments, more can be
     added as necessary.
-  . The interface has been overhauled and now adapts to the desktop 
+  . The interface has been overhauled and now adapts to the desktop
     environment.
     . GNOME users will find that the GNOME app menu is now used like a proper
       GNOME application.
