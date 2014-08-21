@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-03 13:05-0400\n"
-"PO-Revision-Date: 2013-07-19 09:59+0000\n"
+"PO-Revision-Date: 2014-08-20 07:46+0000\n"
 "Last-Translator: Pasi Lallinaho <pasi@shimmerproject.org>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-16 06:43+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2014-08-21 06:38+0000\n"
+"X-Generator: Launchpad (build 17163)\n"
 "Language: fi\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -24,23 +24,23 @@ msgstr "Valikkomuokkain"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
-msgstr ""
+msgstr "Lisää tai poista sovelluksia valikosta"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Add _Launcher"
-msgstr ""
+msgstr "Lisää _käynnistin"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Add _Directory"
-msgstr ""
+msgstr "Lisää _hakemisto"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Add _Separator"
-msgstr ""
+msgstr "Lisää _erotin"
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Icon Selection"
-msgstr ""
+msgstr "Kuvakkeen valinta"
 
 #: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1042
 #: ../menulibre/MenulibreApplication.py:1166
@@ -49,11 +49,11 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:2682
 #: ../menulibre/MenulibreApplication.py:2788
 msgid "Cancel"
-msgstr ""
+msgstr "Peruuta"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "Apply"
-msgstr ""
+msgstr "Toteuta"
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "Icon Name"
@@ -65,23 +65,23 @@ msgstr "Kuvatiedosto"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid "<b>Select an image</b>"
-msgstr ""
+msgstr "<b>Valitse kuva</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "64px"
-msgstr ""
+msgstr "64px"
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "128px"
-msgstr ""
+msgstr "128px"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "<b>Preview</b>"
@@ -106,7 +106,7 @@ msgstr "_Ohje"
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Save Launcher"
-msgstr ""
+msgstr "Tallenna käynnistin"
 
 #: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:420
 msgid "Undo"
@@ -122,11 +122,11 @@ msgstr "Palauta ennalleen"
 
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:441
 msgid "Delete"
-msgstr ""
+msgstr "Poista"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Search terms…"
-msgstr ""
+msgstr "Hakusanat..."
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Move Up"
@@ -142,15 +142,15 @@ msgstr "<big><b>Sovelluksen nimi</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Application Name"
-msgstr ""
+msgstr "Sovelluksen nimi"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application Comment"
-msgstr ""
+msgstr "Sovelluksen kommentti"
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:848
 msgid "Description"
-msgstr ""
+msgstr "Kuvaus"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:32
@@ -167,6 +167,18 @@ msgid ""
 "latest.html#exec-variables\n"
 "for a list of supported arguments."
 msgstr ""
+"\"Exec\": Sovellus joka suoritetaan mahdollisilla argumenteilla. Exec-kenttä "
+"tarvitaan\n"
+"jos DBusActivatable-arvo ei ole tosi. Vaikka DBusActivatable-arvo on tosi, "
+"Exec-kenttä\n"
+"tulisi määrittää yhteensopivuuden takia niitä toteutuksia varten jotka "
+"eivät\n"
+"ymmärrä DBusActivatable-arvoa.\n"
+"\n"
+"Osoitteessa\n"
+"http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables\n"
+"näet listan tuetuista argumenteista."
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Command"
@@ -175,24 +187,24 @@ msgstr "Komento"
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "\"Path\": The working directory to run the program in."
-msgstr ""
+msgstr "\"Path\": Työhakemisto, jossa ohjelma ajetaan."
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Working Directory"
-msgstr "Työkansio"
+msgstr "Työhakemisto"
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Browse…"
-msgstr ""
+msgstr "Selaa…"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Application Details</b>"
-msgstr ""
+msgstr "<b>Sovelluksen kuvaus</b>"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "\"Terminal\": Whether the program runs in a terminal window."
-msgstr ""
+msgstr "\"Terminal\": Ajetaanko ohjelma päätteessä."
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Run in terminal"
@@ -215,7 +227,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Use startup notification"
-msgstr "Käytä käytnnistyksen huomautusta"
+msgstr "Käytä käynnistyksen huomautusta"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:58
@@ -229,6 +241,14 @@ msgid ""
 "having a menu entry for it (there are tons of good reasons for this,\n"
 "including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
 msgstr ""
+"\"NoDisplay\": NoDisplay tarkoittaa \"tämä sovellus on saatavilla, mutta älä "
+"näytä sitä\n"
+"valikoissa\". Tämä voi olla kätevää esimerkiksi liittäessä tätä sovellusta "
+"MIME-tyyppiin,\n"
+"jotta se voidaan käynnistää tiedostonhallinnasta (tai muista sovelluksista), "
+"ilman että\n"
+"se näkyy valikossa (tälle on useita hyviä syitä, mukaan lukien esimerkiksi\n"
+"netscape -remote, tai kfmclient openURL -tyyliset tilanteet)."
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "Hide from menus"
@@ -240,15 +260,15 @@ msgstr "<b>Asetukset</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:65
 msgid "Add"
-msgstr ""
+msgstr "LIsää"
 
 #: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Remove"
-msgstr ""
+msgstr "Poista"
 
 #: ../data/ui/MenulibreWindow.ui.h:67
 msgid "Clear"
-msgstr ""
+msgstr "Tyhjennä"
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Categories"
@@ -264,11 +284,11 @@ msgstr "Nimi"
 
 #: ../data/ui/MenulibreWindow.ui.h:71
 msgid "Action Name"
-msgstr ""
+msgstr "Toiminnon nimi"
 
 #: ../data/ui/MenulibreWindow.ui.h:72
 msgid "Actions"
-msgstr ""
+msgstr "Toiminnot"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:74
@@ -276,10 +296,11 @@ msgid ""
 "\"GenericName\": Generic name of the application, for example \"Web "
 "Browser\"."
 msgstr ""
+"\"GenericName\": Yleinen nimi sovellukselle, esimerkiksi \"Verkkoselain\"."
 
 #: ../data/ui/MenulibreWindow.ui.h:75
 msgid "Generic Name"
-msgstr ""
+msgstr "Yleinen nimi"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:77
@@ -292,10 +313,16 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"\"NotShowIn\": Lista niiden työpöytäympäristöjen nimistä, joiden ei tulisi\n"
+"näyttää kyseistä käynnistintä. Vain toinen kentistä OnlyShowIn tai\n"
+"NotShowIn voi olla käytössä.\n"
+"\n"
+"Mahdollisia arvoja ovat: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:82
 msgid "Not Shown In"
-msgstr ""
+msgstr "Älä näytä"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:84
@@ -307,10 +334,16 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"\"OnlyShowIn\": Lista niiden työpöytäympäristöjen nimistä, joiden tulisi\n"
+"näyttää kyseistä käynnistintä. Vain toinen kentistä OnlyShowIn tai\n"
+"NotShowIn voi olla käytössä.\n"
+"\n"
+"Mahdollisia arvoja ovat: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:89
 msgid "Only Shown In"
-msgstr ""
+msgstr "Näytä vain"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:91
@@ -324,19 +357,27 @@ msgid ""
 "not executable, the entry may be ignored (not be used in menus, for "
 "example). "
 msgstr ""
+"\"TryExec\": Polku suoritettavaan tiedostoon levyllä joka tarkistaa onko "
+"ohjelma\n"
+"todellisuudessa asennettu. Jos polku ei ole absoluuttinen, tiedostoa "
+"etsitään\n"
+"$PATH-ympäristömuuttujan sijainneista. Jos tiedostoa ei ole olemassa tai jos "
+"se\n"
+"ei ole suoritettava, kyseinen käynnistin voidaan jättää huomiotta (esimerksi "
+"jättää näyttämättä se valikoissa). "
 
 #: ../data/ui/MenulibreWindow.ui.h:95
 msgid "Try Exec"
-msgstr ""
+msgstr "Kokeile -käynnistin"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:97
 msgid "\"MimeType\": The MIME type(s) supported by this application."
-msgstr ""
+msgstr "\"MimeType\": MIME-tyypit, joita tämä sovellus tukee."
 
 #: ../data/ui/MenulibreWindow.ui.h:98
 msgid "Mimetypes"
-msgstr ""
+msgstr "MIME-tyypit"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:100
@@ -348,10 +389,16 @@ msgid ""
 "entries. The values are not meant for display, and should not be redundant\n"
 "with the values of Name or GenericName."
 msgstr ""
+"\"Keywords\": Lista avainsanoista joita voidaan käyttää muun metatiedon "
+"kanssa\n"
+"kuvatessa tätä käynnistintä. Tämä voi olla kätevää esimerkiksi käynnistimiä\n"
+"hakiessa. Avainsanat eivät ole tarkoitettu näytettäviksi eikä niiden tulisi "
+"toistaa\n"
+"sovelluksen nimeä tai yleistä nimeä."
 
 #: ../data/ui/MenulibreWindow.ui.h:104
 msgid "Keywords"
-msgstr ""
+msgstr "Avainsanat"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:106
@@ -380,7 +427,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:116
 msgid "Hidden"
-msgstr ""
+msgstr "Piilotettu"
 
 #. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
 #: ../data/ui/MenulibreWindow.ui.h:118
@@ -404,36 +451,36 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:126
 msgid "Advanced"
-msgstr ""
+msgstr "Lisäasetukset"
 
 #: ../data/ui/MenulibreWindow.ui.h:127
 msgid "<small><i>Filename</i></small>"
-msgstr ""
+msgstr "<small><i>Tiedston nimi</i></small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:128
 msgid "Select an icon…"
-msgstr ""
+msgstr "Valitse kuvake..."
 
 #: ../data/ui/MenulibreWindow.ui.h:129
 msgid "<b>Select an icon</b>"
-msgstr ""
+msgstr "<b>Valitse kuvake</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:130
 msgid "Search"
-msgstr ""
+msgstr "Etsi"
 
 #: ../data/ui/MenulibreWindow.ui.h:131
 msgid "column"
-msgstr ""
+msgstr "sarake"
 
 #: ../menulibre/__init__.py:33
 msgid "Show debug messages"
-msgstr ""
+msgstr "Näytä vianjäljitysviestit"
 
 #: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1401
 #: ../menulibre/MenulibreApplication.py:2254
 msgid "Separator"
-msgstr ""
+msgstr "Erotin"
 
 #. Standard Items
 #: ../menulibre/MenulibreApplication.py:59
@@ -483,60 +530,60 @@ msgstr "WINE"
 #. Desktop Environment
 #: ../menulibre/MenulibreApplication.py:71
 msgid "Desktop configuration"
-msgstr ""
+msgstr "Työpöydän asetukset"
 
 #: ../menulibre/MenulibreApplication.py:72
 msgid "User configuration"
-msgstr ""
+msgstr "Käyttäjän asetukset"
 
 #: ../menulibre/MenulibreApplication.py:73
 msgid "Hardware configuration"
-msgstr ""
+msgstr "Laitteiston asetukset"
 
 #. GNOME Specific
 #: ../menulibre/MenulibreApplication.py:75
 msgid "GNOME application"
-msgstr ""
+msgstr "GNOME-sovellus"
 
 #: ../menulibre/MenulibreApplication.py:76
 msgid "GTK+ application"
-msgstr ""
+msgstr "GTK+ -sovellus"
 
 #: ../menulibre/MenulibreApplication.py:77
 msgid "GNOME user configuration"
-msgstr ""
+msgstr "GNOME:n käyttäjäasetukset"
 
 #: ../menulibre/MenulibreApplication.py:78
 msgid "GNOME hardware configuration"
-msgstr ""
+msgstr "GNOME:n laitteistoasetukset"
 
 #: ../menulibre/MenulibreApplication.py:79
 #: ../menulibre/MenulibreApplication.py:80
 msgid "GNOME system configuration"
-msgstr ""
+msgstr "GNOME:n järjestelmäasetukset"
 
 #. Xfce Specific
 #: ../menulibre/MenulibreApplication.py:82
 #: ../menulibre/MenulibreApplication.py:83
 msgid "Xfce menu item"
-msgstr ""
+msgstr "Xfce:n valikon osa"
 
 #: ../menulibre/MenulibreApplication.py:84
 msgid "Xfce toplevel menu item"
-msgstr ""
+msgstr "Xfce:n päävalikon osa"
 
 #: ../menulibre/MenulibreApplication.py:85
 msgid "Xfce user configuration"
-msgstr ""
+msgstr "Xfce:n käyttäjäasetukset"
 
 #: ../menulibre/MenulibreApplication.py:86
 msgid "Xfce hardware configuration"
-msgstr ""
+msgstr "Xfce:n laitteistoasetukset"
 
 #: ../menulibre/MenulibreApplication.py:87
 #: ../menulibre/MenulibreApplication.py:88
 msgid "Xfce system configuration"
-msgstr ""
+msgstr "Xfce:n järjestelmäasetukset"
 
 #: ../menulibre/MenulibreApplication.py:136
 #: ../menulibre/MenulibreApplication.py:181
@@ -545,31 +592,31 @@ msgstr "Muut"
 
 #: ../menulibre/MenulibreApplication.py:391
 msgid "Add _Launcher..."
-msgstr ""
+msgstr "Lisää _käynnistin..."
 
 #: ../menulibre/MenulibreApplication.py:392
 msgid "Add Launcher..."
-msgstr ""
+msgstr "Lisää käynnistin..."
 
 #: ../menulibre/MenulibreApplication.py:398
 msgid "Add _Directory..."
-msgstr ""
+msgstr "Lisää _hakemisto..."
 
 #: ../menulibre/MenulibreApplication.py:399
 msgid "Add Directory..."
-msgstr ""
+msgstr "Lisää hakemisto..."
 
 #: ../menulibre/MenulibreApplication.py:405
 msgid "_Add Separator..."
-msgstr ""
+msgstr "Lisää _erotin..."
 
 #: ../menulibre/MenulibreApplication.py:406
 msgid "Add Separator..."
-msgstr ""
+msgstr "Lisää erotin..."
 
 #: ../menulibre/MenulibreApplication.py:412
 msgid "_Save"
-msgstr ""
+msgstr "_Tallenna"
 
 #: ../menulibre/MenulibreApplication.py:413
 #: ../menulibre/MenulibreApplication.py:1043
@@ -579,28 +626,28 @@ msgstr "Tallenna"
 
 #: ../menulibre/MenulibreApplication.py:419
 msgid "_Undo"
-msgstr ""
+msgstr "_Kumoa"
 
 #: ../menulibre/MenulibreApplication.py:426
 msgid "_Redo"
-msgstr ""
+msgstr "_Tee uudelleen"
 
 #: ../menulibre/MenulibreApplication.py:433
 msgid "_Revert"
-msgstr ""
+msgstr "_Palauta"
 
 #: ../menulibre/MenulibreApplication.py:440
 msgid "_Delete"
-msgstr ""
+msgstr "P_oista"
 
 #: ../menulibre/MenulibreApplication.py:447
 msgid "_Quit"
-msgstr ""
+msgstr "_Lopeta"
 
 #: ../menulibre/MenulibreApplication.py:448
 #: ../menulibre/MenulibreApplication.py:2763
 msgid "Quit"
-msgstr ""
+msgstr "Lopeta"
 
 #: ../menulibre/MenulibreApplication.py:454
 msgid "_Contents"
@@ -609,16 +656,16 @@ msgstr "_Sisällys"
 #: ../menulibre/MenulibreApplication.py:455
 #: ../menulibre/MenulibreApplication.py:2761
 msgid "Help"
-msgstr ""
+msgstr "Ohje"
 
 #: ../menulibre/MenulibreApplication.py:461
 msgid "_About"
-msgstr ""
+msgstr "_Tietoja"
 
 #: ../menulibre/MenulibreApplication.py:462
 #: ../menulibre/MenulibreApplication.py:2762
 msgid "About"
-msgstr ""
+msgstr "Tietoja"
 
 #. Create a new column.
 #: ../menulibre/MenulibreApplication.py:580
@@ -631,11 +678,11 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:840
 msgid "Select a category"
-msgstr ""
+msgstr "Valitse kategoria"
 
 #: ../menulibre/MenulibreApplication.py:843
 msgid "Category Name"
-msgstr ""
+msgstr "Kategorian nimi"
 
 #: ../menulibre/MenulibreApplication.py:927
 msgid "This Entry"
@@ -648,132 +695,139 @@ msgstr "Uusi pikakuvake"
 #. Unsaved changes
 #: ../menulibre/MenulibreApplication.py:1032
 msgid "Do you want to save the changes before closing?"
-msgstr ""
+msgstr "Haluatko tallentaa muutokset ennen lopettamista?"
 
 #: ../menulibre/MenulibreApplication.py:1033
 msgid "If you don't save the launcher, all the changes will be lost.'"
-msgstr ""
+msgstr "Jos et tallenna käynnistintä, kaikki muutokset menetetään."
 
 #: ../menulibre/MenulibreApplication.py:1040
 #: ../menulibre/MenulibreApplication.py:1484
 msgid "Save Changes"
-msgstr ""
+msgstr "Tallenna muutokset"
 
 #: ../menulibre/MenulibreApplication.py:1041
 #: ../menulibre/MenulibreApplication.py:1485
 msgid "Don't Save"
-msgstr ""
+msgstr "Älä tallenna"
 
 #: ../menulibre/MenulibreApplication.py:1163
 msgid "Select an image"
-msgstr ""
+msgstr "Valitse kuva"
 
 #: ../menulibre/MenulibreApplication.py:1167
 #: ../menulibre/MenulibreApplication.py:1292
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../menulibre/MenulibreApplication.py:1169
 msgid "Images"
-msgstr ""
+msgstr "Kuvat"
 
 #: ../menulibre/MenulibreApplication.py:1284
 msgid "Select a working directory..."
-msgstr ""
+msgstr "Valitse työhakemisto..."
 
 #: ../menulibre/MenulibreApplication.py:1288
 msgid "Select an executable..."
-msgstr ""
+msgstr "Valitse suoritettava sovellus..."
 
 #. Display a dialog saying this item is missing
 #: ../menulibre/MenulibreApplication.py:1448
 msgid "No Longer Installed"
-msgstr ""
+msgstr "Ei enää asennettu"
 
 #: ../menulibre/MenulibreApplication.py:1449
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
+"Tämä käynnistin on poistettu järjestelmä.\n"
+"Valitse seuraava käynnistin."
 
 #: ../menulibre/MenulibreApplication.py:1475
 msgid "Do you want to save the changes before leaving this launcher?"
 msgstr ""
+"Haluatko tallentaa muutokset ennen kuin poistut muokkaamasta tätä "
+"käynnistintä?"
 
 #: ../menulibre/MenulibreApplication.py:1477
 msgid "If you don't save the launcher, all the changes will be lost."
-msgstr ""
+msgstr "Jos et tallenna käynnistintä, kaikki muutokset menetetään."
 
 #: ../menulibre/MenulibreApplication.py:1716
 msgid "You do not have permission to delete this file."
-msgstr ""
+msgstr "Sinulle ei ole oikeutta poistaa tätä tiedostoa."
 
 #: ../menulibre/MenulibreApplication.py:2149
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
+"Alihakemistoja ei voida luoda valmiiksi asennettuihin järjestelmäpolkuihin."
 
 #: ../menulibre/MenulibreApplication.py:2176
 msgid "New Launcher"
-msgstr ""
+msgstr "Uusi käynnistin"
 
 #: ../menulibre/MenulibreApplication.py:2227
 msgid "New Directory"
-msgstr ""
+msgstr "Uusi hakemisto"
 
 #: ../menulibre/MenulibreApplication.py:2677
 msgid "Are you sure you want to restore this launcher?"
-msgstr ""
+msgstr "Oletko varma että haluat palauttaa tämän käynnistimen tiedot?"
 
 #: ../menulibre/MenulibreApplication.py:2683
 #: ../menulibre/MenulibreApplication.py:2684
 msgid "Restore Launcher"
-msgstr ""
+msgstr "Palauta käynnistin"
 
 #: ../menulibre/MenulibreApplication.py:2685
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr ""
+"Kaikki muutokset edellisen tallennuksen jälkeen menetetään eikä niitä voida "
+"palauttaa automaattisesti."
 
 #: ../menulibre/MenulibreApplication.py:2700
 msgid "Are you sure you want to delete this separator?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa tämän erottimen?"
 
 #: ../menulibre/MenulibreApplication.py:2703
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa kohteen \"%s\"?"
 
 #: ../menulibre/MenulibreApplication.py:2705
 msgid "This cannot be undone."
-msgstr ""
+msgstr "Tätä ei voi perua."
 
 #: ../menulibre/MenulibreApplication.py:2783
 msgid "Do you want to read the MenuLibre manual online?"
-msgstr ""
+msgstr "Haluatko lukea MenuLibren ohjeen verkossa?"
 
 #: ../menulibre/MenulibreApplication.py:2789
 msgid "Read Online"
-msgstr ""
+msgstr "Lue verkossa"
 
 #: ../menulibre/MenulibreApplication.py:2790
 msgid "Online Documentation"
-msgstr ""
+msgstr "Ohjeet verkossa"
 
 #: ../menulibre/MenulibreApplication.py:2791
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
-msgstr ""
+msgstr "Sinut ohjataan sivustolle jossa ohjesivuja ylläpidetään."
 
 #. Populate the AboutDialog with all the relevant details.
 #: ../menulibre/MenulibreApplication.py:2810
 msgid "About MenuLibre"
-msgstr ""
+msgstr "Tietoja MenuLibrestä"
 
 #: ../menulibre/MenulibreApplication.py:2813
 msgid "Copyright © 2012-2014 Sean Davis"
-msgstr ""
+msgstr "Tekijänoikeudet © 2012-2014 Sean Davis"
 
 #: ../menulibre/MenulibreXdg.py:53
 msgid "New Menu Item"
