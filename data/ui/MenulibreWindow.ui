@@ -1201,14 +1201,8 @@
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="has_tooltip">True</property>
-                                        <property name="tooltip_text" translatable="yes" comments="Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html">"Exec": Program to execute, possibly with arguments. The Exec key is required
-if DBusActivatable is not set to true. Even if DBusActivatable is true, Exec
-should be specified for compatibility with implementations that do not
-understand DBusActivatable. 
-
-Please see
-http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#exec-variables
-for a list of supported arguments.</property>
+                                        <property name="tooltip_text" translatable="yes">Program to execute with arguments. This key is required if DBusActivatable is not set to "True" or if you need compatibility with implementations that do not understand D-Bus activation.
+See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#exec-variables for a list of supported arguments.</property>
                                         <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Command</property>
                                       </object>
@@ -1224,7 +1218,7 @@ for a list of supported arguments.</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="has_tooltip">True</property>
-                                        <property name="tooltip_text" translatable="yes" comments="Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html">"Path": The working directory to run the program in.</property>
+                                        <property name="tooltip_text" translatable="yes">The working directory.</property>
                                         <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Working Directory</property>
                                       </object>
@@ -1365,7 +1359,7 @@ for a list of supported arguments.</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="has_tooltip">True</property>
-                                        <property name="tooltip_text" translatable="yes" comments="Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html">"Terminal": Whether the program runs in a terminal window.</property>
+                                        <property name="tooltip_text" translatable="yes">If set to "True", the program will be ran in a terminal window.</property>
                                         <property name="hexpand">True</property>
                                         <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Run in terminal</property>
@@ -1382,12 +1376,7 @@ for a list of supported arguments.</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="has_tooltip">True</property>
-                                        <property name="tooltip_text" translatable="yes" comments="Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html">"StartupNotify": If true, it is KNOWN that the application will send a "remove"
-message when started with the DESKTOP_STARTUP_ID environment variable set. If
-false, it is KNOWN that the application does not work with startup notification
-at all (does not shown any window, breaks even when using StartupWMClass, etc.).
-If absent, a reasonable handling is up to implementations (assuming false,
-using StartupWMClass, etc.).</property>
+                                        <property name="tooltip_text" translatable="yes">If set to "True", a startup notification is sent. Usually means that a busy cursor is shown while the application launches.</property>
                                         <property name="hexpand">True</property>
                                         <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Use startup notification</property>
@@ -1404,11 +1393,7 @@ using StartupWMClass, etc.).</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="has_tooltip">True</property>
-                                        <property name="tooltip_text" translatable="yes" comments="Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html">"NoDisplay": NoDisplay means "this application exists, but don't display it in
-the menus". This can be useful to e.g. associate this application with MIME
-types, so that it gets launched from a file manager (or other apps), without
-having a menu entry for it (there are tons of good reasons for this,
-including e.g. the netscape -remote, or kfmclient openURL kind of stuff).</property>
+                                        <property name="tooltip_text" translatable="yes">If set to "True", this entry will not be shown in menus, but will be available for MIME type associations etc.</property>
                                         <property name="hexpand">True</property>
                                         <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Hide from menus</property>
@@ -1771,7 +1756,7 @@ including e.g. the netscape -remote, or kfmclient openURL kind of stuff).</prope
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="has_tooltip">True</property>
-                                                    <property name="tooltip_text" translatable="yes" comments="Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html">"GenericName": Generic name of the application, for example "Web Browser".</property>
+                                                    <property name="tooltip_text" translatable="yes">Generic name of the application, for example "Web Browser".</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Generic Name</property>
                                                   </object>
@@ -1787,10 +1772,7 @@ including e.g. the netscape -remote, or kfmclient openURL kind of stuff).</prope
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="has_tooltip">True</property>
-                                                    <property name="tooltip_text" translatable="yes" comments="Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html">"NotShowIn": A list of strings identifying the environments that should not
-display a given desktop entry. Only one of these keys, either OnlyShowIn or
-NotShowIn, may appear in a group.
-
+                                                    <property name="tooltip_text" translatable="yes">A list of environments that should not display this entry. You can only use this key if "OnlyShowIn" is not set.
 Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Not Shown In</property>
@@ -1807,10 +1789,7 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="has_tooltip">True</property>
-                                                    <property name="tooltip_text" translatable="yes" comments="Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html">"OnlyShowIn": A list of strings identifying the environments that should
-display a given desktop entry. Only one of these keys, either OnlyShowIn or
-NotShowIn, may appear in a group.
-
+                                                    <property name="tooltip_text" translatable="yes">A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if "NotShowIn" is not set.
 Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Only Shown In</property>
@@ -1827,10 +1806,7 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="has_tooltip">True</property>
-                                                    <property name="tooltip_text" translatable="yes" comments="Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html">"TryExec": Path to an executable file on disk used to determine if the program
-is actually installed. If the path is not an absolute path, the file is looked
-up in the $PATH environment variable. If the file is not present or if it is
-not executable, the entry may be ignored (not be used in menus, for example). </property>
+                                                    <property name="tooltip_text" translatable="yes">Path to an executable file to determine if the program is installed. If the file is not present or is not executable, this entry may not be shown in a menu.</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Try Exec</property>
                                                   </object>
@@ -1846,7 +1822,7 @@ not executable, the entry may be ignored (not be used in menus, for example). </
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="has_tooltip">True</property>
-                                                    <property name="tooltip_text" translatable="yes" comments="Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html">"MimeType": The MIME type(s) supported by this application.</property>
+                                                    <property name="tooltip_text" translatable="yes">The MIME type(s) supported by this application.</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Mimetypes</property>
                                                   </object>
@@ -1862,10 +1838,7 @@ not executable, the entry may be ignored (not be used in menus, for example). </
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="has_tooltip">True</property>
-                                                    <property name="tooltip_text" translatable="yes" comments="Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html">"Keywords": A list of strings which may be used in addition to other metadata
-to describe this entry. This can be useful e.g. to facilitate searching through
-entries. The values are not meant for display, and should not be redundant
-with the values of Name or GenericName.</property>
+                                                    <property name="tooltip_text" translatable="yes">A list of keywords to describe this entry. You can use these to help searching entries. These are not meant for display, and should not be redundant with the values of Name or GenericName.</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Keywords</property>
                                                   </object>
@@ -1881,8 +1854,7 @@ with the values of Name or GenericName.</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="has_tooltip">True</property>
-                                                    <property name="tooltip_text" translatable="yes" comments="Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html">"StartupWMClass": If specified, it is known that the application will map at
-least one window with the given string as its WM class or WM name hint.</property>
+                                                    <property name="tooltip_text" translatable="yes">If specified, the application will be requested to use the string as a WM class or a WM name hint at least in one window.</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Startup WM Class</property>
                                                   </object>
@@ -1989,12 +1961,7 @@ least one window with the given string as its WM class or WM name hint.</propert
                                                   <object class="GtkLabel" id="label1">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="tooltip_text" translatable="yes" comments="Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html">"Hidden": Hidden should have been called Deleted. It means the user deleted
-(at his level) something that was present (at an upper level, e.g. in the
-system dirs). It's strictly equivalent to the .desktop file not existing at
-all, as far as that user is concerned. This can also be used to "uninstall"
-existing files (e.g. due to a renaming) - by letting make install install a
-file with Hidden=true in it.</property>
+                                                    <property name="tooltip_text" translatable="yes">If set to "True", the result for the user is equivalent to the .desktop file not existing at all.</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Hidden</property>
                                                   </object>
@@ -2009,13 +1976,8 @@ file with Hidden=true in it.</property>
                                                   <object class="GtkLabel" id="label2">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="tooltip_text" translatable="yes" comments="Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html">"DBusActivatable": A boolean value specifying if D-Bus activation is supported
-for this application. If this key is missing, the default value is false. If
-the value is true then implementations should ignore the Exec key and send a
-D-Bus message to launch the application. See D-Bus Activation for more
-information on how this works. Applications should still include Exec= lines
-in their desktop files for compatibility with implementations that do not
-understand the DBusActivatable key.</property>
+                                                    <property name="tooltip_text" translatable="yes">Set this key to "True" if D-Bus activation is supported for this application and you want to use it.
+See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for more information.</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">DBUS Activatable</property>
                                                   </object>
