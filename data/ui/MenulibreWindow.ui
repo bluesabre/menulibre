@@ -673,7 +673,6 @@
                         <property name="sensitive">False</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
-                        <property name="has_tooltip">True</property>
                         <property name="tooltip_markup" translatable="yes">Save Launcher</property>
                         <property name="tooltip_text" translatable="yes">Save Launcher</property>
                         <property name="image">image8</property>
@@ -1192,7 +1191,6 @@
                                       <object class="GtkLabel" id="label18">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="has_tooltip">True</property>
                                         <property name="tooltip_text" translatable="yes">Program to execute with arguments. This key is required if DBusActivatable is not set to "True" or if you need compatibility with implementations that do not understand D-Bus activation.
 See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#exec-variables for a list of supported arguments.</property>
                                         <property name="xalign">0</property>
@@ -1207,7 +1205,6 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                                       <object class="GtkLabel" id="label19">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="has_tooltip">True</property>
                                         <property name="tooltip_text" translatable="yes">The working directory.</property>
                                         <property name="xalign">0</property>
                                         <property name="label" translatable="yes">Working Directory</property>
@@ -1239,7 +1236,6 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="has_tooltip">True</property>
                                             <property name="tooltip_markup" translatable="yes">Browse…</property>
                                             <property name="tooltip_text" translatable="yes">Browse…</property>
                                             <property name="image">image11</property>
@@ -1281,7 +1277,6 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
-                                            <property name="has_tooltip">True</property>
                                             <property name="tooltip_markup" translatable="yes">Browse…</property>
                                             <property name="tooltip_text" translatable="yes">Browse…</property>
                                             <property name="image">image12</property>
@@ -1342,7 +1337,6 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                                       <object class="GtkLabel" id="terminal_label">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="has_tooltip">True</property>
                                         <property name="tooltip_text" translatable="yes">If set to "True", the program will be ran in a terminal window.</property>
                                         <property name="hexpand">True</property>
                                         <property name="xalign">0</property>
@@ -1357,7 +1351,6 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                                       <object class="GtkLabel" id="notify_label">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="has_tooltip">True</property>
                                         <property name="tooltip_text" translatable="yes">If set to "True", a startup notification is sent. Usually means that a busy cursor is shown while the application launches.</property>
                                         <property name="hexpand">True</property>
                                         <property name="xalign">0</property>
@@ -1372,7 +1365,6 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                                       <object class="GtkLabel" id="hide_label">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="has_tooltip">True</property>
                                         <property name="tooltip_text" translatable="yes">If set to "True", this entry will not be shown in menus, but will be available for MIME type associations etc.</property>
                                         <property name="hexpand">True</property>
                                         <property name="xalign">0</property>
@@ -1727,7 +1719,6 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                                                   <object class="GtkLabel" id="label5">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="has_tooltip">True</property>
                                                     <property name="tooltip_text" translatable="yes">Generic name of the application, for example "Web Browser".</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Generic Name</property>
@@ -1741,7 +1732,6 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                                                   <object class="GtkLabel" id="label13">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="has_tooltip">True</property>
                                                     <property name="tooltip_text" translatable="yes">A list of environments that should not display this entry. You can only use this key if "OnlyShowIn" is not set.
 Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old</property>
                                                     <property name="xalign">0</property>
@@ -1756,7 +1746,6 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                                   <object class="GtkLabel" id="label6">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="has_tooltip">True</property>
                                                     <property name="tooltip_text" translatable="yes">A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if "NotShowIn" is not set.
 Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old</property>
                                                     <property name="xalign">0</property>
@@ -1771,7 +1760,6 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                                   <object class="GtkLabel" id="label14">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="has_tooltip">True</property>
                                                     <property name="tooltip_text" translatable="yes">Path to an executable file to determine if the program is installed. If the file is not present or is not executable, this entry may not be shown in a menu.</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Try Exec</property>
@@ -1785,7 +1773,6 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                                   <object class="GtkLabel" id="label15">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="has_tooltip">True</property>
                                                     <property name="tooltip_text" translatable="yes">The MIME type(s) supported by this application.</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Mimetypes</property>
@@ -1799,7 +1786,6 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                                   <object class="GtkLabel" id="label16">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="has_tooltip">True</property>
                                                     <property name="tooltip_text" translatable="yes">A list of keywords to describe this entry. You can use these to help searching entries. These are not meant for display, and should not be redundant with the values of Name or GenericName.</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Keywords</property>
@@ -1813,7 +1799,6 @@ Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, O
                                                   <object class="GtkLabel" id="label23">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="has_tooltip">True</property>
                                                     <property name="tooltip_text" translatable="yes">If specified, the application will be requested to use the string as a WM class or a WM name hint at least in one window.</property>
                                                     <property name="xalign">0</property>
                                                     <property name="label" translatable="yes">Startup WM Class</property>
