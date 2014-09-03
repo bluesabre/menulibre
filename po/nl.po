@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-08-03 13:05-0400\n"
+"POT-Creation-Date: 2014-09-02 05:50-0400\n"
 "PO-Revision-Date: 2014-03-03 18:24+0000\n"
 "Last-Translator: Pjotr12345 <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-16 06:43+0000\n"
-"X-Generator: Launchpad (build 17156)\n"
+"X-Launchpad-Export-Date: 2014-09-03 06:55+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -151,341 +151,215 @@ msgstr "Commentaar bij toepassing"
 msgid "Description"
 msgstr "Beschrijving"
 
-#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
-#: ../data/ui/MenulibreWindow.ui.h:32
+#: ../data/ui/MenulibreWindow.ui.h:31
 msgid ""
-"\"Exec\": Program to execute, possibly with arguments. The Exec key is "
-"required\n"
-"if DBusActivatable is not set to true. Even if DBusActivatable is true, "
-"Exec\n"
-"should be specified for compatibility with implementations that do not\n"
-"understand DBusActivatable. \n"
-"\n"
-"Please see\n"
-"http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
-"latest.html#exec-variables\n"
-"for a list of supported arguments."
+"Program to execute with arguments. This key is required if DBusActivatable "
+"is not set to \"True\" or if you need compatibility with implementations "
+"that do not understand D-Bus activation.\n"
+"See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables for a list of supported arguments."
 msgstr ""
-"'Exec': programma om uit te voeren, eventueel met argumenten. De Exec-\n"
-"sleutel is vereist indien DBusActivatable niet is ingesteld op 'waar'. "
-"Zelfs\n"
-"als DBusActivatable is ingesteld op 'waar', zou Exec moeten worden\n"
-"opgegeven voor verenigbaarheid met implementaties die DBusActivatable\n"
-"niet begrijpen.\n"
-"\n"
-"Voor een lijst van ondersteunde argumenten zie:\n"
-"http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
-"latest.html#exec-variables"
 
-#: ../data/ui/MenulibreWindow.ui.h:40
+#: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Command"
 msgstr "Opdracht"
 
-#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
-#: ../data/ui/MenulibreWindow.ui.h:42
-msgid "\"Path\": The working directory to run the program in."
-msgstr "'Path': de werkmap om het programma in te draaien."
+#: ../data/ui/MenulibreWindow.ui.h:34
+msgid "The working directory."
+msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:43
+#: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Working Directory"
 msgstr "Werkmap"
 
-#: ../data/ui/MenulibreWindow.ui.h:44
+#: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Browse…"
 msgstr "Verkennen..."
 
-#: ../data/ui/MenulibreWindow.ui.h:45
+#: ../data/ui/MenulibreWindow.ui.h:37
 msgid "<b>Application Details</b>"
 msgstr "<b>Bijzonderheden van de toepassing</b>"
 
-#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
-#: ../data/ui/MenulibreWindow.ui.h:47
-msgid "\"Terminal\": Whether the program runs in a terminal window."
-msgstr "'Terminal': of het programma in een terminalvenster draait."
+#: ../data/ui/MenulibreWindow.ui.h:38
+msgid "If set to \"True\", the program will be ran in a terminal window."
+msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:48
+#: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Run in terminal"
 msgstr "In terminalvenster draaien"
 
-#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
-#: ../data/ui/MenulibreWindow.ui.h:50
+#: ../data/ui/MenulibreWindow.ui.h:40
 msgid ""
-"\"StartupNotify\": If true, it is KNOWN that the application will send a "
-"\"remove\"\n"
-"message when started with the DESKTOP_STARTUP_ID environment variable set. "
-"If\n"
-"false, it is KNOWN that the application does not work with startup "
-"notification\n"
-"at all (does not shown any window, breaks even when using StartupWMClass, "
-"etc.).\n"
-"If absent, a reasonable handling is up to implementations (assuming false,\n"
-"using StartupWMClass, etc.)."
+"If set to \"True\", a startup notification is sent. Usually means that a "
+"busy cursor is shown while the application launches."
 msgstr ""
-"'StartupNotify': indien ingesteld op 'true', dan is het BEKEND dat de "
-"toepassing\n"
-"een 'verwijder'-boodschap zal verzenden wanneer gestart met de omgevings-\n"
-"variabele DESKTOP_STARTUP_ID ingesteld. Indien 'false', dan is het BEKEND\n"
-"dat de toepassing sowieso niet werkt met opstartmelding (toont geen "
-"venster,\n"
-"disfunctioneert zelfs met gebruikmaking van StartupWMClass, enz.). \n"
-"Indien afwezig, dan is een redelijke afhandeling aan de implementaties\n"
-"('false' als aanname, gebruikmaken van StartupWMClass, enz.)."
 
-#: ../data/ui/MenulibreWindow.ui.h:56
+#: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
 msgstr "Opstartmelding gebruiken"
 
-#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
-#: ../data/ui/MenulibreWindow.ui.h:58
+#: ../data/ui/MenulibreWindow.ui.h:42
 msgid ""
-"\"NoDisplay\": NoDisplay means \"this application exists, but don't display "
-"it in\n"
-"the menus\". This can be useful to e.g. associate this application with "
-"MIME\n"
-"types, so that it gets launched from a file manager (or other apps), "
-"without\n"
-"having a menu entry for it (there are tons of good reasons for this,\n"
-"including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
+"If set to \"True\", this entry will not be shown in menus, but will be "
+"available for MIME type associations etc."
 msgstr ""
-"'NoDisplay': NoDisplay betekent 'deze toepassing bestaat, maar toon\n"
-"haar niet in het menu'. Dit kan nuttig zijn om deze toepassing\n"
-"bijvoorbeeld te associëren met bestandtypes (MIME), zodat zij wordt\n"
-"gestart vanuit een bestandbeheerder (of andere toepassingen), zonder\n"
-"een menu-onderdeel te hebben (er zijn veel goede redenen hiervoor,\n"
-"waaronder bijvoorbeeld netscape -remote of kfmclient openURL)."
 
-#: ../data/ui/MenulibreWindow.ui.h:63
+#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Hide from menus"
 msgstr "Verbergen in menu's"
 
-#: ../data/ui/MenulibreWindow.ui.h:64
+#: ../data/ui/MenulibreWindow.ui.h:44
 msgid "<b>Options</b>"
 msgstr "<b>Opties</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:65
+#: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Add"
 msgstr "Toevoegen"
 
-#: ../data/ui/MenulibreWindow.ui.h:66
+#: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: ../data/ui/MenulibreWindow.ui.h:67
+#: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Clear"
 msgstr "Wissen"
 
-#: ../data/ui/MenulibreWindow.ui.h:68
+#: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Categories"
 msgstr "Categorieën"
 
-#: ../data/ui/MenulibreWindow.ui.h:69
+#: ../data/ui/MenulibreWindow.ui.h:49
 msgid "Show"
 msgstr "Tonen"
 
-#: ../data/ui/MenulibreWindow.ui.h:70
+#: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Name"
 msgstr "Naam"
 
-#: ../data/ui/MenulibreWindow.ui.h:71
+#: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Action Name"
 msgstr "Naam van actie"
 
-#: ../data/ui/MenulibreWindow.ui.h:72
+#: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Actions"
 msgstr "Acties"
 
-#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
-#: ../data/ui/MenulibreWindow.ui.h:74
-msgid ""
-"\"GenericName\": Generic name of the application, for example \"Web "
-"Browser\"."
+#: ../data/ui/MenulibreWindow.ui.h:53
+msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr ""
-"'GenericName': soortnaam van de toepassing, bijvoorbeeld 'webbrowser'."
 
-#: ../data/ui/MenulibreWindow.ui.h:75
+#: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Generic Name"
 msgstr "Generieke naam"
 
-#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
-#: ../data/ui/MenulibreWindow.ui.h:77
+#: ../data/ui/MenulibreWindow.ui.h:55
 msgid ""
-"\"NotShowIn\": A list of strings identifying the environments that should "
-"not\n"
-"display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
-"NotShowIn, may appear in a group.\n"
-"\n"
+"A list of environments that should not display this entry. You can only use "
+"this key if \"OnlyShowIn\" is not set.\n"
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
-"'NotShowIn': een lijst van tekenreeksen die de omgevingen bepalen die\n"
-"een bepaald menu-onderdeel niet zouden moeten tonen. Slechts\n"
-"één van deze sleutels, hetzij OnlyShowIn of NotShowIn, mogen\n"
-"vóórkomen in een groep. Mogelijke waarden omvatten:\n"
-"GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#: ../data/ui/MenulibreWindow.ui.h:82
+#: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Not Shown In"
 msgstr "Niet getoond in"
 
-#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
-#: ../data/ui/MenulibreWindow.ui.h:84
+#: ../data/ui/MenulibreWindow.ui.h:58
 msgid ""
-"\"OnlyShowIn\": A list of strings identifying the environments that should\n"
-"display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
-"NotShowIn, may appear in a group.\n"
-"\n"
+"A list of environments that should display this entry. Other environments "
+"will not display this entry. You can only use this key if \"NotShowIn\" is "
+"not set.\n"
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
-"'OnlyShowIn': een lijst van tekenreeksen die de omgevingen bepalen die\n"
-"een bepaald menu-onderdeel zouden moeten tonen. Slechts één\n"
-"van deze sleutels, hetzij OnlyShowIn of NotShowIn, mogen vóórkomen\n"
-"in een groep. Mogelijke waarden omvatten:\n"
-"GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#: ../data/ui/MenulibreWindow.ui.h:89
+#: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Only Shown In"
 msgstr "Alleen getoond in"
 
-#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
-#: ../data/ui/MenulibreWindow.ui.h:91
+#: ../data/ui/MenulibreWindow.ui.h:61
 msgid ""
-"\"TryExec\": Path to an executable file on disk used to determine if the "
-"program\n"
-"is actually installed. If the path is not an absolute path, the file is "
-"looked\n"
-"up in the $PATH environment variable. If the file is not present or if it "
-"is\n"
-"not executable, the entry may be ignored (not be used in menus, for "
-"example). "
+"Path to an executable file to determine if the program is installed. If the "
+"file is not present or is not executable, this entry may not be shown in a "
+"menu."
 msgstr ""
-"'TryExec': pad naar een uitvoerbaar bestand op de schijf dat wordt gebruikt\n"
-"om te bepalen of het programma daadwerkelijk is geïnstalleerd. Indien het\n"
-"pad geen absoluut pad is, dan wordt het bestand opgezocht in de omgevings-\n"
-"variabele $PATH. Indien het bestand niet aanwezig is of niet-uitvoerbaar,\n"
-"dan kan het onderdeel worden genegeerd (bijv. niet gebruikt in menu's). "
 
-#: ../data/ui/MenulibreWindow.ui.h:95
+#: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Try Exec"
 msgstr "Probeer Exec"
 
-#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
-#: ../data/ui/MenulibreWindow.ui.h:97
-msgid "\"MimeType\": The MIME type(s) supported by this application."
-msgstr "'MimeType': de bestandsoort(en) die deze toepassing ondersteunt."
+#: ../data/ui/MenulibreWindow.ui.h:63
+msgid "The MIME type(s) supported by this application."
+msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:98
+#: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Mimetypes"
 msgstr "Bestandtypen (MIME)"
 
-#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
-#: ../data/ui/MenulibreWindow.ui.h:100
+#: ../data/ui/MenulibreWindow.ui.h:65
 msgid ""
-"\"Keywords\": A list of strings which may be used in addition to other "
-"metadata\n"
-"to describe this entry. This can be useful e.g. to facilitate searching "
-"through\n"
-"entries. The values are not meant for display, and should not be redundant\n"
-"with the values of Name or GenericName."
+"A list of keywords to describe this entry. You can use these to help "
+"searching entries. These are not meant for display, and should not be "
+"redundant with the values of Name or GenericName."
 msgstr ""
-"'Sleutelwoorden': een lijst van tekenreeksen die kunnen worden gebruikt\n"
-"als toevoeging op andere metagegevens om dit onderdeel te beschrijven.\n"
-"Dit kan bijv. nuttig zijn om zoeken in menu-onderdelen te\n"
-"vergemakkelijken. De waarden zijn niet bedoeld om getoond te worden,\n"
-"en mogen niet hetzelfde zijn als de waarden Name of GenericName."
 
-#: ../data/ui/MenulibreWindow.ui.h:104
+#: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Keywords"
 msgstr "Trefwoorden"
 
-#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
-#: ../data/ui/MenulibreWindow.ui.h:106
+#: ../data/ui/MenulibreWindow.ui.h:67
 msgid ""
-"\"StartupWMClass\": If specified, it is known that the application will map "
-"at\n"
-"least one window with the given string as its WM class or WM name hint."
+"If specified, the application will be requested to use the string as a WM "
+"class or a WM name hint at least in one window."
 msgstr ""
-"'StartupWMClass': als opgegeven, dan is het bekend dat de toepassing\n"
-"zich op tenminste één venster zal tonen met de opgegeven\n"
-"tekenreeks als zijn WM-klasse of WM-naamtoespeling."
 
-#: ../data/ui/MenulibreWindow.ui.h:108
+#: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Startup WM Class"
 msgstr "Startup WM Class"
 
-#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
-#: ../data/ui/MenulibreWindow.ui.h:110
+#: ../data/ui/MenulibreWindow.ui.h:69
 msgid ""
-"\"Hidden\": Hidden should have been called Deleted. It means the user "
-"deleted\n"
-"(at his level) something that was present (at an upper level, e.g. in the\n"
-"system dirs). It's strictly equivalent to the .desktop file not existing at\n"
-"all, as far as that user is concerned. This can also be used to "
-"\"uninstall\"\n"
-"existing files (e.g. due to a renaming) - by letting make install install a\n"
-"file with Hidden=true in it."
+"If set to \"True\", the result for the user is equivalent to the .desktop "
+"file not existing at all."
 msgstr ""
-"'Hidden': Hidden had eigenlijk Deleted moeten heten. Het betekent dat\n"
-"de gebruiker (op zijn niveau) iets gewist heeft dat aanwezig was (in een\n"
-"bovenliggend niveau, bijv. in de systeemmappen). Het komt precies\n"
-"overeen met een .desktop-bestand dat niet bestaat, voor zover het\n"
-"die gebruiker betreft. Dit kan ook worden gebruikt om bestaande\n"
-"bestanden te 'deïnstalleren' (bijv. wegens een hernoeming) - door\n"
-"make install een bestand te laten installeren met Hidden=true erin."
 
-#: ../data/ui/MenulibreWindow.ui.h:116
+#: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Hidden"
 msgstr "Verborgen"
 
-#. Please see http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s05.html
-#: ../data/ui/MenulibreWindow.ui.h:118
+#: ../data/ui/MenulibreWindow.ui.h:71
 msgid ""
-"\"DBusActivatable\": A boolean value specifying if D-Bus activation is "
-"supported\n"
-"for this application. If this key is missing, the default value is false. "
-"If\n"
-"the value is true then implementations should ignore the Exec key and send "
-"a\n"
-"D-Bus message to launch the application. See D-Bus Activation for more\n"
-"information on how this works. Applications should still include Exec= "
-"lines\n"
-"in their desktop files for compatibility with implementations that do not\n"
-"understand the DBusActivatable key."
+"Set this key to \"True\" if D-Bus activation is supported for this "
+"application and you want to use it.\n"
+"See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
+"for more information."
 msgstr ""
-"'DBusActivatable': een booleaanse waarde die opgeeft of D-Bus-activatie\n"
-"wordt ondersteund voor deze toepassing. Indien deze sleutel ontbreekt, is\n"
-"de standaardwaarde 'false'. Indien de waarde 'true' is, dan zouden\n"
-"implementaties de Exec-sleutel moeten negeren en een D-Bus-boodschap\n"
-"moeten verzenden om de toepassing te starten. Zie D-Bus Activation voor\n"
-"meer informatie over hoe dit werkt. Toepassingen moeten nog steeds\n"
-"'Exec='-regels in hun bureaubladbestanden hebben voor verenigbaarheid\n"
-"met implementaties die de sleutel DBusActivatable niet begrijpen."
 
-#: ../data/ui/MenulibreWindow.ui.h:125
+#: ../data/ui/MenulibreWindow.ui.h:73
 msgid "DBUS Activatable"
 msgstr "DBUS-activeerbaar"
 
-#: ../data/ui/MenulibreWindow.ui.h:126
+#: ../data/ui/MenulibreWindow.ui.h:74
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: ../data/ui/MenulibreWindow.ui.h:127
+#: ../data/ui/MenulibreWindow.ui.h:75
 msgid "<small><i>Filename</i></small>"
 msgstr "<small><i>Bestandnaam</i></small>"
 
-#: ../data/ui/MenulibreWindow.ui.h:128
+#: ../data/ui/MenulibreWindow.ui.h:76
 msgid "Select an icon…"
 msgstr "Kies een pictogram..."
 
-#: ../data/ui/MenulibreWindow.ui.h:129
+#: ../data/ui/MenulibreWindow.ui.h:77
 msgid "<b>Select an icon</b>"
 msgstr "<b>Kies een pictogram</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:130
+#: ../data/ui/MenulibreWindow.ui.h:78
 msgid "Search"
 msgstr "Zoeken"
 
-#: ../data/ui/MenulibreWindow.ui.h:131
+#: ../data/ui/MenulibreWindow.ui.h:79
 msgid "column"
 msgstr "kolom"
 
@@ -852,3 +726,189 @@ msgstr "Nieuw menu-onderdeel"
 #: ../menulibre/MenulibreXdg.py:55
 msgid "A small descriptive blurb about this application."
 msgstr "Een kleine beschrijvende tekst over deze toepassing."
+
+#~ msgid "\"Terminal\": Whether the program runs in a terminal window."
+#~ msgstr "'Terminal': of het programma in een terminalvenster draait."
+
+#~ msgid "\"Path\": The working directory to run the program in."
+#~ msgstr "'Path': de werkmap om het programma in te draaien."
+
+#~ msgid ""
+#~ "\"GenericName\": Generic name of the application, for example \"Web "
+#~ "Browser\"."
+#~ msgstr ""
+#~ "'GenericName': soortnaam van de toepassing, bijvoorbeeld 'webbrowser'."
+
+#~ msgid ""
+#~ "\"Keywords\": A list of strings which may be used in addition to other "
+#~ "metadata\n"
+#~ "to describe this entry. This can be useful e.g. to facilitate searching "
+#~ "through\n"
+#~ "entries. The values are not meant for display, and should not be redundant\n"
+#~ "with the values of Name or GenericName."
+#~ msgstr ""
+#~ "'Sleutelwoorden': een lijst van tekenreeksen die kunnen worden gebruikt\n"
+#~ "als toevoeging op andere metagegevens om dit onderdeel te beschrijven.\n"
+#~ "Dit kan bijv. nuttig zijn om zoeken in menu-onderdelen te\n"
+#~ "vergemakkelijken. De waarden zijn niet bedoeld om getoond te worden,\n"
+#~ "en mogen niet hetzelfde zijn als de waarden Name of GenericName."
+
+#~ msgid ""
+#~ "\"StartupWMClass\": If specified, it is known that the application will map "
+#~ "at\n"
+#~ "least one window with the given string as its WM class or WM name hint."
+#~ msgstr ""
+#~ "'StartupWMClass': als opgegeven, dan is het bekend dat de toepassing\n"
+#~ "zich op tenminste één venster zal tonen met de opgegeven\n"
+#~ "tekenreeks als zijn WM-klasse of WM-naamtoespeling."
+
+#~ msgid ""
+#~ "\"Exec\": Program to execute, possibly with arguments. The Exec key is "
+#~ "required\n"
+#~ "if DBusActivatable is not set to true. Even if DBusActivatable is true, "
+#~ "Exec\n"
+#~ "should be specified for compatibility with implementations that do not\n"
+#~ "understand DBusActivatable. \n"
+#~ "\n"
+#~ "Please see\n"
+#~ "http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+#~ "latest.html#exec-variables\n"
+#~ "for a list of supported arguments."
+#~ msgstr ""
+#~ "'Exec': programma om uit te voeren, eventueel met argumenten. De Exec-\n"
+#~ "sleutel is vereist indien DBusActivatable niet is ingesteld op 'waar'. "
+#~ "Zelfs\n"
+#~ "als DBusActivatable is ingesteld op 'waar', zou Exec moeten worden\n"
+#~ "opgegeven voor verenigbaarheid met implementaties die DBusActivatable\n"
+#~ "niet begrijpen.\n"
+#~ "\n"
+#~ "Voor een lijst van ondersteunde argumenten zie:\n"
+#~ "http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+#~ "latest.html#exec-variables"
+
+#~ msgid ""
+#~ "\"NoDisplay\": NoDisplay means \"this application exists, but don't display "
+#~ "it in\n"
+#~ "the menus\". This can be useful to e.g. associate this application with "
+#~ "MIME\n"
+#~ "types, so that it gets launched from a file manager (or other apps), "
+#~ "without\n"
+#~ "having a menu entry for it (there are tons of good reasons for this,\n"
+#~ "including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
+#~ msgstr ""
+#~ "'NoDisplay': NoDisplay betekent 'deze toepassing bestaat, maar toon\n"
+#~ "haar niet in het menu'. Dit kan nuttig zijn om deze toepassing\n"
+#~ "bijvoorbeeld te associëren met bestandtypes (MIME), zodat zij wordt\n"
+#~ "gestart vanuit een bestandbeheerder (of andere toepassingen), zonder\n"
+#~ "een menu-onderdeel te hebben (er zijn veel goede redenen hiervoor,\n"
+#~ "waaronder bijvoorbeeld netscape -remote of kfmclient openURL)."
+
+#~ msgid "\"MimeType\": The MIME type(s) supported by this application."
+#~ msgstr "'MimeType': de bestandsoort(en) die deze toepassing ondersteunt."
+
+#~ msgid ""
+#~ "\"Hidden\": Hidden should have been called Deleted. It means the user "
+#~ "deleted\n"
+#~ "(at his level) something that was present (at an upper level, e.g. in the\n"
+#~ "system dirs). It's strictly equivalent to the .desktop file not existing at\n"
+#~ "all, as far as that user is concerned. This can also be used to "
+#~ "\"uninstall\"\n"
+#~ "existing files (e.g. due to a renaming) - by letting make install install a\n"
+#~ "file with Hidden=true in it."
+#~ msgstr ""
+#~ "'Hidden': Hidden had eigenlijk Deleted moeten heten. Het betekent dat\n"
+#~ "de gebruiker (op zijn niveau) iets gewist heeft dat aanwezig was (in een\n"
+#~ "bovenliggend niveau, bijv. in de systeemmappen). Het komt precies\n"
+#~ "overeen met een .desktop-bestand dat niet bestaat, voor zover het\n"
+#~ "die gebruiker betreft. Dit kan ook worden gebruikt om bestaande\n"
+#~ "bestanden te 'deïnstalleren' (bijv. wegens een hernoeming) - door\n"
+#~ "make install een bestand te laten installeren met Hidden=true erin."
+
+#~ msgid ""
+#~ "\"NotShowIn\": A list of strings identifying the environments that should "
+#~ "not\n"
+#~ "display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
+#~ "NotShowIn, may appear in a group.\n"
+#~ "\n"
+#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+#~ "XFCE, Old"
+#~ msgstr ""
+#~ "'NotShowIn': een lijst van tekenreeksen die de omgevingen bepalen die\n"
+#~ "een bepaald menu-onderdeel niet zouden moeten tonen. Slechts\n"
+#~ "één van deze sleutels, hetzij OnlyShowIn of NotShowIn, mogen\n"
+#~ "vóórkomen in een groep. Mogelijke waarden omvatten:\n"
+#~ "GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
+
+#~ msgid ""
+#~ "\"OnlyShowIn\": A list of strings identifying the environments that should\n"
+#~ "display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
+#~ "NotShowIn, may appear in a group.\n"
+#~ "\n"
+#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+#~ "XFCE, Old"
+#~ msgstr ""
+#~ "'OnlyShowIn': een lijst van tekenreeksen die de omgevingen bepalen die\n"
+#~ "een bepaald menu-onderdeel zouden moeten tonen. Slechts één\n"
+#~ "van deze sleutels, hetzij OnlyShowIn of NotShowIn, mogen vóórkomen\n"
+#~ "in een groep. Mogelijke waarden omvatten:\n"
+#~ "GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
+
+#~ msgid ""
+#~ "\"TryExec\": Path to an executable file on disk used to determine if the "
+#~ "program\n"
+#~ "is actually installed. If the path is not an absolute path, the file is "
+#~ "looked\n"
+#~ "up in the $PATH environment variable. If the file is not present or if it "
+#~ "is\n"
+#~ "not executable, the entry may be ignored (not be used in menus, for "
+#~ "example). "
+#~ msgstr ""
+#~ "'TryExec': pad naar een uitvoerbaar bestand op de schijf dat wordt gebruikt\n"
+#~ "om te bepalen of het programma daadwerkelijk is geïnstalleerd. Indien het\n"
+#~ "pad geen absoluut pad is, dan wordt het bestand opgezocht in de omgevings-\n"
+#~ "variabele $PATH. Indien het bestand niet aanwezig is of niet-uitvoerbaar,\n"
+#~ "dan kan het onderdeel worden genegeerd (bijv. niet gebruikt in menu's). "
+
+#~ msgid ""
+#~ "\"StartupNotify\": If true, it is KNOWN that the application will send a "
+#~ "\"remove\"\n"
+#~ "message when started with the DESKTOP_STARTUP_ID environment variable set. "
+#~ "If\n"
+#~ "false, it is KNOWN that the application does not work with startup "
+#~ "notification\n"
+#~ "at all (does not shown any window, breaks even when using StartupWMClass, "
+#~ "etc.).\n"
+#~ "If absent, a reasonable handling is up to implementations (assuming false,\n"
+#~ "using StartupWMClass, etc.)."
+#~ msgstr ""
+#~ "'StartupNotify': indien ingesteld op 'true', dan is het BEKEND dat de "
+#~ "toepassing\n"
+#~ "een 'verwijder'-boodschap zal verzenden wanneer gestart met de omgevings-\n"
+#~ "variabele DESKTOP_STARTUP_ID ingesteld. Indien 'false', dan is het BEKEND\n"
+#~ "dat de toepassing sowieso niet werkt met opstartmelding (toont geen "
+#~ "venster,\n"
+#~ "disfunctioneert zelfs met gebruikmaking van StartupWMClass, enz.). \n"
+#~ "Indien afwezig, dan is een redelijke afhandeling aan de implementaties\n"
+#~ "('false' als aanname, gebruikmaken van StartupWMClass, enz.)."
+
+#~ msgid ""
+#~ "\"DBusActivatable\": A boolean value specifying if D-Bus activation is "
+#~ "supported\n"
+#~ "for this application. If this key is missing, the default value is false. "
+#~ "If\n"
+#~ "the value is true then implementations should ignore the Exec key and send "
+#~ "a\n"
+#~ "D-Bus message to launch the application. See D-Bus Activation for more\n"
+#~ "information on how this works. Applications should still include Exec= "
+#~ "lines\n"
+#~ "in their desktop files for compatibility with implementations that do not\n"
+#~ "understand the DBusActivatable key."
+#~ msgstr ""
+#~ "'DBusActivatable': een booleaanse waarde die opgeeft of D-Bus-activatie\n"
+#~ "wordt ondersteund voor deze toepassing. Indien deze sleutel ontbreekt, is\n"
+#~ "de standaardwaarde 'false'. Indien de waarde 'true' is, dan zouden\n"
+#~ "implementaties de Exec-sleutel moeten negeren en een D-Bus-boodschap\n"
+#~ "moeten verzenden om de toepassing te starten. Zie D-Bus Activation voor\n"
+#~ "meer informatie over hoe dit werkt. Toepassingen moeten nog steeds\n"
+#~ "'Exec='-regels in hun bureaubladbestanden hebben voor verenigbaarheid\n"
+#~ "met implementaties die de sleutel DBusActivatable niet begrijpen."
