@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-02 05:50-0400\n"
-"PO-Revision-Date: 2014-08-28 13:47+0000\n"
+"PO-Revision-Date: 2014-09-05 14:22+0000\n"
 "Last-Translator: Man from Mars <manfrommars@libero.it>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-03 06:55+0000\n"
+"X-Launchpad-Export-Date: 2014-09-06 07:36+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 "Language: it\n"
 
@@ -160,6 +160,11 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
+"Programma da eseguire con argomenti. Questa opzione è necessaria se "
+"DBusActivatable non è impostato a \"True\" o se è richiesta la compatibilità "
+"con le applicazioni che non supportano l'attivazione D-Bus.\n"
+"Consultare http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
+"spec-latest.html#exec-variables per una lista degli argomenti supportati."
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Command"
@@ -167,7 +172,7 @@ msgstr "Comando"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "The working directory."
-msgstr ""
+msgstr "Cartella di lavoro."
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Working Directory"
@@ -183,7 +188,7 @@ msgstr "<b>Dettagli dell'applicazione</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "If set to \"True\", the program will be ran in a terminal window."
-msgstr ""
+msgstr "Se impostato a \"True\", il programma sarà eseguito in un terminale."
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Run in terminal"
@@ -194,6 +199,9 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
+"Se impostato a \"True\", viene inviata una notifica di avvio. Ciò significa "
+"di solito che è mostrato il cursore di \"occupato\" mentre l'applicazione si "
+"avvia."
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
@@ -204,6 +212,8 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
+"Se impostato a \"True\", questa voce non verrà mostrata nei menu, ma sarà "
+"disponibile per le associazioni dei tipi MIME etc."
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Hide from menus"
@@ -247,7 +257,7 @@ msgstr "Azioni"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr ""
+msgstr "Nome generico dell'applicazione, ad esempio \"Browser Web\"."
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Generic Name"
@@ -260,6 +270,10 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"La lista di ambienti che non dovrebbero mostrare questa voce. Si può usare "
+"questa opzione solo se \"OnlyShowIn\" non è impostato.\n"
+"I possibili valori includono: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, "
+"Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Not Shown In"
@@ -273,6 +287,11 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"La lista di ambienti che dovrebbero mostrare questa voce. Gli altri ambienti "
+"non la mostreranno. Si può usare questa opzione solo se \"NotShowIn\" non è "
+"impostato.\n"
+"I possibili valori includono: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, "
+"Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Only Shown In"
@@ -284,6 +303,9 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
+"Percorso del file eseguibile per determinare se il programma è installato. "
+"Se il file non è presente o non è eseguibile, questa voce potrebbe non "
+"essere mostrata nei menu."
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Try Exec"
@@ -291,7 +313,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "The MIME type(s) supported by this application."
-msgstr ""
+msgstr "I tipi MIME supportati da questa applicazione."
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Mimetypes"
@@ -303,6 +325,9 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
+"Una lista di parole chiave per descrivere questa voce, che aiutano anche "
+"nella ricerca. Queste parole non verranno mostrate e non dovrebbero "
+"corrispondere ai valori di Name e GenericName"
 
 #: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Keywords"
@@ -313,6 +338,8 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
+"Se specificato, all'applicazione sarà richiesto di usare una stringa come WM "
+"class o WM name hint almeno in una finestra."
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Startup WM Class"
@@ -323,6 +350,8 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
+"Se impostato a \"True\", il risultato per l'utente è equivalente ad un file "
+".desktop non esistente."
 
 #: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Hidden"
@@ -335,6 +364,10 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
+"Impostare il valore a \"True\" se l'attivazione D-Bus è supportata per "
+"questa applicazione e si intende usarla.\n"
+"Consultare http://standards.freedesktop.org/desktop-entry-"
+"spec/latest/ar01s07.html per maggiori informazioni."
 
 #: ../data/ui/MenulibreWindow.ui.h:73
 msgid "DBUS Activatable"
