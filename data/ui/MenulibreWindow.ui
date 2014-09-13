@@ -298,13 +298,15 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
   <object class="GtkImage" id="image11">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-open</property>
+    <property name="icon_name">gtk-open</property>
+    <property name="use_fallback">True</property>
     <property name="icon_size">1</property>
   </object>
   <object class="GtkImage" id="image12">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-open</property>
+    <property name="icon_name">gtk-open</property>
+    <property name="use_fallback">True</property>
     <property name="icon_size">1</property>
   </object>
   <object class="GtkImage" id="image13">
@@ -316,13 +318,15 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
   <object class="GtkImage" id="image14">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-open</property>
+    <property name="icon_name">gtk-open</property>
+    <property name="use_fallback">True</property>
     <property name="icon_size">1</property>
   </object>
   <object class="GtkImage" id="image15">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <property name="stock">gtk-open</property>
+    <property name="icon_name">gtk-open</property>
+    <property name="use_fallback">True</property>
     <property name="icon_size">1</property>
   </object>
   <object class="GtkDialog" id="icon_dialog">
@@ -557,6 +561,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                             <property name="tooltip_text" translatable="yes">16px</property>
                             <property name="pixel_size">16</property>
                             <property name="icon_name">image-loading</property>
+                            <property name="use_fallback">True</property>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -571,6 +576,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                             <property name="tooltip_text" translatable="yes">32px</property>
                             <property name="pixel_size">32</property>
                             <property name="icon_name">image-loading</property>
+                            <property name="use_fallback">True</property>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -585,6 +591,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                             <property name="tooltip_text" translatable="yes">64px</property>
                             <property name="pixel_size">64</property>
                             <property name="icon_name">image-loading</property>
+                            <property name="use_fallback">True</property>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -599,6 +606,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                             <property name="tooltip_text" translatable="yes">128px</property>
                             <property name="pixel_size">128</property>
                             <property name="icon_name">image-loading</property>
+                            <property name="use_fallback">True</property>
                           </object>
                           <packing>
                             <property name="expand">True</property>
@@ -737,12 +745,11 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImageMenuItem" id="menubar_save_launcher">
-                        <property name="label">gtk-save</property>
+                      <object class="GtkMenuItem" id="menubar_save_launcher">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Save</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
                       </object>
                     </child>
                     <child>
@@ -752,12 +759,11 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImageMenuItem" id="menubar_quit">
-                        <property name="label">gtk-quit</property>
+                      <object class="GtkMenuItem" id="menubar_quit">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Quit</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
                       </object>
                     </child>
                   </object>
@@ -775,21 +781,19 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkImageMenuItem" id="menubar_undo">
-                        <property name="label">gtk-undo</property>
+                      <object class="GtkMenuItem" id="menubar_undo">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Undo</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImageMenuItem" id="menubar_redo">
-                        <property name="label">gtk-redo</property>
+                      <object class="GtkMenuItem" id="menubar_redo">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Redo</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
                       </object>
                     </child>
                     <child>
@@ -799,12 +803,11 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImageMenuItem" id="menubar_revert">
-                        <property name="label">gtk-revert-to-saved</property>
+                      <object class="GtkMenuItem" id="menubar_revert">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Revert</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
                       </object>
                     </child>
                   </object>
@@ -822,21 +825,19 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <child>
-                      <object class="GtkImageMenuItem" id="menubar_help">
-                        <property name="label">gtk-help</property>
+                      <object class="GtkMenuItem" id="menubar_help">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_Contents</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImageMenuItem" id="menubar_about">
-                        <property name="label">gtk-about</property>
+                      <object class="GtkMenuItem" id="menubar_about">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">_About</property>
                         <property name="use_underline">True</property>
-                        <property name="use_stock">True</property>
                       </object>
                     </child>
                   </object>
