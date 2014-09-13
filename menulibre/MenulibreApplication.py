@@ -22,7 +22,8 @@ from locale import gettext as _
 
 from gi.repository import Gio, GObject, Gtk, Pango, Gdk, GdkPixbuf, GLib
 
-from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
+from . import MenuEditor, MenulibreStackSwitcher, MenulibreXdg
+from . import XmlMenuElementTree, util
 from .util import MenuItemTypes
 import menulibre_lib
 
@@ -638,13 +639,15 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def configure_application_editor(self, builder):
         """Configure the editor frame."""
-        # Set up the fancy notebook.
-        self.settings_notebook = builder.get_object('settings_notebook')
-        buttons = ['categories_button', 'quicklists_button', 'advanced_button']
-        for i in range(len(buttons)):
-            button = builder.get_object(buttons[i])
-            button.connect("clicked", self.on_settings_group_changed, i)
-            button.activate()
+        placeholder = builder.get_object('settings_placeholder')
+        self.switcher = MenulibreStackSwitcher.StackSwitcherBox()
+        placeholder.add(self.switcher)
+        self.switcher.add_child(builder.get_object('categories'),
+                                'categories', _('Categories'))
+        self.switcher.add_child(builder.get_object('actions'),
+                                'actions', _('Actions'))
+        self.switcher.add_child(builder.get_object('advanced'),
+                                'advanced', _('Advanced'))
 
         # Store the editor.
         self.editor = builder.get_object('application_editor')
@@ -687,7 +690,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # These widgets are hidden when the selected item is a Directory.
         self.directory_hide_widgets = []
-        for widget_name in ['details_frame', 'settings_frame',
+        for widget_name in ['details_frame', 'settings_placeholder',
                             'terminal_label', 'switch_Terminal',
                             'notify_label', 'switch_StartupNotify']:
             self.directory_hide_widgets.append(builder.get_object(widget_name))
