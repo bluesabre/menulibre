@@ -741,17 +741,20 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             button.connect('clicked', self.on_ExecPath_clicked,
                                       widget_name, builder)
 
-        # Connect the Icon button.
-        button = builder.get_object('button_Icon')
-        button.connect("clicked", self.on_Icon_clicked, builder)
+        # Connect the Icon menu.
+        menu = builder.get_object("icon_select_menu")
+        select_icon_name = builder.get_object("icon_select_by_icon_name")
+        select_icon_name.connect("activate",
+                                 self.on_IconSelectFromIcons_clicked,
+                                 builder)
+        select_icon_file = builder.get_object("icon_select_by_filename")
+        select_icon_file.connect("activate",
+                                 self.on_IconSelectFromFilename_clicked)
 
-        # Preview Images, keys are the image height/width
-        self.previews = {
-            16: builder.get_object('preview_16'),
-            32: builder.get_object('preview_32'),
-            64: builder.get_object('preview_64'),
-            128: builder.get_object('preview_128')
-        }
+        # Install Icons List
+        self.icon_theme = Gtk.IconTheme.get_default()
+        self.icons_list = self.icon_theme.list_icons(None)
+        self.icons_list.sort()
 
         # Configure the IconSelection treeview.
         self.icon_selection_treeview = \
@@ -768,17 +771,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                             button)
         self.icon_selection_treeview.connect("cursor-changed",
                         self.on_icon_selection_cursor_changed, None, button)
-
-        # Configure the IconType selection.
-        for widget_name in ['IconName', 'ImageFile']:
-            radio = builder.get_object('radiobutton_%s' % widget_name)
-            radio.connect("clicked", self.on_IconGroup_toggled,
-                                     widget_name, builder)
-            entry = builder.get_object('entry_%s' % widget_name)
-            entry.connect("changed", self.on_IconEntry_changed, widget_name)
-            button = builder.get_object('button_%s' % widget_name)
-            button.connect("clicked", self.on_IconButton_clicked,
-                                        widget_name, builder)
 
         # Categories Treeview and Inline Toolbar
         self.categories_treeview = builder.get_object('categories_treeview')
@@ -1069,138 +1061,33 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         button.set_relief(Gtk.ReliefStyle.NONE)
 
 # Icon Selection
-    def on_Icon_clicked(self, widget, builder):
-        """Show the Icon Selection dialog when the Icon button is clicked."""
-        # Update the icon theme.
-        self.icon_theme = Gtk.IconTheme.get_default()
-
-        # Update the icons list.
-        self.icons_list = self.icon_theme.list_icons(None)
-        self.icons_list.sort()
-
-        # Get the dialog widgets.
-        dialog = builder.get_object('icon_dialog')
-        dialog.set_transient_for(self)
-        radio_IconName = builder.get_object('radiobutton_IconName')
-        radio_ImageFile = builder.get_object('radiobutton_ImageFile')
-        entry_IconName = builder.get_object('entry_IconName')
-        entry_ImageFile = builder.get_object('entry_ImageFile')
-
-        # Get the current icon name.
-        icon_name = self.values['Icon']
-
-        # If the current icon name is actually a filename...
-        if os.path.isfile(icon_name):
-            # Select the Image File radio button and set its details.
-            radio_ImageFile.set_active(True)
-            entry_ImageFile.set_text(icon_name)
-            entry_ImageFile.grab_focus()
-
-            # Update the icon preview.
-            self.update_icon_preview(filename=icon_name)
-
-            # Clear the IconName field.
-            entry_IconName.set_text("")
-
-        # If the icon name is an icon...
-        else:
-            # Select the Icon Name radio button and set its details.
-            radio_IconName.set_active(True)
-            entry_IconName.set_text(icon_name)
-            entry_IconName.grab_focus()
-
-            # Update the icon preview.
-            self.update_icon_preview(icon_name=icon_name)
-
-            # Clear the ImageFile field.
-            entry_ImageFile.set_text("")
-
-        # Run the dialog, updating the entries as needed.
+    def on_IconSelectFromIcons_clicked(self, widget, builder):
+        dialog = builder.get_object('icon_selection_dialog')
+        self.load_icon_selection_treeview()
         response = dialog.run()
         if response == Gtk.ResponseType.APPLY:
-            if radio_IconName.get_active():
-                self.set_value('Icon', entry_IconName.get_text())
-            else:
-                self.set_value('Icon', entry_ImageFile.get_text())
+            treeview = builder.get_object('icon_selection_treeview')
+            model, treeiter = treeview.get_selection().get_selected()
+            icon_name = model[treeiter][0]
+            self.set_value('Icon', icon_name)
         dialog.hide()
 
-    def on_IconGroup_toggled(self, widget, group_name, builder):
-        """Update the sensitivity of the icon/image widgets based on the
-        selected radio group."""
-        if widget.get_active():
-            entry = builder.get_object('entry_%s' % group_name)
-            if group_name == 'IconName':
-                builder.get_object('box_IconName').set_sensitive(True)
-                builder.get_object('box_ImageFile').set_sensitive(False)
-                self.update_icon_preview(icon_name=entry.get_text())
-            else:
-                builder.get_object('box_ImageFile').set_sensitive(True)
-                builder.get_object('box_IconName').set_sensitive(False)
-                self.update_icon_preview(filename=entry.get_text())
-
-    def on_IconEntry_changed(self, widget, widget_name):
-        """Update the Icon previews when the icon text has changed."""
-        text = widget.get_text()
-        if widget_name == 'IconName':
-            self.update_icon_preview(icon_name=text)
-        else:
-            self.update_icon_preview(filename=text)
-
-    def on_IconButton_clicked(self, widget, widget_name, builder):
-        """Load the IconSelection dialog to choose a new icon."""
-        # Icon Name
-        if widget_name == 'IconName':
-            dialog = builder.get_object('icon_selection_dialog')
-            self.load_icon_selection_treeview()
-            response = dialog.run()
-            if response == Gtk.ResponseType.APPLY:
-                treeview = builder.get_object('icon_selection_treeview')
-                model, treeiter = treeview.get_selection().get_selected()
-                icon_name = model[treeiter][0]
-                entry = builder.get_object('entry_IconName')
-                entry.set_text(icon_name)
-            dialog.hide()
-
-        # Image File
-        else:
-            dialog = Gtk.FileChooserDialog(title=_("Select an image"),
-                                            transient_for=self,
-                                            action=Gtk.FileChooserAction.OPEN)
-            dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL,
-                                _("OK"), Gtk.ResponseType.OK)
-            file_filter = Gtk.FileFilter()
-            file_filter.set_name(_("Images"))
-            file_filter.add_mime_type("image/*")
-            dialog.add_filter(file_filter)
-            if dialog.run() == Gtk.ResponseType.OK:
-                filename = dialog.get_filename()
-                entry = builder.get_object('entry_ImageFile')
-                entry.set_text(filename)
-            dialog.hide()
-
-    def update_icon_preview(self, icon_name='image-missing', filename=None):
-        """Update the icon preview."""
-        # If filename is specified...
-        if filename is not None:
-            # If the file exists...
-            if os.path.isfile(filename):
-                # Render it to a pixbuf...
-                pixbuf = GdkPixbuf.Pixbuf.new_from_file(filename)
-                for size in [16, 32, 64, 128]:
-                    # Scale the image...
-                    scaled = pixbuf.scale_simple(size, size,
-                                    GdkPixbuf.InterpType.HYPER)
-                    # Then update the preview images.
-                    self.previews[size].set_from_pixbuf(scaled)
-                return
-
-        # Check if the icon theme lists this icon.
-        if icon_name not in self.icons_list:
-            icon_name = 'image-missing'
-
-        # Update each of the preview images with the icon.
-        for size in [16, 32, 64, 128]:
-            self.previews[size].set_from_icon_name(icon_name, size)
+    def on_IconSelectFromFilename_clicked(self, widget):
+        dialog = Gtk.FileChooserDialog(title=_("Select an image"),
+                                        transient_for=self,
+                                        action=Gtk.FileChooserAction.OPEN)
+        dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL,
+                            _("OK"), Gtk.ResponseType.OK)
+        file_filter = Gtk.FileFilter()
+        file_filter.set_name(_("Images"))
+        file_filter.add_mime_type("image/*")
+        dialog.add_filter(file_filter)
+        if dialog.run() == Gtk.ResponseType.OK:
+            filename = dialog.get_filename()
+            self.set_editor_image(filename)
+            self.set_value('Icon', filename)
+        dialog.hide()
+        dialog.destroy()
 
     def load_icon_selection_treeview(self):
         """Load the IconSelection treeview."""
