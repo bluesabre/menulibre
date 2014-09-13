@@ -23,6 +23,8 @@ menulibre.desktop.in
 menulibre/__init__.py
 menulibre/MenuEditor.py
 menulibre/MenulibreApplication.py
+menulibre/MenulibreIconSelection.py
+menulibre/MenulibreStackSwitcher.py
 menulibre/MenulibreXdg.py
 menulibre/util.py
 menulibre/XmlMenuElementTree.py

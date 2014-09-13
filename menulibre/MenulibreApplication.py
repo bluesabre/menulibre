@@ -22,8 +22,8 @@ from locale import gettext as _
 
 from gi.repository import Gio, GObject, Gtk, Pango, Gdk, GdkPixbuf, GLib
 
-from . import MenuEditor, MenulibreStackSwitcher, MenulibreXdg
-from . import XmlMenuElementTree, util
+from . import MenulibreStackSwitcher, MenulibreIconSelection
+from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
 from .util import MenuItemTypes
 import menulibre_lib
 
@@ -741,6 +741,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             button.connect('clicked', self.on_ExecPath_clicked,
                                       widget_name, builder)
 
+        # Icon Selector
+        self.icon_selector = MenulibreIconSelection.IconSelector(parent=self)
+
         # Connect the Icon menu.
         menu = builder.get_object("icon_select_menu")
         select_icon_name = builder.get_object("icon_select_by_icon_name")
@@ -750,27 +753,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         select_icon_file = builder.get_object("icon_select_by_filename")
         select_icon_file.connect("activate",
                                  self.on_IconSelectFromFilename_clicked)
-
-        # Install Icons List
-        self.icon_theme = Gtk.IconTheme.get_default()
-        self.icons_list = self.icon_theme.list_icons(None)
-        self.icons_list.sort()
-
-        # Configure the IconSelection treeview.
-        self.icon_selection_treeview = \
-            builder.get_object('icon_selection_treeview')
-        entry = builder.get_object('icon_selection_search')
-        model = self.icon_selection_treeview.get_model()
-        model_filter = model.filter_new()
-        model_filter.set_visible_func(self.icon_selection_match_func, entry)
-        self.icon_selection_treeview.set_model(model_filter)
-        entry.connect("changed", self.on_search_changed, model_filter)
-        button = builder.get_object('icon_selection_apply')
-        self.icon_selection_treeview.connect("row-activated",
-                                            self.icon_selection_row_activated,
-                                            button)
-        self.icon_selection_treeview.connect("cursor-changed",
-                        self.on_icon_selection_cursor_changed, None, button)
 
         # Categories Treeview and Inline Toolbar
         self.categories_treeview = builder.get_object('categories_treeview')
@@ -1062,56 +1044,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
 # Icon Selection
     def on_IconSelectFromIcons_clicked(self, widget, builder):
-        dialog = builder.get_object('icon_selection_dialog')
-        self.load_icon_selection_treeview()
-        response = dialog.run()
-        if response == Gtk.ResponseType.APPLY:
-            treeview = builder.get_object('icon_selection_treeview')
-            model, treeiter = treeview.get_selection().get_selected()
-            icon_name = model[treeiter][0]
+        icon_name = self.icon_selector.select_by_icon_name()
+        if icon_name is not None:
             self.set_value('Icon', icon_name)
-        dialog.hide()
 
     def on_IconSelectFromFilename_clicked(self, widget):
-        dialog = Gtk.FileChooserDialog(title=_("Select an image"),
-                                        transient_for=self,
-                                        action=Gtk.FileChooserAction.OPEN)
-        dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL,
-                            _("OK"), Gtk.ResponseType.OK)
-        file_filter = Gtk.FileFilter()
-        file_filter.set_name(_("Images"))
-        file_filter.add_mime_type("image/*")
-        dialog.add_filter(file_filter)
-        if dialog.run() == Gtk.ResponseType.OK:
-            filename = dialog.get_filename()
-            self.set_editor_image(filename)
+        filename = self.icon_selector.select_by_filename()
+        if filename is not None:
             self.set_value('Icon', filename)
-        dialog.hide()
-        dialog.destroy()
-
-    def load_icon_selection_treeview(self):
-        """Load the IconSelection treeview."""
-        model = self.icon_selection_treeview.get_model().get_model()
-        for icon_name in self.icons_list:
-            model.append([icon_name])
-
-    def icon_selection_match_func(self, model, treeiter, entry):
-        """Match function for filtering IconSelection search results."""
-        # Make the query case-insensitive.
-        query = str(entry.get_text().lower())
-
-        if query == "":
-            return True
-
-        return query in model[treeiter][0].lower()
-
-    def icon_selection_row_activated(self, widget, path, column, button):
-        """Allow row activation to select the icon and close the dialog."""
-        button.activate()
-
-    def on_icon_selection_cursor_changed(self, widget, selection, button):
-        """When the cursor selects a row, make the Apply button sensitive."""
-        button.set_sensitive(True)
 
 # Name and Comment Widgets
     def on_NameComment_key_press_event(self, widget, ev, widget_name, builder):
@@ -1579,6 +1519,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # If the Icon Theme has the icon, set the image to that icon.
             if icon_theme.has_icon(icon_name):
                 image.set_from_icon_name(icon_name, 48)
+                self.icon_selector.set_icon_name(icon_name)
+                return
 
             # If the icon name is actually a file, render it to the Image.
             elif os.path.isfile(icon_name):
@@ -1587,12 +1529,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 scaled = pixbuf.scale_simple(size, size,
                                                 GdkPixbuf.InterpType.HYPER)
                 image.set_from_pixbuf(scaled)
+                self.icon_selector.set_filename(icon_name)
+                return
 
-            # Fallback icon.
-            else:
-                image.set_from_icon_name("application-default-icon", 48)
-        else:
-            image.set_from_icon_name("application-default-icon", 48)
+        image.set_from_icon_name("application-default-icon", 48)
 
     def set_editor_filename(self, filename):
         """Set the editor filename."""
