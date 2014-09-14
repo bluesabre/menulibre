@@ -21,7 +21,7 @@ import re
 import getpass
 import psutil
 
-from gi.repository import GLib
+from gi.repository import GLib, Gdk
 
 import logging
 logger = logging.getLogger('menulibre')
@@ -325,3 +325,25 @@ def getSaveFilename(name, filename, item_type, force_update=False):
                 count += 1
 
     return filename
+
+
+def check_keypress(event, keys):
+    """Compare keypress events with desired keys and return True if matched."""
+    if 'Control' in keys:
+        if not bool(event.get_state() & Gdk.ModifierType.CONTROL_MASK):
+            return False
+    if 'Alt' in keys:
+        if not bool(event.get_state() & Gdk.ModifierType.MOD1_MASK):
+            return False
+    if 'Shift' in keys:
+        if not bool(event.get_state() & Gdk.ModifierType.SHIFT_MASK):
+            return False
+    if 'Super' in keys:
+        if not bool(event.get_state() & Gdk.ModifierType.SUPER_MASK):
+            return False
+    if 'Escape' in keys:
+        keys[keys.index('Escape')] = 'escape'
+    if Gdk.keyval_name(event.get_keyval()[1]).lower() not in keys:
+        return False
+
+    return True

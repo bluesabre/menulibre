@@ -122,6 +122,7 @@ class IconSelector:
 
             # Attach signals.
             entry.connect("changed", self._on_search_changed, model_filter)
+            entry.connect('icon-press', self._on_search_cleared)
             self._icon_sel_treeview.connect("row-activated",
                                             self._on_row_activated,
                                             button)
@@ -183,3 +184,7 @@ class IconSelector:
                 self.treeview.expand_all()
 
         treefilter.refilter()
+
+    def _on_search_cleared(self, widget, event, user_data=None):
+        """Generic search cleared callback function."""
+        widget.set_text("")

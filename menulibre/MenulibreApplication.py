@@ -17,41 +17,18 @@
 
 import os
 import re
-import subprocess
 from locale import gettext as _
 
-from gi.repository import Gio, GObject, Gtk, Pango, Gdk, GdkPixbuf, GLib
+from gi.repository import Gio, GObject, Gtk, GdkPixbuf
 
 from . import MenulibreStackSwitcher, MenulibreIconSelection
-from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
-from .util import MenuItemTypes
+from . import MenulibreTreeview, MenulibreHistory, Dialogs
+from . import MenulibreXdg, util
+from .util import MenuItemTypes, check_keypress
 import menulibre_lib
 
 import logging
 logger = logging.getLogger('menulibre')
-
-
-def check_keypress(event, keys):
-    """Compare keypress events with desired keys and return True if matched."""
-    if 'Control' in keys:
-        if not bool(event.get_state() & Gdk.ModifierType.CONTROL_MASK):
-            return False
-    if 'Alt' in keys:
-        if not bool(event.get_state() & Gdk.ModifierType.MOD1_MASK):
-            return False
-    if 'Shift' in keys:
-        if not bool(event.get_state() & Gdk.ModifierType.SHIFT_MASK):
-            return False
-    if 'Super' in keys:
-        if not bool(event.get_state() & Gdk.ModifierType.SUPER_MASK):
-            return False
-    if 'Escape' in keys:
-        keys[keys.index('Escape')] = 'escape'
-    if Gdk.keyval_name(event.get_keyval()[1]).lower() not in keys:
-        return False
-
-    return True
-
 
 session = os.getenv("DESKTOP_SESSION")
 
@@ -183,133 +160,6 @@ def lookup_category_description(spec_name):
     return description
 
 
-class MenulibreHistory(GObject.GObject):
-    """The MenulibreHistory object. This stores all history for Menulibre and
-    allows for Undo/Redo/Revert functionality."""
-
-    __gsignals__ = {
-        'undo-changed': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_BOOLEAN,
-                        (GObject.TYPE_BOOLEAN,)),
-        'redo-changed': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_BOOLEAN,
-                        (GObject.TYPE_BOOLEAN,)),
-        'revert-changed': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_BOOLEAN,
-                        (GObject.TYPE_BOOLEAN,))
-    }
-
-    def __init__(self):
-        """Intialize the MenulibreHistory object."""
-        GObject.GObject.__init__(self)
-        self._undo = []
-        self._redo = []
-        self._restore = dict()
-        self._block = False
-
-    def append(self, key, before, after):
-        """Add a new change to the History, clear the redo."""
-        if self._block:
-            return
-        self._append_undo(key, before, after)
-        self._clear_redo()
-        self._check_revert()
-
-    def store(self, key, value):
-        """Store an original value to be used for reverting."""
-        self._restore[key] = value
-
-    def restore(self):
-        """Return a copy of the restore dictionary."""
-        return self._restore.copy()
-
-    def undo(self):
-        """Return the next key-value pair to undo, push it to redo."""
-        key, before, after = self._pop_undo()
-        self._append_redo(key, before, after)
-        self._check_revert()
-        return (key, before)
-
-    def redo(self):
-        """Return the next key-value pair to redo, push it to undo."""
-        key, before, after = self._pop_redo()
-        self._append_undo(key, before, after)
-        self._check_revert()
-        return (key, after)
-
-    def clear(self):
-        """Clear all history items."""
-        self._clear_undo()
-        self._clear_redo()
-        self._restore.clear()
-        self._check_revert()
-
-    def block(self):
-        """Block all future history changes."""
-        logger.debug('Blocking history updates')
-        self._block = True
-
-    def unblock(self):
-        """Unblock all future history changes."""
-        logger.debug('Unblocking history updates')
-        self._block = False
-
-    def is_blocked(self):
-        """Is History allowed currently?"""
-        return self._block
-
-    def _append_undo(self, key, before, after):
-        """Internal append_undo function. Emit 'undo-changed' if the undo stack
-        now contains a history."""
-        self._undo.append((key, before, after))
-        if len(self._undo) == 1:
-            self.emit('undo-changed', True)
-
-    def _pop_undo(self):
-        """Internal pop_undo function. Emit 'undo-changed' if the undo stack is
-        now empty."""
-        history = self._undo.pop()
-        if len(self._undo) == 0:
-            self.emit('undo-changed', False)
-        return history
-
-    def _clear_undo(self):
-        """Internal clear_undo function. Emit 'undo-changed' if the undo stack
-        previously had items."""
-        has_history = len(self._undo) > 0
-        self._undo.clear()
-        if has_history:
-            self.emit('undo-changed', False)
-
-    def _clear_redo(self):
-        """Internal clear_redo function. Emit 'redo-changed' if the redo stack
-        previously had items."""
-        has_history = len(self._redo) > 0
-        self._redo.clear()
-        if has_history:
-            self.emit('redo-changed', False)
-
-    def _append_redo(self, key, before, after):
-        """Internal append_redo function. Emit 'redo-changed' if the redo stack
-        now contains a history."""
-        self._redo.append((key, before, after))
-        if len(self._redo) == 1:
-            self.emit('redo-changed', True)
-
-    def _pop_redo(self):
-        """Internal pop_redo function. Emit 'redo-changed' if the redo stack is
-        now empty."""
-        history = self._redo.pop()
-        if len(self._redo) == 0:
-            self.emit('redo-changed', False)
-        return history
-
-    def _check_revert(self):
-        """Check if revert should now be enabled and emit the 'revert-changed'
-        signal."""
-        if len(self._undo) == 0 and len(self._redo) == 0:
-            self.emit('revert-changed', False)
-        elif len(self._undo) == 1 or len(self._redo) == 1:
-            self.emit('revert-changed', True)
-
-
 class MenulibreWindow(Gtk.ApplicationWindow):
     """The Menulibre application window."""
 
@@ -328,7 +178,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         builder = menulibre_lib.get_builder('MenulibreWindow')
 
         # Set up History
-        self.history = MenulibreHistory()
+        self.history = MenulibreHistory.History()
         self.history.connect('undo-changed', self.on_undo_changed)
         self.history.connect('redo-changed', self.on_redo_changed)
         self.history.connect('revert-changed', self.on_revert_changed)
@@ -571,71 +421,42 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def configure_application_treeview(self, builder):
         """Configure the menu-browsing GtkTreeView."""
-        # Get the menu treestore.
-        treestore = MenuEditor.get_treestore()
-
-        # Prepare the GtkTreeView.
-        self.treeview = builder.get_object('classic_view_treeview')
-
-        # Create a new column.
-        col = Gtk.TreeViewColumn(_("Search Results"))
-
-        # Create and pack the PixbufRenderer.
-        col_cell_img = Gtk.CellRendererPixbuf()
-        col_cell_img.set_property("stock-size", Gtk.IconSize.LARGE_TOOLBAR)
-        col.pack_start(col_cell_img, False)
-
-        # Create and pack the TextRenderer.
-        col_cell_text = Gtk.CellRendererText()
-        col_cell_text.set_property("ellipsize", Pango.EllipsizeMode.END)
-        col.pack_start(col_cell_text, True)
-
-        # Set the markup property on the Text cell.
-        col.add_attribute(col_cell_text, "markup", 0)
-
-        # Set the Tooltip column.
-        self.treeview.set_tooltip_column(1)
-
-        # Add the cell data func for the pixbuf column to render icons.
-        col.set_cell_data_func(col_cell_img, self.icon_name_func, None)
-
-        # Append the column, set the model.
-        self.treeview.append_column(col)
-        self.treeview.set_model(treestore)
-
-        # Configure the treeview's inline toolbar.
-        self.browser_toolbar = builder.get_object('browser_toolbar')
-        move_up = builder.get_object('classic_view_move_up')
-        move_up.connect('clicked', self.move_iter, (self.treeview, -1))
-        move_down = builder.get_object('classic_view_move_down')
-        move_down.connect('clicked', self.move_iter, (self.treeview, 1))
-
-        # Configure searching.
-        self.treeview.set_search_entry(self.search_box)
+        self.treeview = MenulibreTreeview.Treeview(self, builder)
+        treeview = self.treeview.get_treeview()
+        treeview.set_search_entry(self.search_box)
         self.search_box.connect('changed', self.on_app_search_changed,
-                                            self.treeview, True)
-
-        # Configure the treeview events.
+                                           treeview, True)
+        self.treeview.set_can_select_function(self.get_can_select)
         self.treeview.connect("cursor-changed",
-                                self.on_treeview_cursor_changed, None, builder)
-        self.treeview.connect("key-press-event",
-                                self.on_treeview_key_press_event, None)
-        self.treeview.connect("row-expanded",
-                                self.on_treeview_row_expansion, True)
-        self.treeview.connect("row-collapsed",
-                                self.on_treeview_row_expansion, False)
+                             self.on_apps_browser_cursor_changed, builder)
+        self.treeview.connect("add-directory-enabled",
+                             self.on_apps_browser_add_directory_enabled, builder)
+        treeview.set_cursor(Gtk.TreePath.new_from_string("1"))
+        treeview.set_cursor(Gtk.TreePath.new_from_string("0"))
 
-        # Show the treeview, grab focus.
-        self.treeview.show_all()
-        self.treeview.grab_focus()
+    def get_can_select(self):
+        if self.save_button.get_sensitive():
+            dialog = Dialogs.SaveOnLeaveDialog(self)
 
-        # Select the topmost item.
-        self.last_selected_path = -1
-        self.treeview.set_cursor(Gtk.TreePath.new_from_string("0"))
-
-        # Configure the Selection
-        selection = self.treeview.get_selection()
-        selection.set_select_function(self.on_treeview_selection, None)
+            response = dialog.run()
+            dialog.destroy()
+            # Cancel prevents leaving this launcher.
+            if response == Gtk.ResponseType.CANCEL:
+                return False
+            # Don't Save allows leaving this launcher, deleting 'new'.
+            elif response == Gtk.ResponseType.NO:
+                filename = self.treeview.get_selected_filename()
+                if filename is None:
+                    self.delete_launcher()
+                    return False
+                return True
+            # Save and move on.
+            else:
+                self.save_launcher()
+                return True
+            return False
+        else:
+            return True
 
     def configure_application_editor(self, builder):
         """Configure the editor frame."""
@@ -1006,19 +827,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Save changes on close."""
         if self.save_button.get_sensitive():
             # Unsaved changes
-            question = _("Do you want to save the changes before closing?")
-            details = _("If you don't save the launcher, all the changes "
-                        "will be lost.'")
-            dialog = Gtk.MessageDialog(transient_for=self, modal=True,
-                                        message_type=Gtk.MessageType.QUESTION,
-                                        buttons=Gtk.ButtonsType.NONE,
-                                        text=question)
-            dialog.format_secondary_markup(details)
-            dialog.set_title(_("Save Changes"))
-            dialog.add_button(_("Don't Save"), Gtk.ResponseType.NO)
-            dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
-            dialog.add_button(_("Save"), Gtk.ResponseType.YES)
-
+            dialog = Dialogs.SaveOnCloseDialog(self)
             response = dialog.run()
             dialog.destroy()
             # Cancel prevents the application from closing.
@@ -1110,16 +919,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Show the file selection dialog when Exec/Path Browse is clicked."""
         entry = builder.get_object('entry_%s' % widget_name)
         if widget_name == 'Path':
-            dialog = Gtk.FileChooserDialog(
-                                    title=_("Select a working directory..."),
-                                    transient_for=self,
-                                    action=Gtk.FileChooserAction.SELECT_FOLDER)
+            title=_("Select a working directory...")
+            action=Gtk.FileChooserAction.SELECT_FOLDER
         else:
-            dialog = Gtk.FileChooserDialog(title=_("Select an executable..."),
-                                           transient_for=self,
-                                           action=Gtk.FileChooserAction.OPEN)
-        dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL,
-                            _("OK"), Gtk.ResponseType.OK)
+            title=_("Select an executable..."),
+            action=Gtk.FileChooserAction.OPEN
+
+        dialog = Dialogs.FileChooserDialog(self, title, action)
         result = dialog.run()
         dialog.hide()
         if result == Gtk.ResponseType.OK:
@@ -1131,275 +937,122 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.set_value(widget_name, filename)
         entry.grab_focus()
 
-# Settings Fancy Notebook
-    def on_settings_group_changed(self, widget, page_number):
-        """Handle setting the Notebook page with Radio Buttons."""
-        if widget.get_active():
-            self.settings_notebook.set_current_page(page_number)
-
 # Applications Treeview
-    def on_treeview_row_expansion(self, treeview, treeiter, column, expanded):
-        if self.browser_toolbar.get_sensitive():
-            model = treeview.get_model()
-            row = model[treeiter]
-            row[6] = expanded
-
-    def get_treeview_selected_expanded(self, treeview):
-        """Return True if the selected row is currently expanded."""
-        sel = treeview.get_selection()
-        model, treeiter = sel.get_selected()
-        row = model[treeiter]
-        return treeview.row_expanded(row.path)
-
-    def set_treeview_selected_expanded(self, treeview, expanded=True):
-        """Set the expansion (True or False) of the selected row."""
-        sel = treeview.get_selection()
-        model, treeiter = sel.get_selected()
-        row = model[treeiter]
-        if expanded:
-            treeview.expand_row(row.path, False)
+    def on_apps_browser_add_directory_enabled(self, widget, enabled, builder):
+        """Update the Add Directory menu item when the selected row is
+        changed."""
+        if enabled:
+            tooltip = None
         else:
-            treeview.collapse_row(row.path)
+            tooltip = _("Cannot add subdirectories to preinstalled"
+                        " system paths.")
 
-    def toggle_treeview_selected_expanded(self, treeview):
-        """Toggle the expansion of the selected row."""
-        expanded = self.get_treeview_selected_expanded(treeview)
-        self.set_treeview_selected_expanded(treeview, not expanded)
+        self.actions['add_directory'].set_sensitive(enabled)
+        for widget in self.action_items['add_directory']:
+            widget.set_sensitive(enabled)
+            widget.set_tooltip_text(tooltip)
 
-    def on_treeview_key_press_event(self, widget, event, user_data=None):
-        """Handle treeview keypress events."""
-        # Right expands the selected row.
-        if check_keypress(event, ['right']):
-            self.set_treeview_selected_expanded(widget, True)
-            return True
-        # Left collapses the selected row.
-        elif check_keypress(event, ['left']):
-            self.set_treeview_selected_expanded(widget, False)
-            return True
-        # Spacebar toggles the expansion of the selected row.
-        elif check_keypress(event, ['space']):
-            self.toggle_treeview_selected_expanded(widget)
-            return True
-        return False
-
-    def on_treeview_cursor_changed(self, widget, selection, builder):
+    def on_apps_browser_cursor_changed(self, widget, value, builder):
         """Update the editor frame when the selected row is changed."""
-        # Check if the selection is valid.
-        sel = widget.get_selection()
-        if sel:
-            treestore, treeiter = sel.get_selected()
-            if not treestore:
-                return
-            if not treeiter:
-                return
 
-            missing = False
+        missing = False
 
-            # Do nothing if we didn't change path
-            path = str(treestore.get_path(treeiter))
-            if path == self.last_selected_path:
-                return
-            self.last_selected_path = path
+        # Clear history
+        self.history.clear()
 
-            # Clear history
-            self.history.clear()
+        # Hide the Name and Comment editors
+        builder.get_object('box_Name').hide()
+        builder.get_object('box_Comment').hide()
 
-            # Hide the Name and Comment editors
-            builder.get_object('box_Name').hide()
-            builder.get_object('box_Comment').hide()
+        # Prevent updates to history.
+        self.history.block()
 
-            # Prevent updates to history.
-            self.history.block()
+        # Clear the individual entries.
+        for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
+                    'NoDisplay', 'GenericName', 'TryExec',
+                    'OnlyShowIn', 'NotShowIn', 'MimeType',
+                    'Keywords', 'StartupWMClass', 'Categories',
+                    'Hidden', 'DBusActivatable']:
+                    self.set_value(key, None)
 
-            # Clear the individual entries.
-            for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
-                        'NoDisplay', 'GenericName', 'TryExec',
-                        'OnlyShowIn', 'NotShowIn', 'MimeType',
-                        'Keywords', 'StartupWMClass', 'Categories',
-                        'Hidden', 'DBusActivatable']:
-                        self.set_value(key, None)
+        # Clear the Actions and Icon.
+        self.set_value('Actions', None, store=True)
+        self.set_value('Icon', None, store=True)
 
-            # Clear the Actions and Icon.
-            self.set_value('Actions', None, store=True)
-            self.set_value('Icon', None, store=True)
+        model, row_data = self.treeview.get_selected_row_data()
+        item_type = row_data[2]
 
-            item_type = treestore[treeiter][2]
-
-            # If the selected row is a separator, hide the editor.
-            if item_type == MenuItemTypes.SEPARATOR:
-                self.editor.hide()
-                self.set_value('Name', _("Separator"), store=True)
-                self.set_value('Comment', "", store=True)
-                self.set_value('Filename', None, store=True)
-                self.set_value('Type', 'Separator', store=True)
-
-            # Otherwise, show the editor and update the values.
-            else:
-                filename = treestore[treeiter][5]
-                new_launcher = filename is None
-
-                # Check if this file still exists, those tricksy hobbitses...
-                if (not new_launcher) and (not os.path.isfile(filename)):
-                    # If it does not, try to fallback...
-                    basename = os.path.basename(filename)
-                    filename = util.getSystemLauncherPath(basename)
-                    if filename is not None:
-                        treestore[treeiter][5] = filename
-
-                if new_launcher or (filename is not None):
-                    self.editor.show()
-                    displayed_name = treestore[treeiter][0]
-                    comment = treestore[treeiter][1]
-
-                    self.set_value('Icon', treestore[treeiter][4], store=True)
-                    self.set_value('Name', displayed_name, store=True)
-                    self.set_value('Comment', comment, store=True)
-                    self.set_value('Filename', filename, store=True)
-
-                    if item_type == MenuItemTypes.APPLICATION:
-                        self.editor.show_all()
-                        entry = MenulibreXdg.MenulibreDesktopEntry(filename)
-                        for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
-                                    'NoDisplay', 'GenericName', 'TryExec',
-                                    'OnlyShowIn', 'NotShowIn', 'MimeType',
-                                    'Keywords', 'StartupWMClass', 'Categories',
-                                    'Hidden', 'DBusActivatable']:
-                            self.set_value(key, entry[key], store=True)
-                        self.set_value('Actions', entry.get_actions(),
-                                                                    store=True)
-                        self.set_value('Type', 'Application')
-                    else:
-                        self.set_value('Type', 'Directory')
-                        for widget in self.directory_hide_widgets:
-                            widget.hide()
-
-                else:
-                    # Display a dialog saying this item is missing
-                    primary = _("No Longer Installed")
-                    secondary = _("This launcher has been removed from the "
-                                  "system.\nSelecting the next available item.")
-                    dialog = Gtk.MessageDialog(transient_for=self, modal=True,
-                                    message_type=Gtk.MessageType.INFO,
-                                    buttons=Gtk.ButtonsType.OK,
-                                    text=primary)
-                    dialog.format_secondary_markup(secondary)
-                    dialog.run()
-                    dialog.destroy()
-                    # Mark this item as missing to delete it later.
-                    missing = True
-
-            # Update the Add Directory menu item
-            self.update_add_directory(treestore, treeiter)
-
-            # Renable updates to history.
-            self.history.unblock()
-
-            # Remove this item if it happens to be gone.
-            if missing:
-                self.delete_launcher(self.treeview, treestore, treeiter)
-
-    def on_treeview_selection(self, sel, store, path, is_selected,
-                                user_data=None):
-        """Save changes on cursor change."""
-        if is_selected and self.save_button.get_sensitive():
-            question = _("Do you want to save the changes before leaving this "
-                        "launcher?")
-            details = _("If you don't save the launcher, all the changes "
-                        "will be lost.")
-            dialog = Gtk.MessageDialog(transient_for=self, modal=True,
-                                        message_type=Gtk.MessageType.QUESTION,
-                                        buttons=Gtk.ButtonsType.NONE,
-                                        text=question)
-            dialog.format_secondary_markup(details)
-            dialog.set_title(_("Save Changes"))
-            dialog.add_button(_("Don't Save"), Gtk.ResponseType.NO)
-            dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
-            dialog.add_button(_("Save"), Gtk.ResponseType.YES)
-
-            response = dialog.run()
-            dialog.destroy()
-            # Cancel prevents leaving this launcher.
-            if response == Gtk.ResponseType.CANCEL:
-                return False
-            # Don't Save allows leaving this launcher, deleting 'new'.
-            elif response == Gtk.ResponseType.NO:
-                sel = self.treeview.get_selection()
-                if sel:
-                    treestore, treeiter = sel.get_selected()
-                    if not treestore:
-                        pass
-                    elif not treeiter:
-                        pass
-                    else:
-                        filename = treestore[treeiter][5]
-                        if filename is None:
-                            self.delete_launcher(self.treeview, treestore,
-                                                treeiter)
-                            return False
-                return True
-            # Save and move on.
-            else:
-                self.save_launcher()
-                return True
-            return False
-        else:
-            return True
-
-    def icon_name_func(self, col, renderer, treestore, treeiter, user_data):
-        """CellRenderer function to set the gicon for each row."""
-        renderer.set_property("gicon", treestore[treeiter][3])
-
-    def treeview_match(self, model, treeiter, query):
-        """Match subfunction for filtering search results."""
-        name, comment, item_type, icon, pixbuf, desktop, expanded = \
-                model[treeiter][:]
-
-        # Hide separators in the search results.
+        # If the selected row is a separator, hide the editor.
         if item_type == MenuItemTypes.SEPARATOR:
-            return False
+            self.editor.hide()
+            self.set_value('Name', _("Separator"), store=True)
+            self.set_value('Comment', "", store=True)
+            self.set_value('Filename', None, store=True)
+            self.set_value('Type', 'Separator', store=True)
 
-        # Convert None to blank.
-        if not name:
-            name = ""
-        if not comment:
-            comment = ""
+        # Otherwise, show the editor and update the values.
+        else:
+            filename = self.treeview.get_selected_filename()
+            new_launcher = filename is None
 
-        # Expand all the rows.
-        self.treeview.expand_all()
+            # Check if this file still exists, those tricksy hobbitses...
+            if (not new_launcher) and (not os.path.isfile(filename)):
+                # If it does not, try to fallback...
+                original_filename = filename
+                basename = os.path.basename(filename)
+                filename = util.getSystemLauncherPath(basename)
+                if filename is not None:
+                    row_data[5] = filename
+                    self.treeview.update_launcher_instances(filename, row_data)
 
-        # Match against the name.
-        if query in name.lower():
-            return True
+            if new_launcher or (filename is not None):
+                self.editor.show()
+                displayed_name = row_data[0]
+                comment = row_data[1]
 
-        # Match against the comment.
-        if query in comment.lower():
-            return True
+                self.set_value('Icon', row_data[4], store=True)
+                self.set_value('Name', displayed_name, store=True)
+                self.set_value('Comment', comment, store=True)
+                self.set_value('Filename', filename, store=True)
 
-        # Show the directory if any child items match.
-        if item_type == MenuItemTypes.DIRECTORY:
-            return self.treeview_match_directory(query, model, treeiter)
+                if item_type == MenuItemTypes.APPLICATION:
+                    self.editor.show_all()
+                    entry = MenulibreXdg.MenulibreDesktopEntry(filename)
+                    for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
+                                'NoDisplay', 'GenericName', 'TryExec',
+                                'OnlyShowIn', 'NotShowIn', 'MimeType',
+                                'Keywords', 'StartupWMClass', 'Categories',
+                                'Hidden', 'DBusActivatable']:
+                        self.set_value(key, entry[key], store=True)
+                    self.set_value('Actions', entry.get_actions(),
+                                                                store=True)
+                    self.set_value('Type', 'Application')
+                else:
+                    self.set_value('Type', 'Directory')
+                    for widget in self.directory_hide_widgets:
+                        widget.hide()
 
-        # No matches, return False.
-        return False
+            else:
+                # Display a dialog saying this item is missing
+                primary = _("No Longer Installed")
+                secondary = _("This launcher has been removed from the "
+                              "system.\nSelecting the next available item.")
+                dialog = Gtk.MessageDialog(transient_for=self, modal=True,
+                                message_type=Gtk.MessageType.INFO,
+                                buttons=Gtk.ButtonsType.OK,
+                                text=primary)
+                dialog.format_secondary_markup(secondary)
+                dialog.run()
+                dialog.destroy()
+                # Mark this item as missing to delete it later.
+                missing = True
 
-    def treeview_match_directory(self, query, model, treeiter):
-        """Match subfunction for matching directory children."""
-        for child_i in range(model.iter_n_children(treeiter)):
-            child = model.iter_nth_child(treeiter, child_i)
-            if self.treeview_match(model, child, query):
-                return True
+        # Renable updates to history.
+        self.history.unblock()
 
-        return False
-
-    def treeview_match_func(self, model, treeiter, data=None):
-        """Match function for filtering search results."""
-        # Make the query case-insensitive.
-        query = str(self.search_box.get_text().lower())
-
-        if query == "":
-            return True
-
-        return self.treeview_match(model, treeiter, query)
+        # Remove this item if it happens to be gone.
+        if missing:
+            self.delete_launcher()
 
     def on_app_search_changed(self, widget, treeview, expand=False):
         """Update search results when query text is modified."""
@@ -1413,39 +1066,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                             None)
 
             # If the model is a filter, we want to remove the filter.
-            if isinstance(model, Gtk.TreeModelFilter):
-                # Get the model and iter.
-                f_model, f_iter = treeview.get_selection().get_selected()
-
-                # Restore the original model.
-                model = model.get_model()
-                treeview.set_model(model)
-
-                # Restore expanded items (lp 1307000)
-                treeview.collapse_all()
-                for n_child in range(model.iter_n_children(None)):
-                    treeiter = model.iter_nth_child(None, n_child)
-                    row = model[treeiter]
-                    if row[6]:
-                        treeview.expand_row(row.path, False)
-
-                # Try to get the row that was selected previously.
-                if (f_model is not None) and (f_iter is not None):
-                    row_data = f_model[f_iter][:]
-                    selected_iter = self.get_iter_by_data(row_data, model,
-                                                            parent=None)
-
-                # If that fails, just select the first iter.
-                else:
-                    selected_iter = model.get_iter_first()
-
-                # Set the cursor.
-                path = model.get_path(selected_iter)
-                treeview.set_cursor(path)
-
-            # Hide the headers and enable the inline toolbar.
-            treeview.set_headers_visible(False)
-            self.browser_toolbar.set_sensitive(True)
+            self.treeview.set_searchable(False, expand)
 
             # Enable add functionality
             for name in ['add_launcher', 'add_directory', 'add_separator',
@@ -1461,19 +1082,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
                                             'edit-clear-symbolic')
 
-            # Show the "Search Results" header and disable the inline toolbar.
-            treeview.set_headers_visible(True)
-            self.browser_toolbar.set_sensitive(False)
-
-            # If specified, expand the treeview.
-            if expand:
-                self.treeview.expand_all()
-
-            # If the model is not a filter, make it so.
-            if not isinstance(model, Gtk.TreeModelFilter):
-                model = model.filter_new()
-                treeview.set_model(model)
-                model.set_visible_func(self.treeview_match_func)
+            self.treeview.set_searchable(True)
 
             # Disable add functionality
             for name in ['add_launcher', 'add_directory', 'add_separator',
@@ -1484,24 +1093,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     self.actions[name].set_sensitive(False)
 
             # Rerun the filter.
-            model.refilter()
-
-# Generic Search functionality.
-    def on_search_changed(self, widget, treefilter, expand=False):
-        """Generic search entry changed callback function."""
-        query = widget.get_text()
-
-        if len(query) == 0:
-            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
-                                            None)
-
-        else:
-            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
-                                            'edit-clear-symbolic')
-            if expand:
-                self.treeview.expand_all()
-
-        treefilter.refilter()
+            self.treeview.search(self.search_box.get_text())
 
     def on_search_cleared(self, widget, event, user_data=None):
         """Generic search cleared callback function."""
@@ -1772,277 +1364,35 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 return None
         return None
 
-# TreeView iter tricks
-    def move_iter(self, widget, user_data):
-        """Move the currently selected row up or down. If the neighboring row
-        is expanded, make the selected row a child of the neighbor row.
-
-        Keyword arguments:
-        widget -- the triggering GtkWidget
-        user_data -- list-packed parameters:
-            treeview -- the GtkTreeview being modified
-            relative_position -- 1 or -1, determines moving up or down
-
-        """
-        # Unpack the user data
-        treeview, relative_position = user_data
-
-        # Get the current selected row
-        sel = treeview.get_selection().get_selected()
-        if sel:
-            model, selected_iter = sel
-            selected_type = model[selected_iter][2]
-
-            # Get current required categories
-            parent = self.get_parent(model, selected_iter)
-            if parent:
-                categories = util.getRequiredCategories(model[parent][5])
-            else:
-                categories = util.getRequiredCategories(None)
-
-            # Move the row up if relative_position < 0
-            if relative_position < 0:
-                sibling_iter = model.iter_previous(selected_iter)
-            else:
-                sibling_iter = model.iter_next(selected_iter)
-
-            if sibling_iter:
-                sibling_path = model.get_path(sibling_iter)
-
-                # Determine where the item is being inserted.
-                move_down = False
-
-                # What is the neighboring item?
-                sibling_type = model[sibling_iter][2]
-
-                # Sibling Directory
-                if sibling_type == MenuItemTypes.DIRECTORY:
-                    # Do not move directories into other directories.
-                    if selected_type == MenuItemTypes.DIRECTORY:
-                        move_down = False
-
-                    # Append or Prepend to expanded directories.
-                    elif treeview.row_expanded(sibling_path):
-                        move_down = True
-
-                    # Append to childless directories (lp: #1318209)
-                    elif not model.iter_has_child(sibling_iter):
-                        move_down = True
-
-                # Insert the selected item into the directory.
-                if move_down:
-                    selected_iter = self.move_iter_down_level(treeview,
-                                        selected_iter,
-                                        sibling_iter, relative_position)
-
-                # Move the selected item before or after the sibling item.
-                else:
-                    if relative_position < 0:
-                        model.move_before(selected_iter, sibling_iter)
-                    else:
-                        model.move_after(selected_iter, sibling_iter)
-
-            # If there is no neighboring row, move up a level.
-            else:
-                selected_iter = self.move_iter_up_level(treeview,
-                                        selected_iter,
-                                        relative_position)
-
-            # Get new required categories
-            parent = self.get_parent(model, selected_iter)
-            if parent:
-                new_categories = util.getRequiredCategories(model[parent][5])
-            else:
-                new_categories = util.getRequiredCategories(None)
-
-            # Replace required categories
-            if categories != new_categories:
-                editor_categories = self.get_editor_categories()
-                split_categories = editor_categories.split(';')
-                for category in categories:
-                    if category in split_categories:
-                        split_categories.remove(category)
-                for category in new_categories:
-                    if category not in split_categories:
-                        split_categories.append(category)
-                split_categories.sort()
-                editor_categories = ';'.join(split_categories)
-                self.set_editor_categories(editor_categories)
-                self.update_launcher_categories(categories, new_categories)
-
-        self.update_menus()
-
-    def get_iter_by_data(self, row_data, model, parent=None):
-        """Search the TreeModel for a row matching row_data.
-
-        Return the TreeIter found or None if none found."""
-        for n_child in range(model.iter_n_children(parent)):
-            treeiter = model.iter_nth_child(parent, n_child)
-            if model[treeiter][:] == row_data:
-                return treeiter
-            if model.iter_n_children(treeiter) != 0:
-                value = self.get_iter_by_data(row_data, model, treeiter)
-                if value is not None:
-                    return value
-        return None
-
-    def move_iter_up_level(self, treeview, treeiter, relative_position):
-        """Move the specified iter up one level."""
-        model = treeview.get_model()
-        sibling = model.iter_parent(treeiter)
-        if sibling is not None:
-            parent = model.iter_parent(sibling)
-            row_data = model[treeiter][:]
-            if relative_position < 0:
-                new_iter = model.insert_before(parent,
-                                               sibling,
-                                               row_data)
-            else:
-                new_iter = model.insert_after(parent,
-                                              sibling,
-                                              row_data)
-
-            # Install/Uninstall items from directories.
-            filename = row_data[5]
-            self.xdg_menu_install(model, new_iter, filename)
-            self.xdg_menu_uninstall(model, treeiter, filename)
-
-            model.remove(treeiter)
-            path = model.get_path(new_iter)
-            treeview.set_cursor(path)
-            return new_iter
-
-    def move_iter_down_level(self, treeview, treeiter, parent_iter,
-                             relative_position):
-        """Move the specified iter down one level."""
-        model = treeview.get_model()
-        row_data = model[treeiter][:]
-        if model.iter_has_child(parent_iter):
-            if relative_position < 0:
-                n_children = model.iter_n_children(parent_iter)
-                sibling = model.iter_nth_child(parent_iter, n_children - 1)
-                new_iter = model.insert_after(parent_iter, sibling, row_data)
-            else:
-                sibling = model.iter_nth_child(parent_iter, 0)
-                new_iter = model.insert_before(parent_iter, sibling, row_data)
-        else:
-            new_iter = model.insert(parent_iter, 0, row_data)
-
-        # Install/Uninstall items from directories.
-        filename = row_data[5]
-        self.xdg_menu_install(model, new_iter, filename)
-        self.xdg_menu_uninstall(model, treeiter, filename)
-
-        model.remove(treeiter)
-        treeview.expand_row(model[parent_iter].path, False)
-        path = model.get_path(new_iter)
-        treeview.set_cursor(path)
-        return new_iter
-
-# Update Functions
-    def update_treeview(self, model, treeiter, name, comment, item_type,
-                        icon_name, filename):
-        """Update the application treeview selected row data."""
-        model[treeiter][0] = name
-        model[treeiter][1] = comment
-        model[treeiter][2] = item_type
-
-        if os.path.isfile(icon_name):
-            gfile = Gio.File.parse_name(icon_name)
-            icon = Gio.FileIcon.new(gfile)
-        else:
-            icon = Gio.ThemedIcon.new(icon_name)
-        model[treeiter][3] = icon
-
-        model[treeiter][4] = icon_name
-        model[treeiter][5] = filename
-
-    def update_menus(self):
-        """Update the menu files."""
-        XmlMenuElementTree.treeview_to_xml(self.treeview)
-
-    def update_add_directory(self, treestore, treeiter):
-        """Prevent adding subdirectories to system menus."""
-        add_enabled = True
-        prefix = util.getDefaultMenuPrefix()
-
-        parent_iter = self.get_parent(treestore, treeiter)
-        while parent_iter is not None:
-            filename = treestore[parent_iter][5]
-            if os.path.basename(filename).startswith(prefix):
-                add_enabled = False
-            parent_iter = self.get_parent(treestore, parent_iter)
-
-        if add_enabled:
-            tooltip = None
-        else:
-            tooltip = _("Cannot add subdirectories to preinstalled"
-                        " system paths.")
-
-        self.actions['add_directory'].set_sensitive(add_enabled)
-        for widget in self.action_items['add_directory']:
-            widget.set_sensitive(add_enabled)
-            widget.set_tooltip_text(tooltip)
-
 # Action Functions
-    def get_parent(self, model, treeiter):
-        """Get the parent iterator for the current treeiter"""
-        parent = None
-        if treeiter:
-            path = model.get_path(treeiter)
-            if path.up():
-                if path.get_depth() > 0:
-                    try:
-                        parent = model.get_iter(path)
-                    except:
-                        parent = None
-        return parent
-
     def add_launcher(self):
         """Add Launcher callback function."""
-        # Insert a New Launcher item below the current selected item
-        model, treeiter = self.treeview.get_selection().get_selected()
-
         name = _("New Launcher")
         comment = ""
         item_type = MenuItemTypes.APPLICATION
         icon_name = "application-default-icon"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
-        row_data = [name, comment, item_type, icon, icon_name, filename]
+        new_row_data = [name, comment, item_type, icon, icon_name, filename]
 
-        parent = None
+        model, parent_data = self.treeview.get_parent_row_data()
+        model, row_data = self.treeview.get_selected_row_data()
 
         # Currently selected item is a directory, take its categories.
-        if model[treeiter][2] == MenuItemTypes.DIRECTORY:
-            parent = treeiter
-
-            # Place new launchers inside of the directories they are added to.
-            new_iter = model.prepend(treeiter)
-            self.treeview.expand_row(model[treeiter].path, False)
+        if row_data[2] == MenuItemTypes.DIRECTORY:
+            self.treeview.add_child(new_row_data)
 
         # Currently selected item is not a directory, but has a parent.
         else:
-            parent = self.get_parent(model, treeiter)
-
-            # Insert new launchers after the currently selected item.
-            new_iter = model.insert_after(parent, treeiter)
+            self.treeview.append(new_row_data)
 
         # If a parent item was found, use its categories for this launcher.
-        if parent is not None:
+        if parent_data is not None:
             # Parent was found, take its categories.
-            categories = util.getRequiredCategories(model[parent][5])
+            categories = util.getRequiredCategories(parent_data[5])
         else:
             # Parent was not found, this is a toplevel category
             categories = util.getRequiredCategories(None)
-
-        # Populate the new launcher with the default data.
-        for i in range(len(row_data)):
-            model[new_iter][i] = row_data[i]
-
-        # Select the New Launcher item.
-        path = model.get_path(new_iter)
-        self.treeview.set_cursor(path)
 
         self.set_editor_categories(';'.join(categories))
 
@@ -2051,9 +1401,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def add_directory(self):
         """Add Directory callback function."""
-        # Insert a New Launcher item below the current selected item
-        model, treeiter = self.treeview.get_selection().get_selected()
-
         name = _("New Directory")
         comment = ""
         item_type = MenuItemTypes.DIRECTORY
@@ -2062,24 +1409,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         filename = None
         row_data = [name, comment, item_type, icon, icon_name, filename, False]
 
-        parent = self.get_parent(model, treeiter)
-
-        new_iter = model.insert_after(parent, treeiter)
-        for i in range(len(row_data)):
-            model[new_iter][i] = row_data[i]
-
-        # Select the New Launcher item.
-        path = model.get_path(new_iter)
-        self.treeview.set_cursor(path)
+        self.treeview.append(row_data)
 
         self.actions['save_launcher'].set_sensitive(True)
         self.save_button.set_sensitive(True)
 
     def add_separator(self):
         """Add Separator callback function."""
-        # Insert a Separator item below the current selected item
-        model, treeiter = self.treeview.get_selection().get_selected()
-
         name = "<s>                    </s>"
         tooltip = _("Separator")
         filename = None
@@ -2089,18 +1425,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         filename = None
         row_data = [name, tooltip, item_type, icon, icon_name, filename]
 
-        parent = self.get_parent(model, treeiter)
+        self.treeview.append(row_data)
 
-        new_iter = model.insert_after(parent, treeiter)
-        for i in range(len(row_data)):
-            model[new_iter][i] = row_data[i]
-
-        # Select the Separator item.
-        path = model.get_path(new_iter)
-        self.treeview.set_cursor(path)
         self.save_button.set_sensitive(False)
 
-        self.update_menus()
+        self.treeview.update_menus()
 
     def save_launcher(self):
         """Save the current launcher details."""
@@ -2111,14 +1440,15 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         filename = util.getSaveFilename(name, original_filename, item_type)
         logger.debug("Saving launcher as \"%s\"" % filename)
 
-        model, treeiter = self.treeview.get_selection().get_selected()
-        item_type = model[treeiter][2]
+        model, row_data = self.treeview.get_selected_row_data()
+        item_type = row_data[2]
+
+        model, parent_data = self.treeview.get_parent_row_data()
 
         # Make sure required categories are in place.
-        parent = self.get_parent(model, treeiter)
-        if parent is not None:
+        if parent_data is not None:
             # Parent was found, take its categories.
-            required_categories = util.getRequiredCategories(model[parent][5])
+            required_categories = util.getRequiredCategories(parent_data[5])
         else:
             # Parent was not found, this is a toplevel category
             required_categories = util.getRequiredCategories(None)
@@ -2152,7 +1482,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 output.write(actions)
 
         # Install the new item in its directory...
-        self.xdg_menu_install(model, treeiter, filename)
+        self.treeview.xdg_menu_install(filename)
 
         # Set the editor to the new filename.
         self.set_value('Filename', filename)
@@ -2161,66 +1491,25 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         name = self.get_value('Name')
         comment = self.get_value('Comment')
         icon_name = self.get_value('Icon')
-        self.update_treeview(model, treeiter, name, comment, item_type,
-                            icon_name, filename)
+        self.treeview.update_selected(name, comment, item_type,
+                                     icon_name, filename)
         self.history.clear()
 
         # Update all instances
-        self.update_launcher_instances(model, treeiter, original_filename)
+        model, row_data = self.treeview.get_selected_row_data()
+        self.treeview.update_launcher_instances(original_filename, row_data)
 
-        # Do not save menu layout if in search mode (lp #1306999)
-        if self.browser_toolbar.get_sensitive():
-            self.update_menus()
-
-    def xdg_menu_install(self, model, treeiter, filename):
-        if filename is None:
-            return
-        if filename.endswith('.desktop'):
-            menu_install = True
-            menu_prefix = util.getDefaultMenuPrefix()
-            parents = []
-            parent = model.iter_parent(treeiter)
-            while parent is not None:
-                parent_filename = model[parent][5]
-                # Do not do this method if this is a known system directory.
-                if os.path.basename(parent_filename).startswith(menu_prefix):
-                    menu_install = False
-                parents.append(parent_filename)
-                parent = model.iter_parent(parent)
-            parents.reverse()
-            if menu_install:
-                MenulibreXdg.desktop_menu_install(parents, [filename])
-
-    def xdg_menu_uninstall(self, model, treeiter, filename):
-        if filename is None:
-            return
-        if filename.endswith('.desktop'):
-            menu_install = True
-            menu_prefix = util.getDefaultMenuPrefix()
-            parents = []
-            parent = model.iter_parent(treeiter)
-            while parent is not None:
-                parent_filename = model[parent][5]
-                # Do not do this method if this is a known system directory.
-                if os.path.basename(parent_filename).startswith(menu_prefix):
-                    menu_install = False
-                parents.append(parent_filename)
-                parent = model.iter_parent(parent)
-            parents.reverse()
-            if menu_install:
-                MenulibreXdg.desktop_menu_uninstall(parents, [filename])
+        self.treeview.update_menus()
 
     def update_launcher_categories(self, remove, add):
         original_filename = self.get_value('Filename')
-        if not os.path.isfile(original_filename):
+        if original_filename is None or not os.path.isfile(original_filename):
             return
         item_type = self.get_value('Type')
         name = self.get_value('Name')
         save_filename = util.getSaveFilename(name, original_filename,
                                              item_type, force_update=True)
         logger.debug("Saving launcher as \"%s\"" % save_filename)
-
-        model, treeiter = self.treeview.get_selection().get_selected()
 
         # Get the original contents
         with open(original_filename, 'r') as original:
@@ -2267,191 +1556,20 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Set the editor to the new filename.
         self.set_editor_filename(save_filename)
-        model[treeiter][5] = save_filename
 
         # Update all instances
-        self.update_launcher_instances(model, treeiter, original_filename)
+        model, row_data = self.treeview.get_selected_row_data()
+        row_data[5] = save_filename
+        self.treeview.update_launcher_instances(original_filename, row_data)
 
-    def delete_separator(self, treeview, model, treeiter):
+    def delete_separator(self):
         """Remove a separator row from the treeview, update the menu files."""
-        self.last_selected_path = -1
-        path = model.get_path(treeiter)
-        model.remove(treeiter)
-        if path:
-            self.treeview.set_cursor(path)
+        self.treeview.remove_selected()
 
-        self.update_menus()
-
-    def get_launcher_instances(self, model, parent, filename):
-        """Get all instances of the specified launcher from the treeview."""
-        treeiters = []
-        for n_child in range(model.iter_n_children(parent)):
-            treeiter = model.iter_nth_child(parent, n_child)
-            iter_filename = model[treeiter][5]
-            if iter_filename == filename:
-                treeiters.append(treeiter)
-            if model.iter_has_child(treeiter):
-                treeiters += self.get_launcher_instances(model, treeiter,
-                                                         filename)
-        return treeiters
-
-    def get_n_launcher_instances(self, model, filename):
-        """Return the number of instances a launcher has in the menu."""
-        return len(self.get_launcher_instances(model, None, filename))
-
-    def update_launcher_instances(self, model, treeiter, filename):
-        """Update all same launchers with the new information."""
-        row_data = model[treeiter][:]
-        for instance in self.get_launcher_instances(model, None, filename):
-            for i in range(len(row_data)):
-                model[instance][i] = row_data[i]
-
-    def delete_launcher(self, treeview, model, treeiter):
+    def delete_launcher(self):
         """Delete the selected launcher."""
-        self.last_selected_path = -1
-        name = model[treeiter][0]
-        item_type = model[treeiter][2]
-        filename = model[treeiter][5]
-        treepath = model.get_path(treeiter)
-        if filename is not None:
-            basename = os.path.basename(filename)
-
-            # Check if there was an original version of this launcher.
-            original = util.getSystemLauncherPath(basename)
-
-            # If there was not an original, uninstall the below menu items.
-            if original is None and item_type == MenuItemTypes.DIRECTORY:
-                def get_delete_items(tmp_model, tmp_treeiter):
-                    """Recursing delete items getter."""
-                    directories = []
-                    applications = []
-                    if model.iter_has_child(tmp_treeiter):
-                        for i in range(model.iter_n_children(tmp_treeiter)):
-                            child_iter = model.iter_nth_child(tmp_treeiter, i)
-                            filename = tmp_model[child_iter][5]
-                            if filename is not None:
-                                if filename.endswith('.directory'):
-                                    d, a = get_delete_items(tmp_model,
-                                        child_iter)
-                                    directories = directories + d
-                                    applications = applications + a
-                                    directories.append(filename)
-                                else:
-                                    applications.append(filename)
-                    return directories, applications
-
-                # Remove the items using xdg-desktop-menu uninstall
-                dirs, apps = get_delete_items(model, treeiter)
-                dirs.append(filename)
-                if len(apps) > 0:
-                    cmd_list = ["xdg-desktop-menu", "uninstall"]
-                    cmd_list = cmd_list + dirs + apps
-                    logger.debug("Executing Command: %s" % str(cmd_list))
-                    subprocess.call(cmd_list)
-
-                # Remove the items from the system.
-                for item in dirs + apps:
-                    try:
-                        os.remove(item)
-                    except:
-                        pass
-
-                # Force one more update.
-                subprocess.call(["xdg-desktop-menu", "forceupdate"])
-
-                # Cleanup now defunct files in applications-merged
-                self.cleanup_applications_merged()
-
-            # If this item still exists, and there are no other instances,
-            # delete it.
-            if original is not None or \
-                    self.get_n_launcher_instances(model, filename) <= 1:
-                if os.path.exists(filename):
-                    os.remove(filename)
-            # If there are other instances, remove these categories.
-            else:
-                # Get current required categories
-                parent = self.get_parent(model, treeiter)
-                if parent:
-                    categories = util.getRequiredCategories(model[parent][5])
-                else:
-                    categories = util.getRequiredCategories(None)
-                self.update_launcher_categories(categories, [])
-
-            if original is not None:
-                # Original found, replace.
-                entry = MenulibreXdg.MenulibreDesktopEntry(original)
-                name = entry['Name']
-                comment = entry['Comment']
-                icon_name = entry['Icon']
-                if os.path.isfile(icon_name):
-                    gfile = Gio.File.parse_name(icon_name)
-                    icon = Gio.FileIcon.new(gfile)
-                else:
-                    icon = Gio.ThemedIcon.new(icon_name)
-                model[treeiter][0] = name
-                model[treeiter][1] = comment
-                model[treeiter][2] = item_type
-                model[treeiter][3] = icon
-                model[treeiter][4] = icon_name
-                model[treeiter][5] = original
-            else:
-                # Model not found, delete this row.
-                model.remove(treeiter)
-                treeiter = None
-
-            # Update all instances
-            if treeiter is not None:
-                self.update_launcher_instances(model, treeiter, filename)
-        else:
-            model.remove(treeiter)
-        if treepath:
-            self.treeview.set_cursor(treepath)
-
-        # Do not save menu layout if in search mode (lp #1306999)
-        if self.browser_toolbar.get_sensitive():
-            self.update_menus()
-
-    def cleanup_applications_merged(self):
-        """Cleanup items from ~/.config/menus/applications-merged"""
-        # xdg-desktop-menu installs menu files in
-        # ~/.config/menus/applications-merged, but does remove them correctly.
-        merged_dir = os.path.join(GLib.get_user_config_dir(),
-                                    "menus", "applications-merged")
-
-        # Get the list of installed user directories to compare with.
-        directories_dir = os.path.join(GLib.get_home_dir(),
-            ".local", "share", "desktop-directories")
-        if os.path.isdir(directories_dir):
-            directories = os.listdir(directories_dir)
-        else:
-            directories = []
-
-        # Check if applications-merged actually exists...
-        if os.path.isdir(merged_dir):
-            for menufile in os.listdir(merged_dir):
-                menufile = os.path.join(merged_dir, menufile)
-                remove_file = False
-
-                # Only interested in .menu files
-                if os.path.isfile(menufile) and menufile.endswith('.menu'):
-                    logger.debug("Checking if %s is still valid..." %
-                                menufile)
-
-                    # Read the menufile to see if it has a valid directory.
-                    with open(menufile) as menufile_tmp:
-                        for line in menufile_tmp.readlines():
-                            if "<Directory>" in line:
-                                menuname = line.split('<Directory>')[1]
-                                menuname = menuname.split('</Directory>')[0]
-                                menuname = menuname.strip()
-
-                                # If a listed directory is not installed, remove
-                                if menuname not in directories:
-                                    remove_file = True
-                    if remove_file:
-                        logger.debug("Removing useless %s" % menufile)
-                        os.remove(menufile)
+        self.treeview.remove_selected()
+        self.history.clear()
 
     def restore_launcher(self):
         """Revert the current launcher."""
@@ -2504,26 +1622,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_revert_cb(self, widget):
         """Revert callback function."""
-        question = _("Are you sure you want to restore this launcher?")
-        dialog = Gtk.MessageDialog(transient_for=self, modal=True,
-                                    message_type=Gtk.MessageType.QUESTION,
-                                    buttons=Gtk.ButtonsType.NONE,
-                                    text=question)
-        dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
-        dialog.add_button(_("Restore Launcher"), Gtk.ResponseType.OK)
-        dialog.set_title(_("Restore Launcher"))
-        details = _("All changes since the last saved state will be lost "
-                    "and cannot be restored automatically.")
-        dialog.format_secondary_markup(details)
+        dialog = Dialogs.RevertDialog(self)
         if dialog.run() == Gtk.ResponseType.OK:
             self.restore_launcher()
         dialog.destroy()
 
     def on_delete_cb(self, widget):
         """Delete callback function."""
-        model, treeiter = self.treeview.get_selection().get_selected()
-        name = model[treeiter][0]
-        item_type = model[treeiter][2]
+        model, row_data = self.treeview.get_selected_row_data()
+        name = row_data[0]
+        item_type = row_data[2]
 
         # Prepare the strings
         if item_type == MenuItemTypes.SEPARATOR:
@@ -2532,18 +1640,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         else:
             question = _("Are you sure you want to delete \"%s\"?") % name
             delete_func = self.delete_launcher
-        details = _("This cannot be undone.")
 
-        # Set up the dialog
-        dialog = Gtk.MessageDialog(transient_for=self, modal=True,
-                                    message_type=Gtk.MessageType.QUESTION,
-                                    buttons=Gtk.ButtonsType.OK_CANCEL,
-                                    text=question)
-        dialog.format_secondary_markup(details)
+        dialog = Dialogs.DeleteDialog(self, question)
 
         # Run
         if dialog.run() == Gtk.ResponseType.OK:
-            delete_func(self.treeview, model, treeiter)
+            delete_func()
 
         dialog.destroy()
 
@@ -2610,52 +1712,12 @@ class Application(Gtk.Application):
 
     def help_cb(self, widget, data=None):
         """Help callback function."""
-        question = _("Do you want to read the MenuLibre manual online?")
-        dialog = Gtk.MessageDialog(transient_for=self.win, modal=True,
-                                    message_type=Gtk.MessageType.QUESTION,
-                                    buttons=Gtk.ButtonsType.NONE,
-                                    text=question)
-        dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
-        dialog.add_button(_("Read Online"), Gtk.ResponseType.OK)
-        dialog.set_title(_("Online Documentation"))
-        details = _("You will be redirected to the documentation website "
-                    "where the help pages are maintained.")
-        dialog.format_secondary_markup(details)
-        if dialog.run() == Gtk.ResponseType.OK:
-            help_url = "http://wiki.smdavis.us/doku.php?id=menulibre-docs"
-            logger.debug("Navigating to help page, %s" % help_url)
-            menulibre_lib.show_uri(self.win, help_url)
-        dialog.destroy()
+        Dialogs.HelpDialog(self.win)
 
     def about_cb(self, widget, data=None):
         """About callback function.  Display the AboutDialog."""
-        # Create and display the AboutDialog.
-        aboutdialog = Gtk.AboutDialog()
-
-        # Credits
-        authors = ["Sean Davis"]
-        documenters = ["Sean Davis"]
-
-        # Populate the AboutDialog with all the relevant details.
-        aboutdialog.set_title(_("About MenuLibre"))
-        aboutdialog.set_program_name(_("MenuLibre"))
-        aboutdialog.set_logo_icon_name("menulibre")
-        aboutdialog.set_copyright(_("Copyright © 2012-2014 Sean Davis"))
-        aboutdialog.set_authors(authors)
-        aboutdialog.set_documenters(documenters)
-        aboutdialog.set_website("https://launchpad.net/menulibre")
-        aboutdialog.set_version(menulibre_lib.get_version())
-
-        # Connect the signal to destroy the AboutDialog when Close is clicked.
-        aboutdialog.connect("response", self.about_close_cb)
-        aboutdialog.set_transient_for(self.win)
-
-        # Show the AboutDialog.
-        aboutdialog.show()
-
-    def about_close_cb(self, widget, response):
-        """Destroy the AboutDialog when it is closed."""
-        widget.destroy()
+        dialog = Dialogs.AboutDialog(self.win)
+        dialog.show()
 
     def quit_cb(self, widget, data=None):
         """Signal handler for closing the MenulibreWindow."""

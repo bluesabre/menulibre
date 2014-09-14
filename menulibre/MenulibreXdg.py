@@ -160,6 +160,8 @@ class MenulibreDesktopEntry:
                         (name, displayed_name, command, enabled))
         return quicklists
 
+def desktop_menu_update():
+    subprocess.call(["xdg-desktop-menu", "forceupdate"])
 
 def desktop_menu_install(directory_files, desktop_files):
     """Install one or more applications in a submenu of the desktop menu
