@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-02 05:50-0400\n"
-"PO-Revision-Date: 2014-04-12 01:41+0000\n"
-"Last-Translator: ub <xenolith0bytetestcomgreen@gmail.com>\n"
+"PO-Revision-Date: 2014-09-15 04:33+0000\n"
+"Last-Translator: Kiyotaka Nemoto <Unknown>\n"
 "Language-Team: Japanese <ja@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-03 06:55+0000\n"
+"X-Launchpad-Export-Date: 2014-09-15 07:37+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 "Language: ja\n"
 
@@ -110,11 +110,11 @@ msgstr "ランチャーを保存"
 
 #: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:420
 msgid "Undo"
-msgstr "アンドゥ"
+msgstr "元に戻す"
 
 #: ../data/ui/MenulibreWindow.ui.h:21 ../menulibre/MenulibreApplication.py:427
 msgid "Redo"
-msgstr "リドゥ"
+msgstr "やり直し"
 
 #: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:434
 msgid "Revert"
@@ -167,7 +167,7 @@ msgstr "コマンド"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "The working directory."
-msgstr ""
+msgstr "作業ディレクトリ"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Working Directory"
@@ -183,7 +183,7 @@ msgstr "<b>アプリケーションの詳細</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "If set to \"True\", the program will be ran in a terminal window."
-msgstr ""
+msgstr "「オン」にすると、プログラムは端末ウィンドウ内で実行されます。"
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Run in terminal"
@@ -193,7 +193,7 @@ msgstr "端末で実行"
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
-msgstr ""
+msgstr "「オン」にすると、プログラムが起動した時に通知されます。たいていの場合は、アプリケーションが起動する間に、ビジーカーソルが表示されます。"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
@@ -203,7 +203,7 @@ msgstr "起動の通知"
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
-msgstr ""
+msgstr "「オン」にすると、このエントリーはメニューに表示されません。MIMEタイプの関連付けなどは利用することができます。"
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Hide from menus"
@@ -247,7 +247,7 @@ msgstr "アクション"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr ""
+msgstr "アプリケーションの一般名。例：「ウェブブラウザー」"
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Generic Name"
@@ -284,6 +284,7 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
+"プログラムがインストールされているか判断するための実行ファイルへのパス。ファイルが存在しないか実行できないと、このエントリーはメニューに表示されません。"
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Try Exec"
@@ -291,7 +292,7 @@ msgstr "Try Exec"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "The MIME type(s) supported by this application."
-msgstr ""
+msgstr "このアプリケーションによってサポートされている MIME 形式"
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Mimetypes"
@@ -303,6 +304,8 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
+"このエントリーを説明するためのキーワード。エントリーの検索のために使用できます。表示のためではないため、冗長を避けるために名称や一般名などの値はいれないで"
+"ください。"
 
 #: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Keywords"
