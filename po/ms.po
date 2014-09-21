@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-02 05:50-0400\n"
-"PO-Revision-Date: 2014-07-15 22:23+0000\n"
+"PO-Revision-Date: 2014-09-21 02:35+0000\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-03 06:55+0000\n"
+"X-Launchpad-Export-Date: 2014-09-21 06:16+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 "Language: ms\n"
 
@@ -167,7 +167,7 @@ msgstr "Perintah"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "The working directory."
-msgstr ""
+msgstr "Direktori kerja."
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Working Directory"
@@ -184,6 +184,8 @@ msgstr "<b>Perincian Aplikasi</b>"
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
+"Jika ditetapkan pada \"Benar\", program akan dijalankan dalam tetingkap "
+"terminal."
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Run in terminal"
@@ -194,6 +196,8 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
+"Jika ditetapkan pada \"Benar\", pemberitahuan permulaan dihantar. Biasanya "
+"kursor sibuk ditunjukkan ketika aplikasi dilancarkan."
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
@@ -204,6 +208,8 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
+"Jika ditetapkan pada \"Benar\", masukan ini tidak akan ditunjukkan dalam "
+"menu, tetapi tersedia untuk perkaitan jenis MIME dll."
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Hide from menus"
@@ -247,7 +253,7 @@ msgstr "Tindakan"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr ""
+msgstr "Nama generik aplikasi, contohnya \"Pelayar Sesawang\"."
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Generic Name"
@@ -291,7 +297,7 @@ msgstr "Cuba Exec"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "The MIME type(s) supported by this application."
-msgstr ""
+msgstr "Jenis MIME disokong oleh aplikasi ini."
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Mimetypes"
@@ -313,6 +319,8 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
+"Jika dinyatakan, aplikasi akan dipinta gunakan rentetan sebagai kelas WM "
+"atau pembayang nama WM sekurang-kurangnya dalam satu tetingkap."
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Startup WM Class"
@@ -323,6 +331,8 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
+"Jika ditetapkan pada \"Benar\", keputusan untuk pengguna adalah sama dengan "
+"fail .desktop tidak wujud langsung."
 
 #: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Hidden"
