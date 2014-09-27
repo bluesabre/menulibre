@@ -19,7 +19,9 @@ import os
 import re
 
 import getpass
+
 import psutil
+old_psutil_format = isinstance(psutil.Process.username, property)
 
 from gi.repository import GLib
 
@@ -39,17 +41,51 @@ MenuItemTypes = enum(
 )
 
 
+def getProcessUsername(process):
+    """Get the username of the process owner. Return None if fail."""
+    username = None
+
+    try:
+        if old_psutil_format:
+            username = process.username
+        else:
+            username = process.username()
+    except:
+        pass
+
+    return username
+
+
+def getProcessName(process):
+    """Get the process name. Return None if fail."""
+    p_name = None
+
+    try:
+        if old_psutil_format:
+            p_name = process.name
+        else:
+            p_name = process.name()
+    except:
+        pass
+
+    return p_name
+
+
 def getProcessList():
     """Return a list of unique process names for the current user."""
     username = getpass.getuser()
-    pids = psutil.get_pid_list()
     processes = []
-    for pid in pids:
-        process = psutil.Process(pid)
-        if process.username == username:
-            name = process.name
-            if name not in processes:
-                processes.append(process.name)
+    for pid in psutil.get_pid_list():
+        try:
+            process = psutil.Process(pid)
+            p_user = getProcessUsername(process)
+            if p_user == username:
+                p_name = getProcessName(process)
+                if p_name is not None and p_name not in processes:
+                    processes.append(p_name)
+        except:
+            pass
+    processes.sort()
     return processes
 
 
@@ -69,7 +105,7 @@ def getDefaultMenuPrefix():
 
     if len(prefix) == 0:
         logger.warning("No menu prefix found, MenuLibre will not function "
-                        "properly.")
+                       "properly.")
 
     return prefix
 
