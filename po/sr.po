@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-09-02 05:50-0400\n"
-"PO-Revision-Date: 2014-10-27 03:48+0000\n"
+"PO-Revision-Date: 2014-11-16 17:08+0000\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
 "Language-Team: српски <српски <xfce-i18n@xfce.org>>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-28 07:19+0000\n"
-"X-Generator: Launchpad (build 17203)\n"
+"X-Launchpad-Export-Date: 2014-11-17 05:53+0000\n"
+"X-Generator: Launchpad (build 17241)\n"
 "Language: sr\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -161,6 +161,11 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
+"Програм за покретање са одредницама. Овај кључ је неопходан ако "
+"„DBusActivatable“ није постављено на „Тачно“ или ако има потребе за "
+"сагласношћу са програмом који не познаје покретање Д-сабирнице.\n"
+"Погледајте http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
+"spec-latest.html#exec-variables за списак подржаних одредница."
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Command"
@@ -168,7 +173,7 @@ msgstr "Наредба"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "The working directory."
-msgstr ""
+msgstr "Радна фасцикла."
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Working Directory"
@@ -185,6 +190,7 @@ msgstr "<b>Појединости програма</b>"
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
+"Ако је подешено на „Тачно“, програм ће бити покренут у прозору терминала."
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Run in terminal"
@@ -195,6 +201,8 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
+"Ако је подешено на „Тачно“, обавештење о покретању се шаље. Обично значи да "
+"ће се појавити заузети показивач док се покреће програм."
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
@@ -205,6 +213,8 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
+"Ако је подешено на „Тачно“, ова ставка се неће приказивати у изборницима, "
+"али ће бити доступна за придруживање МИМЕ врстама и сл."
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Hide from menus"
@@ -248,7 +258,7 @@ msgstr "Радње"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr ""
+msgstr "Родно име програма, на пример „Веб прегледник“."
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Generic Name"
@@ -261,6 +271,10 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Списак окружења које не треба да приказују ову ставку. Овај кључможете да "
+"употребљавате ако није поставено „Само приказуј у“.\n"
+"Могуће вредности су: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, "
+"Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Not Shown In"
@@ -274,6 +288,11 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Списак окружења које треба да приказују ову ставку. У осталим окружењима се "
+"ставка неће приказивати. Овај кључ можете да употребљавате ако није "
+"поставено „Не приказуј у“.\n"
+"Могуће вредности су: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, "
+"Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Only Shown In"
@@ -285,6 +304,9 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
+"Путања до извршне датотеке којом се проверава да ли је програм уграђен.  Ако "
+"датотека није присутна или није извршна, овај унос не не треба појављивати у "
+"изборнику."
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Try Exec"
@@ -292,7 +314,7 @@ msgstr "Пробај да извршиш"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "The MIME type(s) supported by this application."
-msgstr ""
+msgstr "Миме врсте које подржава овај програм."
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Mimetypes"
@@ -304,6 +326,9 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
+"Списак кључних речи за опис ове ставке. Можете да их користите ради помоћи "
+"при претрази. Не користе се ради приказа, у бе би требало да буду сувишне "
+"изведене речи из имена или родног имена."
 
 #: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Keywords"
@@ -314,10 +339,12 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
+"Ако је наведено, програм ће тражити да користи ниске као разред управника "
+"прозора, или најмање наговештај његовог имена у најмање једном прозору."
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Startup WM Class"
-msgstr ""
+msgstr "Почетни разред управника прозора"
 
 #: ../data/ui/MenulibreWindow.ui.h:69
 msgid ""
