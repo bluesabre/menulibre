@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-09-02 05:50-0400\n"
-"PO-Revision-Date: 2014-12-14 17:04+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-02-21 05:19+0000\n"
+"Last-Translator: M Rizmi <Unknown>\n"
 "Language-Team: Sinhalese <si@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-15 06:27+0000\n"
-"X-Generator: Launchpad (build 17286)\n"
+"X-Launchpad-Export-Date: 2015-02-21 05:37+0000\n"
+"X-Generator: Launchpad (build 17355)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -97,7 +97,7 @@ msgstr "ගොනුව (_F)"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "_Edit"
-msgstr "සංස්කරණය කරන්න (_E)"
+msgstr "සංස්කරණය (_E)"
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid "_Help"
@@ -117,7 +117,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:434
 msgid "Revert"
-msgstr ""
+msgstr "පෙර තත්වයට පත් කරන්න"
 
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:441
 msgid "Delete"
@@ -137,11 +137,11 @@ msgstr "පහළට ගෙනයන්න"
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "<big><b>Application Name</b></big>"
-msgstr ""
+msgstr "<big><b>වැඩසටහනේ නම</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Application Name"
-msgstr ""
+msgstr "වැඩසටහනේ නම"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application Comment"
@@ -178,7 +178,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "<b>Application Details</b>"
-msgstr ""
+msgstr "<b>වැඩසටහනේ විස්තර</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "If set to \"True\", the program will be ran in a terminal window."
@@ -325,7 +325,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Hidden"
-msgstr ""
+msgstr "සැඟවුණු"
 
 #: ../data/ui/MenulibreWindow.ui.h:71
 msgid ""
@@ -391,7 +391,7 @@ msgstr "ක්‍රීඩා"
 
 #: ../menulibre/MenulibreApplication.py:63
 msgid "Graphics"
-msgstr ""
+msgstr "චිත්‍රක"
 
 #: ../menulibre/MenulibreApplication.py:64
 msgid "Internet"
@@ -415,7 +415,7 @@ msgstr "උපාංග"
 
 #: ../menulibre/MenulibreApplication.py:69
 msgid "WINE"
-msgstr ""
+msgstr "WINE"
 
 #. Desktop Environment
 #: ../menulibre/MenulibreApplication.py:71
@@ -546,7 +546,7 @@ msgstr "අන්තර්ගතයන් (_C)"
 #: ../menulibre/MenulibreApplication.py:455
 #: ../menulibre/MenulibreApplication.py:2761
 msgid "Help"
-msgstr "උදව්"
+msgstr "සහාය"
 
 #: ../menulibre/MenulibreApplication.py:461
 msgid "_About"
@@ -560,7 +560,7 @@ msgstr "පිළිබද"
 #. Create a new column.
 #: ../menulibre/MenulibreApplication.py:580
 msgid "Search Results"
-msgstr ""
+msgstr "සෙවුම් ප්‍රතිඵල"
 
 #: ../menulibre/MenulibreApplication.py:822
 msgid "ThisEntry"
@@ -710,7 +710,7 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2813
 msgid "Copyright © 2012-2014 Sean Davis"
-msgstr ""
+msgstr "ප්‍රකාශන හිමිකම © 2012-2014 Sean Davis"
 
 #: ../menulibre/MenulibreXdg.py:53
 msgid "New Menu Item"
