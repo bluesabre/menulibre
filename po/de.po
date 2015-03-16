@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-09-02 05:50-0400\n"
-"PO-Revision-Date: 2014-06-05 15:45+0000\n"
+"PO-Revision-Date: 2015-03-15 15:34+0000\n"
 "Last-Translator: Tobias Bannert <Unknown>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-05 06:24+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2015-03-16 06:03+0000\n"
+"X-Generator: Launchpad (build 17389)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -736,15 +736,15 @@ msgstr "Das kann nicht rückgängig gemacht werden."
 
 #: ../menulibre/MenulibreApplication.py:2783
 msgid "Do you want to read the MenuLibre manual online?"
-msgstr "Wollen Sie die Bedienungsanleitung von MenuLibre online lesen?"
+msgstr "Wollen Sie die Bedienungsanleitung von MenuLibre im Internet lesen?"
 
 #: ../menulibre/MenulibreApplication.py:2789
 msgid "Read Online"
-msgstr "Online lesen"
+msgstr "Im Internet lesen"
 
 #: ../menulibre/MenulibreApplication.py:2790
 msgid "Online Documentation"
-msgstr "Online Dokumentation"
+msgstr "Internetdokumentation"
 
 #: ../menulibre/MenulibreApplication.py:2791
 msgid ""
