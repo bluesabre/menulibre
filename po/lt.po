@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-09-02 05:50-0400\n"
-"PO-Revision-Date: 2015-03-21 17:03+0000\n"
+"PO-Revision-Date: 2015-03-25 21:34+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-22 05:31+0000\n"
-"X-Generator: Launchpad (build 17405)\n"
+"X-Launchpad-Export-Date: 2015-03-26 05:28+0000\n"
+"X-Generator: Launchpad (build 17413)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -48,7 +48,7 @@ msgstr "Piktogramos Pasirinkimas"
 #: ../menulibre/MenulibreApplication.py:2682
 #: ../menulibre/MenulibreApplication.py:2788
 msgid "Cancel"
-msgstr "Atšaukti"
+msgstr "Atsisakyti"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "Apply"
@@ -183,6 +183,7 @@ msgstr "Išsamiau Apie Programą"
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
+"Jei nustatyta į \"Teisinga\", tuomet programa bus vykdoma terminalo lange."
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Run in terminal"
@@ -193,6 +194,9 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
+"Jei nustatyta į \"Teisinga\", tuomet bus siunčiamas paleidimo pranešimas. "
+"Dažniausiai, tai reiškia, kad kol bus paleidžiama programa, žymeklis bus "
+"rodomas kaip užimtas."
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
@@ -203,6 +207,8 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
+"Jei nustatyta į \"Teisinga\", tuomet šis įrašas nebus rodomas meniu, tačiau "
+"bus prieinamas MIME tipų susiejimui ir t.t."
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Hide from menus"
@@ -329,6 +335,8 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
+"Jei nustatyta į \"Teisinga\", tuomet naudotojui bus pateikiamas toks "
+"rezultatas, tarsi .desktop failo iš viso nebūtų."
 
 #: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Hidden"
@@ -341,6 +349,10 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
+"Nustatykite šį raktą į \"Teisinga\", jei šiai programai yra palaikomas D-Bus "
+"aktyvavimas ir jūs norite jį naudoti.\n"
+"Išsamesnei informacijai žiūrėkite http://standards.freedesktop.org/desktop-"
+"entry-spec/latest/ar01s07.html."
 
 #: ../data/ui/MenulibreWindow.ui.h:73
 msgid "DBUS Activatable"
@@ -356,7 +368,7 @@ msgstr "<small><i>Failo pavadinimas</i></small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:76
 msgid "Select an icon…"
-msgstr ""
+msgstr "Pasirinkite piktogramą..."
 
 #: ../data/ui/MenulibreWindow.ui.h:77
 msgid "<b>Select an icon</b>"
@@ -431,33 +443,33 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:72
 msgid "User configuration"
-msgstr ""
+msgstr "Naudotojo konfigūracija"
 
 #: ../menulibre/MenulibreApplication.py:73
 msgid "Hardware configuration"
-msgstr ""
+msgstr "Aparatinės įrangos konfigūracija"
 
 #. GNOME Specific
 #: ../menulibre/MenulibreApplication.py:75
 msgid "GNOME application"
-msgstr ""
+msgstr "GNOME programa"
 
 #: ../menulibre/MenulibreApplication.py:76
 msgid "GTK+ application"
-msgstr ""
+msgstr "GTK+ programa"
 
 #: ../menulibre/MenulibreApplication.py:77
 msgid "GNOME user configuration"
-msgstr ""
+msgstr "GNOME naudotojo konfigūracija"
 
 #: ../menulibre/MenulibreApplication.py:78
 msgid "GNOME hardware configuration"
-msgstr ""
+msgstr "GNOME aparatinės įrangos konfigūracija"
 
 #: ../menulibre/MenulibreApplication.py:79
 #: ../menulibre/MenulibreApplication.py:80
 msgid "GNOME system configuration"
-msgstr ""
+msgstr "GNOME sistemos konfigūracija"
 
 #. Xfce Specific
 #: ../menulibre/MenulibreApplication.py:82
@@ -467,20 +479,20 @@ msgstr "Xfce meniu elementas"
 
 #: ../menulibre/MenulibreApplication.py:84
 msgid "Xfce toplevel menu item"
-msgstr ""
+msgstr "Xfce aukščiausio lygio meniu elementas"
 
 #: ../menulibre/MenulibreApplication.py:85
 msgid "Xfce user configuration"
-msgstr ""
+msgstr "Xfce naudotojo konfigūracija"
 
 #: ../menulibre/MenulibreApplication.py:86
 msgid "Xfce hardware configuration"
-msgstr ""
+msgstr "Xfce aparatinės įrangos konfigūracija"
 
 #: ../menulibre/MenulibreApplication.py:87
 #: ../menulibre/MenulibreApplication.py:88
 msgid "Xfce system configuration"
-msgstr ""
+msgstr "Xfce sistemos konfigūracija"
 
 #: ../menulibre/MenulibreApplication.py:136
 #: ../menulibre/MenulibreApplication.py:181
@@ -571,7 +583,7 @@ msgstr "Paieškos Rezultatai"
 
 #: ../menulibre/MenulibreApplication.py:822
 msgid "ThisEntry"
-msgstr ""
+msgstr "ŠisĮrašas"
 
 #: ../menulibre/MenulibreApplication.py:840
 msgid "Select a category"
@@ -583,7 +595,7 @@ msgstr "Kategorijos Pavadinimas"
 
 #: ../menulibre/MenulibreApplication.py:927
 msgid "This Entry"
-msgstr ""
+msgstr "Šis Įrašas"
 
 #: ../menulibre/MenulibreApplication.py:982
 msgid "New Shortcut"
@@ -639,6 +651,8 @@ msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
+"Šis leistukas yra pašalintas iš sistemos.\n"
+"Pasirenkamas kitas prieinamas elementas."
 
 #: ../menulibre/MenulibreApplication.py:1475
 msgid "Do you want to save the changes before leaving this launcher?"
@@ -666,12 +680,12 @@ msgstr "Naujas Katalogas"
 
 #: ../menulibre/MenulibreApplication.py:2677
 msgid "Are you sure you want to restore this launcher?"
-msgstr ""
+msgstr "Ar tikrai norite atkurti šį leistuką?"
 
 #: ../menulibre/MenulibreApplication.py:2683
 #: ../menulibre/MenulibreApplication.py:2684
 msgid "Restore Launcher"
-msgstr ""
+msgstr "Atkurti Leistuką"
 
 #: ../menulibre/MenulibreApplication.py:2685
 msgid ""
@@ -690,11 +704,11 @@ msgstr "Ar tikrai norite ištrinti \"%s\"?"
 
 #: ../menulibre/MenulibreApplication.py:2705
 msgid "This cannot be undone."
-msgstr ""
+msgstr "Tai negali būti atšaukta."
 
 #: ../menulibre/MenulibreApplication.py:2783
 msgid "Do you want to read the MenuLibre manual online?"
-msgstr ""
+msgstr "Ar norite skaityti MenuLibre žinyną tinkle?"
 
 #: ../menulibre/MenulibreApplication.py:2789
 msgid "Read Online"
