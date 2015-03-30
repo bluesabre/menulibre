@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-09-02 05:50-0400\n"
-"PO-Revision-Date: 2015-03-27 13:47+0000\n"
+"PO-Revision-Date: 2015-03-29 21:55+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-28 05:33+0000\n"
+"X-Launchpad-Export-Date: 2015-03-30 05:46+0000\n"
 "X-Generator: Launchpad (build 17413)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -125,7 +125,7 @@ msgstr "Ištrinti"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Search terms…"
-msgstr ""
+msgstr "Paieškos žodžiai"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Move Up"
@@ -159,6 +159,12 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
+"Su argumentais vykdoma programa. Šis raktas yra reikalingas, jei "
+"DBusAktyvuojamas yra nustatyta į \"Teisinga\" arba jei jums reikalingas "
+"suderinamumas su realizavimais, kurie nesupranta D-Bus aktyvavimo.\n"
+"Palaikomų argumentų sąrašą žiūrėkite adresu "
+"http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables"
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Command"
@@ -296,6 +302,9 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
+"Kelias į failą, leidžiamą vykdyti kaip programą, siekiant nustatyti ar "
+"programa yra įdiegta. Jei failo nėra arba neleidžiama jo vykdyti kaip "
+"programą, šis įrašas meniu gali būti nerodomas."
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Try Exec"
@@ -315,6 +324,9 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
+"Raktažodžių, aprašančių šį įrašą, sąrašas. Galite naudoti raktažodžius kaip "
+"pagalbinę įrašų paieškos priemonę. Jie nėra skirti rodymui ir neturėtų "
+"dubliuotis su Pavadinimo ir BendrinioPavadinimo reikšmėmis."
 
 #: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Keywords"
@@ -325,10 +337,12 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
+"Jei nurodyta, programos bus paprašyta bent viename lange, eilutę naudoti "
+"kaip WM klasę arba WM pavadinimo užuominą."
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Startup WM Class"
-msgstr ""
+msgstr "Paleidimo WM Klasė"
 
 #: ../data/ui/MenulibreWindow.ui.h:69
 msgid ""
@@ -356,7 +370,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:73
 msgid "DBUS Activatable"
-msgstr ""
+msgstr "DBUS Aktyvuojamas"
 
 #: ../data/ui/MenulibreWindow.ui.h:74
 msgid "Advanced"
@@ -599,7 +613,7 @@ msgstr "Šis Įrašas"
 
 #: ../menulibre/MenulibreApplication.py:982
 msgid "New Shortcut"
-msgstr ""
+msgstr "Naujas Susiejimas"
 
 #. Unsaved changes
 #: ../menulibre/MenulibreApplication.py:1032
@@ -644,7 +658,7 @@ msgstr "Pasirinkite vykdomąjį..."
 #. Display a dialog saying this item is missing
 #: ../menulibre/MenulibreApplication.py:1448
 msgid "No Longer Installed"
-msgstr ""
+msgstr "Daugiau Nebėra Įdiegta"
 
 #: ../menulibre/MenulibreApplication.py:1449
 msgid ""
@@ -669,6 +683,7 @@ msgstr "Jūs neturite leidimo ištrinti šį failą."
 #: ../menulibre/MenulibreApplication.py:2149
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
+"Nepavyko pridėti pakatalogių į preliminariai įdiegtus sistemos kelius."
 
 #: ../menulibre/MenulibreApplication.py:2176
 msgid "New Launcher"
@@ -714,17 +729,19 @@ msgstr "Ar norite skaityti MenuLibre žinyną tinkle?"
 
 #: ../menulibre/MenulibreApplication.py:2789
 msgid "Read Online"
-msgstr ""
+msgstr "Skaityti Internete"
 
 #: ../menulibre/MenulibreApplication.py:2790
 msgid "Online Documentation"
-msgstr ""
+msgstr "Dokumentacija Internete"
 
 #: ../menulibre/MenulibreApplication.py:2791
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr ""
+"Jūs būsite nukreipti į dokumentacijos svetainę, kurioje yra prižiūrimi "
+"pagalbos puslapiai."
 
 #. Populate the AboutDialog with all the relevant details.
 #: ../menulibre/MenulibreApplication.py:2810
@@ -741,4 +758,4 @@ msgstr "Naujas Meniu Elementas"
 
 #: ../menulibre/MenulibreXdg.py:55
 msgid "A small descriptive blurb about this application."
-msgstr ""
+msgstr "Trumpas ir aiškus šios programos aprašas."
