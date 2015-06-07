@@ -2,44 +2,47 @@
 # Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the menulibre package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# Translators:
+# Påvel Nicklasson <pavel@frimix.se>, 2015
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-09-02 05:50-0400\n"
-"PO-Revision-Date: 2015-06-05 15:16+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-06-06 18:21+0000\n"
+"Last-Translator: Påvel Nicklasson <Unknown>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-06-06 05:26+0000\n"
+"X-Launchpad-Export-Date: 2015-06-07 05:29+0000\n"
 "X-Generator: Launchpad (build 17540)\n"
+"Language: sv\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr ""
+msgstr "Menyredigerare"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
-msgstr ""
+msgstr "Lägg till eller ta bort program från menyn"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Add _Launcher"
-msgstr ""
+msgstr "Lägg till progr_amstartare"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Add _Directory"
-msgstr ""
+msgstr "Lägg till _katalog"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Add _Separator"
-msgstr ""
+msgstr "Lägg till av_skiljare"
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Icon Selection"
-msgstr ""
+msgstr "Ikonval"
 
 #: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1042
 #: ../menulibre/MenulibreApplication.py:1166
@@ -48,108 +51,108 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:2682
 #: ../menulibre/MenulibreApplication.py:2788
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "Apply"
-msgstr ""
+msgstr "Tillämpa"
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "Icon Name"
-msgstr ""
+msgstr "Ikonnamn"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Image File"
-msgstr ""
+msgstr "Bildfil"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid "<b>Select an image</b>"
-msgstr ""
+msgstr "<b>Välj en bild</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "64px"
-msgstr ""
+msgstr "64px"
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "128px"
-msgstr ""
+msgstr "128px"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "<b>Preview</b>"
-msgstr ""
+msgstr "<b>Förhandsvisning</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:368
 #: ../menulibre/MenulibreApplication.py:2811
 msgid "MenuLibre"
-msgstr ""
+msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid "_File"
-msgstr ""
+msgstr "_Fil"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "_Edit"
-msgstr ""
+msgstr "R_edigera"
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid "_Help"
-msgstr ""
+msgstr "_Hjälp"
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Save Launcher"
-msgstr ""
+msgstr "Spara programstartare"
 
 #: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:420
 msgid "Undo"
-msgstr ""
+msgstr "Ångra"
 
 #: ../data/ui/MenulibreWindow.ui.h:21 ../menulibre/MenulibreApplication.py:427
 msgid "Redo"
-msgstr ""
+msgstr "Gör om"
 
 #: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:434
 msgid "Revert"
-msgstr ""
+msgstr "Återställ"
 
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:441
 msgid "Delete"
-msgstr ""
+msgstr "Ta bort"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Search terms…"
-msgstr ""
+msgstr "Sökvillkor..."
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Move Up"
-msgstr ""
+msgstr "Flytta upp"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Move Down"
-msgstr ""
+msgstr "Flytta ner"
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "<big><b>Application Name</b></big>"
-msgstr ""
+msgstr "<big><b>Programnamn</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Application Name"
-msgstr ""
+msgstr "Programnamn"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application Comment"
-msgstr ""
+msgstr "Programkommentar"
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:848
 msgid "Description"
-msgstr ""
+msgstr "Beskrivning"
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid ""
@@ -162,7 +165,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Command"
-msgstr ""
+msgstr "Kommando"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "The working directory."
@@ -170,15 +173,15 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Working Directory"
-msgstr ""
+msgstr "Arbetskatalog"
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Browse…"
-msgstr ""
+msgstr "Bläddra..."
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "<b>Application Details</b>"
-msgstr ""
+msgstr "<b>Programdetaljer</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "If set to \"True\", the program will be ran in a terminal window."
@@ -186,7 +189,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Run in terminal"
-msgstr ""
+msgstr "Kör i en terminal"
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid ""
@@ -196,7 +199,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
-msgstr ""
+msgstr "Använd startnotifieringar"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid ""
@@ -206,43 +209,43 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Hide from menus"
-msgstr ""
+msgstr "Dölj i menyer"
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "<b>Options</b>"
-msgstr ""
+msgstr "<b>Alternativ</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Add"
-msgstr ""
+msgstr "Lägg till"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Remove"
-msgstr ""
+msgstr "Ta bort"
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Clear"
-msgstr ""
+msgstr "Rensa"
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Categories"
-msgstr ""
+msgstr "Kategorier"
 
 #: ../data/ui/MenulibreWindow.ui.h:49
 msgid "Show"
-msgstr ""
+msgstr "Visa"
 
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Name"
-msgstr ""
+msgstr "Namn"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Action Name"
-msgstr ""
+msgstr "Åtgärdsnamn"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Actions"
-msgstr ""
+msgstr "Åtgärder"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Generic name of the application, for example \"Web Browser\"."
@@ -250,7 +253,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Generic Name"
-msgstr ""
+msgstr "Allmänt namn"
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid ""
@@ -262,7 +265,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Not Shown In"
-msgstr ""
+msgstr "Inte visad i"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
 msgid ""
@@ -275,7 +278,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Only Shown In"
-msgstr ""
+msgstr "Bara visad i"
 
 #: ../data/ui/MenulibreWindow.ui.h:61
 msgid ""
@@ -286,7 +289,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Try Exec"
-msgstr ""
+msgstr "Testkör"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "The MIME type(s) supported by this application."
@@ -294,7 +297,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Mimetypes"
-msgstr ""
+msgstr "Mime-typer"
 
 #: ../data/ui/MenulibreWindow.ui.h:65
 msgid ""
@@ -305,7 +308,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Keywords"
-msgstr ""
+msgstr "Nyckelord"
 
 #: ../data/ui/MenulibreWindow.ui.h:67
 msgid ""
@@ -315,7 +318,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Startup WM Class"
-msgstr ""
+msgstr "Startup WM Class"
 
 #: ../data/ui/MenulibreWindow.ui.h:69
 msgid ""
@@ -325,7 +328,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Hidden"
-msgstr ""
+msgstr "Dold"
 
 #: ../data/ui/MenulibreWindow.ui.h:71
 msgid ""
@@ -337,385 +340,591 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:73
 msgid "DBUS Activatable"
-msgstr ""
+msgstr "DBUS Activatable"
 
 #: ../data/ui/MenulibreWindow.ui.h:74
 msgid "Advanced"
-msgstr ""
+msgstr "Avancerat"
 
 #: ../data/ui/MenulibreWindow.ui.h:75
 msgid "<small><i>Filename</i></small>"
-msgstr ""
+msgstr "<small><i>Filnamn</i></small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:76
 msgid "Select an icon…"
-msgstr ""
+msgstr "Välj en ikon..."
 
 #: ../data/ui/MenulibreWindow.ui.h:77
 msgid "<b>Select an icon</b>"
-msgstr ""
+msgstr "<b>Välj en ikon</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:78
 msgid "Search"
-msgstr ""
+msgstr "Sök"
 
 #: ../data/ui/MenulibreWindow.ui.h:79
 msgid "column"
-msgstr ""
+msgstr "kolumn"
 
 #: ../menulibre/__init__.py:33
 msgid "Show debug messages"
-msgstr ""
+msgstr "Visa felrättningsmeddelanden"
 
 #: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1401
 #: ../menulibre/MenulibreApplication.py:2254
 msgid "Separator"
-msgstr ""
+msgstr "Avskiljare"
 
 #. Standard Items
 #: ../menulibre/MenulibreApplication.py:59
 msgid "Multimedia"
-msgstr ""
+msgstr "Multimedia"
 
 #: ../menulibre/MenulibreApplication.py:60
 msgid "Development"
-msgstr ""
+msgstr "Utveckling"
 
 #: ../menulibre/MenulibreApplication.py:61
 msgid "Education"
-msgstr ""
+msgstr "Utbildning"
 
 #: ../menulibre/MenulibreApplication.py:62
 msgid "Games"
-msgstr ""
+msgstr "Spel"
 
 #: ../menulibre/MenulibreApplication.py:63
 msgid "Graphics"
-msgstr ""
+msgstr "Grafik"
 
 #: ../menulibre/MenulibreApplication.py:64
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../menulibre/MenulibreApplication.py:65
 msgid "Office"
-msgstr ""
+msgstr "Kontor"
 
 #: ../menulibre/MenulibreApplication.py:66
 msgid "Settings"
-msgstr ""
+msgstr "Inställningar"
 
 #: ../menulibre/MenulibreApplication.py:67
 msgid "System"
-msgstr ""
+msgstr "System"
 
 #: ../menulibre/MenulibreApplication.py:68
 msgid "Accessories"
-msgstr ""
+msgstr "Tillbehör"
 
 #: ../menulibre/MenulibreApplication.py:69
 msgid "WINE"
-msgstr ""
+msgstr "WINE"
 
 #. Desktop Environment
 #: ../menulibre/MenulibreApplication.py:71
 msgid "Desktop configuration"
-msgstr ""
+msgstr "Skrivbordsinställning"
 
 #: ../menulibre/MenulibreApplication.py:72
 msgid "User configuration"
-msgstr ""
+msgstr "Ånvändarinställning"
 
 #: ../menulibre/MenulibreApplication.py:73
 msgid "Hardware configuration"
-msgstr ""
+msgstr "Hårdvaruinställning"
 
 #. GNOME Specific
 #: ../menulibre/MenulibreApplication.py:75
 msgid "GNOME application"
-msgstr ""
+msgstr "GNOME-program"
 
 #: ../menulibre/MenulibreApplication.py:76
 msgid "GTK+ application"
-msgstr ""
+msgstr "Gtk+ program"
 
 #: ../menulibre/MenulibreApplication.py:77
 msgid "GNOME user configuration"
-msgstr ""
+msgstr "GNOME-användarinställning"
 
 #: ../menulibre/MenulibreApplication.py:78
 msgid "GNOME hardware configuration"
-msgstr ""
+msgstr "GNOME-hårdvaruinställning"
 
 #: ../menulibre/MenulibreApplication.py:79
 #: ../menulibre/MenulibreApplication.py:80
 msgid "GNOME system configuration"
-msgstr ""
+msgstr "Gnome-systeminställning"
 
 #. Xfce Specific
 #: ../menulibre/MenulibreApplication.py:82
 #: ../menulibre/MenulibreApplication.py:83
 msgid "Xfce menu item"
-msgstr ""
+msgstr "Xfce-menypost"
 
 #: ../menulibre/MenulibreApplication.py:84
 msgid "Xfce toplevel menu item"
-msgstr ""
+msgstr "Xfce-toppnivåmenypost"
 
 #: ../menulibre/MenulibreApplication.py:85
 msgid "Xfce user configuration"
-msgstr ""
+msgstr "Xfce-användarinställning"
 
 #: ../menulibre/MenulibreApplication.py:86
 msgid "Xfce hardware configuration"
-msgstr ""
+msgstr "Xfce-hårdvaruinställning"
 
 #: ../menulibre/MenulibreApplication.py:87
 #: ../menulibre/MenulibreApplication.py:88
 msgid "Xfce system configuration"
-msgstr ""
+msgstr "Xfce-systeminställning"
 
 #: ../menulibre/MenulibreApplication.py:136
 #: ../menulibre/MenulibreApplication.py:181
 msgid "Other"
-msgstr ""
+msgstr "Annan"
 
 #: ../menulibre/MenulibreApplication.py:391
 msgid "Add _Launcher..."
-msgstr ""
+msgstr "_Lägg till programstartare..."
 
 #: ../menulibre/MenulibreApplication.py:392
 msgid "Add Launcher..."
-msgstr ""
+msgstr "Lägg till programstartare..."
 
 #: ../menulibre/MenulibreApplication.py:398
 msgid "Add _Directory..."
-msgstr ""
+msgstr "Lägg till _katalog..."
 
 #: ../menulibre/MenulibreApplication.py:399
 msgid "Add Directory..."
-msgstr ""
+msgstr "Lägg till katalog..."
 
 #: ../menulibre/MenulibreApplication.py:405
 msgid "_Add Separator..."
-msgstr ""
+msgstr "Lägg till _avskiljare..."
 
 #: ../menulibre/MenulibreApplication.py:406
 msgid "Add Separator..."
-msgstr ""
+msgstr "Lägg till avskiljare..."
 
 #: ../menulibre/MenulibreApplication.py:412
 msgid "_Save"
-msgstr ""
+msgstr "_Spara"
 
 #: ../menulibre/MenulibreApplication.py:413
 #: ../menulibre/MenulibreApplication.py:1043
 #: ../menulibre/MenulibreApplication.py:1487
 msgid "Save"
-msgstr ""
+msgstr "Spara"
 
 #: ../menulibre/MenulibreApplication.py:419
 msgid "_Undo"
-msgstr ""
+msgstr "_Ångra"
 
 #: ../menulibre/MenulibreApplication.py:426
 msgid "_Redo"
-msgstr ""
+msgstr "Gö_r om"
 
 #: ../menulibre/MenulibreApplication.py:433
 msgid "_Revert"
-msgstr ""
+msgstr "Åte_rställ"
 
 #: ../menulibre/MenulibreApplication.py:440
 msgid "_Delete"
-msgstr ""
+msgstr "Ta _bort"
 
 #: ../menulibre/MenulibreApplication.py:447
 msgid "_Quit"
-msgstr ""
+msgstr "A_vsluta"
 
 #: ../menulibre/MenulibreApplication.py:448
 #: ../menulibre/MenulibreApplication.py:2763
 msgid "Quit"
-msgstr ""
+msgstr "Avsluta"
 
 #: ../menulibre/MenulibreApplication.py:454
 msgid "_Contents"
-msgstr ""
+msgstr "_Innehåll"
 
 #: ../menulibre/MenulibreApplication.py:455
 #: ../menulibre/MenulibreApplication.py:2761
 msgid "Help"
-msgstr ""
+msgstr "Hjälp"
 
 #: ../menulibre/MenulibreApplication.py:461
 msgid "_About"
-msgstr ""
+msgstr "_Om"
 
 #: ../menulibre/MenulibreApplication.py:462
 #: ../menulibre/MenulibreApplication.py:2762
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #. Create a new column.
 #: ../menulibre/MenulibreApplication.py:580
 msgid "Search Results"
-msgstr ""
+msgstr "Sökresultat"
 
 #: ../menulibre/MenulibreApplication.py:822
 msgid "ThisEntry"
-msgstr ""
+msgstr "DennaPost"
 
 #: ../menulibre/MenulibreApplication.py:840
 msgid "Select a category"
-msgstr ""
+msgstr "Välj en kategori"
 
 #: ../menulibre/MenulibreApplication.py:843
 msgid "Category Name"
-msgstr ""
+msgstr "Kategorinamn"
 
 #: ../menulibre/MenulibreApplication.py:927
 msgid "This Entry"
-msgstr ""
+msgstr "Denna post"
 
 #: ../menulibre/MenulibreApplication.py:982
 msgid "New Shortcut"
-msgstr ""
+msgstr "Ny genväg"
 
 #. Unsaved changes
 #: ../menulibre/MenulibreApplication.py:1032
 msgid "Do you want to save the changes before closing?"
-msgstr ""
+msgstr "Vill du spara ändringarna innan stängning?"
 
 #: ../menulibre/MenulibreApplication.py:1033
 msgid "If you don't save the launcher, all the changes will be lost.'"
 msgstr ""
+"Om du inte sparar programstartaren, kommer alla ändringarna att förloras.'"
 
 #: ../menulibre/MenulibreApplication.py:1040
 #: ../menulibre/MenulibreApplication.py:1484
 msgid "Save Changes"
-msgstr ""
+msgstr "Spara ändringar"
 
 #: ../menulibre/MenulibreApplication.py:1041
 #: ../menulibre/MenulibreApplication.py:1485
 msgid "Don't Save"
-msgstr ""
+msgstr "Spara inte"
 
 #: ../menulibre/MenulibreApplication.py:1163
 msgid "Select an image"
-msgstr ""
+msgstr "Välj en bild"
 
 #: ../menulibre/MenulibreApplication.py:1167
 #: ../menulibre/MenulibreApplication.py:1292
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../menulibre/MenulibreApplication.py:1169
 msgid "Images"
-msgstr ""
+msgstr "Bilder"
 
 #: ../menulibre/MenulibreApplication.py:1284
 msgid "Select a working directory..."
-msgstr ""
+msgstr "Välj en arbetskatalog"
 
 #: ../menulibre/MenulibreApplication.py:1288
 msgid "Select an executable..."
-msgstr ""
+msgstr "Välj en körbar fil..."
 
 #. Display a dialog saying this item is missing
 #: ../menulibre/MenulibreApplication.py:1448
 msgid "No Longer Installed"
-msgstr ""
+msgstr "Inte längre installerat"
 
 #: ../menulibre/MenulibreApplication.py:1449
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
+"Denna programstartare har tagits bort från systemet.\n"
+"Väljer nästa tillgängliga objekt."
 
 #: ../menulibre/MenulibreApplication.py:1475
 msgid "Do you want to save the changes before leaving this launcher?"
-msgstr ""
+msgstr "Vill du spara ändringarna innan du lämnar denna programstartare?"
 
 #: ../menulibre/MenulibreApplication.py:1477
 msgid "If you don't save the launcher, all the changes will be lost."
 msgstr ""
+"Om du inte sparar programstartaren, kommer alla ändringar att förloras."
 
 #: ../menulibre/MenulibreApplication.py:1716
 msgid "You do not have permission to delete this file."
-msgstr ""
+msgstr "Du har inte tillåtelse att ta bort denna fil."
 
 #: ../menulibre/MenulibreApplication.py:2149
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
+"Kan inte lägga till underkataloger till förinstallerade systemsökvägar."
 
 #: ../menulibre/MenulibreApplication.py:2176
 msgid "New Launcher"
-msgstr ""
+msgstr "Ny programstartare"
 
 #: ../menulibre/MenulibreApplication.py:2227
 msgid "New Directory"
-msgstr ""
+msgstr "Ny katalog"
 
 #: ../menulibre/MenulibreApplication.py:2677
 msgid "Are you sure you want to restore this launcher?"
-msgstr ""
+msgstr "Är du säker på att du vill återställa denna programstartare?"
 
 #: ../menulibre/MenulibreApplication.py:2683
 #: ../menulibre/MenulibreApplication.py:2684
 msgid "Restore Launcher"
-msgstr ""
+msgstr "Återställ Programstartare"
 
 #: ../menulibre/MenulibreApplication.py:2685
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr ""
+"Alla ändringar sedan senast sparade tillstånd kommer att förloras och kan "
+"inte återställas automatiskt."
 
 #: ../menulibre/MenulibreApplication.py:2700
 msgid "Are you sure you want to delete this separator?"
-msgstr ""
+msgstr "Är du säker på att du vill ta bort denna avskiljare?"
 
 #: ../menulibre/MenulibreApplication.py:2703
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill ta bort  \"%s\"?"
 
 #: ../menulibre/MenulibreApplication.py:2705
 msgid "This cannot be undone."
-msgstr ""
+msgstr "Detta kan inte ångras."
 
 #: ../menulibre/MenulibreApplication.py:2783
 msgid "Do you want to read the MenuLibre manual online?"
-msgstr ""
+msgstr "Vill du läsa MenuLibres manual online?"
 
 #: ../menulibre/MenulibreApplication.py:2789
 msgid "Read Online"
-msgstr ""
+msgstr "Läs online"
 
 #: ../menulibre/MenulibreApplication.py:2790
 msgid "Online Documentation"
-msgstr ""
+msgstr "Onlinedokumentation"
 
 #: ../menulibre/MenulibreApplication.py:2791
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr ""
+"Du kommer att skickas vidare till webbsidan för dokumentation där "
+"hjälpsidorna underhålls."
 
 #. Populate the AboutDialog with all the relevant details.
 #: ../menulibre/MenulibreApplication.py:2810
 msgid "About MenuLibre"
-msgstr ""
+msgstr "Om MenuLibre"
 
 #: ../menulibre/MenulibreApplication.py:2813
 msgid "Copyright © 2012-2014 Sean Davis"
-msgstr ""
+msgstr "Copyright © 2012-2014 Sean Davis"
 
 #: ../menulibre/MenulibreXdg.py:53
 msgid "New Menu Item"
-msgstr ""
+msgstr "Ny menypost"
 
 #: ../menulibre/MenulibreXdg.py:55
 msgid "A small descriptive blurb about this application."
-msgstr ""
+msgstr "En kort beskrivning om detta program."
+
+#~ msgid ""
+#~ "\"Exec\": Program to execute, possibly with arguments. The Exec key is "
+#~ "required\n"
+#~ "if DBusActivatable is not set to true. Even if DBusActivatable is true, "
+#~ "Exec\n"
+#~ "should be specified for compatibility with implementations that do not\n"
+#~ "understand DBusActivatable. \n"
+#~ "\n"
+#~ "Please see\n"
+#~ "http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+#~ "latest.html#exec-variables\n"
+#~ "for a list of supported arguments."
+#~ msgstr ""
+#~ "\"Kör\": Program som ska köras, möjligen med argument, eventuellt med "
+#~ "argument. Denna Körtangent krävs\n"
+#~ "om DBusActivatable inte är satt till sann. Även om DBusActivatable är sann, "
+#~ "bör Kör\n"
+#~ "vara specificerat för kompatibilitet med implementation som inte\n"
+#~ "förstår DBusActivatable.\n"
+#~ "\n"
+#~ "Se\n"
+#~ "http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+#~ "latest.html#exec-variables\n"
+#~ "för en lista på argument som stöds."
+
+#~ msgid "\"Path\": The working directory to run the program in."
+#~ msgstr "\"Sökväg\": Arbetskatalogen att köra programmet i."
+
+#~ msgid "\"Terminal\": Whether the program runs in a terminal window."
+#~ msgstr "\"Terminal\": Huruvida programmet kör i ett terminalfönster."
+
+#~ msgid ""
+#~ "\"StartupNotify\": If true, it is KNOWN that the application will send a "
+#~ "\"remove\"\n"
+#~ "message when started with the DESKTOP_STARTUP_ID environment variable set. "
+#~ "If\n"
+#~ "false, it is KNOWN that the application does not work with startup "
+#~ "notification\n"
+#~ "at all (does not shown any window, breaks even when using StartupWMClass, "
+#~ "etc.).\n"
+#~ "If absent, a reasonable handling is up to implementations (assuming false,\n"
+#~ "using StartupWMClass, etc.)."
+#~ msgstr ""
+#~ "\"StartMeddelande\": Om sant, är det KÄNT att programmet kommer att skicka "
+#~ "ett  \"ta bort\"\n"
+#~ "meddelande då det startar med DESKTOP_STARTUP_ID miljövariablen satt. Om\n"
+#~ "falsk, är det KÄNT att programmet inte fungerar med startnotifiering\n"
+#~ "alls (visar inget fönster, kraschar till och med då StartupWMClass används "
+#~ "etc.).\n"
+#~ "Om det saknas, är förnuftig hantering upp till implementeringar (förutsätter "
+#~ "falsk,\n"
+#~ "använder StartupWMClass, etc.)."
+
+#~ msgid ""
+#~ "\"NoDisplay\": NoDisplay means \"this application exists, but don't display "
+#~ "it in\n"
+#~ "the menus\". This can be useful to e.g. associate this application with "
+#~ "MIME\n"
+#~ "types, so that it gets launched from a file manager (or other apps), "
+#~ "without\n"
+#~ "having a menu entry for it (there are tons of good reasons for this,\n"
+#~ "including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
+#~ msgstr ""
+#~ "\"IngenVisning\": IngenVisning betyder \"detta program finns, men visas inte "
+#~ "i\n"
+#~ "menyerna\". Detta kan vara användbart för att t. ex. associera programmet "
+#~ "med MIME-\n"
+#~ "typer, så att det startar från en filhanterare (eller andra program), utan\n"
+#~ "att ha en egen menypost (det finns mängder av goda skäl för detta,\n"
+#~ "inkluderande t. ex. netscape -remote, eller kfmclient openURL typ av saker)."
+
+#~ msgid ""
+#~ "\"GenericName\": Generic name of the application, for example \"Web "
+#~ "Browser\"."
+#~ msgstr ""
+#~ "\"GenericName\": Allmänt namn på programmet, till exempel \"Webbläsare\"."
+
+#~ msgid ""
+#~ "\"NotShowIn\": A list of strings identifying the environments that should "
+#~ "not\n"
+#~ "display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
+#~ "NotShowIn, may appear in a group.\n"
+#~ "\n"
+#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+#~ "XFCE, Old"
+#~ msgstr ""
+#~ "\"NotShowIn\": En lista på strängar  som identifierar miljöer som inte bör\n"
+#~ "visa en angiven skrivbordspost. Endast en av dessa nycklar, antingen "
+#~ "OnlyShowIn eller\n"
+#~ "NotShowIn, kan finnas i en grupp.\n"
+#~ "\n"
+#~ "möjliga värden inkluderar: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+#~ "XFCE, Old"
+
+#~ msgid ""
+#~ "\"OnlyShowIn\": A list of strings identifying the environments that should\n"
+#~ "display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
+#~ "NotShowIn, may appear in a group.\n"
+#~ "\n"
+#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+#~ "XFCE, Old"
+#~ msgstr ""
+#~ "\"OnlyShowIn\": En lista strängar som identifierar miljöer som bör\n"
+#~ "visa en angiven skrivbordspost. Endast en av dessa nycklar, antingen "
+#~ "OnlyShowIn eller\n"
+#~ "NotShowIn, kan finnas i en grupp.\n"
+#~ "\n"
+#~ "Möjliga värden inkluderar: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+#~ "XFCE, Old"
+
+#~ msgid ""
+#~ "\"TryExec\": Path to an executable file on disk used to determine if the "
+#~ "program\n"
+#~ "is actually installed. If the path is not an absolute path, the file is "
+#~ "looked\n"
+#~ "up in the $PATH environment variable. If the file is not present or if it "
+#~ "is\n"
+#~ "not executable, the entry may be ignored (not be used in menus, for "
+#~ "example). "
+#~ msgstr ""
+#~ "\"TryExec\": Sökväg till en körbar fil på disk som används för att avgöra om "
+#~ "programmet\n"
+#~ "verkligen är installerat. Om sökvägen inte är en absolut sökväg, söks filen\n"
+#~ "i mijövariabeln $PATH. Om filen inte finns eller om den inte är\n"
+#~ "körbar, kan posten ignoreras (inte användas i i menyer, till exempel). "
+
+#~ msgid "\"MimeType\": The MIME type(s) supported by this application."
+#~ msgstr "\"MimeType\": De(n) MIME-typ(er) som stöds av detta program."
+
+#~ msgid ""
+#~ "\"Keywords\": A list of strings which may be used in addition to other "
+#~ "metadata\n"
+#~ "to describe this entry. This can be useful e.g. to facilitate searching "
+#~ "through\n"
+#~ "entries. The values are not meant for display, and should not be redundant\n"
+#~ "with the values of Name or GenericName."
+#~ msgstr ""
+#~ "\"Keywords\": En lista strängar som kan användas utöver annan metadata för\n"
+#~ "att beskriva denna post. Detta kan vara användbart t. ex. för att underlätta "
+#~ "sökning\n"
+#~ "bland poster. Värdena är inte avsedda att visas, och bör inte vara "
+#~ "överflödiga.\n"
+#~ "med värdena Namn eller AllmäntNamn."
+
+#~ msgid ""
+#~ "\"StartupWMClass\": If specified, it is known that the application will map "
+#~ "at\n"
+#~ "least one window with the given string as its WM class or WM name hint."
+#~ msgstr ""
+#~ "\"StartupWMClass\": Om angivet, är det känt att programmet kommer att rita\n"
+#~ "åtminstone ett fönster med angiven sträng som dess WM-klass eller WM-namn "
+#~ "antydan."
+
+#~ msgid ""
+#~ "\"Hidden\": Hidden should have been called Deleted. It means the user "
+#~ "deleted\n"
+#~ "(at his level) something that was present (at an upper level, e.g. in the\n"
+#~ "system dirs). It's strictly equivalent to the .desktop file not existing at\n"
+#~ "all, as far as that user is concerned. This can also be used to "
+#~ "\"uninstall\"\n"
+#~ "existing files (e.g. due to a renaming) - by letting make install install a\n"
+#~ "file with Hidden=true in it."
+#~ msgstr ""
+#~ "\"Hidden\": Hidden (Dold) borde ha kallats borttagen. Det betyder att "
+#~ "användaren\n"
+#~ "har tagit bort (på denna nivå) något som fanns (på en högre nivå, t. ex. i\n"
+#~ "systemkataloger). Det är helt likvärdigt med att skrivbordsfilen inte finns "
+#~ "alls,\n"
+#~ "så långt den användaren berörs. Detta kan också användas för att "
+#~ "\"avinstallera\"\n"
+#~ "befintliga filer (t. ex. föranlett av omdöpning) - genom att låta "
+#~ "installationen\n"
+#~ "installera en fil med Hidden=true i den."
+
+#~ msgid ""
+#~ "\"DBusActivatable\": A boolean value specifying if D-Bus activation is "
+#~ "supported\n"
+#~ "for this application. If this key is missing, the default value is false. "
+#~ "If\n"
+#~ "the value is true then implementations should ignore the Exec key and send "
+#~ "a\n"
+#~ "D-Bus message to launch the application. See D-Bus Activation for more\n"
+#~ "information on how this works. Applications should still include Exec= "
+#~ "lines\n"
+#~ "in their desktop files for compatibility with implementations that do not\n"
+#~ "understand the DBusActivatable key."
+#~ msgstr ""
+#~ "\"DBusActivatable\": Ett booleanskt värde som anger om D-Bus aktivering "
+#~ "stöds\n"
+#~ "för detta program. Om denna nyckel saknas, är standardvärdet falskt. Om\n"
+#~ "värdet är sant bör implementeringar ignorera Exec-nyckeln och skicka ett\n"
+#~ "D-Bus meddelande för att starta programmet. Se D-Bus Activation för mer\n"
+#~ "information om hur detta fungerar. Program bör fortfarande inkludera "
+#~ "Exec=lines\n"
+#~ "i sina skrivbordsfiler för kompatibilitet med implementeringar som inte\n"
+#~ "förstår DBusActivatable nyckeln."
