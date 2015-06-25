@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-09-02 05:50-0400\n"
-"PO-Revision-Date: 2015-06-24 01:42+0000\n"
+"PO-Revision-Date: 2015-06-24 17:11+0000\n"
 "Last-Translator: ned <n-st@mail.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-06-24 05:44+0000\n"
-"X-Generator: Launchpad (build 17572)\n"
+"X-Launchpad-Export-Date: 2015-06-25 05:39+0000\n"
+"X-Generator: Launchpad (build 17578)\n"
 "Language: ru\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -161,6 +161,16 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
+"Ключ: \"Exec\" (Выполнить). Тип: строка.\n"
+"\n"
+"Путь к программе для запуска, с возможностью указания аргументов. Ключ Exec "
+"необходим, если ключ\n"
+"DBusActivatable не равен true, или для совместимости с программами, не "
+"распознающими ключ DBusActivatable.\n"
+"\n"
+"Список поддерживаемых аргументов доступен на сайте группы Freedesktop.org\n"
+"(http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables)"
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Command"
@@ -198,6 +208,12 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
+"Ключ: \"StartupNotify\" (Уведомить о запуске). Тип: логический. Значения: "
+"true, false.\r\n"
+"\r\n"
+"Если равен true, программа будет отправлять уведомление о запуске. Обычно "
+"означает,\r\n"
+"что во время запуска приложения отображается курсор со значком занятости"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
@@ -208,6 +224,12 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
+"Ключ: \"NoDisplay\" (Не отображать). Тип: логический. Значения: true, "
+"false.\r\n"
+"\r\n"
+"Если равен true, этот пункт не будет отображаться в меню, но будет "
+"доступен\r\n"
+"для связи с различными типами MIME и т. п."
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Hide from menus"
@@ -251,7 +273,10 @@ msgstr "Действия"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr "Обобщённое название приложения, например, «Веб-браузер»."
+msgstr ""
+"Ключ: \"GenericName\" (Обобщённое имя). Тип: строка.\r\n"
+"\r\n"
+"Обобщённое название программы, например \"Веб-браузер\""
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Generic Name"
@@ -264,6 +289,11 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Ключ: \"NotShowIn\" (Не показывать в). Тип: строка.\n"
+"Значения: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old.\n"
+"\n"
+"Список окружений, в которых пункт меню не будет отображаться. Использование\n"
+"ключа возможно только в случае, если не установлен ключ OnlyShowIn"
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Not Shown In"
@@ -277,6 +307,12 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Ключ: \"OnlyShowIn\" (Показать только в). Тип: строка.\n"
+"Значения: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old.\n"
+"\n"
+"Список окружений, в которых пункт меню будет отображаться.\n"
+"Другие окружения не будут отображать этот пункт. Использование\n"
+"ключа возможно только в случае, если не установлен ключ NotShowIn"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Only Shown In"
@@ -288,6 +324,13 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
+"Ключ: \"TryExec\" (Путь проверки). Тип: строка.\r\n"
+"\r\n"
+"Путь к исполняемому файлу, используемый для определения,\r\n"
+"установлена ли в настоящий момент программа.\r\n"
+"\r\n"
+"Если файл не обнаружен или не является исполняемым,\r\n"
+"пункт может не отображаться в меню"
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Try Exec"
@@ -296,6 +339,9 @@ msgstr "Путь проверки"
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "The MIME type(s) supported by this application."
 msgstr ""
+"Ключ: \"MimeType\" (Тип MIME). Тип: строка.\r\n"
+"\r\n"
+"Типы MIME, поддерживаемые этой программой"
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Mimetypes"
@@ -307,6 +353,13 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
+"Ключ: \"Keywords\" (Ключевые слова). Тип: строка.\r\n"
+"\r\n"
+"Список значений для описания этого пункта. Используется\r\n"
+"для облегчения поиска пунктов в меню.\r\n"
+"\r\n"
+"Значения не предназначены для отображения и не должны\r\n"
+"быть избыточными для ключей Name и GenericName"
 
 #: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Keywords"
@@ -317,6 +370,10 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
+"Ключ: \"StartupWMClass\" (Начальный класс WM). Тип: строка.\r\n"
+"\r\n"
+"Если указан, программа будет пытаться использовать строку\r\n"
+"как класс WM или описание класса WM минимум в одном окне"
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Startup WM Class"
@@ -327,6 +384,10 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
+"Ключ: \"Hidden\" (Скрытый). Тип: логический. Значения: true, false.\r\n"
+"\r\n"
+"\"Скрытый\" следует понимать как \"Удалённый\". Если равен true, для\r\n"
+"пользователя равнозначно тому, что файл \".desktop\" вообще не существует"
 
 #: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Hidden"
@@ -339,6 +400,11 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
+"Ключ: \"DBusActivatable\" (DBus-активируемый). Тип: логический. Значения: "
+"true, false.\n"
+"\n"
+"Установите равным true, если активация через D-Bus поддерживается и "
+"необходимо её использовать"
 
 #: ../data/ui/MenulibreWindow.ui.h:73
 msgid "DBUS Activatable"
@@ -384,11 +450,11 @@ msgstr "Мультимедиа"
 
 #: ../menulibre/MenulibreApplication.py:60
 msgid "Development"
-msgstr "Средства разработки"
+msgstr "Разработка"
 
 #: ../menulibre/MenulibreApplication.py:61
 msgid "Education"
-msgstr "Образовательные"
+msgstr "Образование"
 
 #: ../menulibre/MenulibreApplication.py:62
 msgid "Games"
@@ -465,7 +531,7 @@ msgstr "Пункт меню Xfce"
 
 #: ../menulibre/MenulibreApplication.py:84
 msgid "Xfce toplevel menu item"
-msgstr "Пункт вышестоящего уровня меню Xfce"
+msgstr "Пункт меню Xfce вышестоящего уровня"
 
 #: ../menulibre/MenulibreApplication.py:85
 msgid "Xfce user configuration"
@@ -551,7 +617,7 @@ msgstr "_Содержание"
 #: ../menulibre/MenulibreApplication.py:455
 #: ../menulibre/MenulibreApplication.py:2761
 msgid "Help"
-msgstr "Помощь"
+msgstr "Справка"
 
 #: ../menulibre/MenulibreApplication.py:461
 msgid "_About"
