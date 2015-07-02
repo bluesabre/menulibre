@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-02 05:50-0400\n"
-"PO-Revision-Date: 2014-03-14 06:04+0000\n"
-"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
+"PO-Revision-Date: 2015-07-01 13:01+0000\n"
+"Last-Translator: Alfonso <admin@alfonsomh.eu>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-05 06:25+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2015-07-02 05:40+0000\n"
+"X-Generator: Launchpad (build 17590)\n"
 "Language: es\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -167,7 +167,7 @@ msgstr "Orden"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "The working directory."
-msgstr ""
+msgstr "El directorio de trabajo."
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Working Directory"
@@ -247,7 +247,7 @@ msgstr "Acciones"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr ""
+msgstr "Nombre genérico de la aplicación, por ejemplo \"Navegador web\"."
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Generic Name"
@@ -273,6 +273,11 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Lista de entornos de escritorio que deberían mostrar este elemento. Los "
+"demás entornos no mostrarán este elemento. Sólo puedes usar esta clave si "
+"\"NotShowIn\" no está activada.\n"
+"Entre los valores posibles se incluyen: GNOME, KDE, LXDE, MATE, Razor, ROX, "
+"TDE, Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Only Shown In"
@@ -284,6 +289,9 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
+"Ruta al archivo ejecutable para determinar si el programa está instalado. Si "
+"el archivo no existe o no es ejecutable, esta entrada podría no mostrarse en "
+"menú."
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Try Exec"
@@ -291,7 +299,7 @@ msgstr "Probar Ejecutable"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "The MIME type(s) supported by this application."
-msgstr ""
+msgstr "El/Los tipo(s) MIME soportados por esta aplicación."
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Mimetypes"
@@ -303,6 +311,9 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
+"Lista de palabras clave para describir esta entrada. Puedes usarlas para "
+"ayudar a buscar entradas. No tienen la finalidad de mostrarse, y no deberían "
+"ser redundantes con los valores de Name o GenericName."
 
 #: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Keywords"
@@ -313,6 +324,8 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
+"Si se especifica, se le solicitará a la aplicación usar la cadena de texto "
+"como una clase WM o un indicio de nombre WM al menos en una ventana."
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Startup WM Class"
@@ -335,6 +348,10 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
+"Establece esta clave a \"True\" si la activación D-Bus está soportada para "
+"esta aplicación y quieres usarla.\n"
+"Ver http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
+"para más información."
 
 #: ../data/ui/MenulibreWindow.ui.h:73
 msgid "DBUS Activatable"
@@ -633,6 +650,8 @@ msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
+"Este lanzador ha sido eliminado del sistema.\n"
+"Seleccionando el siguiente elemento disponible."
 
 #: ../menulibre/MenulibreApplication.py:1475
 msgid "Do you want to save the changes before leaving this launcher?"
@@ -649,6 +668,7 @@ msgstr "Usted no tiene permiso para eliminar este archivo."
 #: ../menulibre/MenulibreApplication.py:2149
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
+"No se pueden añadir subdirectorios a rutas del sistema preinstaladas."
 
 #: ../menulibre/MenulibreApplication.py:2176
 msgid "New Launcher"
