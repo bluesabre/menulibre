@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2014-09-02 05:50-0400\n"
-"PO-Revision-Date: 2015-06-24 17:11+0000\n"
-"Last-Translator: ned <n-st@mail.ru>\n"
+"PO-Revision-Date: 2015-07-03 13:56+0000\n"
+"Last-Translator: ned <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-06-25 05:39+0000\n"
-"X-Generator: Launchpad (build 17578)\n"
+"X-Launchpad-Export-Date: 2015-07-04 05:38+0000\n"
+"X-Generator: Launchpad (build 17597)\n"
 "Language: ru\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -531,7 +531,7 @@ msgstr "Пункт меню Xfce"
 
 #: ../menulibre/MenulibreApplication.py:84
 msgid "Xfce toplevel menu item"
-msgstr "Пункт меню Xfce вышестоящего уровня"
+msgstr "Пункт меню Xfce верхнего уровня"
 
 #: ../menulibre/MenulibreApplication.py:85
 msgid "Xfce user configuration"
