@@ -211,6 +211,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         window_title = window.get_title()
         window_icon = window.get_icon_name()
         window_contents = window.get_children()[0]
+        size = window.get_default_size()
         size_request = window.get_size_request()
         position = window.get_property("window-position")
 
@@ -221,6 +222,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Restore the window properties.
         self.set_title(window_title)
         self.set_icon_name(window_icon)
+        self.set_default_size(size[0], size[1])
         self.set_size_request(size_request[0], size_request[1])
         self.set_position(position)
 
