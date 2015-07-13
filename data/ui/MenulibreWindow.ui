@@ -735,7 +735,6 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                             <property name="can_focus">True</property>
                             <property name="model">liststore1</property>
                             <property name="headers_visible">False</property>
-                            <property name="rules_hint">True</property>
                             <property name="enable_search">False</property>
                             <property name="level_indentation">24</property>
                             <property name="rubber_banding">True</property>
@@ -1079,7 +1078,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                                           <object class="GtkAlignment" id="alignment5">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
-                                            <property name="left_padding">12</property>
+                                            <property name="margin_start">12</property>
                                             <child>
                                               <object class="GtkGrid" id="grid1">
                                                 <property name="visible">True</property>
@@ -1168,7 +1167,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                                           <object class="GtkAlignment" id="alignment6">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
-                                            <property name="left_padding">12</property>
+                                            <property name="margin_start">12</property>
                                             <child>
                                               <object class="GtkGrid" id="grid2">
                                                 <property name="visible">True</property>
