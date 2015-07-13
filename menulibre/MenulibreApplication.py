@@ -560,9 +560,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Configure the Exec/Path widgets.
         for widget_name in ['Exec', 'Path']:
-            button = builder.get_object('button_%s' % widget_name)
-            button.connect('clicked', self.on_ExecPath_clicked,
-                                      widget_name, builder)
+            button = builder.get_object('entry_%s' % widget_name)
+            button.connect('icon-press', self.on_ExecPath_clicked,
+                                         widget_name, builder)
 
         # Icon Selector
         self.icon_selector = MenulibreIconSelection.IconSelector(parent=self)
@@ -917,9 +917,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.save_button.set_sensitive(True)
 
 # Browse button functionality for Exec and Path widgets.
-    def on_ExecPath_clicked(self, widget, widget_name, builder):
+    def on_ExecPath_clicked(self, entry, icon, event, widget_name, builder):
         """Show the file selection dialog when Exec/Path Browse is clicked."""
-        entry = builder.get_object('entry_%s' % widget_name)
         if widget_name == 'Path':
             title=_("Select a working directory...")
             action=Gtk.FileChooserAction.SELECT_FOLDER
