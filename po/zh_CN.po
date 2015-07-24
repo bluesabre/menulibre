@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-12 12:16-0400\n"
-"PO-Revision-Date: 2012-08-15 05:49+0000\n"
-"Last-Translator: Wang Dianjin <Unknown>\n"
+"PO-Revision-Date: 2015-07-23 06:58+0000\n"
+"Last-Translator: 玉堂白鹤 <yjwork@qq.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-13 05:31+0000\n"
-"X-Generator: Launchpad (build 17620)\n"
+"X-Launchpad-Export-Date: 2015-07-24 05:43+0000\n"
+"X-Generator: Launchpad (build 17628)\n"
 "Language: \n"
 
 #: ../menulibre.desktop.in.h:1
@@ -24,7 +24,7 @@ msgstr "菜单编辑器"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
-msgstr ""
+msgstr "从菜单中添加或移除应用程序"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Add _Launcher"
@@ -40,7 +40,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Icon Selection"
-msgstr ""
+msgstr "选择图标"
 
 #: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1055
 #: ../menulibre/MenulibreApplication.py:1179
@@ -49,11 +49,11 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:2695
 #: ../menulibre/MenulibreApplication.py:2801
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "Apply"
-msgstr ""
+msgstr "应用"
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "Icon Name"
@@ -122,7 +122,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:454
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Search terms…"
@@ -130,11 +130,11 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Move Up"
-msgstr ""
+msgstr "上移"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Move Down"
-msgstr ""
+msgstr "下移"
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "<big><b>Application Name</b></big>"
@@ -142,7 +142,7 @@ msgstr "<big><b>应用名称</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Application Name"
-msgstr ""
+msgstr "应用程序名称"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application Comment"
@@ -150,7 +150,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:861
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid ""
@@ -175,7 +175,7 @@ msgstr "工作目录"
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Browse…"
-msgstr ""
+msgstr "浏览..."
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "<b>Application Details</b>"
@@ -215,15 +215,15 @@ msgstr "<b>选项</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Clear"
-msgstr ""
+msgstr "清除"
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Categories"
@@ -326,7 +326,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Hidden"
-msgstr ""
+msgstr "隐藏"
 
 #: ../data/ui/MenulibreWindow.ui.h:71
 msgid ""
@@ -342,7 +342,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:74
 msgid "Advanced"
-msgstr ""
+msgstr "高级"
 
 #: ../data/ui/MenulibreWindow.ui.h:75
 msgid "<small><i>Filename</i></small>"
@@ -366,7 +366,7 @@ msgstr ""
 
 #: ../menulibre/__init__.py:33
 msgid "Show debug messages"
-msgstr ""
+msgstr "显示调试信息"
 
 #: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1414
 #: ../menulibre/MenulibreApplication.py:2267
@@ -479,7 +479,7 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:138
 #: ../menulibre/MenulibreApplication.py:183
 msgid "Other"
-msgstr ""
+msgstr "其他"
 
 #: ../menulibre/MenulibreApplication.py:359
 msgid "MenuLibre cannot be run as root."
@@ -498,7 +498,7 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:405
 msgid "Add Launcher..."
-msgstr ""
+msgstr "添加启动器..."
 
 #: ../menulibre/MenulibreApplication.py:411
 msgid "Add _Directory..."
@@ -518,13 +518,13 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:425
 msgid "_Save"
-msgstr ""
+msgstr "保存(_S)"
 
 #: ../menulibre/MenulibreApplication.py:426
 #: ../menulibre/MenulibreApplication.py:1056
 #: ../menulibre/MenulibreApplication.py:1500
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: ../menulibre/MenulibreApplication.py:432
 msgid "_Undo"
@@ -540,16 +540,16 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:453
 msgid "_Delete"
-msgstr ""
+msgstr "删除(_D)"
 
 #: ../menulibre/MenulibreApplication.py:460
 msgid "_Quit"
-msgstr ""
+msgstr "退出(_Q)"
 
 #: ../menulibre/MenulibreApplication.py:461
 #: ../menulibre/MenulibreApplication.py:2776
 msgid "Quit"
-msgstr ""
+msgstr "退出"
 
 #: ../menulibre/MenulibreApplication.py:467
 msgid "_Contents"
@@ -558,16 +558,16 @@ msgstr "内容(_C)"
 #: ../menulibre/MenulibreApplication.py:468
 #: ../menulibre/MenulibreApplication.py:2774
 msgid "Help"
-msgstr ""
+msgstr "帮助"
 
 #: ../menulibre/MenulibreApplication.py:474
 msgid "_About"
-msgstr ""
+msgstr "关于(_A)"
 
 #: ../menulibre/MenulibreApplication.py:475
 #: ../menulibre/MenulibreApplication.py:2775
 msgid "About"
-msgstr ""
+msgstr "关于"
 
 #. Create a new column.
 #: ../menulibre/MenulibreApplication.py:593
@@ -606,21 +606,21 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:1053
 #: ../menulibre/MenulibreApplication.py:1497
 msgid "Save Changes"
-msgstr ""
+msgstr "保存更改"
 
 #: ../menulibre/MenulibreApplication.py:1054
 #: ../menulibre/MenulibreApplication.py:1498
 msgid "Don't Save"
-msgstr ""
+msgstr "不保存"
 
 #: ../menulibre/MenulibreApplication.py:1176
 msgid "Select an image"
-msgstr ""
+msgstr "选择图片"
 
 #: ../menulibre/MenulibreApplication.py:1180
 #: ../menulibre/MenulibreApplication.py:1305
 msgid "OK"
-msgstr ""
+msgstr "确定"
 
 #: ../menulibre/MenulibreApplication.py:1182
 msgid "Images"
@@ -667,7 +667,7 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2240
 msgid "New Directory"
-msgstr ""
+msgstr "新建目录"
 
 #: ../menulibre/MenulibreApplication.py:2690
 msgid "Are you sure you want to restore this launcher?"
@@ -703,11 +703,11 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2802
 msgid "Read Online"
-msgstr ""
+msgstr "线上阅读"
 
 #: ../menulibre/MenulibreApplication.py:2803
 msgid "Online Documentation"
-msgstr ""
+msgstr "在线文档"
 
 #: ../menulibre/MenulibreApplication.py:2804
 msgid ""
