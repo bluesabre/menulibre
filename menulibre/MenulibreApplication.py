@@ -823,6 +823,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if check_keypress(event, ['Control', 's']):
             self.actions['save_launcher'].activate()
             return True
+        # Ctrl-Q (Quit)
+        if check_keypress(event, ['Control', 'q']):
+            self.actions['quit'].activate()
+            return True
         return False
 
     def on_window_delete_event(self, widget, event):
