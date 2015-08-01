@@ -493,8 +493,6 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                     <property name="spacing">12</property>
                     <child>
                       <object class="GtkButton" id="toolbar_save_launcher">
-                        <property name="width_request">32</property>
-                        <property name="height_request">32</property>
                         <property name="visible">True</property>
                         <property name="sensitive">False</property>
                         <property name="can_focus">True</property>
@@ -516,7 +514,6 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                         <property name="homogeneous">True</property>
                         <child>
                           <object class="GtkButton" id="toolbar_undo">
-                            <property name="width_request">32</property>
                             <property name="visible">True</property>
                             <property name="sensitive">False</property>
                             <property name="can_focus">True</property>
@@ -532,7 +529,6 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                         </child>
                         <child>
                           <object class="GtkButton" id="toolbar_redo">
-                            <property name="width_request">32</property>
                             <property name="visible">True</property>
                             <property name="sensitive">False</property>
                             <property name="can_focus">True</property>
@@ -558,7 +554,6 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                     </child>
                     <child>
                       <object class="GtkButton" id="toolbar_revert">
-                        <property name="width_request">32</property>
                         <property name="visible">True</property>
                         <property name="sensitive">False</property>
                         <property name="can_focus">True</property>
