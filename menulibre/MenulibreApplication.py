@@ -192,6 +192,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.configure_application_actions(builder)
         self.configure_application_menubar(builder)
         self.configure_application_toolbar(builder)
+        
+        self.configure_headerbar(builder)
 
         # Set up the application editor
         self.configure_application_editor(builder)
@@ -232,6 +234,36 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Connect any window-specific events.
         self.connect('key-press-event', self.on_window_keypress_event)
         self.connect('delete-event', self.on_window_delete_event)
+        
+    def configure_headerbar(self, builder):
+        headerbar = Gtk.HeaderBar.new()
+        headerbar.set_show_close_button(True)
+        
+        # Add Launcher/Directory/Separator
+        button = Gtk.MenuButton()
+        self.action_items['add_button'] = [button]
+        image = Gtk.Image.new_from_icon_name("list-add-symbolic",
+                                                 Gtk.IconSize.MENU)
+        button.set_image(image)
+
+        popup = builder.get_object('add_popup_menu')
+        button.set_popup(popup)
+        
+        headerbar.pack_start(button)
+        
+        self.save_button.reparent(headerbar)
+        
+        builder.get_object("history_buttons").reparent(headerbar)
+        
+        self.revert_button.reparent(headerbar)
+        self.delete_button.reparent(headerbar)
+        
+        headerbar.pack_end(self.search_box)
+        
+        builder.get_object("toolbar").destroy()
+        
+        self.set_titlebar(headerbar)
+        headerbar.show_all()
 
     def configure_application_actions(self, builder):
         """Configure the GtkActions that are used in the Menulibre
@@ -344,24 +376,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.app_menu_button = None
         placeholder = builder.get_object('app_menu_holder')
 
-        # Show the app menu button if not using gnome or ubuntu.
-        if session not in ['gnome', 'ubuntu', 'ubuntu-2d']:
-            # Create the AppMenu button on the right side of the toolbar.
-            self.app_menu_button = Gtk.MenuButton()
-            self.app_menu_button.set_size_request(32, 32)
-
-            # Use the classic "cog" image for the button.
-            image = Gtk.Image.new_from_icon_name("emblem-system-symbolic",
-                                                 Gtk.IconSize.MENU)
-            self.app_menu_button.set_image(image)
-            self.app_menu_button.show()
-
-            # Pack the AppMenu button.
-            placeholder.add(self.app_menu_button)
-        else:
-            # Hide the app menu placeholder.
-            placeholder.hide()
-
         # Show the menubar if using a Unity session.
         if session in ['ubuntu', 'ubuntu-2d']:
             builder.get_object('menubar').set_visible(True)
@@ -391,20 +405,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             widget = builder.get_object('popup_%s' % action_name)
             widget.connect('activate', self.activate_action_cb, action_name)
             self.action_items[action_name].append(widget)
-
-        # Add Launcher/Directory/Separator
-        button = Gtk.MenuButton()
-        self.action_items['add_button'] = [button]
-        image = Gtk.Image.new_from_icon_name("list-add-symbolic",
-                                                 Gtk.IconSize.MENU)
-        button.set_image(image)
-
-        popup = builder.get_object('add_popup_menu')
-        button.set_popup(popup)
-
-        box = builder.get_object('box_add')
-        box.pack_start(button, True, True, 0)
-        button.show_all()
 
         # Save
         self.save_button = builder.get_object('toolbar_save_launcher')
@@ -1686,10 +1686,6 @@ class Application(Gtk.Application):
         self.win.connect('help', self.help_cb)
         self.win.connect('quit', self.quit_cb)
 
-        if self.win.app_menu_button:
-            self.win.app_menu_button.set_menu_model(self.menu)
-            self.win.app_menu_button.show_all()
-
     def do_startup(self):
         """Handle GtkApplication do_startup."""
         Gtk.Application.do_startup(self)
@@ -1699,9 +1695,7 @@ class Application(Gtk.Application):
         self.menu.append(_("About"), "app.about")
         self.menu.append(_("Quit"), "app.quit")
 
-        if session == 'gnome':
-            # Configure GMenu
-            self.set_app_menu(self.menu)
+        self.set_app_menu(self.menu)
 
         help_action = Gio.SimpleAction.new("help", None)
         help_action.connect("activate", self.help_cb)
