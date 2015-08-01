@@ -306,35 +306,35 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
-    <property name="icon_name">edit-delete-symbolic</property>
+    <property name="icon_name">edit-delete</property>
     <property name="use_fallback">True</property>
   </object>
   <object class="GtkImage" id="image4">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
-    <property name="icon_name">edit-undo-symbolic</property>
+    <property name="icon_name">edit-undo</property>
     <property name="use_fallback">True</property>
   </object>
   <object class="GtkImage" id="image7">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
-    <property name="icon_name">edit-redo-symbolic</property>
+    <property name="icon_name">edit-redo</property>
     <property name="use_fallback">True</property>
   </object>
   <object class="GtkImage" id="image8">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
-    <property name="icon_name">document-save-symbolic</property>
+    <property name="icon_name">document-save</property>
     <property name="use_fallback">True</property>
   </object>
   <object class="GtkImage" id="image9">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
-    <property name="icon_name">view-refresh-symbolic</property>
+    <property name="icon_name">view-refresh</property>
     <property name="use_fallback">True</property>
   </object>
   <object class="GtkListStore" id="liststore1"/>

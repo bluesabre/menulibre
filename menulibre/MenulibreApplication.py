@@ -242,7 +242,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Add Launcher/Directory/Separator
         button = Gtk.MenuButton()
         self.action_items['add_button'] = [button]
-        image = Gtk.Image.new_from_icon_name("list-add-symbolic",
+        image = Gtk.Image.new_from_icon_name("list-add",
                                                  Gtk.IconSize.MENU)
         button.set_image(image)
 
