@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-01 08:12-0400\n"
+"POT-Creation-Date: 2015-08-01 08:53-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -189,7 +189,7 @@ msgstr ""
 msgid "Application Comment"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:39 ../menulibre/MenulibreApplication.py:648
+#: ../data/ui/MenulibreWindow.ui.h:39 ../menulibre/MenulibreApplication.py:646
 msgid "Description"
 msgstr ""
 
@@ -383,8 +383,8 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:993
-#: ../menulibre/MenulibreApplication.py:1425
+#: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:992
+#: ../menulibre/MenulibreApplication.py:1424
 msgid "Separator"
 msgstr ""
 
@@ -545,7 +545,7 @@ msgid "_Quit"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:333
-#: ../menulibre/MenulibreApplication.py:1696
+#: ../menulibre/MenulibreApplication.py:1695
 msgid "Quit"
 msgstr ""
 
@@ -554,7 +554,7 @@ msgid "_Contents"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:340
-#: ../menulibre/MenulibreApplication.py:1694
+#: ../menulibre/MenulibreApplication.py:1693
 msgid "Help"
 msgstr ""
 
@@ -563,7 +563,7 @@ msgid "_About"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:347
-#: ../menulibre/MenulibreApplication.py:1695
+#: ../menulibre/MenulibreApplication.py:1694
 msgid "About"
 msgstr ""
 
@@ -579,66 +579,66 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:622
+#: ../menulibre/MenulibreApplication.py:620
 msgid "ThisEntry"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:640
+#: ../menulibre/MenulibreApplication.py:638
 msgid "Select a category"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:643
+#: ../menulibre/MenulibreApplication.py:641
 msgid "Category Name"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:727
+#: ../menulibre/MenulibreApplication.py:725
 msgid "This Entry"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:782
+#: ../menulibre/MenulibreApplication.py:780
 msgid "New Shortcut"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:927
+#: ../menulibre/MenulibreApplication.py:926
 msgid "Select a working directory..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:930
+#: ../menulibre/MenulibreApplication.py:929
 msgid "Select an executable..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:952
+#: ../menulibre/MenulibreApplication.py:951
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1042
+#: ../menulibre/MenulibreApplication.py:1041
 msgid "No Longer Installed"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1043
+#: ../menulibre/MenulibreApplication.py:1042
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1143
+#: ../menulibre/MenulibreApplication.py:1142
 msgid "You do not have permission to delete this file."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1375
+#: ../menulibre/MenulibreApplication.py:1374
 msgid "New Launcher"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1409
+#: ../menulibre/MenulibreApplication.py:1408
 msgid "New Directory"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1643
+#: ../menulibre/MenulibreApplication.py:1642
 msgid "Are you sure you want to delete this separator?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1646
+#: ../menulibre/MenulibreApplication.py:1645
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr ""

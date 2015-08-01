@@ -526,14 +526,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             entry = builder.get_object('entry_%s' % widget_name)
             button.connect('clicked', self.on_NameComment_clicked,
                                       widget_name, builder)
-            cancel.connect('clicked', self.on_NameComment_cancel,
-                                      widget_name, builder)
-            accept.connect('clicked', self.on_NameComment_apply,
-                                      widget_name, builder)
             entry.connect('key-press-event',
                                       self.on_NameComment_key_press_event,
                                       widget_name, builder)
             entry.connect('activate', self.on_NameComment_activate,
+                                      widget_name, builder)
+            entry.connect('icon-press', self.on_NameComment_apply,
                                       widget_name, builder)
 
         # Button Focus events
@@ -881,30 +879,31 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_NameComment_clicked(self, widget, widget_name, builder):
         """Show the Name/Comment editor widgets when the button is clicked."""
         entry = builder.get_object('entry_%s' % widget_name)
-        box = builder.get_object('box_%s' % widget_name)
         self.values[widget_name] = entry.get_text()
         widget.hide()
-        box.show()
+        entry.show()
         entry.grab_focus()
 
     def on_NameComment_cancel(self, widget, widget_name, builder):
         """Hide the Name/Comment editor widgets when canceled."""
-        box = builder.get_object('box_%s' % widget_name)
         button = builder.get_object('button_%s' % widget_name)
         entry = builder.get_object('entry_%s' % widget_name)
-        box.hide()
+        entry.hide()
         button.show()
         self.history.block()
         entry.set_text(self.values[widget_name])
         self.history.unblock()
         button.grab_focus()
 
-    def on_NameComment_apply(self, widget, widget_name, builder):
+    def on_NameComment_apply(self, *args):
         """Update the Name/Comment fields when the values are to be updated."""
-        entry = builder.get_object('entry_%s' % widget_name)
-        box = builder.get_object('box_%s' % widget_name)
+        if len(args) == 5:
+            entry, iconpos, void, widget_name, builder = args
+        else:
+            widget, widget_name, builder = args
+            entry = builder.get_object('entry_%s' % widget_name)
         button = builder.get_object('button_%s' % widget_name)
-        box.hide()
+        entry.hide()
         button.show()
         new_value = entry.get_text()
         self.set_value(widget_name, new_value)
@@ -966,8 +965,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.history.clear()
 
         # Hide the Name and Comment editors
-        builder.get_object('box_Name').hide()
-        builder.get_object('box_Comment').hide()
+        builder.get_object('entry_Name').hide()
+        builder.get_object('entry_Comment').hide()
 
         # Prevent updates to history.
         self.history.block()
