@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-12 12:16-0400\n"
-"PO-Revision-Date: 2014-03-14 06:04+0000\n"
-"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
+"PO-Revision-Date: 2015-08-02 07:47+0000\n"
+"Last-Translator: Eugenio González <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-13 05:30+0000\n"
-"X-Generator: Launchpad (build 17620)\n"
+"X-Launchpad-Export-Date: 2015-08-03 05:55+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 "Language: es\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -189,6 +189,8 @@ msgstr "<b>Detalles de la aplicación</b>"
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
+"Si se establece a «Verdadero», el programa será ejecutado en una ventana de "
+"terminal."
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Run in terminal"
@@ -199,6 +201,9 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
+"Si se establece a «Verdadero», se envía una notificación de inicio. "
+"Usualmente significa que se muestra un cursor ocupado mientras la aplicación "
+"arranca."
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
@@ -209,6 +214,8 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
+"Si se establece a «Verdadero», este elemento no se mostrará en los menús, "
+"pero estará disponible para asociaciones de tipo MIME etc."
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Hide from menus"
@@ -252,7 +259,7 @@ msgstr "Acciones"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr "Nombre genérico de la aplicación, por ejemplo \"Navegador web\"."
+msgstr "Nombre genérico de la aplicación, por ejemplo «Navegador web»."
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Generic Name"
@@ -265,6 +272,10 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Lista de entornos de escritorio que no deberían mostrar este elemento. Solo "
+"puedes usar esta clave si «OnlyShowIn» no está activada.\n"
+"Entre los valores posibles se incluyen: GNOME, KDE, LXDE, MATE, Razor, ROX, "
+"TDE, Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Not Shown In"
@@ -279,8 +290,8 @@ msgid ""
 "XFCE, Old"
 msgstr ""
 "Lista de entornos de escritorio que deberían mostrar este elemento. Los "
-"demás entornos no mostrarán este elemento. Sólo puedes usar esta clave si "
-"\"NotShowIn\" no está activada.\n"
+"demás entornos no mostrarán este elemento. Solo puedes usar esta clave si "
+"«NotShowIn» no está activada.\n"
 "Entre los valores posibles se incluyen: GNOME, KDE, LXDE, MATE, Razor, ROX, "
 "TDE, Unity, XFCE, Old"
 
@@ -341,6 +352,8 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
+"Si se establece a «Verdadero», el resultado para el usuario es equivalente a "
+"que no existiera el archivo .desktop."
 
 #: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Hidden"
@@ -353,7 +366,7 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
-"Establece esta clave a \"True\" si la activación D-Bus está soportada para "
+"Establece esta clave a «True» si la activación D-Bus está soportada para "
 "esta aplicación y quiere usarla.\n"
 "Ver http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "para más información."
@@ -505,7 +518,7 @@ msgstr "Otro"
 
 #: ../menulibre/MenulibreApplication.py:359
 msgid "MenuLibre cannot be run as root."
-msgstr ""
+msgstr "MenuLibre no puede ser ejecutado como root."
 
 #: ../menulibre/MenulibreApplication.py:360
 msgid ""
@@ -513,6 +526,9 @@ msgid ""
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
 "documentation</a> for more information."
 msgstr ""
+"Vea la <a "
+"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>documentación en "
+"línea</a> para más información."
 
 #: ../menulibre/MenulibreApplication.py:404
 msgid "Add _Launcher..."
