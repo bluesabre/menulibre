@@ -17,6 +17,7 @@
 
 import os
 import re
+import sys
 from locale import gettext as _
 
 from gi.repository import Gio, GObject, Gtk, Gdk, GdkPixbuf
@@ -31,6 +32,7 @@ import logging
 logger = logging.getLogger('menulibre')
 
 session = os.getenv("DESKTOP_SESSION")
+root = os.getuid() == 0
 
 category_descriptions = {
     # Standard Items
@@ -174,6 +176,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def __init__(self, app):
         """Initialize the Menulibre application."""
+        self.root_lockout()
+        
         # Initialize the GtkBuilder to get our widgets from Glade.
         builder = menulibre_lib.get_builder('MenulibreWindow')
 
@@ -201,6 +205,15 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Set up the applicaton browser
         self.configure_application_treeview(builder)
+        
+    def root_lockout(self):
+        if root:
+            dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
+                                        Gtk.ButtonsType.CLOSE,
+                                        _("MenuLibre cannot be run as root."))
+            dialog.format_secondary_markup(_("Please see the <a href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online documentation</a> for more information."))
+            dialog.run()
+            sys.exit(1)
 
     def configure_application_window(self, builder, app):
         """Glade is currently unable to create a GtkApplicationWindow.  This
