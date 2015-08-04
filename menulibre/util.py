@@ -304,9 +304,18 @@ def getSaveFilename(name, filename, item_type, force_update=False):
         # Split the basename into filename and extension.
         name, ext = os.path.splitext(basename)
 
+        # get additional subdirectory, if any
+        dirname = os.path.dirname(filename)
+        dnd = dirname.strip('/').split('/')
+        subdir = dnd[dnd.index('applications')+1:]
+        subdir = '/'.join(subdir)
+
         # Get the save location of the launcher base on type.
         if item_type == 'Application':
             path = getUserItemPath()
+            path = os.path.join(path, subdir)
+            if not os.path.isdir(path):
+                os.makedirs(path)
             ext = '.desktop'
         elif item_type == 'Directory':
             path = getUserDirectoryPath()
