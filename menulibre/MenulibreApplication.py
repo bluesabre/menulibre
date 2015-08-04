@@ -263,7 +263,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Add Launcher/Directory/Separator
         button = Gtk.MenuButton()
         self.action_items['add_button'] = [button]
-        image = Gtk.Image.new_from_icon_name("list-add", Gtk.IconSize.MENU)
+        image = Gtk.Image.new_from_icon_name("list-add-symbolic", 
+                                             Gtk.IconSize.MENU)
         button.set_image(image)
 
         popup = builder.get_object('add_popup_menu')
@@ -946,7 +947,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             title=_("Select a working directory...")
             action=Gtk.FileChooserAction.SELECT_FOLDER
         else:
-            title=_("Select an executable..."),
+            title = _("Select an executable...")
             action=Gtk.FileChooserAction.OPEN
 
         dialog = Dialogs.FileChooserDialog(self, title, action)

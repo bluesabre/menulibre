@@ -244,17 +244,6 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="entry_Hidden">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">•</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">7</property>
-              </packing>
-            </child>
-            <child>
               <object class="GtkEntry" id="entry_DBusActivatable">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -263,6 +252,17 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
               <packing>
                 <property name="left_attach">1</property>
                 <property name="top_attach">8</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_Hidden">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">•</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">7</property>
               </packing>
             </child>
           </object>
@@ -313,28 +313,28 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
-    <property name="icon_name">edit-undo</property>
+    <property name="icon_name">edit-undo-symbolic</property>
     <property name="use_fallback">True</property>
   </object>
   <object class="GtkImage" id="image7">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
-    <property name="icon_name">edit-redo</property>
+    <property name="icon_name">edit-redo-symbolic</property>
     <property name="use_fallback">True</property>
   </object>
   <object class="GtkImage" id="image8">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
-    <property name="icon_name">document-save</property>
+    <property name="icon_name">document-save-symbolic</property>
     <property name="use_fallback">True</property>
   </object>
   <object class="GtkImage" id="image9">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
-    <property name="icon_name">view-refresh</property>
+    <property name="icon_name">view-refresh-symbolic</property>
     <property name="use_fallback">True</property>
   </object>
   <object class="GtkListStore" id="liststore1"/>
@@ -490,7 +490,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="border_width">4</property>
-                    <property name="spacing">12</property>
+                    <property name="spacing">6</property>
                     <child>
                       <object class="GtkButton" id="toolbar_save_launcher">
                         <property name="visible">True</property>
@@ -588,17 +588,6 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
               <packing>
                 <property name="expand">False</property>
                 <property name="homogeneous">False</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkSeparatorToolItem" id="toolbar_separator3">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="draw">False</property>
-              </object>
-              <packing>
-                <property name="expand">True</property>
-                <property name="homogeneous">True</property>
               </packing>
             </child>
             <style>
