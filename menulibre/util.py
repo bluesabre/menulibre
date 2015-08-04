@@ -74,18 +74,17 @@ def getProcessName(process):
 def getProcessList():
     """Return a list of unique process names for the current user."""
     username = getpass.getuser()
+    try:
+        pids = psutil.get_pid_list()
+    except AttributeError:
+        pids = psutil.pids()
     processes = []
-    for pid in psutil.get_pid_list():
-        try:
-            process = psutil.Process(pid)
-            p_user = getProcessUsername(process)
-            if p_user == username:
-                p_name = getProcessName(process)
-                if p_name is not None and p_name not in processes:
-                    processes.append(p_name)
-        except:
-            pass
-    processes.sort()
+    for pid in pids:
+        process = psutil.Process(pid)
+        if process.username == username:
+            name = process.name
+            if name not in processes:
+                processes.append(process.name)
     return processes
 
 
