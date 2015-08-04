@@ -19,7 +19,7 @@ import os
 import re
 from locale import gettext as _
 
-from gi.repository import Gio, GObject, Gtk, GdkPixbuf
+from gi.repository import Gio, GObject, Gtk, Gdk, GdkPixbuf
 
 from . import MenulibreStackSwitcher, MenulibreIconSelection
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
@@ -194,6 +194,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.configure_application_toolbar(builder)
         
         self.configure_headerbar(builder)
+        self.configure_css()
 
         # Set up the application editor
         self.configure_application_editor(builder)
@@ -234,6 +235,26 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Connect any window-specific events.
         self.connect('key-press-event', self.on_window_keypress_event)
         self.connect('delete-event', self.on_window_delete_event)
+        
+    def configure_css(self):
+        css = """
+        #MenulibreSidebar GtkToolbar.inline-toolbar,
+        #MenulibreSidebar GtkScrolledWindow.frame {
+            border-radius: 0px;
+            border-width: 0px;
+            border-right-width: 1px;
+        }
+        #MenulibreSidebar GtkScrolledWindow.frame {
+            border-bottom-width: 1px;
+        }
+        """
+        style_provider = Gtk.CssProvider.new()
+        style_provider.load_from_data(bytes(css.encode()))
+
+        Gtk.StyleContext.add_provider_for_screen(
+            Gdk.Screen.get_default(), style_provider,     
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        )
         
     def configure_headerbar(self, builder):
         headerbar = Gtk.HeaderBar.new()

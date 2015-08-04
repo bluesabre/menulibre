@@ -621,6 +621,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                 <property name="can_focus">True</property>
                 <child>
                   <object class="GtkBox" id="box5">
+                    <property name="name">MenulibreSidebar</property>
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="orientation">vertical</property>
@@ -812,7 +813,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                                                     <property name="can_focus">True</property>
                                                     <property name="no_show_all">True</property>
                                                     <property name="invisible_char">•</property>
-                                                    <property name="secondary_icon_name">dialog-apply</property>
+                                                    <property name="secondary_icon_name">gtk-apply</property>
                                                     <property name="placeholder_text" translatable="yes">Application Name</property>
                                                   </object>
                                                   <packing>
@@ -861,7 +862,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                                                     <property name="can_focus">True</property>
                                                     <property name="no_show_all">True</property>
                                                     <property name="invisible_char">•</property>
-                                                    <property name="secondary_icon_name">dialog-apply</property>
+                                                    <property name="secondary_icon_name">gtk-apply</property>
                                                     <property name="placeholder_text" translatable="yes">Description</property>
                                                   </object>
                                                   <packing>
