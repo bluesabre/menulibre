@@ -1344,12 +1344,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             elif isinstance(widget, Gtk.Label):
                 if not value:
                     value = ""
-                widget.set_label(value)
+                widget.set_label(str(value))
             # GtkEntry
             elif isinstance(widget, Gtk.Entry):
                 if not value:
                     value = ""
-                widget.set_text(value)
+                widget.set_text(str(value))
             # GtkSwitch
             elif isinstance(widget, Gtk.Switch):
                 if not value:
