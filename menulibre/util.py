@@ -42,7 +42,10 @@ MenuItemTypes = enum(
 def getProcessList():
     """Return a list of unique process names for the current user."""
     username = getpass.getuser()
-    pids = psutil.get_pid_list()
+    try:
+        pids = psutil.get_pid_list()
+    except AttributeError:
+        pids = psutil.pids()
     processes = []
     for pid in pids:
         process = psutil.Process(pid)
