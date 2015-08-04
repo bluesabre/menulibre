@@ -306,7 +306,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
-    <property name="icon_name">edit-delete</property>
+    <property name="icon_name">edit-delete-symbolic</property>
     <property name="use_fallback">True</property>
   </object>
   <object class="GtkImage" id="image4">
