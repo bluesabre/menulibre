@@ -2,6 +2,29 @@ MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 UNRELEASED, MenuLibre 2.1.0
 
+- General:
+  . Updated artwork
+  . UI/UX updates (see below)
+  . Refactored some components to improve maintainability
+  . Support Ctrl+Q to quit
+- UI/UX Updates:
+  . New widgets: GtkApplicationWindow, GtkHeaderbar, GtkStackSwitcher
+  . Improved Name and Comment entry
+  . Improved Executable and Working Directory entry
+  . Improved theme integration with Adwaita, elementary
+  . Removed deprecated widgets and properties (Gtk 3.14)
+  . Removed intermediate icon selection
+
+
+UNRELEASED, MenuLibre 2.0.7
+
+- General:
+  . Disable running as root. This keeps file permissions in check.
+- Bug Fixes:
+  . Fix installation under C locale (LP: #1460472)
+  . Support psutil 3.0.1 (LP: #1474484)
+  . Use string values for GtkEntry (LP: #1430613)
+  . Support launcher subdirectories (LP: #1313682)
 
 27 Sep 2014, MenuLibre 2.0.6
 
