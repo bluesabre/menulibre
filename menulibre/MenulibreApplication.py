@@ -25,7 +25,7 @@ from gi.repository import Gio, GObject, Gtk, Gdk, GdkPixbuf
 from . import MenulibreStackSwitcher, MenulibreIconSelection
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util
-from .util import MenuItemTypes, check_keypress
+from .util import MenuItemTypes, check_keypress, getBasename
 import menulibre_lib
 
 import logging
@@ -1037,7 +1037,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             if (not new_launcher) and (not os.path.isfile(filename)):
                 # If it does not, try to fallback...
                 original_filename = filename
-                basename = os.path.basename(filename)
+                basename = getBasename(filename)
                 filename = util.getSystemLauncherPath(basename)
                 if filename is not None:
                     row_data[5] = filename

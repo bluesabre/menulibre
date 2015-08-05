@@ -21,7 +21,7 @@ from locale import gettext as _
 from gi.repository import Gio, GObject, Gtk, Pango, GLib
 
 from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
-from .util import MenuItemTypes, check_keypress
+from .util import MenuItemTypes, check_keypress, getBasename
 
 import logging
 logger = logging.getLogger('menulibre')
@@ -143,7 +143,7 @@ class Treeview(GObject.GObject):
         filename = model[treeiter][5]
         item_type = model[treeiter][2]
         if filename is not None:
-            basename = self._basename(filename)
+            basename = getBasename(filename)
             original = util.getSystemLauncherPath(basename)
         else:
             original = None
@@ -373,13 +373,6 @@ class Treeview(GObject.GObject):
         if not os.path.exists(filename):
             return False
         return True
-        
-    def _basename(self, filename):
-        if filename.endswith('.desktop'):
-            basename = filename.split('/applications/', 1)[1]
-        elif filename.endswith('.directory'):
-            basename = filename.split('/desktop-directories/', 1)[1]
-        return basename
 
     def _get_delete_filenames(self, model, treeiter):
         """Return a list of files to be deleted after uninstall."""
@@ -390,7 +383,7 @@ class Treeview(GObject.GObject):
         block_run = False
 
         if filename is not None:
-            basename = self._basename(filename)
+            basename = getBasename(filename)
             original = util.getSystemLauncherPath(basename)
             item_type = model[treeiter][2]
             if original is None and item_type == MenuItemTypes.DIRECTORY:
@@ -463,7 +456,7 @@ class Treeview(GObject.GObject):
         model, parent_iter = self.get_parent()
         while parent_iter is not None:
             filename = treestore[parent_iter][5]
-            if self._basename(filename).startswith(prefix):
+            if getBasename(filename).startswith(prefix):
                 add_enabled = False
             model, parent_iter = self.get_parent(treestore, parent_iter)
 
@@ -596,7 +589,7 @@ class Treeview(GObject.GObject):
             while parent is not None:
                 parent_filename = model[parent][5]
                 # Do not do this method if this is a known system directory.
-                if self._basename(parent_filename).startswith(menu_prefix):
+                if getBasename(parent_filename).startswith(menu_prefix):
                     menu_install = False
                 parents.append(parent_filename)
                 parent = model.iter_parent(parent)
@@ -616,7 +609,7 @@ class Treeview(GObject.GObject):
             while parent is not None:
                 parent_filename = model[parent][5]
                 # Do not do this method if this is a known system directory.
-                if self._basename(parent_filename).startswith(menu_prefix):
+                if getBasename(parent_filename).startswith(menu_prefix):
                     menu_install = False
                 parents.append(parent_filename)
                 parent = model.iter_parent(parent)
