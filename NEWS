@@ -1,5 +1,16 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+UNRELEASED, MenuLibre 2.0.7
+
+- General:
+  . Disable running as root. This keeps file permissions in check.
+- Bug Fixes:
+  . Fix installation under C locale (LP: #1460472)
+  . Support psutil 3.0.1 (LP: #1474484)
+  . Use string values for GtkEntry (LP: #1430613)
+  . Support launcher subdirectories (LP: #1313682)
+
+
 27 Sep 2014, MenuLibre 2.0.6
 
 - General:
