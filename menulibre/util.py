@@ -41,6 +41,14 @@ MenuItemTypes = enum(
 )
 
 
+def getBasename(filename):
+    if filename.endswith('.desktop'):
+        basename = filename.split('/applications/', 1)[1]
+    elif filename.endswith('.directory'):
+        basename = filename.split('/desktop-directories/', 1)[1]
+    return basename
+
+
 def getProcessUsername(process):
     """Get the username of the process owner. Return None if fail."""
     username = None
@@ -193,7 +201,7 @@ def getDirectoryName(directory_str):
     prefix = getDefaultMenuPrefix()
     has_prefix = False
 
-    basename = os.path.basename(directory_str)
+    basename = getBasename(directory_str)
     name, ext = os.path.splitext(basename)
 
     # Handle directories like xfce-development
@@ -259,7 +267,7 @@ def getRequiredCategories(directory):
     """Return the list of required categories for a directory string."""
     prefix = getDefaultMenuPrefix()
     if directory is not None:
-        basename = os.path.basename(directory)
+        basename = getBasename(directory)
         name, ext = os.path.splitext(basename)
 
         # Handle directories like xfce-development
@@ -299,27 +307,19 @@ def getSaveFilename(name, filename, item_type, force_update=False):
 
         # Use the current filename as a base.
         else:
-            basename = os.path.basename(filename)
-
-        # Split the basename into filename and extension.
-        name, ext = os.path.splitext(basename)
-
-        # get additional subdirectory, if any
-        dirname = os.path.dirname(filename)
-        dnd = dirname.strip('/').split('/')
-        subdir = dnd[dnd.index('applications')+1:]
-        subdir = '/'.join(subdir)
+            basename = getBasename(filename)
 
         # Get the save location of the launcher base on type.
         if item_type == 'Application':
             path = getUserItemPath()
-            path = os.path.join(path, subdir)
-            if not os.path.isdir(path):
-                os.makedirs(path)
             ext = '.desktop'
         elif item_type == 'Directory':
             path = getUserDirectoryPath()
             ext = '.directory'
+            
+        basedir = os.path.dirname(os.path.join(path, basename))
+        if not os.path.exists(basedir):
+            os.makedirs(basedir)
 
         # Index for unique filenames.
         count = 1
@@ -356,8 +356,7 @@ def getSaveFilename(name, filename, item_type, force_update=False):
 
         else:
             # Create the new base filename.
-            filename = os.path.join(path, name)
-            filename = "%s%s" % (filename, ext)
+            filename = os.path.join(path, basename)
 
             if force_update:
                 return filename

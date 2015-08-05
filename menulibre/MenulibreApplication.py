@@ -24,7 +24,7 @@ from locale import gettext as _
 from gi.repository import Gio, GObject, Gtk, Pango, Gdk, GdkPixbuf, GLib
 
 from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
-from .util import MenuItemTypes
+from .util import MenuItemTypes, getBasename
 import menulibre_lib
 
 import logging
@@ -1424,7 +1424,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 # Check if this file still exists, those tricksy hobbitses...
                 if (not new_launcher) and (not os.path.isfile(filename)):
                     # If it does not, try to fallback...
-                    basename = os.path.basename(filename)
+                    basename = getBasename(filename)
                     filename = util.getSystemLauncherPath(basename)
                     if filename is not None:
                         treestore[treeiter][5] = filename
@@ -2152,7 +2152,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         parent_iter = self.get_parent(treestore, treeiter)
         while parent_iter is not None:
             filename = treestore[parent_iter][5]
-            if os.path.basename(filename).startswith(prefix):
+            if getBasename(filename).startswith(prefix):
                 add_enabled = False
             parent_iter = self.get_parent(treestore, parent_iter)
 
@@ -2366,7 +2366,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             while parent is not None:
                 parent_filename = model[parent][5]
                 # Do not do this method if this is a known system directory.
-                if os.path.basename(parent_filename).startswith(menu_prefix):
+                if getBasename(parent_filename).startswith(menu_prefix):
                     menu_install = False
                 parents.append(parent_filename)
                 parent = model.iter_parent(parent)
@@ -2385,7 +2385,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             while parent is not None:
                 parent_filename = model[parent][5]
                 # Do not do this method if this is a known system directory.
-                if os.path.basename(parent_filename).startswith(menu_prefix):
+                if getBasename(parent_filename).startswith(menu_prefix):
                     menu_install = False
                 parents.append(parent_filename)
                 parent = model.iter_parent(parent)
@@ -2497,7 +2497,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         filename = model[treeiter][5]
         treepath = model.get_path(treeiter)
         if filename is not None:
-            basename = os.path.basename(filename)
+            basename = getBasename(filename)
 
             # Check if there was an original version of this launcher.
             original = util.getSystemLauncherPath(basename)
