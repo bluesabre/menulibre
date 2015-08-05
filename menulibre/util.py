@@ -88,11 +88,16 @@ def getProcessList():
         pids = psutil.pids()
     processes = []
     for pid in pids:
-        process = psutil.Process(pid)
-        if process.username == username:
-            name = process.name
-            if name not in processes:
-                processes.append(process.name)
+        try:
+            process = psutil.Process(pid)
+            p_user = getProcessUsername(process)
+            if p_user == username:
+                p_name = getProcessName(process)
+                if p_name is not None and p_name not in processes:
+                    processes.append(p_name)
+        except:
+            pass
+    processes.sort()
     return processes
 
 
