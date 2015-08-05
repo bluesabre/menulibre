@@ -143,7 +143,7 @@ class Treeview(GObject.GObject):
         filename = model[treeiter][5]
         item_type = model[treeiter][2]
         if filename is not None:
-            basename = os.path.basename(filename)
+            basename = self._basename(filename)
             original = util.getSystemLauncherPath(basename)
         else:
             original = None
@@ -276,6 +276,10 @@ class Treeview(GObject.GObject):
 
         model[treeiter][4] = icon_name
         model[treeiter][5] = filename
+        
+        # Refresh the displayed launcher
+        self._last_selected_path = -1
+        self._on_treeview_cursor_changed(self._treeview, None, None)
 
 # Events
     def _on_treeview_cursor_changed(self, widget, selection, builder):
@@ -366,11 +370,16 @@ class Treeview(GObject.GObject):
 
     def _get_deletable_launcher(self, filename):
         """Return True if the launcher is available for deletion."""
-        if self._get_n_launcher_instances(filename) > 1:
-            return False
         if not os.path.exists(filename):
             return False
         return True
+        
+    def _basename(self, filename):
+        if filename.endswith('.desktop'):
+            basename = filename.split('/applications/', 1)[1]
+        elif filename.endswith('.directory'):
+            basename = filename.split('/desktop-directories/', 1)[1]
+        return basename
 
     def _get_delete_filenames(self, model, treeiter):
         """Return a list of files to be deleted after uninstall."""
@@ -381,7 +390,7 @@ class Treeview(GObject.GObject):
         block_run = False
 
         if filename is not None:
-            basename = os.path.basename(filename)
+            basename = self._basename(filename)
             original = util.getSystemLauncherPath(basename)
             item_type = model[treeiter][2]
             if original is None and item_type == MenuItemTypes.DIRECTORY:
@@ -454,7 +463,7 @@ class Treeview(GObject.GObject):
         model, parent_iter = self.get_parent()
         while parent_iter is not None:
             filename = treestore[parent_iter][5]
-            if os.path.basename(filename).startswith(prefix):
+            if self._basename(filename).startswith(prefix):
                 add_enabled = False
             model, parent_iter = self.get_parent(treestore, parent_iter)
 
@@ -587,7 +596,7 @@ class Treeview(GObject.GObject):
             while parent is not None:
                 parent_filename = model[parent][5]
                 # Do not do this method if this is a known system directory.
-                if os.path.basename(parent_filename).startswith(menu_prefix):
+                if self._basename(parent_filename).startswith(menu_prefix):
                     menu_install = False
                 parents.append(parent_filename)
                 parent = model.iter_parent(parent)
@@ -607,7 +616,7 @@ class Treeview(GObject.GObject):
             while parent is not None:
                 parent_filename = model[parent][5]
                 # Do not do this method if this is a known system directory.
-                if os.path.basename(parent_filename).startswith(menu_prefix):
+                if self._basename(parent_filename).startswith(menu_prefix):
                     menu_install = False
                 parents.append(parent_filename)
                 parent = model.iter_parent(parent)
