@@ -1,5 +1,17 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+UNRELEASED, MenuLibre 2.1.0
+
+
+27 Sep 2014, MenuLibre 2.0.6
+
+- General:
+  . Support newer versions of psutil.
+- Bug Fixes:
+  . Fix rare crash in psutil when process closes while viewing running
+    processes (Debian #752486)
+
+
 08 Aug 2014, MenuLibre 2.0.5
 
 - General:
