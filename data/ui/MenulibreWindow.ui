@@ -334,7 +334,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
-    <property name="icon_name">view-refresh-symbolic</property>
+    <property name="icon_name">document-revert-symbolic</property>
     <property name="use_fallback">True</property>
   </object>
   <object class="GtkListStore" id="liststore1"/>
