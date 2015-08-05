@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-02 05:50-0400\n"
-"PO-Revision-Date: 2014-07-15 22:23+0000\n"
+"POT-Creation-Date: 2015-07-12 12:16-0400\n"
+"PO-Revision-Date: 2014-09-21 02:35+0000\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: Malay <ms@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-03 06:55+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2015-07-13 05:30+0000\n"
+"X-Generator: Launchpad (build 17620)\n"
 "Language: ms\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -42,12 +42,12 @@ msgstr "Tambah P_emisah"
 msgid "Icon Selection"
 msgstr "Pemilihan Ikon"
 
-#: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1042
-#: ../menulibre/MenulibreApplication.py:1166
-#: ../menulibre/MenulibreApplication.py:1291
-#: ../menulibre/MenulibreApplication.py:1486
-#: ../menulibre/MenulibreApplication.py:2682
-#: ../menulibre/MenulibreApplication.py:2788
+#: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1055
+#: ../menulibre/MenulibreApplication.py:1179
+#: ../menulibre/MenulibreApplication.py:1304
+#: ../menulibre/MenulibreApplication.py:1499
+#: ../menulibre/MenulibreApplication.py:2695
+#: ../menulibre/MenulibreApplication.py:2801
 msgid "Cancel"
 msgstr "Batal"
 
@@ -87,8 +87,8 @@ msgstr "128px"
 msgid "<b>Preview</b>"
 msgstr "<b>Pratonton</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:368
-#: ../menulibre/MenulibreApplication.py:2811
+#: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:381
+#: ../menulibre/MenulibreApplication.py:2824
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
@@ -108,19 +108,19 @@ msgstr "Bant_uan"
 msgid "Save Launcher"
 msgstr "Simpan Pelancar"
 
-#: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:420
+#: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:433
 msgid "Undo"
 msgstr "Buat Asal"
 
-#: ../data/ui/MenulibreWindow.ui.h:21 ../menulibre/MenulibreApplication.py:427
+#: ../data/ui/MenulibreWindow.ui.h:21 ../menulibre/MenulibreApplication.py:440
 msgid "Redo"
 msgstr "Buat Semula"
 
-#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:434
+#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:447
 msgid "Revert"
 msgstr "Kembali"
 
-#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:441
+#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:454
 msgid "Delete"
 msgstr "Padam"
 
@@ -148,7 +148,7 @@ msgstr "Nama Aplikasi"
 msgid "Application Comment"
 msgstr "Ulasan Aplikasi"
 
-#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:848
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:861
 msgid "Description"
 msgstr "Keterangan"
 
@@ -160,6 +160,11 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
+"Program untuk dilakukan dengan argumen. Kunci ini diperlukan jika "
+"DBusActivatable tidak ditetapkan menjadi \"Benar\" atau jika anda perlukan "
+"keserasian dengan perlaksanaan yang tidak memahami pengaktifan D-Bus.\n"
+"Sila rujuk http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
+"spec-latest.html#exec-variables untuk senarai argumen yang disokong."
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Command"
@@ -167,7 +172,7 @@ msgstr "Perintah"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "The working directory."
-msgstr ""
+msgstr "Direktori kerja."
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Working Directory"
@@ -184,6 +189,8 @@ msgstr "<b>Perincian Aplikasi</b>"
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
+"Jika ditetapkan pada \"Benar\", program akan dijalankan dalam tetingkap "
+"terminal."
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Run in terminal"
@@ -194,6 +201,8 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
+"Jika ditetapkan pada \"Benar\", pemberitahuan permulaan dihantar. Biasanya "
+"kursor sibuk ditunjukkan ketika aplikasi dilancarkan."
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
@@ -204,6 +213,8 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
+"Jika ditetapkan pada \"Benar\", masukan ini tidak akan ditunjukkan dalam "
+"menu, tetapi tersedia untuk perkaitan jenis MIME dll."
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Hide from menus"
@@ -247,7 +258,7 @@ msgstr "Tindakan"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr ""
+msgstr "Nama generik aplikasi, contohnya \"Pelayar Sesawang\"."
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Generic Name"
@@ -260,6 +271,10 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Senarai persekitaran yang tidak seharusnya papar masukan ini. Anda hanya "
+"boleh guna kunci ini jika \"OnlyShowIn\" tidak ditetapkan.\n"
+"Nilai yang mungkin termasuklah: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, "
+"Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Not Shown In"
@@ -273,6 +288,11 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Satu senarai persekitaran yang patutu paparkan masukan ini. Lain-lain "
+"persekitaran tidak akan paparkan masukan ini. Anda hanya boleh guna kunci "
+"ini jika \"NotShowIn\" tidak ditetapkan.\n"
+"Nilai yang mungkin termasuklah: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, "
+"Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Only Shown In"
@@ -284,6 +304,9 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
+"Laluan ke fail bolehlaku untuk tentukan jika program telah dipasang. Jika "
+"fail tidak hadir atau tidak bolehlaku, masukan ini tidak ditunjukkan dalam "
+"menu."
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Try Exec"
@@ -291,7 +314,7 @@ msgstr "Cuba Exec"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "The MIME type(s) supported by this application."
-msgstr ""
+msgstr "Jenis MIME disokong oleh aplikasi ini."
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Mimetypes"
@@ -303,6 +326,9 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
+"Senarai kata  kunci untuk jelaskan masukan ini. Anda boleh guna ini untuk "
+"bantu menggelintar masukan. Ia tidak bermaksud untuk paparan, dan tidak "
+"seharusnya digandakan dengan nilai Name atau GenericName."
 
 #: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Keywords"
@@ -313,6 +339,8 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
+"Jika dinyatakan, aplikasi akan dipinta gunakan rentetan sebagai kelas WM "
+"atau pembayang nama WM sekurang-kurangnya dalam satu tetingkap."
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Startup WM Class"
@@ -323,6 +351,8 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
+"Jika ditetapkan pada \"Benar\", keputusan untuk pengguna adalah sama dengan "
+"fail .desktop tidak wujud langsung."
 
 #: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Hidden"
@@ -335,6 +365,10 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
+"Tetapkan kunci ini kepada \"Benar\" jika pengaktifan D-Bus disokong untuk "
+"aplikasi ini dan anda mahu gunakannya.\n"
+"Sila rujuk http://standards.freedesktop.org/desktop-entry-"
+"spec/latest/ar01s07.html untuk maklumat lanjut."
 
 #: ../data/ui/MenulibreWindow.ui.h:73
 msgid "DBUS Activatable"
@@ -368,268 +402,279 @@ msgstr "lajur"
 msgid "Show debug messages"
 msgstr "Tunjuk mesej nyahpepijat"
 
-#: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1401
-#: ../menulibre/MenulibreApplication.py:2254
+#: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1414
+#: ../menulibre/MenulibreApplication.py:2267
 msgid "Separator"
 msgstr "Pemisah"
 
 #. Standard Items
-#: ../menulibre/MenulibreApplication.py:59
+#: ../menulibre/MenulibreApplication.py:61
 msgid "Multimedia"
 msgstr "Multimedia"
 
-#: ../menulibre/MenulibreApplication.py:60
+#: ../menulibre/MenulibreApplication.py:62
 msgid "Development"
 msgstr "Pembangunan"
 
-#: ../menulibre/MenulibreApplication.py:61
+#: ../menulibre/MenulibreApplication.py:63
 msgid "Education"
 msgstr "Pendidikan"
 
-#: ../menulibre/MenulibreApplication.py:62
+#: ../menulibre/MenulibreApplication.py:64
 msgid "Games"
 msgstr "Permainan"
 
-#: ../menulibre/MenulibreApplication.py:63
+#: ../menulibre/MenulibreApplication.py:65
 msgid "Graphics"
 msgstr "Grafik"
 
-#: ../menulibre/MenulibreApplication.py:64
+#: ../menulibre/MenulibreApplication.py:66
 msgid "Internet"
 msgstr "Internet"
 
-#: ../menulibre/MenulibreApplication.py:65
+#: ../menulibre/MenulibreApplication.py:67
 msgid "Office"
 msgstr "Pejabat"
 
-#: ../menulibre/MenulibreApplication.py:66
+#: ../menulibre/MenulibreApplication.py:68
 msgid "Settings"
 msgstr "Tetapan"
 
-#: ../menulibre/MenulibreApplication.py:67
+#: ../menulibre/MenulibreApplication.py:69
 msgid "System"
 msgstr "Sistem"
 
-#: ../menulibre/MenulibreApplication.py:68
+#: ../menulibre/MenulibreApplication.py:70
 msgid "Accessories"
 msgstr "Aksesori"
 
-#: ../menulibre/MenulibreApplication.py:69
+#: ../menulibre/MenulibreApplication.py:71
 msgid "WINE"
 msgstr "WINE"
 
 #. Desktop Environment
-#: ../menulibre/MenulibreApplication.py:71
+#: ../menulibre/MenulibreApplication.py:73
 msgid "Desktop configuration"
 msgstr "Konfigurasi desktop"
 
-#: ../menulibre/MenulibreApplication.py:72
+#: ../menulibre/MenulibreApplication.py:74
 msgid "User configuration"
 msgstr "Konfigurasi pengguna"
 
-#: ../menulibre/MenulibreApplication.py:73
+#: ../menulibre/MenulibreApplication.py:75
 msgid "Hardware configuration"
 msgstr "Konfigurasi perkakasan"
 
 #. GNOME Specific
-#: ../menulibre/MenulibreApplication.py:75
+#: ../menulibre/MenulibreApplication.py:77
 msgid "GNOME application"
 msgstr "Aplikasi GNOME"
 
-#: ../menulibre/MenulibreApplication.py:76
+#: ../menulibre/MenulibreApplication.py:78
 msgid "GTK+ application"
 msgstr "Aplikasi GTK+"
 
-#: ../menulibre/MenulibreApplication.py:77
+#: ../menulibre/MenulibreApplication.py:79
 msgid "GNOME user configuration"
 msgstr "Konfigurasi pengguna GNOME"
 
-#: ../menulibre/MenulibreApplication.py:78
+#: ../menulibre/MenulibreApplication.py:80
 msgid "GNOME hardware configuration"
 msgstr "Konfigurasi perkakasan GNOME"
 
-#: ../menulibre/MenulibreApplication.py:79
-#: ../menulibre/MenulibreApplication.py:80
+#: ../menulibre/MenulibreApplication.py:81
+#: ../menulibre/MenulibreApplication.py:82
 msgid "GNOME system configuration"
 msgstr "Konfigurasi sistem GNOME"
 
 #. Xfce Specific
-#: ../menulibre/MenulibreApplication.py:82
-#: ../menulibre/MenulibreApplication.py:83
+#: ../menulibre/MenulibreApplication.py:84
+#: ../menulibre/MenulibreApplication.py:85
 msgid "Xfce menu item"
 msgstr "Item menu Xfce"
 
-#: ../menulibre/MenulibreApplication.py:84
+#: ../menulibre/MenulibreApplication.py:86
 msgid "Xfce toplevel menu item"
 msgstr "Item menu aras tertinggi Xfce"
 
-#: ../menulibre/MenulibreApplication.py:85
+#: ../menulibre/MenulibreApplication.py:87
 msgid "Xfce user configuration"
 msgstr "Konfigurasi pengguna Xfce"
 
-#: ../menulibre/MenulibreApplication.py:86
+#: ../menulibre/MenulibreApplication.py:88
 msgid "Xfce hardware configuration"
 msgstr "Konfigurasi perkakasan Xfce"
 
-#: ../menulibre/MenulibreApplication.py:87
-#: ../menulibre/MenulibreApplication.py:88
+#: ../menulibre/MenulibreApplication.py:89
+#: ../menulibre/MenulibreApplication.py:90
 msgid "Xfce system configuration"
 msgstr "Konfigurasi sistem Xfce"
 
-#: ../menulibre/MenulibreApplication.py:136
-#: ../menulibre/MenulibreApplication.py:181
+#: ../menulibre/MenulibreApplication.py:138
+#: ../menulibre/MenulibreApplication.py:183
 msgid "Other"
 msgstr "Lain-lain"
 
-#: ../menulibre/MenulibreApplication.py:391
+#: ../menulibre/MenulibreApplication.py:359
+msgid "MenuLibre cannot be run as root."
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:360
+msgid ""
+"Please see the <a "
+"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"documentation</a> for more information."
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:404
 msgid "Add _Launcher..."
 msgstr "Tambah Pe_lancar..."
 
-#: ../menulibre/MenulibreApplication.py:392
+#: ../menulibre/MenulibreApplication.py:405
 msgid "Add Launcher..."
 msgstr "Tambah Pelancar..."
 
-#: ../menulibre/MenulibreApplication.py:398
+#: ../menulibre/MenulibreApplication.py:411
 msgid "Add _Directory..."
 msgstr "Tambah _Direktori..."
 
-#: ../menulibre/MenulibreApplication.py:399
+#: ../menulibre/MenulibreApplication.py:412
 msgid "Add Directory..."
 msgstr "Tambah Direktori..."
 
-#: ../menulibre/MenulibreApplication.py:405
+#: ../menulibre/MenulibreApplication.py:418
 msgid "_Add Separator..."
 msgstr "T_ambah Pemisah..."
 
-#: ../menulibre/MenulibreApplication.py:406
+#: ../menulibre/MenulibreApplication.py:419
 msgid "Add Separator..."
 msgstr "Tambah Pemisah..."
 
-#: ../menulibre/MenulibreApplication.py:412
+#: ../menulibre/MenulibreApplication.py:425
 msgid "_Save"
 msgstr "_Simpan"
 
-#: ../menulibre/MenulibreApplication.py:413
-#: ../menulibre/MenulibreApplication.py:1043
-#: ../menulibre/MenulibreApplication.py:1487
+#: ../menulibre/MenulibreApplication.py:426
+#: ../menulibre/MenulibreApplication.py:1056
+#: ../menulibre/MenulibreApplication.py:1500
 msgid "Save"
 msgstr "Simpan"
 
-#: ../menulibre/MenulibreApplication.py:419
+#: ../menulibre/MenulibreApplication.py:432
 msgid "_Undo"
 msgstr "Buat _Asal"
 
-#: ../menulibre/MenulibreApplication.py:426
+#: ../menulibre/MenulibreApplication.py:439
 msgid "_Redo"
 msgstr "Buat _Semula"
 
-#: ../menulibre/MenulibreApplication.py:433
+#: ../menulibre/MenulibreApplication.py:446
 msgid "_Revert"
 msgstr "_Kembali Semula"
 
-#: ../menulibre/MenulibreApplication.py:440
+#: ../menulibre/MenulibreApplication.py:453
 msgid "_Delete"
 msgstr "Pa_dam"
 
-#: ../menulibre/MenulibreApplication.py:447
+#: ../menulibre/MenulibreApplication.py:460
 msgid "_Quit"
 msgstr "_Keluar"
 
-#: ../menulibre/MenulibreApplication.py:448
-#: ../menulibre/MenulibreApplication.py:2763
+#: ../menulibre/MenulibreApplication.py:461
+#: ../menulibre/MenulibreApplication.py:2776
 msgid "Quit"
 msgstr "Keluar"
 
-#: ../menulibre/MenulibreApplication.py:454
+#: ../menulibre/MenulibreApplication.py:467
 msgid "_Contents"
 msgstr "_Kandungan"
 
-#: ../menulibre/MenulibreApplication.py:455
-#: ../menulibre/MenulibreApplication.py:2761
+#: ../menulibre/MenulibreApplication.py:468
+#: ../menulibre/MenulibreApplication.py:2774
 msgid "Help"
 msgstr "Bantuan"
 
-#: ../menulibre/MenulibreApplication.py:461
+#: ../menulibre/MenulibreApplication.py:474
 msgid "_About"
 msgstr "_Perihal"
 
-#: ../menulibre/MenulibreApplication.py:462
-#: ../menulibre/MenulibreApplication.py:2762
+#: ../menulibre/MenulibreApplication.py:475
+#: ../menulibre/MenulibreApplication.py:2775
 msgid "About"
 msgstr "Perihal"
 
 #. Create a new column.
-#: ../menulibre/MenulibreApplication.py:580
+#: ../menulibre/MenulibreApplication.py:593
 msgid "Search Results"
 msgstr "Hasil Gelintar"
 
-#: ../menulibre/MenulibreApplication.py:822
+#: ../menulibre/MenulibreApplication.py:835
 msgid "ThisEntry"
 msgstr "MasukanIni"
 
-#: ../menulibre/MenulibreApplication.py:840
+#: ../menulibre/MenulibreApplication.py:853
 msgid "Select a category"
 msgstr "Pilih satu kategori"
 
-#: ../menulibre/MenulibreApplication.py:843
+#: ../menulibre/MenulibreApplication.py:856
 msgid "Category Name"
 msgstr "Nama Kategori"
 
-#: ../menulibre/MenulibreApplication.py:927
+#: ../menulibre/MenulibreApplication.py:940
 msgid "This Entry"
 msgstr "Masukan Ini"
 
-#: ../menulibre/MenulibreApplication.py:982
+#: ../menulibre/MenulibreApplication.py:995
 msgid "New Shortcut"
 msgstr "Pintasan Baharu"
 
 #. Unsaved changes
-#: ../menulibre/MenulibreApplication.py:1032
+#: ../menulibre/MenulibreApplication.py:1045
 msgid "Do you want to save the changes before closing?"
 msgstr "Anda mahu simpan perubahan yang dibuat sebelum menutup?"
 
-#: ../menulibre/MenulibreApplication.py:1033
+#: ../menulibre/MenulibreApplication.py:1046
 msgid "If you don't save the launcher, all the changes will be lost.'"
 msgstr ""
 "Jika anda tidak simpan pelancar, semua perubahan yang dibuat akan hilang."
 
-#: ../menulibre/MenulibreApplication.py:1040
-#: ../menulibre/MenulibreApplication.py:1484
+#: ../menulibre/MenulibreApplication.py:1053
+#: ../menulibre/MenulibreApplication.py:1497
 msgid "Save Changes"
 msgstr "Simpan Perubahan"
 
-#: ../menulibre/MenulibreApplication.py:1041
-#: ../menulibre/MenulibreApplication.py:1485
+#: ../menulibre/MenulibreApplication.py:1054
+#: ../menulibre/MenulibreApplication.py:1498
 msgid "Don't Save"
 msgstr "Jangan Simpan"
 
-#: ../menulibre/MenulibreApplication.py:1163
+#: ../menulibre/MenulibreApplication.py:1176
 msgid "Select an image"
 msgstr "Pilih satu imej"
 
-#: ../menulibre/MenulibreApplication.py:1167
-#: ../menulibre/MenulibreApplication.py:1292
+#: ../menulibre/MenulibreApplication.py:1180
+#: ../menulibre/MenulibreApplication.py:1305
 msgid "OK"
 msgstr "OK"
 
-#: ../menulibre/MenulibreApplication.py:1169
+#: ../menulibre/MenulibreApplication.py:1182
 msgid "Images"
 msgstr "Imej"
 
-#: ../menulibre/MenulibreApplication.py:1284
+#: ../menulibre/MenulibreApplication.py:1297
 msgid "Select a working directory..."
 msgstr "Pilih satu direktori kerja..."
 
-#: ../menulibre/MenulibreApplication.py:1288
+#: ../menulibre/MenulibreApplication.py:1301
 msgid "Select an executable..."
 msgstr "Pilih satu bolehlaku..."
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1448
+#: ../menulibre/MenulibreApplication.py:1461
 msgid "No Longer Installed"
 msgstr "Tiada Lagi Dipasang"
 
-#: ../menulibre/MenulibreApplication.py:1449
+#: ../menulibre/MenulibreApplication.py:1462
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -637,42 +682,42 @@ msgstr ""
 "Pelancar ini telah dibuang dari sistem.\n"
 "Memilih item tersedia berikutnya."
 
-#: ../menulibre/MenulibreApplication.py:1475
+#: ../menulibre/MenulibreApplication.py:1488
 msgid "Do you want to save the changes before leaving this launcher?"
 msgstr ""
 "Anda mahu simpan perubahan yang dibuat sebelum meninggalkan pelancar ini?"
 
-#: ../menulibre/MenulibreApplication.py:1477
+#: ../menulibre/MenulibreApplication.py:1490
 msgid "If you don't save the launcher, all the changes will be lost."
 msgstr ""
 "Jika anda tidak simpan pelancar, semua perubahan yang dibuat akan hilang."
 
-#: ../menulibre/MenulibreApplication.py:1716
+#: ../menulibre/MenulibreApplication.py:1729
 msgid "You do not have permission to delete this file."
 msgstr "Anda tidak mempunyai keizinan memadam fail ini."
 
-#: ../menulibre/MenulibreApplication.py:2149
+#: ../menulibre/MenulibreApplication.py:2162
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr "Tidak dapat tambah sub-direktori ke laluan sistem pra-pasang."
 
-#: ../menulibre/MenulibreApplication.py:2176
+#: ../menulibre/MenulibreApplication.py:2189
 msgid "New Launcher"
 msgstr "Pelancar Baharu"
 
-#: ../menulibre/MenulibreApplication.py:2227
+#: ../menulibre/MenulibreApplication.py:2240
 msgid "New Directory"
 msgstr "Direktori Baharu"
 
-#: ../menulibre/MenulibreApplication.py:2677
+#: ../menulibre/MenulibreApplication.py:2690
 msgid "Are you sure you want to restore this launcher?"
 msgstr "Anda pasti mahu pulihkan pelancar ini?"
 
-#: ../menulibre/MenulibreApplication.py:2683
-#: ../menulibre/MenulibreApplication.py:2684
+#: ../menulibre/MenulibreApplication.py:2696
+#: ../menulibre/MenulibreApplication.py:2697
 msgid "Restore Launcher"
 msgstr "Pulih Pelancar"
 
-#: ../menulibre/MenulibreApplication.py:2685
+#: ../menulibre/MenulibreApplication.py:2698
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
@@ -680,32 +725,32 @@ msgstr ""
 "Semua perubahan semenjak keadaan tersimpan terakhir akan hilang dan tidak "
 "dapat dipulihkan secara automatik."
 
-#: ../menulibre/MenulibreApplication.py:2700
+#: ../menulibre/MenulibreApplication.py:2713
 msgid "Are you sure you want to delete this separator?"
 msgstr "Anda pasti mahu memadam pemisah ini?"
 
-#: ../menulibre/MenulibreApplication.py:2703
+#: ../menulibre/MenulibreApplication.py:2716
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Anda pasti ingin memadam \"%s\"?"
 
-#: ../menulibre/MenulibreApplication.py:2705
+#: ../menulibre/MenulibreApplication.py:2718
 msgid "This cannot be undone."
 msgstr "Ini tidak boleh dikembalikan seperti sebelum."
 
-#: ../menulibre/MenulibreApplication.py:2783
+#: ../menulibre/MenulibreApplication.py:2796
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr "Anda mahu baca panduan atas-talian MenuLibre?"
 
-#: ../menulibre/MenulibreApplication.py:2789
+#: ../menulibre/MenulibreApplication.py:2802
 msgid "Read Online"
 msgstr "Baca Atas Talian"
 
-#: ../menulibre/MenulibreApplication.py:2790
+#: ../menulibre/MenulibreApplication.py:2803
 msgid "Online Documentation"
 msgstr "Dokumentasi Talian"
 
-#: ../menulibre/MenulibreApplication.py:2791
+#: ../menulibre/MenulibreApplication.py:2804
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
@@ -714,11 +759,11 @@ msgstr ""
 "diselenggara."
 
 #. Populate the AboutDialog with all the relevant details.
-#: ../menulibre/MenulibreApplication.py:2810
+#: ../menulibre/MenulibreApplication.py:2823
 msgid "About MenuLibre"
 msgstr "Perihal MenuLibre"
 
-#: ../menulibre/MenulibreApplication.py:2813
+#: ../menulibre/MenulibreApplication.py:2826
 msgid "Copyright © 2012-2014 Sean Davis"
 msgstr "Hakcipta © 2012-2014 Sean Davis"
 

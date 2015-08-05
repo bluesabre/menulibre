@@ -1,26 +1,25 @@
-# English (Australia) translation for menulibre
-# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
+# Sinhalese translation for menulibre
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the menulibre package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-07-12 12:16-0400\n"
-"PO-Revision-Date: 2014-01-25 03:35+0000\n"
-"Last-Translator: Jackson Doak <noskcaj@ubuntu.com>\n"
-"Language-Team: English (Australia) <en_AU@li.org>\n"
+"PO-Revision-Date: 2014-12-14 17:04+0000\n"
+"Last-Translator: M Rizmi <Unknown>\n"
+"Language-Team: Sinhalese <si@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-13 05:31+0000\n"
+"X-Launchpad-Export-Date: 2015-07-13 05:30+0000\n"
 "X-Generator: Launchpad (build 17620)\n"
-"Language: \n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr "Menu Editor"
+msgstr "මෙනු සංස්කාරකය"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
@@ -49,19 +48,19 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:2695
 #: ../menulibre/MenulibreApplication.py:2801
 msgid "Cancel"
-msgstr ""
+msgstr "අවලංගු කරන්න"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "Apply"
-msgstr ""
+msgstr "යොදන්න"
 
 #: ../data/ui/MenulibreWindow.ui.h:7
 msgid "Icon Name"
-msgstr "Icon Name"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Image File"
-msgstr "Image File"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid "<b>Select an image</b>"
@@ -69,23 +68,23 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "16px"
-msgstr ""
+msgstr "16px"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "32px"
-msgstr ""
+msgstr "32px"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "64px"
-msgstr ""
+msgstr "64px"
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "128px"
-msgstr ""
+msgstr "128px"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "<b>Preview</b>"
-msgstr "<b>Preview</b>"
+msgstr "<b>පෙරදසුන</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:381
 #: ../menulibre/MenulibreApplication.py:2824
@@ -94,15 +93,15 @@ msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid "_File"
-msgstr "_File"
+msgstr "ගොනුව (_F)"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "_Edit"
-msgstr "_Edit"
+msgstr "සංස්කරණය (_E)"
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid "_Help"
-msgstr "_Help"
+msgstr "සහාය (_H)"
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Save Launcher"
@@ -110,19 +109,19 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:433
 msgid "Undo"
-msgstr "Undo"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:21 ../menulibre/MenulibreApplication.py:440
 msgid "Redo"
-msgstr "Redo"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:447
 msgid "Revert"
-msgstr "Revert"
+msgstr "පෙර තත්වයට පත් කරන්න"
 
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:454
 msgid "Delete"
-msgstr ""
+msgstr "මකා දමන්න"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Search terms…"
@@ -130,19 +129,19 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Move Up"
-msgstr "Move Up"
+msgstr "ඉහළට ගෙනයන්න"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Move Down"
-msgstr "Move Down"
+msgstr "පහළට ගෙනයන්න"
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Application Name</b></big>"
+msgstr "<big><b>වැඩසටහනේ නම</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Application Name"
-msgstr ""
+msgstr "වැඩසටහනේ නම"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Application Comment"
@@ -150,7 +149,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:861
 msgid "Description"
-msgstr ""
+msgstr "විස්තරය"
 
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid ""
@@ -163,7 +162,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Command"
-msgstr "Command"
+msgstr "විධානය"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "The working directory."
@@ -171,7 +170,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Working Directory"
-msgstr "Working Directory"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Browse…"
@@ -179,7 +178,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "<b>Application Details</b>"
-msgstr ""
+msgstr "<b>වැඩසටහනේ විස්තර</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "If set to \"True\", the program will be ran in a terminal window."
@@ -187,7 +186,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Run in terminal"
-msgstr "Run in terminal"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid ""
@@ -197,7 +196,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Use startup notification"
-msgstr "Use startup notification"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid ""
@@ -207,43 +206,43 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Hide from menus"
-msgstr "Hide from menus"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "<b>Options</b>"
-msgstr "<b>Options</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Add"
-msgstr ""
+msgstr "එක් කරන්න"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Remove"
-msgstr ""
+msgstr "ඉවත් කරන්න"
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Clear"
-msgstr ""
+msgstr "හිස් කරන්න"
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Categories"
-msgstr "Categories"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:49
 msgid "Show"
-msgstr "Show"
+msgstr "පෙන්වන්න"
 
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Name"
-msgstr "Name"
+msgstr "නම"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Action Name"
-msgstr ""
+msgstr "ක්‍රීයා නාමය"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Actions"
-msgstr ""
+msgstr "ක්‍රියාවන්"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Generic name of the application, for example \"Web Browser\"."
@@ -326,7 +325,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Hidden"
-msgstr ""
+msgstr "සැඟවුණු"
 
 #: ../data/ui/MenulibreWindow.ui.h:71
 msgid ""
@@ -342,7 +341,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:74
 msgid "Advanced"
-msgstr ""
+msgstr "සංකීර්ණ"
 
 #: ../data/ui/MenulibreWindow.ui.h:75
 msgid "<small><i>Filename</i></small>"
@@ -358,7 +357,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:78
 msgid "Search"
-msgstr ""
+msgstr "සොයන්න"
 
 #: ../data/ui/MenulibreWindow.ui.h:79
 msgid "column"
@@ -376,43 +375,43 @@ msgstr ""
 #. Standard Items
 #: ../menulibre/MenulibreApplication.py:61
 msgid "Multimedia"
-msgstr "Multimedia"
+msgstr "බහුමාධ්‍ය"
 
 #: ../menulibre/MenulibreApplication.py:62
 msgid "Development"
-msgstr "Development"
+msgstr "සංවර්ධනය"
 
 #: ../menulibre/MenulibreApplication.py:63
 msgid "Education"
-msgstr "Education"
+msgstr "අධ්‍යාපනය"
 
 #: ../menulibre/MenulibreApplication.py:64
 msgid "Games"
-msgstr "Games"
+msgstr "ක්‍රීඩා"
 
 #: ../menulibre/MenulibreApplication.py:65
 msgid "Graphics"
-msgstr "Graphics"
+msgstr "චිත්‍රක"
 
 #: ../menulibre/MenulibreApplication.py:66
 msgid "Internet"
-msgstr "Internet"
+msgstr "අන්තර්ජාලය"
 
 #: ../menulibre/MenulibreApplication.py:67
 msgid "Office"
-msgstr "Office"
+msgstr "කාර්යාලය"
 
 #: ../menulibre/MenulibreApplication.py:68
 msgid "Settings"
-msgstr "Settings"
+msgstr "සැකසුම්"
 
 #: ../menulibre/MenulibreApplication.py:69
 msgid "System"
-msgstr "System"
+msgstr "පද්ධතිය"
 
 #: ../menulibre/MenulibreApplication.py:70
 msgid "Accessories"
-msgstr "Accessories"
+msgstr "උපාංග"
 
 #: ../menulibre/MenulibreApplication.py:71
 msgid "WINE"
@@ -479,7 +478,7 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:138
 #: ../menulibre/MenulibreApplication.py:183
 msgid "Other"
-msgstr "Other"
+msgstr "වෙනත්"
 
 #: ../menulibre/MenulibreApplication.py:359
 msgid "MenuLibre cannot be run as root."
@@ -518,13 +517,13 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:425
 msgid "_Save"
-msgstr ""
+msgstr "සුරකින්න (_S)"
 
 #: ../menulibre/MenulibreApplication.py:426
 #: ../menulibre/MenulibreApplication.py:1056
 #: ../menulibre/MenulibreApplication.py:1500
 msgid "Save"
-msgstr "Save"
+msgstr "සුරකින්න"
 
 #: ../menulibre/MenulibreApplication.py:432
 msgid "_Undo"
@@ -540,39 +539,39 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:453
 msgid "_Delete"
-msgstr ""
+msgstr "මකන්න (_D)"
 
 #: ../menulibre/MenulibreApplication.py:460
 msgid "_Quit"
-msgstr ""
+msgstr "ඉවත් වෙන්න (_Q)"
 
 #: ../menulibre/MenulibreApplication.py:461
 #: ../menulibre/MenulibreApplication.py:2776
 msgid "Quit"
-msgstr ""
+msgstr "ඉවත් වෙන්න"
 
 #: ../menulibre/MenulibreApplication.py:467
 msgid "_Contents"
-msgstr "_Contents"
+msgstr "අන්තර්ගතයන් (_C)"
 
 #: ../menulibre/MenulibreApplication.py:468
 #: ../menulibre/MenulibreApplication.py:2774
 msgid "Help"
-msgstr ""
+msgstr "සහාය"
 
 #: ../menulibre/MenulibreApplication.py:474
 msgid "_About"
-msgstr ""
+msgstr "පිළිබඳ (_A)"
 
 #: ../menulibre/MenulibreApplication.py:475
 #: ../menulibre/MenulibreApplication.py:2775
 msgid "About"
-msgstr ""
+msgstr "පිළිබද"
 
 #. Create a new column.
 #: ../menulibre/MenulibreApplication.py:593
 msgid "Search Results"
-msgstr "Search Results"
+msgstr "සෙවුම් ප්‍රතිඵල"
 
 #: ../menulibre/MenulibreApplication.py:835
 msgid "ThisEntry"
@@ -592,7 +591,7 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:995
 msgid "New Shortcut"
-msgstr "New Shortcut"
+msgstr ""
 
 #. Unsaved changes
 #: ../menulibre/MenulibreApplication.py:1045
@@ -606,7 +605,7 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:1053
 #: ../menulibre/MenulibreApplication.py:1497
 msgid "Save Changes"
-msgstr ""
+msgstr "වෙනස්කම් සුරකින්න"
 
 #: ../menulibre/MenulibreApplication.py:1054
 #: ../menulibre/MenulibreApplication.py:1498
@@ -620,11 +619,11 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:1180
 #: ../menulibre/MenulibreApplication.py:1305
 msgid "OK"
-msgstr ""
+msgstr "හරි"
 
 #: ../menulibre/MenulibreApplication.py:1182
 msgid "Images"
-msgstr ""
+msgstr "පින්තූර"
 
 #: ../menulibre/MenulibreApplication.py:1297
 msgid "Select a working directory..."
@@ -722,12 +721,12 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:2826
 msgid "Copyright © 2012-2014 Sean Davis"
-msgstr ""
+msgstr "ප්‍රකාශන හිමිකම © 2012-2014 Sean Davis"
 
 #: ../menulibre/MenulibreXdg.py:53
 msgid "New Menu Item"
-msgstr "New Menu Item"
+msgstr ""
 
 #: ../menulibre/MenulibreXdg.py:55
 msgid "A small descriptive blurb about this application."
-msgstr "A small descriptive blurb about this application."
+msgstr ""
