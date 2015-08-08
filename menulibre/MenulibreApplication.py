@@ -49,8 +49,14 @@ def check_keypress(event, keys):
         keys[keys.index('Escape')] = 'escape'
     if Gdk.keyval_name(event.get_keyval()[1]).lower() not in keys:
         return False
-
     return True
+
+
+def get_treemodel(treeview):
+    model = treeview.get_model()
+    if (isinstance(model, Gtk.TreeModelFilter)):
+        model = model.get_model()
+    return model
 
 
 session = os.getenv("DESKTOP_SESSION")
@@ -351,6 +357,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Set up the applicaton browser
         self.configure_application_treeview(builder)
+        
+        self.home_fallback = False
         
     def root_lockout(self):
         if root:
@@ -767,7 +775,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.icon_selection_treeview = \
             builder.get_object('icon_selection_treeview')
         entry = builder.get_object('icon_selection_search')
-        model = self.icon_selection_treeview.get_model()
+        model = get_treemodel(self.icon_selection_treeview)
         model_filter = model.filter_new()
         model_filter.set_visible_func(self.icon_selection_match_func, entry)
         self.icon_selection_treeview.set_model(model_filter)
@@ -802,7 +810,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Actions Treeview and Inline Toolbar
         self.actions_treeview = builder.get_object('actions_treeview')
-        model = self.actions_treeview.get_model()
+        model = get_treemodel(self.actions_treeview)
         add_button = builder.get_object('actions_add')
         add_button.connect("clicked", self.on_actions_add)
         remove_button = builder.get_object('actions_remove')
@@ -890,7 +898,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 # Generic Treeview functions
     def treeview_add(self, treeview, row_data):
         """Append the specified row_data to the treeview."""
-        model = treeview.get_model()
+        model = get_treemodel(treeview)
         model.append(row_data)
 
     def treeview_remove(self, treeview):
@@ -901,14 +909,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def treeview_clear(self, treeview):
         """Remove all items from the treeview."""
-        model = treeview.get_model()
+        model = get_treemodel(treeview)
         model.clear()
 
     def cleanup_treeview(self, treeview, key_columns, sort=False):
         """Cleanup a treeview"""
         rows = []
 
-        model = treeview.get_model()
+        model = get_treemodel(treeview)
         for row in model:
             row_data = row[:]
             append_row = True
@@ -943,7 +951,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_category_combo_changed(self, widget, path, text):
         """Set the active iter to the new text."""
-        model = self.categories_treeview.get_model()
+        model = get_treemodel(self.categories_treeview)
         model[path][0] = text
         description = lookup_category_description(text)
         model[path][1] = description
@@ -983,7 +991,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_actions_add(self, widget):
         """Add a new row to the Actions TreeView."""
-        model = self.actions_treeview.get_model()
+        model = get_treemodel(self.actions_treeview)
         existing = list()
         for row in model:
             existing.append(row[1])
@@ -1214,7 +1222,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def load_icon_selection_treeview(self):
         """Load the IconSelection treeview."""
-        model = self.icon_selection_treeview.get_model().get_model()
+        model = get_treemodel(self.icon_selection_treeview)
         for icon_name in self.icons_list:
             model.append([icon_name])
 
@@ -1456,6 +1464,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                         for widget in self.directory_hide_widgets:
                             widget.hide()
 
+                elif self.home_fallback:
+                    self.search_box.set_text("")
+                    self.treeview.set_cursor(Gtk.TreePath.new_from_string("0"))
                 else:
                     # Display a dialog saying this item is missing
                     primary = _("No Longer Installed")
@@ -1470,6 +1481,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     dialog.destroy()
                     # Mark this item as missing to delete it later.
                     missing = True
+            
+            self.home_fallback = False
 
             # Update the Add Directory menu item
             self.update_add_directory(treestore, treeiter)
@@ -1479,6 +1492,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             # Remove this item if it happens to be gone.
             if missing:
+                self.home_fallback = True
                 self.delete_launcher(self.treeview, treestore, treeiter)
 
     def on_treeview_selection(self, sel, store, path, is_selected,
@@ -1746,7 +1760,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Get the editor categories.
 
         Return the categories as a semicolon-delimited string."""
-        model = self.categories_treeview.get_model()
+        model = get_treemodel(self.categories_treeview)
         categories = ""
         for row in model:
             categories = "%s%s;" % (categories, row[0])
@@ -1762,7 +1776,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         entries.sort()
 
         # Clear the model.
-        model = self.categories_treeview.get_model()
+        model = get_treemodel(self.categories_treeview)
         model.clear()
 
         # Clear the ThisEntry category list.
@@ -1790,7 +1804,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def get_editor_actions_string(self):
         """Return the .desktop formatted actions."""
         # Get the model.
-        model = self.actions_treeview.get_model()
+        model = get_treemodel(self.actions_treeview)
 
         # Start the output string.
         actions = "\nActions="
@@ -1823,7 +1837,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def get_editor_actions(self):
         """Get the list of action groups."""
-        model = self.actions_treeview.get_model()
+        model = get_treemodel(self.actions_treeview)
 
         action_groups = []
 
@@ -1841,7 +1855,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def set_editor_actions(self, action_groups):
         """Set the editor Actions from the list action_groups."""
-        model = self.actions_treeview.get_model()
+        model = get_treemodel(self.actions_treeview)
         model.clear()
         if not action_groups:
             return
@@ -2071,7 +2085,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def move_iter_up_level(self, treeview, treeiter, relative_position):
         """Move the specified iter up one level."""
-        model = treeview.get_model()
+        model = get_treemodel(treeview)
         sibling = model.iter_parent(treeiter)
         if sibling is not None:
             parent = model.iter_parent(sibling)
@@ -2098,7 +2112,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def move_iter_down_level(self, treeview, treeiter, parent_iter,
                              relative_position):
         """Move the specified iter down one level."""
-        model = treeview.get_model()
+        model = get_treemodel(treeview)
         row_data = model[treeiter][:]
         if model.iter_has_child(parent_iter):
             if relative_position < 0:
@@ -2580,14 +2594,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 model[treeiter][5] = original
             else:
                 # Model not found, delete this row.
-                model.remove(treeiter)
+                treemodel = get_treemodel(treeview)
+                treemodel.remove(treeiter)
                 treeiter = None
 
             # Update all instances
             if treeiter is not None:
                 self.update_launcher_instances(model, treeiter, filename)
         else:
-            model.remove(treeiter)
+            treemodel = get_treemodel(treeview)
+            treemodel.remove(treeiter)
         if treepath:
             self.treeview.set_cursor(treepath)
 
