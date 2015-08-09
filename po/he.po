@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-04 21:21-0400\n"
+"POT-Creation-Date: 2015-08-08 11:31-0400\n"
 "PO-Revision-Date: 2014-04-15 05:10+0000\n"
 "Last-Translator: GenghisKhan <genghiskhan@gmx.ca>\n"
 "Language-Team: Hebrew <he@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-06 05:41+0000\n"
+"X-Launchpad-Export-Date: 2015-08-09 06:08+0000\n"
 "X-Generator: Launchpad (build 17656)\n"
 "Language: he\n"
 
@@ -42,12 +42,12 @@ msgstr "הוסף _חוצץ"
 msgid "Icon Selection"
 msgstr "מבחר צלמית"
 
-#: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1055
-#: ../menulibre/MenulibreApplication.py:1179
-#: ../menulibre/MenulibreApplication.py:1304
-#: ../menulibre/MenulibreApplication.py:1499
-#: ../menulibre/MenulibreApplication.py:2695
-#: ../menulibre/MenulibreApplication.py:2801
+#: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1063
+#: ../menulibre/MenulibreApplication.py:1187
+#: ../menulibre/MenulibreApplication.py:1312
+#: ../menulibre/MenulibreApplication.py:1513
+#: ../menulibre/MenulibreApplication.py:2711
+#: ../menulibre/MenulibreApplication.py:2817
 msgid "Cancel"
 msgstr "ביטול"
 
@@ -87,8 +87,8 @@ msgstr "128px"
 msgid "<b>Preview</b>"
 msgstr "<b>תצוגה מקדימה</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:381
-#: ../menulibre/MenulibreApplication.py:2824
+#: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:389
+#: ../menulibre/MenulibreApplication.py:2840
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
@@ -108,19 +108,19 @@ msgstr "_עזרה"
 msgid "Save Launcher"
 msgstr "שמור משגר"
 
-#: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:433
+#: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:441
 msgid "Undo"
 msgstr "בטל"
 
-#: ../data/ui/MenulibreWindow.ui.h:21 ../menulibre/MenulibreApplication.py:440
+#: ../data/ui/MenulibreWindow.ui.h:21 ../menulibre/MenulibreApplication.py:448
 msgid "Redo"
 msgstr "בצע שוב"
 
-#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:447
+#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:455
 msgid "Revert"
 msgstr "שחזר"
 
-#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:454
+#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:462
 msgid "Delete"
 msgstr "מחק"
 
@@ -148,7 +148,7 @@ msgstr "שם יישום"
 msgid "Application Comment"
 msgstr "הערת יישום"
 
-#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:861
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:869
 msgid "Description"
 msgstr "תיאור"
 
@@ -368,278 +368,278 @@ msgstr "טור"
 msgid "Show debug messages"
 msgstr "הצג הודעות דיבאג"
 
-#: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1414
-#: ../menulibre/MenulibreApplication.py:2267
+#: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1422
+#: ../menulibre/MenulibreApplication.py:2281
 msgid "Separator"
 msgstr "חוצץ"
 
 #. Standard Items
-#: ../menulibre/MenulibreApplication.py:61
+#: ../menulibre/MenulibreApplication.py:67
 msgid "Multimedia"
 msgstr "מולטימדיה"
 
-#: ../menulibre/MenulibreApplication.py:62
+#: ../menulibre/MenulibreApplication.py:68
 msgid "Development"
 msgstr "פיתוח"
 
-#: ../menulibre/MenulibreApplication.py:63
+#: ../menulibre/MenulibreApplication.py:69
 msgid "Education"
 msgstr "לומדות"
 
-#: ../menulibre/MenulibreApplication.py:64
+#: ../menulibre/MenulibreApplication.py:70
 msgid "Games"
 msgstr "משחקים"
 
-#: ../menulibre/MenulibreApplication.py:65
+#: ../menulibre/MenulibreApplication.py:71
 msgid "Graphics"
 msgstr "גרפיקה"
 
-#: ../menulibre/MenulibreApplication.py:66
+#: ../menulibre/MenulibreApplication.py:72
 msgid "Internet"
 msgstr "מרשתת"
 
-#: ../menulibre/MenulibreApplication.py:67
+#: ../menulibre/MenulibreApplication.py:73
 msgid "Office"
 msgstr "משרד"
 
-#: ../menulibre/MenulibreApplication.py:68
+#: ../menulibre/MenulibreApplication.py:74
 msgid "Settings"
 msgstr "הגדרות"
 
-#: ../menulibre/MenulibreApplication.py:69
+#: ../menulibre/MenulibreApplication.py:75
 msgid "System"
 msgstr "מערכת"
 
-#: ../menulibre/MenulibreApplication.py:70
+#: ../menulibre/MenulibreApplication.py:76
 msgid "Accessories"
 msgstr "עזרים"
 
-#: ../menulibre/MenulibreApplication.py:71
+#: ../menulibre/MenulibreApplication.py:77
 msgid "WINE"
 msgstr "WINE"
 
 #. Desktop Environment
-#: ../menulibre/MenulibreApplication.py:73
+#: ../menulibre/MenulibreApplication.py:79
 msgid "Desktop configuration"
 msgstr "תצורת שולחן עבודה"
 
-#: ../menulibre/MenulibreApplication.py:74
+#: ../menulibre/MenulibreApplication.py:80
 msgid "User configuration"
 msgstr "תצורת משתמש"
 
-#: ../menulibre/MenulibreApplication.py:75
+#: ../menulibre/MenulibreApplication.py:81
 msgid "Hardware configuration"
 msgstr "תצורת חומרה"
 
 #. GNOME Specific
-#: ../menulibre/MenulibreApplication.py:77
+#: ../menulibre/MenulibreApplication.py:83
 msgid "GNOME application"
 msgstr "יישום GNOME"
 
-#: ../menulibre/MenulibreApplication.py:78
+#: ../menulibre/MenulibreApplication.py:84
 msgid "GTK+ application"
 msgstr "יישום +GTK"
 
-#: ../menulibre/MenulibreApplication.py:79
+#: ../menulibre/MenulibreApplication.py:85
 msgid "GNOME user configuration"
 msgstr "תצורת משתמש GNOME"
 
-#: ../menulibre/MenulibreApplication.py:80
+#: ../menulibre/MenulibreApplication.py:86
 msgid "GNOME hardware configuration"
 msgstr "תצורת חומרה GNOME"
 
-#: ../menulibre/MenulibreApplication.py:81
-#: ../menulibre/MenulibreApplication.py:82
+#: ../menulibre/MenulibreApplication.py:87
+#: ../menulibre/MenulibreApplication.py:88
 msgid "GNOME system configuration"
 msgstr "תצורת מערכת GNOME"
 
 #. Xfce Specific
-#: ../menulibre/MenulibreApplication.py:84
-#: ../menulibre/MenulibreApplication.py:85
+#: ../menulibre/MenulibreApplication.py:90
+#: ../menulibre/MenulibreApplication.py:91
 msgid "Xfce menu item"
 msgstr "פריט תפריט Xfce"
 
-#: ../menulibre/MenulibreApplication.py:86
+#: ../menulibre/MenulibreApplication.py:92
 msgid "Xfce toplevel menu item"
 msgstr "פריט תפריט עליון Xfce"
 
-#: ../menulibre/MenulibreApplication.py:87
+#: ../menulibre/MenulibreApplication.py:93
 msgid "Xfce user configuration"
 msgstr "תצורת משתמש Xfce"
 
-#: ../menulibre/MenulibreApplication.py:88
+#: ../menulibre/MenulibreApplication.py:94
 msgid "Xfce hardware configuration"
 msgstr "תצורת חומרה Xfce"
 
-#: ../menulibre/MenulibreApplication.py:89
-#: ../menulibre/MenulibreApplication.py:90
+#: ../menulibre/MenulibreApplication.py:95
+#: ../menulibre/MenulibreApplication.py:96
 msgid "Xfce system configuration"
 msgstr "תצורת מערכת Xfce"
 
-#: ../menulibre/MenulibreApplication.py:138
-#: ../menulibre/MenulibreApplication.py:183
+#: ../menulibre/MenulibreApplication.py:144
+#: ../menulibre/MenulibreApplication.py:189
 msgid "Other"
 msgstr "אחרים"
 
-#: ../menulibre/MenulibreApplication.py:359
+#: ../menulibre/MenulibreApplication.py:367
 msgid "MenuLibre cannot be run as root."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:360
+#: ../menulibre/MenulibreApplication.py:368
 msgid ""
 "Please see the <a "
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
 "documentation</a> for more information."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:404
+#: ../menulibre/MenulibreApplication.py:412
 msgid "Add _Launcher..."
 msgstr "הוספת _משגר..."
 
-#: ../menulibre/MenulibreApplication.py:405
+#: ../menulibre/MenulibreApplication.py:413
 msgid "Add Launcher..."
 msgstr "הוספת משגר..."
 
-#: ../menulibre/MenulibreApplication.py:411
+#: ../menulibre/MenulibreApplication.py:419
 msgid "Add _Directory..."
 msgstr "הוספת _ספריה..."
 
-#: ../menulibre/MenulibreApplication.py:412
+#: ../menulibre/MenulibreApplication.py:420
 msgid "Add Directory..."
 msgstr "הוספת מדור..."
 
-#: ../menulibre/MenulibreApplication.py:418
+#: ../menulibre/MenulibreApplication.py:426
 msgid "_Add Separator..."
 msgstr "_הוספת חוצץ..."
 
-#: ../menulibre/MenulibreApplication.py:419
+#: ../menulibre/MenulibreApplication.py:427
 msgid "Add Separator..."
 msgstr "הוספת חוצץ..."
 
-#: ../menulibre/MenulibreApplication.py:425
+#: ../menulibre/MenulibreApplication.py:433
 msgid "_Save"
 msgstr "_שמור"
 
-#: ../menulibre/MenulibreApplication.py:426
-#: ../menulibre/MenulibreApplication.py:1056
-#: ../menulibre/MenulibreApplication.py:1500
+#: ../menulibre/MenulibreApplication.py:434
+#: ../menulibre/MenulibreApplication.py:1064
+#: ../menulibre/MenulibreApplication.py:1514
 msgid "Save"
 msgstr "שמור"
 
-#: ../menulibre/MenulibreApplication.py:432
+#: ../menulibre/MenulibreApplication.py:440
 msgid "_Undo"
 msgstr "_בטל"
 
-#: ../menulibre/MenulibreApplication.py:439
+#: ../menulibre/MenulibreApplication.py:447
 msgid "_Redo"
 msgstr "בצ_ע שוב"
 
-#: ../menulibre/MenulibreApplication.py:446
+#: ../menulibre/MenulibreApplication.py:454
 msgid "_Revert"
 msgstr "שח_זר"
 
-#: ../menulibre/MenulibreApplication.py:453
+#: ../menulibre/MenulibreApplication.py:461
 msgid "_Delete"
 msgstr "_מחק"
 
-#: ../menulibre/MenulibreApplication.py:460
+#: ../menulibre/MenulibreApplication.py:468
 msgid "_Quit"
 msgstr "י_ציאה"
 
-#: ../menulibre/MenulibreApplication.py:461
-#: ../menulibre/MenulibreApplication.py:2776
+#: ../menulibre/MenulibreApplication.py:469
+#: ../menulibre/MenulibreApplication.py:2792
 msgid "Quit"
 msgstr "יציאה"
 
-#: ../menulibre/MenulibreApplication.py:467
+#: ../menulibre/MenulibreApplication.py:475
 msgid "_Contents"
 msgstr "_תכנים"
 
-#: ../menulibre/MenulibreApplication.py:468
-#: ../menulibre/MenulibreApplication.py:2774
+#: ../menulibre/MenulibreApplication.py:476
+#: ../menulibre/MenulibreApplication.py:2790
 msgid "Help"
 msgstr "עזרה"
 
-#: ../menulibre/MenulibreApplication.py:474
+#: ../menulibre/MenulibreApplication.py:482
 msgid "_About"
 msgstr "_אודות"
 
-#: ../menulibre/MenulibreApplication.py:475
-#: ../menulibre/MenulibreApplication.py:2775
+#: ../menulibre/MenulibreApplication.py:483
+#: ../menulibre/MenulibreApplication.py:2791
 msgid "About"
 msgstr "אודות"
 
 #. Create a new column.
-#: ../menulibre/MenulibreApplication.py:593
+#: ../menulibre/MenulibreApplication.py:601
 msgid "Search Results"
 msgstr "תוצאות חיפוש"
 
-#: ../menulibre/MenulibreApplication.py:835
+#: ../menulibre/MenulibreApplication.py:843
 msgid "ThisEntry"
 msgstr "ThisEntry"
 
-#: ../menulibre/MenulibreApplication.py:853
+#: ../menulibre/MenulibreApplication.py:861
 msgid "Select a category"
 msgstr "בחירת קטגוריה"
 
-#: ../menulibre/MenulibreApplication.py:856
+#: ../menulibre/MenulibreApplication.py:864
 msgid "Category Name"
 msgstr "שם קטגוריה"
 
-#: ../menulibre/MenulibreApplication.py:940
+#: ../menulibre/MenulibreApplication.py:948
 msgid "This Entry"
 msgstr "ערך זה"
 
-#: ../menulibre/MenulibreApplication.py:995
+#: ../menulibre/MenulibreApplication.py:1003
 msgid "New Shortcut"
 msgstr "קיצור דרך חדש"
 
 #. Unsaved changes
-#: ../menulibre/MenulibreApplication.py:1045
+#: ../menulibre/MenulibreApplication.py:1053
 msgid "Do you want to save the changes before closing?"
 msgstr "האם ברצונך לשמור את השינויים טרם סגירה?"
 
-#: ../menulibre/MenulibreApplication.py:1046
+#: ../menulibre/MenulibreApplication.py:1054
 msgid "If you don't save the launcher, all the changes will be lost.'"
 msgstr "אם אתה לא שומר את המשגר, כל השינויים יאבדו.'"
 
-#: ../menulibre/MenulibreApplication.py:1053
-#: ../menulibre/MenulibreApplication.py:1497
+#: ../menulibre/MenulibreApplication.py:1061
+#: ../menulibre/MenulibreApplication.py:1511
 msgid "Save Changes"
 msgstr "שמור שינויים"
 
-#: ../menulibre/MenulibreApplication.py:1054
-#: ../menulibre/MenulibreApplication.py:1498
+#: ../menulibre/MenulibreApplication.py:1062
+#: ../menulibre/MenulibreApplication.py:1512
 msgid "Don't Save"
 msgstr "אל תשמור"
 
-#: ../menulibre/MenulibreApplication.py:1176
+#: ../menulibre/MenulibreApplication.py:1184
 msgid "Select an image"
 msgstr "בחר תמונה"
 
-#: ../menulibre/MenulibreApplication.py:1180
-#: ../menulibre/MenulibreApplication.py:1305
+#: ../menulibre/MenulibreApplication.py:1188
+#: ../menulibre/MenulibreApplication.py:1313
 msgid "OK"
 msgstr "אישור"
 
-#: ../menulibre/MenulibreApplication.py:1182
+#: ../menulibre/MenulibreApplication.py:1190
 msgid "Images"
 msgstr "תמונות"
 
-#: ../menulibre/MenulibreApplication.py:1297
+#: ../menulibre/MenulibreApplication.py:1305
 msgid "Select a working directory..."
 msgstr "בחירת ספריית פעילות..."
 
-#: ../menulibre/MenulibreApplication.py:1301
+#: ../menulibre/MenulibreApplication.py:1309
 msgid "Select an executable..."
 msgstr "בחירת בר השמה..."
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1461
+#: ../menulibre/MenulibreApplication.py:1472
 msgid "No Longer Installed"
 msgstr "לא מותקן עוד"
 
-#: ../menulibre/MenulibreApplication.py:1462
+#: ../menulibre/MenulibreApplication.py:1473
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -647,82 +647,82 @@ msgstr ""
 "משגר זה הוסר מתוך המערכת.\n"
 "כעת בוחר את הפריט הזמין הבא."
 
-#: ../menulibre/MenulibreApplication.py:1488
+#: ../menulibre/MenulibreApplication.py:1502
 msgid "Do you want to save the changes before leaving this launcher?"
 msgstr "האם ברצונך לשמור את השינויים טרם עזיבת משגר זה?"
 
-#: ../menulibre/MenulibreApplication.py:1490
+#: ../menulibre/MenulibreApplication.py:1504
 msgid "If you don't save the launcher, all the changes will be lost."
 msgstr "אם אתה לא שומר את המשגר, כל השינויים יאבדו."
 
-#: ../menulibre/MenulibreApplication.py:1729
+#: ../menulibre/MenulibreApplication.py:1743
 msgid "You do not have permission to delete this file."
 msgstr "אין לך הרשאות כדי למחוק קובץ זה."
 
-#: ../menulibre/MenulibreApplication.py:2162
+#: ../menulibre/MenulibreApplication.py:2176
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr "אין אפשרות להוסיף ספריות משנה אל נתיבי מערכת מותקנים מראש."
 
-#: ../menulibre/MenulibreApplication.py:2189
+#: ../menulibre/MenulibreApplication.py:2203
 msgid "New Launcher"
 msgstr "משגר חדש"
 
-#: ../menulibre/MenulibreApplication.py:2240
+#: ../menulibre/MenulibreApplication.py:2254
 msgid "New Directory"
 msgstr "ספריה חדשה"
 
-#: ../menulibre/MenulibreApplication.py:2690
+#: ../menulibre/MenulibreApplication.py:2706
 msgid "Are you sure you want to restore this launcher?"
 msgstr "האם אתה בטוח כי ברצונך לשחזר את משגר זה?"
 
-#: ../menulibre/MenulibreApplication.py:2696
-#: ../menulibre/MenulibreApplication.py:2697
+#: ../menulibre/MenulibreApplication.py:2712
+#: ../menulibre/MenulibreApplication.py:2713
 msgid "Restore Launcher"
 msgstr "שחזר משגר"
 
-#: ../menulibre/MenulibreApplication.py:2698
+#: ../menulibre/MenulibreApplication.py:2714
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2713
+#: ../menulibre/MenulibreApplication.py:2729
 msgid "Are you sure you want to delete this separator?"
 msgstr "האם אתה בטוח כי ברצונך למחוק את חוצץ זה?"
 
-#: ../menulibre/MenulibreApplication.py:2716
+#: ../menulibre/MenulibreApplication.py:2732
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "האם אתה בטוח כי ברצונך למחוק את \"%s\"?"
 
-#: ../menulibre/MenulibreApplication.py:2718
+#: ../menulibre/MenulibreApplication.py:2734
 msgid "This cannot be undone."
 msgstr "פעולה זו לא ניתנת לביטול."
 
-#: ../menulibre/MenulibreApplication.py:2796
+#: ../menulibre/MenulibreApplication.py:2812
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr "האם ברצונך לקרוא את המדריך המקוון של MenuLibre?"
 
-#: ../menulibre/MenulibreApplication.py:2802
+#: ../menulibre/MenulibreApplication.py:2818
 msgid "Read Online"
 msgstr "קרא באופן מקוון"
 
-#: ../menulibre/MenulibreApplication.py:2803
+#: ../menulibre/MenulibreApplication.py:2819
 msgid "Online Documentation"
 msgstr "תיעוד מקוון"
 
-#: ../menulibre/MenulibreApplication.py:2804
+#: ../menulibre/MenulibreApplication.py:2820
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr ""
 
 #. Populate the AboutDialog with all the relevant details.
-#: ../menulibre/MenulibreApplication.py:2823
+#: ../menulibre/MenulibreApplication.py:2839
 msgid "About MenuLibre"
 msgstr "אודות MenuLibre"
 
-#: ../menulibre/MenulibreApplication.py:2826
+#: ../menulibre/MenulibreApplication.py:2842
 msgid "Copyright © 2012-2014 Sean Davis"
 msgstr "זכויות יוצרים © 2012-2014 Sean Davis"
 

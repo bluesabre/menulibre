@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-08-04 21:21-0400\n"
+"POT-Creation-Date: 2015-08-08 11:31-0400\n"
 "PO-Revision-Date: 2015-03-20 19:33+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-06 05:41+0000\n"
+"X-Launchpad-Export-Date: 2015-08-09 06:08+0000\n"
 "X-Generator: Launchpad (build 17656)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -41,12 +41,12 @@ msgstr "Pridėti _Skirtuką"
 msgid "Icon Selection"
 msgstr "Piktogramos Pasirinkimas"
 
-#: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1055
-#: ../menulibre/MenulibreApplication.py:1179
-#: ../menulibre/MenulibreApplication.py:1304
-#: ../menulibre/MenulibreApplication.py:1499
-#: ../menulibre/MenulibreApplication.py:2695
-#: ../menulibre/MenulibreApplication.py:2801
+#: ../data/ui/MenulibreWindow.ui.h:5 ../menulibre/MenulibreApplication.py:1063
+#: ../menulibre/MenulibreApplication.py:1187
+#: ../menulibre/MenulibreApplication.py:1312
+#: ../menulibre/MenulibreApplication.py:1513
+#: ../menulibre/MenulibreApplication.py:2711
+#: ../menulibre/MenulibreApplication.py:2817
 msgid "Cancel"
 msgstr "Atsisakyti"
 
@@ -86,8 +86,8 @@ msgstr "128tšk"
 msgid "<b>Preview</b>"
 msgstr "<b>Peržiūra</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:381
-#: ../menulibre/MenulibreApplication.py:2824
+#: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/MenulibreApplication.py:389
+#: ../menulibre/MenulibreApplication.py:2840
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
@@ -107,19 +107,19 @@ msgstr "_Pagalba"
 msgid "Save Launcher"
 msgstr "Išsaugoti Leistuką"
 
-#: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:433
+#: ../data/ui/MenulibreWindow.ui.h:20 ../menulibre/MenulibreApplication.py:441
 msgid "Undo"
 msgstr "Atšaukti"
 
-#: ../data/ui/MenulibreWindow.ui.h:21 ../menulibre/MenulibreApplication.py:440
+#: ../data/ui/MenulibreWindow.ui.h:21 ../menulibre/MenulibreApplication.py:448
 msgid "Redo"
 msgstr "Atstatyti"
 
-#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:447
+#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:455
 msgid "Revert"
 msgstr "Atkurti"
 
-#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:454
+#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/MenulibreApplication.py:462
 msgid "Delete"
 msgstr "Ištrinti"
 
@@ -147,7 +147,7 @@ msgstr "Programos Pavadinimas"
 msgid "Application Comment"
 msgstr "Programos Komentaras"
 
-#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:861
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:869
 msgid "Description"
 msgstr "Aprašas"
 
@@ -400,278 +400,278 @@ msgstr "stulpelis"
 msgid "Show debug messages"
 msgstr "Rodyti derinimo pranešimus"
 
-#: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1414
-#: ../menulibre/MenulibreApplication.py:2267
+#: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1422
+#: ../menulibre/MenulibreApplication.py:2281
 msgid "Separator"
 msgstr "Skirtukas"
 
 #. Standard Items
-#: ../menulibre/MenulibreApplication.py:61
+#: ../menulibre/MenulibreApplication.py:67
 msgid "Multimedia"
 msgstr "Multimedija"
 
-#: ../menulibre/MenulibreApplication.py:62
+#: ../menulibre/MenulibreApplication.py:68
 msgid "Development"
 msgstr "Programavimas"
 
-#: ../menulibre/MenulibreApplication.py:63
+#: ../menulibre/MenulibreApplication.py:69
 msgid "Education"
 msgstr "Švietimas"
 
-#: ../menulibre/MenulibreApplication.py:64
+#: ../menulibre/MenulibreApplication.py:70
 msgid "Games"
 msgstr "Žaidimai"
 
-#: ../menulibre/MenulibreApplication.py:65
+#: ../menulibre/MenulibreApplication.py:71
 msgid "Graphics"
 msgstr "Grafika"
 
-#: ../menulibre/MenulibreApplication.py:66
+#: ../menulibre/MenulibreApplication.py:72
 msgid "Internet"
 msgstr "Internetas"
 
-#: ../menulibre/MenulibreApplication.py:67
+#: ../menulibre/MenulibreApplication.py:73
 msgid "Office"
 msgstr "Raštinė"
 
-#: ../menulibre/MenulibreApplication.py:68
+#: ../menulibre/MenulibreApplication.py:74
 msgid "Settings"
 msgstr "Nustatymai"
 
-#: ../menulibre/MenulibreApplication.py:69
+#: ../menulibre/MenulibreApplication.py:75
 msgid "System"
 msgstr "Sistema"
 
-#: ../menulibre/MenulibreApplication.py:70
+#: ../menulibre/MenulibreApplication.py:76
 msgid "Accessories"
 msgstr "Reikmenys"
 
-#: ../menulibre/MenulibreApplication.py:71
+#: ../menulibre/MenulibreApplication.py:77
 msgid "WINE"
 msgstr "WINE"
 
 #. Desktop Environment
-#: ../menulibre/MenulibreApplication.py:73
+#: ../menulibre/MenulibreApplication.py:79
 msgid "Desktop configuration"
 msgstr "Darbalaukio konfigūracija"
 
-#: ../menulibre/MenulibreApplication.py:74
+#: ../menulibre/MenulibreApplication.py:80
 msgid "User configuration"
 msgstr "Naudotojo konfigūracija"
 
-#: ../menulibre/MenulibreApplication.py:75
+#: ../menulibre/MenulibreApplication.py:81
 msgid "Hardware configuration"
 msgstr "Aparatinės įrangos konfigūracija"
 
 #. GNOME Specific
-#: ../menulibre/MenulibreApplication.py:77
+#: ../menulibre/MenulibreApplication.py:83
 msgid "GNOME application"
 msgstr "GNOME programa"
 
-#: ../menulibre/MenulibreApplication.py:78
+#: ../menulibre/MenulibreApplication.py:84
 msgid "GTK+ application"
 msgstr "GTK+ programa"
 
-#: ../menulibre/MenulibreApplication.py:79
+#: ../menulibre/MenulibreApplication.py:85
 msgid "GNOME user configuration"
 msgstr "GNOME naudotojo konfigūracija"
 
-#: ../menulibre/MenulibreApplication.py:80
+#: ../menulibre/MenulibreApplication.py:86
 msgid "GNOME hardware configuration"
 msgstr "GNOME aparatinės įrangos konfigūracija"
 
-#: ../menulibre/MenulibreApplication.py:81
-#: ../menulibre/MenulibreApplication.py:82
+#: ../menulibre/MenulibreApplication.py:87
+#: ../menulibre/MenulibreApplication.py:88
 msgid "GNOME system configuration"
 msgstr "GNOME sistemos konfigūracija"
 
 #. Xfce Specific
-#: ../menulibre/MenulibreApplication.py:84
-#: ../menulibre/MenulibreApplication.py:85
+#: ../menulibre/MenulibreApplication.py:90
+#: ../menulibre/MenulibreApplication.py:91
 msgid "Xfce menu item"
 msgstr "Xfce meniu elementas"
 
-#: ../menulibre/MenulibreApplication.py:86
+#: ../menulibre/MenulibreApplication.py:92
 msgid "Xfce toplevel menu item"
 msgstr "Xfce aukščiausio lygio meniu elementas"
 
-#: ../menulibre/MenulibreApplication.py:87
+#: ../menulibre/MenulibreApplication.py:93
 msgid "Xfce user configuration"
 msgstr "Xfce naudotojo konfigūracija"
 
-#: ../menulibre/MenulibreApplication.py:88
+#: ../menulibre/MenulibreApplication.py:94
 msgid "Xfce hardware configuration"
 msgstr "Xfce aparatinės įrangos konfigūracija"
 
-#: ../menulibre/MenulibreApplication.py:89
-#: ../menulibre/MenulibreApplication.py:90
+#: ../menulibre/MenulibreApplication.py:95
+#: ../menulibre/MenulibreApplication.py:96
 msgid "Xfce system configuration"
 msgstr "Xfce sistemos konfigūracija"
 
-#: ../menulibre/MenulibreApplication.py:138
-#: ../menulibre/MenulibreApplication.py:183
+#: ../menulibre/MenulibreApplication.py:144
+#: ../menulibre/MenulibreApplication.py:189
 msgid "Other"
 msgstr "Kita"
 
-#: ../menulibre/MenulibreApplication.py:359
+#: ../menulibre/MenulibreApplication.py:367
 msgid "MenuLibre cannot be run as root."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:360
+#: ../menulibre/MenulibreApplication.py:368
 msgid ""
 "Please see the <a "
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
 "documentation</a> for more information."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:404
+#: ../menulibre/MenulibreApplication.py:412
 msgid "Add _Launcher..."
 msgstr "Pridėti _Leistuką..."
 
-#: ../menulibre/MenulibreApplication.py:405
+#: ../menulibre/MenulibreApplication.py:413
 msgid "Add Launcher..."
 msgstr "Pridėti Leistuką..."
 
-#: ../menulibre/MenulibreApplication.py:411
+#: ../menulibre/MenulibreApplication.py:419
 msgid "Add _Directory..."
 msgstr "Pridėti _Katalogą..."
 
-#: ../menulibre/MenulibreApplication.py:412
+#: ../menulibre/MenulibreApplication.py:420
 msgid "Add Directory..."
 msgstr "Pridėti Katalogą..."
 
-#: ../menulibre/MenulibreApplication.py:418
+#: ../menulibre/MenulibreApplication.py:426
 msgid "_Add Separator..."
 msgstr "Pridėti _Skirtuką..."
 
-#: ../menulibre/MenulibreApplication.py:419
+#: ../menulibre/MenulibreApplication.py:427
 msgid "Add Separator..."
 msgstr "Pridėti Skirtuką..."
 
-#: ../menulibre/MenulibreApplication.py:425
+#: ../menulibre/MenulibreApplication.py:433
 msgid "_Save"
 msgstr "Iš_saugoti"
 
-#: ../menulibre/MenulibreApplication.py:426
-#: ../menulibre/MenulibreApplication.py:1056
-#: ../menulibre/MenulibreApplication.py:1500
+#: ../menulibre/MenulibreApplication.py:434
+#: ../menulibre/MenulibreApplication.py:1064
+#: ../menulibre/MenulibreApplication.py:1514
 msgid "Save"
 msgstr "Išsaugoti"
 
-#: ../menulibre/MenulibreApplication.py:432
+#: ../menulibre/MenulibreApplication.py:440
 msgid "_Undo"
 msgstr "_Atšaukti"
 
-#: ../menulibre/MenulibreApplication.py:439
+#: ../menulibre/MenulibreApplication.py:447
 msgid "_Redo"
 msgstr "At_statyti"
 
-#: ../menulibre/MenulibreApplication.py:446
+#: ../menulibre/MenulibreApplication.py:454
 msgid "_Revert"
 msgstr "At_kurti"
 
-#: ../menulibre/MenulibreApplication.py:453
+#: ../menulibre/MenulibreApplication.py:461
 msgid "_Delete"
 msgstr "_Ištrinti"
 
-#: ../menulibre/MenulibreApplication.py:460
+#: ../menulibre/MenulibreApplication.py:468
 msgid "_Quit"
 msgstr "_Baigti"
 
-#: ../menulibre/MenulibreApplication.py:461
-#: ../menulibre/MenulibreApplication.py:2776
+#: ../menulibre/MenulibreApplication.py:469
+#: ../menulibre/MenulibreApplication.py:2792
 msgid "Quit"
 msgstr "Baigti"
 
-#: ../menulibre/MenulibreApplication.py:467
+#: ../menulibre/MenulibreApplication.py:475
 msgid "_Contents"
 msgstr "Ži_nynas"
 
-#: ../menulibre/MenulibreApplication.py:468
-#: ../menulibre/MenulibreApplication.py:2774
+#: ../menulibre/MenulibreApplication.py:476
+#: ../menulibre/MenulibreApplication.py:2790
 msgid "Help"
 msgstr "Pagalba"
 
-#: ../menulibre/MenulibreApplication.py:474
+#: ../menulibre/MenulibreApplication.py:482
 msgid "_About"
 msgstr "_Apie"
 
-#: ../menulibre/MenulibreApplication.py:475
-#: ../menulibre/MenulibreApplication.py:2775
+#: ../menulibre/MenulibreApplication.py:483
+#: ../menulibre/MenulibreApplication.py:2791
 msgid "About"
 msgstr "Apie"
 
 #. Create a new column.
-#: ../menulibre/MenulibreApplication.py:593
+#: ../menulibre/MenulibreApplication.py:601
 msgid "Search Results"
 msgstr "Paieškos Rezultatai"
 
-#: ../menulibre/MenulibreApplication.py:835
+#: ../menulibre/MenulibreApplication.py:843
 msgid "ThisEntry"
 msgstr "ŠisĮrašas"
 
-#: ../menulibre/MenulibreApplication.py:853
+#: ../menulibre/MenulibreApplication.py:861
 msgid "Select a category"
 msgstr "Pasirinkite kategoriją"
 
-#: ../menulibre/MenulibreApplication.py:856
+#: ../menulibre/MenulibreApplication.py:864
 msgid "Category Name"
 msgstr "Kategorijos Pavadinimas"
 
-#: ../menulibre/MenulibreApplication.py:940
+#: ../menulibre/MenulibreApplication.py:948
 msgid "This Entry"
 msgstr "Šis Įrašas"
 
-#: ../menulibre/MenulibreApplication.py:995
+#: ../menulibre/MenulibreApplication.py:1003
 msgid "New Shortcut"
 msgstr "Naujas Susiejimas"
 
 #. Unsaved changes
-#: ../menulibre/MenulibreApplication.py:1045
+#: ../menulibre/MenulibreApplication.py:1053
 msgid "Do you want to save the changes before closing?"
 msgstr "Ar prieš uždarant, norite išsaugoti pakeitimus?"
 
-#: ../menulibre/MenulibreApplication.py:1046
+#: ../menulibre/MenulibreApplication.py:1054
 msgid "If you don't save the launcher, all the changes will be lost.'"
 msgstr "Jei leistuko neišsaugosite, visi pakeitimai bus prarasti."
 
-#: ../menulibre/MenulibreApplication.py:1053
-#: ../menulibre/MenulibreApplication.py:1497
+#: ../menulibre/MenulibreApplication.py:1061
+#: ../menulibre/MenulibreApplication.py:1511
 msgid "Save Changes"
 msgstr "Išsaugoti Pakeitimus"
 
-#: ../menulibre/MenulibreApplication.py:1054
-#: ../menulibre/MenulibreApplication.py:1498
+#: ../menulibre/MenulibreApplication.py:1062
+#: ../menulibre/MenulibreApplication.py:1512
 msgid "Don't Save"
 msgstr "Neišsaugoti"
 
-#: ../menulibre/MenulibreApplication.py:1176
+#: ../menulibre/MenulibreApplication.py:1184
 msgid "Select an image"
 msgstr "Pasirinkite paveikslą"
 
-#: ../menulibre/MenulibreApplication.py:1180
-#: ../menulibre/MenulibreApplication.py:1305
+#: ../menulibre/MenulibreApplication.py:1188
+#: ../menulibre/MenulibreApplication.py:1313
 msgid "OK"
 msgstr "Gerai"
 
-#: ../menulibre/MenulibreApplication.py:1182
+#: ../menulibre/MenulibreApplication.py:1190
 msgid "Images"
 msgstr "Paveikslai"
 
-#: ../menulibre/MenulibreApplication.py:1297
+#: ../menulibre/MenulibreApplication.py:1305
 msgid "Select a working directory..."
 msgstr "Pasirinkite darbinį katalogą..."
 
-#: ../menulibre/MenulibreApplication.py:1301
+#: ../menulibre/MenulibreApplication.py:1309
 msgid "Select an executable..."
 msgstr "Pasirinkite vykdomąjį..."
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1461
+#: ../menulibre/MenulibreApplication.py:1472
 msgid "No Longer Installed"
 msgstr "Daugiau Nebėra Įdiegta"
 
-#: ../menulibre/MenulibreApplication.py:1462
+#: ../menulibre/MenulibreApplication.py:1473
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -679,41 +679,41 @@ msgstr ""
 "Šis leistukas yra pašalintas iš sistemos.\n"
 "Pasirenkamas kitas prieinamas elementas."
 
-#: ../menulibre/MenulibreApplication.py:1488
+#: ../menulibre/MenulibreApplication.py:1502
 msgid "Do you want to save the changes before leaving this launcher?"
 msgstr "Ar prieš paliekant šį leistuką, norite išsaugoti pakeitimus?"
 
-#: ../menulibre/MenulibreApplication.py:1490
+#: ../menulibre/MenulibreApplication.py:1504
 msgid "If you don't save the launcher, all the changes will be lost."
 msgstr "Jei leistuko neišsaugosite, visi pakeitimai bus prarasti."
 
-#: ../menulibre/MenulibreApplication.py:1729
+#: ../menulibre/MenulibreApplication.py:1743
 msgid "You do not have permission to delete this file."
 msgstr "Jūs neturite leidimo ištrinti šį failą."
 
-#: ../menulibre/MenulibreApplication.py:2162
+#: ../menulibre/MenulibreApplication.py:2176
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 "Nepavyko pridėti pakatalogių į preliminariai įdiegtus sistemos kelius."
 
-#: ../menulibre/MenulibreApplication.py:2189
+#: ../menulibre/MenulibreApplication.py:2203
 msgid "New Launcher"
 msgstr "Naujas Leistukas"
 
-#: ../menulibre/MenulibreApplication.py:2240
+#: ../menulibre/MenulibreApplication.py:2254
 msgid "New Directory"
 msgstr "Naujas Katalogas"
 
-#: ../menulibre/MenulibreApplication.py:2690
+#: ../menulibre/MenulibreApplication.py:2706
 msgid "Are you sure you want to restore this launcher?"
 msgstr "Ar tikrai norite atkurti šį leistuką?"
 
-#: ../menulibre/MenulibreApplication.py:2696
-#: ../menulibre/MenulibreApplication.py:2697
+#: ../menulibre/MenulibreApplication.py:2712
+#: ../menulibre/MenulibreApplication.py:2713
 msgid "Restore Launcher"
 msgstr "Atkurti Leistuką"
 
-#: ../menulibre/MenulibreApplication.py:2698
+#: ../menulibre/MenulibreApplication.py:2714
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
@@ -721,32 +721,32 @@ msgstr ""
 "Visi pakeitimai nuo paskutinės išsaugotos būsenos bus prarasti ir negalės "
 "būti automatiškai atkurti."
 
-#: ../menulibre/MenulibreApplication.py:2713
+#: ../menulibre/MenulibreApplication.py:2729
 msgid "Are you sure you want to delete this separator?"
 msgstr "Ar tikrai norite ištrinti šį skirtuką?"
 
-#: ../menulibre/MenulibreApplication.py:2716
+#: ../menulibre/MenulibreApplication.py:2732
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Ar tikrai norite ištrinti \"%s\"?"
 
-#: ../menulibre/MenulibreApplication.py:2718
+#: ../menulibre/MenulibreApplication.py:2734
 msgid "This cannot be undone."
 msgstr "Tai negali būti atšaukta."
 
-#: ../menulibre/MenulibreApplication.py:2796
+#: ../menulibre/MenulibreApplication.py:2812
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr "Ar norite skaityti MenuLibre žinyną tinkle?"
 
-#: ../menulibre/MenulibreApplication.py:2802
+#: ../menulibre/MenulibreApplication.py:2818
 msgid "Read Online"
 msgstr "Skaityti Internete"
 
-#: ../menulibre/MenulibreApplication.py:2803
+#: ../menulibre/MenulibreApplication.py:2819
 msgid "Online Documentation"
 msgstr "Dokumentacija Internete"
 
-#: ../menulibre/MenulibreApplication.py:2804
+#: ../menulibre/MenulibreApplication.py:2820
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
@@ -755,11 +755,11 @@ msgstr ""
 "pagalbos puslapiai."
 
 #. Populate the AboutDialog with all the relevant details.
-#: ../menulibre/MenulibreApplication.py:2823
+#: ../menulibre/MenulibreApplication.py:2839
 msgid "About MenuLibre"
 msgstr "Apie MenuLibre"
 
-#: ../menulibre/MenulibreApplication.py:2826
+#: ../menulibre/MenulibreApplication.py:2842
 msgid "Copyright © 2012-2014 Sean Davis"
 msgstr "Autorinės Teisės © 2012-2014 Sean Davis"
 
