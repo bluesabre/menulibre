@@ -1,6 +1,6 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-UNRELEASED, MenuLibre 2.1.0
+18 Aug 2015, MenuLibre 2.1.0
 
 - General:
   . Updated artwork
@@ -16,7 +16,7 @@ UNRELEASED, MenuLibre 2.1.0
   . Removed intermediate icon selection
 
 
-UNRELEASED, MenuLibre 2.0.7
+08 Aug 2015, MenuLibre 2.0.7
 
 - General:
   . Disable running as root. This keeps file permissions in check.
