@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
-#   Copyright (C) 2012-2014 Sean Davis <smd.seandavis@gmail.com>
+#   Copyright (C) 2012-2015 Sean Davis <smd.seandavis@gmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published
@@ -19,11 +19,10 @@ import os
 import re
 
 import getpass
-
 import psutil
 old_psutil_format = isinstance(psutil.Process.username, property)
 
-from gi.repository import GLib
+from gi.repository import GLib, Gdk
 
 import logging
 logger = logging.getLogger('menulibre')
@@ -39,14 +38,6 @@ MenuItemTypes = enum(
     LINK=1,
     DIRECTORY=2
 )
-
-
-def getBasename(filename):
-    if filename.endswith('.desktop'):
-        basename = filename.split('/applications/', 1)[1]
-    elif filename.endswith('.directory'):
-        basename = filename.split('/desktop-directories/', 1)[1]
-    return basename
 
 
 def getProcessUsername(process):
@@ -99,6 +90,14 @@ def getProcessList():
             pass
     processes.sort()
     return processes
+
+
+def getBasename(filename):
+    if filename.endswith('.desktop'):
+        basename = filename.split('/applications/', 1)[1]
+    elif filename.endswith('.directory'):
+        basename = filename.split('/desktop-directories/', 1)[1]
+    return basename
 
 
 def getDefaultMenuPrefix():
@@ -314,6 +313,9 @@ def getSaveFilename(name, filename, item_type, force_update=False):
         else:
             basename = getBasename(filename)
 
+        # Split the basename into filename and extension.
+        name, ext = os.path.splitext(basename)
+
         # Get the save location of the launcher base on type.
         if item_type == 'Application':
             path = getUserItemPath()
@@ -373,3 +375,25 @@ def getSaveFilename(name, filename, item_type, force_update=False):
                 count += 1
 
     return filename
+
+
+def check_keypress(event, keys):
+    """Compare keypress events with desired keys and return True if matched."""
+    if 'Control' in keys:
+        if not bool(event.get_state() & Gdk.ModifierType.CONTROL_MASK):
+            return False
+    if 'Alt' in keys:
+        if not bool(event.get_state() & Gdk.ModifierType.MOD1_MASK):
+            return False
+    if 'Shift' in keys:
+        if not bool(event.get_state() & Gdk.ModifierType.SHIFT_MASK):
+            return False
+    if 'Super' in keys:
+        if not bool(event.get_state() & Gdk.ModifierType.SUPER_MASK):
+            return False
+    if 'Escape' in keys:
+        keys[keys.index('Escape')] = 'escape'
+    if Gdk.keyval_name(event.get_keyval()[1]).lower() not in keys:
+        return False
+
+    return True

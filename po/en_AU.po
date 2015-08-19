@@ -11,12 +11,12 @@ msgstr ""
 "PO-Revision-Date: 2014-01-25 03:35+0000\n"
 "Last-Translator: Jackson Doak <noskcaj@ubuntu.com>\n"
 "Language-Team: English (Australia) <en_AU@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-09 06:09+0000\n"
-"X-Generator: Launchpad (build 17656)\n"
-"Language: \n"
+"X-Launchpad-Export-Date: 2015-07-13 05:31+0000\n"
+"X-Generator: Launchpad (build 17620)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -487,9 +487,8 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:368
 msgid ""
-"Please see the <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
-"documentation</a> for more information."
+"Please see the <a href='https://wiki.smdavis.us/doku.php?"
+"id=menulibre_faq'>online documentation</a> for more information."
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:412

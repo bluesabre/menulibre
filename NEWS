@@ -1,5 +1,21 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+18 Aug 2015, MenuLibre 2.1.0
+
+- General:
+  . Updated artwork
+  . UI/UX updates (see below)
+  . Refactored some components to improve maintainability
+  . Support Ctrl+Q to quit
+- UI/UX Updates:
+  . New widgets: GtkApplicationWindow, GtkHeaderbar, GtkStackSwitcher
+  . Improved Name and Comment entry
+  . Improved Executable and Working Directory entry
+  . Improved theme integration with Adwaita, elementary
+  . Removed deprecated widgets and properties (Gtk 3.14)
+  . Removed intermediate icon selection
+
+
 08 Aug 2015, MenuLibre 2.0.7
 
 - General:

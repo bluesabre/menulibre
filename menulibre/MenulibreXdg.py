@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
-#   Copyright (C) 2012-2014 Sean Davis <smd.seandavis@gmail.com>
+#   Copyright (C) 2012-2015 Sean Davis <smd.seandavis@gmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published
@@ -160,6 +160,8 @@ class MenulibreDesktopEntry:
                         (name, displayed_name, command, enabled))
         return quicklists
 
+def desktop_menu_update():
+    subprocess.call(["xdg-desktop-menu", "forceupdate"])
 
 def desktop_menu_install(directory_files, desktop_files):
     """Install one or more applications in a submenu of the desktop menu

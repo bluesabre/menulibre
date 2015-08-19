@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-08 11:31-0400\n"
-"PO-Revision-Date: 2014-03-14 06:04+0000\n"
-"Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
+"PO-Revision-Date: 2015-08-02 07:47+0000\n"
+"Last-Translator: Eugenio González <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-09 06:08+0000\n"
+"X-Launchpad-Export-Date: 2015-08-03 05:55+0000\n"
 "X-Generator: Launchpad (build 17656)\n"
-"Language: es\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -522,13 +522,11 @@ msgstr "MenuLibre no puede ser ejecutado como root."
 
 #: ../menulibre/MenulibreApplication.py:368
 msgid ""
-"Please see the <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
-"documentation</a> for more information."
+"Please see the <a href='https://wiki.smdavis.us/doku.php?"
+"id=menulibre_faq'>online documentation</a> for more information."
 msgstr ""
-"Vea la <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>documentación en "
-"línea</a> para más información."
+"Vea la <a href='https://wiki.smdavis.us/doku.php?"
+"id=menulibre_faq'>documentación en línea</a> para más información."
 
 #: ../menulibre/MenulibreApplication.py:412
 msgid "Add _Launcher..."
@@ -699,8 +697,7 @@ msgstr "Usted no tiene permiso para eliminar este archivo."
 
 #: ../menulibre/MenulibreApplication.py:2176
 msgid "Cannot add subdirectories to preinstalled system paths."
-msgstr ""
-"No se pueden añadir subdirectorios a rutas del sistema preinstaladas."
+msgstr "No se pueden añadir subdirectorios a rutas del sistema preinstaladas."
 
 #: ../menulibre/MenulibreApplication.py:2203
 msgid "New Launcher"
