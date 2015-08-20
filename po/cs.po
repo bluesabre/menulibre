@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-19 05:51+0000\n"
+"X-Launchpad-Export-Date: 2015-08-20 05:55+0000\n"
 "X-Generator: Launchpad (build 17690)\n"
 "Language: cs\n"
 
@@ -156,11 +156,11 @@ msgstr "Aktivovatelný DBUS"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Browse Icons…"
-msgstr ""
+msgstr "Procházet ikony..."
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Browse Files..."
-msgstr ""
+msgstr "Procházet soubory…"
 
 #: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/Dialogs.py:38
 #: ../menulibre/MenulibreApplication.py:236
@@ -344,7 +344,7 @@ msgstr "O MenuLibre"
 
 #: ../menulibre/Dialogs.py:40
 msgid "Copyright © 2012-2015 Sean Davis"
-msgstr ""
+msgstr "Copyright © 2012-2015 Sean Davis"
 
 #: ../menulibre/Dialogs.py:55
 msgid "Do you want to read the MenuLibre manual online?"
@@ -534,7 +534,7 @@ msgstr "Ostatní"
 
 #: ../menulibre/MenulibreApplication.py:213
 msgid "MenuLibre cannot be run as root."
-msgstr ""
+msgstr "MenuLibre nemůže běžet jako root."
 
 #: ../menulibre/MenulibreApplication.py:214
 msgid ""
@@ -542,6 +542,9 @@ msgid ""
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
 "documentation</a> for more information."
 msgstr ""
+"Pro víc informací <a "
+"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"documentation</a> se prosím podívejte sem."
 
 #: ../menulibre/MenulibreApplication.py:310
 msgid "Add _Launcher..."

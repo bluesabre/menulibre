@@ -1,50 +1,49 @@
-# Italian translation for menulibre
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# Slovenian translation for menulibre
+# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
 # This file is distributed under the same license as the menulibre package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-08-18 23:24-0400\n"
-"PO-Revision-Date: 2014-08-28 13:47+0000\n"
-"Last-Translator: Man from Mars <manfrommars@libero.it>\n"
-"Language-Team: Italian <it@li.org>\n"
+"PO-Revision-Date: 2015-08-19 14:47+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Slovenian <sl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2015-08-20 05:55+0000\n"
 "X-Generator: Launchpad (build 17690)\n"
-"Language: it\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr "Editor del Menu"
+msgstr "Urejevalnik menijev"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
-msgstr "Aggiungi e rimuovi applicazioni dal menù"
+msgstr "Dodajte ali odstranite program iz menija"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Add _Launcher"
-msgstr "Aggiungi _Lanciatore"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Add _Directory"
-msgstr "Aggiungi _Cartella"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Add _Separator"
-msgstr "Aggiungi separatore"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr "Nome generico dell'applicazione, ad esempio \"Browser Web\"."
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:5
 msgid "Generic Name"
-msgstr "Nome generico"
+msgstr "Splošno ime"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid ""
@@ -53,14 +52,10 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
-"La lista di ambienti che non dovrebbero mostrare questa voce. Si può usare "
-"questa opzione solo se \"OnlyShowIn\" non è impostato.\n"
-"I possibili valori includono: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, "
-"Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Not Shown In"
-msgstr "Non mostra in"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid ""
@@ -70,15 +65,10 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
-"La lista di ambienti che dovrebbero mostrare questa voce. Gli altri ambienti "
-"non la mostreranno. Si può usare questa opzione solo se \"NotShowIn\" non è "
-"impostato.\n"
-"I possibili valori includono: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, "
-"Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "Only Shown In"
-msgstr "Mostra solamente in"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid ""
@@ -86,9 +76,6 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
-"Percorso del file eseguibile per determinare se il programma è installato. "
-"Se il file non è presente o non è eseguibile, questa voce potrebbe non "
-"essere mostrata nei menu."
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "Try Exec"
@@ -96,11 +83,11 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "The MIME type(s) supported by this application."
-msgstr "I tipi MIME supportati da questa applicazione."
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Mimetypes"
-msgstr "Tipi MIME"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid ""
@@ -108,37 +95,30 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
-"Una lista di parole chiave per descrivere questa voce, che aiutano anche "
-"nella ricerca. Queste parole non verranno mostrate e non dovrebbero "
-"corrispondere ai valori di Name e GenericName"
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "Keywords"
-msgstr "Parole chiave"
+msgstr "Ključne besede"
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
-"Se specificato, all'applicazione sarà richiesto di usare una stringa come WM "
-"class o WM name hint almeno in una finestra."
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Startup WM Class"
-msgstr "Startup WM Class"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
-"Se impostato a \"True\", il risultato per l'utente è equivalente ad un file "
-".desktop non esistente."
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Hidden"
-msgstr "Nascosto"
+msgstr "Skrito"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
 msgid ""
@@ -147,14 +127,10 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
-"Impostare il valore a \"True\" se l'attivazione D-Bus è supportata per "
-"questa applicazione e si intende usarla.\n"
-"Consultare http://standards.freedesktop.org/desktop-entry-"
-"spec/latest/ar01s07.html per maggiori informazioni."
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "DBUS Activatable"
-msgstr "DBUS Attivabile"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Browse Icons…"
@@ -162,7 +138,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Browse Files..."
-msgstr ""
+msgstr "Brskanje datotek ..."
 
 #: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/Dialogs.py:38
 #: ../menulibre/MenulibreApplication.py:236
@@ -171,51 +147,51 @@ msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Save Launcher"
-msgstr "Salva Lanciatore"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:339
 msgid "Undo"
-msgstr "Annulla l'ultima azione"
+msgstr "Razveljavi"
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:346
 msgid "Redo"
-msgstr "Ripeti"
+msgstr "Ponovno uveljavi"
 
 #: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:353
 msgid "Revert"
-msgstr "Ripristina"
+msgstr "Povrni"
 
 #: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:360
 msgid "Delete"
-msgstr "Cancella"
+msgstr "Izbriši"
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Move Up"
-msgstr "Sposta su"
+msgstr "Premakni navzgor"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Move Down"
-msgstr "Sposta giù"
+msgstr "Premakni navzdol"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "<small><i>Filename</i></small>"
-msgstr "<small><i>Nome file</i></small>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Nome Applicazione</b></big>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Application Name"
-msgstr "Nome dell'applicazione"
+msgstr "Ime programa"
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Application Comment"
-msgstr "Commento dell'applicazione"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:39 ../menulibre/MenulibreApplication.py:680
 msgid "Description"
-msgstr "Descrizione"
+msgstr "Opis"
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid ""
@@ -225,314 +201,300 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
-"Programma da eseguire con argomenti. Questa opzione è necessaria se "
-"DBusActivatable non è impostato a \"True\" o se è richiesta la compatibilità "
-"con le applicazioni che non supportano l'attivazione D-Bus.\n"
-"Consultare http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
-"spec-latest.html#exec-variables per una lista degli argomenti supportati."
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Command"
-msgstr "Comando"
+msgstr "Ukaz"
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "The working directory."
-msgstr "Cartella di lavoro."
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Working Directory"
-msgstr "Directory di lavoro"
+msgstr "Delovna mapa"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Application Details</b>"
-msgstr "<b>Dettagli dell'applicazione</b>"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "If set to \"True\", the program will be ran in a terminal window."
-msgstr "Se impostato a \"True\", il programma sarà eseguito in un terminale."
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Run in terminal"
-msgstr "Esegui nel terminale"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
-"Se impostato a \"True\", viene inviata una notifica di avvio. Ciò significa "
-"di solito che è mostrato il cursore di \"occupato\" mentre l'applicazione si "
-"avvia."
 
 #: ../data/ui/MenulibreWindow.ui.h:49
 msgid "Use startup notification"
-msgstr "Usa la notifica all'avvio"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
-"Se impostato a \"True\", questa voce non verrà mostrata nei menu, ma sarà "
-"disponibile per le associazioni dei tipi MIME etc."
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Hide from menus"
-msgstr "Nascondi dal menu"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "<b>Options</b>"
-msgstr "<b>Opzioni</b>"
+msgstr "<b>Možnosti</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Add"
-msgstr "Aggiungi"
+msgstr "Dodaj"
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Remove"
-msgstr "Rimuovi"
+msgstr "Odstrani"
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid "Clear"
-msgstr "Pulisci"
+msgstr "Počisti"
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Show"
-msgstr "Mostra"
+msgstr "Pokaži"
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Name"
-msgstr "Nome"
+msgstr "Ime"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Select an icon…"
-msgstr "Seleziona un'icona…"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:59 ../menulibre/Dialogs.py:62
 #: ../menulibre/Dialogs.py:85 ../menulibre/Dialogs.py:101
 #: ../menulibre/Dialogs.py:124 ../menulibre/Dialogs.py:132
 #: ../menulibre/MenulibreIconSelection.py:79
 msgid "Cancel"
-msgstr "Annulla"
+msgstr "Prekliči"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Apply"
-msgstr "Applica"
+msgstr "Uveljavi"
 
 #: ../data/ui/MenulibreWindow.ui.h:61
 msgid "<b>Select an icon</b>"
-msgstr "Seleziona un'icona"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Search"
-msgstr "Cerca"
+msgstr "Iskanje"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "column"
-msgstr "colonna"
+msgstr "stolpec"
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Search terms…"
-msgstr "Cerca..."
+msgstr ""
 
 #: ../menulibre/__init__.py:33
 msgid "Show debug messages"
-msgstr "Mostra messaggi di debug"
+msgstr "Pokaži razhroščevalna sporočila"
 
 #. Populate the AboutDialog with all the relevant details.
 #: ../menulibre/Dialogs.py:37
 msgid "About MenuLibre"
-msgstr "A proposito di MenuLibre"
+msgstr "O MenuLibre"
 
 #: ../menulibre/Dialogs.py:40
 msgid "Copyright © 2012-2015 Sean Davis"
-msgstr ""
+msgstr "Copyright © 2012-2015 Sean Davis"
 
 #: ../menulibre/Dialogs.py:55
 msgid "Do you want to read the MenuLibre manual online?"
-msgstr "Vuoi leggere il manuale di MenuLibre online?"
+msgstr ""
 
 #: ../menulibre/Dialogs.py:56
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr ""
-"Sarai indirizzato verso il sito di documentazione dove le pagine di aiuto "
-"sono tenute aggiornate."
 
 #: ../menulibre/Dialogs.py:63
 msgid "Read Online"
-msgstr "Lettura online"
+msgstr "Preberi na spletu"
 
 #: ../menulibre/Dialogs.py:64
 msgid "Online Documentation"
-msgstr "Documentazione online"
+msgstr "Spletna dokumentacija"
 
 #: ../menulibre/Dialogs.py:75
 msgid "Do you want to save the changes before closing?"
-msgstr "Vuoi salvare i cambiamenti prima di chiudere?"
+msgstr ""
 
 #: ../menulibre/Dialogs.py:76
 msgid "If you don't save the launcher, all the changes will be lost.'"
-msgstr "Se non salvi il lanciatore tutti i cambiamenti saranno persi."
+msgstr ""
 
 #: ../menulibre/Dialogs.py:83 ../menulibre/Dialogs.py:99
 msgid "Save Changes"
-msgstr "Salva modifiche"
+msgstr "Shrani spremembe"
 
 #: ../menulibre/Dialogs.py:84 ../menulibre/Dialogs.py:100
 msgid "Don't Save"
-msgstr "Non salvare"
+msgstr "Ne shrani"
 
 #: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:102
 #: ../menulibre/MenulibreApplication.py:332
 msgid "Save"
-msgstr "Salva"
+msgstr "Shrani"
 
 #: ../menulibre/Dialogs.py:90
 msgid "Do you want to save the changes before leaving this launcher?"
-msgstr "Vuoi salvare le modifiche prima di abbandonare questo lanciatore?"
+msgstr ""
 
 #: ../menulibre/Dialogs.py:92
 msgid "If you don't save the launcher, all the changes will be lost."
-msgstr "Se non salvi il lanciatore tutti i cambiamenti saranno persi."
+msgstr ""
 
 #: ../menulibre/Dialogs.py:106
 msgid "This cannot be undone."
-msgstr "Questa azione non può essere annullata."
+msgstr "Dejanja ni mogoče povrniti."
 
 #: ../menulibre/Dialogs.py:115
 msgid "Are you sure you want to restore this launcher?"
-msgstr "Sei sicuro di voler ripristinare questo lanciatore?"
+msgstr ""
 
 #: ../menulibre/Dialogs.py:116
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr ""
-"Tutte le modifiche dall'ultimo stato salvato saranno perse e non potranno "
-"essere ripristinate automaticamente."
 
 #: ../menulibre/Dialogs.py:125 ../menulibre/Dialogs.py:126
 msgid "Restore Launcher"
-msgstr "Ripristina il lanciatore"
+msgstr ""
 
 #: ../menulibre/Dialogs.py:133 ../menulibre/MenulibreIconSelection.py:80
 msgid "OK"
-msgstr "OK"
+msgstr "V redu"
 
 #: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1026
 #: ../menulibre/MenulibreApplication.py:1458
 msgid "Separator"
-msgstr "Separatore"
+msgstr "Ločilnik"
 
 #. Standard Items
 #: ../menulibre/MenulibreApplication.py:39
 msgid "Multimedia"
-msgstr "Multimedia"
+msgstr "Predstavnost"
 
 #: ../menulibre/MenulibreApplication.py:40
 msgid "Development"
-msgstr "Sviluppo"
+msgstr "Razvoj"
 
 #: ../menulibre/MenulibreApplication.py:41
 msgid "Education"
-msgstr "Istruzione"
+msgstr "Izobraževanje"
 
 #: ../menulibre/MenulibreApplication.py:42
 msgid "Games"
-msgstr "Giochi"
+msgstr "Igre"
 
 #: ../menulibre/MenulibreApplication.py:43
 msgid "Graphics"
-msgstr "Grafica"
+msgstr "Grafika"
 
 #: ../menulibre/MenulibreApplication.py:44
 msgid "Internet"
-msgstr "Internet e Reti"
+msgstr "Internet"
 
 #: ../menulibre/MenulibreApplication.py:45
 msgid "Office"
-msgstr "Ufficio"
+msgstr "Pisarna"
 
 #: ../menulibre/MenulibreApplication.py:46
 msgid "Settings"
-msgstr "Impostazioni"
+msgstr "Nastavitve"
 
 #: ../menulibre/MenulibreApplication.py:47
 msgid "System"
-msgstr "Sistema"
+msgstr "Sistem"
 
 #: ../menulibre/MenulibreApplication.py:48
 msgid "Accessories"
-msgstr "Accessori"
+msgstr "Pripomočki"
 
 #: ../menulibre/MenulibreApplication.py:49
 msgid "WINE"
-msgstr "Wine"
+msgstr "WINE"
 
 #. Desktop Environment
 #: ../menulibre/MenulibreApplication.py:51
 msgid "Desktop configuration"
-msgstr "Configurazione del desktop"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:52
 msgid "User configuration"
-msgstr "Configurazione dell'utenza"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:53
 msgid "Hardware configuration"
-msgstr "Configurazione hardware"
+msgstr ""
 
 #. GNOME Specific
 #: ../menulibre/MenulibreApplication.py:55
 msgid "GNOME application"
-msgstr "GNOME applicazione"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:56
 msgid "GTK+ application"
-msgstr "GTK+ applicazione"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:57
 msgid "GNOME user configuration"
-msgstr "Configurazione utente GNOME"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:58
 msgid "GNOME hardware configuration"
-msgstr "Configurazione hardware GNOME"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:59
 #: ../menulibre/MenulibreApplication.py:60
 msgid "GNOME system configuration"
-msgstr "Configurazione sistema GNOME"
+msgstr ""
 
 #. Xfce Specific
 #: ../menulibre/MenulibreApplication.py:62
 #: ../menulibre/MenulibreApplication.py:63
 msgid "Xfce menu item"
-msgstr "Elemento di menu Xfce"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:64
 msgid "Xfce toplevel menu item"
-msgstr "Elemento principale di menu Xfce"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:65
 msgid "Xfce user configuration"
-msgstr "Configurazione utente Xfce"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:66
 msgid "Xfce hardware configuration"
-msgstr "Configurazione hardware Xfce"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:67
 #: ../menulibre/MenulibreApplication.py:68
 msgid "Xfce system configuration"
-msgstr "Configurazione sistema Xfce"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:116
 #: ../menulibre/MenulibreApplication.py:161
 msgid "Other"
-msgstr "Altro"
+msgstr "Drugo"
 
 #: ../menulibre/MenulibreApplication.py:213
 msgid "MenuLibre cannot be run as root."
@@ -547,86 +509,86 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:310
 msgid "Add _Launcher..."
-msgstr "Aggiungi _avviatore..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:311
 msgid "Add Launcher..."
-msgstr "Aggiungi avviatore..."
+msgstr "Dodaj zaganjalnik ..."
 
 #: ../menulibre/MenulibreApplication.py:317
 msgid "Add _Directory..."
-msgstr "Aggiungi _Directory..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:318
 msgid "Add Directory..."
-msgstr "Aggiungi Directory..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:324
 msgid "_Add Separator..."
-msgstr "_Aggiungi separatore..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:325
 msgid "Add Separator..."
-msgstr "Aggiungi separatore..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:331
 msgid "_Save"
-msgstr "_Salva"
+msgstr "_Shrani"
 
 #: ../menulibre/MenulibreApplication.py:338
 msgid "_Undo"
-msgstr "Ann_ulla"
+msgstr "_Razveljavi"
 
 #: ../menulibre/MenulibreApplication.py:345
 msgid "_Redo"
-msgstr "_Ripeti"
+msgstr "_Ponovno uveljavi"
 
 #: ../menulibre/MenulibreApplication.py:352
 msgid "_Revert"
-msgstr "_Ripristina"
+msgstr "_Povrni"
 
 #: ../menulibre/MenulibreApplication.py:359
 msgid "_Delete"
-msgstr "_Cancella"
+msgstr "_Izbriši"
 
 #: ../menulibre/MenulibreApplication.py:366
 msgid "_Quit"
-msgstr "_Esci"
+msgstr "_Končaj"
 
 #: ../menulibre/MenulibreApplication.py:367
 #: ../menulibre/MenulibreApplication.py:1729
 msgid "Quit"
-msgstr "Esci"
+msgstr "Končaj"
 
 #: ../menulibre/MenulibreApplication.py:373
 msgid "_Contents"
-msgstr "_Contenuti"
+msgstr "_Vsebina"
 
 #: ../menulibre/MenulibreApplication.py:374
 #: ../menulibre/MenulibreApplication.py:1727
 msgid "Help"
-msgstr "Aiuto"
+msgstr "Pomoč"
 
 #: ../menulibre/MenulibreApplication.py:380
 msgid "_About"
-msgstr "_Informazioni"
+msgstr "_O programu"
 
 #: ../menulibre/MenulibreApplication.py:381
 #: ../menulibre/MenulibreApplication.py:1728
 msgid "About"
-msgstr "Informazioni"
+msgstr "O programu"
 
 #: ../menulibre/MenulibreApplication.py:503
 msgid "Categories"
-msgstr "Categorie"
+msgstr "Kategorije"
 
 #: ../menulibre/MenulibreApplication.py:505
 msgid "Actions"
-msgstr "Azioni"
+msgstr "Dejanja"
 
 #: ../menulibre/MenulibreApplication.py:507
 msgid "Advanced"
-msgstr "Avanzato"
+msgstr "Napredno"
 
 #: ../menulibre/MenulibreApplication.py:654
 msgid "ThisEntry"
@@ -634,280 +596,81 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:672
 msgid "Select a category"
-msgstr "Seleziona una categoria"
+msgstr "Izberite kategorijo"
 
 #: ../menulibre/MenulibreApplication.py:675
 msgid "Category Name"
-msgstr "Nome Categoria"
+msgstr "Naziv kategorije"
 
 #: ../menulibre/MenulibreApplication.py:759
 msgid "This Entry"
-msgstr "Questo elemento"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:814
 msgid "New Shortcut"
-msgstr "Nuova scorciatoia"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:960
 msgid "Select a working directory..."
-msgstr "Seleziona una directory di lavoro..."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:963
 msgid "Select an executable..."
-msgstr "Seleziona un eseguibile"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:985
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
-"Impossibile aggiungere sottocartelle ai percorsi di sistema preinstallati."
 
 #. Display a dialog saying this item is missing
 #: ../menulibre/MenulibreApplication.py:1075
 msgid "No Longer Installed"
-msgstr "Non più installato"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1076
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
-"Il lanciatore è stato rimosso dal sistema.\n"
-"Seleziono il successivo elemento disponibile."
 
 #: ../menulibre/MenulibreApplication.py:1176
 msgid "You do not have permission to delete this file."
-msgstr "Non hai i permessi per cancellare questo file."
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1408
 msgid "New Launcher"
-msgstr "Nuovo lanciatore"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1442
 msgid "New Directory"
-msgstr "Nuova Directory"
+msgstr "Nova Mapa"
 
 #: ../menulibre/MenulibreApplication.py:1676
 msgid "Are you sure you want to delete this separator?"
-msgstr "Sei sicuro di voler cancellare questo separatore?"
+msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1679
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Siete sicuri di voler eliminare \"%s\"?"
+msgstr ""
 
 #: ../menulibre/MenulibreIconSelection.py:76
 msgid "Select an image"
-msgstr "Seleziona un'immagine"
+msgstr "Izberite sliko"
 
 #: ../menulibre/MenulibreIconSelection.py:84
 msgid "Images"
-msgstr "Immagini"
+msgstr "Slike"
 
 #. Create a new column.
 #: ../menulibre/MenulibreTreeview.py:59
 msgid "Search Results"
-msgstr "Risultati della ricerca"
+msgstr "Rezultati iskanja"
 
 #: ../menulibre/MenulibreXdg.py:53
 msgid "New Menu Item"
-msgstr "Nuovo elemento di menu"
+msgstr ""
 
 #: ../menulibre/MenulibreXdg.py:55
 msgid "A small descriptive blurb about this application."
-msgstr "Un breve testo descrittivo di questa applicazione."
-
-#~ msgid "Image File"
-#~ msgstr "File immagine"
-
-#~ msgid "Icon Name"
-#~ msgstr "Nome icona"
-
-#~ msgid "_Edit"
-#~ msgstr "_Modifica"
-
-#~ msgid "_Help"
-#~ msgstr "_Aiuto"
-
-#~ msgid "<b>Preview</b>"
-#~ msgstr "<b>Anteprima</b>"
-
-#~ msgid "_File"
-#~ msgstr "_File"
-
-#~ msgid "Icon Selection"
-#~ msgstr "Seleziona icone"
-
-#~ msgid "32px"
-#~ msgstr "32px"
-
-#~ msgid "16px"
-#~ msgstr "16px"
-
-#~ msgid "128px"
-#~ msgstr "128px"
-
-#~ msgid "64px"
-#~ msgstr "64px"
-
-#~ msgid "Browse…"
-#~ msgstr "Esplora ..."
-
-#~ msgid "Action Name"
-#~ msgstr "Nome dell'azione"
-
-#~ msgid "<b>Select an image</b>"
-#~ msgstr "<b>Selezione un'immagine</b>"
-
-#~ msgid "\"Terminal\": Whether the program runs in a terminal window."
-#~ msgstr ""
-#~ "\"Terminal\": determina se il programma deve essere eseguito in una finestra "
-#~ "di terminale."
-
-#~ msgid "\"Path\": The working directory to run the program in."
-#~ msgstr "\"Path\": il percorso di lavoro da cui lanciare il programma."
-
-#~ msgid "\"MimeType\": The MIME type(s) supported by this application."
-#~ msgstr "\"MimeType\": I tipi MIME supportati da questa applicazione."
-
-#~ msgid ""
-#~ "\"Exec\": Program to execute, possibly with arguments. The Exec key is "
-#~ "required\n"
-#~ "if DBusActivatable is not set to true. Even if DBusActivatable is true, "
-#~ "Exec\n"
-#~ "should be specified for compatibility with implementations that do not\n"
-#~ "understand DBusActivatable. \n"
-#~ "\n"
-#~ "Please see\n"
-#~ "http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
-#~ "latest.html#exec-variables\n"
-#~ "for a list of supported arguments."
-#~ msgstr ""
-#~ "\"Exec\": Programma da eseguire, eventualmente con argomenti. "
-#~ "L'identificatore Exec è necessario\n"
-#~ "se DBusActivatable non è impostato a true. Anche se DBusActivatable ha "
-#~ "valore true, Exec dovrebbe\n"
-#~ "essere specificato per compatibilità con le implementazioni che non "
-#~ "utilizzano DBusActivatable. \n"
-#~ "\n"
-#~ "Consultare\n"
-#~ "http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
-#~ "latest.html#exec-variables\n"
-#~ "per una lista degli argomenti supportati."
-
-#~ msgid ""
-#~ "\"GenericName\": Generic name of the application, for example \"Web "
-#~ "Browser\"."
-#~ msgstr ""
-#~ "\"GenericName\": Nome generico dell'applicazione, per esempio \"Browser "
-#~ "Web\"."
-
-#~ msgid ""
-#~ "\"DBusActivatable\": A boolean value specifying if D-Bus activation is "
-#~ "supported\n"
-#~ "for this application. If this key is missing, the default value is false. "
-#~ "If\n"
-#~ "the value is true then implementations should ignore the Exec key and send "
-#~ "a\n"
-#~ "D-Bus message to launch the application. See D-Bus Activation for more\n"
-#~ "information on how this works. Applications should still include Exec= "
-#~ "lines\n"
-#~ "in their desktop files for compatibility with implementations that do not\n"
-#~ "understand the DBusActivatable key."
-#~ msgstr ""
-#~ "\"DBusActivatable\": Valore booleano che specifica se l'attivazione D-Bus è "
-#~ "supportata per questa applicazione.\n"
-#~ "Se la chiave manca, il valore predefinito è false. Se il valore è true, le "
-#~ "implementazioni dovrebbero ignorare il\n"
-#~ "comando Exec ed inviare un messaggio D-Bus per lanciare l'applicazione. "
-#~ "Consultare D-Bus Activation per\n"
-#~ "maggiori informazioni sul funzionamento. Le applicazioni dovrebbero ancora "
-#~ "includere una riga Exec= nei\n"
-#~ "loro file .desktop per compatibilità con le implementazioni che non "
-#~ "supportano la chiave DBusActivatable."
-
-#~ msgid "Copyright © 2012-2014 Sean Davis"
-#~ msgstr "Copyright © 2012-2014 Sean Davis"
-
-#~ msgid ""
-#~ "\"NotShowIn\": A list of strings identifying the environments that should "
-#~ "not\n"
-#~ "display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
-#~ "NotShowIn, may appear in a group.\n"
-#~ "\n"
-#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-#~ "XFCE, Old"
-#~ msgstr ""
-#~ "\"NotShowIn\": Una lista di stringhe che identificano gli ambienti che non "
-#~ "dovrebbero mostrare un dato\n"
-#~ "elemento di menu. Una sola delle chiavi, OnlyShowIn oppure NotShowIn, "
-#~ "possono apparire in un gruppo.\n"
-#~ "\n"
-#~ "Possibili valori includono: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-#~ "XFCE, Old"
-
-#~ msgid ""
-#~ "\"OnlyShowIn\": A list of strings identifying the environments that should\n"
-#~ "display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
-#~ "NotShowIn, may appear in a group.\n"
-#~ "\n"
-#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-#~ "XFCE, Old"
-#~ msgstr ""
-#~ "\"OnlyShowIn\": Una lista di stringhe che identificano gli ambienti che "
-#~ "dovrebbero mostrare un dato\n"
-#~ "elemento di menu. Una sola delle chiavi, OnlyShowIn oppure NotShowIn, "
-#~ "possono apparire in un gruppo.\n"
-#~ "\n"
-#~ "Possibili valori includono: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-#~ "XFCE, Old"
-
-#~ msgid ""
-#~ "\"NoDisplay\": NoDisplay means \"this application exists, but don't display "
-#~ "it in\n"
-#~ "the menus\". This can be useful to e.g. associate this application with "
-#~ "MIME\n"
-#~ "types, so that it gets launched from a file manager (or other apps), "
-#~ "without\n"
-#~ "having a menu entry for it (there are tons of good reasons for this,\n"
-#~ "including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
-#~ msgstr ""
-#~ "\"NoDisplay\": NoDisplay indica che l'applicazione esiste ma non deve essere "
-#~ "mostrata nei menu.\n"
-#~ "Ciò può essere utile per associare l'applicazione con i tipi MIME, così che "
-#~ "sia lanciata dal file manager\n"
-#~ "(o altre applicazioni), senza avere una voce di menu dedicata (ci sono molte "
-#~ "buone ragioni per questo,\n"
-#~ "inclusi cose come netscape -remote o kfmclient openURL)."
-
-#~ msgid ""
-#~ "\"Keywords\": A list of strings which may be used in addition to other "
-#~ "metadata\n"
-#~ "to describe this entry. This can be useful e.g. to facilitate searching "
-#~ "through\n"
-#~ "entries. The values are not meant for display, and should not be redundant\n"
-#~ "with the values of Name or GenericName."
-#~ msgstr ""
-#~ "\"Keywords\": Una lista di stringhe che possono essere usate in aggiunta ad "
-#~ "altri metadati\n"
-#~ "per descrivere questo elemento.\n"
-#~ "Ciò può essere utile, ad esempio, per facilitare la ricerca tra le voci.\n"
-#~ "I valori non sono da visualizzare e non dovrebbero replicare quelli del Name "
-#~ "o del GenericName."
-
-#~ msgid ""
-#~ "\"TryExec\": Path to an executable file on disk used to determine if the "
-#~ "program\n"
-#~ "is actually installed. If the path is not an absolute path, the file is "
-#~ "looked\n"
-#~ "up in the $PATH environment variable. If the file is not present or if it "
-#~ "is\n"
-#~ "not executable, the entry may be ignored (not be used in menus, for "
-#~ "example). "
-#~ msgstr ""
-#~ "\"TryExec\": Percorso di un file eseguibile su disco, usato per determinare "
-#~ "se\n"
-#~ "il programma è effettivamente installato. Se il percorso non è assoluto, il "
-#~ "file\n"
-#~ "è ricercato tramite la variabile d'ambiente $PATH. Se il file non esiste o "
-#~ "non è\n"
-#~ "eseguibile, la voce può essere ignorata (non usata nei menu, ad esempio). "
+msgstr ""
