@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-18 23:24-0400\n"
-"PO-Revision-Date: 2014-03-14 06:04+0000\n"
+"PO-Revision-Date: 2015-08-21 22:45+0000\n"
 "Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-20 05:55+0000\n"
+"X-Launchpad-Export-Date: 2015-08-22 05:53+0000\n"
 "X-Generator: Launchpad (build 17690)\n"
 "Language: es\n"
 
@@ -24,7 +24,7 @@ msgstr "Editor de menús"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
-msgstr "Agregar o quitar aplicaciones  del menú"
+msgstr "Añadir o eliminar aplicaciones del menú"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Add _Launcher"
@@ -44,7 +44,7 @@ msgstr "Nombre genérico de la aplicación, por ejemplo «Navegador web»."
 
 #: ../data/ui/MenulibreWindow.ui.h:5
 msgid "Generic Name"
-msgstr "Nombre Genérico"
+msgstr "Nombre genérico"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid ""
@@ -60,7 +60,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Not Shown In"
-msgstr "No Mostrar En"
+msgstr "No se muestra en"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid ""
@@ -78,7 +78,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "Only Shown In"
-msgstr "Solo Mostrar En"
+msgstr "Se muestra solo en"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid ""
@@ -92,11 +92,11 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "Try Exec"
-msgstr "Probar Ejecutable"
+msgstr "Probar ejecutable"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "The MIME type(s) supported by this application."
-msgstr "El/Los tipo(s) MIME soportados por esta aplicación."
+msgstr "Los tipos MIME que admite esta aplicación."
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Mimetypes"
@@ -126,7 +126,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Startup WM Class"
-msgstr "Inicio WM Clase"
+msgstr "Clase de inicio de GV"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid ""
@@ -147,22 +147,22 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
-"Establece esta clave a «True» si la activación D-Bus está soportada para "
-"esta aplicación y quiere usarla.\n"
-"Ver http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
-"para más información."
+"Establezca esta clave a «True» si esta aplicación es compatible con la "
+"activación de D-Bus y quiere usarla.\n"
+"Véase http://standards.freedesktop.org/desktop-entry-"
+"spec/latest/ar01s07.html para más información."
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "DBUS Activatable"
-msgstr "DBUS Activable"
+msgstr "Activable por D-Bus"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Browse Icons…"
-msgstr ""
+msgstr "Examinar iconos…"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Browse Files..."
-msgstr ""
+msgstr "Examinar archivos…"
 
 #: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/Dialogs.py:38
 #: ../menulibre/MenulibreApplication.py:236
@@ -292,11 +292,11 @@ msgstr "Añadir"
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Remove"
-msgstr "Eliminar"
+msgstr "Quitar"
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid "Clear"
-msgstr "Limpiar"
+msgstr "Vaciar"
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Show"
@@ -348,19 +348,19 @@ msgstr "Acerca de MenuLibre"
 
 #: ../menulibre/Dialogs.py:40
 msgid "Copyright © 2012-2015 Sean Davis"
-msgstr ""
+msgstr "© 2012-2015 Sean Davis"
 
 #: ../menulibre/Dialogs.py:55
 msgid "Do you want to read the MenuLibre manual online?"
-msgstr "¿Quieres leer el manual de MenuLibre en línea?"
+msgstr "¿Quiere leer el manual de MenuLibre en línea?"
 
 #: ../menulibre/Dialogs.py:56
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr ""
-"Usted será redirigido a la página web de documentación donde se mantienen "
-"las páginas de ayuda."
+"Se le redirigirá al sitio web de documentación, en el que se mantienen las "
+"páginas de ayuda."
 
 #: ../menulibre/Dialogs.py:63
 msgid "Read Online"
@@ -538,7 +538,7 @@ msgstr "Otro"
 
 #: ../menulibre/MenulibreApplication.py:213
 msgid "MenuLibre cannot be run as root."
-msgstr "MenuLibre no puede ser ejecutado como root."
+msgstr "No se puede ejecutar MenuLibre con permisos administrativos."
 
 #: ../menulibre/MenulibreApplication.py:214
 msgid ""
