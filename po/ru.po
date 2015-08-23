@@ -9,13 +9,13 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-08-18 23:24-0400\n"
-"PO-Revision-Date: 2014-04-23 19:57+0000\n"
+"PO-Revision-Date: 2015-08-22 18:35+0000\n"
 "Last-Translator: Rodion R. <rodikr2005@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-20 05:55+0000\n"
+"X-Launchpad-Export-Date: 2015-08-23 06:30+0000\n"
 "X-Generator: Launchpad (build 17690)\n"
 "Language: ru\n"
 
@@ -180,11 +180,11 @@ msgstr "DBus-активация"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Browse Icons…"
-msgstr ""
+msgstr "Выбрать значки…"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Browse Files..."
-msgstr ""
+msgstr "Выбрать файлы..."
 
 #: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/Dialogs.py:38
 #: ../menulibre/MenulibreApplication.py:236
@@ -383,7 +383,7 @@ msgstr "О MenuLibre"
 
 #: ../menulibre/Dialogs.py:40
 msgid "Copyright © 2012-2015 Sean Davis"
-msgstr ""
+msgstr "Авторские права © 2012—2015 Sean Davis"
 
 #: ../menulibre/Dialogs.py:55
 msgid "Do you want to read the MenuLibre manual online?"
