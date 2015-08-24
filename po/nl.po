@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-08-18 23:24-0400\n"
-"PO-Revision-Date: 2014-03-03 18:24+0000\n"
+"PO-Revision-Date: 2015-08-23 21:54+0000\n"
 "Last-Translator: Pjotr12345 <Unknown>\n"
 "Language-Team: Dutch <nl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-20 05:55+0000\n"
+"X-Launchpad-Export-Date: 2015-08-24 05:21+0000\n"
 "X-Generator: Launchpad (build 17690)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -52,6 +52,10 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Een lijst van werkomgevingen die dit invulveld niet zouden moeten tonen. U "
+"kunt deze sleutel alleen gebruiken indien \"OnlyShowIn\" niet is ingesteld. "
+"Mogelijke waarden zijn: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Not Shown In"
@@ -65,6 +69,10 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Een lijst van werkomgevingen die dit invulveld zouden moeten tonen. U kunt "
+"deze sleutel alleen gebruiken indien \"NotShowIn\" niet is ingesteld. "
+"Mogelijke waarden zijn: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "Only Shown In"
@@ -135,11 +143,11 @@ msgstr "DBUS-activeerbaar"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Browse Icons…"
-msgstr ""
+msgstr "Pictogrammen doorzoeken..."
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Browse Files..."
-msgstr ""
+msgstr "Bestanden doorzoeken..."
 
 #: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/Dialogs.py:38
 #: ../menulibre/MenulibreApplication.py:236
@@ -222,6 +230,8 @@ msgstr "<b>Bijzonderheden van de toepassing</b>"
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
+"Indien ingesteld op \"True\" (\"Waar\"), zal het programma worden uitgevoerd "
+"in een terminalvenster."
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Run in terminal"
@@ -313,7 +323,7 @@ msgstr "Over MenuLibre"
 
 #: ../menulibre/Dialogs.py:40
 msgid "Copyright © 2012-2015 Sean Davis"
-msgstr ""
+msgstr "Auteursrecht © 2012-2015 Sean Davis"
 
 #: ../menulibre/Dialogs.py:55
 msgid "Do you want to read the MenuLibre manual online?"
@@ -504,7 +514,7 @@ msgstr "Overig"
 
 #: ../menulibre/MenulibreApplication.py:213
 msgid "MenuLibre cannot be run as root."
-msgstr ""
+msgstr "MenuLibre kan niet als rroot worden uitgevoerd."
 
 #: ../menulibre/MenulibreApplication.py:214
 msgid ""
@@ -512,6 +522,9 @@ msgid ""
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
 "documentation</a> for more information."
 msgstr ""
+"Zie de <a "
+"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>internetdocumentatie"
+"</a> voor meer informatie."
 
 #: ../menulibre/MenulibreApplication.py:310
 msgid "Add _Launcher..."
