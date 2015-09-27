@@ -177,7 +177,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def __init__(self, app):
         """Initialize the Menulibre application."""
         self.root_lockout()
-        
+
         # Initialize the GtkBuilder to get our widgets from Glade.
         builder = menulibre_lib.get_builder('MenulibreWindow')
 
@@ -196,7 +196,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.configure_application_actions(builder)
         self.configure_application_menubar(builder)
         self.configure_application_toolbar(builder)
-        
+
         self.configure_headerbar(builder)
         self.configure_css()
 
@@ -205,7 +205,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Set up the applicaton browser
         self.configure_application_treeview(builder)
-        
+
     def root_lockout(self):
         if root:
             dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
@@ -248,7 +248,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Connect any window-specific events.
         self.connect('key-press-event', self.on_window_keypress_event)
         self.connect('delete-event', self.on_window_delete_event)
-        
+
     def configure_css(self):
         css = """
         #MenulibreSidebar GtkToolbar.inline-toolbar,
@@ -265,37 +265,39 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         style_provider.load_from_data(bytes(css.encode()))
 
         Gtk.StyleContext.add_provider_for_screen(
-            Gdk.Screen.get_default(), style_provider,     
+            Gdk.Screen.get_default(), style_provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
-        
+
     def configure_headerbar(self, builder):
         headerbar = Gtk.HeaderBar.new()
         headerbar.set_show_close_button(True)
-        
+        headerbar.set_title(_("MenuLibre"))
+        headerbar.set_custom_title(Gtk.Label.new())
+
         # Add Launcher/Directory/Separator
         button = Gtk.MenuButton()
         self.action_items['add_button'] = [button]
-        image = Gtk.Image.new_from_icon_name("list-add-symbolic", 
+        image = Gtk.Image.new_from_icon_name("list-add-symbolic",
                                              Gtk.IconSize.MENU)
         button.set_image(image)
 
         popup = builder.get_object('add_popup_menu')
         button.set_popup(popup)
-        
+
         headerbar.pack_start(button)
-        
+
         self.save_button.reparent(headerbar)
-        
+
         builder.get_object("history_buttons").reparent(headerbar)
-        
+
         self.revert_button.reparent(headerbar)
         self.delete_button.reparent(headerbar)
-        
+
         headerbar.pack_end(self.search_box)
-        
+
         builder.get_object("toolbar").destroy()
-        
+
         self.set_titlebar(headerbar)
         headerbar.show_all()
 
