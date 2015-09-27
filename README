@@ -10,6 +10,14 @@ Dependencies: gir1.2-gdkpixbuf-2.0, gir1.2-glib-2.0,
     gnome-menus (>= 3.5.3), python3, python3-gi (>= 3.0),
     python3-psutil, xdg-utils (xdg-desktop-menu commands)
 
+Installation:
+    1. Install requirements. For debian-based systems, this should suffice:
+       sudo apt-get install gir1.2-gdkpixbuf-2.0 gir1.2-glib-2.0 \
+       gir1.2-gmenu-3.0 gir1.2-gtk-3.0 gnome-menus python3 python3-gi \
+       python3-psutil xdg-utils gir1.2-gtksource-3.0
+    2. Run the installer:
+       sudo python3 setup.py install
+
 Please report comments, suggestions, and bugs to:
     Sean Davis <smd.seandavis@gmail.com>
 
