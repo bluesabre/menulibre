@@ -1,5 +1,13 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+08 Oct 2015, MenuLibre 2.1.2
+
+- General:
+  . Improved installation instructions in README
+- Bug Fixes:
+  . Set the window title that is displayed in several applications
+    including Xfce Panel.
+
 20 Sep 2015, MenuLibre 2.1.1
 
 - Updated Translations:
