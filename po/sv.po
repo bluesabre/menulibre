@@ -10,14 +10,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-09-26 20:33-0400\n"
-"PO-Revision-Date: 2015-06-05 15:16+0000\n"
+"PO-Revision-Date: 2015-10-11 20:30+0000\n"
 "Last-Translator: Påvel Nicklasson <Unknown>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-09-28 06:11+0000\n"
-"X-Generator: Launchpad (build 17754)\n"
+"X-Launchpad-Export-Date: 2015-10-12 05:37+0000\n"
+"X-Generator: Launchpad (build 17802)\n"
 "Language: sv\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -42,7 +42,7 @@ msgstr "Lägg till av_skiljare"
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr ""
+msgstr "Allmänt namn på programmet, till exempel \"webbläsare\"."
 
 #: ../data/ui/MenulibreWindow.ui.h:5
 msgid "Generic Name"
@@ -55,6 +55,10 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"En lista med miljöer som inte ska visa den här posten. Du kan bara använda "
+"den här nyckeln om \"OnlyShowIn\" inte är inställd.\n"
+"Möjliga värden inkluderar: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE, Gammal"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Not Shown In"
@@ -68,6 +72,11 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"En lista med miljöer som ska visa den här posten. Andra miljöer kommer inte "
+"att visa den här posten. Du kan bara använda den här nyckeln om "
+"\"OnlyShowIn\" inte är inställd.\n"
+"Möjliga värden inkluderar: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE, Gammal"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "Only Shown In"
@@ -79,6 +88,9 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
+"Sökväg till en körbar fil för att avgöra om programmet är installerat. Om "
+"filen inte finns eller inte är körbar, kommer den här posten inte att visas "
+"i en meny."
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "Try Exec"
@@ -86,7 +98,7 @@ msgstr "Testkör"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "The MIME type(s) supported by this application."
-msgstr ""
+msgstr "De MIME-typer som stöds av det här programmet."
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Mimetypes"
@@ -98,6 +110,9 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
+"En lista med nyckelord för att beskriva den här posten. Du kan använda dessa "
+"för att söka efter poster. De är inte avsedda att visas, och bör inte "
+"överlappa värden för Namn eller Allmänt namn."
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "Keywords"
@@ -108,6 +123,8 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
+"Om valt, kommer programmet att uppmanas att använda strängen som en WM-klass "
+"eller ett WM-namnantydan åtminstone i ett fönster."
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Startup WM Class"
@@ -118,6 +135,8 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
+"Om satt till \"Sant\", motsvarar användarens resultat .desktop-filen som "
+"inte alls finns."
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Hidden"
@@ -130,6 +149,10 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
+"Sätt denna nyckel till  \"Sant\" om D-Bus aktivering stöds av det här "
+"programmet och du vill använda det.\n"
+"Se http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
+"för mer information."
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "DBUS Activatable"
@@ -137,11 +160,11 @@ msgstr "DBUS Activatable"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Browse Icons…"
-msgstr ""
+msgstr "Bläddra bland ikoner..."
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Browse Files..."
-msgstr ""
+msgstr "Bläddra bland filer..."
 
 #: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/Dialogs.py:38
 #: ../menulibre/MenulibreApplication.py:236
@@ -205,6 +228,11 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
+"Program att köra med argument. Den här nyckeln krävs om DBusActivatable inte "
+"är inställd till \"Sant\" eller om du behöver kompatibilitet med "
+"implementeringar som inte förstår D-Bus aktivering.\n"
+"Se http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables för en lista på argument som stöds."
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Command"
@@ -212,7 +240,7 @@ msgstr "Kommando"
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "The working directory."
-msgstr ""
+msgstr "Arbetskatalogen."
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Working Directory"
@@ -225,6 +253,7 @@ msgstr "<b>Programdetaljer</b>"
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
+"Om satt till \"Sant\", kommer programmet att köras i ett terminalfönster."
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Run in terminal"
@@ -235,6 +264,8 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
+"Om satt till \"Sant\", skickas en startnotifiering. Oftast betyder det att "
+"en upptagen muspekare visas medan programmet startar."
 
 #: ../data/ui/MenulibreWindow.ui.h:49
 msgid "Use startup notification"
@@ -245,6 +276,8 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
+"Om satt till \"Sant\", kommer den här posten inte att visas i menyer, men "
+"kommer att vara tillgänglig för MIME-typ associeringar etc."
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Hide from menus"
@@ -316,7 +349,7 @@ msgstr "Om MenuLibre"
 
 #: ../menulibre/Dialogs.py:40
 msgid "Copyright © 2012-2015 Sean Davis"
-msgstr ""
+msgstr "Copyright © 2012-2015 Sean Davis"
 
 #: ../menulibre/Dialogs.py:55
 msgid "Do you want to read the MenuLibre manual online?"
@@ -508,7 +541,7 @@ msgstr "Annan"
 
 #: ../menulibre/MenulibreApplication.py:213
 msgid "MenuLibre cannot be run as root."
-msgstr ""
+msgstr "MenuLibre kan inte köras som rot."
 
 #: ../menulibre/MenulibreApplication.py:214
 msgid ""
@@ -516,6 +549,8 @@ msgid ""
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
 "documentation</a> for more information."
 msgstr ""
+"Se <a href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"documentation</a> för mer information."
 
 #: ../menulibre/MenulibreApplication.py:312
 msgid "Add _Launcher..."
