@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-26 20:33-0400\n"
-"PO-Revision-Date: 2015-10-27 19:42+0000\n"
-"Last-Translator: Anne <anneonyme017@gmail.com>\n"
+"PO-Revision-Date: 2016-02-21 11:17+0000\n"
+"Last-Translator: Jean-Marc <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-10-28 05:43+0000\n"
-"X-Generator: Launchpad (build 17833)\n"
+"X-Launchpad-Export-Date: 2016-02-22 05:52+0000\n"
+"X-Generator: Launchpad (build 17925)\n"
 "Language: frnech\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -108,7 +108,7 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
-"Une liste de mots-clé pour décrire cette entrée. Vous pouvez les utiliser "
+"Une liste de mots-clés pour décrire cette entrée. Vous pouvez les utiliser "
 "pour rechercher des entrées. Ils ne seront pas affichés et ne devraient pas "
 "être redondants avec le Nom ou le Nom générique de l'entrée."
 
@@ -176,15 +176,15 @@ msgstr "Enregistrer le lanceur"
 
 #: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:341
 msgid "Undo"
-msgstr "Défaire"
+msgstr "Annuler"
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:348
 msgid "Redo"
-msgstr "Refaire"
+msgstr "Rétablir"
 
 #: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:355
 msgid "Revert"
-msgstr "Rétablir"
+msgstr "Revenir"
 
 #: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:362
 msgid "Delete"
@@ -361,7 +361,7 @@ msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr ""
-"Vous allez être redirigé vers le site Web de documentation où les pages "
+"Vous allez être redirigé vers le site web de documentation où les pages "
 "d’aide sont maintenues."
 
 #: ../menulibre/Dialogs.py:63
@@ -587,15 +587,15 @@ msgstr "_Enregistrer"
 
 #: ../menulibre/MenulibreApplication.py:340
 msgid "_Undo"
-msgstr "_Défaire"
+msgstr "Ann_uler"
 
 #: ../menulibre/MenulibreApplication.py:347
 msgid "_Redo"
-msgstr "_Refaire"
+msgstr "_Rétablir"
 
 #: ../menulibre/MenulibreApplication.py:354
 msgid "_Revert"
-msgstr "_Rétablir"
+msgstr "_Revenir"
 
 #: ../menulibre/MenulibreApplication.py:361
 msgid "_Delete"
