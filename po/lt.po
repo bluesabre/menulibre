@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-09-26 20:33-0400\n"
-"PO-Revision-Date: 2016-02-17 21:00+0000\n"
+"PO-Revision-Date: 2016-03-11 21:43+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-02-18 05:49+0000\n"
-"X-Generator: Launchpad (build 17925)\n"
+"X-Launchpad-Export-Date: 2016-03-12 06:07+0000\n"
+"X-Generator: Launchpad (build 17939)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -169,7 +169,7 @@ msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Save Launcher"
-msgstr "Išsaugoti leistuką"
+msgstr "Įrašyti leistuką"
 
 #: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:341
 msgid "Undo"
@@ -244,7 +244,7 @@ msgstr "Darbinis katalogas"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Application Details</b>"
-msgstr "Išsamiau apie programą"
+msgstr "<b>Išsamiau apie programą</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "If set to \"True\", the program will be ran in a terminal window."
@@ -333,7 +333,7 @@ msgstr "stulpelis"
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Search terms…"
-msgstr "Paieškos žodžiai"
+msgstr "Paieškos žodžiai..."
 
 #: ../menulibre/__init__.py:33
 msgid "Show debug messages"
@@ -370,32 +370,32 @@ msgstr "Dokumentacija internete"
 
 #: ../menulibre/Dialogs.py:75
 msgid "Do you want to save the changes before closing?"
-msgstr "Ar prieš uždarant, norite išsaugoti pakeitimus?"
+msgstr "Ar prieš užveriant, norite įrašyti pakeitimus?"
 
 #: ../menulibre/Dialogs.py:76
 msgid "If you don't save the launcher, all the changes will be lost.'"
-msgstr "Jei leistuko neišsaugosite, visi pakeitimai bus prarasti."
+msgstr "Jei leistuko neįrašysite, visi pakeitimai bus prarasti."
 
 #: ../menulibre/Dialogs.py:83 ../menulibre/Dialogs.py:99
 msgid "Save Changes"
-msgstr "Išsaugoti pakeitimus"
+msgstr "Įrašyti pakeitimus"
 
 #: ../menulibre/Dialogs.py:84 ../menulibre/Dialogs.py:100
 msgid "Don't Save"
-msgstr "Neišsaugoti"
+msgstr "Neįrašyti"
 
 #: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:102
 #: ../menulibre/MenulibreApplication.py:334
 msgid "Save"
-msgstr "Išsaugoti"
+msgstr "Įrašyti"
 
 #: ../menulibre/Dialogs.py:90
 msgid "Do you want to save the changes before leaving this launcher?"
-msgstr "Ar prieš paliekant šį leistuką, norite išsaugoti pakeitimus?"
+msgstr "Ar prieš paliekant šį leistuką, norite įrašyti pakeitimus?"
 
 #: ../menulibre/Dialogs.py:92
 msgid "If you don't save the launcher, all the changes will be lost."
-msgstr "Jei leistuko neišsaugosite, visi pakeitimai bus prarasti."
+msgstr "Jei leistuko neįrašysite, visi pakeitimai bus prarasti."
 
 #: ../menulibre/Dialogs.py:106
 msgid "This cannot be undone."
@@ -410,8 +410,8 @@ msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr ""
-"Visi pakeitimai nuo paskutinės išsaugotos būsenos bus prarasti ir negalės "
-"būti automatiškai atkurti."
+"Visi pakeitimai nuo paskutinės įrašytos būsenos bus prarasti ir negalės būti "
+"automatiškai atkurti."
 
 #: ../menulibre/Dialogs.py:125 ../menulibre/Dialogs.py:126
 msgid "Restore Launcher"
@@ -574,7 +574,7 @@ msgstr "Pridėti skirtuką..."
 
 #: ../menulibre/MenulibreApplication.py:333
 msgid "_Save"
-msgstr "Iš_saugoti"
+msgstr "Į_rašyti"
 
 #: ../menulibre/MenulibreApplication.py:340
 msgid "_Undo"
