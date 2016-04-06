@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-26 20:33-0400\n"
-"PO-Revision-Date: 2016-03-05 22:22+0000\n"
+"PO-Revision-Date: 2016-04-05 07:15+0000\n"
 "Last-Translator: YS1 <Unknown>\n"
 "Language-Team: French <fr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-03-06 05:43+0000\n"
-"X-Generator: Launchpad (build 17936)\n"
+"X-Launchpad-Export-Date: 2016-04-06 05:49+0000\n"
+"X-Generator: Launchpad (build 17972)\n"
 "Language: frnech\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -128,7 +128,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Startup WM Class"
-msgstr "Démarrage classe WM"
+msgstr "Classe WM au démarrage"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid ""
@@ -156,7 +156,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "DBUS Activatable"
-msgstr "DBUS Activable"
+msgstr "Activable via DBUS"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Browse Icons…"
@@ -228,8 +228,8 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
-"Programme a exécuter avec des arguments. Cette clé est requise si "
-"DBusActivatable est réglé sur « Vrai » ou si vous avez besoin d'une "
+"Programme a exécuter avec des arguments. Cette clé est requise si Activable "
+"via DBUS n'est pas réglé sur « Vrai » ou si vous avez besoin d'une "
 "compatibilité avec des implémentations qui ne gèrent pas l'activation D-"
 "Bus.\n"
 "Voir http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
