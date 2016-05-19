@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-26 20:33-0400\n"
+"POT-Creation-Date: 2016-05-18 22:03-0400\n"
 "PO-Revision-Date: 2014-03-14 06:04+0000\n"
 "Last-Translator: Adolfo Jayme <fitoschido@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-04-15 06:05+0000\n"
-"X-Generator: Launchpad (build 17995)\n"
+"X-Launchpad-Export-Date: 2016-05-19 05:39+0000\n"
+"X-Generator: Launchpad (build 18025)\n"
 "Language: es\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -165,8 +165,8 @@ msgid "Browse Files..."
 msgstr "Examinar archivos…"
 
 #: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/Dialogs.py:38
-#: ../menulibre/MenulibreApplication.py:236
-#: ../menulibre/MenulibreApplication.py:275
+#: ../menulibre/MenulibreApplication.py:237
+#: ../menulibre/MenulibreApplication.py:276
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
@@ -174,19 +174,19 @@ msgstr "MenuLibre"
 msgid "Save Launcher"
 msgstr "Guardar lanzador"
 
-#: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:341
+#: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:342
 msgid "Undo"
 msgstr "Deshacer"
 
-#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:348
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:349
 msgid "Redo"
 msgstr "Rehacer"
 
-#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:355
+#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:356
 msgid "Revert"
 msgstr "Revertir"
 
-#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:362
+#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:363
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -214,7 +214,7 @@ msgstr "Nombre de la aplicación"
 msgid "Application Comment"
 msgstr "Comentario de la aplicación"
 
-#: ../data/ui/MenulibreWindow.ui.h:39 ../menulibre/MenulibreApplication.py:682
+#: ../data/ui/MenulibreWindow.ui.h:39 ../menulibre/MenulibreApplication.py:683
 msgid "Description"
 msgstr "Descripción"
 
@@ -388,7 +388,7 @@ msgid "Don't Save"
 msgstr "No guardar"
 
 #: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:102
-#: ../menulibre/MenulibreApplication.py:334
+#: ../menulibre/MenulibreApplication.py:335
 msgid "Save"
 msgstr "Guardar"
 
@@ -424,124 +424,124 @@ msgstr "Restaurar lanzador"
 msgid "OK"
 msgstr "Aceptar"
 
-#: ../menulibre/MenuEditor.py:86 ../menulibre/MenulibreApplication.py:1028
-#: ../menulibre/MenulibreApplication.py:1460
+#: ../menulibre/MenuEditor.py:87 ../menulibre/MenulibreApplication.py:1029
+#: ../menulibre/MenulibreApplication.py:1463
 msgid "Separator"
 msgstr "Separador"
 
 #. Standard Items
-#: ../menulibre/MenulibreApplication.py:39
+#: ../menulibre/MenulibreApplication.py:40
 msgid "Multimedia"
 msgstr "Multimedia"
 
-#: ../menulibre/MenulibreApplication.py:40
+#: ../menulibre/MenulibreApplication.py:41
 msgid "Development"
 msgstr "Desarrollo"
 
-#: ../menulibre/MenulibreApplication.py:41
+#: ../menulibre/MenulibreApplication.py:42
 msgid "Education"
 msgstr "Educación"
 
-#: ../menulibre/MenulibreApplication.py:42
+#: ../menulibre/MenulibreApplication.py:43
 msgid "Games"
 msgstr "Juegos"
 
-#: ../menulibre/MenulibreApplication.py:43
+#: ../menulibre/MenulibreApplication.py:44
 msgid "Graphics"
 msgstr "Gráficos"
 
-#: ../menulibre/MenulibreApplication.py:44
+#: ../menulibre/MenulibreApplication.py:45
 msgid "Internet"
 msgstr "Internet"
 
-#: ../menulibre/MenulibreApplication.py:45
+#: ../menulibre/MenulibreApplication.py:46
 msgid "Office"
 msgstr "Oficina"
 
-#: ../menulibre/MenulibreApplication.py:46
+#: ../menulibre/MenulibreApplication.py:47
 msgid "Settings"
 msgstr "Configuración"
 
-#: ../menulibre/MenulibreApplication.py:47
+#: ../menulibre/MenulibreApplication.py:48
 msgid "System"
 msgstr "Sistema"
 
-#: ../menulibre/MenulibreApplication.py:48
+#: ../menulibre/MenulibreApplication.py:49
 msgid "Accessories"
 msgstr "Accesorios"
 
-#: ../menulibre/MenulibreApplication.py:49
+#: ../menulibre/MenulibreApplication.py:50
 msgid "WINE"
 msgstr "WINE"
 
 #. Desktop Environment
-#: ../menulibre/MenulibreApplication.py:51
+#: ../menulibre/MenulibreApplication.py:52
 msgid "Desktop configuration"
 msgstr "Configuración de escritorio"
 
-#: ../menulibre/MenulibreApplication.py:52
+#: ../menulibre/MenulibreApplication.py:53
 msgid "User configuration"
 msgstr "Configuración de usuario"
 
-#: ../menulibre/MenulibreApplication.py:53
+#: ../menulibre/MenulibreApplication.py:54
 msgid "Hardware configuration"
 msgstr "Configuración de hardware"
 
 #. GNOME Specific
-#: ../menulibre/MenulibreApplication.py:55
+#: ../menulibre/MenulibreApplication.py:56
 msgid "GNOME application"
 msgstr "Aplicación de GNOME"
 
-#: ../menulibre/MenulibreApplication.py:56
+#: ../menulibre/MenulibreApplication.py:57
 msgid "GTK+ application"
 msgstr "Aplicación GTK+"
 
-#: ../menulibre/MenulibreApplication.py:57
+#: ../menulibre/MenulibreApplication.py:58
 msgid "GNOME user configuration"
 msgstr "Configuración de usuario de GNOME"
 
-#: ../menulibre/MenulibreApplication.py:58
+#: ../menulibre/MenulibreApplication.py:59
 msgid "GNOME hardware configuration"
 msgstr "Configuración de Hardware GNOME"
 
-#: ../menulibre/MenulibreApplication.py:59
 #: ../menulibre/MenulibreApplication.py:60
+#: ../menulibre/MenulibreApplication.py:61
 msgid "GNOME system configuration"
 msgstr "Configuración del sistema de GNOME"
 
 #. Xfce Specific
-#: ../menulibre/MenulibreApplication.py:62
 #: ../menulibre/MenulibreApplication.py:63
+#: ../menulibre/MenulibreApplication.py:64
 msgid "Xfce menu item"
 msgstr "Elemento de menú de Xfce"
 
-#: ../menulibre/MenulibreApplication.py:64
+#: ../menulibre/MenulibreApplication.py:65
 msgid "Xfce toplevel menu item"
 msgstr "Elemento de menú de nivel superior de Xfce"
 
-#: ../menulibre/MenulibreApplication.py:65
+#: ../menulibre/MenulibreApplication.py:66
 msgid "Xfce user configuration"
 msgstr "Configuración de usuario de Xfce"
 
-#: ../menulibre/MenulibreApplication.py:66
+#: ../menulibre/MenulibreApplication.py:67
 msgid "Xfce hardware configuration"
 msgstr "Configuración de Hardware de Xfce"
 
-#: ../menulibre/MenulibreApplication.py:67
 #: ../menulibre/MenulibreApplication.py:68
+#: ../menulibre/MenulibreApplication.py:69
 msgid "Xfce system configuration"
 msgstr "Configuración del sistema de Xfce"
 
-#: ../menulibre/MenulibreApplication.py:116
-#: ../menulibre/MenulibreApplication.py:161
+#: ../menulibre/MenulibreApplication.py:117
+#: ../menulibre/MenulibreApplication.py:162
 msgid "Other"
 msgstr "Otro"
 
-#: ../menulibre/MenulibreApplication.py:213
+#: ../menulibre/MenulibreApplication.py:214
 msgid "MenuLibre cannot be run as root."
 msgstr "No se puede ejecutar MenuLibre con permisos administrativos."
 
-#: ../menulibre/MenulibreApplication.py:214
+#: ../menulibre/MenulibreApplication.py:215
 msgid ""
 "Please see the <a "
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
@@ -551,128 +551,128 @@ msgstr ""
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>documentación en "
 "línea</a> para más información."
 
-#: ../menulibre/MenulibreApplication.py:312
+#: ../menulibre/MenulibreApplication.py:313
 msgid "Add _Launcher..."
 msgstr "Añadir_Lanzador..."
 
-#: ../menulibre/MenulibreApplication.py:313
+#: ../menulibre/MenulibreApplication.py:314
 msgid "Add Launcher..."
 msgstr "Añadir lanzador..."
 
-#: ../menulibre/MenulibreApplication.py:319
+#: ../menulibre/MenulibreApplication.py:320
 msgid "Add _Directory..."
 msgstr "Añadir_Directorio..."
 
-#: ../menulibre/MenulibreApplication.py:320
+#: ../menulibre/MenulibreApplication.py:321
 msgid "Add Directory..."
 msgstr "Añadir directorio..."
 
-#: ../menulibre/MenulibreApplication.py:326
+#: ../menulibre/MenulibreApplication.py:327
 msgid "_Add Separator..."
 msgstr "_Añadir Separador..."
 
-#: ../menulibre/MenulibreApplication.py:327
+#: ../menulibre/MenulibreApplication.py:328
 msgid "Add Separator..."
 msgstr "Añadir separador..."
 
-#: ../menulibre/MenulibreApplication.py:333
+#: ../menulibre/MenulibreApplication.py:334
 msgid "_Save"
 msgstr "_Guardar"
 
-#: ../menulibre/MenulibreApplication.py:340
+#: ../menulibre/MenulibreApplication.py:341
 msgid "_Undo"
 msgstr "_Deshacer"
 
-#: ../menulibre/MenulibreApplication.py:347
+#: ../menulibre/MenulibreApplication.py:348
 msgid "_Redo"
 msgstr "_Rehacer"
 
-#: ../menulibre/MenulibreApplication.py:354
+#: ../menulibre/MenulibreApplication.py:355
 msgid "_Revert"
 msgstr "_Revertir"
 
-#: ../menulibre/MenulibreApplication.py:361
+#: ../menulibre/MenulibreApplication.py:362
 msgid "_Delete"
 msgstr "_Borrar"
 
-#: ../menulibre/MenulibreApplication.py:368
+#: ../menulibre/MenulibreApplication.py:369
 msgid "_Quit"
 msgstr "_Salir"
 
-#: ../menulibre/MenulibreApplication.py:369
-#: ../menulibre/MenulibreApplication.py:1731
+#: ../menulibre/MenulibreApplication.py:370
+#: ../menulibre/MenulibreApplication.py:1736
 msgid "Quit"
 msgstr "Salir"
 
-#: ../menulibre/MenulibreApplication.py:375
+#: ../menulibre/MenulibreApplication.py:376
 msgid "_Contents"
 msgstr "_Contenido"
 
-#: ../menulibre/MenulibreApplication.py:376
-#: ../menulibre/MenulibreApplication.py:1729
+#: ../menulibre/MenulibreApplication.py:377
+#: ../menulibre/MenulibreApplication.py:1734
 msgid "Help"
 msgstr "Ayuda"
 
-#: ../menulibre/MenulibreApplication.py:382
+#: ../menulibre/MenulibreApplication.py:383
 msgid "_About"
 msgstr "_Acerca de"
 
-#: ../menulibre/MenulibreApplication.py:383
-#: ../menulibre/MenulibreApplication.py:1730
+#: ../menulibre/MenulibreApplication.py:384
+#: ../menulibre/MenulibreApplication.py:1735
 msgid "About"
 msgstr "Acerca de"
 
-#: ../menulibre/MenulibreApplication.py:505
+#: ../menulibre/MenulibreApplication.py:506
 msgid "Categories"
 msgstr "Categorías"
 
-#: ../menulibre/MenulibreApplication.py:507
+#: ../menulibre/MenulibreApplication.py:508
 msgid "Actions"
 msgstr "Acciones"
 
-#: ../menulibre/MenulibreApplication.py:509
+#: ../menulibre/MenulibreApplication.py:510
 msgid "Advanced"
 msgstr "Avanzado"
 
-#: ../menulibre/MenulibreApplication.py:656
+#: ../menulibre/MenulibreApplication.py:657
 msgid "ThisEntry"
 msgstr "EstaEntrada"
 
-#: ../menulibre/MenulibreApplication.py:674
+#: ../menulibre/MenulibreApplication.py:675
 msgid "Select a category"
 msgstr "Seleccione una categoría"
 
-#: ../menulibre/MenulibreApplication.py:677
+#: ../menulibre/MenulibreApplication.py:678
 msgid "Category Name"
 msgstr "Nombre de la Categoría"
 
-#: ../menulibre/MenulibreApplication.py:761
+#: ../menulibre/MenulibreApplication.py:762
 msgid "This Entry"
 msgstr "Esta entrada"
 
-#: ../menulibre/MenulibreApplication.py:816
+#: ../menulibre/MenulibreApplication.py:817
 msgid "New Shortcut"
 msgstr "Nuevo acceso directo"
 
-#: ../menulibre/MenulibreApplication.py:962
+#: ../menulibre/MenulibreApplication.py:963
 msgid "Select a working directory..."
 msgstr "Seleccione un directorio de trabajo..."
 
-#: ../menulibre/MenulibreApplication.py:965
+#: ../menulibre/MenulibreApplication.py:966
 msgid "Select an executable..."
 msgstr "Seleccionar un ejecutable..."
 
-#: ../menulibre/MenulibreApplication.py:987
+#: ../menulibre/MenulibreApplication.py:988
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 "No se pueden añadir subdirectorios a rutas del sistema preinstaladas."
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1077
+#: ../menulibre/MenulibreApplication.py:1078
 msgid "No Longer Installed"
 msgstr "Ya no está instalado"
 
-#: ../menulibre/MenulibreApplication.py:1078
+#: ../menulibre/MenulibreApplication.py:1079
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -680,23 +680,23 @@ msgstr ""
 "Este lanzador ha sido eliminado del sistema.\n"
 "Seleccionando el siguiente elemento disponible."
 
-#: ../menulibre/MenulibreApplication.py:1178
+#: ../menulibre/MenulibreApplication.py:1179
 msgid "You do not have permission to delete this file."
 msgstr "Usted no tiene permiso para eliminar este archivo."
 
-#: ../menulibre/MenulibreApplication.py:1410
+#: ../menulibre/MenulibreApplication.py:1411
 msgid "New Launcher"
 msgstr "Nuevo lanzador"
 
-#: ../menulibre/MenulibreApplication.py:1444
+#: ../menulibre/MenulibreApplication.py:1446
 msgid "New Directory"
 msgstr "Nuevo directorio"
 
-#: ../menulibre/MenulibreApplication.py:1678
+#: ../menulibre/MenulibreApplication.py:1683
 msgid "Are you sure you want to delete this separator?"
 msgstr "¿Está seguro que desea eliminar este separador?"
 
-#: ../menulibre/MenulibreApplication.py:1681
+#: ../menulibre/MenulibreApplication.py:1686
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "¿Está seguro de que quiere eliminar \"%s\"?"
@@ -710,7 +710,7 @@ msgid "Images"
 msgstr "Imágenes"
 
 #. Create a new column.
-#: ../menulibre/MenulibreTreeview.py:59
+#: ../menulibre/MenulibreTreeview.py:60
 msgid "Search Results"
 msgstr "Resultados de la búsqueda"
 
