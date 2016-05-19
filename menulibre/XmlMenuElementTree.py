@@ -2,6 +2,7 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
 #   Copyright (C) 2012-2015 Sean Davis <smd.seandavis@gmail.com>
+#   Copyright (C) 2016 OmegaPhil <omegaphil@startmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published
@@ -202,7 +203,7 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
         treeiter = model.iter_nth_child(model_parent, n_child)
 
         # Extract the menu item details.
-        name, comment, item_type, gicon, icon, desktop, expanded = \
+        name, comment, categories, item_type, gicon, icon, desktop, expanded = \
                 model[treeiter][:]
 
         if item_type == MenuItemTypes.DIRECTORY:
@@ -225,6 +226,10 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
             # Do Menus
             model_to_xml_menus(model, treeiter, next_element)
 
+            # Do Includes to allow for alacarte-created entries without
+            # categories to persist (see https://bugs.launchpad.net/menulibre/+bug/1315880)
+            model_to_xml_includes(model, treeiter, next_element)
+
             # Do Layouts
             model_to_xml_layout(model, treeiter, next_element)
 
@@ -233,6 +238,25 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
 
         elif item_type == MenuItemTypes.SEPARATOR:
             pass
+
+
+def model_to_xml_includes(model, model_parent=None, menu_parent=None):
+    """Append <Include> elements for any application items that lack categories
+    (e.g. alacarte-created entries)."""
+
+    for n_child in range(model.iter_n_children(model_parent)):
+        treeiter = model.iter_nth_child(model_parent, n_child)
+
+        # Extract the menu item details.
+        name, comment, categories, item_type, gicon, icon, desktop, expanded = \
+                model[treeiter][:]
+
+        if item_type == MenuItemTypes.APPLICATION and not categories:
+            include = menu_parent.addInclude()
+            try:
+                include.addFilename(os.path.basename(desktop))
+            except AttributeError:
+                pass
 
 
 def model_to_xml_layout(model, model_parent=None, menu_parent=None, merge=True):
@@ -247,7 +271,7 @@ def model_to_xml_layout(model, model_parent=None, menu_parent=None, merge=True):
         treeiter = model.iter_nth_child(model_parent, n_child)
 
         # Extract the menu item details.
-        name, comment, item_type, gicon, icon, desktop, expanded = \
+        name, comment, categories, item_type, gicon, icon, desktop, expanded = \
                 model[treeiter][:]
 
         if item_type == MenuItemTypes.DIRECTORY:
@@ -293,7 +317,11 @@ def model_children_to_xml(model, model_parent=None, menu_parent=None):
     # Menus First...
     model_to_xml_menus(model, model_parent, menu_parent)
 
-    # Layouts Second...
+    # Includes Second... to allow for alacarte-created entries without
+    # categories to persist (see https://bugs.launchpad.net/menulibre/+bug/1315880)
+    model_to_xml_includes(model, model_parent, menu_parent)
+
+    # Layouts Third...
     model_to_xml_layout(model, model_parent, menu_parent, merge=False)
 
 

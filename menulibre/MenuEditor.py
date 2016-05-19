@@ -2,6 +2,7 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
 #   Copyright (C) 2012-2015 Sean Davis <smd.seandavis@gmail.com>
+#   Copyright (C) 2016 OmegaPhil <omegaphil@startmail.com>
 #
 #   Portions of this file are adapted from Alacarte Menu Editor,
 #   Copyright (C) 2006 Travis Watkins, Heinrich Wendel
@@ -84,6 +85,7 @@ def menu_to_treestore(treestore, parent, menu_items):
         if item_type == MenuItemTypes.SEPARATOR:
             displayed_name = "<s>                    </s>"
             tooltip = _("Separator")
+            categories = ""
             filename = None
             icon = None
             icon_name = ""
@@ -92,12 +94,13 @@ def menu_to_treestore(treestore, parent, menu_items):
             if not item[2]['show']:
                 displayed_name = "<small><i>%s</i></small>" % displayed_name
             tooltip = item[2]['comment']
+            categories = item[2]['categories']
             icon = item[2]['icon']
             filename = item[2]['filename']
             icon_name = item[2]['icon_name']
 
         treeiter = treestore.append(
-            parent, [displayed_name, tooltip, item_type,
+            parent, [displayed_name, tooltip, categories, item_type,
             icon, icon_name, filename, False])
 
         if item_type == MenuItemTypes.DIRECTORY:
@@ -108,8 +111,9 @@ def menu_to_treestore(treestore, parent, menu_items):
 
 def get_treestore():
     """Get the TreeStore implementation of the current menu."""
-    # Name, Comment, MenuItemType, GIcon (TreeView), icon-name, Filename, exp
-    treestore = Gtk.TreeStore(str, str, int, Gio.Icon, str, str, bool)
+    # Name, Comment, Categories, MenuItemType, GIcon (TreeView), icon-name,
+    # Filename, exp
+    treestore = Gtk.TreeStore(str, str, str, int, Gio.Icon, str, str, bool)
     menu = get_menus()[0]
     return menu_to_treestore(treestore, None, menu)
 
@@ -131,6 +135,7 @@ def get_submenus(menu, tree_dir):
                 generic_name = app_info.get_generic_name()
                 comment = app_info.get_description()
                 keywords = app_info.get_keywords()
+                categories = app_info.get_categories()
                 executable = app_info.get_executable()
                 filename = child.get_desktop_file_path()
                 hidden = app_info.get_is_hidden()
@@ -145,6 +150,7 @@ def get_submenus(menu, tree_dir):
                 generic_name = child.get_generic_name()
                 comment = child.get_comment()
                 keywords = []
+                categories = ""
                 executable = None
                 filename = child.get_desktop_file_path()
                 hidden = False
@@ -159,6 +165,7 @@ def get_submenus(menu, tree_dir):
                        'generic_name': generic_name,
                        'comment': comment,
                        'keywords': keywords,
+                       'categories': categories,
                        'executable': executable,
                        'filename': filename,
                        'icon': icon,

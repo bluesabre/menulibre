@@ -2,6 +2,7 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
 #   Copyright (C) 2012-2015 Sean Davis <smd.seandavis@gmail.com>
+#   Copyright (C) 2016 OmegaPhil <omegaphil@startmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published
@@ -140,8 +141,8 @@ class Treeview(GObject.GObject):
         self._last_selected_path = -1
         model, treeiter = self._get_selected_iter()
 
-        filename = model[treeiter][5]
-        item_type = model[treeiter][2]
+        filename = model[treeiter][6]
+        item_type = model[treeiter][3]
         if filename is not None:
             basename = getBasename(filename)
             original = util.getSystemLauncherPath(basename)
@@ -169,7 +170,7 @@ class Treeview(GObject.GObject):
             # Update the required categories.
             model, parent_data = self.get_parent_row_data()
             if parent_data is not None:
-                categories = util.getRequiredCategories(parent_data[5])
+                categories = util.getRequiredCategories(parent_data[6])
             else:
                 categories = util.getRequiredCategories(None)
             self.parent.update_launcher_categories(categories, [])
@@ -179,14 +180,15 @@ class Treeview(GObject.GObject):
             entry = MenulibreXdg.MenulibreDesktopEntry(original)
             name = entry['Name']
             comment = entry['Comment']
+            categories = entry['Categories']
             icon_name = entry['Icon']
             if os.path.isfile(icon_name):
                 gfile = Gio.File.parse_name(icon_name)
                 icon = Gio.FileIcon.new(gfile)
             else:
                 icon = Gio.ThemedIcon.new(icon_name)
-            self.update_selected(name, comment, item_type, icon_name,
-                                         original)
+            self.update_selected(name, comment, categories, item_type,
+                                 icon_name, original)
             model, row_data = self.get_selected_row_data()
             self.update_launcher_instances(filename, row_data)
             treeiter = None
@@ -221,7 +223,7 @@ class Treeview(GObject.GObject):
         model, parent = self.get_parent()
         if parent is None:
             return None
-        return model[parent][5]
+        return model[parent][6]
 
     def get_parent_row_data(self):
         """Get the row data of the parent iter."""
@@ -234,7 +236,7 @@ class Treeview(GObject.GObject):
         """Return the filename of the current selected treeiter."""
         model, row_data = self.get_selected_row_data()
         if row_data is not None:
-            return row_data[5]
+            return row_data[6]
         return None
 
     def get_selected_row_data(self):
@@ -260,23 +262,23 @@ class Treeview(GObject.GObject):
             for i in range(len(row_data)):
                 model[instance][i] = row_data[i]
 
-    def update_selected(self, name, comment, item_type, icon_name, filename):
+    def update_selected(self, name, comment, categories, item_type, icon_name,
+                        filename):
         """Update the application treeview selected row data."""
         model, treeiter = self._get_selected_iter()
         model[treeiter][0] = name
         model[treeiter][1] = comment
-        model[treeiter][2] = item_type
-
+        model[treeiter][2] = categories
+        model[treeiter][3] = item_type
         if os.path.isfile(icon_name):
             gfile = Gio.File.parse_name(icon_name)
             icon = Gio.FileIcon.new(gfile)
         else:
             icon = Gio.ThemedIcon.new(icon_name)
-        model[treeiter][3] = icon
+        model[treeiter][4] = icon
+        model[treeiter][5] = icon_name
+        model[treeiter][6] = filename
 
-        model[treeiter][4] = icon_name
-        model[treeiter][5] = filename
-        
         # Refresh the displayed launcher
         self._last_selected_path = -1
         self._on_treeview_cursor_changed(self._treeview, None, None)
@@ -325,7 +327,7 @@ class Treeview(GObject.GObject):
         if self._toolbar.get_sensitive():
             model = treeview.get_model()
             row = model[treeiter]
-            row[6] = expanded
+            row[7] = expanded
 
     def _on_treeview_selection(self, sel, store, path, is_selected,
                               can_select_func):
@@ -352,7 +354,7 @@ class Treeview(GObject.GObject):
 
     def _icon_name_func(self, col, renderer, treestore, treeiter, user_data):
         """CellRenderer function to set the gicon for each row."""
-        renderer.set_property("gicon", treestore[treeiter][3])
+        renderer.set_property("gicon", treestore[treeiter][4])
 
     def _get_selected_iter(self):
         """Return the current treeview model and selected iter."""
@@ -379,7 +381,7 @@ class Treeview(GObject.GObject):
         directories = []
         applications = []
 
-        filename = model[treeiter][5]
+        filename = model[treeiter][6]
         block_run = False
 
         if filename is not None:
@@ -394,7 +396,7 @@ class Treeview(GObject.GObject):
         if model.iter_has_child(treeiter) and not block_run:
             for i in range(model.iter_n_children(treeiter)):
                 child_iter = model.iter_nth_child(treeiter, i)
-                filename = model[child_iter][5]
+                filename = model[child_iter][6]
                 if filename is not None:
                     if filename.endswith('.directory'):
                         d, a = self._get_delete_filenames(model, child_iter)
@@ -405,7 +407,7 @@ class Treeview(GObject.GObject):
                         if self._get_deletable_launcher(filename):
                             applications.append(filename)
 
-        filename = model[treeiter][5]
+        filename = model[treeiter][6]
         if filename is not None:
             if filename.endswith('.directory'):
                 directories.append(filename)
@@ -428,7 +430,7 @@ class Treeview(GObject.GObject):
         treeiters = []
         for n_child in range(model.iter_n_children(parent)):
             treeiter = model.iter_nth_child(parent, n_child)
-            iter_filename = model[treeiter][5]
+            iter_filename = model[treeiter][6]
             if iter_filename == filename:
                 treeiters.append(treeiter)
             if model.iter_has_child(treeiter):
@@ -455,7 +457,7 @@ class Treeview(GObject.GObject):
         treestore, treeiter = self._get_selected_iter()
         model, parent_iter = self.get_parent()
         while parent_iter is not None:
-            filename = treestore[parent_iter][5]
+            filename = treestore[parent_iter][6]
             if getBasename(filename).startswith(prefix):
                 add_enabled = False
             model, parent_iter = self.get_parent(treestore, parent_iter)
@@ -587,7 +589,7 @@ class Treeview(GObject.GObject):
             if parent is None:
                 parent = model.iter_parent(treeiter)
             while parent is not None:
-                parent_filename = model[parent][5]
+                parent_filename = model[parent][6]
                 # Do not do this method if this is a known system directory.
                 if getBasename(parent_filename).startswith(menu_prefix):
                     menu_install = False
@@ -607,7 +609,7 @@ class Treeview(GObject.GObject):
             parents = []
             parent = model.iter_parent(treeiter)
             while parent is not None:
-                parent_filename = model[parent][5]
+                parent_filename = model[parent][6]
                 # Do not do this method if this is a known system directory.
                 if getBasename(parent_filename).startswith(menu_prefix):
                     menu_install = False
@@ -692,7 +694,7 @@ class Treeview(GObject.GObject):
             # Get current required categories
             model, parent = self.get_parent(model, selected_iter)
             if parent:
-                categories = util.getRequiredCategories(model[parent][5])
+                categories = util.getRequiredCategories(model[parent][6])
             else:
                 categories = util.getRequiredCategories(None)
 
@@ -747,7 +749,7 @@ class Treeview(GObject.GObject):
             # Get new required categories
             model, parent = self.get_parent(model, selected_iter)
             if parent:
-                new_categories = util.getRequiredCategories(model[parent][5])
+                new_categories = util.getRequiredCategories(model[parent][6])
             else:
                 new_categories = util.getRequiredCategories(None)
 
@@ -799,7 +801,7 @@ class Treeview(GObject.GObject):
                                               row_data)
 
             # Install/Uninstall items from directories.
-            filename = row_data[5]
+            filename = row_data[6]
             self.xdg_menu_install(filename)
             self.xdg_menu_uninstall(model, treeiter, filename)
 
@@ -825,7 +827,7 @@ class Treeview(GObject.GObject):
             new_iter = model.insert(parent_iter, 0, row_data)
 
         # Install/Uninstall items from directories.
-        filename = row_data[5]
+        filename = row_data[6]
         self.xdg_menu_install(filename, parent_iter)
         self.xdg_menu_uninstall(model, treeiter, filename)
 

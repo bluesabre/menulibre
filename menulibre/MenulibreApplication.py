@@ -2,6 +2,7 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
 #   Copyright (C) 2012-2015 Sean Davis <smd.seandavis@gmail.com>
+#   Copyright (C) 2016 OmegaPhil <omegaphil@startmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published
@@ -1020,7 +1021,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.set_value('Icon', None, store=True)
 
         model, row_data = self.treeview.get_selected_row_data()
-        item_type = row_data[2]
+        item_type = row_data[3]
 
         # If the selected row is a separator, hide the editor.
         if item_type == MenuItemTypes.SEPARATOR:
@@ -1042,7 +1043,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 basename = getBasename(filename)
                 filename = util.getSystemLauncherPath(basename)
                 if filename is not None:
-                    row_data[5] = filename
+                    row_data[6] = filename
                     self.treeview.update_launcher_instances(filename, row_data)
 
             if new_launcher or (filename is not None):
@@ -1050,7 +1051,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 displayed_name = row_data[0]
                 comment = row_data[1]
 
-                self.set_value('Icon', row_data[4], store=True)
+                self.set_value('Icon', row_data[5], store=True)
                 self.set_value('Name', displayed_name, store=True)
                 self.set_value('Comment', comment, store=True)
                 self.set_value('Filename', filename, store=True)
@@ -1409,17 +1410,18 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Add Launcher callback function."""
         name = _("New Launcher")
         comment = ""
+        categories = ""
         item_type = MenuItemTypes.APPLICATION
         icon_name = "application-default-icon"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
-        new_row_data = [name, comment, item_type, icon, icon_name, filename]
+        new_row_data = [name, comment, categories, item_type, icon, icon_name, filename]
 
         model, parent_data = self.treeview.get_parent_row_data()
         model, row_data = self.treeview.get_selected_row_data()
 
         # Currently selected item is a directory, take its categories.
-        if row_data[2] == MenuItemTypes.DIRECTORY:
+        if row_data[3] == MenuItemTypes.DIRECTORY:
             self.treeview.add_child(new_row_data)
 
         # Currently selected item is not a directory, but has a parent.
@@ -1429,7 +1431,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # If a parent item was found, use its categories for this launcher.
         if parent_data is not None:
             # Parent was found, take its categories.
-            categories = util.getRequiredCategories(parent_data[5])
+            categories = util.getRequiredCategories(parent_data[6])
         else:
             # Parent was not found, this is a toplevel category
             categories = util.getRequiredCategories(None)
@@ -1443,11 +1445,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Add Directory callback function."""
         name = _("New Directory")
         comment = ""
+        categories = ""
         item_type = MenuItemTypes.DIRECTORY
         icon_name = "applications-other"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
-        row_data = [name, comment, item_type, icon, icon_name, filename, False]
+        row_data = [name, comment, categories, item_type, icon, icon_name, filename, False]
 
         self.treeview.append(row_data)
 
@@ -1458,12 +1461,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Add Separator callback function."""
         name = "<s>                    </s>"
         tooltip = _("Separator")
+        categories = ""
         filename = None
         icon = None
         icon_name = ""
         item_type = MenuItemTypes.SEPARATOR
         filename = None
-        row_data = [name, tooltip, item_type, icon, icon_name, filename]
+        row_data = [name, tooltip, categories, item_type, icon, icon_name, filename]
 
         self.treeview.append(row_data)
 
@@ -1481,14 +1485,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         logger.debug("Saving launcher as \"%s\"" % filename)
 
         model, row_data = self.treeview.get_selected_row_data()
-        item_type = row_data[2]
+        item_type = row_data[3]
 
         model, parent_data = self.treeview.get_parent_row_data()
 
         # Make sure required categories are in place.
         if parent_data is not None:
             # Parent was found, take its categories.
-            required_categories = util.getRequiredCategories(parent_data[5])
+            required_categories = util.getRequiredCategories(parent_data[6])
         else:
             # Parent was not found, this is a toplevel category
             required_categories = util.getRequiredCategories(None)
@@ -1530,8 +1534,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Update the selected iter with the new details.
         name = self.get_value('Name')
         comment = self.get_value('Comment')
+        categories = self.get_value('Categories')
         icon_name = self.get_value('Icon')
-        self.treeview.update_selected(name, comment, item_type,
+        self.treeview.update_selected(name, comment, categories, item_type,
                                      icon_name, filename)
         self.history.clear()
 
@@ -1599,7 +1604,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Update all instances
         model, row_data = self.treeview.get_selected_row_data()
-        row_data[5] = save_filename
+        row_data[6] = save_filename
         self.treeview.update_launcher_instances(original_filename, row_data)
 
     def delete_separator(self):
@@ -1671,7 +1676,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Delete callback function."""
         model, row_data = self.treeview.get_selected_row_data()
         name = row_data[0]
-        item_type = row_data[2]
+        item_type = row_data[3]
 
         # Prepare the strings
         if item_type == MenuItemTypes.SEPARATOR:
