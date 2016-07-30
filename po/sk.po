@@ -8,42 +8,43 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-05-18 22:03-0400\n"
-"PO-Revision-Date: 2016-07-28 16:15+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2016-07-29 07:03+0000\n"
+"Last-Translator: Dusan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <sk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-07-29 05:55+0000\n"
-"X-Generator: Launchpad (build 18153)\n"
+"X-Launchpad-Export-Date: 2016-07-30 06:16+0000\n"
+"X-Generator: Launchpad (build 18169)\n"
+"Language: sk\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr ""
+msgstr "Editor ponuky"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
-msgstr ""
+msgstr "Pridáva alebo odstraňuje aplikácie z ponuky"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Add _Launcher"
-msgstr ""
+msgstr "Pridať _spúšťač"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Add _Directory"
-msgstr ""
+msgstr "Pridať _adresár"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Add _Separator"
-msgstr ""
+msgstr "Pridať _oddeľovač"
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr ""
+msgstr "Všeobecný názov aplikácie, napríklad „Webový prehliadač“"
 
 #: ../data/ui/MenulibreWindow.ui.h:5
 msgid "Generic Name"
-msgstr ""
+msgstr "Všeobecný názov"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid ""
@@ -52,10 +53,14 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Zoznam prostredí, ktoré nezobrazia tento záznam. Môžete použiť tento kľúč "
+"iba vtedy, ak nie je nastavená voľba „OnlyShowIn“.\n"
+"Použiteľné hodnoty sú: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, "
+"Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Not Shown In"
-msgstr ""
+msgstr "Nezobraziť v"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid ""
@@ -65,10 +70,15 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Zoznam prostredí, ktoré zobrazia tento záznam. Iné prostredia tento záznam "
+"nezobrazia. Môžete použiť tento kľúč iba vtedy, ak nie je nastavená voľba "
+"„NotShowIn“.\n"
+"Použiteľné hodnoty sú: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, "
+"Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "Only Shown In"
-msgstr ""
+msgstr "Zobraziť iba v"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid ""
@@ -76,18 +86,21 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
+"Cesta k spustiteľnému súboru na rozpoznanie, či je program nainštalovaný. Ak "
+"súbor neexistuje, alebo nie je spustiteľný, tento záznam nebude zobrazený v "
+"ponuke."
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "Try Exec"
-msgstr ""
+msgstr "Skúška spust. súboru"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "The MIME type(s) supported by this application."
-msgstr ""
+msgstr "Typy MIME podporované touto aplikáciou."
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Mimetypes"
-msgstr ""
+msgstr "Typy MIME"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid ""
@@ -95,30 +108,37 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
+"Zoznam kľúčových slov, ktoré popisujú tento záznam. Môžete ich použiť na "
+"uľahčenie vyhľadávania záznamov. Nebudú zobrazené a nemali by byť zbytočne "
+"rovnaké ako názov alebo všeobecný názov."
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "Keywords"
-msgstr ""
+msgstr "Kľúčové slová"
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
+"Ak je určené, aplikácia bude požiadaná, aby použila reťazec ako radu triedy "
+"WM, alebo názvu WM aspoň v jednom okne."
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Startup WM Class"
-msgstr ""
+msgstr "Spustiť triedu WM"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
+"Ak je nastavené na „True“, výsledok pre používateľa bude rovnaký ako pri "
+"súbore .desktop, ktorý neexistuje."
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Hidden"
-msgstr ""
+msgstr "Skrytá"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
 msgid ""
@@ -127,72 +147,76 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
+"Nastavte tento kľúč na „True“, ak aplikácia podporuje aktiváciu "
+"prostredníctvom zbernice D-Bus a chcete ju použiť.\n"
+"Pre viac informácií navštívte adresu "
+"http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html."
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "DBUS Activatable"
-msgstr ""
+msgstr "Aktivovateľná cez zbernicu DBUS"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Browse Icons…"
-msgstr ""
+msgstr "Prehliadať ikony…"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Browse Files..."
-msgstr ""
+msgstr "Prehliadať súbory..."
 
 #: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/Dialogs.py:38
 #: ../menulibre/MenulibreApplication.py:237
 #: ../menulibre/MenulibreApplication.py:276
 msgid "MenuLibre"
-msgstr ""
+msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Save Launcher"
-msgstr ""
+msgstr "Uloží spúšťač"
 
 #: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:342
 msgid "Undo"
-msgstr ""
+msgstr "Vráti späť poslednú činnosť"
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:349
 msgid "Redo"
-msgstr ""
+msgstr "Zopakuje poslednú činnosť"
 
 #: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:356
 msgid "Revert"
-msgstr ""
+msgstr "Obnoví"
 
 #: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:363
 msgid "Delete"
-msgstr ""
+msgstr "Odstráni"
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Move Up"
-msgstr ""
+msgstr "Presunúť nahor"
 
 #: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Move Down"
-msgstr ""
+msgstr "Presunúť nadol"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "<small><i>Filename</i></small>"
-msgstr ""
+msgstr "<small><i>Názov súboru</i></small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "<big><b>Application Name</b></big>"
-msgstr ""
+msgstr "<big><b>Názov aplikácie</b></big>"
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Application Name"
-msgstr ""
+msgstr "Názov aplikácie"
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Application Comment"
-msgstr ""
+msgstr "Komentár k aplikácii"
 
 #: ../data/ui/MenulibreWindow.ui.h:39 ../menulibre/MenulibreApplication.py:683
 msgid "Description"
-msgstr ""
+msgstr "Popis"
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid ""
@@ -202,304 +226,318 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
+"Program na spustenie s argumentami. Tento kľúč je požadovaný, ak voľba "
+"DBusActivatable nie je nastavená na „True“, alebo ak potrebujete mať "
+"kompatibilitu s implementáciami, ktoré nerozumejú aktivácii zbernice D-Bus.\n"
+"Pre zoznam podporovaných argumentov si prezrite "
+"http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables."
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Command"
-msgstr ""
+msgstr "Príkaz"
 
 #: ../data/ui/MenulibreWindow.ui.h:43
 msgid "The working directory."
-msgstr ""
+msgstr "Pracovný adresár."
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Working Directory"
-msgstr ""
+msgstr "Pracovný adresár"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "<b>Application Details</b>"
-msgstr ""
+msgstr "<b>Podrobnosti o aplikácii</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "If set to \"True\", the program will be ran in a terminal window."
-msgstr ""
+msgstr "Ak je nastavené na „True“, program bude spustený v okne terminálu."
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Run in terminal"
-msgstr ""
+msgstr "Spustiť v termináli"
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
+"Ak je nastavené na „True“, bude odoslané oznámenie po spustení. Obvykle to "
+"znamená, že sa zobrazí zaneprázdnený kurzor počas spúšťania aplikácie."
 
 #: ../data/ui/MenulibreWindow.ui.h:49
 msgid "Use startup notification"
-msgstr ""
+msgstr "Použiť oznámenie po spustení"
 
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
+"Ak je nastavené na „True“, tento záznam nebude zobrazený v ponukách, ale "
+"bude dostupný pre priradenie typu MIME, atď."
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Hide from menus"
-msgstr ""
+msgstr "Skryť z ponúk"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "<b>Options</b>"
-msgstr ""
+msgstr "<b>Voľby</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Add"
-msgstr ""
+msgstr "Pridať"
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Remove"
-msgstr ""
+msgstr "Odstrániť"
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid "Clear"
-msgstr ""
+msgstr "Vymazať"
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Show"
-msgstr ""
+msgstr "Zobraziť"
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Name"
-msgstr ""
+msgstr "Názov"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Select an icon…"
-msgstr ""
+msgstr "Výber ikony…"
 
 #: ../data/ui/MenulibreWindow.ui.h:59 ../menulibre/Dialogs.py:62
 #: ../menulibre/Dialogs.py:85 ../menulibre/Dialogs.py:101
 #: ../menulibre/Dialogs.py:124 ../menulibre/Dialogs.py:132
 #: ../menulibre/MenulibreIconSelection.py:79
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušiť"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Apply"
-msgstr ""
+msgstr "Použiť"
 
 #: ../data/ui/MenulibreWindow.ui.h:61
 msgid "<b>Select an icon</b>"
-msgstr ""
+msgstr "<b>Vyberte ikonu</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Search"
-msgstr ""
+msgstr "Vyhľadajte"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "column"
-msgstr ""
+msgstr "stĺpec"
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Search terms…"
-msgstr ""
+msgstr "Vyhľadajte výrazy…"
 
 #: ../menulibre/__init__.py:33
 msgid "Show debug messages"
-msgstr ""
+msgstr "Zobrazí ladiace správy"
 
 #. Populate the AboutDialog with all the relevant details.
 #: ../menulibre/Dialogs.py:37
 msgid "About MenuLibre"
-msgstr ""
+msgstr "O aplikácii MenuLibre"
 
 #: ../menulibre/Dialogs.py:40
 msgid "Copyright © 2012-2015 Sean Davis"
-msgstr ""
+msgstr "Autorské práva © 2012-2015 Sean Davis"
 
 #: ../menulibre/Dialogs.py:55
 msgid "Do you want to read the MenuLibre manual online?"
-msgstr ""
+msgstr "Chcete si prečítať online príručku k aplikácii MenuLibre?"
 
 #: ../menulibre/Dialogs.py:56
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr ""
+"Budete presmerovaný na webovú stránku s dokumentáciou, kde sa nachádzajú "
+"stránky pomocníka."
 
 #: ../menulibre/Dialogs.py:63
 msgid "Read Online"
-msgstr ""
+msgstr "Prečítať online"
 
 #: ../menulibre/Dialogs.py:64
 msgid "Online Documentation"
-msgstr ""
+msgstr "Online dokumentácia"
 
 #: ../menulibre/Dialogs.py:75
 msgid "Do you want to save the changes before closing?"
-msgstr ""
+msgstr "Chcete uložiť zmeny pred zatvorením?"
 
 #: ../menulibre/Dialogs.py:76
 msgid "If you don't save the launcher, all the changes will be lost.'"
-msgstr ""
+msgstr "Ak spúšťač neuložíte, všetky zmeny budú stratené."
 
 #: ../menulibre/Dialogs.py:83 ../menulibre/Dialogs.py:99
 msgid "Save Changes"
-msgstr ""
+msgstr "Uloženie zmien"
 
 #: ../menulibre/Dialogs.py:84 ../menulibre/Dialogs.py:100
 msgid "Don't Save"
-msgstr ""
+msgstr "Neuložiť"
 
 #: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:102
 #: ../menulibre/MenulibreApplication.py:335
 msgid "Save"
-msgstr ""
+msgstr "Uložiť"
 
 #: ../menulibre/Dialogs.py:90
 msgid "Do you want to save the changes before leaving this launcher?"
-msgstr ""
+msgstr "Chcete uložiť zmeny pred opustením tohto spúšťača?"
 
 #: ../menulibre/Dialogs.py:92
 msgid "If you don't save the launcher, all the changes will be lost."
-msgstr ""
+msgstr "Ak neuložíte spúšťač, všetky zmeny budú stratené."
 
 #: ../menulibre/Dialogs.py:106
 msgid "This cannot be undone."
-msgstr ""
+msgstr "Táto činnosť sa nedá vrátiť späť."
 
 #: ../menulibre/Dialogs.py:115
 msgid "Are you sure you want to restore this launcher?"
-msgstr ""
+msgstr "Skutočne chcete obnoviť tento spúšťač?"
 
 #: ../menulibre/Dialogs.py:116
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr ""
+"Všetky zmeny vykonané od posledného uloženého stavu budú stratené a nebudú "
+"môcť byť automaticky obnovené."
 
 #: ../menulibre/Dialogs.py:125 ../menulibre/Dialogs.py:126
 msgid "Restore Launcher"
-msgstr ""
+msgstr "Obnoviť spúšťač"
 
 #: ../menulibre/Dialogs.py:133 ../menulibre/MenulibreIconSelection.py:80
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../menulibre/MenuEditor.py:87 ../menulibre/MenulibreApplication.py:1029
 #: ../menulibre/MenulibreApplication.py:1463
 msgid "Separator"
-msgstr ""
+msgstr "Oddeľovač"
 
 #. Standard Items
 #: ../menulibre/MenulibreApplication.py:40
 msgid "Multimedia"
-msgstr ""
+msgstr "Multimédiá"
 
 #: ../menulibre/MenulibreApplication.py:41
 msgid "Development"
-msgstr ""
+msgstr "Vývoj"
 
 #: ../menulibre/MenulibreApplication.py:42
 msgid "Education"
-msgstr ""
+msgstr "Vzdelávanie"
 
 #: ../menulibre/MenulibreApplication.py:43
 msgid "Games"
-msgstr ""
+msgstr "Hry"
 
 #: ../menulibre/MenulibreApplication.py:44
 msgid "Graphics"
-msgstr ""
+msgstr "Grafika"
 
 #: ../menulibre/MenulibreApplication.py:45
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: ../menulibre/MenulibreApplication.py:46
 msgid "Office"
-msgstr ""
+msgstr "Kancelária"
 
 #: ../menulibre/MenulibreApplication.py:47
 msgid "Settings"
-msgstr ""
+msgstr "Nastavenia"
 
 #: ../menulibre/MenulibreApplication.py:48
 msgid "System"
-msgstr ""
+msgstr "Systém"
 
 #: ../menulibre/MenulibreApplication.py:49
 msgid "Accessories"
-msgstr ""
+msgstr "Príslušenstvo"
 
 #: ../menulibre/MenulibreApplication.py:50
 msgid "WINE"
-msgstr ""
+msgstr "WINE"
 
 #. Desktop Environment
 #: ../menulibre/MenulibreApplication.py:52
 msgid "Desktop configuration"
-msgstr ""
+msgstr "Nastavenia prostredia"
 
 #: ../menulibre/MenulibreApplication.py:53
 msgid "User configuration"
-msgstr ""
+msgstr "Nastavenia používateľa"
 
 #: ../menulibre/MenulibreApplication.py:54
 msgid "Hardware configuration"
-msgstr ""
+msgstr "Nastavenia hardvéru"
 
 #. GNOME Specific
 #: ../menulibre/MenulibreApplication.py:56
 msgid "GNOME application"
-msgstr ""
+msgstr "Aplikácie prostredia GNOME"
 
 #: ../menulibre/MenulibreApplication.py:57
 msgid "GTK+ application"
-msgstr ""
+msgstr "Aplikácie s rozhraním GTK+"
 
 #: ../menulibre/MenulibreApplication.py:58
 msgid "GNOME user configuration"
-msgstr ""
+msgstr "Nastavenia používateľa prostredia GNOME"
 
 #: ../menulibre/MenulibreApplication.py:59
 msgid "GNOME hardware configuration"
-msgstr ""
+msgstr "Nastavenia hardvéru prostredia GNOME"
 
 #: ../menulibre/MenulibreApplication.py:60
 #: ../menulibre/MenulibreApplication.py:61
 msgid "GNOME system configuration"
-msgstr ""
+msgstr "Nastavenia systému prostredia GNOME"
 
 #. Xfce Specific
 #: ../menulibre/MenulibreApplication.py:63
 #: ../menulibre/MenulibreApplication.py:64
 msgid "Xfce menu item"
-msgstr ""
+msgstr "Položka ponuky prostredia Xfce"
 
 #: ../menulibre/MenulibreApplication.py:65
 msgid "Xfce toplevel menu item"
-msgstr ""
+msgstr "Položka ponuky hornej úrovne prostredia Xfce"
 
 #: ../menulibre/MenulibreApplication.py:66
 msgid "Xfce user configuration"
-msgstr ""
+msgstr "Nastavenia používateľa prostredia Xfce"
 
 #: ../menulibre/MenulibreApplication.py:67
 msgid "Xfce hardware configuration"
-msgstr ""
+msgstr "Nastavenia hardvéru prostredia Xfce"
 
 #: ../menulibre/MenulibreApplication.py:68
 #: ../menulibre/MenulibreApplication.py:69
 msgid "Xfce system configuration"
-msgstr ""
+msgstr "Nastavenia systému prostredia Xfce"
 
 #: ../menulibre/MenulibreApplication.py:117
 #: ../menulibre/MenulibreApplication.py:162
 msgid "Other"
-msgstr ""
+msgstr "Ostatné"
 
 #: ../menulibre/MenulibreApplication.py:214
 msgid "MenuLibre cannot be run as root."
-msgstr ""
+msgstr "Aplikácia MenuLibre nemôže byť spustená s právami správcu."
 
 #: ../menulibre/MenulibreApplication.py:215
 msgid ""
@@ -507,171 +545,176 @@ msgid ""
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
 "documentation</a> for more information."
 msgstr ""
+"Prosím, pre viac informácií si prezrite <a "
+"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"dokumentáciu</a>."
 
 #: ../menulibre/MenulibreApplication.py:313
 msgid "Add _Launcher..."
-msgstr ""
+msgstr "Pridať _spúšťač..."
 
 #: ../menulibre/MenulibreApplication.py:314
 msgid "Add Launcher..."
-msgstr ""
+msgstr "Pridá spúšťač..."
 
 #: ../menulibre/MenulibreApplication.py:320
 msgid "Add _Directory..."
-msgstr ""
+msgstr "Pridať _adresár..."
 
 #: ../menulibre/MenulibreApplication.py:321
 msgid "Add Directory..."
-msgstr ""
+msgstr "Pridá adresár..."
 
 #: ../menulibre/MenulibreApplication.py:327
 msgid "_Add Separator..."
-msgstr ""
+msgstr "Pridať _oddeľovač..."
 
 #: ../menulibre/MenulibreApplication.py:328
 msgid "Add Separator..."
-msgstr ""
+msgstr "Pridá oddeľovač..."
 
 #: ../menulibre/MenulibreApplication.py:334
 msgid "_Save"
-msgstr ""
+msgstr "_Uložiť"
 
 #: ../menulibre/MenulibreApplication.py:341
 msgid "_Undo"
-msgstr ""
+msgstr "Vrátiť _späť"
 
 #: ../menulibre/MenulibreApplication.py:348
 msgid "_Redo"
-msgstr ""
+msgstr "Zo_pakovať"
 
 #: ../menulibre/MenulibreApplication.py:355
 msgid "_Revert"
-msgstr ""
+msgstr "O_bnoviť"
 
 #: ../menulibre/MenulibreApplication.py:362
 msgid "_Delete"
-msgstr ""
+msgstr "O_dstrániť"
 
 #: ../menulibre/MenulibreApplication.py:369
 msgid "_Quit"
-msgstr ""
+msgstr "U_končiť"
 
 #: ../menulibre/MenulibreApplication.py:370
 #: ../menulibre/MenulibreApplication.py:1736
 msgid "Quit"
-msgstr ""
+msgstr "Ukončiť"
 
 #: ../menulibre/MenulibreApplication.py:376
 msgid "_Contents"
-msgstr ""
+msgstr "Obsa_h"
 
 #: ../menulibre/MenulibreApplication.py:377
 #: ../menulibre/MenulibreApplication.py:1734
 msgid "Help"
-msgstr ""
+msgstr "Pomocník"
 
 #: ../menulibre/MenulibreApplication.py:383
 msgid "_About"
-msgstr ""
+msgstr "_O aplikácii"
 
 #: ../menulibre/MenulibreApplication.py:384
 #: ../menulibre/MenulibreApplication.py:1735
 msgid "About"
-msgstr ""
+msgstr "O aplikácii"
 
 #: ../menulibre/MenulibreApplication.py:506
 msgid "Categories"
-msgstr ""
+msgstr "Kategórie"
 
 #: ../menulibre/MenulibreApplication.py:508
 msgid "Actions"
-msgstr ""
+msgstr "Činnosti"
 
 #: ../menulibre/MenulibreApplication.py:510
 msgid "Advanced"
-msgstr ""
+msgstr "Rozšírené"
 
 #: ../menulibre/MenulibreApplication.py:657
 msgid "ThisEntry"
-msgstr ""
+msgstr "TentoZáznam"
 
 #: ../menulibre/MenulibreApplication.py:675
 msgid "Select a category"
-msgstr ""
+msgstr "Vyberte kategóriu"
 
 #: ../menulibre/MenulibreApplication.py:678
 msgid "Category Name"
-msgstr ""
+msgstr "Názov kategórie"
 
 #: ../menulibre/MenulibreApplication.py:762
 msgid "This Entry"
-msgstr ""
+msgstr "Tento záznam"
 
 #: ../menulibre/MenulibreApplication.py:817
 msgid "New Shortcut"
-msgstr ""
+msgstr "Nová skratka"
 
 #: ../menulibre/MenulibreApplication.py:963
 msgid "Select a working directory..."
-msgstr ""
+msgstr "Výber pracovného adresára..."
 
 #: ../menulibre/MenulibreApplication.py:966
 msgid "Select an executable..."
-msgstr ""
+msgstr "Výber spustiteľného súboru..."
 
 #: ../menulibre/MenulibreApplication.py:988
 msgid "Cannot add subdirectories to preinstalled system paths."
-msgstr ""
+msgstr "Nedajú sa pridať podadresáre do predinštalovaných systémových ciest."
 
 #. Display a dialog saying this item is missing
 #: ../menulibre/MenulibreApplication.py:1078
 msgid "No Longer Installed"
-msgstr ""
+msgstr "Už nie je nainštalovaný"
 
 #: ../menulibre/MenulibreApplication.py:1079
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
+"Tento spúšťač bol odstránený zo systému.\n"
+"Vyberie sa nasledujúca dostupná položka."
 
 #: ../menulibre/MenulibreApplication.py:1179
 msgid "You do not have permission to delete this file."
-msgstr ""
+msgstr "Nemáte oprávnenia na odstránenie tohto súboru."
 
 #: ../menulibre/MenulibreApplication.py:1411
 msgid "New Launcher"
-msgstr ""
+msgstr "Nový spúšťač"
 
 #: ../menulibre/MenulibreApplication.py:1446
 msgid "New Directory"
-msgstr ""
+msgstr "Nový adresár"
 
 #: ../menulibre/MenulibreApplication.py:1683
 msgid "Are you sure you want to delete this separator?"
-msgstr ""
+msgstr "Skutočne chcete odstrániť tento oddeľovač?"
 
 #: ../menulibre/MenulibreApplication.py:1686
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr ""
+msgstr "Skutočne chcete odstrániť spúšťač „%s“?"
 
 #: ../menulibre/MenulibreIconSelection.py:76
 msgid "Select an image"
-msgstr ""
+msgstr "Výber obrázku"
 
 #: ../menulibre/MenulibreIconSelection.py:84
 msgid "Images"
-msgstr ""
+msgstr "Obrázky"
 
 #. Create a new column.
 #: ../menulibre/MenulibreTreeview.py:60
 msgid "Search Results"
-msgstr ""
+msgstr "Výsledky vyhľadávania"
 
 #: ../menulibre/MenulibreXdg.py:53
 msgid "New Menu Item"
-msgstr ""
+msgstr "Nová položka ponuky"
 
 #: ../menulibre/MenulibreXdg.py:55
 msgid "A small descriptive blurb about this application."
-msgstr ""
+msgstr "Krátky popis tejto aplikácie."
