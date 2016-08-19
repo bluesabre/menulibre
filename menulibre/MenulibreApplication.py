@@ -1421,7 +1421,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         model, row_data = self.treeview.get_selected_row_data()
 
         # Currently selected item is a directory, take its categories.
-        if row_data[3] == MenuItemTypes.DIRECTORY:
+        dir_selected = row_data[3] == MenuItemTypes.DIRECTORY
+        if dir_selected:
             self.treeview.add_child(new_row_data)
 
         # Currently selected item is not a directory, but has a parent.
@@ -1432,6 +1433,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if parent_data is not None:
             # Parent was found, take its categories.
             categories = util.getRequiredCategories(parent_data[6])
+        elif dir_selected:
+            # A parent item has not been found, however a directory has been
+            # selected - this means its a top-level directory, and the launcher
+            # will be added into it (e.g. as the first item), therefore it
+            # essentially has a parent of the current selection
+            categories = util.getRequiredCategories(row_data[6])
         else:
             # Parent was not found, this is a toplevel category
             categories = util.getRequiredCategories(None)
