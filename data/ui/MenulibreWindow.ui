@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3 -->
+<!-- Generated with glade 3.20.0 -->
 <interface>
   <requires lib="gtk+" version="3.10"/>
   <object class="GtkMenu" id="add_popup_menu">
@@ -667,6 +667,20 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                             <property name="label" translatable="yes">Move Down</property>
                             <property name="use_underline">True</property>
                             <property name="icon_name">go-down-symbolic</property>
+                          </object>
+                          <packing>
+                            <property name="expand">False</property>
+                            <property name="homogeneous">True</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkToolButton" id="classic_view_sort">
+                            <property name="visible">True</property>
+                            <property name="can_focus">False</property>
+                            <property name="tooltip_text" translatable="yes">Sort alphabetically</property>
+                            <property name="label" translatable="yes">Sort</property>
+                            <property name="use_underline">True</property>
+                            <property name="icon_name">gtk-sort-ascending</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>

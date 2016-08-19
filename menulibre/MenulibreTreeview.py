@@ -103,6 +103,8 @@ class Treeview(GObject.GObject):
         move_up.connect('clicked', self._move_iter, (self._treeview, -1))
         move_down = builder.get_object('classic_view_move_down')
         move_down.connect('clicked', self._move_iter, (self._treeview, 1))
+        sort = builder.get_object('classic_view_sort')
+        sort.connect('clicked', self._sort_iter)
 
 # TreeView Modifiers
     def append(self, row_data):
@@ -836,3 +838,60 @@ class Treeview(GObject.GObject):
         path = model.get_path(new_iter)
         treeview.set_cursor(path)
         return new_iter
+
+    def _sort_iter(self, widget):
+        """Alphabetical sort of items in the current directory."""
+
+        # Get the current selected row
+        model, sel_iter = self._get_selected_iter()
+        if sel_iter:
+
+            # Move to the parent iter - if there is no parent, it must be the
+            # top level, which is ignored
+            item_names = []
+            _, parent_iter = self.get_parent(model, sel_iter)
+            if parent_iter:
+
+                # Debug code
+                # print('\nUnsorted items:\n')
+
+                # Deteriming list of item names
+                for i in range(model.iter_n_children(parent_iter)):
+                    child_iter = model.iter_nth_child(parent_iter, i)
+                    item_names.append(model[child_iter][0])
+
+                    # Debug code
+                    # print('Row item: %s' % model[child_iter][0])
+
+                # Applying unstable (?) case-insensitive alphabetical sort
+                item_names = sorted(item_names, key=str.lower)
+
+                # Debug code
+                # print('\nSorted items:\n')
+                # for item_name in item_names:
+                #     print(item_name)
+
+                for i in range(len(item_names)):
+                    child_iter = model.iter_nth_child(parent_iter, i)
+
+                    # Ignore if item is already sorted or at least has an
+                    # identical title to that expected
+                    if item_names[i] != model[child_iter][0]:
+
+                        # Locating desired item in the remaining unsorted items
+                        for r in range(i, len(item_names)):
+                            search_iter = model.iter_nth_child(parent_iter, r)
+                            if item_names[i] == model[search_iter][0]:
+                                break
+
+                        # Moving the found item into place
+                        model.move_before(search_iter, child_iter)
+
+                # Debug code
+                # print('\nSorted model:\n')
+                # for i in range(model.iter_n_children(parent_iter)):
+                #     child_iter = model.iter_nth_child(parent_iter, i)
+                #     print(model[child_iter][0])
+
+                # Committing changes
+                self.update_menus()

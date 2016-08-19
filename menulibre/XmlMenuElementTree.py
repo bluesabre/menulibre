@@ -294,7 +294,22 @@ def model_to_xml_layout(model, model_parent=None, menu_parent=None, merge=True):
 
         elif item_type == MenuItemTypes.APPLICATION:
             try:
-                layout.addFilename(os.path.basename(desktop))
+
+                # According to the spec, desktop files may be located in
+                # subdirectories of the '*/applications' directory that
+                # effectively gives the contained desktop filenames an extra
+                # prefix based on that directory name (this affects me with the
+                # kde4 subdirectory desktop files). This only seems to matter
+                # for layout generation - if you don't specify the desktop file
+                # with the prefix here, the prefixed desktop file will not
+                # match in the layout node when the menu is being constructed
+                # See https://bugs.launchpad.net/menulibre/+bug/1315536/comments/5
+                containing_dir = os.path.basename(os.path.dirname(desktop))
+                desktop_filename = os.path.basename(desktop)
+                if containing_dir != 'applications':
+                    desktop_filename = '%s-%s' % (containing_dir,
+                                                  desktop_filename)
+                layout.addFilename(desktop_filename)
             except AttributeError:
                 pass
 
