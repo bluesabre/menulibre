@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-05-18 22:03-0400\n"
+"POT-Creation-Date: 2016-08-19 06:34-0400\n"
 "PO-Revision-Date: 2014-03-01 05:44+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-05-20 05:34+0000\n"
-"X-Generator: Launchpad (build 18025)\n"
+"X-Launchpad-Export-Date: 2016-08-20 05:44+0000\n"
+"X-Generator: Launchpad (build 18176)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -175,26 +175,34 @@ msgid "Move Down"
 msgstr "下移"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
+msgid "Sort alphabetically"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:36
+msgid "Sort"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:37
 msgid "<small><i>Filename</i></small>"
 msgstr "<small><i>檔案名稱</i></small>"
 
-#: ../data/ui/MenulibreWindow.ui.h:36
+#: ../data/ui/MenulibreWindow.ui.h:38
 msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>應用程式名稱</b></big>"
 
-#: ../data/ui/MenulibreWindow.ui.h:37
+#: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Application Name"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:38
+#: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Application Comment"
 msgstr "應用程式註解"
 
-#: ../data/ui/MenulibreWindow.ui.h:39 ../menulibre/MenulibreApplication.py:683
+#: ../data/ui/MenulibreWindow.ui.h:41 ../menulibre/MenulibreApplication.py:683
 msgid "Description"
 msgstr "說明"
 
-#: ../data/ui/MenulibreWindow.ui.h:40
+#: ../data/ui/MenulibreWindow.ui.h:42
 msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable "
 "is not set to \"True\" or if you need compatibility with implementations "
@@ -203,102 +211,102 @@ msgid ""
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:42
+#: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Command"
 msgstr "指令"
 
-#: ../data/ui/MenulibreWindow.ui.h:43
+#: ../data/ui/MenulibreWindow.ui.h:45
 msgid "The working directory."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:44
+#: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Working Directory"
 msgstr "工作目錄"
 
-#: ../data/ui/MenulibreWindow.ui.h:45
+#: ../data/ui/MenulibreWindow.ui.h:47
 msgid "<b>Application Details</b>"
 msgstr "<b>應用程式詳情</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:46
+#: ../data/ui/MenulibreWindow.ui.h:48
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:47
+#: ../data/ui/MenulibreWindow.ui.h:49
 msgid "Run in terminal"
 msgstr "在終端機運行"
 
-#: ../data/ui/MenulibreWindow.ui.h:48
+#: ../data/ui/MenulibreWindow.ui.h:50
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:49
+#: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Use startup notification"
 msgstr "使用啟動通知"
 
-#: ../data/ui/MenulibreWindow.ui.h:50
+#: ../data/ui/MenulibreWindow.ui.h:52
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:51
+#: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Hide from menus"
 msgstr "從選單隱藏"
 
-#: ../data/ui/MenulibreWindow.ui.h:52
+#: ../data/ui/MenulibreWindow.ui.h:54
 msgid "<b>Options</b>"
 msgstr "<b>選項</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:53
+#: ../data/ui/MenulibreWindow.ui.h:55
 msgid "Add"
 msgstr "加入"
 
-#: ../data/ui/MenulibreWindow.ui.h:54
+#: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Remove"
 msgstr "移除"
 
-#: ../data/ui/MenulibreWindow.ui.h:55
+#: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Clear"
 msgstr "清除"
 
-#: ../data/ui/MenulibreWindow.ui.h:56
+#: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Show"
 msgstr "顯示"
 
-#: ../data/ui/MenulibreWindow.ui.h:57
+#: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Name"
 msgstr "名稱"
 
-#: ../data/ui/MenulibreWindow.ui.h:58
+#: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Select an icon…"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:59 ../menulibre/Dialogs.py:62
+#: ../data/ui/MenulibreWindow.ui.h:61 ../menulibre/Dialogs.py:62
 #: ../menulibre/Dialogs.py:85 ../menulibre/Dialogs.py:101
 #: ../menulibre/Dialogs.py:124 ../menulibre/Dialogs.py:132
 #: ../menulibre/MenulibreIconSelection.py:79
 msgid "Cancel"
 msgstr "取消"
 
-#: ../data/ui/MenulibreWindow.ui.h:60
+#: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Apply"
 msgstr "套用"
 
-#: ../data/ui/MenulibreWindow.ui.h:61
+#: ../data/ui/MenulibreWindow.ui.h:63
 msgid "<b>Select an icon</b>"
 msgstr "<b>選取圖示</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:62
+#: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Search"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:63
+#: ../data/ui/MenulibreWindow.ui.h:65
 msgid "column"
 msgstr "欄"
 
-#: ../data/ui/MenulibreWindow.ui.h:64
+#: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Search terms…"
 msgstr ""
 
@@ -385,7 +393,7 @@ msgid "OK"
 msgstr "確定"
 
 #: ../menulibre/MenuEditor.py:87 ../menulibre/MenulibreApplication.py:1029
-#: ../menulibre/MenulibreApplication.py:1463
+#: ../menulibre/MenulibreApplication.py:1470
 msgid "Separator"
 msgstr "分隔符"
 
@@ -557,7 +565,7 @@ msgid "_Quit"
 msgstr "結束(_Q)"
 
 #: ../menulibre/MenulibreApplication.py:370
-#: ../menulibre/MenulibreApplication.py:1736
+#: ../menulibre/MenulibreApplication.py:1743
 msgid "Quit"
 msgstr "結束"
 
@@ -566,7 +574,7 @@ msgid "_Contents"
 msgstr "目錄(_C)"
 
 #: ../menulibre/MenulibreApplication.py:377
-#: ../menulibre/MenulibreApplication.py:1734
+#: ../menulibre/MenulibreApplication.py:1741
 msgid "Help"
 msgstr "求助"
 
@@ -575,7 +583,7 @@ msgid "_About"
 msgstr "關於(_A)"
 
 #: ../menulibre/MenulibreApplication.py:384
-#: ../menulibre/MenulibreApplication.py:1735
+#: ../menulibre/MenulibreApplication.py:1742
 msgid "About"
 msgstr "關於"
 
@@ -642,15 +650,15 @@ msgstr "無權限刪除此檔案。"
 msgid "New Launcher"
 msgstr "新增啟動器"
 
-#: ../menulibre/MenulibreApplication.py:1446
+#: ../menulibre/MenulibreApplication.py:1453
 msgid "New Directory"
 msgstr "新增目錄"
 
-#: ../menulibre/MenulibreApplication.py:1683
+#: ../menulibre/MenulibreApplication.py:1690
 msgid "Are you sure you want to delete this separator?"
 msgstr "是否確定刪除此分隔符？"
 
-#: ../menulibre/MenulibreApplication.py:1686
+#: ../menulibre/MenulibreApplication.py:1693
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "是否確定刪除 \"%s\"？"
