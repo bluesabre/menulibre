@@ -530,7 +530,7 @@ class Treeview(GObject.GObject):
 
     def _treeview_match(self, model, treeiter, query):
         """Match subfunction for filtering search results."""
-        name, comment, item_type, icon, pixbuf, desktop, expanded = \
+        name, comment, categories, item_type, icon, pixbuf, desktop, expanded = \
                 model[treeiter][:]
 
         # Hide separators in the search results.
