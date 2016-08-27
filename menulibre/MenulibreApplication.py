@@ -1454,7 +1454,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         comment = ""
         categories = ""
         item_type = MenuItemTypes.DIRECTORY
-        icon_name = "applications-other"
+        icon_name = "folder"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
         row_data = [name, comment, categories, item_type, icon, icon_name, filename, False]
