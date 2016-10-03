@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-27 19:40-0400\n"
-"PO-Revision-Date: 2014-05-20 10:28+0000\n"
-"Last-Translator: Piotr Strębski <strebski@o2.pl>\n"
+"PO-Revision-Date: 2016-10-03 05:37+0000\n"
+"Last-Translator: m4sk1n <Unknown>\n"
 "Language-Team: polski <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-28 06:32+0000\n"
-"X-Generator: Launchpad (build 18179)\n"
+"X-Launchpad-Export-Date: 2016-10-03 06:19+0000\n"
+"X-Generator: Launchpad (build 18204)\n"
 "Language: \n"
 
 #: ../menulibre.desktop.in.h:1
@@ -80,7 +80,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "Try Exec"
-msgstr ""
+msgstr "Spróbuj wykonać"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "The MIME type(s) supported by this application."
@@ -96,6 +96,9 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
+"Lista słów kluczowych do opisu tego elementu. Możesz użyć ich aby szybciej "
+"szukać aplikacji. Nie są one wyświetlane i nie powinny być identyczne z "
+"nazwą i nazwą ogólną."
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "Keywords"
@@ -109,7 +112,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Startup WM Class"
-msgstr ""
+msgstr "Początkowa klasa menedżera okien"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid ""
@@ -177,11 +180,11 @@ msgstr "Przemieść w dół"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Sort alphabetically"
-msgstr ""
+msgstr "Sortuj w kolejności alfabetycznej"
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Sort"
-msgstr ""
+msgstr "Sortowanie"
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "<small><i>Filename</i></small>"
