@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-27 19:40-0400\n"
-"PO-Revision-Date: 2015-03-20 19:33+0000\n"
+"PO-Revision-Date: 2016-10-11 18:08+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-28 06:32+0000\n"
-"X-Generator: Launchpad (build 18179)\n"
+"X-Launchpad-Export-Date: 2016-10-12 07:00+0000\n"
+"X-Generator: Launchpad (build 18227)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -197,11 +197,11 @@ msgstr "Nuleisti žemyn"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Sort alphabetically"
-msgstr ""
+msgstr "Rikiuoti pagal abėcėlę"
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Sort"
-msgstr ""
+msgstr "Rikiuoti"
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "<small><i>Filename</i></small>"
