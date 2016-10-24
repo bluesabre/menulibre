@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-27 19:40-0400\n"
-"PO-Revision-Date: 2016-10-03 05:37+0000\n"
+"PO-Revision-Date: 2016-10-23 11:22+0000\n"
 "Last-Translator: m4sk1n <Unknown>\n"
 "Language-Team: polski <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-10-04 07:13+0000\n"
-"X-Generator: Launchpad (build 18217)\n"
+"X-Launchpad-Export-Date: 2016-10-24 06:30+0000\n"
+"X-Generator: Launchpad (build 18246)\n"
 "Language: \n"
 
 #: ../menulibre.desktop.in.h:1
@@ -53,6 +53,10 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Lista środowisk, które zapewne nie będą wyświetlały tego elementu. Możesz "
+"użyć tego tylko jeśli \"OnlyShowIn\" nie jest ustawione.\n"
+"Możliwe wartości zawierają:  GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE i Old."
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Not Shown In"
@@ -66,6 +70,10 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Lista środowisk, które powinny wyświetlić ten wpis. Inne środowiska nie będą "
+"go używały. Możesz użyć tej tylko jeśli \"OnlyShowIn\" nie jest ustawione. "
+"Możliwe wartości zawierają:  GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE i Old."
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "Only Shown In"
@@ -77,6 +85,9 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
+"Ścieżka do pliku wykonywalnego aby sprawdzić czy program jest zainstalowany. "
+"Jeżeli plik nie znajduje się, lub nie jest wykonywalny, ten element może nie "
+"być widoczny w menu."
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "Try Exec"
@@ -109,6 +120,8 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
+"Jeśli zaznaczone, aplikajca będzie próbowała użyć ciągu znaków jako klasy WM "
+"lub wskazówki nazwy WM w przynajmniej jednym oknie."
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Startup WM Class"
@@ -119,6 +132,8 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
+"Jeśli włączone, wynik dla użytkownika będzie równy plikowi .desktop który "
+"nie istnieje."
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Hidden"
@@ -131,10 +146,14 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
+"Aktywuj jeśli aktywacja D-Bus jest wspierana przez tą aplikację i chcesz jej "
+"używać.\n"
+"Zobacz http://standards.freedesktop.org/desktop-entry-"
+"spec/latest/ar01s07.html aby zdobyć więcej informacji."
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "DBUS Activatable"
-msgstr ""
+msgstr "Aktywowany przez D-Bus"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Browse Icons…"
@@ -214,6 +233,11 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
+"Aplikacja do wykonania z argumentami. Ta wartość jest wymagana jeżeli "
+"DBusActivatable nie jest aktywna lub jeśli potrzebujesz kompatybilności z "
+"intemplementacjami które nie rozumieją aktywacji D-Bus.\n"
+"Zobacz http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
+"spec-latest.html#exec-variables aby znaleźć listę wspieranych argumentów."
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Command"
@@ -245,6 +269,8 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
+"Jeśli aktywne, powiadomienie o uruchomieniu jest wysyłane. Zwykle oznacza "
+"to, że kursor \"Zajęty\" jest wyświetlany podczas uruchamiania aplikacji."
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Use startup notification"
@@ -255,6 +281,8 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
+"Jeśli aktywne, ten element nie będzie wyświetlany w menu, ale będzie "
+"dostępny dla skojarzeń typu MIME itp."
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Hide from menus"
