@@ -3,6 +3,9 @@
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
 
+# Disable tests
+export PYBUILD_DISABLE=test/python3.5
+
 %:
 	dh $@ --with python3 --buildsystem=pybuild
 
