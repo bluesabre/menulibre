@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2016-08-27 19:40-0400\n"
-"PO-Revision-Date: 2015-01-17 08:35+0000\n"
-"Last-Translator: Viacheslav Khomenko <slava.khomenko@gmail.com>\n"
+"PO-Revision-Date: 2017-02-03 12:47+0000\n"
+"Last-Translator: Max <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-28 06:32+0000\n"
-"X-Generator: Launchpad (build 18179)\n"
+"X-Launchpad-Export-Date: 2017-02-04 06:06+0000\n"
+"X-Generator: Launchpad (build 18322)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -27,23 +27,23 @@ msgstr "Додавання або вилучення програм з меню"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Add _Launcher"
-msgstr "Додати _Launcher"
+msgstr "Додати кнопку _запуску"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Add _Directory"
-msgstr "Додати _Directory"
+msgstr "Додати _теку"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Add _Separator"
-msgstr "Додати _Separator"
+msgstr "Додати _розділювач"
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr ""
+msgstr "Загальна назва програми, наприклад, \"Веб-браузер\"."
 
 #: ../data/ui/MenulibreWindow.ui.h:5
 msgid "Generic Name"
-msgstr ""
+msgstr "Загальна назва"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid ""
@@ -52,10 +52,13 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Список оточень, в яких пункт меню не буде відображатися. Використання ключа "
+"можливо тільки в разі, якщо не встановлено ключ OnlyShowIn\n"
+"Можливі значення: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Not Shown In"
-msgstr ""
+msgstr "Не показувати в"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid ""
@@ -65,10 +68,13 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Список оточень, в яких пункт меню буде відображатися. Використання ключа "
+"можливо тільки в разі, якщо не встановлено ключ NotShowIn\n"
+"Можливі значення: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "Only Shown In"
-msgstr ""
+msgstr "Показувати в"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid ""
@@ -76,18 +82,20 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
+"Шлях до виконуваного файлу, щоб визначити, чи встановлена програма. Якщо "
+"файл відсутній або не є виконуваним, цей запис може не відображатися в меню."
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "Try Exec"
-msgstr ""
+msgstr "Шлях перевірки"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "The MIME type(s) supported by this application."
-msgstr ""
+msgstr "Тип MIME який підтримується цим додатком."
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Mimetypes"
-msgstr ""
+msgstr "Типи MIME"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid ""
@@ -95,30 +103,37 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
+"Список ключових слів для опису пункту. Ви можете використовувати їх, щоб "
+"допомогти пошуку записів. Вони не призначені для відображення, а також не "
+"повинні бути надмірними для значень Name або GenericName."
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "Keywords"
-msgstr ""
+msgstr "Ключові слова"
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
+"Якщо цей параметр заданий, то додаток намагатиметься використовувати рядок в "
+"якості класу WM або ім'я підказки WM принаймні, в одному вікні."
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Startup WM Class"
-msgstr ""
+msgstr "Клас WM"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
+"Якщо встановлено значення \"True\", то результат для користувача "
+"еквівалентно, що .desktop файл не існує взагалі."
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Hidden"
-msgstr ""
+msgstr "Прихований"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
 msgid ""
@@ -127,18 +142,22 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
+"Встановіть цей ключ \"True\", якщо активація D-Bus підтримується для цього "
+"додатка, і ви хочете використовувати його.\n"
+"Див. http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
+"для отримання додаткової інформації"
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "DBUS Activatable"
-msgstr ""
+msgstr "DBUS активація"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Browse Icons…"
-msgstr ""
+msgstr "Обрати значки..."
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Browse Files..."
-msgstr ""
+msgstr "Оглянути файли…"
 
 #: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/Dialogs.py:38
 #: ../menulibre/MenulibreApplication.py:237
@@ -148,7 +167,7 @@ msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Save Launcher"
-msgstr ""
+msgstr "Зберегти кнопку запуску"
 
 #: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:342
 msgid "Undo"
@@ -176,15 +195,15 @@ msgstr "Перемістити вниз"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Sort alphabetically"
-msgstr ""
+msgstr "Впорядкувати за алфавітом"
 
 #: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Sort"
-msgstr ""
+msgstr "Впорядкувати"
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "<small><i>Filename</i></small>"
-msgstr ""
+msgstr "<small><i>Ім'я файлу</i></small>"
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "<big><b>Application Name</b></big>"
@@ -196,11 +215,11 @@ msgstr "Назва програми"
 
 #: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Application Comment"
-msgstr ""
+msgstr "Коментар"
 
 #: ../data/ui/MenulibreWindow.ui.h:41 ../menulibre/MenulibreApplication.py:683
 msgid "Description"
-msgstr "Описання"
+msgstr "Опис"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid ""
@@ -210,6 +229,12 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
+"Шлях до програми запуску з можливістю додавання аргументів. Цей ключ "
+"потрібний, якщо для DBusActivatable не встановлено значення \"True\", або "
+"якщо вам потрібна сумісність з програмами, які не розуміють "
+"DBusActivatable.\n"
+"Див. http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables для списку підтримуваних аргументів."
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Command"
@@ -217,7 +242,7 @@ msgstr "Команда"
 
 #: ../data/ui/MenulibreWindow.ui.h:45
 msgid "The working directory."
-msgstr ""
+msgstr "Робочий каталог"
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Working Directory"
@@ -225,11 +250,12 @@ msgstr "Робочий каталог"
 
 #: ../data/ui/MenulibreWindow.ui.h:47
 msgid "<b>Application Details</b>"
-msgstr ""
+msgstr "<b>Програма</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
+"Якщо встановлено значення \"True\", програма буде запущена у вікні терміналу."
 
 #: ../data/ui/MenulibreWindow.ui.h:49
 msgid "Run in terminal"
@@ -240,48 +266,53 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
+"Якщо встановлено значення \"True\", програма буде відправляти повідомлення "
+"про запуск. Зазвичай означає, що в момент запуску програми відображається "
+"курсор зі значком \"зайнятості\"."
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Use startup notification"
-msgstr ""
+msgstr "Повідомляти про запуск"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
+"Якщо встановлено значення \"True\", цей запис не буде відображатися в меню, "
+"але буде доступний для асоціацій типів MIME і т.д."
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Hide from menus"
-msgstr ""
+msgstr "Приховати з меню"
 
 #: ../data/ui/MenulibreWindow.ui.h:54
 msgid "<b>Options</b>"
-msgstr ""
+msgstr "<b>Параметри</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid "Add"
-msgstr ""
+msgstr "Додати"
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Remove"
-msgstr ""
+msgstr "Видалити"
 
 #: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Clear"
-msgstr ""
+msgstr "Очистити"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Show"
-msgstr ""
+msgstr "Показувати"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Name"
-msgstr ""
+msgstr "Ім'я"
 
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Select an icon…"
-msgstr ""
+msgstr "Виберіть значок..."
 
 #: ../data/ui/MenulibreWindow.ui.h:61 ../menulibre/Dialogs.py:62
 #: ../menulibre/Dialogs.py:85 ../menulibre/Dialogs.py:101
@@ -296,218 +327,220 @@ msgstr "Застосувати"
 
 #: ../data/ui/MenulibreWindow.ui.h:63
 msgid "<b>Select an icon</b>"
-msgstr ""
+msgstr "<b>Виберіть значок</b>"
 
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Search"
-msgstr ""
+msgstr "Пошук"
 
 #: ../data/ui/MenulibreWindow.ui.h:65
 msgid "column"
-msgstr ""
+msgstr "стовпчик"
 
 #: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Search terms…"
-msgstr "Пошук за термінами…"
+msgstr "Пошук пункту..."
 
 #: ../menulibre/__init__.py:33
 msgid "Show debug messages"
-msgstr ""
+msgstr "Показувати діагностичні повідомлення"
 
 #. Populate the AboutDialog with all the relevant details.
 #: ../menulibre/Dialogs.py:37
 msgid "About MenuLibre"
-msgstr ""
+msgstr "Про MenuLibre"
 
 #: ../menulibre/Dialogs.py:40
 msgid "Copyright © 2012-2015 Sean Davis"
-msgstr ""
+msgstr "Авторські права © 2012-2015 Sean Davis"
 
 #: ../menulibre/Dialogs.py:55
 msgid "Do you want to read the MenuLibre manual online?"
-msgstr ""
+msgstr "Ви бажаєте переглянути онлайн-інструкцію MenuLibre?"
 
 #: ../menulibre/Dialogs.py:56
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
-msgstr ""
+msgstr "Ви будете перенаправлені на веб-сайт документації."
 
 #: ../menulibre/Dialogs.py:63
 msgid "Read Online"
-msgstr ""
+msgstr "Читати онлайн"
 
 #: ../menulibre/Dialogs.py:64
 msgid "Online Documentation"
-msgstr ""
+msgstr "Онлайн документація"
 
 #: ../menulibre/Dialogs.py:75
 msgid "Do you want to save the changes before closing?"
-msgstr ""
+msgstr "Зберегти зміни?"
 
 #: ../menulibre/Dialogs.py:76
 msgid "If you don't save the launcher, all the changes will be lost.'"
-msgstr ""
+msgstr "Якщо не зберегти кнопку запуску всі зміни будуть втрачені."
 
 #: ../menulibre/Dialogs.py:83 ../menulibre/Dialogs.py:99
 msgid "Save Changes"
-msgstr ""
+msgstr "Зберегти зміни"
 
 #: ../menulibre/Dialogs.py:84 ../menulibre/Dialogs.py:100
 msgid "Don't Save"
-msgstr ""
+msgstr "Не зберігати"
 
 #: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:102
 #: ../menulibre/MenulibreApplication.py:335
 msgid "Save"
-msgstr ""
+msgstr "Зберегти"
 
 #: ../menulibre/Dialogs.py:90
 msgid "Do you want to save the changes before leaving this launcher?"
-msgstr ""
+msgstr "Зберегти зміни кнопки запуску?"
 
 #: ../menulibre/Dialogs.py:92
 msgid "If you don't save the launcher, all the changes will be lost."
-msgstr ""
+msgstr "Якщо не зберегти кнопку запуску всі зміни будуть втрачені."
 
 #: ../menulibre/Dialogs.py:106
 msgid "This cannot be undone."
-msgstr ""
+msgstr "Не можна скасувати."
 
 #: ../menulibre/Dialogs.py:115
 msgid "Are you sure you want to restore this launcher?"
-msgstr ""
+msgstr "Відновити кнопку запуску?"
 
 #: ../menulibre/Dialogs.py:116
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr ""
+"Всі зміни після останнього збереження будуть втрачені і не зможуть бути "
+"відновлені автоматично."
 
 #: ../menulibre/Dialogs.py:125 ../menulibre/Dialogs.py:126
 msgid "Restore Launcher"
-msgstr ""
+msgstr "Відновити"
 
 #: ../menulibre/Dialogs.py:133 ../menulibre/MenulibreIconSelection.py:80
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../menulibre/MenuEditor.py:87 ../menulibre/MenulibreApplication.py:1029
 #: ../menulibre/MenulibreApplication.py:1470
 msgid "Separator"
-msgstr ""
+msgstr "Розділювач"
 
 #. Standard Items
 #: ../menulibre/MenulibreApplication.py:40
 msgid "Multimedia"
-msgstr ""
+msgstr "Мультимедіа"
 
 #: ../menulibre/MenulibreApplication.py:41
 msgid "Development"
-msgstr ""
+msgstr "Розробка"
 
 #: ../menulibre/MenulibreApplication.py:42
 msgid "Education"
-msgstr ""
+msgstr "Навчання"
 
 #: ../menulibre/MenulibreApplication.py:43
 msgid "Games"
-msgstr ""
+msgstr "Ігри"
 
 #: ../menulibre/MenulibreApplication.py:44
 msgid "Graphics"
-msgstr ""
+msgstr "Графіка"
 
 #: ../menulibre/MenulibreApplication.py:45
 msgid "Internet"
-msgstr ""
+msgstr "Інтернет"
 
 #: ../menulibre/MenulibreApplication.py:46
 msgid "Office"
-msgstr ""
+msgstr "Офісні"
 
 #: ../menulibre/MenulibreApplication.py:47
 msgid "Settings"
-msgstr ""
+msgstr "Налаштування"
 
 #: ../menulibre/MenulibreApplication.py:48
 msgid "System"
-msgstr ""
+msgstr "Система"
 
 #: ../menulibre/MenulibreApplication.py:49
 msgid "Accessories"
-msgstr ""
+msgstr "Інструменти"
 
 #: ../menulibre/MenulibreApplication.py:50
 msgid "WINE"
-msgstr ""
+msgstr "Wine"
 
 #. Desktop Environment
 #: ../menulibre/MenulibreApplication.py:52
 msgid "Desktop configuration"
-msgstr ""
+msgstr "Налаштування стільниці"
 
 #: ../menulibre/MenulibreApplication.py:53
 msgid "User configuration"
-msgstr ""
+msgstr "Налаштування користувача"
 
 #: ../menulibre/MenulibreApplication.py:54
 msgid "Hardware configuration"
-msgstr ""
+msgstr "Налаштування пристроїв"
 
 #. GNOME Specific
 #: ../menulibre/MenulibreApplication.py:56
 msgid "GNOME application"
-msgstr ""
+msgstr "Програма GNOME"
 
 #: ../menulibre/MenulibreApplication.py:57
 msgid "GTK+ application"
-msgstr ""
+msgstr "Програма GTK+"
 
 #: ../menulibre/MenulibreApplication.py:58
 msgid "GNOME user configuration"
-msgstr ""
+msgstr "Налаштування користувача GNOME"
 
 #: ../menulibre/MenulibreApplication.py:59
 msgid "GNOME hardware configuration"
-msgstr ""
+msgstr "Налаштування пристроїв GNOME"
 
 #: ../menulibre/MenulibreApplication.py:60
 #: ../menulibre/MenulibreApplication.py:61
 msgid "GNOME system configuration"
-msgstr ""
+msgstr "Налаштування системи GNOME"
 
 #. Xfce Specific
 #: ../menulibre/MenulibreApplication.py:63
 #: ../menulibre/MenulibreApplication.py:64
 msgid "Xfce menu item"
-msgstr ""
+msgstr "Пункт меню Xfce"
 
 #: ../menulibre/MenulibreApplication.py:65
 msgid "Xfce toplevel menu item"
-msgstr ""
+msgstr "Пункт меню Xfce верхного рівня"
 
 #: ../menulibre/MenulibreApplication.py:66
 msgid "Xfce user configuration"
-msgstr ""
+msgstr "Налаштування користувача Xfce"
 
 #: ../menulibre/MenulibreApplication.py:67
 msgid "Xfce hardware configuration"
-msgstr ""
+msgstr "Налаштування пристроїв Xfce"
 
 #: ../menulibre/MenulibreApplication.py:68
 #: ../menulibre/MenulibreApplication.py:69
 msgid "Xfce system configuration"
-msgstr ""
+msgstr "Налаштування системи Xfce"
 
 #: ../menulibre/MenulibreApplication.py:117
 #: ../menulibre/MenulibreApplication.py:162
 msgid "Other"
-msgstr ""
+msgstr "Інше"
 
 #: ../menulibre/MenulibreApplication.py:214
 msgid "MenuLibre cannot be run as root."
-msgstr ""
+msgstr "Не вдалося запустити MenuLibre з правами root."
 
 #: ../menulibre/MenulibreApplication.py:215
 msgid ""
@@ -515,174 +548,179 @@ msgid ""
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
 "documentation</a> for more information."
 msgstr ""
+"Подробиці в <a "
+"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>онлайн-справці</a>"
 
 #: ../menulibre/MenulibreApplication.py:313
 msgid "Add _Launcher..."
-msgstr ""
+msgstr "Додати кнопку _запуску"
 
 #: ../menulibre/MenulibreApplication.py:314
 msgid "Add Launcher..."
-msgstr ""
+msgstr "Додати кнопку запуску..."
 
 #: ../menulibre/MenulibreApplication.py:320
 msgid "Add _Directory..."
-msgstr ""
+msgstr "Додати _теку"
 
 #: ../menulibre/MenulibreApplication.py:321
 msgid "Add Directory..."
-msgstr ""
+msgstr "Додати теку"
 
 #: ../menulibre/MenulibreApplication.py:327
 msgid "_Add Separator..."
-msgstr ""
+msgstr "_Додати розділювач..."
 
 #: ../menulibre/MenulibreApplication.py:328
 msgid "Add Separator..."
-msgstr ""
+msgstr "Додати розділювач..."
 
 #: ../menulibre/MenulibreApplication.py:334
 msgid "_Save"
-msgstr ""
+msgstr "_Зберегти"
 
 #: ../menulibre/MenulibreApplication.py:341
 msgid "_Undo"
-msgstr ""
+msgstr "_Скасувати"
 
 #: ../menulibre/MenulibreApplication.py:348
 msgid "_Redo"
-msgstr ""
+msgstr "_Повторити"
 
 #: ../menulibre/MenulibreApplication.py:355
 msgid "_Revert"
-msgstr ""
+msgstr "_Відновити"
 
 #: ../menulibre/MenulibreApplication.py:362
 msgid "_Delete"
-msgstr ""
+msgstr "_Вилучити"
 
 #: ../menulibre/MenulibreApplication.py:369
 msgid "_Quit"
-msgstr ""
+msgstr "_Вийти"
 
 #: ../menulibre/MenulibreApplication.py:370
 #: ../menulibre/MenulibreApplication.py:1743
 msgid "Quit"
-msgstr ""
+msgstr "Вийти"
 
 #: ../menulibre/MenulibreApplication.py:376
 msgid "_Contents"
-msgstr ""
+msgstr "_Зміст"
 
 #: ../menulibre/MenulibreApplication.py:377
 #: ../menulibre/MenulibreApplication.py:1741
 msgid "Help"
-msgstr ""
+msgstr "Довідка"
 
 #: ../menulibre/MenulibreApplication.py:383
 msgid "_About"
-msgstr ""
+msgstr "_Про програму"
 
 #: ../menulibre/MenulibreApplication.py:384
 #: ../menulibre/MenulibreApplication.py:1742
 msgid "About"
-msgstr ""
+msgstr "Про програму"
 
 #: ../menulibre/MenulibreApplication.py:506
 msgid "Categories"
-msgstr ""
+msgstr "Категорії"
 
 #: ../menulibre/MenulibreApplication.py:508
 msgid "Actions"
-msgstr ""
+msgstr "Дії"
 
 #: ../menulibre/MenulibreApplication.py:510
 msgid "Advanced"
-msgstr ""
+msgstr "Розширені"
 
 #: ../menulibre/MenulibreApplication.py:657
 msgid "ThisEntry"
-msgstr ""
+msgstr "Цей запис"
 
 #: ../menulibre/MenulibreApplication.py:675
 msgid "Select a category"
-msgstr ""
+msgstr "Виберіть категорію"
 
 #: ../menulibre/MenulibreApplication.py:678
 msgid "Category Name"
-msgstr ""
+msgstr "Назва категорії"
 
 #: ../menulibre/MenulibreApplication.py:762
 msgid "This Entry"
-msgstr ""
+msgstr "Цей запис"
 
 #: ../menulibre/MenulibreApplication.py:817
 msgid "New Shortcut"
-msgstr ""
+msgstr "Новий ярлик"
 
 #: ../menulibre/MenulibreApplication.py:963
 msgid "Select a working directory..."
-msgstr ""
+msgstr "Виберіть робочу теку..."
 
 #: ../menulibre/MenulibreApplication.py:966
 msgid "Select an executable..."
-msgstr ""
+msgstr "Виберіть виконуючий файл ..."
 
 #: ../menulibre/MenulibreApplication.py:988
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
+"Неможливо додати підкаталоги в попередньо встановлені системні шляхи."
 
 #. Display a dialog saying this item is missing
 #: ../menulibre/MenulibreApplication.py:1078
 msgid "No Longer Installed"
-msgstr ""
+msgstr "Було вилучено"
 
 #: ../menulibre/MenulibreApplication.py:1079
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
+"Кнопка запуску була вилучена з системи.\n"
+"Виберіть інший пункт меню"
 
 #: ../menulibre/MenulibreApplication.py:1179
 msgid "You do not have permission to delete this file."
-msgstr ""
+msgstr "Для видалення пункту необхідні права root"
 
 #: ../menulibre/MenulibreApplication.py:1411
 msgid "New Launcher"
-msgstr ""
+msgstr "Нова кнопка запуску"
 
 #: ../menulibre/MenulibreApplication.py:1453
 msgid "New Directory"
-msgstr ""
+msgstr "Нова тека"
 
 #: ../menulibre/MenulibreApplication.py:1690
 msgid "Are you sure you want to delete this separator?"
-msgstr ""
+msgstr "Видалити розділювач?"
 
 #: ../menulibre/MenulibreApplication.py:1693
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr ""
+msgstr "Ви дійсно бажаєте видалити \"%s\"?"
 
 #: ../menulibre/MenulibreIconSelection.py:76
 msgid "Select an image"
-msgstr ""
+msgstr "Виберіть зображення"
 
 #: ../menulibre/MenulibreIconSelection.py:84
 msgid "Images"
-msgstr ""
+msgstr "Зображення"
 
 #. Create a new column.
 #: ../menulibre/MenulibreTreeview.py:60
 msgid "Search Results"
-msgstr ""
+msgstr "Результати пошуку"
 
 #: ../menulibre/MenulibreXdg.py:53
 msgid "New Menu Item"
-msgstr ""
+msgstr "Новий пункт меню"
 
 #: ../menulibre/MenulibreXdg.py:55
 msgid "A small descriptive blurb about this application."
-msgstr ""
+msgstr "Короткий опис програми."
 
 #~ msgid "Image File"
 #~ msgstr "Файл зображення"
