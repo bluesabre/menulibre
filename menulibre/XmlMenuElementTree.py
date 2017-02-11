@@ -242,8 +242,10 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
 
 def model_to_xml_includes(model, model_parent=None, menu_parent=None):
     """Append <Include> elements for any application items that lack categories
-    (e.g. alacarte-created entries)."""
+    in a system directory (e.g. alacarte-created entries), and all items in
+    custom directories."""
 
+    # Looping for all items in directory
     for n_child in range(model.iter_n_children(model_parent)):
         treeiter = model.iter_nth_child(model_parent, n_child)
 
@@ -251,7 +253,18 @@ def model_to_xml_includes(model, model_parent=None, menu_parent=None):
         name, comment, categories, item_type, gicon, icon, desktop, expanded = \
                 model[treeiter][:]
 
-        if item_type == MenuItemTypes.APPLICATION and not categories:
+        # Detecting custom user directories
+        user_directory = False
+        if model_parent and categories:
+            for category in categories.split(';'):
+                if category.startswith('menulibre-'):
+                    user_directory = True
+                    break
+
+        # Items in custom directories by menulibre have a category, but includes
+        # are required otherwise they are dropped by GMenu
+        if item_type == MenuItemTypes.APPLICATION and (
+            not categories or user_directory):
             include = menu_parent.addInclude()
             try:
                 include.addFilename(os.path.basename(desktop))

@@ -987,6 +987,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         else:
             tooltip = _("Cannot add subdirectories to preinstalled"
                         " system paths.")
+        
+        # Debug code
+        # Testing always allowing creating sub directories
+        enabled = True
 
         self.actions['add_directory'].set_sensitive(enabled)
         for widget in self.action_items['add_directory']:
@@ -1415,33 +1419,49 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon_name = "application-default-icon"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
-        new_row_data = [name, comment, categories, item_type, icon, icon_name, filename]
+        new_row_data = [name, comment, categories, item_type, icon, icon_name,
+                        filename]
 
         model, parent_data = self.treeview.get_parent_row_data()
         model, row_data = self.treeview.get_selected_row_data()
 
-        # Currently selected item is a directory, take its categories.
+        # Add to the treeview on the current level or as a child of a selected
+        # directory
         dir_selected = row_data[3] == MenuItemTypes.DIRECTORY
         if dir_selected:
             self.treeview.add_child(new_row_data)
-
-        # Currently selected item is not a directory, but has a parent.
         else:
             self.treeview.append(new_row_data)
 
-        # If a parent item was found, use its categories for this launcher.
-        if parent_data is not None:
-            # Parent was found, take its categories.
+        # A parent item has been found, and the current selection is not a
+        # directory, so the resulting item will be placed at the current level -
+        # fetch the parent's categories
+        if parent_data is not None and not dir_selected:
             categories = util.getRequiredCategories(parent_data[6])
-        elif dir_selected:
-            # A parent item has not been found, however a directory has been
-            # selected - this means its a top-level directory, and the launcher
-            # will be added into it (e.g. as the first item), therefore it
-            # essentially has a parent of the current selection
+
+            # Debug code
+            #print('Launcher addition category determination: parent_data is not'
+            #      ' None and not dir_selected, categories: %s' % categories)
+
+        elif parent_data is not None and dir_selected:
+
+            # A directory lower than the top-level has been selected - the
+            # launcher will be added into it (e.g. as the first item), therefore
+            # it essentially has a parent of the current selection
             categories = util.getRequiredCategories(row_data[6])
+
+            # Debug code
+            #print('Launcher addition category determination: dir_selected, '
+            #      'categories: %s' % categories)
+
         else:
+
             # Parent was not found, this is a toplevel category
             categories = util.getRequiredCategories(None)
+
+            # Debug code
+            #print('Launcher addition category determination: else, categories: '
+            #      '%s' % categories)
 
         self.set_editor_categories(';'.join(categories))
 

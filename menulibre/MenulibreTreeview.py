@@ -389,7 +389,7 @@ class Treeview(GObject.GObject):
         if filename is not None:
             basename = getBasename(filename)
             original = util.getSystemLauncherPath(basename)
-            item_type = model[treeiter][2]
+            item_type = model[treeiter][3]
             if original is None and item_type == MenuItemTypes.DIRECTORY:
                 pass
             else:
@@ -593,8 +593,10 @@ class Treeview(GObject.GObject):
             while parent is not None:
                 parent_filename = model[parent][6]
                 # Do not do this method if this is a known system directory.
-                if getBasename(parent_filename).startswith(menu_prefix):
-                    menu_install = False
+                # Debug code
+                # Testing if this is safe
+#                 if getBasename(parent_filename).startswith(menu_prefix):
+#                     menu_install = False
                 parents.append(parent_filename)
                 parent = model.iter_parent(parent)
             parents.reverse()
@@ -691,7 +693,7 @@ class Treeview(GObject.GObject):
         sel = treeview.get_selection().get_selected()
         if sel:
             model, selected_iter = sel
-            selected_type = model[selected_iter][2]
+            selected_type = model[selected_iter][3]
 
             # Get current required categories
             model, parent = self.get_parent(model, selected_iter)
@@ -713,7 +715,7 @@ class Treeview(GObject.GObject):
                 move_down = False
 
                 # What is the neighboring item?
-                sibling_type = model[sibling_iter][2]
+                sibling_type = model[sibling_iter][3]
 
                 # Sibling Directory
                 if sibling_type == MenuItemTypes.DIRECTORY:
