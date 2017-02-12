@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-08-27 19:40-0400\n"
+"POT-Creation-Date: 2017-02-11 23:14-0500\n"
 "PO-Revision-Date: 2014-06-16 20:07+0000\n"
 "Last-Translator: Ibai Oihanguren Sala <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-28 06:31+0000\n"
-"X-Generator: Launchpad (build 18179)\n"
+"X-Launchpad-Export-Date: 2017-02-12 06:13+0000\n"
+"X-Generator: Launchpad (build 18326)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -141,8 +141,8 @@ msgid "Browse Files..."
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/Dialogs.py:38
-#: ../menulibre/MenulibreApplication.py:237
-#: ../menulibre/MenulibreApplication.py:276
+#: ../menulibre/MenulibreApplication.py:242
+#: ../menulibre/MenulibreApplication.py:281
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
@@ -150,59 +150,63 @@ msgstr "MenuLibre"
 msgid "Save Launcher"
 msgstr "Gorde abiarazlea"
 
-#: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:342
+#: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:348
 msgid "Undo"
 msgstr "Desegin"
 
-#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:349
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:355
 msgid "Redo"
 msgstr "Berregin"
 
-#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:356
+#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:362
 msgid "Revert"
 msgstr "Leheneratu"
 
-#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:363
+#: ../data/ui/MenulibreWindow.ui.h:32
+msgid "Test Launcher"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:33 ../menulibre/MenulibreApplication.py:376
 msgid "Delete"
 msgstr "Ezabatu"
 
-#: ../data/ui/MenulibreWindow.ui.h:33
+#: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Move Up"
 msgstr "Eraman gora"
 
-#: ../data/ui/MenulibreWindow.ui.h:34
+#: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Move Down"
 msgstr "Eraman behera"
 
-#: ../data/ui/MenulibreWindow.ui.h:35
+#: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Sort alphabetically"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:36
+#: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Sort"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:37
+#: ../data/ui/MenulibreWindow.ui.h:38
 msgid "<small><i>Filename</i></small>"
 msgstr "<small><i>Fitxategi-izena</i></small>"
 
-#: ../data/ui/MenulibreWindow.ui.h:38
+#: ../data/ui/MenulibreWindow.ui.h:39
 msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>Aplikazioaren izena</b></big>"
 
-#: ../data/ui/MenulibreWindow.ui.h:39
+#: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Application Name"
 msgstr "Aplikazioaren izena"
 
-#: ../data/ui/MenulibreWindow.ui.h:40
+#: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Application Comment"
 msgstr "Aplikazioaren iruzkina"
 
-#: ../data/ui/MenulibreWindow.ui.h:41 ../menulibre/MenulibreApplication.py:683
+#: ../data/ui/MenulibreWindow.ui.h:42 ../menulibre/MenulibreApplication.py:701
 msgid "Description"
 msgstr "Deskribapena"
 
-#: ../data/ui/MenulibreWindow.ui.h:42
+#: ../data/ui/MenulibreWindow.ui.h:43
 msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable "
 "is not set to \"True\" or if you need compatibility with implementations "
@@ -211,102 +215,102 @@ msgid ""
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:44
+#: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Command"
 msgstr "Agindua"
 
-#: ../data/ui/MenulibreWindow.ui.h:45
+#: ../data/ui/MenulibreWindow.ui.h:46
 msgid "The working directory."
 msgstr "Laneko direktorioa."
 
-#: ../data/ui/MenulibreWindow.ui.h:46
+#: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Working Directory"
 msgstr "Lan-direktorioa"
 
-#: ../data/ui/MenulibreWindow.ui.h:47
+#: ../data/ui/MenulibreWindow.ui.h:48
 msgid "<b>Application Details</b>"
 msgstr "<b>Aplikazioaren xehetasunak</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:48
+#: ../data/ui/MenulibreWindow.ui.h:49
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr "\"True\" balioarekin, programa terminal leiho batean exekutatuko da."
 
-#: ../data/ui/MenulibreWindow.ui.h:49
+#: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Run in terminal"
 msgstr "Exekutatu terminalean"
 
-#: ../data/ui/MenulibreWindow.ui.h:50
+#: ../data/ui/MenulibreWindow.ui.h:51
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:51
+#: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Use startup notification"
 msgstr "Erabili abioko jakinarazpena"
 
-#: ../data/ui/MenulibreWindow.ui.h:52
+#: ../data/ui/MenulibreWindow.ui.h:53
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:53
+#: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Hide from menus"
 msgstr "Ezkutatu menuetatik"
 
-#: ../data/ui/MenulibreWindow.ui.h:54
+#: ../data/ui/MenulibreWindow.ui.h:55
 msgid "<b>Options</b>"
 msgstr "<b>Aukerak</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:55
+#: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Add"
 msgstr "Gehitu"
 
-#: ../data/ui/MenulibreWindow.ui.h:56
+#: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Remove"
 msgstr "Kendu"
 
-#: ../data/ui/MenulibreWindow.ui.h:57
+#: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Clear"
 msgstr "Garbitu"
 
-#: ../data/ui/MenulibreWindow.ui.h:58
+#: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Show"
 msgstr "Erakutsi"
 
-#: ../data/ui/MenulibreWindow.ui.h:59
+#: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Name"
 msgstr "Izena"
 
-#: ../data/ui/MenulibreWindow.ui.h:60
+#: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Select an icon…"
 msgstr "Hautatu ikono bat..."
 
-#: ../data/ui/MenulibreWindow.ui.h:61 ../menulibre/Dialogs.py:62
+#: ../data/ui/MenulibreWindow.ui.h:62 ../menulibre/Dialogs.py:62
 #: ../menulibre/Dialogs.py:85 ../menulibre/Dialogs.py:101
 #: ../menulibre/Dialogs.py:124 ../menulibre/Dialogs.py:132
 #: ../menulibre/MenulibreIconSelection.py:79
 msgid "Cancel"
 msgstr "Utzi"
 
-#: ../data/ui/MenulibreWindow.ui.h:62
+#: ../data/ui/MenulibreWindow.ui.h:63
 msgid "Apply"
 msgstr "Aplikatu"
 
-#: ../data/ui/MenulibreWindow.ui.h:63
+#: ../data/ui/MenulibreWindow.ui.h:64
 msgid "<b>Select an icon</b>"
 msgstr "<b>Hautatu ikono bat</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:64
+#: ../data/ui/MenulibreWindow.ui.h:65
 msgid "Search"
 msgstr "Bilatu"
 
-#: ../data/ui/MenulibreWindow.ui.h:65
+#: ../data/ui/MenulibreWindow.ui.h:66
 msgid "column"
 msgstr "zutabea"
 
-#: ../data/ui/MenulibreWindow.ui.h:66
+#: ../data/ui/MenulibreWindow.ui.h:67
 msgid "Search terms…"
 msgstr "Bilaketa-terminoak..."
 
@@ -359,7 +363,7 @@ msgid "Don't Save"
 msgstr "Ez gorde"
 
 #: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:102
-#: ../menulibre/MenulibreApplication.py:335
+#: ../menulibre/MenulibreApplication.py:341
 msgid "Save"
 msgstr "Gorde"
 
@@ -395,252 +399,260 @@ msgstr "Leheneratu abiarazlea"
 msgid "OK"
 msgstr "Ados"
 
-#: ../menulibre/MenuEditor.py:87 ../menulibre/MenulibreApplication.py:1029
-#: ../menulibre/MenulibreApplication.py:1470
+#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1051
+#: ../menulibre/MenulibreApplication.py:1510
 msgid "Separator"
 msgstr "Bereizlea"
 
 #. Standard Items
-#: ../menulibre/MenulibreApplication.py:40
+#: ../menulibre/MenulibreApplication.py:45
 msgid "Multimedia"
 msgstr "Multimedia"
 
-#: ../menulibre/MenulibreApplication.py:41
+#: ../menulibre/MenulibreApplication.py:46
 msgid "Development"
 msgstr "Garapena"
 
-#: ../menulibre/MenulibreApplication.py:42
+#: ../menulibre/MenulibreApplication.py:47
 msgid "Education"
 msgstr "Hezkuntza"
 
-#: ../menulibre/MenulibreApplication.py:43
+#: ../menulibre/MenulibreApplication.py:48
 msgid "Games"
 msgstr "Jokoak"
 
-#: ../menulibre/MenulibreApplication.py:44
+#: ../menulibre/MenulibreApplication.py:49
 msgid "Graphics"
 msgstr "Grafikoak"
 
-#: ../menulibre/MenulibreApplication.py:45
+#: ../menulibre/MenulibreApplication.py:50
 msgid "Internet"
 msgstr "Internet"
 
-#: ../menulibre/MenulibreApplication.py:46
+#: ../menulibre/MenulibreApplication.py:51
 msgid "Office"
 msgstr "Bulegoa"
 
-#: ../menulibre/MenulibreApplication.py:47
+#: ../menulibre/MenulibreApplication.py:52
 msgid "Settings"
 msgstr "Ezarpenak"
 
-#: ../menulibre/MenulibreApplication.py:48
+#: ../menulibre/MenulibreApplication.py:53
 msgid "System"
 msgstr "Sistema"
 
-#: ../menulibre/MenulibreApplication.py:49
+#: ../menulibre/MenulibreApplication.py:54
 msgid "Accessories"
 msgstr "Gehigarriak"
 
-#: ../menulibre/MenulibreApplication.py:50
+#: ../menulibre/MenulibreApplication.py:55
 msgid "WINE"
 msgstr "WINE"
 
 #. Desktop Environment
-#: ../menulibre/MenulibreApplication.py:52
+#: ../menulibre/MenulibreApplication.py:57
 msgid "Desktop configuration"
 msgstr "Mahaigainaren konfigurazioa"
 
-#: ../menulibre/MenulibreApplication.py:53
+#: ../menulibre/MenulibreApplication.py:58
 msgid "User configuration"
 msgstr "Erabiltzaile-konfigurazioa"
 
-#: ../menulibre/MenulibreApplication.py:54
+#: ../menulibre/MenulibreApplication.py:59
 msgid "Hardware configuration"
 msgstr "Hardware-konfigurazioa"
 
 #. GNOME Specific
-#: ../menulibre/MenulibreApplication.py:56
+#: ../menulibre/MenulibreApplication.py:61
 msgid "GNOME application"
 msgstr "GNOME aplikazioa"
 
-#: ../menulibre/MenulibreApplication.py:57
+#: ../menulibre/MenulibreApplication.py:62
 msgid "GTK+ application"
 msgstr "GTK+ aplikazioa"
 
-#: ../menulibre/MenulibreApplication.py:58
+#: ../menulibre/MenulibreApplication.py:63
 msgid "GNOME user configuration"
 msgstr "GNOMErako erabiltzaile-konfigurazioa"
 
-#: ../menulibre/MenulibreApplication.py:59
+#: ../menulibre/MenulibreApplication.py:64
 msgid "GNOME hardware configuration"
 msgstr "GNOMErako hardware-konfigurazioa"
 
-#: ../menulibre/MenulibreApplication.py:60
-#: ../menulibre/MenulibreApplication.py:61
+#: ../menulibre/MenulibreApplication.py:65
+#: ../menulibre/MenulibreApplication.py:66
 msgid "GNOME system configuration"
 msgstr "GNOMErako sistema-konfigurazioa"
 
 #. Xfce Specific
-#: ../menulibre/MenulibreApplication.py:63
-#: ../menulibre/MenulibreApplication.py:64
+#: ../menulibre/MenulibreApplication.py:68
+#: ../menulibre/MenulibreApplication.py:69
 msgid "Xfce menu item"
 msgstr "Xfce menu-elementua"
 
-#: ../menulibre/MenulibreApplication.py:65
+#: ../menulibre/MenulibreApplication.py:70
 msgid "Xfce toplevel menu item"
 msgstr "Xfce-rako goi mailako menu-elementua"
 
-#: ../menulibre/MenulibreApplication.py:66
+#: ../menulibre/MenulibreApplication.py:71
 msgid "Xfce user configuration"
 msgstr "Xfce-rako erabiltzaile-konfigurazioa"
 
-#: ../menulibre/MenulibreApplication.py:67
+#: ../menulibre/MenulibreApplication.py:72
 msgid "Xfce hardware configuration"
 msgstr "Xfce-rako hardware-konfigurazioa"
 
-#: ../menulibre/MenulibreApplication.py:68
-#: ../menulibre/MenulibreApplication.py:69
+#: ../menulibre/MenulibreApplication.py:73
+#: ../menulibre/MenulibreApplication.py:74
 msgid "Xfce system configuration"
 msgstr "Xfce-rako sistema-konfigurazioa"
 
-#: ../menulibre/MenulibreApplication.py:117
-#: ../menulibre/MenulibreApplication.py:162
+#: ../menulibre/MenulibreApplication.py:122
+#: ../menulibre/MenulibreApplication.py:167
 msgid "Other"
 msgstr "Bestelakoa"
 
-#: ../menulibre/MenulibreApplication.py:214
+#: ../menulibre/MenulibreApplication.py:219
 msgid "MenuLibre cannot be run as root."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:215
+#: ../menulibre/MenulibreApplication.py:220
 msgid ""
 "Please see the <a "
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
 "documentation</a> for more information."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:313
+#: ../menulibre/MenulibreApplication.py:319
 msgid "Add _Launcher..."
 msgstr "Gehitu _abiarazlea..."
 
-#: ../menulibre/MenulibreApplication.py:314
+#: ../menulibre/MenulibreApplication.py:320
 msgid "Add Launcher..."
 msgstr "Gehitu abiarazlea..."
 
-#: ../menulibre/MenulibreApplication.py:320
+#: ../menulibre/MenulibreApplication.py:326
 msgid "Add _Directory..."
 msgstr "Gehitu _direktorioa..."
 
-#: ../menulibre/MenulibreApplication.py:321
+#: ../menulibre/MenulibreApplication.py:327
 msgid "Add Directory..."
 msgstr "Gehitu direktorioa..."
 
-#: ../menulibre/MenulibreApplication.py:327
+#: ../menulibre/MenulibreApplication.py:333
 msgid "_Add Separator..."
 msgstr "Gehitu _bereizlea..."
 
-#: ../menulibre/MenulibreApplication.py:328
+#: ../menulibre/MenulibreApplication.py:334
 msgid "Add Separator..."
 msgstr "Gehitu _bereizlea..."
 
-#: ../menulibre/MenulibreApplication.py:334
+#: ../menulibre/MenulibreApplication.py:340
 msgid "_Save"
 msgstr "_Gorde"
 
-#: ../menulibre/MenulibreApplication.py:341
+#: ../menulibre/MenulibreApplication.py:347
 msgid "_Undo"
 msgstr "_Desegin"
 
-#: ../menulibre/MenulibreApplication.py:348
+#: ../menulibre/MenulibreApplication.py:354
 msgid "_Redo"
 msgstr "_Berregin"
 
-#: ../menulibre/MenulibreApplication.py:355
+#: ../menulibre/MenulibreApplication.py:361
 msgid "_Revert"
 msgstr "_Leheneratu"
 
-#: ../menulibre/MenulibreApplication.py:362
+#: ../menulibre/MenulibreApplication.py:368
+msgid "_Execute"
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:369
+msgid "Execute Launcher"
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:375
 msgid "_Delete"
 msgstr "_Ezabatu"
 
-#: ../menulibre/MenulibreApplication.py:369
+#: ../menulibre/MenulibreApplication.py:382
 msgid "_Quit"
 msgstr "_Irten"
 
-#: ../menulibre/MenulibreApplication.py:370
-#: ../menulibre/MenulibreApplication.py:1743
+#: ../menulibre/MenulibreApplication.py:383
+#: ../menulibre/MenulibreApplication.py:1832
 msgid "Quit"
 msgstr "Irten"
 
-#: ../menulibre/MenulibreApplication.py:376
+#: ../menulibre/MenulibreApplication.py:389
 msgid "_Contents"
 msgstr "_Edukiak"
 
-#: ../menulibre/MenulibreApplication.py:377
-#: ../menulibre/MenulibreApplication.py:1741
+#: ../menulibre/MenulibreApplication.py:390
+#: ../menulibre/MenulibreApplication.py:1830
 msgid "Help"
 msgstr "Laguntza"
 
-#: ../menulibre/MenulibreApplication.py:383
+#: ../menulibre/MenulibreApplication.py:396
 msgid "_About"
 msgstr "_Honi buruz"
 
-#: ../menulibre/MenulibreApplication.py:384
-#: ../menulibre/MenulibreApplication.py:1742
+#: ../menulibre/MenulibreApplication.py:397
+#: ../menulibre/MenulibreApplication.py:1831
 msgid "About"
 msgstr "Honi buruz"
 
-#: ../menulibre/MenulibreApplication.py:506
+#: ../menulibre/MenulibreApplication.py:524
 msgid "Categories"
 msgstr "Kategoriak"
 
-#: ../menulibre/MenulibreApplication.py:508
+#: ../menulibre/MenulibreApplication.py:526
 msgid "Actions"
 msgstr "Ekintzak"
 
-#: ../menulibre/MenulibreApplication.py:510
+#: ../menulibre/MenulibreApplication.py:528
 msgid "Advanced"
 msgstr "Aurreratua"
 
-#: ../menulibre/MenulibreApplication.py:657
+#: ../menulibre/MenulibreApplication.py:675
 msgid "ThisEntry"
 msgstr "SarreraHau"
 
-#: ../menulibre/MenulibreApplication.py:675
+#: ../menulibre/MenulibreApplication.py:693
 msgid "Select a category"
 msgstr "Hautatu kategoria bat"
 
-#: ../menulibre/MenulibreApplication.py:678
+#: ../menulibre/MenulibreApplication.py:696
 msgid "Category Name"
 msgstr "Kategoriaren izena"
 
-#: ../menulibre/MenulibreApplication.py:762
+#: ../menulibre/MenulibreApplication.py:780
 msgid "This Entry"
 msgstr "Sarrera hau"
 
-#: ../menulibre/MenulibreApplication.py:817
+#: ../menulibre/MenulibreApplication.py:835
 msgid "New Shortcut"
 msgstr "Laster-tekla berria"
 
-#: ../menulibre/MenulibreApplication.py:963
+#: ../menulibre/MenulibreApplication.py:981
 msgid "Select a working directory..."
 msgstr "Hautatu lan-direktorio bat..."
 
-#: ../menulibre/MenulibreApplication.py:966
+#: ../menulibre/MenulibreApplication.py:984
 msgid "Select an executable..."
 msgstr "Hautatu exekutagarri bat..."
 
-#: ../menulibre/MenulibreApplication.py:988
+#: ../menulibre/MenulibreApplication.py:1006
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 "Ezin da azpidirektoriorik gehitu aurreinstalatutako sistemaren bide-izenetan."
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1078
+#: ../menulibre/MenulibreApplication.py:1102
 msgid "No Longer Installed"
 msgstr "Orain ez dago instalatuta"
 
-#: ../menulibre/MenulibreApplication.py:1079
+#: ../menulibre/MenulibreApplication.py:1103
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -648,23 +660,28 @@ msgstr ""
 "Abiarazlea sistematik ezabatu da.\n"
 "Hurrengo elementu eskuragarria hautatzen."
 
-#: ../menulibre/MenulibreApplication.py:1179
+#: ../menulibre/MenulibreApplication.py:1203
 msgid "You do not have permission to delete this file."
 msgstr "Ez duzu fitxategi hau ezabatzeko baimenik."
 
-#: ../menulibre/MenulibreApplication.py:1411
+#: ../menulibre/MenulibreApplication.py:1435
 msgid "New Launcher"
 msgstr "Abiarazle berria"
 
-#: ../menulibre/MenulibreApplication.py:1453
+#: ../menulibre/MenulibreApplication.py:1493
 msgid "New Directory"
 msgstr "Direktorio berria"
 
-#: ../menulibre/MenulibreApplication.py:1690
+#: ../menulibre/MenulibreApplication.py:1757
+#, python-format
+msgid "Could not find \"%s\" in your PATH."
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:1779
 msgid "Are you sure you want to delete this separator?"
 msgstr "Ziur bereizle hau ezabatu nahi duzula?"
 
-#: ../menulibre/MenulibreApplication.py:1693
+#: ../menulibre/MenulibreApplication.py:1782
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Ziur \"%s\" ezabatu nahi duzula?"

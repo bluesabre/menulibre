@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-27 19:40-0400\n"
+"POT-Creation-Date: 2017-02-11 23:14-0500\n"
 "PO-Revision-Date: 2014-03-13 11:10+0000\n"
 "Last-Translator: Filippos Kolyvas <Unknown>\n"
 "Language-Team: Greek <el@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-28 06:32+0000\n"
-"X-Generator: Launchpad (build 18179)\n"
+"X-Launchpad-Export-Date: 2017-02-12 06:13+0000\n"
+"X-Generator: Launchpad (build 18326)\n"
 "Language: el\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -169,8 +169,8 @@ msgid "Browse Files..."
 msgstr "Περιήγηση Αρχείων…"
 
 #: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/Dialogs.py:38
-#: ../menulibre/MenulibreApplication.py:237
-#: ../menulibre/MenulibreApplication.py:276
+#: ../menulibre/MenulibreApplication.py:242
+#: ../menulibre/MenulibreApplication.py:281
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
@@ -178,59 +178,63 @@ msgstr "MenuLibre"
 msgid "Save Launcher"
 msgstr "Αποθήκευση Εκκινητή"
 
-#: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:342
+#: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:348
 msgid "Undo"
 msgstr "Αναίρεση"
 
-#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:349
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:355
 msgid "Redo"
 msgstr "Επανάληψη"
 
-#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:356
+#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:362
 msgid "Revert"
 msgstr "Επαναφορά"
 
-#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:363
+#: ../data/ui/MenulibreWindow.ui.h:32
+msgid "Test Launcher"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:33 ../menulibre/MenulibreApplication.py:376
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: ../data/ui/MenulibreWindow.ui.h:33
+#: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Move Up"
 msgstr "Μετακίνηση Επάνω"
 
-#: ../data/ui/MenulibreWindow.ui.h:34
+#: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Move Down"
 msgstr "Μετακίνηση Κάτω"
 
-#: ../data/ui/MenulibreWindow.ui.h:35
+#: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Sort alphabetically"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:36
+#: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Sort"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:37
+#: ../data/ui/MenulibreWindow.ui.h:38
 msgid "<small><i>Filename</i></small>"
 msgstr "<small><i>Όνομα Αρχείου</i></small>"
 
-#: ../data/ui/MenulibreWindow.ui.h:38
+#: ../data/ui/MenulibreWindow.ui.h:39
 msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>Όνομα Εφαρμογής</b></big>"
 
-#: ../data/ui/MenulibreWindow.ui.h:39
+#: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Application Name"
 msgstr "Όνομα Εφαρμογής"
 
-#: ../data/ui/MenulibreWindow.ui.h:40
+#: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Application Comment"
 msgstr "Σχόλιο Εφαρμογής"
 
-#: ../data/ui/MenulibreWindow.ui.h:41 ../menulibre/MenulibreApplication.py:683
+#: ../data/ui/MenulibreWindow.ui.h:42 ../menulibre/MenulibreApplication.py:701
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: ../data/ui/MenulibreWindow.ui.h:42
+#: ../data/ui/MenulibreWindow.ui.h:43
 msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable "
 "is not set to \"True\" or if you need compatibility with implementations "
@@ -245,33 +249,33 @@ msgstr ""
 "spec-latest.html#exec-variables για μια λίστα με τα ορίσματα που "
 "υποστηρίζονται."
 
-#: ../data/ui/MenulibreWindow.ui.h:44
+#: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Command"
 msgstr "Εντολή"
 
-#: ../data/ui/MenulibreWindow.ui.h:45
+#: ../data/ui/MenulibreWindow.ui.h:46
 msgid "The working directory."
 msgstr "Ο κατάλογος εργασίας."
 
-#: ../data/ui/MenulibreWindow.ui.h:46
+#: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Working Directory"
 msgstr "Κατάλογος Εργασίας"
 
-#: ../data/ui/MenulibreWindow.ui.h:47
+#: ../data/ui/MenulibreWindow.ui.h:48
 msgid "<b>Application Details</b>"
 msgstr "<b>Λεπτομέρειες Εφαρμογής</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:48
+#: ../data/ui/MenulibreWindow.ui.h:49
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
 "Εάν έχει οριστεί ως \"Αληθές\", το πρόγραμμα θα τρέξει σε ένα παράθυρο του "
 "τερματικού."
 
-#: ../data/ui/MenulibreWindow.ui.h:49
+#: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Run in terminal"
 msgstr "Εκτέλεση στο τερματικό"
 
-#: ../data/ui/MenulibreWindow.ui.h:50
+#: ../data/ui/MenulibreWindow.ui.h:51
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
@@ -280,11 +284,11 @@ msgstr ""
 "αυτό σημαίνει ότι ο κέρσορας φαίνεται απασχολημένος κατά την εκκίνηση της "
 "εφαρμογής."
 
-#: ../data/ui/MenulibreWindow.ui.h:51
+#: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Use startup notification"
 msgstr "Χρήση της ειδοποίησης έναρξης"
 
-#: ../data/ui/MenulibreWindow.ui.h:52
+#: ../data/ui/MenulibreWindow.ui.h:53
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
@@ -292,62 +296,62 @@ msgstr ""
 "Εάν έχει οριστεί ως \"Αληθές\", η καταχώρηση αυτή δε θα εμφανίζεται στα "
 "μενού, αλλά θα είναι διαθέσιμη για συσχετισμούς τύπων MIME κλπ."
 
-#: ../data/ui/MenulibreWindow.ui.h:53
+#: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Hide from menus"
 msgstr "Απόκρυψη από τα μενού"
 
-#: ../data/ui/MenulibreWindow.ui.h:54
+#: ../data/ui/MenulibreWindow.ui.h:55
 msgid "<b>Options</b>"
 msgstr "<b>Επιλογές</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:55
+#: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Add"
 msgstr "Προσθήκη"
 
-#: ../data/ui/MenulibreWindow.ui.h:56
+#: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: ../data/ui/MenulibreWindow.ui.h:57
+#: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Clear"
 msgstr "Εκκαθάριση"
 
-#: ../data/ui/MenulibreWindow.ui.h:58
+#: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Show"
 msgstr "Εμφάνιση"
 
-#: ../data/ui/MenulibreWindow.ui.h:59
+#: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Name"
 msgstr "Όνομα"
 
-#: ../data/ui/MenulibreWindow.ui.h:60
+#: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Select an icon…"
 msgstr "Επιλογή εικονιδίου..."
 
-#: ../data/ui/MenulibreWindow.ui.h:61 ../menulibre/Dialogs.py:62
+#: ../data/ui/MenulibreWindow.ui.h:62 ../menulibre/Dialogs.py:62
 #: ../menulibre/Dialogs.py:85 ../menulibre/Dialogs.py:101
 #: ../menulibre/Dialogs.py:124 ../menulibre/Dialogs.py:132
 #: ../menulibre/MenulibreIconSelection.py:79
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: ../data/ui/MenulibreWindow.ui.h:62
+#: ../data/ui/MenulibreWindow.ui.h:63
 msgid "Apply"
 msgstr "Εφαρμογή"
 
-#: ../data/ui/MenulibreWindow.ui.h:63
+#: ../data/ui/MenulibreWindow.ui.h:64
 msgid "<b>Select an icon</b>"
 msgstr "<b>Επιλογή εικονιδίου</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:64
+#: ../data/ui/MenulibreWindow.ui.h:65
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: ../data/ui/MenulibreWindow.ui.h:65
+#: ../data/ui/MenulibreWindow.ui.h:66
 msgid "column"
 msgstr "στήλη"
 
-#: ../data/ui/MenulibreWindow.ui.h:66
+#: ../data/ui/MenulibreWindow.ui.h:67
 msgid "Search terms…"
 msgstr "Όροι αναζήτησης..."
 
@@ -401,7 +405,7 @@ msgid "Don't Save"
 msgstr "Χωρίς Αποθήκευση"
 
 #: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:102
-#: ../menulibre/MenulibreApplication.py:335
+#: ../menulibre/MenulibreApplication.py:341
 msgid "Save"
 msgstr "Αποθήκευση"
 
@@ -438,124 +442,124 @@ msgstr "Επαναφορά Εκκινητή"
 msgid "OK"
 msgstr "Εντάξει"
 
-#: ../menulibre/MenuEditor.py:87 ../menulibre/MenulibreApplication.py:1029
-#: ../menulibre/MenulibreApplication.py:1470
+#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1051
+#: ../menulibre/MenulibreApplication.py:1510
 msgid "Separator"
 msgstr "Διαχωριστής"
 
 #. Standard Items
-#: ../menulibre/MenulibreApplication.py:40
+#: ../menulibre/MenulibreApplication.py:45
 msgid "Multimedia"
 msgstr "Πολυμέσα"
 
-#: ../menulibre/MenulibreApplication.py:41
+#: ../menulibre/MenulibreApplication.py:46
 msgid "Development"
 msgstr "Ανάπτυξη Λογισμικού"
 
-#: ../menulibre/MenulibreApplication.py:42
+#: ../menulibre/MenulibreApplication.py:47
 msgid "Education"
 msgstr "Εκπαίδευση"
 
-#: ../menulibre/MenulibreApplication.py:43
+#: ../menulibre/MenulibreApplication.py:48
 msgid "Games"
 msgstr "Παιχνίδια"
 
-#: ../menulibre/MenulibreApplication.py:44
+#: ../menulibre/MenulibreApplication.py:49
 msgid "Graphics"
 msgstr "Γραφικά"
 
-#: ../menulibre/MenulibreApplication.py:45
+#: ../menulibre/MenulibreApplication.py:50
 msgid "Internet"
 msgstr "Διαδίκτυο"
 
-#: ../menulibre/MenulibreApplication.py:46
+#: ../menulibre/MenulibreApplication.py:51
 msgid "Office"
 msgstr "Εφαρμογές Γραφείου"
 
-#: ../menulibre/MenulibreApplication.py:47
+#: ../menulibre/MenulibreApplication.py:52
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
-#: ../menulibre/MenulibreApplication.py:48
+#: ../menulibre/MenulibreApplication.py:53
 msgid "System"
 msgstr "Σύστημα"
 
-#: ../menulibre/MenulibreApplication.py:49
+#: ../menulibre/MenulibreApplication.py:54
 msgid "Accessories"
 msgstr "Βοηθήματα"
 
-#: ../menulibre/MenulibreApplication.py:50
+#: ../menulibre/MenulibreApplication.py:55
 msgid "WINE"
 msgstr "WINE"
 
 #. Desktop Environment
-#: ../menulibre/MenulibreApplication.py:52
+#: ../menulibre/MenulibreApplication.py:57
 msgid "Desktop configuration"
 msgstr "Διαμόρφωση επιφάνειας εργασίας"
 
-#: ../menulibre/MenulibreApplication.py:53
+#: ../menulibre/MenulibreApplication.py:58
 msgid "User configuration"
 msgstr "Διαμόρφωση χρήστη"
 
-#: ../menulibre/MenulibreApplication.py:54
+#: ../menulibre/MenulibreApplication.py:59
 msgid "Hardware configuration"
 msgstr "Διαμόρφωση υλικού"
 
 #. GNOME Specific
-#: ../menulibre/MenulibreApplication.py:56
+#: ../menulibre/MenulibreApplication.py:61
 msgid "GNOME application"
 msgstr "Εφαρμογή GNOME"
 
-#: ../menulibre/MenulibreApplication.py:57
+#: ../menulibre/MenulibreApplication.py:62
 msgid "GTK+ application"
 msgstr "Εφαρμογή GTK+"
 
-#: ../menulibre/MenulibreApplication.py:58
+#: ../menulibre/MenulibreApplication.py:63
 msgid "GNOME user configuration"
 msgstr "Διαμόρφωση χρήστη GNOME"
 
-#: ../menulibre/MenulibreApplication.py:59
+#: ../menulibre/MenulibreApplication.py:64
 msgid "GNOME hardware configuration"
 msgstr "Διαμόρφωση υλικού GNOME"
 
-#: ../menulibre/MenulibreApplication.py:60
-#: ../menulibre/MenulibreApplication.py:61
+#: ../menulibre/MenulibreApplication.py:65
+#: ../menulibre/MenulibreApplication.py:66
 msgid "GNOME system configuration"
 msgstr "Διαμόρφωση συστήματος GNOME"
 
 #. Xfce Specific
-#: ../menulibre/MenulibreApplication.py:63
-#: ../menulibre/MenulibreApplication.py:64
+#: ../menulibre/MenulibreApplication.py:68
+#: ../menulibre/MenulibreApplication.py:69
 msgid "Xfce menu item"
 msgstr "Αντικέιμενο μενού Xfce"
 
-#: ../menulibre/MenulibreApplication.py:65
+#: ../menulibre/MenulibreApplication.py:70
 msgid "Xfce toplevel menu item"
 msgstr "Αντικέιμενο μενού υψηλού επιπέδου Xfce"
 
-#: ../menulibre/MenulibreApplication.py:66
+#: ../menulibre/MenulibreApplication.py:71
 msgid "Xfce user configuration"
 msgstr "Διαμόρφωση χρήστη Xfce"
 
-#: ../menulibre/MenulibreApplication.py:67
+#: ../menulibre/MenulibreApplication.py:72
 msgid "Xfce hardware configuration"
 msgstr "Διαμόρφωση υλικού Xfce"
 
-#: ../menulibre/MenulibreApplication.py:68
-#: ../menulibre/MenulibreApplication.py:69
+#: ../menulibre/MenulibreApplication.py:73
+#: ../menulibre/MenulibreApplication.py:74
 msgid "Xfce system configuration"
 msgstr "Διαμόρφωση συστήματος Xfce"
 
-#: ../menulibre/MenulibreApplication.py:117
-#: ../menulibre/MenulibreApplication.py:162
+#: ../menulibre/MenulibreApplication.py:122
+#: ../menulibre/MenulibreApplication.py:167
 msgid "Other"
 msgstr "'Αλλο"
 
-#: ../menulibre/MenulibreApplication.py:214
+#: ../menulibre/MenulibreApplication.py:219
 msgid "MenuLibre cannot be run as root."
 msgstr "Το MenuLibre δε μπορεί να τρέξει ως root."
 
-#: ../menulibre/MenulibreApplication.py:215
+#: ../menulibre/MenulibreApplication.py:220
 msgid ""
 "Please see the <a "
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
@@ -565,129 +569,137 @@ msgstr ""
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>τεκμηρίωση στο "
 "διαδίκτυο</a> για περισσότερες πληροφορίες."
 
-#: ../menulibre/MenulibreApplication.py:313
+#: ../menulibre/MenulibreApplication.py:319
 msgid "Add _Launcher..."
 msgstr "Προσθήκη_Εκκινητή..."
 
-#: ../menulibre/MenulibreApplication.py:314
+#: ../menulibre/MenulibreApplication.py:320
 msgid "Add Launcher..."
 msgstr "Προσθήκη Εκκινητή..."
 
-#: ../menulibre/MenulibreApplication.py:320
+#: ../menulibre/MenulibreApplication.py:326
 msgid "Add _Directory..."
 msgstr "Προσθήκη_Καταλόγου..."
 
-#: ../menulibre/MenulibreApplication.py:321
+#: ../menulibre/MenulibreApplication.py:327
 msgid "Add Directory..."
 msgstr "Προσθήκη Καταλόγου..."
 
-#: ../menulibre/MenulibreApplication.py:327
+#: ../menulibre/MenulibreApplication.py:333
 msgid "_Add Separator..."
 msgstr "_Προσθήκη Διαχωριστή..."
 
-#: ../menulibre/MenulibreApplication.py:328
+#: ../menulibre/MenulibreApplication.py:334
 msgid "Add Separator..."
 msgstr "Προσθήκη Διαχωριστή..."
 
-#: ../menulibre/MenulibreApplication.py:334
+#: ../menulibre/MenulibreApplication.py:340
 msgid "_Save"
 msgstr "_Αποθήκευση"
 
-#: ../menulibre/MenulibreApplication.py:341
+#: ../menulibre/MenulibreApplication.py:347
 msgid "_Undo"
 msgstr "_Αναίρεση"
 
-#: ../menulibre/MenulibreApplication.py:348
+#: ../menulibre/MenulibreApplication.py:354
 msgid "_Redo"
 msgstr "_Επανάληψη"
 
-#: ../menulibre/MenulibreApplication.py:355
+#: ../menulibre/MenulibreApplication.py:361
 msgid "_Revert"
 msgstr "_Επαναφορά"
 
-#: ../menulibre/MenulibreApplication.py:362
+#: ../menulibre/MenulibreApplication.py:368
+msgid "_Execute"
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:369
+msgid "Execute Launcher"
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:375
 msgid "_Delete"
 msgstr "_Διαγραφή"
 
-#: ../menulibre/MenulibreApplication.py:369
+#: ../menulibre/MenulibreApplication.py:382
 msgid "_Quit"
 msgstr "_Έξοδος"
 
-#: ../menulibre/MenulibreApplication.py:370
-#: ../menulibre/MenulibreApplication.py:1743
+#: ../menulibre/MenulibreApplication.py:383
+#: ../menulibre/MenulibreApplication.py:1832
 msgid "Quit"
 msgstr "'Εξοδος"
 
-#: ../menulibre/MenulibreApplication.py:376
+#: ../menulibre/MenulibreApplication.py:389
 msgid "_Contents"
 msgstr "_Περιεχόμενα"
 
-#: ../menulibre/MenulibreApplication.py:377
-#: ../menulibre/MenulibreApplication.py:1741
+#: ../menulibre/MenulibreApplication.py:390
+#: ../menulibre/MenulibreApplication.py:1830
 msgid "Help"
 msgstr "Βοήθεια"
 
-#: ../menulibre/MenulibreApplication.py:383
+#: ../menulibre/MenulibreApplication.py:396
 msgid "_About"
 msgstr "_Σχετικά"
 
-#: ../menulibre/MenulibreApplication.py:384
-#: ../menulibre/MenulibreApplication.py:1742
+#: ../menulibre/MenulibreApplication.py:397
+#: ../menulibre/MenulibreApplication.py:1831
 msgid "About"
 msgstr "Σχετικά"
 
-#: ../menulibre/MenulibreApplication.py:506
+#: ../menulibre/MenulibreApplication.py:524
 msgid "Categories"
 msgstr "Κατηγορίες"
 
-#: ../menulibre/MenulibreApplication.py:508
+#: ../menulibre/MenulibreApplication.py:526
 msgid "Actions"
 msgstr "Ενέργειες"
 
-#: ../menulibre/MenulibreApplication.py:510
+#: ../menulibre/MenulibreApplication.py:528
 msgid "Advanced"
 msgstr "Για προχωρημένους"
 
-#: ../menulibre/MenulibreApplication.py:657
+#: ../menulibre/MenulibreApplication.py:675
 msgid "ThisEntry"
 msgstr "Αυτή η καταχώρηση"
 
-#: ../menulibre/MenulibreApplication.py:675
+#: ../menulibre/MenulibreApplication.py:693
 msgid "Select a category"
 msgstr "Επιλογή κατηγορίας"
 
-#: ../menulibre/MenulibreApplication.py:678
+#: ../menulibre/MenulibreApplication.py:696
 msgid "Category Name"
 msgstr "Όνομα Κατηγορίας"
 
-#: ../menulibre/MenulibreApplication.py:762
+#: ../menulibre/MenulibreApplication.py:780
 msgid "This Entry"
 msgstr "Αυτή η Καταχώρηση"
 
-#: ../menulibre/MenulibreApplication.py:817
+#: ../menulibre/MenulibreApplication.py:835
 msgid "New Shortcut"
 msgstr "Νέα Συντόμευση"
 
-#: ../menulibre/MenulibreApplication.py:963
+#: ../menulibre/MenulibreApplication.py:981
 msgid "Select a working directory..."
 msgstr "Επιλογή καταλόγου εργασίας..."
 
-#: ../menulibre/MenulibreApplication.py:966
+#: ../menulibre/MenulibreApplication.py:984
 msgid "Select an executable..."
 msgstr "Επιλογή εκτελέσιμου αρχείου..."
 
-#: ../menulibre/MenulibreApplication.py:988
+#: ../menulibre/MenulibreApplication.py:1006
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 "Δεν είναι δυνατή η προσθήκη υποκαταλόγων σε προεγκατεστημένες διαδρομές "
 "συστήματος."
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1078
+#: ../menulibre/MenulibreApplication.py:1102
 msgid "No Longer Installed"
 msgstr "Όχι Πλέον Εγκατεστημένο"
 
-#: ../menulibre/MenulibreApplication.py:1079
+#: ../menulibre/MenulibreApplication.py:1103
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -695,23 +707,28 @@ msgstr ""
 "Αυτός ο εκκινητής έχει αφαιρεθεί από το σύστημα.\n"
 "Επιλογή του επόμενου διαθέσιμου αντικειμένου."
 
-#: ../menulibre/MenulibreApplication.py:1179
+#: ../menulibre/MenulibreApplication.py:1203
 msgid "You do not have permission to delete this file."
 msgstr "Δεν έχετε άδεια για διαγραφή αυτού του αρχείου."
 
-#: ../menulibre/MenulibreApplication.py:1411
+#: ../menulibre/MenulibreApplication.py:1435
 msgid "New Launcher"
 msgstr "Νέος Εκκινητής"
 
-#: ../menulibre/MenulibreApplication.py:1453
+#: ../menulibre/MenulibreApplication.py:1493
 msgid "New Directory"
 msgstr "Νέος Κατάλογος"
 
-#: ../menulibre/MenulibreApplication.py:1690
+#: ../menulibre/MenulibreApplication.py:1757
+#, python-format
+msgid "Could not find \"%s\" in your PATH."
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:1779
 msgid "Are you sure you want to delete this separator?"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτόν τον διαχωριστή;"
 
-#: ../menulibre/MenulibreApplication.py:1693
+#: ../menulibre/MenulibreApplication.py:1782
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Είστε βέβαιοι ότι θέλετε να  διαγράψετε το \"%s\";"
