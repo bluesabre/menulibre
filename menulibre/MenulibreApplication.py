@@ -18,6 +18,7 @@
 
 import os
 import re
+import shlex
 import sys
 
 import subprocess
@@ -1726,9 +1727,17 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         dialog.destroy()
 
     def find_in_path(self, command):
+        if os.path.exists(os.path.abspath(command)):
+            return os.path.abspath(command)
         for path in os.environ["PATH"].split(os.pathsep):
             if os.path.exists(os.path.join(path, command)):
                 return os.path.join(path, command)
+        return False
+
+    def find_command_in_string(self, command):
+        for piece in shlex.split(command):
+            if "=" not in piece:
+                return piece
         return False
 
     def on_execute_cb(self, widget, builder):
@@ -1738,7 +1747,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         filename = self.save_launcher(True)
 
         entry = MenulibreXdg.MenulibreDesktopEntry(filename)
-        command = entry["Exec"].split(" ")[0]
+        command = self.find_command_in_string(entry["Exec"])
 
         if self.find_in_path(command):
             subprocess.Popen(["xdg-open", filename])
