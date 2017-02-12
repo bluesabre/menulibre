@@ -26,6 +26,9 @@ import xml.parsers.expat
 from locale import gettext as _
 from xml.sax.saxutils import escape
 
+import gi
+gi.require_version('GMenu', '3.0')
+
 from gi.repository import GdkPixbuf, Gio, GLib, GMenu, Gtk
 
 from . import util

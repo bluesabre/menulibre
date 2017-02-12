@@ -19,6 +19,10 @@
 import os
 import re
 import sys
+
+import subprocess
+import tempfile
+
 from locale import gettext as _
 
 from gi.repository import Gio, GObject, Gtk, Gdk, GdkPixbuf
@@ -293,6 +297,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         builder.get_object("history_buttons").reparent(headerbar)
 
         self.revert_button.reparent(headerbar)
+        self.execute_button.reparent(headerbar)
         self.delete_button.reparent(headerbar)
 
         headerbar.pack_end(self.search_box)
@@ -356,6 +361,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                             tooltip=_('Revert'),
                                             stock_id=Gtk.STOCK_REVERT_TO_SAVED)
 
+        # Execute
+        self.actions['execute'] = Gtk.Action(
+                                            name='execute',
+                                            label=_('_Execute'),
+                                            tooltip=_('Execute Launcher'),
+                                            stock_id=Gtk.STOCK_MEDIA_PLAY)
+
         # Delete
         self.actions['delete'] = Gtk.Action(
                                             name='delete',
@@ -399,6 +411,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                             self.on_redo_cb)
         self.actions['revert'].connect('activate',
                                             self.on_revert_cb)
+        self.actions['execute'].connect('activate',
+                                            self.on_execute_cb, builder)
         self.actions['delete'].connect('activate',
                                             self.on_delete_cb)
         self.actions['quit'].connect('activate',
@@ -428,7 +442,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Configure the application toolbar."""
         # Configure the Add, Save, Undo, Redo, Revert, Delete widgets.
         for action_name in ['save_launcher', 'undo', 'redo',
-                            'revert', 'delete']:
+                            'revert', 'execute', 'delete']:
             widget = builder.get_object("toolbar_%s" % action_name)
             widget.connect("clicked", self.activate_action_cb, action_name)
 
@@ -453,6 +467,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Configure the Delete widget.
         self.delete_button = builder.get_object('toolbar_delete')
+
+        # Configure the Test Launcher widget.
+        self.execute_button = builder.get_object('toolbar_execute')
 
         # Configure the search widget.
         self.search_box = builder.get_object('toolbar_search')
@@ -987,7 +1004,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         else:
             tooltip = _("Cannot add subdirectories to preinstalled"
                         " system paths.")
-        
+
         # Debug code
         # Testing always allowing creating sub directories
         enabled = True
@@ -1072,10 +1089,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     self.set_value('Actions', entry.get_actions(),
                                                                 store=True)
                     self.set_value('Type', 'Application')
+                    self.execute_button.set_sensitive(True)
                 else:
                     self.set_value('Type', 'Directory')
                     for widget in self.directory_hide_widgets:
                         widget.hide()
+                    self.execute_button.set_sensitive(False)
 
             else:
                 # Display a dialog saying this item is missing
@@ -1502,37 +1521,41 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.treeview.update_menus()
 
-    def save_launcher(self):
+    def save_launcher(self, temp=False):
         """Save the current launcher details."""
-        # Get the filename to be used.
-        original_filename = self.get_value('Filename')
-        item_type = self.get_value('Type')
-        name = self.get_value('Name')
-        filename = util.getSaveFilename(name, original_filename, item_type)
+        if temp:
+            filename = tempfile.mkstemp('.desktop', 'menulibre-')[1]
+        else:
+            # Get the filename to be used.
+            original_filename = self.get_value('Filename')
+            item_type = self.get_value('Type')
+            name = self.get_value('Name')
+            filename = util.getSaveFilename(name, original_filename, item_type)
         logger.debug("Saving launcher as \"%s\"" % filename)
 
-        model, row_data = self.treeview.get_selected_row_data()
-        item_type = row_data[3]
+        if not temp:
+            model, row_data = self.treeview.get_selected_row_data()
+            item_type = row_data[3]
 
-        model, parent_data = self.treeview.get_parent_row_data()
+            model, parent_data = self.treeview.get_parent_row_data()
 
-        # Make sure required categories are in place.
-        if parent_data is not None:
-            # Parent was found, take its categories.
-            required_categories = util.getRequiredCategories(parent_data[6])
-        else:
-            # Parent was not found, this is a toplevel category
-            required_categories = util.getRequiredCategories(None)
-        current_categories = self.get_value('Categories').split(';')
-        all_categories = current_categories
-        for category in required_categories:
-            if category not in all_categories:
-                all_categories.append(category)
-        self.set_editor_categories(';'.join(all_categories))
+            # Make sure required categories are in place.
+            if parent_data is not None:
+                # Parent was found, take its categories.
+                required_categories = util.getRequiredCategories(parent_data[6])
+            else:
+                # Parent was not found, this is a toplevel category
+                required_categories = util.getRequiredCategories(None)
+            current_categories = self.get_value('Categories').split(';')
+            all_categories = current_categories
+            for category in required_categories:
+                if category not in all_categories:
+                    all_categories.append(category)
+            self.set_editor_categories(';'.join(all_categories))
 
-        # Cleanup invalid entries and reorder the Categories and Actions
-        self.cleanup_categories()
-        self.cleanup_actions()
+            # Cleanup invalid entries and reorder the Categories and Actions
+            self.cleanup_categories()
+            self.cleanup_actions()
 
         # Open the file and start writing.
         with open(filename, 'w') as output:
@@ -1551,6 +1574,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             actions = self.get_editor_actions_string()
             if actions:
                 output.write(actions)
+
+        if temp:
+            return filename
 
         # Install the new item in its directory...
         self.treeview.xdg_menu_install(filename)
@@ -1698,6 +1724,40 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if dialog.run() == Gtk.ResponseType.OK:
             self.restore_launcher()
         dialog.destroy()
+
+    def find_in_path(self, command):
+        for path in os.environ["PATH"].split(os.pathsep):
+            if os.path.exists(os.path.join(path, command)):
+                return os.path.join(path, command)
+        return False
+
+    def on_execute_cb(self, widget, builder):
+        """Execute callback function."""
+        self.on_NameComment_apply(None, 'Name', builder)
+        self.on_NameComment_apply(None, 'Comment', builder)
+        filename = self.save_launcher(True)
+
+        entry = MenulibreXdg.MenulibreDesktopEntry(filename)
+        command = entry["Exec"].split(" ")[0]
+
+        if self.find_in_path(command):
+            subprocess.Popen(["xdg-open", filename])
+            GObject.timeout_add(2000, self.on_execute_timeout, filename)
+        else:
+            os.remove(filename)
+            err = _("Could not find \"%s\" in your PATH.") % command
+            dlg = Gtk.MessageDialog(parent=self, flags=Gtk.MessageType.ERROR,
+                                    buttons=Gtk.ButtonsType.OK,
+                                    message_format=err)
+
+            def dlg_destroy(widget, user_data):
+                widget.destroy()
+
+            dlg.connect("response", dlg_destroy)
+            dlg.show()
+
+    def on_execute_timeout(self, filename):
+        os.remove(filename)
 
     def on_delete_cb(self, widget):
         """Delete callback function."""
