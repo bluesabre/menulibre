@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2017-02-11 23:14-0500\n"
-"PO-Revision-Date: 2015-02-21 05:19+0000\n"
+"POT-Creation-Date: 2017-02-12 21:32-0500\n"
+"PO-Revision-Date: 2014-12-14 17:04+0000\n"
 "Last-Translator: Mohamed Rizmi <Unknown>\n"
 "Language-Team: Sinhalese <si@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-12 06:22+0000\n"
+"X-Launchpad-Export-Date: 2017-02-13 05:52+0000\n"
 "X-Generator: Launchpad (build 18326)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -577,7 +577,7 @@ msgid "_Quit"
 msgstr "ඉවත් වෙන්න (_Q)"
 
 #: ../menulibre/MenulibreApplication.py:383
-#: ../menulibre/MenulibreApplication.py:1832
+#: ../menulibre/MenulibreApplication.py:1833
 msgid "Quit"
 msgstr "ඉවත් වෙන්න"
 
@@ -586,7 +586,7 @@ msgid "_Contents"
 msgstr "අන්තර්ගතයන් (_C)"
 
 #: ../menulibre/MenulibreApplication.py:390
-#: ../menulibre/MenulibreApplication.py:1830
+#: ../menulibre/MenulibreApplication.py:1831
 msgid "Help"
 msgstr "සහාය"
 
@@ -595,7 +595,7 @@ msgid "_About"
 msgstr "පිළිබඳ (_A)"
 
 #: ../menulibre/MenulibreApplication.py:397
-#: ../menulibre/MenulibreApplication.py:1831
+#: ../menulibre/MenulibreApplication.py:1832
 msgid "About"
 msgstr "පිළිබද"
 
@@ -666,16 +666,16 @@ msgstr ""
 msgid "New Directory"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1757
+#: ../menulibre/MenulibreApplication.py:1758
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1779
+#: ../menulibre/MenulibreApplication.py:1780
 msgid "Are you sure you want to delete this separator?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1782
+#: ../menulibre/MenulibreApplication.py:1783
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr ""
