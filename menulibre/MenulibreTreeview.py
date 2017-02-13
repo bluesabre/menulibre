@@ -72,6 +72,9 @@ class Treeview(GObject.GObject):
         # Set the markup property on the Text cell.
         col.add_attribute(col_cell_text, "markup", 0)
 
+        # Add the cell data func for the pixbuf column to render icons.
+        col.set_cell_data_func(col_cell_text, self._text_display_func, None)
+
         # Set the Tooltip column.
         self._treeview.set_tooltip_column(1)
 
@@ -184,13 +187,14 @@ class Treeview(GObject.GObject):
             comment = entry['Comment']
             categories = entry['Categories']
             icon_name = entry['Icon']
+            hidden = entry['Hidden'] or entry['NoDisplay']
             if os.path.isfile(icon_name):
                 gfile = Gio.File.parse_name(icon_name)
                 icon = Gio.FileIcon.new(gfile)
             else:
                 icon = Gio.ThemedIcon.new(icon_name)
             self.update_selected(name, comment, categories, item_type,
-                                 icon_name, original)
+                                 icon_name, original, not hidden)
             model, row_data = self.get_selected_row_data()
             self.update_launcher_instances(filename, row_data)
             treeiter = None
@@ -265,7 +269,7 @@ class Treeview(GObject.GObject):
                 model[instance][i] = row_data[i]
 
     def update_selected(self, name, comment, categories, item_type, icon_name,
-                        filename):
+                        filename, show=True):
         """Update the application treeview selected row data."""
         model, treeiter = self._get_selected_iter()
         model[treeiter][0] = name
@@ -280,6 +284,7 @@ class Treeview(GObject.GObject):
         model[treeiter][4] = icon
         model[treeiter][5] = icon_name
         model[treeiter][6] = filename
+        model[treeiter][8] = show
 
         # Refresh the displayed launcher
         self._last_selected_path = -1
@@ -353,6 +358,15 @@ class Treeview(GObject.GObject):
         """Toggle the expansion of the selected row."""
         expanded = self._get_treeview_selected_expanded(treeview)
         self._set_treeview_selected_expanded(treeview, not expanded)
+
+    def _text_display_func(self, col, renderer, treestore, treeiter, user_data):
+        """CellRenderer function to set the gicon for each row."""
+        show = treestore[treeiter][8]
+        if show:
+            renderer.set_property("style", Pango.Style.NORMAL)
+        else:
+            renderer.set_property("style", Pango.Style.ITALIC)
+        renderer.set_property("style-set", True)
 
     def _icon_name_func(self, col, renderer, treestore, treeiter, user_data):
         """CellRenderer function to set the gicon for each row."""

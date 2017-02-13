@@ -1440,7 +1440,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
         new_row_data = [name, comment, categories, item_type, icon, icon_name,
-                        filename]
+                        filename, True]
 
         model, parent_data = self.treeview.get_parent_row_data()
         model, row_data = self.treeview.get_selected_row_data()
@@ -1497,7 +1497,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon_name = "folder"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
-        row_data = [name, comment, categories, item_type, icon, icon_name, filename, False]
+        row_data = [name, comment, categories, item_type, icon, icon_name, filename, False, True]
 
         self.treeview.append(row_data)
 
@@ -1514,7 +1514,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon_name = ""
         item_type = MenuItemTypes.SEPARATOR
         filename = None
-        row_data = [name, tooltip, categories, item_type, icon, icon_name, filename]
+        row_data = [name, tooltip, categories, item_type, icon, icon_name, filename, False, True]
 
         self.treeview.append(row_data)
 
@@ -1590,8 +1590,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         comment = self.get_value('Comment')
         categories = self.get_value('Categories')
         icon_name = self.get_value('Icon')
+        hidden = self.get_value('Hidden') or self.get_value('NoDisplay')
         self.treeview.update_selected(name, comment, categories, item_type,
-                                     icon_name, filename)
+                                      icon_name, filename, not hidden)
         self.history.clear()
 
         # Update all instances

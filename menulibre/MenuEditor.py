@@ -92,10 +92,10 @@ def menu_to_treestore(treestore, parent, menu_items):
             filename = None
             icon = None
             icon_name = ""
+            show = True
         else:
             displayed_name = escape(item[2]['display_name'])
-            if not item[2]['show']:
-                displayed_name = "<small><i>%s</i></small>" % displayed_name
+            show = item[2]['show']
             tooltip = item[2]['comment']
             categories = item[2]['categories']
             icon = item[2]['icon']
@@ -104,7 +104,7 @@ def menu_to_treestore(treestore, parent, menu_items):
 
         treeiter = treestore.append(
             parent, [displayed_name, tooltip, categories, item_type,
-            icon, icon_name, filename, False])
+            icon, icon_name, filename, False, show])
 
         if item_type == MenuItemTypes.DIRECTORY:
             treestore = menu_to_treestore(treestore, treeiter, item[3])
@@ -115,8 +115,9 @@ def menu_to_treestore(treestore, parent, menu_items):
 def get_treestore():
     """Get the TreeStore implementation of the current menu."""
     # Name, Comment, Categories, MenuItemType, GIcon (TreeView), icon-name,
-    # Filename, exp
-    treestore = Gtk.TreeStore(str, str, str, int, Gio.Icon, str, str, bool)
+    # Filename, exp, show
+    treestore = Gtk.TreeStore(str, str, str, int, Gio.Icon, str, str, bool,
+                              bool)
     menu = get_menus()[0]
     return menu_to_treestore(treestore, None, menu)
 
@@ -141,8 +142,12 @@ def get_submenus(menu, tree_dir):
                 categories = app_info.get_categories()
                 executable = app_info.get_executable()
                 filename = child.get_desktop_file_path()
-                hidden = app_info.get_is_hidden()
                 submenus = None
+
+                is_hidden = app_info.get_is_hidden()
+                no_display = app_info.get_nodisplay()
+                show_in = app_info.get_show_in()
+                hidden = is_hidden or no_display or not show_in
 
             elif isinstance(child, GMenu.TreeDirectory):
                 item_type = MenuItemTypes.DIRECTORY

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-12 20:48-0500\n"
+"POT-Creation-Date: 2017-02-12 21:32-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -576,7 +576,7 @@ msgid "_Quit"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:383
-#: ../menulibre/MenulibreApplication.py:1832
+#: ../menulibre/MenulibreApplication.py:1833
 msgid "Quit"
 msgstr ""
 
@@ -585,7 +585,7 @@ msgid "_Contents"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:390
-#: ../menulibre/MenulibreApplication.py:1830
+#: ../menulibre/MenulibreApplication.py:1831
 msgid "Help"
 msgstr ""
 
@@ -594,7 +594,7 @@ msgid "_About"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:397
-#: ../menulibre/MenulibreApplication.py:1831
+#: ../menulibre/MenulibreApplication.py:1832
 msgid "About"
 msgstr ""
 
@@ -665,16 +665,16 @@ msgstr ""
 msgid "New Directory"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1757
+#: ../menulibre/MenulibreApplication.py:1758
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1779
+#: ../menulibre/MenulibreApplication.py:1780
 msgid "Are you sure you want to delete this separator?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1782
+#: ../menulibre/MenulibreApplication.py:1783
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr ""

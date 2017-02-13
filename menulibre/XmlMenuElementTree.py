@@ -203,8 +203,8 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
         treeiter = model.iter_nth_child(model_parent, n_child)
 
         # Extract the menu item details.
-        name, comment, categories, item_type, gicon, icon, desktop, expanded = \
-                model[treeiter][:]
+        name, comment, categories, item_type, gicon, icon, desktop, expanded, \
+            show = model[treeiter][:]
 
         if item_type == MenuItemTypes.DIRECTORY:
             # Do not save duplicate directories.
@@ -250,8 +250,8 @@ def model_to_xml_includes(model, model_parent=None, menu_parent=None):
         treeiter = model.iter_nth_child(model_parent, n_child)
 
         # Extract the menu item details.
-        name, comment, categories, item_type, gicon, icon, desktop, expanded = \
-                model[treeiter][:]
+        name, comment, categories, item_type, gicon, icon, desktop, expanded, \
+            show = model[treeiter][:]
 
         # Detecting custom user directories
         user_directory = False
@@ -284,8 +284,8 @@ def model_to_xml_layout(model, model_parent=None, menu_parent=None, merge=True):
         treeiter = model.iter_nth_child(model_parent, n_child)
 
         # Extract the menu item details.
-        name, comment, categories, item_type, gicon, icon, desktop, expanded = \
-                model[treeiter][:]
+        name, comment, categories, item_type, gicon, icon, desktop, expanded, \
+            show = model[treeiter][:]
 
         if item_type == MenuItemTypes.DIRECTORY:
             # Do not save duplicate directories.
