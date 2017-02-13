@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2016-08-27 19:40-0400\n"
-"PO-Revision-Date: 2016-02-13 15:39+0000\n"
+"POT-Creation-Date: 2017-02-11 23:14-0500\n"
+"PO-Revision-Date: 2014-10-27 03:48+0000\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
 "Language-Team: српски <српски <xfce-i18n@xfce.org>>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2016-08-28 06:32+0000\n"
-"X-Generator: Launchpad (build 18179)\n"
+"X-Launchpad-Export-Date: 2017-02-12 06:22+0000\n"
+"X-Generator: Launchpad (build 18326)\n"
 "Language: sr\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -160,8 +160,8 @@ msgid "Browse Files..."
 msgstr "Прегледај датотеке..."
 
 #: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/Dialogs.py:38
-#: ../menulibre/MenulibreApplication.py:237
-#: ../menulibre/MenulibreApplication.py:276
+#: ../menulibre/MenulibreApplication.py:242
+#: ../menulibre/MenulibreApplication.py:281
 msgid "MenuLibre"
 msgstr "Слободан изборник"
 
@@ -169,59 +169,63 @@ msgstr "Слободан изборник"
 msgid "Save Launcher"
 msgstr "Сачувај покретач"
 
-#: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:342
+#: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:348
 msgid "Undo"
 msgstr "Опозови"
 
-#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:349
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:355
 msgid "Redo"
 msgstr "Понови"
 
-#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:356
+#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:362
 msgid "Revert"
 msgstr "Поврати"
 
-#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:363
+#: ../data/ui/MenulibreWindow.ui.h:32
+msgid "Test Launcher"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:33 ../menulibre/MenulibreApplication.py:376
 msgid "Delete"
 msgstr "Избриши"
 
-#: ../data/ui/MenulibreWindow.ui.h:33
+#: ../data/ui/MenulibreWindow.ui.h:34
 msgid "Move Up"
 msgstr "Помери навише"
 
-#: ../data/ui/MenulibreWindow.ui.h:34
+#: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Move Down"
 msgstr "Помери ниже"
 
-#: ../data/ui/MenulibreWindow.ui.h:35
+#: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Sort alphabetically"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:36
+#: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Sort"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:37
+#: ../data/ui/MenulibreWindow.ui.h:38
 msgid "<small><i>Filename</i></small>"
 msgstr "<small><i>Име датотеке</i></small>"
 
-#: ../data/ui/MenulibreWindow.ui.h:38
+#: ../data/ui/MenulibreWindow.ui.h:39
 msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>Име програма</b></big>"
 
-#: ../data/ui/MenulibreWindow.ui.h:39
+#: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Application Name"
 msgstr "Име програма"
 
-#: ../data/ui/MenulibreWindow.ui.h:40
+#: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Application Comment"
 msgstr "Напомена програма"
 
-#: ../data/ui/MenulibreWindow.ui.h:41 ../menulibre/MenulibreApplication.py:683
+#: ../data/ui/MenulibreWindow.ui.h:42 ../menulibre/MenulibreApplication.py:701
 msgid "Description"
 msgstr "Опис"
 
-#: ../data/ui/MenulibreWindow.ui.h:42
+#: ../data/ui/MenulibreWindow.ui.h:43
 msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable "
 "is not set to \"True\" or if you need compatibility with implementations "
@@ -235,32 +239,32 @@ msgstr ""
 "Погледајте http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
 "spec-latest.html#exec-variables за списак подржаних одредница."
 
-#: ../data/ui/MenulibreWindow.ui.h:44
+#: ../data/ui/MenulibreWindow.ui.h:45
 msgid "Command"
 msgstr "Наредба"
 
-#: ../data/ui/MenulibreWindow.ui.h:45
+#: ../data/ui/MenulibreWindow.ui.h:46
 msgid "The working directory."
 msgstr "Радна фасцикла."
 
-#: ../data/ui/MenulibreWindow.ui.h:46
+#: ../data/ui/MenulibreWindow.ui.h:47
 msgid "Working Directory"
 msgstr "Радна фасцикла"
 
-#: ../data/ui/MenulibreWindow.ui.h:47
+#: ../data/ui/MenulibreWindow.ui.h:48
 msgid "<b>Application Details</b>"
 msgstr "<b>Појединости програма</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:48
+#: ../data/ui/MenulibreWindow.ui.h:49
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
 "Ако је подешено на „Тачно“, програм ће бити покренут у прозору терминала."
 
-#: ../data/ui/MenulibreWindow.ui.h:49
+#: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Run in terminal"
 msgstr "Покрени у терминалу"
 
-#: ../data/ui/MenulibreWindow.ui.h:50
+#: ../data/ui/MenulibreWindow.ui.h:51
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
@@ -268,11 +272,11 @@ msgstr ""
 "Ако је подешено на „Тачно“, обавештење о покретању се шаље. Обично значи да "
 "ће се појавити заузети показивач док се покреће програм."
 
-#: ../data/ui/MenulibreWindow.ui.h:51
+#: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Use startup notification"
 msgstr "Користи обавештења при покретању"
 
-#: ../data/ui/MenulibreWindow.ui.h:52
+#: ../data/ui/MenulibreWindow.ui.h:53
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
@@ -280,62 +284,62 @@ msgstr ""
 "Ако је подешено на „Тачно“, ова ставка се неће приказивати у изборницима, "
 "али ће бити доступна за придруживање МИМЕ врстама и сл."
 
-#: ../data/ui/MenulibreWindow.ui.h:53
+#: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Hide from menus"
 msgstr "Сакриј из изборника"
 
-#: ../data/ui/MenulibreWindow.ui.h:54
+#: ../data/ui/MenulibreWindow.ui.h:55
 msgid "<b>Options</b>"
 msgstr "<b>Могућности</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:55
+#: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Add"
 msgstr "Додај"
 
-#: ../data/ui/MenulibreWindow.ui.h:56
+#: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Remove"
 msgstr "Уклони"
 
-#: ../data/ui/MenulibreWindow.ui.h:57
+#: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Clear"
 msgstr "Очисти"
 
-#: ../data/ui/MenulibreWindow.ui.h:58
+#: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Show"
 msgstr "Прикажи"
 
-#: ../data/ui/MenulibreWindow.ui.h:59
+#: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Name"
 msgstr "Име"
 
-#: ../data/ui/MenulibreWindow.ui.h:60
+#: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Select an icon…"
 msgstr "Изаберите иконицу..."
 
-#: ../data/ui/MenulibreWindow.ui.h:61 ../menulibre/Dialogs.py:62
+#: ../data/ui/MenulibreWindow.ui.h:62 ../menulibre/Dialogs.py:62
 #: ../menulibre/Dialogs.py:85 ../menulibre/Dialogs.py:101
 #: ../menulibre/Dialogs.py:124 ../menulibre/Dialogs.py:132
 #: ../menulibre/MenulibreIconSelection.py:79
 msgid "Cancel"
 msgstr "Откажи"
 
-#: ../data/ui/MenulibreWindow.ui.h:62
+#: ../data/ui/MenulibreWindow.ui.h:63
 msgid "Apply"
 msgstr "Примени"
 
-#: ../data/ui/MenulibreWindow.ui.h:63
+#: ../data/ui/MenulibreWindow.ui.h:64
 msgid "<b>Select an icon</b>"
 msgstr "<b>Изаберите иконицу</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:64
+#: ../data/ui/MenulibreWindow.ui.h:65
 msgid "Search"
 msgstr "Тражи"
 
-#: ../data/ui/MenulibreWindow.ui.h:65
+#: ../data/ui/MenulibreWindow.ui.h:66
 msgid "column"
 msgstr "стубац"
 
-#: ../data/ui/MenulibreWindow.ui.h:66
+#: ../data/ui/MenulibreWindow.ui.h:67
 msgid "Search terms…"
 msgstr "Тражи изразе..."
 
@@ -389,7 +393,7 @@ msgid "Don't Save"
 msgstr "Немој да сачуваш"
 
 #: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:102
-#: ../menulibre/MenulibreApplication.py:335
+#: ../menulibre/MenulibreApplication.py:341
 msgid "Save"
 msgstr "Сачувај"
 
@@ -425,124 +429,124 @@ msgstr "Поврати покретач"
 msgid "OK"
 msgstr "У реду"
 
-#: ../menulibre/MenuEditor.py:87 ../menulibre/MenulibreApplication.py:1029
-#: ../menulibre/MenulibreApplication.py:1470
+#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1051
+#: ../menulibre/MenulibreApplication.py:1510
 msgid "Separator"
 msgstr "Раздвајач"
 
 #. Standard Items
-#: ../menulibre/MenulibreApplication.py:40
+#: ../menulibre/MenulibreApplication.py:45
 msgid "Multimedia"
 msgstr "Звук и покретне слике"
 
-#: ../menulibre/MenulibreApplication.py:41
+#: ../menulibre/MenulibreApplication.py:46
 msgid "Development"
 msgstr "Развој"
 
-#: ../menulibre/MenulibreApplication.py:42
+#: ../menulibre/MenulibreApplication.py:47
 msgid "Education"
 msgstr "Образовање"
 
-#: ../menulibre/MenulibreApplication.py:43
+#: ../menulibre/MenulibreApplication.py:48
 msgid "Games"
 msgstr "Игре"
 
-#: ../menulibre/MenulibreApplication.py:44
+#: ../menulibre/MenulibreApplication.py:49
 msgid "Graphics"
 msgstr "Графика"
 
-#: ../menulibre/MenulibreApplication.py:45
+#: ../menulibre/MenulibreApplication.py:50
 msgid "Internet"
 msgstr "Интернет"
 
-#: ../menulibre/MenulibreApplication.py:46
+#: ../menulibre/MenulibreApplication.py:51
 msgid "Office"
 msgstr "Уред"
 
-#: ../menulibre/MenulibreApplication.py:47
+#: ../menulibre/MenulibreApplication.py:52
 msgid "Settings"
 msgstr "Поставке"
 
-#: ../menulibre/MenulibreApplication.py:48
+#: ../menulibre/MenulibreApplication.py:53
 msgid "System"
 msgstr "Систем"
 
-#: ../menulibre/MenulibreApplication.py:49
+#: ../menulibre/MenulibreApplication.py:54
 msgid "Accessories"
 msgstr "Алати"
 
-#: ../menulibre/MenulibreApplication.py:50
+#: ../menulibre/MenulibreApplication.py:55
 msgid "WINE"
 msgstr "Вино"
 
 #. Desktop Environment
-#: ../menulibre/MenulibreApplication.py:52
+#: ../menulibre/MenulibreApplication.py:57
 msgid "Desktop configuration"
 msgstr "Поставке радне површи"
 
-#: ../menulibre/MenulibreApplication.py:53
+#: ../menulibre/MenulibreApplication.py:58
 msgid "User configuration"
 msgstr "Корисничке поставке"
 
-#: ../menulibre/MenulibreApplication.py:54
+#: ../menulibre/MenulibreApplication.py:59
 msgid "Hardware configuration"
 msgstr "Поставке уређаја"
 
 #. GNOME Specific
-#: ../menulibre/MenulibreApplication.py:56
+#: ../menulibre/MenulibreApplication.py:61
 msgid "GNOME application"
 msgstr "ГНОМ програми"
 
-#: ../menulibre/MenulibreApplication.py:57
+#: ../menulibre/MenulibreApplication.py:62
 msgid "GTK+ application"
 msgstr "ГТК+ програми"
 
-#: ../menulibre/MenulibreApplication.py:58
+#: ../menulibre/MenulibreApplication.py:63
 msgid "GNOME user configuration"
 msgstr "Корисничке поставке ГНОМ-а"
 
-#: ../menulibre/MenulibreApplication.py:59
+#: ../menulibre/MenulibreApplication.py:64
 msgid "GNOME hardware configuration"
 msgstr "Поставке уређаја Гнома"
 
-#: ../menulibre/MenulibreApplication.py:60
-#: ../menulibre/MenulibreApplication.py:61
+#: ../menulibre/MenulibreApplication.py:65
+#: ../menulibre/MenulibreApplication.py:66
 msgid "GNOME system configuration"
 msgstr "Поставке система Гнома"
 
 #. Xfce Specific
-#: ../menulibre/MenulibreApplication.py:63
-#: ../menulibre/MenulibreApplication.py:64
+#: ../menulibre/MenulibreApplication.py:68
+#: ../menulibre/MenulibreApplication.py:69
 msgid "Xfce menu item"
 msgstr "Ставка изборника ИксФЦЕ-а"
 
-#: ../menulibre/MenulibreApplication.py:65
+#: ../menulibre/MenulibreApplication.py:70
 msgid "Xfce toplevel menu item"
 msgstr "Највиша ставка изборника ИксФЦЕ-а"
 
-#: ../menulibre/MenulibreApplication.py:66
+#: ../menulibre/MenulibreApplication.py:71
 msgid "Xfce user configuration"
 msgstr "Корисничке поставке ИксФЦЕ-а"
 
-#: ../menulibre/MenulibreApplication.py:67
+#: ../menulibre/MenulibreApplication.py:72
 msgid "Xfce hardware configuration"
 msgstr "Поставке уређаја ИксФЦЕ-а"
 
-#: ../menulibre/MenulibreApplication.py:68
-#: ../menulibre/MenulibreApplication.py:69
+#: ../menulibre/MenulibreApplication.py:73
+#: ../menulibre/MenulibreApplication.py:74
 msgid "Xfce system configuration"
 msgstr "Поставке система ИксФЦЕ-а"
 
-#: ../menulibre/MenulibreApplication.py:117
-#: ../menulibre/MenulibreApplication.py:162
+#: ../menulibre/MenulibreApplication.py:122
+#: ../menulibre/MenulibreApplication.py:167
 msgid "Other"
 msgstr "Остало"
 
-#: ../menulibre/MenulibreApplication.py:214
+#: ../menulibre/MenulibreApplication.py:219
 msgid "MenuLibre cannot be run as root."
 msgstr "Слободни изборник се не може користити под кореним налогом."
 
-#: ../menulibre/MenulibreApplication.py:215
+#: ../menulibre/MenulibreApplication.py:220
 msgid ""
 "Please see the <a "
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
@@ -552,127 +556,135 @@ msgstr ""
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>опис на мрежи</a> "
 "за више података."
 
-#: ../menulibre/MenulibreApplication.py:313
+#: ../menulibre/MenulibreApplication.py:319
 msgid "Add _Launcher..."
 msgstr "Додај _покретач..."
 
-#: ../menulibre/MenulibreApplication.py:314
+#: ../menulibre/MenulibreApplication.py:320
 msgid "Add Launcher..."
 msgstr "Додај покретач..."
 
-#: ../menulibre/MenulibreApplication.py:320
+#: ../menulibre/MenulibreApplication.py:326
 msgid "Add _Directory..."
 msgstr "Додај _фасциклу..."
 
-#: ../menulibre/MenulibreApplication.py:321
+#: ../menulibre/MenulibreApplication.py:327
 msgid "Add Directory..."
 msgstr "Додај фасциклу..."
 
-#: ../menulibre/MenulibreApplication.py:327
+#: ../menulibre/MenulibreApplication.py:333
 msgid "_Add Separator..."
 msgstr "_Додај раздвајач..."
 
-#: ../menulibre/MenulibreApplication.py:328
+#: ../menulibre/MenulibreApplication.py:334
 msgid "Add Separator..."
 msgstr "Додај раздвајач..."
 
-#: ../menulibre/MenulibreApplication.py:334
+#: ../menulibre/MenulibreApplication.py:340
 msgid "_Save"
 msgstr "_Сачувај"
 
-#: ../menulibre/MenulibreApplication.py:341
+#: ../menulibre/MenulibreApplication.py:347
 msgid "_Undo"
 msgstr "_Опозови"
 
-#: ../menulibre/MenulibreApplication.py:348
+#: ../menulibre/MenulibreApplication.py:354
 msgid "_Redo"
 msgstr "_Понови"
 
-#: ../menulibre/MenulibreApplication.py:355
+#: ../menulibre/MenulibreApplication.py:361
 msgid "_Revert"
 msgstr "_Поврати"
 
-#: ../menulibre/MenulibreApplication.py:362
+#: ../menulibre/MenulibreApplication.py:368
+msgid "_Execute"
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:369
+msgid "Execute Launcher"
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:375
 msgid "_Delete"
 msgstr "_Избриши"
 
-#: ../menulibre/MenulibreApplication.py:369
+#: ../menulibre/MenulibreApplication.py:382
 msgid "_Quit"
 msgstr "_Напусти"
 
-#: ../menulibre/MenulibreApplication.py:370
-#: ../menulibre/MenulibreApplication.py:1743
+#: ../menulibre/MenulibreApplication.py:383
+#: ../menulibre/MenulibreApplication.py:1832
 msgid "Quit"
 msgstr "Напусти"
 
-#: ../menulibre/MenulibreApplication.py:376
+#: ../menulibre/MenulibreApplication.py:389
 msgid "_Contents"
 msgstr "_Садржај"
 
-#: ../menulibre/MenulibreApplication.py:377
-#: ../menulibre/MenulibreApplication.py:1741
+#: ../menulibre/MenulibreApplication.py:390
+#: ../menulibre/MenulibreApplication.py:1830
 msgid "Help"
 msgstr "Помоћ"
 
-#: ../menulibre/MenulibreApplication.py:383
+#: ../menulibre/MenulibreApplication.py:396
 msgid "_About"
 msgstr "_О програму"
 
-#: ../menulibre/MenulibreApplication.py:384
-#: ../menulibre/MenulibreApplication.py:1742
+#: ../menulibre/MenulibreApplication.py:397
+#: ../menulibre/MenulibreApplication.py:1831
 msgid "About"
 msgstr "О програму"
 
-#: ../menulibre/MenulibreApplication.py:506
+#: ../menulibre/MenulibreApplication.py:524
 msgid "Categories"
 msgstr "Врсте"
 
-#: ../menulibre/MenulibreApplication.py:508
+#: ../menulibre/MenulibreApplication.py:526
 msgid "Actions"
 msgstr "Радње"
 
-#: ../menulibre/MenulibreApplication.py:510
+#: ../menulibre/MenulibreApplication.py:528
 msgid "Advanced"
 msgstr "Напредно"
 
-#: ../menulibre/MenulibreApplication.py:657
+#: ../menulibre/MenulibreApplication.py:675
 msgid "ThisEntry"
 msgstr "Ова ставка"
 
-#: ../menulibre/MenulibreApplication.py:675
+#: ../menulibre/MenulibreApplication.py:693
 msgid "Select a category"
 msgstr "Изаберите врсту"
 
-#: ../menulibre/MenulibreApplication.py:678
+#: ../menulibre/MenulibreApplication.py:696
 msgid "Category Name"
 msgstr "Име врсте"
 
-#: ../menulibre/MenulibreApplication.py:762
+#: ../menulibre/MenulibreApplication.py:780
 msgid "This Entry"
 msgstr "Ова ставка"
 
-#: ../menulibre/MenulibreApplication.py:817
+#: ../menulibre/MenulibreApplication.py:835
 msgid "New Shortcut"
 msgstr "Нова пречица"
 
-#: ../menulibre/MenulibreApplication.py:963
+#: ../menulibre/MenulibreApplication.py:981
 msgid "Select a working directory..."
 msgstr "Изаберите радну фасциклу..."
 
-#: ../menulibre/MenulibreApplication.py:966
+#: ../menulibre/MenulibreApplication.py:984
 msgid "Select an executable..."
 msgstr "Изаберите извршну датотеку..."
 
-#: ../menulibre/MenulibreApplication.py:988
+#: ../menulibre/MenulibreApplication.py:1006
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr "Нисам успео да додам подфасцикле подразумеваним путањама система."
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1078
+#: ../menulibre/MenulibreApplication.py:1102
 msgid "No Longer Installed"
 msgstr "Није више уграђен"
 
-#: ../menulibre/MenulibreApplication.py:1079
+#: ../menulibre/MenulibreApplication.py:1103
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -680,23 +692,28 @@ msgstr ""
 "Овај покретач је уклоњен са система.\n"
 "Одређујем следећу доступну ставку."
 
-#: ../menulibre/MenulibreApplication.py:1179
+#: ../menulibre/MenulibreApplication.py:1203
 msgid "You do not have permission to delete this file."
 msgstr "Немате овлашћења за брисање ове датотеке."
 
-#: ../menulibre/MenulibreApplication.py:1411
+#: ../menulibre/MenulibreApplication.py:1435
 msgid "New Launcher"
 msgstr "Нови покретач"
 
-#: ../menulibre/MenulibreApplication.py:1453
+#: ../menulibre/MenulibreApplication.py:1493
 msgid "New Directory"
 msgstr "Нова фасцикла"
 
-#: ../menulibre/MenulibreApplication.py:1690
+#: ../menulibre/MenulibreApplication.py:1757
+#, python-format
+msgid "Could not find \"%s\" in your PATH."
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:1779
 msgid "Are you sure you want to delete this separator?"
 msgstr "Да ли сте сигурни да желите избрисати овај раздвајач?"
 
-#: ../menulibre/MenulibreApplication.py:1693
+#: ../menulibre/MenulibreApplication.py:1782
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Да ли сте сигурни да желите избрисати „%s“?"
