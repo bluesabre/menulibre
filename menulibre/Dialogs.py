@@ -111,7 +111,7 @@ class DeleteDialog(Gtk.MessageDialog):
         self.format_secondary_markup(details)
 
 class RevertDialog(Gtk.MessageDialog):
-    def __init__(self, parent, question):
+    def __init__(self, parent):
         question = _("Are you sure you want to restore this launcher?")
         details = _("All changes since the last saved state will be lost "
                     "and cannot be restored automatically.")
