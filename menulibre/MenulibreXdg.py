@@ -74,7 +74,7 @@ class MenulibreDesktopEntry:
 
     def load_properties(self, filename):
         """Load the properties."""
-        input_file = open(filename)
+        input_file = open(filename, 'r', -1, None, 'ignore')
         self.load_properties_from_text(input_file.read())
         input_file.close()
 
