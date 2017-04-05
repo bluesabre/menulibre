@@ -1,0 +1,705 @@
+# Kazakh translation for menulibre
+# Copyright (c) 2017 Rosetta Contributors and Canonical Ltd 2017
+# This file is distributed under the same license as the menulibre package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: menulibre\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2017-02-19 17:29-0500\n"
+"PO-Revision-Date: 2017-03-24 07:03+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Kazakh <kk@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2017-04-05 07:08+0000\n"
+"X-Generator: Launchpad (build 18335)\n"
+
+#: ../menulibre.desktop.in.h:1
+msgid "Menu Editor"
+msgstr "Мәзір түзеткіші"
+
+#: ../menulibre.desktop.in.h:2
+msgid "Add or remove applications from the menu"
+msgstr "Мәзірге қолданбаларды қосу немесе өшіру"
+
+#: ../data/ui/MenulibreWindow.ui.h:1
+msgid "Add _Launcher"
+msgstr "Жөне_лткішті қосу"
+
+#: ../data/ui/MenulibreWindow.ui.h:2
+msgid "Add _Directory"
+msgstr "_Буманы қосу"
+
+#: ../data/ui/MenulibreWindow.ui.h:3
+msgid "Add _Separator"
+msgstr "А_жыратқышты қосу"
+
+#: ../data/ui/MenulibreWindow.ui.h:4
+msgid "Generic name of the application, for example \"Web Browser\"."
+msgstr "Қолданба үшін жалпы аты, мысалы, \"Веб браузері\""
+
+#: ../data/ui/MenulibreWindow.ui.h:5
+msgid "Generic Name"
+msgstr "Жалпы аты"
+
+#: ../data/ui/MenulibreWindow.ui.h:6
+msgid ""
+"A list of environments that should not display this entry. You can only use "
+"this key if \"OnlyShowIn\" is not set.\n"
+"Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE, Old"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:8
+msgid "Not Shown In"
+msgstr "Келесіде көрсетілмейді"
+
+#: ../data/ui/MenulibreWindow.ui.h:9
+msgid ""
+"A list of environments that should display this entry. Other environments "
+"will not display this entry. You can only use this key if \"NotShowIn\" is "
+"not set.\n"
+"Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE, Old"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:11
+msgid "Only Shown In"
+msgstr "Тек келесіде көрсетіледі"
+
+#: ../data/ui/MenulibreWindow.ui.h:12
+msgid ""
+"Path to an executable file to determine if the program is installed. If the "
+"file is not present or is not executable, this entry may not be shown in a "
+"menu."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:13
+msgid "Try Exec"
+msgstr "Орындап көру"
+
+#: ../data/ui/MenulibreWindow.ui.h:14
+msgid "The MIME type(s) supported by this application."
+msgstr "Қолданба қолдайтын MIME түр(лер)і."
+
+#: ../data/ui/MenulibreWindow.ui.h:15
+msgid "Mimetypes"
+msgstr "MIME түрлері"
+
+#: ../data/ui/MenulibreWindow.ui.h:16
+msgid ""
+"A list of keywords to describe this entry. You can use these to help "
+"searching entries. These are not meant for display, and should not be "
+"redundant with the values of Name or GenericName."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:17
+msgid "Keywords"
+msgstr "Кілттік сөздер"
+
+#: ../data/ui/MenulibreWindow.ui.h:18
+msgid ""
+"If specified, the application will be requested to use the string as a WM "
+"class or a WM name hint at least in one window."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:19
+msgid "Startup WM Class"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:20
+msgid ""
+"If set to \"True\", the result for the user is equivalent to the .desktop "
+"file not existing at all."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:21
+msgid "Hidden"
+msgstr "Жасырын"
+
+#: ../data/ui/MenulibreWindow.ui.h:22
+msgid ""
+"Set this key to \"True\" if D-Bus activation is supported for this "
+"application and you want to use it.\n"
+"See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
+"for more information."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:24
+msgid "DBUS Activatable"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:25
+msgid "Browse Icons…"
+msgstr "Таңбашаларды шолу…"
+
+#: ../data/ui/MenulibreWindow.ui.h:26
+msgid "Browse Files..."
+msgstr "Файлдарды шолу..."
+
+#: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/Dialogs.py:38
+#: ../menulibre/MenulibreApplication.py:242
+#: ../menulibre/MenulibreApplication.py:281
+msgid "MenuLibre"
+msgstr "MenuLibre"
+
+#: ../data/ui/MenulibreWindow.ui.h:28
+msgid "Save Launcher"
+msgstr "Жөнелткішті сақтау"
+
+#: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:348
+msgid "Undo"
+msgstr "Болдырмау"
+
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:355
+msgid "Redo"
+msgstr "Қайталау"
+
+#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:362
+msgid "Revert"
+msgstr "Қайтару"
+
+#: ../data/ui/MenulibreWindow.ui.h:32
+msgid "Test Launcher"
+msgstr "Жөнелткішті сынау"
+
+#: ../data/ui/MenulibreWindow.ui.h:33 ../menulibre/MenulibreApplication.py:376
+msgid "Delete"
+msgstr "Өшіру"
+
+#: ../data/ui/MenulibreWindow.ui.h:34
+msgid "Move Up"
+msgstr "Жоғары жылжыту"
+
+#: ../data/ui/MenulibreWindow.ui.h:35
+msgid "Move Down"
+msgstr "Төмен жылжыту"
+
+#: ../data/ui/MenulibreWindow.ui.h:36
+msgid "Sort alphabetically"
+msgstr "Әліппе бойынша сұрыптау"
+
+#: ../data/ui/MenulibreWindow.ui.h:37
+msgid "Sort"
+msgstr "Сұрыптау"
+
+#: ../data/ui/MenulibreWindow.ui.h:38
+msgid "<small><i>Filename</i></small>"
+msgstr "<small><i>Файл аты</i></small>"
+
+#: ../data/ui/MenulibreWindow.ui.h:39
+msgid "<big><b>Application Name</b></big>"
+msgstr "<big><b>Қолданба атауы</b></big>"
+
+#: ../data/ui/MenulibreWindow.ui.h:40
+msgid "Application Name"
+msgstr "Қолданба атауы"
+
+#: ../data/ui/MenulibreWindow.ui.h:41
+msgid "Application Comment"
+msgstr "Қолданба түсіндірмесі"
+
+#: ../data/ui/MenulibreWindow.ui.h:42 ../menulibre/MenulibreApplication.py:701
+msgid "Description"
+msgstr "Сипаттамасы"
+
+#: ../data/ui/MenulibreWindow.ui.h:43
+msgid ""
+"Program to execute with arguments. This key is required if DBusActivatable "
+"is not set to \"True\" or if you need compatibility with implementations "
+"that do not understand D-Bus activation.\n"
+"See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables for a list of supported arguments."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:45
+msgid "Command"
+msgstr "Команда"
+
+#: ../data/ui/MenulibreWindow.ui.h:46
+msgid "The working directory."
+msgstr "Жұмыс бумасы."
+
+#: ../data/ui/MenulibreWindow.ui.h:47
+msgid "Working Directory"
+msgstr "Жұмыс бумасы"
+
+#: ../data/ui/MenulibreWindow.ui.h:48
+msgid "<b>Application Details</b>"
+msgstr "<b>Қолданба ақпараты</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:49
+msgid "If set to \"True\", the program will be ran in a terminal window."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:50
+msgid "Run in terminal"
+msgstr "Терминалда орындау"
+
+#: ../data/ui/MenulibreWindow.ui.h:51
+msgid ""
+"If set to \"True\", a startup notification is sent. Usually means that a "
+"busy cursor is shown while the application launches."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:52
+msgid "Use startup notification"
+msgstr "Іске қосылу хабарламасын қолдану"
+
+#: ../data/ui/MenulibreWindow.ui.h:53
+msgid ""
+"If set to \"True\", this entry will not be shown in menus, but will be "
+"available for MIME type associations etc."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:54
+msgid "Hide from menus"
+msgstr "Мәзірлерден жасыру"
+
+#: ../data/ui/MenulibreWindow.ui.h:55
+msgid "<b>Options</b>"
+msgstr "<b>Опциялар</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:56
+msgid "Add"
+msgstr "Қосу"
+
+#: ../data/ui/MenulibreWindow.ui.h:57
+msgid "Remove"
+msgstr "Өшіру"
+
+#: ../data/ui/MenulibreWindow.ui.h:58
+msgid "Clear"
+msgstr "Тазарту"
+
+#: ../data/ui/MenulibreWindow.ui.h:59
+msgid "Show"
+msgstr "Көрсету"
+
+#: ../data/ui/MenulibreWindow.ui.h:60
+msgid "Name"
+msgstr "Атауы"
+
+#: ../data/ui/MenulibreWindow.ui.h:61
+msgid "Select an icon…"
+msgstr "Таңбашаны таңдаңыз…"
+
+#: ../data/ui/MenulibreWindow.ui.h:62 ../menulibre/Dialogs.py:62
+#: ../menulibre/Dialogs.py:85 ../menulibre/Dialogs.py:101
+#: ../menulibre/Dialogs.py:124 ../menulibre/Dialogs.py:132
+#: ../menulibre/MenulibreIconSelection.py:79
+msgid "Cancel"
+msgstr "Бас тарту"
+
+#: ../data/ui/MenulibreWindow.ui.h:63
+msgid "Apply"
+msgstr "Іске асыру"
+
+#: ../data/ui/MenulibreWindow.ui.h:64
+msgid "<b>Select an icon</b>"
+msgstr "<b>Таңбашаны таңдаңыз</b>"
+
+#: ../data/ui/MenulibreWindow.ui.h:65
+msgid "Search"
+msgstr "Іздеу"
+
+#: ../data/ui/MenulibreWindow.ui.h:66
+msgid "column"
+msgstr "баған"
+
+#: ../data/ui/MenulibreWindow.ui.h:67
+msgid "Search terms…"
+msgstr "Ұғымдарды іздеу…"
+
+#: ../menulibre/__init__.py:33
+msgid "Show debug messages"
+msgstr "Жөндеу хабарламаларын көрсету"
+
+#. Populate the AboutDialog with all the relevant details.
+#: ../menulibre/Dialogs.py:37
+msgid "About MenuLibre"
+msgstr "MenuLibre туралы"
+
+#: ../menulibre/Dialogs.py:40
+msgid "Copyright © 2012-2015 Sean Davis"
+msgstr "Copyright © 2012-2015 Sean Davis"
+
+#: ../menulibre/Dialogs.py:55
+msgid "Do you want to read the MenuLibre manual online?"
+msgstr ""
+
+#: ../menulibre/Dialogs.py:56
+msgid ""
+"You will be redirected to the documentation website where the help pages are "
+"maintained."
+msgstr ""
+
+#: ../menulibre/Dialogs.py:63
+msgid "Read Online"
+msgstr "Желіден оқу"
+
+#: ../menulibre/Dialogs.py:64
+msgid "Online Documentation"
+msgstr "Желідегі құжаттама"
+
+#: ../menulibre/Dialogs.py:75
+msgid "Do you want to save the changes before closing?"
+msgstr "Жабу алдында өзгерістерді сақтауды қалайсыз ба?"
+
+#: ../menulibre/Dialogs.py:76
+msgid "If you don't save the launcher, all the changes will be lost.'"
+msgstr "Жөнелткішті сақтамасаңыз, барлық өзгерістер жоғалады."
+
+#: ../menulibre/Dialogs.py:83 ../menulibre/Dialogs.py:99
+msgid "Save Changes"
+msgstr "Өзгерістерді сақтау"
+
+#: ../menulibre/Dialogs.py:84 ../menulibre/Dialogs.py:100
+msgid "Don't Save"
+msgstr "Сақтамау"
+
+#: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:102
+#: ../menulibre/MenulibreApplication.py:341
+msgid "Save"
+msgstr "Сақтау"
+
+#: ../menulibre/Dialogs.py:90
+msgid "Do you want to save the changes before leaving this launcher?"
+msgstr "Бұл жөнелткіштен кету алдында өзгерістерді сақтауды қалайсыз ба?"
+
+#: ../menulibre/Dialogs.py:92
+msgid "If you don't save the launcher, all the changes will be lost."
+msgstr "Жөнелткішті сақтамасаңыз, барлық өзгерістер жоғалады."
+
+#: ../menulibre/Dialogs.py:106
+msgid "This cannot be undone."
+msgstr "Бұны болдырмау мүмкін емес болады."
+
+#: ../menulibre/Dialogs.py:115
+msgid "Are you sure you want to restore this launcher?"
+msgstr "Бұл жөнелткішті қалпына келтіруді шынымен қалайсыз ба?"
+
+#: ../menulibre/Dialogs.py:116
+msgid ""
+"All changes since the last saved state will be lost and cannot be restored "
+"automatically."
+msgstr ""
+
+#: ../menulibre/Dialogs.py:125 ../menulibre/Dialogs.py:126
+msgid "Restore Launcher"
+msgstr "Жөнелткішті қалпына келтіру"
+
+#: ../menulibre/Dialogs.py:133 ../menulibre/MenulibreIconSelection.py:80
+msgid "OK"
+msgstr "ОК"
+
+#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1051
+#: ../menulibre/MenulibreApplication.py:1510
+msgid "Separator"
+msgstr "Ажыратқыш"
+
+#. Standard Items
+#: ../menulibre/MenulibreApplication.py:45
+msgid "Multimedia"
+msgstr "Мультимедиа"
+
+#: ../menulibre/MenulibreApplication.py:46
+msgid "Development"
+msgstr "Өндіру"
+
+#: ../menulibre/MenulibreApplication.py:47
+msgid "Education"
+msgstr "Білім алу"
+
+#: ../menulibre/MenulibreApplication.py:48
+msgid "Games"
+msgstr "Ойындар"
+
+#: ../menulibre/MenulibreApplication.py:49
+msgid "Graphics"
+msgstr "Графика"
+
+#: ../menulibre/MenulibreApplication.py:50
+msgid "Internet"
+msgstr "Интернет"
+
+#: ../menulibre/MenulibreApplication.py:51
+msgid "Office"
+msgstr "Офис"
+
+#: ../menulibre/MenulibreApplication.py:52
+msgid "Settings"
+msgstr "Баптаулар"
+
+#: ../menulibre/MenulibreApplication.py:53
+msgid "System"
+msgstr "Жүйе"
+
+#: ../menulibre/MenulibreApplication.py:54
+msgid "Accessories"
+msgstr "Қалыпты"
+
+#: ../menulibre/MenulibreApplication.py:55
+msgid "WINE"
+msgstr "WINE"
+
+#. Desktop Environment
+#: ../menulibre/MenulibreApplication.py:57
+msgid "Desktop configuration"
+msgstr "Жұмыс үстел баптаулары"
+
+#: ../menulibre/MenulibreApplication.py:58
+msgid "User configuration"
+msgstr "Пайдаланушы баптаулары"
+
+#: ../menulibre/MenulibreApplication.py:59
+msgid "Hardware configuration"
+msgstr "Құрылғылар баптаулары"
+
+#. GNOME Specific
+#: ../menulibre/MenulibreApplication.py:61
+msgid "GNOME application"
+msgstr "GNOME қолданбасы"
+
+#: ../menulibre/MenulibreApplication.py:62
+msgid "GTK+ application"
+msgstr "GTK+ қолданбасы"
+
+#: ../menulibre/MenulibreApplication.py:63
+msgid "GNOME user configuration"
+msgstr "GNOME пайдаланушы баптаулары"
+
+#: ../menulibre/MenulibreApplication.py:64
+msgid "GNOME hardware configuration"
+msgstr "GNOME құрылғылар баптаулары"
+
+#: ../menulibre/MenulibreApplication.py:65
+#: ../menulibre/MenulibreApplication.py:66
+msgid "GNOME system configuration"
+msgstr "GNOME жүйелік баптаулары"
+
+#. Xfce Specific
+#: ../menulibre/MenulibreApplication.py:68
+#: ../menulibre/MenulibreApplication.py:69
+msgid "Xfce menu item"
+msgstr "Xfce мәзір элементі"
+
+#: ../menulibre/MenulibreApplication.py:70
+msgid "Xfce toplevel menu item"
+msgstr "Xfce үстіңгі деңгейлі мәзір элементі"
+
+#: ../menulibre/MenulibreApplication.py:71
+msgid "Xfce user configuration"
+msgstr "Xfce пайдаланушы баптаулары"
+
+#: ../menulibre/MenulibreApplication.py:72
+msgid "Xfce hardware configuration"
+msgstr "Xfce құрылғылар баптаулары"
+
+#: ../menulibre/MenulibreApplication.py:73
+#: ../menulibre/MenulibreApplication.py:74
+msgid "Xfce system configuration"
+msgstr "Xfce жүйелік баптаулары"
+
+#: ../menulibre/MenulibreApplication.py:122
+#: ../menulibre/MenulibreApplication.py:167
+msgid "Other"
+msgstr "Басқа"
+
+#: ../menulibre/MenulibreApplication.py:219
+msgid "MenuLibre cannot be run as root."
+msgstr "MenuLibre қолданбасын root атынан орындау мүмкін емес."
+
+#: ../menulibre/MenulibreApplication.py:220
+msgid ""
+"Please see the <a "
+"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"documentation</a> for more information."
+msgstr ""
+"Көбірек білу үшін <a "
+"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>желідегі "
+"құжаттаманы</a> қараңыз."
+
+#: ../menulibre/MenulibreApplication.py:319
+msgid "Add _Launcher..."
+msgstr "Жөне_лткішті қосу..."
+
+#: ../menulibre/MenulibreApplication.py:320
+msgid "Add Launcher..."
+msgstr "Жөнелткішті қосу..."
+
+#: ../menulibre/MenulibreApplication.py:326
+msgid "Add _Directory..."
+msgstr "_Буманы қосу..."
+
+#: ../menulibre/MenulibreApplication.py:327
+msgid "Add Directory..."
+msgstr "Буманы қосу..."
+
+#: ../menulibre/MenulibreApplication.py:333
+msgid "_Add Separator..."
+msgstr "А_жыратқышты қосу..."
+
+#: ../menulibre/MenulibreApplication.py:334
+msgid "Add Separator..."
+msgstr "Ажыратқышты қосу..."
+
+#: ../menulibre/MenulibreApplication.py:340
+msgid "_Save"
+msgstr "_Сақтау"
+
+#: ../menulibre/MenulibreApplication.py:347
+msgid "_Undo"
+msgstr "Бол_дырмау"
+
+#: ../menulibre/MenulibreApplication.py:354
+msgid "_Redo"
+msgstr "Қа_йталау"
+
+#: ../menulibre/MenulibreApplication.py:361
+msgid "_Revert"
+msgstr "Қай_тару"
+
+#: ../menulibre/MenulibreApplication.py:368
+msgid "_Execute"
+msgstr "Ор_ындау"
+
+#: ../menulibre/MenulibreApplication.py:369
+msgid "Execute Launcher"
+msgstr "Жөнелткішті орындау"
+
+#: ../menulibre/MenulibreApplication.py:375
+msgid "_Delete"
+msgstr "Ө_шіру"
+
+#: ../menulibre/MenulibreApplication.py:382
+msgid "_Quit"
+msgstr "_Шығу"
+
+#: ../menulibre/MenulibreApplication.py:383
+#: ../menulibre/MenulibreApplication.py:1833
+msgid "Quit"
+msgstr "Шығу"
+
+#: ../menulibre/MenulibreApplication.py:389
+msgid "_Contents"
+msgstr "Құра_масы"
+
+#: ../menulibre/MenulibreApplication.py:390
+#: ../menulibre/MenulibreApplication.py:1831
+msgid "Help"
+msgstr "Көмек"
+
+#: ../menulibre/MenulibreApplication.py:396
+msgid "_About"
+msgstr "Осы тур_алы"
+
+#: ../menulibre/MenulibreApplication.py:397
+#: ../menulibre/MenulibreApplication.py:1832
+msgid "About"
+msgstr "Осы туралы"
+
+#: ../menulibre/MenulibreApplication.py:524
+msgid "Categories"
+msgstr "Санаттар"
+
+#: ../menulibre/MenulibreApplication.py:526
+msgid "Actions"
+msgstr "Әрекеттер"
+
+#: ../menulibre/MenulibreApplication.py:528
+msgid "Advanced"
+msgstr "Кеңейтілген"
+
+#: ../menulibre/MenulibreApplication.py:675
+msgid "ThisEntry"
+msgstr "БұлЖазба"
+
+#: ../menulibre/MenulibreApplication.py:693
+msgid "Select a category"
+msgstr "Санатты таңдаңыз"
+
+#: ../menulibre/MenulibreApplication.py:696
+msgid "Category Name"
+msgstr "Санат атауы"
+
+#: ../menulibre/MenulibreApplication.py:780
+msgid "This Entry"
+msgstr "Бұл жазба"
+
+#: ../menulibre/MenulibreApplication.py:835
+msgid "New Shortcut"
+msgstr "Жаңа жарлық"
+
+#: ../menulibre/MenulibreApplication.py:981
+msgid "Select a working directory..."
+msgstr "Жұмыс бумасын таңдаңы..."
+
+#: ../menulibre/MenulibreApplication.py:984
+msgid "Select an executable..."
+msgstr "Орындалатын файлды таңдаңыз..."
+
+#: ../menulibre/MenulibreApplication.py:1006
+msgid "Cannot add subdirectories to preinstalled system paths."
+msgstr ""
+
+#. Display a dialog saying this item is missing
+#: ../menulibre/MenulibreApplication.py:1102
+msgid "No Longer Installed"
+msgstr "Енді орнатылмаған"
+
+#: ../menulibre/MenulibreApplication.py:1103
+msgid ""
+"This launcher has been removed from the system.\n"
+"Selecting the next available item."
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:1203
+msgid "You do not have permission to delete this file."
+msgstr "Бұл файлды өшіру үшін керек рұқсаттарыңыз жоқ"
+
+#: ../menulibre/MenulibreApplication.py:1435
+msgid "New Launcher"
+msgstr "Жаңа жөнелткіш"
+
+#: ../menulibre/MenulibreApplication.py:1493
+msgid "New Directory"
+msgstr "Жаңа бума"
+
+#: ../menulibre/MenulibreApplication.py:1758
+#, python-format
+msgid "Could not find \"%s\" in your PATH."
+msgstr "\"%s\" сіздің PATH ішінен табу мүмкін емес."
+
+#: ../menulibre/MenulibreApplication.py:1780
+msgid "Are you sure you want to delete this separator?"
+msgstr "Бұл ажыратқышты өшіруді шынымен қалайсыз ба?"
+
+#: ../menulibre/MenulibreApplication.py:1783
+#, python-format
+msgid "Are you sure you want to delete \"%s\"?"
+msgstr "\"%s\" өшіруді шынымен қалайсыз ба?"
+
+#: ../menulibre/MenulibreIconSelection.py:76
+msgid "Select an image"
+msgstr "Суретті таңдау"
+
+#: ../menulibre/MenulibreIconSelection.py:84
+msgid "Images"
+msgstr "Суреттер"
+
+#. Create a new column.
+#: ../menulibre/MenulibreTreeview.py:60
+msgid "Search Results"
+msgstr "Іздеу нәтижелері"
+
+#: ../menulibre/MenulibreXdg.py:53
+msgid "New Menu Item"
+msgstr "Мәзірдің жаңа элементі"
+
+#: ../menulibre/MenulibreXdg.py:55
+msgid "A small descriptive blurb about this application."
+msgstr ""
