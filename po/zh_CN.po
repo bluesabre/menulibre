@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-19 17:29-0500\n"
+"POT-Creation-Date: 2017-04-21 20:25-0400\n"
 "PO-Revision-Date: 2012-08-15 05:49+0000\n"
 "Last-Translator: Wang Dianjin <Unknown>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-20 05:45+0000\n"
-"X-Generator: Launchpad (build 18326)\n"
+"X-Launchpad-Export-Date: 2017-04-22 06:22+0000\n"
+"X-Generator: Launchpad (build 18361)\n"
 "Language: \n"
 
 #: ../menulibre.desktop.in.h:1
@@ -138,80 +138,84 @@ msgid "DBUS Activatable"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:25
-msgid "Browse Icons…"
+msgid "Invalid desktop files detected! Please see details"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:26
+msgid "Browse Icons…"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Browse Files..."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/Dialogs.py:38
-#: ../menulibre/MenulibreApplication.py:242
-#: ../menulibre/MenulibreApplication.py:281
+#: ../data/ui/MenulibreWindow.ui.h:28 ../menulibre/Dialogs.py:38
+#: ../menulibre/MenulibreApplication.py:248
+#: ../menulibre/MenulibreApplication.py:287
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
-#: ../data/ui/MenulibreWindow.ui.h:28
+#: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Save Launcher"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:348
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:354
 msgid "Undo"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:355
+#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:361
 msgid "Redo"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:362
+#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:368
 msgid "Revert"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:32
+#: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Test Launcher"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:33 ../menulibre/MenulibreApplication.py:376
+#: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/MenulibreApplication.py:382
 msgid "Delete"
 msgstr "删除"
 
-#: ../data/ui/MenulibreWindow.ui.h:34
+#: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Move Up"
 msgstr "上移"
 
-#: ../data/ui/MenulibreWindow.ui.h:35
+#: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Move Down"
 msgstr "下移"
 
-#: ../data/ui/MenulibreWindow.ui.h:36
+#: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Sort alphabetically"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:37
+#: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Sort"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:38
+#: ../data/ui/MenulibreWindow.ui.h:39
 msgid "<small><i>Filename</i></small>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:39
+#: ../data/ui/MenulibreWindow.ui.h:40
 msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>应用名称</b></big>"
 
-#: ../data/ui/MenulibreWindow.ui.h:40
+#: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Application Name"
 msgstr "应用程序名称"
 
-#: ../data/ui/MenulibreWindow.ui.h:41
+#: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Application Comment"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:42 ../menulibre/MenulibreApplication.py:701
+#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/MenulibreApplication.py:728
 msgid "Description"
 msgstr "描述"
 
-#: ../data/ui/MenulibreWindow.ui.h:43
+#: ../data/ui/MenulibreWindow.ui.h:44
 msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable "
 "is not set to \"True\" or if you need compatibility with implementations "
@@ -220,102 +224,106 @@ msgid ""
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:45
+#: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Command"
 msgstr "命令"
 
-#: ../data/ui/MenulibreWindow.ui.h:46
+#: ../data/ui/MenulibreWindow.ui.h:47
 msgid "The working directory."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:47
+#: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Working Directory"
 msgstr "工作目录"
 
-#: ../data/ui/MenulibreWindow.ui.h:48
+#: ../data/ui/MenulibreWindow.ui.h:49
 msgid "<b>Application Details</b>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:49
+#: ../data/ui/MenulibreWindow.ui.h:50
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:50
+#: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Run in terminal"
 msgstr "在终端中运行"
 
-#: ../data/ui/MenulibreWindow.ui.h:51
+#: ../data/ui/MenulibreWindow.ui.h:52
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:52
+#: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Use startup notification"
 msgstr "使用启动通知"
 
-#: ../data/ui/MenulibreWindow.ui.h:53
+#: ../data/ui/MenulibreWindow.ui.h:54
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:54
+#: ../data/ui/MenulibreWindow.ui.h:55
 msgid "Hide from menus"
 msgstr "从 menus 中隐藏"
 
-#: ../data/ui/MenulibreWindow.ui.h:55
+#: ../data/ui/MenulibreWindow.ui.h:56
 msgid "<b>Options</b>"
 msgstr "<b>选项</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:56
+#: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Add"
 msgstr "添加"
 
-#: ../data/ui/MenulibreWindow.ui.h:57
+#: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Remove"
 msgstr "移除"
 
-#: ../data/ui/MenulibreWindow.ui.h:58
+#: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Clear"
 msgstr "清除"
 
-#: ../data/ui/MenulibreWindow.ui.h:59
+#: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Show"
 msgstr "显示"
 
-#: ../data/ui/MenulibreWindow.ui.h:60
+#: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Name"
 msgstr "名称"
 
-#: ../data/ui/MenulibreWindow.ui.h:61
+#: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Select an icon…"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:62 ../menulibre/Dialogs.py:62
+#: ../data/ui/MenulibreWindow.ui.h:63 ../menulibre/Dialogs.py:62
 #: ../menulibre/Dialogs.py:85 ../menulibre/Dialogs.py:101
 #: ../menulibre/Dialogs.py:124 ../menulibre/Dialogs.py:132
 #: ../menulibre/MenulibreIconSelection.py:79
 msgid "Cancel"
 msgstr "取消"
 
-#: ../data/ui/MenulibreWindow.ui.h:63
+#: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Apply"
 msgstr "应用"
 
-#: ../data/ui/MenulibreWindow.ui.h:64
+#: ../data/ui/MenulibreWindow.ui.h:65
 msgid "<b>Select an icon</b>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:65
+#: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Search"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:66
+#: ../data/ui/MenulibreWindow.ui.h:67
 msgid "column"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:67
+#: ../data/ui/MenulibreWindow.ui.h:68
+msgid "Log - Menulibre"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:69
 msgid "Search terms…"
 msgstr ""
 
@@ -367,7 +375,7 @@ msgid "Don't Save"
 msgstr "不保存"
 
 #: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:102
-#: ../menulibre/MenulibreApplication.py:341
+#: ../menulibre/MenulibreApplication.py:347
 msgid "Save"
 msgstr "保存"
 
@@ -401,8 +409,8 @@ msgstr ""
 msgid "OK"
 msgstr "确定"
 
-#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1051
-#: ../menulibre/MenulibreApplication.py:1510
+#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1078
+#: ../menulibre/MenulibreApplication.py:1537
 msgid "Separator"
 msgstr ""
 
@@ -514,175 +522,193 @@ msgstr ""
 msgid "Other"
 msgstr "其他"
 
-#: ../menulibre/MenulibreApplication.py:219
+#: ../menulibre/MenulibreApplication.py:225
 msgid "MenuLibre cannot be run as root."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:220
+#: ../menulibre/MenulibreApplication.py:226
 msgid ""
 "Please see the <a "
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
 "documentation</a> for more information."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:319
+#: ../menulibre/MenulibreApplication.py:325
 msgid "Add _Launcher..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:320
+#: ../menulibre/MenulibreApplication.py:326
 msgid "Add Launcher..."
 msgstr "添加启动器..."
 
-#: ../menulibre/MenulibreApplication.py:326
+#: ../menulibre/MenulibreApplication.py:332
 msgid "Add _Directory..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:327
+#: ../menulibre/MenulibreApplication.py:333
 msgid "Add Directory..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:333
+#: ../menulibre/MenulibreApplication.py:339
 msgid "_Add Separator..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:334
+#: ../menulibre/MenulibreApplication.py:340
 msgid "Add Separator..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:340
+#: ../menulibre/MenulibreApplication.py:346
 msgid "_Save"
 msgstr "保存(_S)"
 
-#: ../menulibre/MenulibreApplication.py:347
+#: ../menulibre/MenulibreApplication.py:353
 msgid "_Undo"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:354
+#: ../menulibre/MenulibreApplication.py:360
 msgid "_Redo"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:361
+#: ../menulibre/MenulibreApplication.py:367
 msgid "_Revert"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:368
+#: ../menulibre/MenulibreApplication.py:374
 msgid "_Execute"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:369
+#: ../menulibre/MenulibreApplication.py:375
 msgid "Execute Launcher"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:375
+#: ../menulibre/MenulibreApplication.py:381
 msgid "_Delete"
 msgstr "删除(_D)"
 
-#: ../menulibre/MenulibreApplication.py:382
+#: ../menulibre/MenulibreApplication.py:388
 msgid "_Quit"
 msgstr "退出(_Q)"
 
-#: ../menulibre/MenulibreApplication.py:383
-#: ../menulibre/MenulibreApplication.py:1833
+#: ../menulibre/MenulibreApplication.py:389
+#: ../menulibre/MenulibreApplication.py:1908
 msgid "Quit"
 msgstr "退出"
 
-#: ../menulibre/MenulibreApplication.py:389
+#: ../menulibre/MenulibreApplication.py:395
 msgid "_Contents"
 msgstr "内容(_C)"
 
-#: ../menulibre/MenulibreApplication.py:390
-#: ../menulibre/MenulibreApplication.py:1831
+#: ../menulibre/MenulibreApplication.py:396
+#: ../menulibre/MenulibreApplication.py:1906
 msgid "Help"
 msgstr "帮助"
 
-#: ../menulibre/MenulibreApplication.py:396
+#: ../menulibre/MenulibreApplication.py:402
 msgid "_About"
 msgstr "关于(_A)"
 
-#: ../menulibre/MenulibreApplication.py:397
-#: ../menulibre/MenulibreApplication.py:1832
+#: ../menulibre/MenulibreApplication.py:403
+#: ../menulibre/MenulibreApplication.py:1907
 msgid "About"
 msgstr "关于"
 
-#: ../menulibre/MenulibreApplication.py:524
+#: ../menulibre/MenulibreApplication.py:551
 msgid "Categories"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:526
+#: ../menulibre/MenulibreApplication.py:553
 msgid "Actions"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:528
+#: ../menulibre/MenulibreApplication.py:555
 msgid "Advanced"
 msgstr "高级"
 
-#: ../menulibre/MenulibreApplication.py:675
+#: ../menulibre/MenulibreApplication.py:702
 msgid "ThisEntry"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:693
+#: ../menulibre/MenulibreApplication.py:720
 msgid "Select a category"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:696
+#: ../menulibre/MenulibreApplication.py:723
 msgid "Category Name"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:780
+#: ../menulibre/MenulibreApplication.py:807
 msgid "This Entry"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:835
+#: ../menulibre/MenulibreApplication.py:862
 msgid "New Shortcut"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:981
+#: ../menulibre/MenulibreApplication.py:1008
 msgid "Select a working directory..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:984
+#: ../menulibre/MenulibreApplication.py:1011
 msgid "Select an executable..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1006
+#: ../menulibre/MenulibreApplication.py:1033
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1102
+#: ../menulibre/MenulibreApplication.py:1129
 msgid "No Longer Installed"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1103
+#: ../menulibre/MenulibreApplication.py:1130
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1203
+#: ../menulibre/MenulibreApplication.py:1230
 msgid "You do not have permission to delete this file."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1435
+#: ../menulibre/MenulibreApplication.py:1462
 msgid "New Launcher"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1493
+#: ../menulibre/MenulibreApplication.py:1520
 msgid "New Directory"
 msgstr "新建目录"
 
-#: ../menulibre/MenulibreApplication.py:1758
+#: ../menulibre/MenulibreApplication.py:1785
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1780
+#: ../menulibre/MenulibreApplication.py:1807
 msgid "Are you sure you want to delete this separator?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1783
+#: ../menulibre/MenulibreApplication.py:1810
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:1866
+#, python-format
+msgid ""
+"The following desktop files have failed parsing by the underlying library, "
+"and will therefore not show up in menulibre - please investigate these "
+"problems with the associated package maintainer:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:1872
+msgid "All desktop files have been parsed successfully."
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:1901
+msgid "Check for bad desktop files"
 msgstr ""
 
 #: ../menulibre/MenulibreIconSelection.py:76
@@ -704,6 +730,54 @@ msgstr ""
 
 #: ../menulibre/MenulibreXdg.py:55
 msgid "A small descriptive blurb about this application."
+msgstr ""
+
+#: ../menulibre/util.py:455
+#, python-format
+msgid "%s: Unable to load as a key file due to the following error: %s"
+msgstr ""
+
+#: ../menulibre/util.py:463
+#, python-format
+msgid "%s: Start group is invalid - currently '%s', should be '%s'"
+msgstr ""
+
+#: ../menulibre/util.py:472
+#, python-format
+msgid "%s: Type key was not found"
+msgstr ""
+
+#: ../menulibre/util.py:475
+#, python-format
+msgid "%s: Type is invalid - currently '%s', should be '%s'"
+msgstr ""
+
+#: ../menulibre/util.py:488
+#, python-format
+msgid "%s: Try exec program '%s' has not been found in the PATH"
+msgstr ""
+
+#: ../menulibre/util.py:496
+#, python-format
+msgid "%s: Exec key not found"
+msgstr ""
+
+#: ../menulibre/util.py:502
+msgid ""
+"%s: Exec program '%' is not a valid shell command according to "
+"GLib.shell_parse_argv, error: %s"
+msgstr ""
+
+#: ../menulibre/util.py:507
+#, python-format
+msgid "%s: Exec program '%s' has not been found in the PATH"
+msgstr ""
+
+#. At this point the desktop file is valid - execution should never reach
+#. here
+#: ../menulibre/util.py:512
+#, python-format
+msgid "%s: Desktop file is valid??"
 msgstr ""
 
 #~ msgid "Image File"

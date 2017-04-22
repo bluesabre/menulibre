@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-19 17:29-0500\n"
+"POT-Creation-Date: 2017-04-21 20:25-0400\n"
 "PO-Revision-Date: 2013-05-29 03:05+0000\n"
 "Last-Translator: k3dar7 <k3dar7@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-02-20 05:44+0000\n"
-"X-Generator: Launchpad (build 18326)\n"
+"X-Launchpad-Export-Date: 2017-04-22 06:21+0000\n"
+"X-Generator: Launchpad (build 18361)\n"
 "Language: cs\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -155,80 +155,84 @@ msgid "DBUS Activatable"
 msgstr "Aktivovatelný DBUS"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
+msgid "Invalid desktop files detected! Please see details"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Browse Icons…"
 msgstr "Procházet ikony..."
 
-#: ../data/ui/MenulibreWindow.ui.h:26
+#: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Browse Files..."
 msgstr "Procházet soubory…"
 
-#: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/Dialogs.py:38
-#: ../menulibre/MenulibreApplication.py:242
-#: ../menulibre/MenulibreApplication.py:281
+#: ../data/ui/MenulibreWindow.ui.h:28 ../menulibre/Dialogs.py:38
+#: ../menulibre/MenulibreApplication.py:248
+#: ../menulibre/MenulibreApplication.py:287
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
-#: ../data/ui/MenulibreWindow.ui.h:28
+#: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Save Launcher"
 msgstr "Uložit spouštěč"
 
-#: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/MenulibreApplication.py:348
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:354
 msgid "Undo"
 msgstr "Zpět"
 
-#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:355
+#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:361
 msgid "Redo"
 msgstr "Opakovat"
 
-#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:362
+#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:368
 msgid "Revert"
 msgstr "Vrátit změny"
 
-#: ../data/ui/MenulibreWindow.ui.h:32
+#: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Test Launcher"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:33 ../menulibre/MenulibreApplication.py:376
+#: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/MenulibreApplication.py:382
 msgid "Delete"
 msgstr "Vymazat"
 
-#: ../data/ui/MenulibreWindow.ui.h:34
+#: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Move Up"
 msgstr "Přesunout nahoru"
 
-#: ../data/ui/MenulibreWindow.ui.h:35
+#: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Move Down"
 msgstr "Přesunout dolů"
 
-#: ../data/ui/MenulibreWindow.ui.h:36
+#: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Sort alphabetically"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:37
+#: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Sort"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:38
+#: ../data/ui/MenulibreWindow.ui.h:39
 msgid "<small><i>Filename</i></small>"
 msgstr "<small><i>Jméno souboru</i></small>"
 
-#: ../data/ui/MenulibreWindow.ui.h:39
+#: ../data/ui/MenulibreWindow.ui.h:40
 msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>Název aplikace</b></big>"
 
-#: ../data/ui/MenulibreWindow.ui.h:40
+#: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Application Name"
 msgstr "Název aplikace"
 
-#: ../data/ui/MenulibreWindow.ui.h:41
+#: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Application Comment"
 msgstr "Komentář aplikace"
 
-#: ../data/ui/MenulibreWindow.ui.h:42 ../menulibre/MenulibreApplication.py:701
+#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/MenulibreApplication.py:728
 msgid "Description"
 msgstr "Popis"
 
-#: ../data/ui/MenulibreWindow.ui.h:43
+#: ../data/ui/MenulibreWindow.ui.h:44
 msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable "
 "is not set to \"True\" or if you need compatibility with implementations "
@@ -242,32 +246,32 @@ msgstr ""
 "Podívejte se na http://standards.freedesktop.org/desktop-entry-spec/desktop-"
 "entry-spec-latest.html#exec-variables na seznam podporovaných argumentů."
 
-#: ../data/ui/MenulibreWindow.ui.h:45
+#: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Command"
 msgstr "Příkaz"
 
-#: ../data/ui/MenulibreWindow.ui.h:46
+#: ../data/ui/MenulibreWindow.ui.h:47
 msgid "The working directory."
 msgstr "Pracovní adresář."
 
-#: ../data/ui/MenulibreWindow.ui.h:47
+#: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Working Directory"
 msgstr "Pracovní adresář"
 
-#: ../data/ui/MenulibreWindow.ui.h:48
+#: ../data/ui/MenulibreWindow.ui.h:49
 msgid "<b>Application Details</b>"
 msgstr "<b>Podrobnosti aplikace</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:49
+#: ../data/ui/MenulibreWindow.ui.h:50
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
 "Pokud je nastaven na hodnotu \"True\", program poběží v okně terminálu."
 
-#: ../data/ui/MenulibreWindow.ui.h:50
+#: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Run in terminal"
 msgstr "Spustit v terminálu"
 
-#: ../data/ui/MenulibreWindow.ui.h:51
+#: ../data/ui/MenulibreWindow.ui.h:52
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
@@ -275,11 +279,11 @@ msgstr ""
 "Pokud je nastavena hodnota \"True\", oznámení o uvedení do provozu je "
 "odesláno. Obvykle to znamená, že se zobrazí zaneprázdněný kurzor."
 
-#: ../data/ui/MenulibreWindow.ui.h:52
+#: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Use startup notification"
 msgstr "Použít upozornění na spuštění"
 
-#: ../data/ui/MenulibreWindow.ui.h:53
+#: ../data/ui/MenulibreWindow.ui.h:54
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
@@ -287,62 +291,66 @@ msgstr ""
 "Pokud je nastavena hodnota \"True\", tato položka se nezobrazí v menu, ale "
 "bude k dispozici pro typ MIME asociací atd."
 
-#: ../data/ui/MenulibreWindow.ui.h:54
+#: ../data/ui/MenulibreWindow.ui.h:55
 msgid "Hide from menus"
 msgstr "Nezobrazovat v nabídkách"
 
-#: ../data/ui/MenulibreWindow.ui.h:55
+#: ../data/ui/MenulibreWindow.ui.h:56
 msgid "<b>Options</b>"
 msgstr "<b>Možnosti</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:56
+#: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Add"
 msgstr "Přidat"
 
-#: ../data/ui/MenulibreWindow.ui.h:57
+#: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Remove"
 msgstr "Odstranit"
 
-#: ../data/ui/MenulibreWindow.ui.h:58
+#: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Clear"
 msgstr "Vyčistiť"
 
-#: ../data/ui/MenulibreWindow.ui.h:59
+#: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Show"
 msgstr "Zobrazit"
 
-#: ../data/ui/MenulibreWindow.ui.h:60
+#: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Name"
 msgstr "Název"
 
-#: ../data/ui/MenulibreWindow.ui.h:61
+#: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Select an icon…"
 msgstr "Vybrat ikonu..."
 
-#: ../data/ui/MenulibreWindow.ui.h:62 ../menulibre/Dialogs.py:62
+#: ../data/ui/MenulibreWindow.ui.h:63 ../menulibre/Dialogs.py:62
 #: ../menulibre/Dialogs.py:85 ../menulibre/Dialogs.py:101
 #: ../menulibre/Dialogs.py:124 ../menulibre/Dialogs.py:132
 #: ../menulibre/MenulibreIconSelection.py:79
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: ../data/ui/MenulibreWindow.ui.h:63
+#: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Apply"
 msgstr "Použít"
 
-#: ../data/ui/MenulibreWindow.ui.h:64
+#: ../data/ui/MenulibreWindow.ui.h:65
 msgid "<b>Select an icon</b>"
 msgstr "<b>Vybrat ikonu</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:65
+#: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Search"
 msgstr "Hledat"
 
-#: ../data/ui/MenulibreWindow.ui.h:66
+#: ../data/ui/MenulibreWindow.ui.h:67
 msgid "column"
 msgstr "sloupec"
 
-#: ../data/ui/MenulibreWindow.ui.h:67
+#: ../data/ui/MenulibreWindow.ui.h:68
+msgid "Log - Menulibre"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:69
 msgid "Search terms…"
 msgstr "Hledané termíny..."
 
@@ -396,7 +404,7 @@ msgid "Don't Save"
 msgstr "Neukládat"
 
 #: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:102
-#: ../menulibre/MenulibreApplication.py:341
+#: ../menulibre/MenulibreApplication.py:347
 msgid "Save"
 msgstr "Uložit"
 
@@ -432,8 +440,8 @@ msgstr "Obnovit spouštěč"
 msgid "OK"
 msgstr "OK"
 
-#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1051
-#: ../menulibre/MenulibreApplication.py:1510
+#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1078
+#: ../menulibre/MenulibreApplication.py:1537
 msgid "Separator"
 msgstr "Oddělovač"
 
@@ -545,11 +553,11 @@ msgstr "Xfce nastavení systému"
 msgid "Other"
 msgstr "Ostatní"
 
-#: ../menulibre/MenulibreApplication.py:219
+#: ../menulibre/MenulibreApplication.py:225
 msgid "MenuLibre cannot be run as root."
 msgstr "MenuLibre nemůže běžet jako root."
 
-#: ../menulibre/MenulibreApplication.py:220
+#: ../menulibre/MenulibreApplication.py:226
 msgid ""
 "Please see the <a "
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
@@ -559,135 +567,135 @@ msgstr ""
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
 "documentation</a> se prosím podívejte sem."
 
-#: ../menulibre/MenulibreApplication.py:319
+#: ../menulibre/MenulibreApplication.py:325
 msgid "Add _Launcher..."
 msgstr "Přidat _spouštěč..."
 
-#: ../menulibre/MenulibreApplication.py:320
+#: ../menulibre/MenulibreApplication.py:326
 msgid "Add Launcher..."
 msgstr "Přidat spouštěč..."
 
-#: ../menulibre/MenulibreApplication.py:326
+#: ../menulibre/MenulibreApplication.py:332
 msgid "Add _Directory..."
 msgstr "Přidat _adresář..."
 
-#: ../menulibre/MenulibreApplication.py:327
+#: ../menulibre/MenulibreApplication.py:333
 msgid "Add Directory..."
 msgstr "Přidat adresář..."
 
-#: ../menulibre/MenulibreApplication.py:333
+#: ../menulibre/MenulibreApplication.py:339
 msgid "_Add Separator..."
 msgstr "_Přidat oddělovač..."
 
-#: ../menulibre/MenulibreApplication.py:334
+#: ../menulibre/MenulibreApplication.py:340
 msgid "Add Separator..."
 msgstr "Přidat oddělovač..."
 
-#: ../menulibre/MenulibreApplication.py:340
+#: ../menulibre/MenulibreApplication.py:346
 msgid "_Save"
 msgstr "_Uložit"
 
-#: ../menulibre/MenulibreApplication.py:347
+#: ../menulibre/MenulibreApplication.py:353
 msgid "_Undo"
 msgstr "_Zpět"
 
-#: ../menulibre/MenulibreApplication.py:354
+#: ../menulibre/MenulibreApplication.py:360
 msgid "_Redo"
 msgstr "_Vpřed"
 
-#: ../menulibre/MenulibreApplication.py:361
+#: ../menulibre/MenulibreApplication.py:367
 msgid "_Revert"
 msgstr "_Vrátit"
 
-#: ../menulibre/MenulibreApplication.py:368
+#: ../menulibre/MenulibreApplication.py:374
 msgid "_Execute"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:369
+#: ../menulibre/MenulibreApplication.py:375
 msgid "Execute Launcher"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:375
+#: ../menulibre/MenulibreApplication.py:381
 msgid "_Delete"
 msgstr "_Vymazat"
 
-#: ../menulibre/MenulibreApplication.py:382
+#: ../menulibre/MenulibreApplication.py:388
 msgid "_Quit"
 msgstr "_Ukončit"
 
-#: ../menulibre/MenulibreApplication.py:383
-#: ../menulibre/MenulibreApplication.py:1833
+#: ../menulibre/MenulibreApplication.py:389
+#: ../menulibre/MenulibreApplication.py:1908
 msgid "Quit"
 msgstr "Ukončit"
 
-#: ../menulibre/MenulibreApplication.py:389
+#: ../menulibre/MenulibreApplication.py:395
 msgid "_Contents"
 msgstr "_Obsah"
 
-#: ../menulibre/MenulibreApplication.py:390
-#: ../menulibre/MenulibreApplication.py:1831
+#: ../menulibre/MenulibreApplication.py:396
+#: ../menulibre/MenulibreApplication.py:1906
 msgid "Help"
 msgstr "Nápověda"
 
-#: ../menulibre/MenulibreApplication.py:396
+#: ../menulibre/MenulibreApplication.py:402
 msgid "_About"
 msgstr "_O aplikaci"
 
-#: ../menulibre/MenulibreApplication.py:397
-#: ../menulibre/MenulibreApplication.py:1832
+#: ../menulibre/MenulibreApplication.py:403
+#: ../menulibre/MenulibreApplication.py:1907
 msgid "About"
 msgstr "O aplikaci"
 
-#: ../menulibre/MenulibreApplication.py:524
+#: ../menulibre/MenulibreApplication.py:551
 msgid "Categories"
 msgstr "Kategorie"
 
-#: ../menulibre/MenulibreApplication.py:526
+#: ../menulibre/MenulibreApplication.py:553
 msgid "Actions"
 msgstr "Akce"
 
-#: ../menulibre/MenulibreApplication.py:528
+#: ../menulibre/MenulibreApplication.py:555
 msgid "Advanced"
 msgstr "Pokročilé"
 
-#: ../menulibre/MenulibreApplication.py:675
+#: ../menulibre/MenulibreApplication.py:702
 msgid "ThisEntry"
 msgstr "Tato položka"
 
-#: ../menulibre/MenulibreApplication.py:693
+#: ../menulibre/MenulibreApplication.py:720
 msgid "Select a category"
 msgstr "Zvolit kategorii"
 
-#: ../menulibre/MenulibreApplication.py:696
+#: ../menulibre/MenulibreApplication.py:723
 msgid "Category Name"
 msgstr "Název kategorie"
 
-#: ../menulibre/MenulibreApplication.py:780
+#: ../menulibre/MenulibreApplication.py:807
 msgid "This Entry"
 msgstr "Tato položka"
 
-#: ../menulibre/MenulibreApplication.py:835
+#: ../menulibre/MenulibreApplication.py:862
 msgid "New Shortcut"
 msgstr "Nová zkratka"
 
-#: ../menulibre/MenulibreApplication.py:981
+#: ../menulibre/MenulibreApplication.py:1008
 msgid "Select a working directory..."
 msgstr "Vybrat pracovní adresář..."
 
-#: ../menulibre/MenulibreApplication.py:984
+#: ../menulibre/MenulibreApplication.py:1011
 msgid "Select an executable..."
 msgstr "Vybrat spustitelný soubor..."
 
-#: ../menulibre/MenulibreApplication.py:1006
+#: ../menulibre/MenulibreApplication.py:1033
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr "Nelze přidat podadresáře předinstalované systémové cesty."
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1102
+#: ../menulibre/MenulibreApplication.py:1129
 msgid "No Longer Installed"
 msgstr "Už není nainstalována"
 
-#: ../menulibre/MenulibreApplication.py:1103
+#: ../menulibre/MenulibreApplication.py:1130
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -695,31 +703,49 @@ msgstr ""
 "Tento spouštěč byl odstraněn ze systému.\n"
 "Vybrání další dostupné položky."
 
-#: ../menulibre/MenulibreApplication.py:1203
+#: ../menulibre/MenulibreApplication.py:1230
 msgid "You do not have permission to delete this file."
 msgstr "Nemáte oprávnění vymazat tento soubor."
 
-#: ../menulibre/MenulibreApplication.py:1435
+#: ../menulibre/MenulibreApplication.py:1462
 msgid "New Launcher"
 msgstr "Nový spouštěč"
 
-#: ../menulibre/MenulibreApplication.py:1493
+#: ../menulibre/MenulibreApplication.py:1520
 msgid "New Directory"
 msgstr "Nový adresář"
 
-#: ../menulibre/MenulibreApplication.py:1758
+#: ../menulibre/MenulibreApplication.py:1785
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1780
+#: ../menulibre/MenulibreApplication.py:1807
 msgid "Are you sure you want to delete this separator?"
 msgstr "Opravdu chcete vymazat tento oddělovač?"
 
-#: ../menulibre/MenulibreApplication.py:1783
+#: ../menulibre/MenulibreApplication.py:1810
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Opravdu chcete vymazat \"%s\"?"
+
+#: ../menulibre/MenulibreApplication.py:1866
+#, python-format
+msgid ""
+"The following desktop files have failed parsing by the underlying library, "
+"and will therefore not show up in menulibre - please investigate these "
+"problems with the associated package maintainer:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:1872
+msgid "All desktop files have been parsed successfully."
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:1901
+msgid "Check for bad desktop files"
+msgstr ""
 
 #: ../menulibre/MenulibreIconSelection.py:76
 msgid "Select an image"
@@ -741,6 +767,54 @@ msgstr "Nová položka"
 #: ../menulibre/MenulibreXdg.py:55
 msgid "A small descriptive blurb about this application."
 msgstr "Stručný popis aplikace"
+
+#: ../menulibre/util.py:455
+#, python-format
+msgid "%s: Unable to load as a key file due to the following error: %s"
+msgstr ""
+
+#: ../menulibre/util.py:463
+#, python-format
+msgid "%s: Start group is invalid - currently '%s', should be '%s'"
+msgstr ""
+
+#: ../menulibre/util.py:472
+#, python-format
+msgid "%s: Type key was not found"
+msgstr ""
+
+#: ../menulibre/util.py:475
+#, python-format
+msgid "%s: Type is invalid - currently '%s', should be '%s'"
+msgstr ""
+
+#: ../menulibre/util.py:488
+#, python-format
+msgid "%s: Try exec program '%s' has not been found in the PATH"
+msgstr ""
+
+#: ../menulibre/util.py:496
+#, python-format
+msgid "%s: Exec key not found"
+msgstr ""
+
+#: ../menulibre/util.py:502
+msgid ""
+"%s: Exec program '%' is not a valid shell command according to "
+"GLib.shell_parse_argv, error: %s"
+msgstr ""
+
+#: ../menulibre/util.py:507
+#, python-format
+msgid "%s: Exec program '%s' has not been found in the PATH"
+msgstr ""
+
+#. At this point the desktop file is valid - execution should never reach
+#. here
+#: ../menulibre/util.py:512
+#, python-format
+msgid "%s: Desktop file is valid??"
+msgstr ""
 
 #~ msgid "_Edit"
 #~ msgstr "_Úpravy"
