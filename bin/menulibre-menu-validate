@@ -1,0 +1,56 @@
+#!/usr/bin/python3
+# -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
+#   MenuLibre - Advanced fd.o Compliant Menu Editor
+#
+#   This script is intended as a convenient way to access GMenu's debugging
+#   output on stderr, which exposes information about invalid desktop files,
+#   without doing strange hacks on menulibre's own stderr
+
+#   Copyright (C) 2017 OmegaPhil <OmegaPhil@startmail.com>
+#
+#   This program is free software: you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License version 3, as published
+#   by the Free Software Foundation.
+#
+#   This program is distributed in the hope that it will be useful, but
+#   WITHOUT ANY WARRANTY; without even the implied warranties of
+#   MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#   PURPOSE.  See the GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License along
+#   with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+import locale
+locale.textdomain('menulibre')
+
+import os
+import os.path
+import sys
+
+import gi
+gi.require_version('GMenu', '3.0')
+gi.require_version('Gtk', '3.0')  # This seems to be needed for imported
+                                  # menulibre code
+
+from gi.repository import GMenu
+
+
+# As with the main script, need to mess with the path to access menulibre code
+# Get project root directory (enable symlink and trunk execution)
+PROJECT_ROOT_DIRECTORY = os.path.abspath(
+    os.path.dirname(os.path.dirname(os.path.realpath(sys.argv[0]))))
+
+# Add project root directory to python search path
+sys.path.append(PROJECT_ROOT_DIRECTORY)
+
+
+from menulibre.MenuEditor import MenuEditor
+
+
+# Enable debug output from the GMenu library on stderr
+os.environ["MENU_VERBOSE"] = "1"
+
+# Create a GMenu object in the same way the real script does - menulibre will
+# then hook into this script's stderr to pick up on the bad desktop files
+menu_editor = MenuEditor()

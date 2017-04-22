@@ -2,7 +2,7 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
 #   Copyright (C) 2012-2015 Sean Davis <smd.seandavis@gmail.com>
-#   Copyright (C) 2016 OmegaPhil <omegaphil@startmail.com>
+#   Copyright (C) 2016-2017 OmegaPhil <omegaphil@startmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published
@@ -30,7 +30,7 @@ from gi.repository import Gio, GObject, Gtk, Gdk, GdkPixbuf
 
 from . import MenulibreStackSwitcher, MenulibreIconSelection
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
-from . import MenulibreXdg, util
+from . import MenulibreXdg, util, MenulibreLog
 from .util import MenuItemTypes, check_keypress, getBasename
 import menulibre_lib
 
@@ -147,7 +147,7 @@ for key in list(category_groups.keys()):
 
 def lookup_category_description(spec_name):
     """Return a valid description string for a spec entry."""
-    #if spec_name.startswith("menulibre-"):
+    # if spec_name.startswith("menulibre-"):
     #    return _("User Category")
     try:
         return category_descriptions[spec_name]
@@ -211,6 +211,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Set up the applicaton browser
         self.configure_application_treeview(builder)
+
+        # Determining paths of bad desktop files GMenu can't load - if some are
+        # detected, alerting user via InfoBar
+        self.bad_desktop_files = util.determine_bad_desktop_files()
+        if self.bad_desktop_files:
+            self.configure_application_bad_desktop_files_infobar(builder)
 
     def root_lockout(self):
         if root:
@@ -423,6 +429,27 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.actions['about'].connect('activate',
                                             self.on_about_cb)
 
+    def configure_application_bad_desktop_files_infobar(self, builder):
+        """Configure InfoBar to alert user to bad desktop files."""
+
+        # Fetching UI widgets
+        infobar = builder.get_object('bad_desktop_files_infobar')
+        box = builder.get_object('box1')
+
+        # Configuring buttons for the InfoBar - looks like you can't set a
+        # response ID via a button defined in glade?
+        # Can't get a stock button then change its icon, so leaving with no
+        # icon
+        details_button = infobar.add_button('Details', Gtk.ResponseType.YES)
+
+        # Looks like you can't just insert a widget where you want??
+        box.pack_start(infobar, False, False, 0)
+        box.reorder_child(infobar, 1)
+
+        # Hook up events
+        infobar.set_default_response(Gtk.ResponseType.CLOSE)
+        infobar.connect('response', self.on_bad_desktop_files_infobar_response)
+
     def configure_application_menubar(self, builder):
         """Configure the application GlobalMenu (in Unity) and AppMenu."""
         self.app_menu_button = None
@@ -533,15 +560,15 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Keep a dictionary of the widgets for easy lookup and updates.
         # The keys are the DesktopSpec keys.
         self.widgets = {
-            'Name': (  # GtkButton, GtkLabel, GtkEntry
+            'Name': (# GtkButton, GtkLabel, GtkEntry
                 builder.get_object('button_Name'),
                 builder.get_object('label_Name'),
                 builder.get_object('entry_Name')),
-            'Comment': (  # GtkButton, GtkLabel, GtkEntry
+            'Comment': (# GtkButton, GtkLabel, GtkEntry
                 builder.get_object('button_Comment'),
                 builder.get_object('label_Comment'),
                 builder.get_object('entry_Comment')),
-            'Icon': (  # GtkButton, GtkImage
+            'Icon': (# GtkButton, GtkImage
                 builder.get_object('button_Icon'),
                 builder.get_object('image_Icon')),
             'Filename': builder.get_object('label_Filename'),
@@ -651,7 +678,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         clear_button.connect("clicked", self.on_actions_clear)
         move_up = builder.get_object('actions_move_up')
         move_up.connect('clicked', self.move_action, (self.actions_treeview,
-                                                        -1))
+                                                        - 1))
         move_down = builder.get_object('actions_move_down')
         move_down.connect('clicked', self.move_action, (self.actions_treeview,
                                                         1))
@@ -978,11 +1005,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_ExecPath_clicked(self, entry, icon, event, widget_name, builder):
         """Show the file selection dialog when Exec/Path Browse is clicked."""
         if widget_name == 'Path':
-            title=_("Select a working directory...")
-            action=Gtk.FileChooserAction.SELECT_FOLDER
+            title = _("Select a working directory...")
+            action = Gtk.FileChooserAction.SELECT_FOLDER
         else:
             title = _("Select an executable...")
-            action=Gtk.FileChooserAction.OPEN
+            action = Gtk.FileChooserAction.OPEN
 
         dialog = Dialogs.FileChooserDialog(self, title, action)
         result = dialog.run()
@@ -1460,7 +1487,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             categories = util.getRequiredCategories(parent_data[6])
 
             # Debug code
-            #print('Launcher addition category determination: parent_data is not'
+            # print('Launcher addition category determination: parent_data is not'
             #      ' None and not dir_selected, categories: %s' % categories)
 
         elif parent_data is not None and dir_selected:
@@ -1471,7 +1498,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             categories = util.getRequiredCategories(row_data[6])
 
             # Debug code
-            #print('Launcher addition category determination: dir_selected, '
+            # print('Launcher addition category determination: dir_selected, '
             #      'categories: %s' % categories)
 
         else:
@@ -1480,7 +1507,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             categories = util.getRequiredCategories(None)
 
             # Debug code
-            #print('Launcher addition category determination: else, categories: '
+            # print('Launcher addition category determination: else, categories: '
             #      '%s' % categories)
 
         self.set_editor_categories(';'.join(categories))
@@ -1806,6 +1833,46 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         GtkApplication instance."""
         self.emit('about', True)
 
+    def on_bad_desktop_files_infobar_response(self, infobar, response_id):
+        """Bad desktop files infobar callback function to request the bad
+        desktop files report if desired."""
+
+        # Debug code
+        # print('on_bad_desktop_files_infobar_response ran, response_id: %d'
+        #      % response_id)
+
+        # Dealing with request for details
+        if response_id == Gtk.ResponseType.YES:
+            self.bad_desktop_files_report_dialog()
+
+        # All response types should result in the infobar being hidden
+        infobar.hide()
+
+    def bad_desktop_files_report_dialog(self):
+        """Generate and display details of bad desktop files, or report
+        successful parsing."""
+
+        # Building up a list of all known failures associated with the bad
+        # desktop files
+        failure_report = [util.validate_desktop_file(desktop_file)
+                          for desktop_file in self.bad_desktop_files]
+
+        log_dialog = MenulibreLog.LogDialog(self)
+
+        # This functionality can now be called on demand, so there may not be
+        # any problems present
+        if failure_report:
+            log_dialog.set_text(
+                _("The following desktop files have failed parsing by the "
+                  "underlying library, and will therefore not show up in "
+                  "menulibre - please investigate these problems with the "
+                  "associated package maintainer:\n\n%s")
+                % '\n\n'.join(failure_report))
+        else:
+            log_dialog.set_text(_("All desktop files have been parsed "
+                                  "successfully."))
+        log_dialog.show()
+
 
 class Application(Gtk.Application):
     """Menulibre GtkApplication"""
@@ -1827,12 +1894,26 @@ class Application(Gtk.Application):
         """Handle GtkApplication do_startup."""
         Gtk.Application.do_startup(self)
 
+        # 'Sections' without labels result in a separator separating functional
+        # groups of menu items
         self.menu = Gio.Menu()
-        self.menu.append(_("Help"), "app.help")
-        self.menu.append(_("About"), "app.about")
-        self.menu.append(_("Quit"), "app.quit")
+        section_1_menu = Gio.Menu()
+        section_1_menu.append(_("Check for bad desktop files"),
+                              "app.bad_files")
+        self.menu.append_section(None, section_1_menu)
+
+        section_2_menu = Gio.Menu()
+        section_2_menu.append(_("Help"), "app.help")
+        section_2_menu.append(_("About"), "app.about")
+        section_2_menu.append(_("Quit"), "app.quit")
+        self.menu.append_section(None, section_2_menu)
 
         self.set_app_menu(self.menu)
+
+        # Bad desktop files detection on demand
+        bad_files_action = Gio.SimpleAction.new("bad_files", None)
+        bad_files_action.connect("activate", self.bad_files_cb)
+        self.add_action(bad_files_action)
 
         help_action = Gio.SimpleAction.new("help", None)
         help_action.connect("activate", self.help_cb)
@@ -1845,6 +1926,16 @@ class Application(Gtk.Application):
         quit_action = Gio.SimpleAction.new("quit", None)
         quit_action.connect("activate", self.quit_cb)
         self.add_action(quit_action)
+
+    def bad_files_cb(self, widget, data=None):
+        """Bad desktop files detection callback function."""
+
+        # Determining paths of bad desktop files GMenu can't load, on demand
+        # This state is normally tracked with the MenulibreWindow, so not
+        # keeping it in this application object. By the time this is called,
+        # self.win is valid
+        self.win.bad_desktop_files = util.determine_bad_desktop_files()
+        self.win.bad_desktop_files_report_dialog()
 
     def help_cb(self, widget, data=None):
         """Help callback function."""

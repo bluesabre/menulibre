@@ -2,7 +2,7 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
 #   Copyright (C) 2012-2015 Sean Davis <smd.seandavis@gmail.com>
-#   Copyright (C) 2016 OmegaPhil <omegaphil@startmail.com>
+#   Copyright (C) 2016-2017 OmegaPhil <omegaphil@startmail.com>
 #
 #   Portions of this file are adapted from Alacarte Menu Editor,
 #   Copyright (C) 2006 Travis Watkins, Heinrich Wendel
@@ -231,6 +231,9 @@ class MenuEditor(object):
 
     def __init__(self, basename=None):
         """init"""
+
+        # Remember to keep menulibre-menu-validate's GMenu object creation
+        # in-sync with this code
         basename = basename or get_default_menu()
 
         self.tree = GMenu.Tree.new(basename,

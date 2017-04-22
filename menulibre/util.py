@@ -2,6 +2,7 @@
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
 #   Copyright (C) 2012-2015 Sean Davis <smd.seandavis@gmail.com>
+#   Copyright (C) 2017 OmegaPhil <omegaphil@startmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published
@@ -17,10 +18,13 @@
 
 import os
 import re
+import subprocess
 
 import getpass
 import psutil
 old_psutil_format = isinstance(psutil.Process.username, property)
+
+from locale import gettext as _
 
 from gi.repository import GLib, Gdk
 
@@ -323,7 +327,7 @@ def getSaveFilename(name, filename, item_type, force_update=False):
         elif item_type == 'Directory':
             path = getUserDirectoryPath()
             ext = '.directory'
-            
+
         basedir = os.path.dirname(os.path.join(path, basename))
         if not os.path.exists(basedir):
             os.makedirs(basedir)
@@ -397,3 +401,112 @@ def check_keypress(event, keys):
         return False
 
     return True
+
+
+def determine_bad_desktop_files():
+    """Run the gmenu-invalid-desktop-files script to get at the GMenu library's
+    debug output, which lists files that failed to load, and return these as a
+    sorted list."""
+
+    # Run the helper script with normal binary lookup via the shell, capturing
+    # stderr, sensitive to errors
+    result = subprocess.run(['menulibre-menu-validate'],
+                            stderr=subprocess.PIPE, shell=True, check=True)
+
+    # stderr is returned as bytes, so converting it to the line-buffered output
+    # I actually want
+    bad_desktop_files = []
+    for line in result.stderr.decode().split('\n'):
+        matches = re.match(r'^Failed to load "(.+\.desktop)"$', line)
+        if matches:
+            bad_desktop_files.append(matches.groups()[0])
+
+    # Alphabetical sort on bad desktop file paths
+    bad_desktop_files.sort()
+
+    # Debug code
+    # if bad_desktop_files:
+    #    print('determine_bad_desktop_files ran, bad desktop files detected:')
+    #    for bad_desktop_file in bad_desktop_files:
+    #        print(bad_desktop_file)
+
+    return bad_desktop_files
+
+
+def validate_desktop_file(desktop_file):
+    """Validate a known-bad desktop file in the same way GMenu/glib does, to
+    give a user real information about why certain files are broken."""
+
+    # This is a reimplementation of the validation logic in glib2's
+    # gio/gdesktopappinfo.c:g_desktop_app_info_load_from_keyfile.
+    # gnome-menus appears also to try to do its own validation in
+    # libmenu/desktop-entries.c:desktop_entry_load, however
+    # g_desktop_app_info_new_from_filename will not return a valid
+    # GDesktopAppInfo in the first place if something is wrong with the
+    # desktop file
+
+    try:
+
+        # Looks like load_from_file is not a class method??
+        keyfile = GLib.KeyFile()
+        keyfile.load_from_file(desktop_file, GLib.KeyFileFlags.NONE)
+
+    except Exception as e:
+        return _('%s: Unable to load as a key file due to the following error:'
+                 ' %s') % (desktop_file, e)
+
+    # File is at least a valid keyfile, so can start the real desktop
+    # validation
+    # Start group validation
+    start_group = keyfile.get_start_group()
+    if start_group != GLib.KEY_FILE_DESKTOP_GROUP:
+        return (_('%s: Start group is invalid - currently \'%s\', should be '
+                  '\'%s\'') % (desktop_file, start_group,
+                               GLib.KEY_FILE_DESKTOP_GROUP))
+
+    # Type validation
+    try:
+        type_key = keyfile.get_string(start_group,
+                                      GLib.KEY_FILE_DESKTOP_KEY_TYPE)
+    except:
+        return _('%s: Type key was not found') % desktop_file
+
+    if type_key != GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION:
+        return (_('%s: Type is invalid - currently \'%s\', should be \'%s\'')
+                % (desktop_file, type_key,
+                   GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION))
+
+    # Validating 'try exec' if its present
+    try:
+        try_exec = keyfile.get_string(start_group,
+                                      GLib.KEY_FILE_DESKTOP_KEY_TRY_EXEC)
+    except:
+        pass
+
+    else:
+        if GLib.find_program_in_path(try_exec) is None:
+            return (_('%s: Try exec program \'%s\' has not been found in the'
+                      ' PATH') % (desktop_file, try_exec))
+
+    # Validating executable
+    try:
+        exec_key = keyfile.get_string(start_group,
+                                      GLib.KEY_FILE_DESKTOP_KEY_EXEC)
+    except:
+        return _('%s: Exec key not found') % desktop_file
+
+    try:
+        GLib.shell_parse_argv(exec_key)
+
+    except Exception as e:
+        return (_('%s: Exec program \'%\' is not a valid shell command '
+                  'according to GLib.shell_parse_argv, error: %s')
+                % (desktop_file, exec_key, e))
+
+    if GLib.find_program_in_path(exec_key) is None:
+        return (_('%s: Exec program \'%s\' has not been found in the PATH')
+                % (desktop_file, exec_key))
+
+    # At this point the desktop file is valid - execution should never reach
+    # here
+    return _('%s: Desktop file is valid??') % desktop_file
