@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-04-21 20:25-0400\n"
-"PO-Revision-Date: 2015-03-20 19:33+0000\n"
+"PO-Revision-Date: 2017-05-01 14:35+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-04-23 05:41+0000\n"
-"X-Generator: Launchpad (build 18361)\n"
+"X-Launchpad-Export-Date: 2017-05-03 06:24+0000\n"
+"X-Generator: Launchpad (build 18366)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -156,6 +156,7 @@ msgstr "DBUS aktyvuojamas"
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Invalid desktop files detected! Please see details"
 msgstr ""
+"Aptikti neteisingi darbalaukio failai! Prašome žiūrėti išsamesnę informaciją"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Browse Icons…"
@@ -349,7 +350,7 @@ msgstr "stulpelis"
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Log - Menulibre"
-msgstr ""
+msgstr "Žurnalas - Menulibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:69
 msgid "Search terms…"
@@ -740,14 +741,19 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Šių darbalaukio failų pagrindinei bibliotekai nepavyko išanalizuoti ir "
+"todėl, jie nebus rodomi menulibre - prašome ištirti šias problemas, "
+"naudojant atitinkamą paketų priežiūros programą:\n"
+"\n"
+"%s"
 
 #: ../menulibre/MenulibreApplication.py:1872
 msgid "All desktop files have been parsed successfully."
-msgstr ""
+msgstr "Visi darbalaukio failai buvo sėkmingai išanalizuoti."
 
 #: ../menulibre/MenulibreApplication.py:1901
 msgid "Check for bad desktop files"
-msgstr ""
+msgstr "Tikrinti ar yra blogų darbalaukio failų"
 
 #: ../menulibre/MenulibreIconSelection.py:76
 msgid "Select an image"
@@ -773,50 +779,53 @@ msgstr "Trumpas ir aiškus šios programos aprašas."
 #: ../menulibre/util.py:455
 #, python-format
 msgid "%s: Unable to load as a key file due to the following error: %s"
-msgstr ""
+msgstr "%s: Nepavyko įkelti rakto failo dėl šios klaidos: %s"
 
 #: ../menulibre/util.py:463
 #, python-format
 msgid "%s: Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
+"%s: Pradžios grupė yra neteisinga - šiuo metu \"%s\", turėtų būti \"%s\""
 
 #: ../menulibre/util.py:472
 #, python-format
 msgid "%s: Type key was not found"
-msgstr ""
+msgstr "%s: Nerastas tipo raktas"
 
 #: ../menulibre/util.py:475
 #, python-format
 msgid "%s: Type is invalid - currently '%s', should be '%s'"
-msgstr ""
+msgstr "%s: Tipas yra neteisingas - šiuo metu \"%s\", turėtų būti \"%s\""
 
 #: ../menulibre/util.py:488
 #, python-format
 msgid "%s: Try exec program '%s' has not been found in the PATH"
-msgstr ""
+msgstr "%s: Bandoma vykdyti programa \"%s\" nebuvo rasta KELYJE"
 
 #: ../menulibre/util.py:496
 #, python-format
 msgid "%s: Exec key not found"
-msgstr ""
+msgstr "%s: Nerastas vykdymo raktas"
 
 #: ../menulibre/util.py:502
 msgid ""
 "%s: Exec program '%' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
+"%s: Vykdoma programa \"%\" pasak GLib.shell_parse_argv nėra teisinga "
+"apvalkalo komanda, klaida: %s"
 
 #: ../menulibre/util.py:507
 #, python-format
 msgid "%s: Exec program '%s' has not been found in the PATH"
-msgstr ""
+msgstr "%s: Vykdoma programa \"%s\" nebuvo rasta KELYJE"
 
 #. At this point the desktop file is valid - execution should never reach
 #. here
 #: ../menulibre/util.py:512
 #, python-format
 msgid "%s: Desktop file is valid??"
-msgstr ""
+msgstr "%s: Darbalaukio failas yra teisingas??"
 
 #~ msgid "Image File"
 #~ msgstr "Paveikslo Failas"
