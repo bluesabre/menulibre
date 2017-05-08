@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-21 20:25-0400\n"
-"PO-Revision-Date: 2014-03-14 06:04+0000\n"
-"Last-Translator: Adolfo Jayme <Unknown>\n"
+"PO-Revision-Date: 2017-05-07 20:58+0000\n"
+"Last-Translator: toniem <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-04-23 05:41+0000\n"
-"X-Generator: Launchpad (build 18361)\n"
+"X-Launchpad-Export-Date: 2017-05-08 06:24+0000\n"
+"X-Generator: Launchpad (build 18366)\n"
 "Language: es\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -53,14 +53,15 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
-"Lista de entornos de escritorio que no deberían mostrar este elemento. Solo "
-"puede usar esta clave si «OnlyShowIn» no está activada.\n"
+"Lista de los entornos de escritorio que no deben mostrar esta entrada de "
+"menú. Esta clave solo se puede usar si «Solo mostrar en» no está "
+"configurada.\n"
 "Entre los valores posibles se incluyen: GNOME, KDE, LXDE, MATE, Razor, ROX, "
-"TDE, Unity, XFCE, Old"
+"TDE, Unity, XFCE y Old."
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Not Shown In"
-msgstr "No se muestra en"
+msgstr "No mostrar en"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid ""
@@ -70,15 +71,15 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
-"Lista de entornos de escritorio que deberían mostrar este elemento. Los "
-"demás entornos no mostrarán este elemento. Solo puede  usar esta clave si "
-"«NotShowIn» no está activada.\n"
+"Lista de los entornos de escritorio que deben mostrar esta entrada de menú. "
+"Los demás entornos no mostrarán esta entrada. Esta clave solo se puede usar "
+"si «No mostrar en» no está configurada.\n"
 "Entre los valores posibles se incluyen: GNOME, KDE, LXDE, MATE, Razor, ROX, "
-"TDE, Unity, XFCE, Old"
+"TDE, Unity, XFCE y Old."
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "Only Shown In"
-msgstr "Se muestra solo en"
+msgstr "Solo mostrar en"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid ""
@@ -108,9 +109,9 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
-"Lista de palabras clave para describir esta entrada. Puedes usarlas para "
-"ayudar a buscar entradas. No tienen la finalidad de mostrarse, y no deberían "
-"ser redundantes con los valores de Name o GenericName."
+"Lista de palabras clave para describir esta entrada de menú. Sirven para "
+"ayudar en la búsqueda de entradas. No tienen la finalidad de mostrarse y no "
+"deben ser redundantes con los valores de Nombre o Nombre genérico."
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "Keywords"
@@ -121,20 +122,20 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
-"Si se especifica, se le solicitará a la aplicación usar la cadena de texto "
-"como una clase WM o un indicio de nombre WM al menos en una ventana."
+"Si se especifica, se pedirá a la aplicación que utilice la cadena de texto "
+"como una clase WM o una sugerencia de nombre WM por lo menos en una ventana."
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Startup WM Class"
-msgstr "Clase de inicio de GV"
+msgstr "Clase WM de inicio"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
-"Si se establece a «Verdadero», el resultado para el usuario es equivalente a "
-"que no existiera el archivo .desktop."
+"Si se configura como «true», el resultado para el usuario es equivalente a "
+"que el archivo .desktop no existiera."
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Hidden"
@@ -147,18 +148,19 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
-"Establezca esta clave a «True» si esta aplicación es compatible con la "
-"activación de D-Bus y quiere usarla.\n"
+"Configure esta clave como «true»  si la activación por D-Bus es compatible "
+"con esta aplicación y quiere usarla.\n"
 "Véase http://standards.freedesktop.org/desktop-entry-"
 "spec/latest/ar01s07.html para más información."
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "DBUS Activatable"
-msgstr "Activable por D-Bus"
+msgstr "Activable por D-BUS"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Invalid desktop files detected! Please see details"
 msgstr ""
+"Se detectaron archivos de escritorio no válidos. Consulte los detalles"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Browse Icons…"
@@ -192,7 +194,7 @@ msgstr "Revertir"
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Test Launcher"
-msgstr ""
+msgstr "Lanzador de prueba"
 
 #: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/MenulibreApplication.py:382
 msgid "Delete"
@@ -208,11 +210,11 @@ msgstr "Mover hacia abajo"
 
 #: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Sort alphabetically"
-msgstr ""
+msgstr "Ordenar alfabéticamente"
 
 #: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Sort"
-msgstr ""
+msgstr "Ordenar"
 
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid "<small><i>Filename</i></small>"
@@ -242,11 +244,13 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
-"Programa para ejecutar con argumentos. Se requiere esta clave si "
-"DBusActivatable no está establecido a «Verdadero» o si necesita "
-"compatibilidad con implementaciones que no entienden la activación D-Bus.\n"
-"Ir a http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
-"latest.html#exec-variables para ver la lista de argumentos soportados."
+"Programa para ejecutar con argumentos. Esta clave es necesaria si  "
+"«Activable por D-BUS» no está configurada como «true» o si necesita "
+"compatibilidad con implementaciones que no entienden la activación por D-"
+"Bus.\n"
+"Consulte http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
+"spec-latest.html#exec-variables para obtener una lista de argumentos "
+"compatibles."
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Command"
@@ -267,7 +271,7 @@ msgstr "<b>Detalles de la aplicación</b>"
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
-"Si se establece a «Verdadero», el programa será ejecutado en una ventana de "
+"Si se configura como  «true», el programa se ejecutará en una ventana de "
 "terminal."
 
 #: ../data/ui/MenulibreWindow.ui.h:51
@@ -279,9 +283,9 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
-"Si se establece a «Verdadero», se envía una notificación de inicio. "
-"Usualmente significa que se muestra un cursor ocupado mientras la aplicación "
-"arranca."
+"Si se configura como «true», se envía una notificación de inicio. "
+"Normalmente significa que se muestra el cursor ocupado mientras se inicia la "
+"aplicación."
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Use startup notification"
@@ -292,12 +296,12 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
-"Si se establece a «Verdadero», este elemento no se mostrará en los menús, "
-"pero estará disponible para asociaciones de tipo MIME etc."
+"Si se configura como «true», esta entrada no se mostrará en los menús, pero "
+"estará disponible para las asociaciones del tipo MIME."
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid "Hide from menus"
-msgstr "Ocultar de los menús"
+msgstr "Ocultar en los menús"
 
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "<b>Options</b>"
@@ -352,7 +356,7 @@ msgstr "columna"
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Log - Menulibre"
-msgstr ""
+msgstr "Registro - Menulibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:69
 msgid "Search terms…"
@@ -613,11 +617,11 @@ msgstr "_Revertir"
 
 #: ../menulibre/MenulibreApplication.py:374
 msgid "_Execute"
-msgstr ""
+msgstr "_Ejecutar"
 
 #: ../menulibre/MenulibreApplication.py:375
 msgid "Execute Launcher"
-msgstr ""
+msgstr "Ejecutar lanzador"
 
 #: ../menulibre/MenulibreApplication.py:381
 msgid "_Delete"
@@ -672,7 +676,7 @@ msgstr "Seleccione una categoría"
 
 #: ../menulibre/MenulibreApplication.py:723
 msgid "Category Name"
-msgstr "Nombre de la Categoría"
+msgstr "Nombre de la categoría"
 
 #: ../menulibre/MenulibreApplication.py:807
 msgid "This Entry"
@@ -723,7 +727,7 @@ msgstr "Nuevo directorio"
 #: ../menulibre/MenulibreApplication.py:1785
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
-msgstr ""
+msgstr "No se pudo encontrar «%s» en la RUTA."
 
 #: ../menulibre/MenulibreApplication.py:1807
 msgid "Are you sure you want to delete this separator?"
@@ -743,14 +747,19 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Los archivos de escritorio siguientes no se han podido analizar por la "
+"biblioteca subyacente y, por lo tanto, no aparecerán en Menulibre. "
+"Investigue estos problemas con el responsable del paquete asociado.\n"
+"\n"
+"%s"
 
 #: ../menulibre/MenulibreApplication.py:1872
 msgid "All desktop files have been parsed successfully."
-msgstr ""
+msgstr "Todos los archivos de escritorio se han analizado correctamente."
 
 #: ../menulibre/MenulibreApplication.py:1901
 msgid "Check for bad desktop files"
-msgstr ""
+msgstr "Comprobar si hay archivos de escritorio incorrectos"
 
 #: ../menulibre/MenulibreIconSelection.py:76
 msgid "Select an image"
@@ -777,49 +786,54 @@ msgstr "Una pequeña propaganda descriptiva sobre esta aplicación."
 #, python-format
 msgid "%s: Unable to load as a key file due to the following error: %s"
 msgstr ""
+"%s: No se puede cargar como un archivo de claves debido al error siguiente: "
+"%s"
 
 #: ../menulibre/util.py:463
 #, python-format
 msgid "%s: Start group is invalid - currently '%s', should be '%s'"
-msgstr ""
+msgstr "%s: El grupo de inicio no es válido; actualmente «%s», debe ser «%s»"
 
 #: ../menulibre/util.py:472
 #, python-format
 msgid "%s: Type key was not found"
-msgstr ""
+msgstr "%s: No se encontró la clave de tipo"
 
 #: ../menulibre/util.py:475
 #, python-format
 msgid "%s: Type is invalid - currently '%s', should be '%s'"
-msgstr ""
+msgstr "%s: El tipo no es válido; actualmente «%s», debe ser «%s»"
 
 #: ../menulibre/util.py:488
 #, python-format
 msgid "%s: Try exec program '%s' has not been found in the PATH"
 msgstr ""
+"%s: El programa ejecutable de prueba «%s» no se ha encontrado en la RUTA"
 
 #: ../menulibre/util.py:496
 #, python-format
 msgid "%s: Exec key not found"
-msgstr ""
+msgstr "%s: No se encontró la clave de ejecutable"
 
 #: ../menulibre/util.py:502
 msgid ""
 "%s: Exec program '%' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
+"%s: El programa ejecutable «%» no es una orden válida según "
+"GLib.shell_parse_argv, error: %s"
 
 #: ../menulibre/util.py:507
 #, python-format
 msgid "%s: Exec program '%s' has not been found in the PATH"
-msgstr ""
+msgstr "%s: El programa ejectuable «%s» no se ha encontrado en la RUTA"
 
 #. At this point the desktop file is valid - execution should never reach
 #. here
 #: ../menulibre/util.py:512
 #, python-format
 msgid "%s: Desktop file is valid??"
-msgstr ""
+msgstr "%s: ¿El archivo de escritorio es válido?"
 
 #~ msgid "Icon Name"
 #~ msgstr "Nombre del icono"
