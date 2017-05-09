@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-21 20:25-0400\n"
-"PO-Revision-Date: 2017-05-07 20:58+0000\n"
+"PO-Revision-Date: 2017-05-08 21:58+0000\n"
 "Last-Translator: toniem <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-05-08 06:24+0000\n"
+"X-Launchpad-Export-Date: 2017-05-09 06:16+0000\n"
 "X-Generator: Launchpad (build 18366)\n"
 "Language: es\n"
 
@@ -88,8 +88,7 @@ msgid ""
 "menu."
 msgstr ""
 "Ruta al archivo ejecutable para determinar si el programa está instalado. Si "
-"el archivo no existe o no es ejecutable, esta entrada podría no mostrarse en "
-"menú."
+"el archivo no existe o no es ejecutable, esta entrada no se muestra en menú."
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "Try Exec"
@@ -135,7 +134,7 @@ msgid ""
 "file not existing at all."
 msgstr ""
 "Si se configura como «true», el resultado para el usuario es equivalente a "
-"que el archivo .desktop no existiera."
+"que el archivo .desktop no exista."
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Hidden"
@@ -194,7 +193,7 @@ msgstr "Revertir"
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Test Launcher"
-msgstr "Lanzador de prueba"
+msgstr "Provar lanzador"
 
 #: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/MenulibreApplication.py:382
 msgid "Delete"

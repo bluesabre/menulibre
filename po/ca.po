@@ -8,43 +8,43 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-21 20:25-0400\n"
-"PO-Revision-Date: 2014-07-15 00:07+0000\n"
-"Last-Translator: Adolfo Jayme <Unknown>\n"
+"PO-Revision-Date: 2017-05-08 21:58+0000\n"
+"Last-Translator: toniem <toni.estevez@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-04-23 05:41+0000\n"
-"X-Generator: Launchpad (build 18361)\n"
+"X-Launchpad-Export-Date: 2017-05-09 06:16+0000\n"
+"X-Generator: Launchpad (build 18366)\n"
 "Language: ca\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr "Editor dels menús"
+msgstr "Editor de menús"
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
-msgstr ""
+msgstr "Afegeix o suprimeix aplicacions del menú"
 
 #: ../data/ui/MenulibreWindow.ui.h:1
 msgid "Add _Launcher"
-msgstr ""
+msgstr "Afegeix un _llançador"
 
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Add _Directory"
-msgstr ""
+msgstr "Afegeix una _carpeta"
 
 #: ../data/ui/MenulibreWindow.ui.h:3
 msgid "Add _Separator"
-msgstr "Afegeix un _separador"
+msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr ""
+msgstr "El nom genèric de l'aplicació, per exemple «Navegador web»."
 
 #: ../data/ui/MenulibreWindow.ui.h:5
 msgid "Generic Name"
-msgstr ""
+msgstr "Nom genèric"
 
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid ""
@@ -53,10 +53,15 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Llista dels entorns d'escriptori que no han de mostrar aquesta entrada de "
+"menú. Aquesta clau només es pot utilitzar si «Només mostra en» no està "
+"configurada.\n"
+"Entre els valors possibles s'inclouen: GNOME, KDE, LXDE, MATE, Razor, ROX, "
+"TDE, Unity, XFCE i Old."
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Not Shown In"
-msgstr ""
+msgstr "No mostris en"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid ""
@@ -66,10 +71,15 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Llista dels entorns d'escriptori que han de mostrar aquesta entrada de menú. "
+"Els altres entorns no mostraran aquesta entrada. Aquesta clau només es pot "
+"utilitzar si «No mostris en» no està configurada.\n"
+"Entre els valors possibles s'inclouen: GNOME, KDE, LXDE, MATE, Razor, ROX, "
+"TDE, Unity, XFCE i Old."
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "Only Shown In"
-msgstr ""
+msgstr "Només mostra en"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid ""
@@ -77,18 +87,21 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
+"Camí a un fitxer executable per determinar si s'ha instal·lat el programa. "
+"Si el fitxer no està present o no és executable, aquesta entrada es mostra "
+"en el menú."
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "Try Exec"
-msgstr ""
+msgstr "Prova l'executable"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "The MIME type(s) supported by this application."
-msgstr ""
+msgstr "Els tipus MIME que admet aquesta aplicació."
 
 #: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Mimetypes"
-msgstr ""
+msgstr "Tipus MIME"
 
 #: ../data/ui/MenulibreWindow.ui.h:16
 msgid ""
@@ -96,30 +109,37 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
+"Llista de paraules clau per descriure aquesta entrada de menú. Serveixen per "
+"ajudar en la recerca d'entrades. No tenen la finalitat de mostrar-se i no "
+"han de ser redundants amb els valors de Nom o Nom genèric."
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "Keywords"
-msgstr ""
+msgstr "Paraules clau"
 
 #: ../data/ui/MenulibreWindow.ui.h:18
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
+"Si s'especifica, es demanarà a l'aplicació que utilitzi la cadena de text "
+"com a una classe WM o un suggeriment de nom WM almenys en una finestra."
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Startup WM Class"
-msgstr ""
+msgstr "Classe WM d'inici"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
+"Si es configura com a «true», el resultat per a l'usuari és equivalent a que "
+"el fitxer .desktop no existeixi."
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Hidden"
-msgstr ""
+msgstr "Ocult"
 
 #: ../data/ui/MenulibreWindow.ui.h:22
 msgid ""
@@ -128,22 +148,26 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
+"configureu aquesta clau com a «true» si l'activació per D-Bus és compatible "
+"amb aquesta aplicació i voleu usar-la.\n"
+"Vegeu http://standards.freedesktop.org/desktop-entry-"
+"spec/latest/ar01s07.html per a més informació."
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "DBUS Activatable"
-msgstr ""
+msgstr "Activable per D-BUS"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Invalid desktop files detected! Please see details"
-msgstr ""
+msgstr "S'han detectat fitxers d'escriptori no vàlids. Consulteu els detalls"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Browse Icons…"
-msgstr ""
+msgstr "Explora les icones..."
 
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Browse Files..."
-msgstr ""
+msgstr "Explora els fitxers..."
 
 #: ../data/ui/MenulibreWindow.ui.h:28 ../menulibre/Dialogs.py:38
 #: ../menulibre/MenulibreApplication.py:248
@@ -153,7 +177,7 @@ msgstr "MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Save Launcher"
-msgstr ""
+msgstr "Desa el llançador"
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:354
 msgid "Undo"
@@ -169,11 +193,11 @@ msgstr "Reverteix"
 
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Test Launcher"
-msgstr ""
+msgstr "Prova el llançador"
 
 #: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/MenulibreApplication.py:382
 msgid "Delete"
-msgstr ""
+msgstr "Suprimeix"
 
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Move Up"
@@ -209,7 +233,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/MenulibreApplication.py:728
 msgid "Description"
-msgstr ""
+msgstr "Descripció"
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid ""
