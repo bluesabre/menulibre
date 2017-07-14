@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-04-21 20:25-0400\n"
-"PO-Revision-Date: 2017-07-04 12:34+0000\n"
+"PO-Revision-Date: 2017-07-13 13:19+0000\n"
 "Last-Translator: Tobias Bannert <tobannert@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-07-05 05:46+0000\n"
+"X-Launchpad-Export-Date: 2017-07-14 05:36+0000\n"
 "X-Generator: Launchpad (build 18419)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -785,21 +785,23 @@ msgstr "Eine Kurzbeschreibung dieser Anwendung"
 #, python-format
 msgid "%s: Unable to load as a key file due to the following error: %s"
 msgstr ""
+"%s: aufgrund der folgenden Fehler kann nicht als Schlüsseldatei geladen "
+"werden: %s"
 
 #: ../menulibre/util.py:463
 #, python-format
 msgid "%s: Start group is invalid - currently '%s', should be '%s'"
-msgstr ""
+msgstr "%s: Startgruppe ist ungültig - derzeit »%s«, sollte »%s« sein"
 
 #: ../menulibre/util.py:472
 #, python-format
 msgid "%s: Type key was not found"
-msgstr ""
+msgstr "%s: Typschlüssel wurde nicht gefunden"
 
 #: ../menulibre/util.py:475
 #, python-format
 msgid "%s: Type is invalid - currently '%s', should be '%s'"
-msgstr ""
+msgstr "%s: Typ ist ungültig - derzeit »%s«, sollte »%s« sein"
 
 #: ../menulibre/util.py:488
 #, python-format
