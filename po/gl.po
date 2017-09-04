@@ -8,13 +8,13 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-04-21 20:25-0400\n"
-"PO-Revision-Date: 2017-09-03 02:30+0000\n"
+"PO-Revision-Date: 2017-09-03 22:30+0000\n"
 "Last-Translator: Marcos Lans <Unknown>\n"
 "Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-09-03 05:51+0000\n"
+"X-Launchpad-Export-Date: 2017-09-04 05:53+0000\n"
 "X-Generator: Launchpad (build 18446)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -120,6 +120,8 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
+"Se se especifica pediráselle ao aplicativo usar a cadea como unha clase WM "
+"ou suxestión de nome WM alomenos nunha xanela."
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Startup WM Class"
@@ -130,6 +132,8 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
+"Se se estabelece como «true» o resultado para o usuario será equivalente a "
+"que o ficheiro .desktop non exista."
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Hidden"
@@ -142,6 +146,10 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
+"Estabeleza esta clave a «true» se a activación do D-Bus é compatíbel para "
+"este aplicativo e desexa usalo.\n"
+"Vexa http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
+"para obter máis información."
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "DBUS Activatable"
@@ -233,6 +241,11 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
+"Programa para executar con argumentos. Precisa esta clave se o "
+"DBusActivatable non está estabelecido como «true»  ou se vostede necesita "
+"compatibilidade con implementacións que non entenden a activación do D-Bus. "
+"Vexa http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables para obter unha lista de argumentos aceptados."
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Command"
@@ -253,6 +266,8 @@ msgstr "<b>Información do aplicativo</b>"
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
+"Se se estabelece como «true» determinará que o programa se execute nunha "
+"xanela do terminal."
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Run in terminal"
@@ -263,6 +278,9 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
+"Se se estabelece como «true» determinará que se envíe unha notificación de "
+"arranque. Normalmente significará que se verá un cursor activo mentres se "
+"inicia o aplicativo"
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Use startup notification"
@@ -273,6 +291,8 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
+"Se se estabelece como «true» determinará que a entrada non se verá nos menús "
+"pero estará dispoñíbel para as asociacións tipo MIME e outras."
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid "Hide from menus"
@@ -767,6 +787,7 @@ msgstr ""
 #, python-format
 msgid "%s: Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
+"%s: o grupo de inicio é incorrecto - actualmente «%s», debería ser «%s»"
 
 #: ../menulibre/util.py:472
 #, python-format
@@ -776,7 +797,7 @@ msgstr "%s: tipo de clave non atopada"
 #: ../menulibre/util.py:475
 #, python-format
 msgid "%s: Type is invalid - currently '%s', should be '%s'"
-msgstr ""
+msgstr "%s: o tipo é incorrecto - actualmente «%s», debería ser «%s»"
 
 #: ../menulibre/util.py:488
 #, python-format
@@ -793,6 +814,8 @@ msgid ""
 "%s: Exec program '%' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
+"%s: o programa executábel «%» non é unha orde correcta para o intérprete de "
+"ordes de acordo co GLib.shell_parse_argv, erro: %s"
 
 #: ../menulibre/util.py:507
 #, python-format
