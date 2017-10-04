@@ -1,21 +1,21 @@
 # Danish translation for menulibre
 # Copyright (c) 2017 Rosetta Contributors and Canonical Ltd 2017
 # This file is distributed under the same license as the menulibre package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
-#
+# scootergrisen, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2017-04-21 20:25-0400\n"
-"PO-Revision-Date: 2017-10-02 20:47+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Danish <da@li.org>\n"
+"PO-Revision-Date: 2017-10-03 21:52+0000\n"
+"Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
+"Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-10-03 05:04+0000\n"
+"X-Launchpad-Export-Date: 2017-10-04 04:54+0000\n"
 "X-Generator: Launchpad (build 18471)\n"
+"Language: da\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -52,6 +52,10 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"En liste over miljøer som ikke skal vise denne post. Du kan kun bruge denne "
+"nøgle hvis \"OnlyShowIn\" ikke er sat.\n"
+"Mulige værdier inkludere: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Not Shown In"
@@ -65,6 +69,10 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"En liste over miljøer som skal vise denne post. Andre miljøer vil ikke vise "
+"denne post. Du kan kun bruge denne nøgle hvis \"NotShowIn\" ikke er sat.\n"
+"Mulige værdier inkludere: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+"XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "Only Shown In"
@@ -76,10 +84,13 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
+"Sti til en eksekverbar fil til at beslutte om programmet er installeret. "
+"Hvis filen ikke er tilstede eller ikke er eksekverbar, så vises denne post "
+"muligvis ikke i en menu."
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "Try Exec"
-msgstr ""
+msgstr "Prøv Exec"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "The MIME type(s) supported by this application."
@@ -95,6 +106,9 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
+"En liste over nøgleord som beskriver denne post. Du kan bruge disse til at "
+"hjælpe med søgeindtastninger. De er ikke beregnet til visning og behøver "
+"ikke indeholde værdierne af Name eller GenericName."
 
 #: ../data/ui/MenulibreWindow.ui.h:17
 msgid "Keywords"
@@ -105,16 +119,20 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
+"Hvis den er angivet, så vil programmet blive anmodet om at bruge strengen "
+"som en VM-klasse eller et WM-navnetip i mindst ét vindue."
 
 #: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Startup WM Class"
-msgstr ""
+msgstr "Opstarts WM-klasse"
 
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
+"Hvis den er sat til \"True\", så er resultater for brugeren det samme som "
+"hvis .desktop-filen overhovedet ikke fandtes."
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Hidden"
@@ -127,10 +145,14 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
+"Sæt denne nøgle til \"True\" hvis D-Bus-aktivering understøttes for dette "
+"program og du ønsker at bruge det.\n"
+"Se http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
+"for mere information."
 
 #: ../data/ui/MenulibreWindow.ui.h:24
 msgid "DBUS Activatable"
-msgstr ""
+msgstr "DBUS kan aktiveres"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Invalid desktop files detected! Please see details"
@@ -218,6 +240,11 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
+"Program som skal eksekveres med argumenter. Denne nøgle kræves hvis "
+"DBusActivatable ikke er sat til \"True\" eller hvis du behøver "
+"kompatibilitet med implementeringer som ikke forstår D-Bus-aktivering.\n"
+"Se http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+"latest.html#exec-variables for en liste over understøttede argumenter."
 
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Command"
@@ -238,6 +265,7 @@ msgstr "<b>Programdetaljer</b>"
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
+"Hvis den er sat til \"True\", så vil programmet køre i et terminalvindue."
 
 #: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Run in terminal"
@@ -248,6 +276,8 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
+"Hvis den er sat til \"True\", så sendes en opstartsnotifikation. Det betyder "
+"typisk at en optaget-markør vises mens programmet starter."
 
 #: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Use startup notification"
@@ -258,6 +288,8 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
+"Hvis den er sat til \"True\", så vises denne post ikke i menuer, men vil "
+"være tilgængelig for MIME-type-tilknytninger osv."
 
 #: ../data/ui/MenulibreWindow.ui.h:55
 msgid "Hide from menus"
@@ -344,6 +376,8 @@ msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr ""
+"Du vil blive viderestillet til dokumentationswebstedet hvor hjælpesiderne "
+"vedligeholdes."
 
 #: ../menulibre/Dialogs.py:63
 msgid "Read Online"
@@ -395,6 +429,8 @@ msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr ""
+"Alle ændringer siden der sidst blev gemt vil gå tabt og kan ikke gendannes "
+"automatisk."
 
 #: ../menulibre/Dialogs.py:125 ../menulibre/Dialogs.py:126
 msgid "Restore Launcher"
@@ -465,7 +501,7 @@ msgstr "Brugerkonfiguration"
 
 #: ../menulibre/MenulibreApplication.py:59
 msgid "Hardware configuration"
-msgstr "Hardware-konfiguration"
+msgstr "Hardwarekonfiguration"
 
 #. GNOME Specific
 #: ../menulibre/MenulibreApplication.py:61
@@ -478,22 +514,22 @@ msgstr "GTK+-konfiguration"
 
 #: ../menulibre/MenulibreApplication.py:63
 msgid "GNOME user configuration"
-msgstr "GNOME brugerkonfiguration"
+msgstr "GNOME-brugerkonfiguration"
 
 #: ../menulibre/MenulibreApplication.py:64
 msgid "GNOME hardware configuration"
-msgstr "GNOME hardware-konfiguration"
+msgstr "GNOME-hardwarekonfiguration"
 
 #: ../menulibre/MenulibreApplication.py:65
 #: ../menulibre/MenulibreApplication.py:66
 msgid "GNOME system configuration"
-msgstr "GNOME systemkonfiguration"
+msgstr "GNOME-systemkonfiguration"
 
 #. Xfce Specific
 #: ../menulibre/MenulibreApplication.py:68
 #: ../menulibre/MenulibreApplication.py:69
 msgid "Xfce menu item"
-msgstr "Xfce menuelement"
+msgstr "Xfce-menuelement"
 
 #: ../menulibre/MenulibreApplication.py:70
 msgid "Xfce toplevel menu item"
@@ -501,16 +537,16 @@ msgstr "Xfce topniveau menuelement"
 
 #: ../menulibre/MenulibreApplication.py:71
 msgid "Xfce user configuration"
-msgstr "Xfce brugerkonfiguration"
+msgstr "Xfce-brugerkonfiguration"
 
 #: ../menulibre/MenulibreApplication.py:72
 msgid "Xfce hardware configuration"
-msgstr "Xfce hardware-konfiguration"
+msgstr "Xfce-hardwarekonfiguration"
 
 #: ../menulibre/MenulibreApplication.py:73
 #: ../menulibre/MenulibreApplication.py:74
 msgid "Xfce system configuration"
-msgstr "Xfce systemkonfiguration"
+msgstr "Xfce-systemkonfiguration"
 
 #: ../menulibre/MenulibreApplication.py:122
 #: ../menulibre/MenulibreApplication.py:167
@@ -527,6 +563,9 @@ msgid ""
 "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
 "documentation</a> for more information."
 msgstr ""
+"Se venligst <a "
+"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online-"
+"dokumentationen</a> for mere information."
 
 #: ../menulibre/MenulibreApplication.py:325
 msgid "Add _Launcher..."
@@ -621,7 +660,7 @@ msgstr "Avanceret"
 
 #: ../menulibre/MenulibreApplication.py:702
 msgid "ThisEntry"
-msgstr ""
+msgstr "DennePost"
 
 #: ../menulibre/MenulibreApplication.py:720
 msgid "Select a category"
@@ -633,7 +672,7 @@ msgstr "Kategorinavn"
 
 #: ../menulibre/MenulibreApplication.py:807
 msgid "This Entry"
-msgstr ""
+msgstr "Denne post"
 
 #: ../menulibre/MenulibreApplication.py:862
 msgid "New Shortcut"
@@ -666,7 +705,7 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1230
 msgid "You do not have permission to delete this file."
-msgstr ""
+msgstr "Du har ikke tilladelse til at slette denne fil."
 
 #: ../menulibre/MenulibreApplication.py:1462
 msgid "New Launcher"
@@ -699,14 +738,19 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Følgende skrivebordsfil kunne ikke fortolkes af det underliggende bibliotek "
+"og vil derfor ikke blive vist i menulibre - undersøg venligst disse "
+"problemer med den tilknyttede pakkevedligeholder:\n"
+"\n"
+"%s"
 
 #: ../menulibre/MenulibreApplication.py:1872
 msgid "All desktop files have been parsed successfully."
-msgstr ""
+msgstr "Alle skrivebordsfiler er blevet fortolket."
 
 #: ../menulibre/MenulibreApplication.py:1901
 msgid "Check for bad desktop files"
-msgstr ""
+msgstr "Tjek for dårlige skrivebordsfiler"
 
 #: ../menulibre/MenulibreIconSelection.py:76
 msgid "Select an image"
@@ -723,56 +767,114 @@ msgstr "Søgeresultater"
 
 #: ../menulibre/MenulibreXdg.py:53
 msgid "New Menu Item"
-msgstr "Ny menuelement"
+msgstr "Nyt menuelement"
 
 #: ../menulibre/MenulibreXdg.py:55
 msgid "A small descriptive blurb about this application."
-msgstr ""
+msgstr "En lille beskrivende bagsidetekst om dette program."
 
 #: ../menulibre/util.py:455
 #, python-format
 msgid "%s: Unable to load as a key file due to the following error: %s"
-msgstr ""
+msgstr "%s: Kan ikke indlæse en nøglefil pga. følgende fejl: %s"
 
 #: ../menulibre/util.py:463
 #, python-format
 msgid "%s: Start group is invalid - currently '%s', should be '%s'"
-msgstr ""
+msgstr "%s: Startgruppe er ugyldig - nuværende '%s', skulle være '%s'"
 
 #: ../menulibre/util.py:472
 #, python-format
 msgid "%s: Type key was not found"
-msgstr ""
+msgstr "%s: Type-nøgle blev ikke fundet"
 
 #: ../menulibre/util.py:475
 #, python-format
 msgid "%s: Type is invalid - currently '%s', should be '%s'"
-msgstr ""
+msgstr "%s: Type er ugyldig - nuværende '%s', skulle være '%s'"
 
 #: ../menulibre/util.py:488
 #, python-format
 msgid "%s: Try exec program '%s' has not been found in the PATH"
-msgstr ""
+msgstr "%s: Prøv exec program '%s' fandtes ikke i PATH"
 
 #: ../menulibre/util.py:496
 #, python-format
 msgid "%s: Exec key not found"
-msgstr ""
+msgstr "%s: Exec-nøgle ikke fundet"
 
 #: ../menulibre/util.py:502
 msgid ""
 "%s: Exec program '%' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
+"%s: Exec program '%' er ikke en gyldig skalkommando ifølge "
+"GLib.shell_parse_argv, fejl: %s"
 
 #: ../menulibre/util.py:507
 #, python-format
 msgid "%s: Exec program '%s' has not been found in the PATH"
-msgstr ""
+msgstr "%s: Exec program '%s' fandtes ikke i PATH"
 
 #. At this point the desktop file is valid - execution should never reach
 #. here
 #: ../menulibre/util.py:512
 #, python-format
 msgid "%s: Desktop file is valid??"
-msgstr ""
+msgstr "%s: Skrivebordsfilen er gyldig?"
+
+#~ msgid "Image File"
+#~ msgstr "Billedfil"
+
+#~ msgid "Icon Selection"
+#~ msgstr "Valg af ikon"
+
+#~ msgid "<b>Select an image</b>"
+#~ msgstr "<b>Vælg et billede</b>"
+
+#~ msgid "_File"
+#~ msgstr "_Fil"
+
+#~ msgid "<b>Preview</b>"
+#~ msgstr "<b>Forhåndsvisning</b>"
+
+#~ msgid "Icon Name"
+#~ msgstr "Ikonnavn"
+
+#~ msgid "32px"
+#~ msgstr "32px"
+
+#~ msgid "16px"
+#~ msgstr "16px"
+
+#~ msgid "128px"
+#~ msgstr "128px"
+
+#~ msgid "64px"
+#~ msgstr "64px"
+
+#~ msgid "_Edit"
+#~ msgstr "_Rediger"
+
+#~ msgid "_Help"
+#~ msgstr "_Hjælp"
+
+#~ msgid "Browse…"
+#~ msgstr "Gennemse…"
+
+#~ msgid "Action Name"
+#~ msgstr "Handlingsnavn"
+
+#~ msgid "Copyright © 2012-2014 Sean Davis"
+#~ msgstr "Ophavsret © 2012-2014 Sean Davis"
+
+#~ msgid "\"Terminal\": Whether the program runs in a terminal window."
+#~ msgstr "\"Terminal\": Om programmet kører i et terminalvindue."
+
+#~ msgid "\"Path\": The working directory to run the program in."
+#~ msgstr "\"Path\": Arbejdsmappen som programmet skal køres i."
+
+#~ msgid ""
+#~ "\"GenericName\": Generic name of the application, for example \"Web "
+#~ "Browser\"."
+#~ msgstr "\"GenericName\": Generisk navn af programmet, f.eks. \"Webbrowser\"."
