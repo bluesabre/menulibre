@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-21 20:25-0400\n"
-"PO-Revision-Date: 2013-12-04 05:59+0000\n"
-"Last-Translator: freedomrun <Unknown>\n"
+"PO-Revision-Date: 2017-10-27 06:08+0000\n"
+"Last-Translator: zvacet <ikoli@yahoo.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2017-04-23 05:41+0000\n"
-"X-Generator: Launchpad (build 18361)\n"
+"X-Launchpad-Export-Date: 2017-10-27 06:17+0000\n"
+"X-Generator: Launchpad (build 18493)\n"
 "Language: hr\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -53,10 +53,14 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Lista radnih okruženja koja ne bi trebala prikazivati ovaj unos. Možete "
+"koristiti ovu tipku ako \"Prikaži samo u\" nije postavljena.\n"
+"Moguće vrijednosti uključuju: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, "
+"Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Not Shown In"
-msgstr ""
+msgstr "Ne prikazuj u"
 
 #: ../data/ui/MenulibreWindow.ui.h:9
 msgid ""
@@ -66,10 +70,14 @@ msgid ""
 "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 "XFCE, Old"
 msgstr ""
+"Lista radnih okruženja koja bi trebala prikazivati ovaj unos. Možete "
+"koristiti ovu tipku ako \"Prikaži samo u\" nije postavljena.\n"
+"Moguće vrijednosti uključuju: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, "
+"Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "Only Shown In"
-msgstr ""
+msgstr "Prikaži samo u"
 
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid ""
@@ -77,10 +85,13 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
+"Putanja do izvršne datoteke koja određuje je li program instaliran. Ako "
+"datoteka nije prisutna ili nije izvršna, ovaj unos možda neće biti prikazan "
+"u izborniku."
 
 #: ../data/ui/MenulibreWindow.ui.h:13
 msgid "Try Exec"
-msgstr ""
+msgstr "Probaj Exec"
 
 #: ../data/ui/MenulibreWindow.ui.h:14
 msgid "The MIME type(s) supported by this application."
@@ -116,6 +127,8 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
+"Ako je postavljeno na \"Istinito\", rezultat za korisnika bi trebao biti "
+"jednak kao da .desktop datoteka uopće ne postoji."
 
 #: ../data/ui/MenulibreWindow.ui.h:21
 msgid "Hidden"
@@ -136,6 +149,7 @@ msgstr ""
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Invalid desktop files detected! Please see details"
 msgstr ""
+"Otkrivene su neispravne datoteke radne površine! Molim pogledajte pojedinosti"
 
 #: ../data/ui/MenulibreWindow.ui.h:26
 msgid "Browse Icons…"
