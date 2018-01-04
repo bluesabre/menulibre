@@ -130,74 +130,92 @@ class Treeview(GObject.GObject):
 
         return new_iter
 
-    def add_child(self, row_data):
-        """Add a new child launcher to the current selected one."""
-        model, treeiter = self._get_selected_iter()
+    def add_child(self, row_data, treeiter=None, model=None, do_select=True):
+        """Add a new child launcher to the current selected one, or the
+        specified iter if adding elsewhere in the tree, with optional
+        selection."""
+        if treeiter is None or model is None:
+            model, treeiter = self._get_selected_iter()
 
         new_iter = model.prepend(treeiter)
-        self._treeview.expand_row(model[treeiter].path, False)
 
-        self._populate_and_select_iter(model, new_iter, row_data)
+        if do_select:
+            self._treeview.expand_row(model[treeiter].path, False)
+
+        self._populate_and_select_iter(model, new_iter, row_data, do_select)
 
         return new_iter
 
-    def remove_selected(self):
-        """Remove the selected launcher."""
+    def remove_selected(self, ui_only=False):
+        """Remove the selected launcher. If ui_only is True, the associated
+        desktop file is not deleted but the launcher is removed from the
+        interface. This is useful for removing categories."""
+
         self._last_selected_path = -1
         model, treeiter = self._get_selected_iter()
 
-        filename = model[treeiter][6]
-        item_type = model[treeiter][3]
-        if filename is not None:
-            basename = getBasename(filename)
-            original = util.getSystemLauncherPath(basename)
-        else:
-            original = None
+        if not ui_only:
 
-        # Get files for deletion
-        del_dirs, del_apps = self._get_delete_filenames(model, treeiter)
-        del_files = del_dirs + del_apps
+            filename = model[treeiter][6]
+            item_type = model[treeiter][3]
+            if filename is not None:
+                basename = getBasename(filename)
+                original = util.getSystemLauncherPath(basename)
+            else:
+                original = None
 
-        # Uninstall the launcher
-        self.xdg_menu_uninstall(model, treeiter, filename)
+            # Get files for deletion - only one item can be selected at a time,
+            # but this may be a directory
+            del_dirs, del_apps = self._get_delete_filenames(model, treeiter)
+            del_files = del_dirs + del_apps
 
-        # Delete each of the files
-        for filename in del_files:
-            try:
-                os.remove(filename)
-            except:
-                pass
+            # Uninstall the launcher
+            self.xdg_menu_uninstall(model, treeiter, filename)
+
+            # Delete each of the files - this will fail silently for non-user
+            # desktop files/directories, these are hidden below
+            for filename in del_files:
+                try:
+                    os.remove(filename)
+                except:
+                    pass
 
         self.xdg_menu_update()
         self._cleanup_applications_merged()
 
-        if filename not in del_files:
-            # Update the required categories.
-            model, parent_data = self.get_parent_row_data()
-            if parent_data is not None:
-                categories = util.getRequiredCategories(parent_data[6])
-            else:
-                categories = util.getRequiredCategories(None)
-            self.parent.update_launcher_categories(categories, [])
+        if not ui_only:
 
-        if original is not None:
-            # Original found, replace.
-            entry = MenulibreXdg.MenulibreDesktopEntry(original)
-            name = entry['Name']
-            comment = entry['Comment']
-            categories = entry['Categories']
-            icon_name = entry['Icon']
-            hidden = entry['Hidden'] or entry['NoDisplay']
-            if os.path.isfile(icon_name):
-                gfile = Gio.File.parse_name(icon_name)
-                icon = Gio.FileIcon.new(gfile)
-            else:
-                icon = Gio.ThemedIcon.new(icon_name)
-            self.update_selected(name, comment, categories, item_type,
-                                 icon_name, original, not hidden)
-            model, row_data = self.get_selected_row_data()
-            self.update_launcher_instances(filename, row_data)
-            treeiter = None
+            # How is it possible that a launcher is to be removed, but its
+            # associated desktop file has not been returned to be deleted?
+            if filename not in del_files:
+                # Update the required categories.
+                model, parent_data = self.get_parent_row_data()
+                if parent_data is not None:
+                    categories = util.getRequiredCategories(parent_data[6])
+                else:
+                    categories = util.getRequiredCategories(None)
+                self.parent.update_launcher_categories(categories, [])
+
+            if original is not None:
+                # Original found (this is a system-installed desktop file/
+                # directory rather than a user-made one), hide the desktop file
+                # and all associated instances in the menu
+                entry = MenulibreXdg.MenulibreDesktopEntry(original)
+                name = entry['Name']
+                comment = entry['Comment']
+                categories = entry['Categories']
+                icon_name = entry['Icon']
+                hidden = entry['Hidden'] or entry['NoDisplay']
+                if os.path.isfile(icon_name):
+                    gfile = Gio.File.parse_name(icon_name)
+                    icon = Gio.FileIcon.new(gfile)
+                else:
+                    icon = Gio.ThemedIcon.new(icon_name)
+                self.update_selected(name, comment, categories, item_type,
+                                     icon_name, original, not hidden)
+                model, row_data = self.get_selected_row_data()
+                self.update_launcher_instances(filename, row_data)
+                treeiter = None
 
         if treeiter is not None:
             path = model.get_path(treeiter)
@@ -207,6 +225,15 @@ class Treeview(GObject.GObject):
                 self._treeview.set_cursor(path)
 
         self.update_menus()
+
+    def remove_iter(self, model, treeiter):
+        """Remove launcher pointed to by iter from the model only - use this
+        when you need to remove a launcher from a non-selected directory, e.g.
+        when the associated category has been removed"""
+
+        # This feels a bit redundant for a function, but it keeps the
+        # functionality close to remove_selected
+        model.remove(treeiter)
 
 # Get
     def get_parent(self, model=None, treeiter=None):
@@ -263,8 +290,7 @@ class Treeview(GObject.GObject):
     def update_launcher_instances(self, filename, row_data):
         """Update all same launchers with the new information."""
         model, treeiter = self._get_selected_iter()
-        for instance in self._get_launcher_instances(model=model,
-                                                    filename=filename):
+        for instance in self._get_launcher_instances(filename, model):
             for i in range(len(row_data)):
                 model[instance][i] = row_data[i]
 
@@ -377,14 +403,16 @@ class Treeview(GObject.GObject):
         model, treeiter = self._treeview.get_selection().get_selected()
         return model, treeiter
 
-    def _populate_and_select_iter(self, model, treeiter, row_data):
-        """Fill the specified treeiter with data and select it."""
+    def _populate_and_select_iter(self, model, treeiter, row_data,
+                                  do_select=True):
+        """Fill the specified treeiter with data and optionally select it."""
         for i in range(len(row_data)):
             model[treeiter][i] = row_data[i]
 
-        # Select the new iter.
-        path = model.get_path(treeiter)
-        self._treeview.set_cursor(path)
+        # Select the new iter if requested
+        if do_select:
+            path = model.get_path(treeiter)
+            self._treeview.set_cursor(path)
 
     def _get_deletable_launcher(self, filename):
         """Return True if the launcher is available for deletion."""
@@ -439,7 +467,7 @@ class Treeview(GObject.GObject):
         row = model[treeiter]
         return treeview.row_expanded(row.path)
 
-    def _get_launcher_instances(self, model=None, parent=None, filename=None):
+    def _get_launcher_instances(self, filename, model=None, parent=None):
         """Return a list of all treeiters referencing this filename."""
         if model is None:
             model, treeiter = self._get_selected_iter()
@@ -450,12 +478,12 @@ class Treeview(GObject.GObject):
             if iter_filename == filename:
                 treeiters.append(treeiter)
             if model.iter_has_child(treeiter):
-                treeiters += self._get_launcher_instances(model, treeiter,
-                                                         filename)
+                treeiters += self._get_launcher_instances(filename, model,
+                                                          treeiter)
         return treeiters
 
     def _get_n_launcher_instances(self, filename):
-        return len(self._get_launcher_instances(filename=filename))
+        return len(self._get_launcher_instances(filename))
 
     def _is_menu_locked(self):
         """Return True if menu editing is currently locked."""
@@ -650,7 +678,8 @@ class Treeview(GObject.GObject):
     def _cleanup_applications_merged(self):
         """Cleanup items from ~/.config/menus/applications-merged"""
         # xdg-desktop-menu installs menu files in
-        # ~/.config/menus/applications-merged, but does remove them correctly.
+        # ~/.config/menus/applications-merged, but does not remove them
+        # correctly.
         merged_dir = os.path.join(GLib.get_user_config_dir(),
                                     "menus", "applications-merged")
 

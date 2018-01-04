@@ -35,6 +35,7 @@ from .util import MenuItemTypes, check_keypress, getBasename
 import menulibre_lib
 
 import logging
+
 logger = logging.getLogger('menulibre')
 
 session = os.getenv("DESKTOP_SESSION")
@@ -74,19 +75,24 @@ category_descriptions = {
     'X-XFCE-SystemSettings': _('Xfce system configuration'),
 }
 
+# Sourced from https://specifications.freedesktop.org/menu-spec/latest/apa.html
+# and https://specifications.freedesktop.org/menu-spec/latest/apas02.html ,
+# in addition category group names have been added to the list where launchers
+# typically use them (e.g. plain 'Utility' to add to Accessories), to allow the
+# user to restore default categories that have been manually removed
 category_groups = {
     'Utility': (
         'Accessibility', 'Archiving', 'Calculator', 'Clock',
-        'Compression', 'FileTools', 'TextEditor', 'TextTools'
+        'Compression', 'FileTools', 'TextEditor', 'TextTools', 'Utility'
     ),
     'Development': (
-        'Building', 'Debugger', 'IDE', 'GUIDesigner', 'Profiling',
-        'RevisionControl', 'Translation', 'WebDevelopment'
+        'Building', 'Debugger', 'Development', 'IDE', 'GUIDesigner',
+        'Profiling', 'RevisionControl', 'Translation', 'WebDevelopment'
     ),
     'Education': (
         'Art', 'ArtificialIntelligence', 'Astronomy', 'Biology',
         'Chemistry', 'ComputerScience', 'Construction',
-        'DataVisualization', 'Economy', 'Electricity', 'Geography',
+        'DataVisualization', 'Economy', 'Education', 'Electricity', 'Geography',
         'Geology', 'Geoscience', 'History', 'Humanities',
         'ImageProcessing', 'Languages', 'Literature', 'Maps', 'Math',
         'MedicalSoftware', 'Music', 'NumericalAnalysis',
@@ -95,28 +101,28 @@ category_groups = {
     ),
     'Game': (
         'ActionGame', 'AdventureGame', 'ArcadeGame', 'BoardGame',
-        'BlocksGame', 'CardGame', 'Emulator', 'KidsGame', 'LogicGame',
+        'BlocksGame', 'CardGame', 'Emulator', 'Game', 'KidsGame', 'LogicGame',
         'RolePlaying', 'Shooter', 'Simulation', 'SportsGame',
         'StrategyGame'
     ),
     'Graphics': (
-        '2DGraphics', '3DGraphics', 'OCR', 'Photography', 'Publishing',
-        'RasterGraphics', 'Scanning', 'VectorGraphics', 'Viewer'
+        '2DGraphics', '3DGraphics', 'Graphics', 'OCR', 'Photography',
+        'Publishing', 'RasterGraphics', 'Scanning', 'VectorGraphics', 'Viewer'
     ),
     'Network': (
         'Chat', 'Dialup', 'Feed', 'FileTransfer', 'HamRadio',
-        'InstantMessaging', 'IRCClient', 'Monitor', 'News', 'P2P',
+        'InstantMessaging', 'IRCClient', 'Monitor', 'News', 'Network', 'P2P',
         'RemoteAccess', 'Telephony', 'TelephonyTools', 'WebBrowser',
         'WebDevelopment'
     ),
     'AudioVideo': (
-        'AudioVideoEditing', 'DiscBurning', 'Midi', 'Mixer', 'Player',
-        'Recorder', 'Sequencer', 'Tuner', 'TV'
+        'Audio', 'AudioVideoEditing', 'DiscBurning', 'Midi', 'Mixer', 'Player',
+        'Recorder', 'Sequencer', 'Tuner', 'TV', 'Video'
     ),
     'Office': (
         'Calendar', 'ContactManagement', 'Database', 'Dictionary',
-        'Chart', 'Email', 'Finance', 'FlowChart', 'PDA', 'Photography',
-        'ProjectManagement', 'Presentation', 'Publishing',
+        'Chart', 'Email', 'Finance', 'FlowChart', 'Office', 'PDA',
+        'Photography', 'ProjectManagement', 'Presentation', 'Publishing',
         'Spreadsheet', 'WordProcessor'
     ),
     _('Other'): (
@@ -126,11 +132,11 @@ category_groups = {
     ),
     'Settings': (
         'Accessibility', 'DesktopSettings', 'HardwareSettings',
-        'PackageManager', 'Printing', 'Security'
+        'PackageManager', 'Printing', 'Security', 'Settings'
     ),
     'System': (
         'Emulator', 'FileManager', 'Filesystem', 'FileTools', 'Monitor',
-        'Security', 'TerminalEmulator'
+        'Security', 'System', 'TerminalEmulator'
     )
 }
 
@@ -731,6 +737,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.categories_treefilter.refilter()
 
+        # Allow to keep track of categories a user has explicitly removed for a
+        # desktop file
+        self.categories_removed = set()
+
     def activate_action_cb(self, widget, action_name):
         """Activate the specified GtkAction."""
         self.actions[action_name].activate()
@@ -770,6 +780,18 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Remove all items from the treeview."""
         model = treeview.get_model()
         model.clear()
+
+    def treeview_get_selected_text(self, treeview, column):
+        """Return selected item's text value stored at the given column (text
+        is the expected data type)."""
+
+        # Note that the categories treeview is configured to only allow one row
+        # to be selected
+        model, treeiter = treeview.get_selection().get_selected()
+        if model is not None and treeiter is not None:
+            return model[treeiter][column]
+        else:
+            return ''
 
     def cleanup_treeview(self, treeview, key_columns, sort=False):
         """Cleanup a treeview"""
@@ -823,6 +845,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_categories_remove(self, widget):
         """Remove the currently selected row from the Categories TreeView."""
+
+        # Keep track of category names user has explicitly removed
+        name = self.treeview_get_selected_text(self.categories_treeview, 0)
+        self.categories_removed.add(name)
+
         self.treeview_remove(self.categories_treeview)
         self.set_value('Categories', self.get_editor_categories(), False)
 
@@ -1266,6 +1293,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         model = self.categories_treeview.get_model()
         model.clear()
 
+        # Clear tracked categories user explicitly deleted
+        self.categories_removed = set()
+
         # Clear the ThisEntry category list.
         this_index = self.categories_treestore.iter_n_children(None) - 1
         this_entry = self.categories_treestore.iter_nth_child(None, this_index)
@@ -1550,7 +1580,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.treeview.update_menus()
 
     def save_launcher(self, temp=False):
-        """Save the current launcher details."""
+        """Save the current launcher details, remove from the current directory
+        if it no longer has the required category."""
+
         if temp:
             filename = tempfile.mkstemp('.desktop', 'menulibre-')[1]
         else:
@@ -1567,7 +1599,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             model, parent_data = self.treeview.get_parent_row_data()
 
-            # Make sure required categories are in place.
+            # Make sure required categories are in place - this is useful for
+            # when a user moves a launcher from its original location to a new
+            # directory - without the category associated with the new
+            # directory (and no force-include), the launcher would not otherwise
+            # show
             if parent_data is not None:
                 # Parent was found, take its categories.
                 required_categories = util.getRequiredCategories(parent_data[6])
@@ -1577,8 +1613,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             current_categories = self.get_value('Categories').split(';')
             all_categories = current_categories
             for category in required_categories:
-                if category not in all_categories:
+
+                # Only add the 'required category' if the user has not
+                # explicitly removed it
+                if (category not in all_categories
+                    and category not in self.categories_removed):
                     all_categories.append(category)
+
             self.set_editor_categories(';'.join(all_categories))
 
             # Cleanup invalid entries and reorder the Categories and Actions
@@ -1627,6 +1668,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.treeview.update_launcher_instances(original_filename, row_data)
 
         self.treeview.update_menus()
+
+        # Check and make sure that the launcher has been added to/removed from
+        # directories that its category configuration dictates - this is not
+        # deleting the launcher but removing it from various places in the UI
+        self.update_launcher_category_dirs()
 
     def update_launcher_categories(self, remove, add):
         original_filename = self.get_value('Filename')
@@ -1688,6 +1734,89 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         model, row_data = self.treeview.get_selected_row_data()
         row_data[6] = save_filename
         self.treeview.update_launcher_instances(original_filename, row_data)
+
+    def update_launcher_category_dirs(self):
+        """Make sure launcher is present or absent from in all top-level
+        directories that its categories dictate."""
+
+        # Prior to menulibre being restarted, addition of a category does not
+        # result in the launcher being added to or removed from the relevant
+        # top-level directories - making sure this happens
+
+        # Fetching model and launcher information - removing empty category
+        # at end of category split
+        # Note that a user can remove all categories now if they want, which
+        # would naturally remove the launcher from all top-level directories -
+        # alacarte doesn't save any categories by default with a new launcher,
+        # however to reach this point, any required categories (minus those the
+        # user has explicitly deleted) will be added, so this shouldn't be a
+        # problem
+        model, row_data = self.treeview.get_selected_row_data()
+        if row_data[2]:
+            categories = row_data[2].split(';')[:-1]
+        else:
+            categories = []
+        filename = row_data[6]
+
+        # Obtaining a dictionary of iters to launcher instances in top-level
+        # directories
+        launcher_instances = self.treeview._get_launcher_instances(filename)
+        launchers_in_top_level_dirs = {}
+        for instance in launcher_instances:
+
+            # Make sure the launcher isn't top-level and is in a directory.
+            # Must pass a model otherwise it gets the current selection iter
+            # regardless...
+            _, parent = self.treeview.get_parent(model, instance)
+            if (parent is not None
+                and model[parent][3] == MenuItemTypes.DIRECTORY):
+
+                # Adding if the directory returned is top level
+                _, parent_parent = self.treeview.get_parent(model, parent)
+                if parent_parent is None:
+                    launchers_in_top_level_dirs[model[parent][0]] = instance
+
+        # Obtaining a lookup of top-level directories -> iters
+        top_level_dirs = {}
+        for row in model:
+            if row[3] == MenuItemTypes.DIRECTORY:
+                top_level_dirs[row[0]] = model.get_iter(row.path)
+
+        # Looping through all set categories - category specified is at maximum
+        # detail level, this needs to be converted to the parent group name,
+        # and this needs to be converted into the directory name as it would
+        # appear in the menu
+        required_category_directories = set()
+        for category in categories:
+            category_group = category_lookup[category]
+            directory_name = util.getDirectoryNameFromCategory(category_group)
+
+            # Adding to directories the launcher should be in
+            if directory_name not in launchers_in_top_level_dirs:
+                treeiter = self.treeview.add_child(row_data,
+                                                top_level_dirs[directory_name],
+                                                model, False)
+                launchers_in_top_level_dirs[directory_name] = treeiter
+
+            # Building set of required category directories to detect
+            # superfluous ones later
+            if directory_name not in required_category_directories:
+                required_category_directories.add(directory_name)
+
+        # Removing launcher from directories it should no longer be in
+        superfluous_dirs = (set(launchers_in_top_level_dirs.keys())
+                            - required_category_directories)
+        _, parent_data = self.treeview.get_parent_row_data()
+        for directory_name in superfluous_dirs:
+
+            # Removing selected launcher from the UI if it is in the current
+            # directory, otherwise just from the model
+            if directory_name == parent_data[0]:
+                self.treeview.remove_selected(True)
+
+            else:
+                self.treeview.remove_iter(model,
+                                launchers_in_top_level_dirs[directory_name])
 
     def delete_separator(self):
         """Remove a separator row from the treeview, update the menu files."""

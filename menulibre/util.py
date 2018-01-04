@@ -205,6 +205,10 @@ def getSystemLauncherPath(basename):
 
 def getDirectoryName(directory_str):
     """Return the directory name to be used in the XML file."""
+
+    # Note: When adding new logic here, please see if
+    # getDirectoryNameFromCategory should also be updated
+
     # Get the menu prefix
     prefix = getDefaultMenuPrefix()
     has_prefix = False
@@ -224,6 +228,66 @@ def getDirectoryName(directory_str):
         condensed = name.split('-', 2)[-1]
         non_camel = re.sub('(?!^)([A-Z]+)', r' \1', condensed)
         return non_camel
+
+    # Cleanup ArcadeGames and others as per the norm.
+    if name.endswith('Games') and name != 'Games':
+        condensed = name[:-5]
+        non_camel = re.sub('(?!^)([A-Z]+)', r' \1', condensed)
+        return non_camel
+
+    # GNOME...
+    if name == 'AudioVideo' or name == 'Audio-Video':
+        return 'Multimedia'
+
+    if name == 'Game':
+        return 'Games'
+
+    if name == 'Network' and prefix != 'xfce-':
+        return 'Internet'
+
+    if name == 'Utility':
+        return 'Accessories'
+
+    if name == 'System-Tools':
+        if prefix == 'lxde-':
+            return 'Administration'
+        else:
+            return 'System'
+
+    if name == 'Settings':
+        if prefix == 'lxde-':
+            return 'DesktopSettings'
+        elif has_prefix and prefix == 'xfce-':
+            return name
+        else:
+            return 'Preferences'
+
+    if name == 'Settings-System':
+        return 'Administration'
+
+    if name == 'GnomeScience':
+        return 'Science'
+
+    if name == 'Utility-Accessibility':
+        return 'Universal Access'
+
+    # We tried, just return the name.
+    return name
+
+
+def getDirectoryNameFromCategory(name):
+    """Guess at the directory name a category should cause its launcher to
+    appear in. This is used to add launchers to or remove from the right
+    directories after category addition without having to restart menulibre."""
+
+    # Note: When adding new logic here, please see if
+    # getDirectoryName should also be updated
+
+    # I don't want to overload the use of getDirectoryName, so have spun out
+    # this similar function
+
+    # Only interested in generic categories here, so no need to handle
+    # categories named after desktop environments
 
     # Cleanup ArcadeGames and others as per the norm.
     if name.endswith('Games') and name != 'Games':
