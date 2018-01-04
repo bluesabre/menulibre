@@ -571,11 +571,11 @@ msgstr "MenuLibre kann nicht als Systemverwalter ausgeführt werden."
 #: ../menulibre/MenulibreApplication.py:226
 msgid ""
 "Please see the <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
 "Für weitere Informationen, bitte die <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>Internetdokumentatio"
+"href='%s'>Internetdokumentatio"
 "n</a> beachten."
 
 #: ../menulibre/MenulibreApplication.py:325

@@ -524,11 +524,11 @@ msgstr "MenuLibre қолданбасын root атынан орындау мүм
 #: ../menulibre/MenulibreApplication.py:226
 msgid ""
 "Please see the <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
 "Көбірек білу үшін <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>желідегі "
+"href='%s'>желідегі "
 "құжаттаманы</a> қараңыз."
 
 #: ../menulibre/MenulibreApplication.py:325

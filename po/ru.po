@@ -597,11 +597,11 @@ msgstr "Не удалось запустить MenuLibre с правами root"
 #: ../menulibre/MenulibreApplication.py:226
 msgid ""
 "Please see the <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
 "Подробности в <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>онлайн-справке</a>"
+"href='%s'>онлайн-справке</a>"
 
 #: ../menulibre/MenulibreApplication.py:325
 msgid "Add _Launcher..."

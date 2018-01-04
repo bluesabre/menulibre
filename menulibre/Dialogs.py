@@ -24,6 +24,7 @@ import menulibre_lib
 import logging
 logger = logging.getLogger('menulibre')
 
+
 class AboutDialog(Gtk.AboutDialog):
     def __init__(self, parent):
         # Create and display the AboutDialog.
@@ -51,14 +52,15 @@ class AboutDialog(Gtk.AboutDialog):
         """Destroy the AboutDialog when it is closed."""
         widget.destroy()
 
+
 def HelpDialog(parent):
     question = _("Do you want to read the MenuLibre manual online?")
     details = _("You will be redirected to the documentation website "
                 "where the help pages are maintained.")
     dialog = Gtk.MessageDialog(transient_for=parent, modal=True,
-                                message_type=Gtk.MessageType.QUESTION,
-                                buttons=Gtk.ButtonsType.NONE,
-                                text=question)
+                               message_type=Gtk.MessageType.QUESTION,
+                               buttons=Gtk.ButtonsType.NONE,
+                               text=question)
     dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
     dialog.add_button(_("Read Online"), Gtk.ResponseType.OK)
     dialog.set_title(_("Online Documentation"))
@@ -70,60 +72,65 @@ def HelpDialog(parent):
         menulibre_lib.show_uri(parent, help_url)
     dialog.destroy()
 
+
 class SaveOnCloseDialog(Gtk.MessageDialog):
     def __init__(self, parent):
         question = _("Do you want to save the changes before closing?")
         details = _("If you don't save the launcher, all the changes "
                     "will be lost.'")
-        Gtk.MessageDialog.__init__ (self, transient_for=parent, modal=True,
-                                    message_type=Gtk.MessageType.QUESTION,
-                                    buttons=Gtk.ButtonsType.NONE,
-                                    text=question)
+        Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
+                                   message_type=Gtk.MessageType.QUESTION,
+                                   buttons=Gtk.ButtonsType.NONE,
+                                   text=question)
         self.format_secondary_markup(details)
         self.set_title(_("Save Changes"))
         self.add_button(_("Don't Save"), Gtk.ResponseType.NO)
         self.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
         self.add_button(_("Save"), Gtk.ResponseType.YES)
+
 
 class SaveOnLeaveDialog(Gtk.MessageDialog):
     def __init__(self, parent):
         question = _("Do you want to save the changes before leaving this "
-                    "launcher?")
+                     "launcher?")
         details = _("If you don't save the launcher, all the changes "
                     "will be lost.")
-        Gtk.MessageDialog.__init__ (self, transient_for=parent, modal=True,
-                                    message_type=Gtk.MessageType.QUESTION,
-                                    buttons=Gtk.ButtonsType.NONE,
-                                    text=question)
+        Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
+                                   message_type=Gtk.MessageType.QUESTION,
+                                   buttons=Gtk.ButtonsType.NONE,
+                                   text=question)
         self.format_secondary_markup(details)
         self.set_title(_("Save Changes"))
         self.add_button(_("Don't Save"), Gtk.ResponseType.NO)
         self.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
         self.add_button(_("Save"), Gtk.ResponseType.YES)
 
+
 class DeleteDialog(Gtk.MessageDialog):
     def __init__(self, parent, question):
         details = _("This cannot be undone.")
-        Gtk.MessageDialog.__init__ (self, transient_for=parent, modal=True,
-                                    message_type=Gtk.MessageType.QUESTION,
-                                    buttons=Gtk.ButtonsType.OK_CANCEL,
-                                    text=question)
+        Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
+                                   message_type=Gtk.MessageType.QUESTION,
+                                   buttons=Gtk.ButtonsType.OK_CANCEL,
+                                   text=question)
         self.format_secondary_markup(details)
+
 
 class RevertDialog(Gtk.MessageDialog):
     def __init__(self, parent):
         question = _("Are you sure you want to restore this launcher?")
         details = _("All changes since the last saved state will be lost "
                     "and cannot be restored automatically.")
-        Gtk.MessageDialog.__init__ (self, transient_for=parent, modal=True,
-                                    message_type=Gtk.MessageType.QUESTION,
-                                    buttons=Gtk.ButtonsType.NONE,
-                                    text=question)
+        Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
+                                   message_type=Gtk.MessageType.QUESTION,
+                                   buttons=Gtk.ButtonsType.NONE,
+                                   text=question)
         self.format_secondary_markup(details)
 
         self.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
         self.add_button(_("Restore Launcher"), Gtk.ResponseType.OK)
         self.set_title(_("Restore Launcher"))
+
 
 class FileChooserDialog(Gtk.FileChooserDialog):
     def __init__(self, parent, title, action):

@@ -22,7 +22,7 @@ try:
     import DistUtilsExtra.auto
 except ImportError:
     sys.stderr.write("To build menulibre you need "
-          "https://launchpad.net/python-distutils-extra\n")
+                     "https://launchpad.net/python-distutils-extra\n")
     sys.exit(1)
 assert DistUtilsExtra.auto.__version__ >= '2.18', \
         'needs DistUtilsExtra.auto >= 2.18'
@@ -71,10 +71,11 @@ def move_icon_file(root, target_data, prefix):
                 old_icon_file = os.path.join(old_icon_path, 'menulibre.svg')
             else:
                 old_icon_file = os.path.join(old_icon_path,
-                                'menulibre_%s.svg' % icon_size.split('x')[0])
+                                             'menulibre_%s.svg' %
+                                             icon_size.split('x')[0])
             icon_path = os.path.normpath(
-                    os.path.join(root, target_data, 'share', 'icons', 'hicolor',
-                                 icon_size, 'apps'))
+                    os.path.join(root, target_data, 'share', 'icons',
+                                 'hicolor', icon_size, 'apps'))
             icon_file = os.path.join(icon_path, 'menulibre.svg')
 
         # Get the real paths.
@@ -136,14 +137,17 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
         DistUtilsExtra.auto.install_auto.run(self)
 
         print(("=== Installing %s, version %s ===" %
-            (self.distribution.get_name(), self.distribution.get_version())))
+               (self.distribution.get_name(),
+                self.distribution.get_version())))
 
         if not self.prefix:
             self.prefix = ''
 
         if self.root:
-            target_data = os.path.relpath(self.install_data, self.root) + os.sep
-            target_pkgdata = os.path.join(target_data, 'share', 'menulibre', '')
+            target_data = os.path.relpath(self.install_data, self.root) + \
+                os.sep
+            target_pkgdata = os.path.join(target_data, 'share', 'menulibre',
+                                          '')
             target_scripts = os.path.join(self.install_scripts, '')
 
             data_dir = os.path.join(self.prefix, 'share', 'menulibre', '')
@@ -152,7 +156,8 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
             # --user install
             self.root = ''
             target_data = os.path.relpath(self.install_data) + os.sep
-            target_pkgdata = os.path.join(target_data, 'share', 'menulibre', '')
+            target_pkgdata = os.path.join(target_data, 'share', 'menulibre',
+                                          '')
             target_scripts = os.path.join(self.install_scripts, '')
 
             # Use absolute paths
@@ -179,6 +184,7 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
         print(("Desktop File: %s\n" % desktop_file))
         move_icon_file(self.root, target_data, self.prefix)
         update_desktop_file(desktop_file, script_path)
+
 
 DistUtilsExtra.auto.setup(
     name='menulibre',

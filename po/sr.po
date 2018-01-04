@@ -557,11 +557,11 @@ msgstr "Слободни изборник се не може користити 
 #: ../menulibre/MenulibreApplication.py:226
 msgid ""
 "Please see the <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
 "Молим, погледајте <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>опис на мрежи</a> "
+"href='%s'>опис на мрежи</a> "
 "за више података."
 
 #: ../menulibre/MenulibreApplication.py:325

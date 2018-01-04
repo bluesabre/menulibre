@@ -566,10 +566,10 @@ msgstr "MenuLibre kan inte köras som rot."
 #: ../menulibre/MenulibreApplication.py:226
 msgid ""
 "Please see the <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
-"Se <a href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"Se <a href='%s'>online "
 "documentation</a> för mer information."
 
 #: ../menulibre/MenulibreApplication.py:325

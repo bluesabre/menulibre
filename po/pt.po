@@ -563,11 +563,11 @@ msgstr "MenuLibre não pode ser executado como root."
 #: ../menulibre/MenulibreApplication.py:226
 msgid ""
 "Please see the <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
 "Por favor veja a <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>documentação on-"
+"href='%s'>documentação on-"
 "line</a> para obter mais informações."
 
 #: ../menulibre/MenulibreApplication.py:325

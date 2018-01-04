@@ -563,11 +563,11 @@ msgstr "MenuLibre nie może być uruchamiane w trybie administratora."
 #: ../menulibre/MenulibreApplication.py:226
 msgid ""
 "Please see the <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
 "Prosimy zobaczyć <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>dokumentację "
+"href='%s'>dokumentację "
 "online</a> celem dalszych informacji."
 
 #: ../menulibre/MenulibreApplication.py:325

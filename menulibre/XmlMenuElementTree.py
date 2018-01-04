@@ -16,14 +16,14 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-#lint:disable
+# lint:disable
 try:
     import xml.etree.cElementTree
     from xml.etree.cElementTree import ElementTree, Element, SubElement
 except ImportError:
-    import xml.etree.ElementTree
+    import xml.etree.ElementTree  # noqa
     from xml.etree.ElementTree import ElementTree, Element, SubElement
-#lint:enable
+# lint:enable
 
 import os
 
@@ -227,7 +227,7 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
             model_to_xml_menus(model, treeiter, next_element)
 
             # Do Includes to allow for alacarte-created entries without
-            # categories to persist (see https://bugs.launchpad.net/menulibre/+bug/1315880)
+            # categories to persist (see LP: #1315880)
             model_to_xml_includes(model, treeiter, next_element)
 
             # Do Layouts
@@ -261,10 +261,10 @@ def model_to_xml_includes(model, model_parent=None, menu_parent=None):
                     user_directory = True
                     break
 
-        # Items in custom directories by menulibre have a category, but includes
-        # are required otherwise they are dropped by GMenu
+        # Items in custom directories by menulibre have a category, but
+        # includes are required otherwise they are dropped by GMenu
         if item_type == MenuItemTypes.APPLICATION and (
-            not categories or user_directory):
+                not categories or user_directory):
             include = menu_parent.addInclude()
             try:
                 include.addFilename(os.path.basename(desktop))
@@ -272,7 +272,8 @@ def model_to_xml_includes(model, model_parent=None, menu_parent=None):
                 pass
 
 
-def model_to_xml_layout(model, model_parent=None, menu_parent=None, merge=True):
+def model_to_xml_layout(model, model_parent=None, menu_parent=None,  # noqa
+                        merge=True):
     """Append the <Layout> element to menu_parent."""
     layout = menu_parent.addLayout()
 
@@ -316,7 +317,7 @@ def model_to_xml_layout(model, model_parent=None, menu_parent=None, merge=True):
                 # for layout generation - if you don't specify the desktop file
                 # with the prefix here, the prefixed desktop file will not
                 # match in the layout node when the menu is being constructed
-                # See https://bugs.launchpad.net/menulibre/+bug/1315536/comments/5
+                # See LP: #1315536 comment 5
                 containing_dir = os.path.basename(os.path.dirname(desktop))
                 desktop_filename = os.path.basename(desktop)
                 if containing_dir != 'applications':
@@ -346,7 +347,7 @@ def model_children_to_xml(model, model_parent=None, menu_parent=None):
     model_to_xml_menus(model, model_parent, menu_parent)
 
     # Includes Second... to allow for alacarte-created entries without
-    # categories to persist (see https://bugs.launchpad.net/menulibre/+bug/1315880)
+    # categories to persist (see LP: #1315880)
     model_to_xml_includes(model, model_parent, menu_parent)
 
     # Layouts Third...

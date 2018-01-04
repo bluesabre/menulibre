@@ -16,10 +16,8 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from gi.repository import Gtk
-from locale import gettext as _
-
 import menulibre_lib
+
 
 class LogDialog:
     """The MenuLibre LogWindow."""

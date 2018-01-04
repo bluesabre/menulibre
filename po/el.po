@@ -570,11 +570,11 @@ msgstr "Το MenuLibre δε μπορεί να τρέξει ως root."
 #: ../menulibre/MenulibreApplication.py:226
 msgid ""
 "Please see the <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
 "Παρακαλώ δείτε την <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>τεκμηρίωση στο "
+"href='%s'>τεκμηρίωση στο "
 "διαδίκτυο</a> για περισσότερες πληροφορίες."
 
 #: ../menulibre/MenulibreApplication.py:325

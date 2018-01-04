@@ -568,11 +568,11 @@ msgstr "No se puede ejecutar MenuLibre con permisos de administrador."
 #: ../menulibre/MenulibreApplication.py:226
 msgid ""
 "Please see the <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
 "Consulte la <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>documentación en "
+"href='%s'>documentación en "
 "línea</a> para obtener más información."
 
 #: ../menulibre/MenulibreApplication.py:325

@@ -26,8 +26,11 @@ import xml.parsers.expat
 from locale import gettext as _
 from xml.sax.saxutils import escape
 
+import logging
+logger = logging.getLogger('menulibre') # noqa
+
 import gi
-gi.require_version('GMenu', '3.0')
+gi.require_version('GMenu', '3.0')  # noqa
 
 from gi.repository import GdkPixbuf, Gio, GLib, GMenu, Gtk
 
@@ -39,9 +42,6 @@ locale.textdomain('menulibre')
 icon_theme = Gtk.IconTheme.get_default()
 
 menu_name = ""
-
-import logging
-logger = logging.getLogger('menulibre')
 
 
 def get_default_menu():
@@ -104,7 +104,7 @@ def menu_to_treestore(treestore, parent, menu_items):
 
         treeiter = treestore.append(
             parent, [displayed_name, tooltip, categories, item_type,
-            icon, icon_name, filename, False, show])
+                     icon, icon_name, filename, False, show])
 
         if item_type == MenuItemTypes.DIRECTORY:
             treestore = menu_to_treestore(treestore, treeiter, item[3])
@@ -237,11 +237,11 @@ class MenuEditor(object):
         basename = basename or get_default_menu()
 
         self.tree = GMenu.Tree.new(basename,
-                                    GMenu.TreeFlags.SHOW_EMPTY |
-                                    GMenu.TreeFlags.INCLUDE_EXCLUDED |
-                                    GMenu.TreeFlags.INCLUDE_NODISPLAY |
-                                    GMenu.TreeFlags.SHOW_ALL_SEPARATORS |
-                                    GMenu.TreeFlags.SORT_DISPLAY_NAME)
+                                   GMenu.TreeFlags.SHOW_EMPTY |
+                                   GMenu.TreeFlags.INCLUDE_EXCLUDED |
+                                   GMenu.TreeFlags.INCLUDE_NODISPLAY |
+                                   GMenu.TreeFlags.SHOW_ALL_SEPARATORS |
+                                   GMenu.TreeFlags.SORT_DISPLAY_NAME)
         self.load()
 
         self.path = os.path.join(

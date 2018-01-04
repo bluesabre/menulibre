@@ -119,12 +119,13 @@ class MenulibreDesktopEntry:
         if locale_str:
             try:
                 return self.properties[category]["%s[%s]" %
-                                (prop_name, locale_str)]
+                                                 (prop_name, locale_str)]
             except KeyError:
                 if '_' in locale_str:
                     try:
-                        return self.properties[category]["%s[%s]" %
-                                (prop_name, locale_str.split('_')[0])]
+                        keystr = "%s[%s]" % (prop_name,
+                                             locale_str.split('_')[0])
+                        return self.properties[category][keystr]
                     except KeyError:
                         pass
         try:
@@ -160,8 +161,10 @@ class MenulibreDesktopEntry:
                         (name, displayed_name, command, enabled))
         return quicklists
 
+
 def desktop_menu_update():
     subprocess.call(["xdg-desktop-menu", "forceupdate"])
+
 
 def desktop_menu_install(directory_files, desktop_files):
     """Install one or more applications in a submenu of the desktop menu
@@ -184,7 +187,7 @@ def desktop_menu_install(directory_files, desktop_files):
     subprocess.call(cmd_list)
 
 
-def desktop_menu_uninstall(directory_files, desktop_files):
+def desktop_menu_uninstall(directory_files, desktop_files):  # noqa
     """Remove applications or submenus from the desktop menu system
     previously installed with xdg-desktop-menu install."""
     # Check for the minimum required arguments
@@ -206,7 +209,7 @@ def desktop_menu_uninstall(directory_files, desktop_files):
 
     # Find the file with all the details to remove the filename.
     merged_dir = os.path.join(GLib.get_user_config_dir(),
-                                    "menus", "applications-merged")
+                              "menus", "applications-merged")
 
     for filename in os.listdir(merged_dir):
         filename = os.path.join(merged_dir, filename)

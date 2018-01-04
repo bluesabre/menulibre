@@ -27,13 +27,15 @@ from .util import MenuItemTypes, check_keypress, getBasename
 import logging
 logger = logging.getLogger('menulibre')
 
+
 class Treeview(GObject.GObject):
 
     __gsignals__ = {
         'cursor-changed': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_BOOLEAN,
-                        (GObject.TYPE_BOOLEAN,)),
-        'add-directory-enabled': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_BOOLEAN,
-                        (GObject.TYPE_BOOLEAN,)),
+                           (GObject.TYPE_BOOLEAN,)),
+        'add-directory-enabled': (GObject.SIGNAL_RUN_LAST,
+                                  GObject.TYPE_BOOLEAN,
+                                  (GObject.TYPE_BOOLEAN,)),
     }
 
     def __init__(self, parent, builder):
@@ -87,13 +89,13 @@ class Treeview(GObject.GObject):
 
         # Configure the treeview events.
         self._treeview.connect("cursor-changed",
-                                self._on_treeview_cursor_changed, None, builder)
+                               self._on_treeview_cursor_changed, None, builder)
         self._treeview.connect("key-press-event",
-                                self._on_treeview_key_press_event, None)
+                               self._on_treeview_key_press_event, None)
         self._treeview.connect("row-expanded",
-                                self._on_treeview_row_expansion, True)
+                               self._on_treeview_row_expansion, True)
         self._treeview.connect("row-collapsed",
-                                self._on_treeview_row_expansion, False)
+                               self._on_treeview_row_expansion, False)
 
         # Show the treeview, grab focus.
         self._treeview.show_all()
@@ -146,7 +148,7 @@ class Treeview(GObject.GObject):
 
         return new_iter
 
-    def remove_selected(self, ui_only=False):
+    def remove_selected(self, ui_only=False):  # noqa
         """Remove the selected launcher. If ui_only is True, the associated
         desktop file is not deleted but the launcher is removed from the
         interface. This is useful for removing categories."""
@@ -177,7 +179,7 @@ class Treeview(GObject.GObject):
             for filename in del_files:
                 try:
                     os.remove(filename)
-                except:
+                except:  # noqa
                     pass
 
         self.xdg_menu_update()
@@ -206,11 +208,6 @@ class Treeview(GObject.GObject):
                 categories = entry['Categories']
                 icon_name = entry['Icon']
                 hidden = entry['Hidden'] or entry['NoDisplay']
-                if os.path.isfile(icon_name):
-                    gfile = Gio.File.parse_name(icon_name)
-                    icon = Gio.FileIcon.new(gfile)
-                else:
-                    icon = Gio.ThemedIcon.new(icon_name)
                 self.update_selected(name, comment, categories, item_type,
                                      icon_name, original, not hidden)
                 model, row_data = self.get_selected_row_data()
@@ -248,7 +245,7 @@ class Treeview(GObject.GObject):
                 if path.get_depth() > 0:
                     try:
                         parent = model.get_iter(path)
-                    except:
+                    except:  # noqa
                         parent = None
         return model, parent
 
@@ -364,7 +361,7 @@ class Treeview(GObject.GObject):
             row[7] = expanded
 
     def _on_treeview_selection(self, sel, store, path, is_selected,
-                              can_select_func):
+                               can_select_func):
         """Save changes on cursor change."""
         if is_selected:
             return can_select_func()
@@ -386,7 +383,8 @@ class Treeview(GObject.GObject):
         expanded = self._get_treeview_selected_expanded(treeview)
         self._set_treeview_selected_expanded(treeview, not expanded)
 
-    def _text_display_func(self, col, renderer, treestore, treeiter, user_data):
+    def _text_display_func(self, col, renderer, treestore, treeiter,
+                           user_data):
         """CellRenderer function to set the gicon for each row."""
         show = treestore[treeiter][8]
         if show:
@@ -421,7 +419,7 @@ class Treeview(GObject.GObject):
             return False
         return True
 
-    def _get_delete_filenames(self, model, treeiter):
+    def _get_delete_filenames(self, model, treeiter):  # noqa
         """Return a list of files to be deleted after uninstall."""
         directories = []
         applications = []
@@ -561,7 +559,7 @@ class Treeview(GObject.GObject):
                 if (f_model is not None) and (f_iter is not None):
                     row_data = f_model[f_iter][:]
                     selected_iter = self._get_iter_by_data(row_data, model,
-                                                          parent=None)
+                                                           parent=None)
 
                 # If that fails, just select the first iter.
                 else:
@@ -629,7 +627,6 @@ class Treeview(GObject.GObject):
             return
         if filename.endswith('.desktop'):
             menu_install = True
-            menu_prefix = util.getDefaultMenuPrefix()
             parents = []
             if parent is None:
                 parent = model.iter_parent(treeiter)
@@ -682,11 +679,12 @@ class Treeview(GObject.GObject):
         # ~/.config/menus/applications-merged, but does not remove them
         # correctly.
         merged_dir = os.path.join(GLib.get_user_config_dir(),
-                                    "menus", "applications-merged")
+                                  "menus", "applications-merged")
 
         # Get the list of installed user directories to compare with.
         directories_dir = os.path.join(GLib.get_home_dir(),
-            ".local", "share", "desktop-directories")
+                                       ".local", "share",
+                                       "desktop-directories")
         if os.path.isdir(directories_dir):
             directories = os.listdir(directories_dir)
         else:
@@ -701,7 +699,7 @@ class Treeview(GObject.GObject):
                 # Only interested in .menu files
                 if os.path.isfile(menufile) and menufile.endswith('.menu'):
                     logger.debug("Checking if %s is still valid..." %
-                                menufile)
+                                 menufile)
 
                     # Read the menufile to see if it has a valid directory.
                     with open(menufile) as menufile_tmp:
@@ -711,7 +709,7 @@ class Treeview(GObject.GObject):
                                 menuname = menuname.split('</Directory>')[0]
                                 menuname = menuname.strip()
 
-                                # If a listed directory is not installed, remove
+                                # Remove if a listed directory is not installed
                                 if menuname not in directories:
                                     remove_file = True
                     if remove_file:
@@ -719,7 +717,7 @@ class Treeview(GObject.GObject):
                         os.remove(menufile)
 
 # TreeView iter tricks
-    def _move_iter(self, widget, user_data):
+    def _move_iter(self, widget, user_data):  # noqa
         """Move the currently selected row up or down. If the neighboring row
         is expanded, make the selected row a child of the neighbor row.
 
@@ -777,9 +775,9 @@ class Treeview(GObject.GObject):
 
                 # Insert the selected item into the directory.
                 if move_down:
-                    selected_iter = self._move_iter_down_level(treeview,
-                                        selected_iter,
-                                        sibling_iter, relative_position)
+                    selected_iter = self._move_iter_down_level(
+                        treeview, selected_iter,
+                        sibling_iter, relative_position)
 
                 # Move the selected item before or after the sibling item.
                 else:
@@ -790,9 +788,8 @@ class Treeview(GObject.GObject):
 
             # If there is no neighboring row, move up a level.
             else:
-                selected_iter = self._move_iter_up_level(treeview,
-                                        selected_iter,
-                                        relative_position)
+                selected_iter = self._move_iter_up_level(
+                    treeview, selected_iter, relative_position)
 
             # Get new required categories
             model, parent = self.get_parent(model, selected_iter)
@@ -814,7 +811,8 @@ class Treeview(GObject.GObject):
                 split_categories.sort()
                 editor_categories = ';'.join(split_categories)
                 self.parent.set_editor_categories(editor_categories)
-                self.parent.update_launcher_categories(categories, new_categories)
+                self.parent.update_launcher_categories(categories,
+                                                       new_categories)
 
         self.update_menus()
 
@@ -859,7 +857,7 @@ class Treeview(GObject.GObject):
             return new_iter
 
     def _move_iter_down_level(self, treeview, treeiter, parent_iter,
-                             relative_position):
+                              relative_position):
         """Move the specified iter down one level."""
         model = treeview.get_model()
         row_data = model[treeiter][:]

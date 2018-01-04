@@ -18,7 +18,7 @@
 '''facade - makes menulibre_lib package easy to refactor
 
 while keeping its api constant'''
-#lint:disable
-from . helpers import get_builder, set_up_logging, show_uri
-from . menulibreconfig import get_version
-#lint:enable
+# lint:disable
+from . helpers import get_builder, set_up_logging, show_uri  # noqa
+from . menulibreconfig import get_version  # noqa
+# lint:enable

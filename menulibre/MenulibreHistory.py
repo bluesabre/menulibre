@@ -15,8 +15,6 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from locale import gettext as _
-
 from gi.repository import GObject
 
 import logging
@@ -29,11 +27,11 @@ class History(GObject.GObject):
 
     __gsignals__ = {
         'undo-changed': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_BOOLEAN,
-                        (GObject.TYPE_BOOLEAN,)),
+                         (GObject.TYPE_BOOLEAN,)),
         'redo-changed': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_BOOLEAN,
-                        (GObject.TYPE_BOOLEAN,)),
+                         (GObject.TYPE_BOOLEAN,)),
         'revert-changed': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_BOOLEAN,
-                        (GObject.TYPE_BOOLEAN,))
+                           (GObject.TYPE_BOOLEAN,))
     }
 
     def __init__(self):

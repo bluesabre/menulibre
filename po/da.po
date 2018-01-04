@@ -560,11 +560,11 @@ msgstr "MenuLibre kan ikke køres som root."
 #: ../menulibre/MenulibreApplication.py:226
 msgid ""
 "Please see the <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
 "Se venligst <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online-"
+"href='%s'>online-"
 "dokumentationen</a> for mere information."
 
 #: ../menulibre/MenulibreApplication.py:325

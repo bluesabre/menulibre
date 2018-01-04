@@ -572,11 +572,11 @@ msgstr "MenuLibre ne peut être exécuté en tant qu'administrateur."
 #: ../menulibre/MenulibreApplication.py:226
 msgid ""
 "Please see the <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
 "Veuillez consulter la <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>documentation en "
+"href='%s'>documentation en "
 "ligne</a> pour plus d'informations."
 
 #: ../menulibre/MenulibreApplication.py:325

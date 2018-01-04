@@ -566,11 +566,11 @@ msgstr "MenuLibre kan niet als rroot worden uitgevoerd."
 #: ../menulibre/MenulibreApplication.py:226
 msgid ""
 "Please see the <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
 "Zie de <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>internetdocumentatie"
+"href='%s'>internetdocumentatie"
 "</a> voor meer informatie."
 
 #: ../menulibre/MenulibreApplication.py:325

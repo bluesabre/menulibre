@@ -20,6 +20,7 @@ from locale import gettext as _
 
 import menulibre_lib
 
+
 class IconSelector:
     """The MenuLibre IconSelector."""
 
@@ -175,11 +176,11 @@ class IconSelector:
 
         if len(query) == 0:
             widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
-                                            None)
+                                           None)
 
         else:
             widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
-                                            'edit-clear-symbolic')
+                                           'edit-clear-symbolic')
             if expand:
                 self.treeview.expand_all()
 

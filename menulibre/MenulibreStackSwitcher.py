@@ -17,6 +17,7 @@
 
 from gi.repository import Gtk
 
+
 class StackSwitcherBox(Gtk.Box):
     def __init__(self):
         Gtk.Box.__init__(self, orientation=Gtk.Orientation.VERTICAL, spacing=6)

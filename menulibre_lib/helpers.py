@@ -22,8 +22,6 @@ from gi.repository import Gtk
 
 from . menulibreconfig import get_data_file
 
-from locale import gettext as _  # lint:ok
-
 
 def get_builder(builder_file_name):
     """Return a fully-instantiated Gtk.Builder instance from specified ui
@@ -44,11 +42,11 @@ def get_builder(builder_file_name):
     return builder
 
 
-#lint:disable
+# lint:disable
 class NullHandler(logging.Handler):
     def emit(self, record):
         pass
-#lint:enable
+# lint:enable
 
 
 def set_up_logging(opts):

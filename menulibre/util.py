@@ -22,7 +22,6 @@ import subprocess
 
 import getpass
 import psutil
-old_psutil_format = isinstance(psutil.Process.username, property)
 
 from locale import gettext as _
 
@@ -31,10 +30,13 @@ from gi.repository import GLib, Gdk
 import logging
 logger = logging.getLogger('menulibre')
 
+old_psutil_format = isinstance(psutil.Process.username, property)
+
 
 def enum(**enums):
     """Add enumarations to Python."""
     return type('Enum', (), enums)
+
 
 MenuItemTypes = enum(
     SEPARATOR=-1,
@@ -53,7 +55,7 @@ def getProcessUsername(process):
             username = process.username
         else:
             username = process.username()
-    except:
+    except:  # noqa
         pass
 
     return username
@@ -68,7 +70,7 @@ def getProcessName(process):
             p_name = process.name
         else:
             p_name = process.name()
-    except:
+    except:  # noqa
         pass
 
     return p_name
@@ -90,7 +92,7 @@ def getProcessList():
                 p_name = getProcessName(process)
                 if p_name is not None and p_name not in processes:
                     processes.append(p_name)
-        except:
+        except:  # noqa
             pass
     processes.sort()
     return processes
@@ -203,7 +205,7 @@ def getSystemLauncherPath(basename):
     return None
 
 
-def getDirectoryName(directory_str):
+def getDirectoryName(directory_str):  # noqa
     """Return the directory name to be used in the XML file."""
 
     # Note: When adding new logic here, please see if
@@ -275,7 +277,7 @@ def getDirectoryName(directory_str):
     return name
 
 
-def getDirectoryNameFromCategory(name):
+def getDirectoryNameFromCategory(name):  # noqa
     """Guess at the directory name a category should cause its launcher to
     appear in. This is used to add launchers to or remove from the right
     directories after category addition without having to restart menulibre."""
@@ -318,7 +320,7 @@ def getDirectoryNameFromCategory(name):
     if name == 'Settings':
         if prefix == 'lxde-':
             return 'DesktopSettings'
-        elif has_prefix and prefix == 'xfce-':
+        elif prefix == 'xfce-':
             return name
         else:
             return 'Preferences'
@@ -366,7 +368,7 @@ def getRequiredCategories(directory):
     return []
 
 
-def getSaveFilename(name, filename, item_type, force_update=False):
+def getSaveFilename(name, filename, item_type, force_update=False):  # noqa
     """Determime the filename to be used to store the launcher.
 
     Return the filename to be used."""
@@ -446,7 +448,7 @@ def getSaveFilename(name, filename, item_type, force_update=False):
     return filename
 
 
-def check_keypress(event, keys):
+def check_keypress(event, keys):  # noqa
     """Compare keypress events with desired keys and return True if matched."""
     if 'Control' in keys:
         if not bool(event.get_state() & Gdk.ModifierType.CONTROL_MASK):
@@ -498,7 +500,7 @@ def determine_bad_desktop_files():
     return bad_desktop_files
 
 
-def validate_desktop_file(desktop_file):
+def validate_desktop_file(desktop_file):  # noqa
     """Validate a known-bad desktop file in the same way GMenu/glib does, to
     give a user real information about why certain files are broken."""
 
@@ -533,7 +535,7 @@ def validate_desktop_file(desktop_file):
     try:
         type_key = keyfile.get_string(start_group,
                                       GLib.KEY_FILE_DESKTOP_KEY_TYPE)
-    except:
+    except:  # noqa
         return _('%s: Type key was not found') % desktop_file
 
     if type_key != GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION:
@@ -545,7 +547,7 @@ def validate_desktop_file(desktop_file):
     try:
         try_exec = keyfile.get_string(start_group,
                                       GLib.KEY_FILE_DESKTOP_KEY_TRY_EXEC)
-    except:
+    except:  # noqa
         pass
 
     else:
@@ -557,7 +559,7 @@ def validate_desktop_file(desktop_file):
     try:
         exec_key = keyfile.get_string(start_group,
                                       GLib.KEY_FILE_DESKTOP_KEY_EXEC)
-    except:
+    except:  # noqa
         return _('%s: Exec key not found') % desktop_file
 
     try:

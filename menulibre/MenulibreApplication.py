@@ -90,14 +90,12 @@ category_groups = {
         'Profiling', 'RevisionControl', 'Translation', 'WebDevelopment'
     ),
     'Education': (
-        'Art', 'ArtificialIntelligence', 'Astronomy', 'Biology',
-        'Chemistry', 'ComputerScience', 'Construction',
-        'DataVisualization', 'Economy', 'Education', 'Electricity', 'Geography',
-        'Geology', 'Geoscience', 'History', 'Humanities',
-        'ImageProcessing', 'Languages', 'Literature', 'Maps', 'Math',
-        'MedicalSoftware', 'Music', 'NumericalAnalysis',
-        'ParallelComputing', 'Physics', 'Robotics', 'Spirituality',
-        'Sports'
+        'Art', 'ArtificialIntelligence', 'Astronomy', 'Biology', 'Chemistry',
+        'ComputerScience', 'Construction', 'DataVisualization', 'Economy',
+        'Education', 'Electricity', 'Geography', 'Geology', 'Geoscience',
+        'History', 'Humanities', 'ImageProcessing', 'Languages', 'Literature',
+        'Maps', 'Math', 'MedicalSoftware', 'Music', 'NumericalAnalysis',
+        'ParallelComputing', 'Physics', 'Robotics', 'Spirituality', 'Sports'
     ),
     'Game': (
         'ActionGame', 'AdventureGame', 'ArcadeGame', 'BoardGame',
@@ -226,10 +224,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def root_lockout(self):
         if root:
+            docs_url = "https://wiki.smdavis.us/doku.php?id=menulibre_faq"
             dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
-                                        Gtk.ButtonsType.CLOSE,
-                                        _("MenuLibre cannot be run as root."))
-            dialog.format_secondary_markup(_("Please see the <a href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online documentation</a> for more information."))
+                                       Gtk.ButtonsType.CLOSE,
+                                       _("MenuLibre cannot be run as root."))
+            dialog.format_secondary_markup(
+                _("Please see the <a href='%s'>online documentation</a> "
+                  "for more information.")) % docs_url
             dialog.run()
             sys.exit(1)
 
@@ -411,29 +412,23 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Connect the GtkAction events.
         self.actions['add_launcher'].connect('activate',
-                                            self.on_add_launcher_cb)
+                                             self.on_add_launcher_cb)
         self.actions['add_directory'].connect('activate',
-                                            self.on_add_directory_cb)
+                                              self.on_add_directory_cb)
         self.actions['add_separator'].connect('activate',
-                                            self.on_add_separator_cb)
+                                              self.on_add_separator_cb)
         self.actions['save_launcher'].connect('activate',
-                                            self.on_save_launcher_cb, builder)
-        self.actions['undo'].connect('activate',
-                                            self.on_undo_cb)
-        self.actions['redo'].connect('activate',
-                                            self.on_redo_cb)
-        self.actions['revert'].connect('activate',
-                                            self.on_revert_cb)
-        self.actions['execute'].connect('activate',
-                                            self.on_execute_cb, builder)
-        self.actions['delete'].connect('activate',
-                                            self.on_delete_cb)
-        self.actions['quit'].connect('activate',
-                                            self.on_quit_cb)
-        self.actions['help'].connect('activate',
-                                            self.on_help_cb)
-        self.actions['about'].connect('activate',
-                                            self.on_about_cb)
+                                              self.on_save_launcher_cb,
+                                              builder)
+        self.actions['undo'].connect('activate', self.on_undo_cb)
+        self.actions['redo'].connect('activate', self.on_redo_cb)
+        self.actions['revert'].connect('activate', self.on_revert_cb)
+        self.actions['execute'].connect('activate', self.on_execute_cb,
+                                        builder)
+        self.actions['delete'].connect('activate', self.on_delete_cb)
+        self.actions['quit'].connect('activate', self.on_quit_cb)
+        self.actions['help'].connect('activate', self.on_help_cb)
+        self.actions['about'].connect('activate', self.on_about_cb)
 
     def configure_application_bad_desktop_files_infobar(self, builder):
         """Configure InfoBar to alert user to bad desktop files."""
@@ -446,7 +441,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # response ID via a button defined in glade?
         # Can't get a stock button then change its icon, so leaving with no
         # icon
-        details_button = infobar.add_button('Details', Gtk.ResponseType.YES)
+        infobar.add_button('Details', Gtk.ResponseType.YES)
 
         # Looks like you can't just insert a widget where you want??
         box.pack_start(infobar, False, False, 0)
@@ -459,7 +454,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def configure_application_menubar(self, builder):
         """Configure the application GlobalMenu (in Unity) and AppMenu."""
         self.app_menu_button = None
-        placeholder = builder.get_object('app_menu_holder')
+        builder.get_object('app_menu_holder')
 
         # Show the menubar if using a Unity session.
         if session in ['ubuntu', 'ubuntu-2d']:
@@ -515,12 +510,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         treeview = self.treeview.get_treeview()
         treeview.set_search_entry(self.search_box)
         self.search_box.connect('changed', self.on_app_search_changed,
-                                           treeview, True)
+                                treeview, True)
         self.treeview.set_can_select_function(self.get_can_select)
         self.treeview.connect("cursor-changed",
-                             self.on_apps_browser_cursor_changed, builder)
+                              self.on_apps_browser_cursor_changed, builder)
         self.treeview.connect("add-directory-enabled",
-                             self.on_apps_browser_add_directory_enabled, builder)
+                              self.on_apps_browser_add_directory_enabled,
+                              builder)
         treeview.set_cursor(Gtk.TreePath.new_from_string("1"))
         treeview.set_cursor(Gtk.TreePath.new_from_string("0"))
 
@@ -566,15 +562,15 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Keep a dictionary of the widgets for easy lookup and updates.
         # The keys are the DesktopSpec keys.
         self.widgets = {
-            'Name': (# GtkButton, GtkLabel, GtkEntry
+            'Name': (  # GtkButton, GtkLabel, GtkEntry
                 builder.get_object('button_Name'),
                 builder.get_object('label_Name'),
                 builder.get_object('entry_Name')),
-            'Comment': (# GtkButton, GtkLabel, GtkEntry
+            'Comment': (  # GtkButton, GtkLabel, GtkEntry
                 builder.get_object('button_Comment'),
                 builder.get_object('label_Comment'),
                 builder.get_object('entry_Comment')),
-            'Icon': (# GtkButton, GtkImage
+            'Icon': (  # GtkButton, GtkImage
                 builder.get_object('button_Icon'),
                 builder.get_object('image_Icon')),
             'Filename': builder.get_object('label_Filename'),
@@ -597,7 +593,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Configure the switches
         for widget_name in ['Terminal', 'StartupNotify', 'NoDisplay']:
             widget = self.widgets[widget_name]
-            widget.connect('notify::active', self.on_switch_toggle, widget_name)
+            widget.connect('notify::active', self.on_switch_toggle,
+                           widget_name)
 
         # These widgets are hidden when the selected item is a Directory.
         self.directory_hide_widgets = []
@@ -609,52 +606,53 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Configure the Name/Comment widgets.
         for widget_name in ['Name', 'Comment']:
             button = builder.get_object('button_%s' % widget_name)
-            cancel = builder.get_object('cancel_%s' % widget_name)
-            accept = builder.get_object('apply_%s' % widget_name)
+            builder.get_object('cancel_%s' % widget_name)
+            builder.get_object('apply_%s' % widget_name)
             entry = builder.get_object('entry_%s' % widget_name)
             button.connect('clicked', self.on_NameComment_clicked,
-                                      widget_name, builder)
+                           widget_name, builder)
             entry.connect('key-press-event',
-                                      self.on_NameComment_key_press_event,
-                                      widget_name, builder)
+                          self.on_NameComment_key_press_event,
+                          widget_name, builder)
             entry.connect('activate', self.on_NameComment_activate,
-                                      widget_name, builder)
+                          widget_name, builder)
             entry.connect('icon-press', self.on_NameComment_apply,
-                                      widget_name, builder)
+                          widget_name, builder)
 
         # Button Focus events
         for widget_name in ['Name', 'Comment', 'Icon']:
             button = builder.get_object('button_%s' % widget_name)
             button.connect('focus-in-event',
-                            self.on_NameCommentIcon_focus_in_event)
+                           self.on_NameCommentIcon_focus_in_event)
             button.connect('focus-out-event',
-                            self.on_NameCommentIcon_focus_out_event)
+                           self.on_NameCommentIcon_focus_out_event)
 
         # Commit changes to entries when focusing out.
         for widget_name in ['Exec', 'Path', 'GenericName', 'TryExec',
                             'OnlyShowIn', 'NotShowIn', 'MimeType', 'Keywords',
                             'StartupWMClass', 'Hidden', 'DBusActivatable']:
             self.widgets[widget_name].connect('focus-out-event',
-                            self.on_entry_focus_out_event, widget_name)
+                                              self.on_entry_focus_out_event,
+                                              widget_name)
 
         # Enable saving on any edit with an Entry.
         for widget_name in ['Exec', 'Path', 'GenericName', 'TryExec',
                             'OnlyShowIn', 'NotShowIn', 'MimeType', 'Keywords',
                             'StartupWMClass', 'Hidden', 'DBusActivatable']:
             self.widgets[widget_name].connect("changed",
-                            self.on_entry_changed, widget_name)
+                                              self.on_entry_changed,
+                                              widget_name)
 
         # Configure the Exec/Path widgets.
         for widget_name in ['Exec', 'Path']:
             button = builder.get_object('entry_%s' % widget_name)
-            button.connect('icon-press', self.on_ExecPath_clicked,
-                                         widget_name, builder)
+            button.connect('icon-press', self.on_ExecPath_clicked, widget_name,
+                           builder)
 
         # Icon Selector
         self.icon_selector = MenulibreIconSelection.IconSelector(parent=self)
 
         # Connect the Icon menu.
-        menu = builder.get_object("icon_select_menu")
         select_icon_name = builder.get_object("icon_select_by_icon_name")
         select_icon_name.connect("activate",
                                  self.on_IconSelectFromIcons_clicked,
@@ -684,7 +682,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         clear_button.connect("clicked", self.on_actions_clear)
         move_up = builder.get_object('actions_move_up')
         move_up.connect('clicked', self.move_action, (self.actions_treeview,
-                                                        - 1))
+                                                      - 1))
         move_down = builder.get_object('actions_move_down')
         move_down.connect('clicked', self.move_action, (self.actions_treeview,
                                                         1))
@@ -727,12 +725,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         renderer_combo.connect("edited", self.on_category_combo_changed)
 
         column_combo = Gtk.TreeViewColumn(_("Category Name"),
-                                            renderer_combo, text=0)
+                                          renderer_combo, text=0)
         treeview.append_column(column_combo)
 
         renderer_text = Gtk.CellRendererText()
         column_text = Gtk.TreeViewColumn(_("Description"),
-                                            renderer_text, text=1)
+                                         renderer_text, text=1)
         treeview.append_column(column_text)
 
         self.categories_treefilter.refilter()
@@ -1115,7 +1113,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # Check if this file still exists, those tricksy hobbitses...
             if (not new_launcher) and (not os.path.isfile(filename)):
                 # If it does not, try to fallback...
-                original_filename = filename
                 basename = getBasename(filename)
                 filename = util.getSystemLauncherPath(basename)
                 if filename is not None:
@@ -1142,7 +1139,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                 'Hidden', 'DBusActivatable']:
                         self.set_value(key, entry[key], store=True)
                     self.set_value('Actions', entry.get_actions(),
-                                                                store=True)
+                                   store=True)
                     self.set_value('Type', 'Application')
                     self.execute_button.set_sensitive(True)
                 else:
@@ -1157,9 +1154,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 secondary = _("This launcher has been removed from the "
                               "system.\nSelecting the next available item.")
                 dialog = Gtk.MessageDialog(transient_for=self, modal=True,
-                                message_type=Gtk.MessageType.INFO,
-                                buttons=Gtk.ButtonsType.OK,
-                                text=primary)
+                                           message_type=Gtk.MessageType.INFO,
+                                           buttons=Gtk.ButtonsType.OK,
+                                           text=primary)
                 dialog.format_secondary_markup(secondary)
                 dialog.run()
                 dialog.destroy()
@@ -1176,20 +1173,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_app_search_changed(self, widget, treeview, expand=False):
         """Update search results when query text is modified."""
         query = widget.get_text()
-        model = treeview.get_model()
 
         # If blank query...
         if len(query) == 0:
             # Remove the clear button.
             widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
-                                            None)
+                                           None)
 
             # If the model is a filter, we want to remove the filter.
             self.treeview.set_searchable(False, expand)
 
             # Enable add functionality
             for name in ['add_launcher', 'add_directory', 'add_separator',
-                        'add_button']:
+                         'add_button']:
                 for widget in self.action_items[name]:
                     widget.set_sensitive(True)
                 if name in self.actions:
@@ -1199,13 +1195,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         else:
             # Show the clear button.
             widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
-                                            'edit-clear-symbolic')
+                                           'edit-clear-symbolic')
 
             self.treeview.set_searchable(True)
 
             # Disable add functionality
             for name in ['add_launcher', 'add_directory', 'add_separator',
-                        'add_button']:
+                         'add_button']:
                 for widget in self.action_items[name]:
                     widget.set_sensitive(False)
                 if name in self.actions:
@@ -1238,7 +1234,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon_name)
                 size = image.get_preferred_height()[1]
                 scaled = pixbuf.scale_simple(size, size,
-                                                GdkPixbuf.InterpType.HYPER)
+                                             GdkPixbuf.InterpType.HYPER)
                 image.set_from_pixbuf(scaled)
                 self.icon_selector.set_filename(icon_name)
                 return
@@ -1300,7 +1296,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         this_index = self.categories_treestore.iter_n_children(None) - 1
         this_entry = self.categories_treestore.iter_nth_child(None, this_index)
         for i in range(self.categories_treestore.iter_n_children(this_entry)):
-            child_iter = self.categories_treestore.iter_nth_child(this_entry, 0)
+            child_iter = self.categories_treestore.iter_nth_child(this_entry,
+                                                                  0)
             self.categories_treestore.remove(child_iter)
 
         # Cleanup the entry text and generate a description.
@@ -1312,7 +1309,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
                 # Add unknown entries to the category list...
                 category_keys = list(category_groups.keys()) + \
-                                list(category_lookup.keys())
+                    list(category_lookup.keys())
                 if entry not in category_keys:
                     self.categories_treestore.append(this_entry, [entry])
 
@@ -1383,14 +1380,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Get the value stored for key."""
         try:
             return self.values[key]
-        except:
+        except:  # noqa
             return None
 
     def set_inner_value(self, key, value):
         """Set the value stored for key."""
         self.values[key] = value
 
-    def set_value(self, key, value, adjust_widget=True, store=False):
+    def set_value(self, key, value, adjust_widget=True, store=False):  # noqa
         """Set the DesktopSpec key, value pair in the editor."""
         if store:
             self.history.store(key, value)
@@ -1458,7 +1455,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             else:
                 logger.warning(("Unknown widget: %s" % key))
 
-    def get_value(self, key):
+    def get_value(self, key):  # noqa
         """Return the value stored for the specified key."""
         if key in ['Name', 'Comment']:
             button, label, entry = self.widgets[key]
@@ -1511,20 +1508,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.treeview.append(new_row_data)
 
         # A parent item has been found, and the current selection is not a
-        # directory, so the resulting item will be placed at the current level -
+        # directory, so the resulting item will be placed at the current level
         # fetch the parent's categories
         if parent_data is not None and not dir_selected:
             categories = util.getRequiredCategories(parent_data[6])
 
-            # Debug code
-            # print('Launcher addition category determination: parent_data is not'
-            #      ' None and not dir_selected, categories: %s' % categories)
-
         elif parent_data is not None and dir_selected:
 
             # A directory lower than the top-level has been selected - the
-            # launcher will be added into it (e.g. as the first item), therefore
-            # it essentially has a parent of the current selection
+            # launcher will be added into it (e.g. as the first item),
+            # therefore it essentially has a parent of the current selection
             categories = util.getRequiredCategories(row_data[6])
 
             # Debug code
@@ -1535,10 +1528,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             # Parent was not found, this is a toplevel category
             categories = util.getRequiredCategories(None)
-
-            # Debug code
-            # print('Launcher addition category determination: else, categories: '
-            #      '%s' % categories)
 
         self.set_editor_categories(';'.join(categories))
 
@@ -1554,7 +1543,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon_name = "folder"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
-        row_data = [name, comment, categories, item_type, icon, icon_name, filename, False, True]
+        row_data = [name, comment, categories, item_type, icon, icon_name,
+                    filename, False, True]
 
         self.treeview.append(row_data)
 
@@ -1571,7 +1561,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon_name = ""
         item_type = MenuItemTypes.SEPARATOR
         filename = None
-        row_data = [name, tooltip, categories, item_type, icon, icon_name, filename, False, True]
+        row_data = [name, tooltip, categories, item_type, icon, icon_name,
+                    filename, False, True]
 
         self.treeview.append(row_data)
 
@@ -1579,7 +1570,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.treeview.update_menus()
 
-    def save_launcher(self, temp=False):
+    def save_launcher(self, temp=False):  # noqa
         """Save the current launcher details, remove from the current directory
         if it no longer has the required category."""
 
@@ -1602,11 +1593,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # Make sure required categories are in place - this is useful for
             # when a user moves a launcher from its original location to a new
             # directory - without the category associated with the new
-            # directory (and no force-include), the launcher would not otherwise
-            # show
+            # directory (and no force-include), the launcher would not
+            # otherwise show
             if parent_data is not None:
                 # Parent was found, take its categories.
-                required_categories = util.getRequiredCategories(parent_data[6])
+                required_categories = util.getRequiredCategories(
+                    parent_data[6])
             else:
                 # Parent was not found, this is a toplevel category
                 required_categories = util.getRequiredCategories(None)
@@ -1616,8 +1608,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
                 # Only add the 'required category' if the user has not
                 # explicitly removed it
-                if (category not in all_categories
-                    and category not in self.categories_removed):
+                if (category not in all_categories and
+                        category not in self.categories_removed):
                     all_categories.append(category)
 
             self.set_editor_categories(';'.join(all_categories))
@@ -1674,7 +1666,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # deleting the launcher but removing it from various places in the UI
         self.update_launcher_category_dirs()
 
-    def update_launcher_categories(self, remove, add):
+    def update_launcher_categories(self, remove, add):  # noqa
         original_filename = self.get_value('Filename')
         if original_filename is None or not os.path.isfile(original_filename):
             return
@@ -1716,7 +1708,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                         if category.strip() == "":
                             try:
                                 categories.remove(category)
-                            except:
+                            except: # noqa
                                 pass
 
                     categories.sort()
@@ -1735,7 +1727,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         row_data[6] = save_filename
         self.treeview.update_launcher_instances(original_filename, row_data)
 
-    def update_launcher_category_dirs(self):
+    def update_launcher_category_dirs(self):  # noqa
         """Make sure launcher is present or absent from in all top-level
         directories that its categories dictate."""
 
@@ -1768,8 +1760,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # Must pass a model otherwise it gets the current selection iter
             # regardless...
             _, parent = self.treeview.get_parent(model, instance)
-            if (parent is not None
-                and model[parent][3] == MenuItemTypes.DIRECTORY):
+            if (parent is not None and
+                    model[parent][3] == MenuItemTypes.DIRECTORY):
 
                 # Adding if the directory returned is top level
                 _, parent_parent = self.treeview.get_parent(model, parent)
@@ -1797,9 +1789,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # Adding to directories the launcher should be in
             if directory_name not in launchers_in_top_level_dirs:
                 if directory_name in top_level_dirs.keys():
-                    treeiter = self.treeview.add_child(row_data,
-                                                top_level_dirs[directory_name],
-                                                model, False)
+                    treeiter = self.treeview.add_child(
+                        row_data, top_level_dirs[directory_name], model, False)
                     launchers_in_top_level_dirs[directory_name] = treeiter
 
             # Building set of required category directories to detect
@@ -1815,12 +1806,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             # Removing selected launcher from the UI if it is in the current
             # directory, otherwise just from the model
-            if directory_name == parent_data[0]:
+            if parent_data is not None and directory_name == parent_data[0]:
                 self.treeview.remove_selected(True)
 
             else:
-                self.treeview.remove_iter(model,
-                                launchers_in_top_level_dirs[directory_name])
+                self.treeview.remove_iter(
+                    model, launchers_in_top_level_dirs[directory_name])
 
     def delete_separator(self):
         """Remove a separator row from the treeview, update the menu files."""

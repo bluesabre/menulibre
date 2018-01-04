@@ -29,8 +29,6 @@ __version__ = '2.1.3'
 
 import os
 
-from locale import gettext as _  # lint:ok
-
 
 class project_path_not_found(Exception):
     """Raised when we can't find the project directory."""
@@ -60,7 +58,7 @@ def get_data_path():
     else:
         abs_data_path = os.path.abspath(__menulibre_data_directory__)
     if not os.path.exists(abs_data_path):
-        print (abs_data_path)
+        print(abs_data_path)
         raise project_path_not_found
 
     return abs_data_path

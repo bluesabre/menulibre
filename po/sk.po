@@ -562,11 +562,11 @@ msgstr "Aplikácia MenuLibre nemôže byť spustená s právami správcu."
 #: ../menulibre/MenulibreApplication.py:226
 msgid ""
 "Please see the <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
 "Prosím, pre viac informácií si prezrite <a "
-"href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+"href='%s'>online "
 "dokumentáciu</a>."
 
 #: ../menulibre/MenulibreApplication.py:325
