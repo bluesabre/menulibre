@@ -67,7 +67,7 @@ def HelpDialog(parent):
 
     dialog.format_secondary_markup(details)
     if dialog.run() == Gtk.ResponseType.OK:
-        help_url = "http://wiki.smdavis.us/doku.php?id=menulibre-docs"
+        help_url = "http://wiki.bluesabre.org/doku.php?id=menulibre-docs"
         logger.debug("Navigating to help page, %s" % help_url)
         menulibre_lib.show_uri(parent, help_url)
     dialog.destroy()

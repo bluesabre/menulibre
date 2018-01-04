@@ -224,7 +224,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def root_lockout(self):
         if root:
-            docs_url = "https://wiki.smdavis.us/doku.php?id=menulibre_faq"
+            docs_url = "https://wiki.bluesabre.org/doku.php?id=menulibre_faq"
             dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
                                        Gtk.ButtonsType.CLOSE,
                                        _("MenuLibre cannot be run as root."))
