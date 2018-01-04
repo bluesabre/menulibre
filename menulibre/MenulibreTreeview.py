@@ -220,7 +220,8 @@ class Treeview(GObject.GObject):
         if treeiter is not None:
             path = model.get_path(treeiter)
             if model is not None and treeiter is not None:
-                model.remove(treeiter)
+                if not isinstance(model, Gtk.TreeModelFilter):
+                    model.remove(treeiter)
             if path:
                 self._treeview.set_cursor(path)
 
@@ -572,8 +573,8 @@ class Treeview(GObject.GObject):
 
     def _treeview_match(self, model, treeiter, query):
         """Match subfunction for filtering search results."""
-        name, comment, categories, item_type, icon, pixbuf, desktop, expanded = \
-                model[treeiter][:]
+        name, comment, categories, item_type, icon, pixbuf, desktop, \
+            expanded, show = model[treeiter][:]
 
         # Hide separators in the search results.
         if item_type == MenuItemTypes.SEPARATOR:

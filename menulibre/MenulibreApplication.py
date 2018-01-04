@@ -1788,15 +1788,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # appear in the menu
         required_category_directories = set()
         for category in categories:
+            if category not in category_lookup.keys():
+                continue
+
             category_group = category_lookup[category]
             directory_name = util.getDirectoryNameFromCategory(category_group)
 
             # Adding to directories the launcher should be in
             if directory_name not in launchers_in_top_level_dirs:
-                treeiter = self.treeview.add_child(row_data,
+                if directory_name in top_level_dirs.keys():
+                    treeiter = self.treeview.add_child(row_data,
                                                 top_level_dirs[directory_name],
                                                 model, False)
-                launchers_in_top_level_dirs[directory_name] = treeiter
+                    launchers_in_top_level_dirs[directory_name] = treeiter
 
             # Building set of required category directories to detect
             # superfluous ones later

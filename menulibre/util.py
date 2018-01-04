@@ -288,6 +288,7 @@ def getDirectoryNameFromCategory(name):
 
     # Only interested in generic categories here, so no need to handle
     # categories named after desktop environments
+    prefix = getDefaultMenuPrefix()
 
     # Cleanup ArcadeGames and others as per the norm.
     if name.endswith('Games') and name != 'Games':

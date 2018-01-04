@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-03 20:24-0500\n"
+"POT-Creation-Date: 2018-01-03 21:20-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -584,7 +584,7 @@ msgid "_Quit"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:395
-#: ../menulibre/MenulibreApplication.py:2037
+#: ../menulibre/MenulibreApplication.py:2041
 msgid "Quit"
 msgstr ""
 
@@ -593,7 +593,7 @@ msgid "_Contents"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:402
-#: ../menulibre/MenulibreApplication.py:2035
+#: ../menulibre/MenulibreApplication.py:2039
 msgid "Help"
 msgstr ""
 
@@ -602,7 +602,7 @@ msgid "_About"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:409
-#: ../menulibre/MenulibreApplication.py:2036
+#: ../menulibre/MenulibreApplication.py:2040
 msgid "About"
 msgstr ""
 
@@ -673,21 +673,21 @@ msgstr ""
 msgid "New Directory"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1914
+#: ../menulibre/MenulibreApplication.py:1918
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1936
+#: ../menulibre/MenulibreApplication.py:1940
 msgid "Are you sure you want to delete this separator?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1939
+#: ../menulibre/MenulibreApplication.py:1943
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1995
+#: ../menulibre/MenulibreApplication.py:1999
 #, python-format
 msgid ""
 "The following desktop files have failed parsing by the underlying library, "
@@ -697,11 +697,11 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2001
+#: ../menulibre/MenulibreApplication.py:2005
 msgid "All desktop files have been parsed successfully."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2030
+#: ../menulibre/MenulibreApplication.py:2034
 msgid "Check for bad desktop files"
 msgstr ""
 
@@ -726,50 +726,50 @@ msgstr ""
 msgid "A small descriptive blurb about this application."
 msgstr ""
 
-#: ../menulibre/util.py:519
+#: ../menulibre/util.py:520
 #, python-format
 msgid "%s: Unable to load as a key file due to the following error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:527
+#: ../menulibre/util.py:528
 #, python-format
 msgid "%s: Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:536
+#: ../menulibre/util.py:537
 #, python-format
 msgid "%s: Type key was not found"
 msgstr ""
 
-#: ../menulibre/util.py:539
+#: ../menulibre/util.py:540
 #, python-format
 msgid "%s: Type is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:552
+#: ../menulibre/util.py:553
 #, python-format
 msgid "%s: Try exec program '%s' has not been found in the PATH"
 msgstr ""
 
-#: ../menulibre/util.py:560
+#: ../menulibre/util.py:561
 #, python-format
 msgid "%s: Exec key not found"
 msgstr ""
 
-#: ../menulibre/util.py:566
+#: ../menulibre/util.py:567
 msgid ""
 "%s: Exec program '%' is not a valid shell command according to GLib."
 "shell_parse_argv, error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:571
+#: ../menulibre/util.py:572
 #, python-format
 msgid "%s: Exec program '%s' has not been found in the PATH"
 msgstr ""
 
 #. At this point the desktop file is valid - execution should never reach
 #. here
-#: ../menulibre/util.py:576
+#: ../menulibre/util.py:577
 #, python-format
 msgid "%s: Desktop file is valid??"
 msgstr ""
