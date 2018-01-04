@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-01-02 05:25+0000\n"
-"PO-Revision-Date: 2017-03-24 07:03+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2018-01-03 22:16-0500\n"
+"PO-Revision-Date: 2018-01-04 04:49+0000\n"
+"Last-Translator: Sean Davis <Unknown>\n"
 "Language-Team: Kazakh <kk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-01-03 05:25+0000\n"
+"X-Launchpad-Export-Date: 2018-01-04 05:26+0000\n"
 "X-Generator: Launchpad (build 18521)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -144,9 +144,9 @@ msgstr "Таңбашаларды шолу…"
 msgid "Browse Files..."
 msgstr "Файлдарды шолу..."
 
-#: ../data/ui/MenulibreWindow.ui.h:28 ../menulibre/Dialogs.py:38
-#: ../menulibre/MenulibreApplication.py:248
-#: ../menulibre/MenulibreApplication.py:287
+#: ../data/ui/MenulibreWindow.ui.h:28 ../menulibre/Dialogs.py:39
+#: ../menulibre/MenulibreApplication.py:255
+#: ../menulibre/MenulibreApplication.py:294
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
@@ -154,15 +154,15 @@ msgstr "MenuLibre"
 msgid "Save Launcher"
 msgstr "Жөнелткішті сақтау"
 
-#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:354
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:361
 msgid "Undo"
 msgstr "Болдырмау"
 
-#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:361
+#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:368
 msgid "Redo"
 msgstr "Қайталау"
 
-#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:368
+#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:375
 msgid "Revert"
 msgstr "Қайтару"
 
@@ -170,7 +170,7 @@ msgstr "Қайтару"
 msgid "Test Launcher"
 msgstr "Жөнелткішті сынау"
 
-#: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/MenulibreApplication.py:382
+#: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/MenulibreApplication.py:389
 msgid "Delete"
 msgstr "Өшіру"
 
@@ -206,7 +206,7 @@ msgstr "Қолданба атауы"
 msgid "Application Comment"
 msgstr "Қолданба түсіндірмесі"
 
-#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/MenulibreApplication.py:728
+#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/MenulibreApplication.py:732
 msgid "Description"
 msgstr "Сипаттамасы"
 
@@ -291,10 +291,10 @@ msgstr "Атауы"
 msgid "Select an icon…"
 msgstr "Таңбашаны таңдаңыз…"
 
-#: ../data/ui/MenulibreWindow.ui.h:63 ../menulibre/Dialogs.py:62
-#: ../menulibre/Dialogs.py:85 ../menulibre/Dialogs.py:101
-#: ../menulibre/Dialogs.py:124 ../menulibre/Dialogs.py:132
-#: ../menulibre/MenulibreIconSelection.py:79
+#: ../data/ui/MenulibreWindow.ui.h:63 ../menulibre/Dialogs.py:64
+#: ../menulibre/Dialogs.py:88 ../menulibre/Dialogs.py:105
+#: ../menulibre/Dialogs.py:130 ../menulibre/Dialogs.py:139
+#: ../menulibre/MenulibreIconSelection.py:80
 msgid "Cancel"
 msgstr "Бас тарту"
 
@@ -327,371 +327,367 @@ msgid "Show debug messages"
 msgstr "Жөндеу хабарламаларын көрсету"
 
 #. Populate the AboutDialog with all the relevant details.
-#: ../menulibre/Dialogs.py:37
+#: ../menulibre/Dialogs.py:38
 msgid "About MenuLibre"
 msgstr "MenuLibre туралы"
 
-#: ../menulibre/Dialogs.py:40
+#: ../menulibre/Dialogs.py:41
 msgid "Copyright © 2012-2015 Sean Davis"
 msgstr "Copyright © 2012-2015 Sean Davis"
 
-#: ../menulibre/Dialogs.py:55
+#: ../menulibre/Dialogs.py:57
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr ""
 
-#: ../menulibre/Dialogs.py:56
+#: ../menulibre/Dialogs.py:58
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr ""
 
-#: ../menulibre/Dialogs.py:63
+#: ../menulibre/Dialogs.py:65
 msgid "Read Online"
 msgstr "Желіден оқу"
 
-#: ../menulibre/Dialogs.py:64
+#: ../menulibre/Dialogs.py:66
 msgid "Online Documentation"
 msgstr "Желідегі құжаттама"
 
-#: ../menulibre/Dialogs.py:75
+#: ../menulibre/Dialogs.py:78
 msgid "Do you want to save the changes before closing?"
 msgstr "Жабу алдында өзгерістерді сақтауды қалайсыз ба?"
 
-#: ../menulibre/Dialogs.py:76
+#: ../menulibre/Dialogs.py:79
 msgid "If you don't save the launcher, all the changes will be lost.'"
 msgstr "Жөнелткішті сақтамасаңыз, барлық өзгерістер жоғалады."
 
-#: ../menulibre/Dialogs.py:83 ../menulibre/Dialogs.py:99
+#: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:103
 msgid "Save Changes"
 msgstr "Өзгерістерді сақтау"
 
-#: ../menulibre/Dialogs.py:84 ../menulibre/Dialogs.py:100
+#: ../menulibre/Dialogs.py:87 ../menulibre/Dialogs.py:104
 msgid "Don't Save"
 msgstr "Сақтамау"
 
-#: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:102
-#: ../menulibre/MenulibreApplication.py:347
+#: ../menulibre/Dialogs.py:89 ../menulibre/Dialogs.py:106
+#: ../menulibre/MenulibreApplication.py:354
 msgid "Save"
 msgstr "Сақтау"
 
-#: ../menulibre/Dialogs.py:90
+#: ../menulibre/Dialogs.py:94
 msgid "Do you want to save the changes before leaving this launcher?"
 msgstr "Бұл жөнелткіштен кету алдында өзгерістерді сақтауды қалайсыз ба?"
 
-#: ../menulibre/Dialogs.py:92
+#: ../menulibre/Dialogs.py:96
 msgid "If you don't save the launcher, all the changes will be lost."
 msgstr "Жөнелткішті сақтамасаңыз, барлық өзгерістер жоғалады."
 
-#: ../menulibre/Dialogs.py:106
+#: ../menulibre/Dialogs.py:111
 msgid "This cannot be undone."
 msgstr "Бұны болдырмау мүмкін емес болады."
 
-#: ../menulibre/Dialogs.py:115
+#: ../menulibre/Dialogs.py:121
 msgid "Are you sure you want to restore this launcher?"
 msgstr "Бұл жөнелткішті қалпына келтіруді шынымен қалайсыз ба?"
 
-#: ../menulibre/Dialogs.py:116
+#: ../menulibre/Dialogs.py:122
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr ""
 
-#: ../menulibre/Dialogs.py:125 ../menulibre/Dialogs.py:126
+#: ../menulibre/Dialogs.py:131 ../menulibre/Dialogs.py:132
 msgid "Restore Launcher"
 msgstr "Жөнелткішті қалпына келтіру"
 
-#: ../menulibre/Dialogs.py:133 ../menulibre/MenulibreIconSelection.py:80
+#: ../menulibre/Dialogs.py:140 ../menulibre/MenulibreIconSelection.py:81
 msgid "OK"
 msgstr "ОК"
 
-#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1078
-#: ../menulibre/MenulibreApplication.py:1537
+#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1103
+#: ../menulibre/MenulibreApplication.py:1557
 msgid "Separator"
 msgstr "Ажыратқыш"
 
 #. Standard Items
-#: ../menulibre/MenulibreApplication.py:45
+#: ../menulibre/MenulibreApplication.py:46
 msgid "Multimedia"
 msgstr "Мультимедиа"
 
-#: ../menulibre/MenulibreApplication.py:46
+#: ../menulibre/MenulibreApplication.py:47
 msgid "Development"
 msgstr "Өндіру"
 
-#: ../menulibre/MenulibreApplication.py:47
+#: ../menulibre/MenulibreApplication.py:48
 msgid "Education"
 msgstr "Білім алу"
 
-#: ../menulibre/MenulibreApplication.py:48
+#: ../menulibre/MenulibreApplication.py:49
 msgid "Games"
 msgstr "Ойындар"
 
-#: ../menulibre/MenulibreApplication.py:49
+#: ../menulibre/MenulibreApplication.py:50
 msgid "Graphics"
 msgstr "Графика"
 
-#: ../menulibre/MenulibreApplication.py:50
+#: ../menulibre/MenulibreApplication.py:51
 msgid "Internet"
 msgstr "Интернет"
 
-#: ../menulibre/MenulibreApplication.py:51
+#: ../menulibre/MenulibreApplication.py:52
 msgid "Office"
 msgstr "Офис"
 
-#: ../menulibre/MenulibreApplication.py:52
+#: ../menulibre/MenulibreApplication.py:53
 msgid "Settings"
 msgstr "Баптаулар"
 
-#: ../menulibre/MenulibreApplication.py:53
+#: ../menulibre/MenulibreApplication.py:54
 msgid "System"
 msgstr "Жүйе"
 
-#: ../menulibre/MenulibreApplication.py:54
+#: ../menulibre/MenulibreApplication.py:55
 msgid "Accessories"
 msgstr "Қалыпты"
 
-#: ../menulibre/MenulibreApplication.py:55
+#: ../menulibre/MenulibreApplication.py:56
 msgid "WINE"
 msgstr "WINE"
 
 #. Desktop Environment
-#: ../menulibre/MenulibreApplication.py:57
+#: ../menulibre/MenulibreApplication.py:58
 msgid "Desktop configuration"
 msgstr "Жұмыс үстел баптаулары"
 
-#: ../menulibre/MenulibreApplication.py:58
+#: ../menulibre/MenulibreApplication.py:59
 msgid "User configuration"
 msgstr "Пайдаланушы баптаулары"
 
-#: ../menulibre/MenulibreApplication.py:59
+#: ../menulibre/MenulibreApplication.py:60
 msgid "Hardware configuration"
 msgstr "Құрылғылар баптаулары"
 
 #. GNOME Specific
-#: ../menulibre/MenulibreApplication.py:61
+#: ../menulibre/MenulibreApplication.py:62
 msgid "GNOME application"
 msgstr "GNOME қолданбасы"
 
-#: ../menulibre/MenulibreApplication.py:62
+#: ../menulibre/MenulibreApplication.py:63
 msgid "GTK+ application"
 msgstr "GTK+ қолданбасы"
 
-#: ../menulibre/MenulibreApplication.py:63
+#: ../menulibre/MenulibreApplication.py:64
 msgid "GNOME user configuration"
 msgstr "GNOME пайдаланушы баптаулары"
 
-#: ../menulibre/MenulibreApplication.py:64
+#: ../menulibre/MenulibreApplication.py:65
 msgid "GNOME hardware configuration"
 msgstr "GNOME құрылғылар баптаулары"
 
-#: ../menulibre/MenulibreApplication.py:65
 #: ../menulibre/MenulibreApplication.py:66
+#: ../menulibre/MenulibreApplication.py:67
 msgid "GNOME system configuration"
 msgstr "GNOME жүйелік баптаулары"
 
 #. Xfce Specific
-#: ../menulibre/MenulibreApplication.py:68
 #: ../menulibre/MenulibreApplication.py:69
+#: ../menulibre/MenulibreApplication.py:70
 msgid "Xfce menu item"
 msgstr "Xfce мәзір элементі"
 
-#: ../menulibre/MenulibreApplication.py:70
+#: ../menulibre/MenulibreApplication.py:71
 msgid "Xfce toplevel menu item"
 msgstr "Xfce үстіңгі деңгейлі мәзір элементі"
 
-#: ../menulibre/MenulibreApplication.py:71
+#: ../menulibre/MenulibreApplication.py:72
 msgid "Xfce user configuration"
 msgstr "Xfce пайдаланушы баптаулары"
 
-#: ../menulibre/MenulibreApplication.py:72
+#: ../menulibre/MenulibreApplication.py:73
 msgid "Xfce hardware configuration"
 msgstr "Xfce құрылғылар баптаулары"
 
-#: ../menulibre/MenulibreApplication.py:73
 #: ../menulibre/MenulibreApplication.py:74
+#: ../menulibre/MenulibreApplication.py:75
 msgid "Xfce system configuration"
 msgstr "Xfce жүйелік баптаулары"
 
-#: ../menulibre/MenulibreApplication.py:122
-#: ../menulibre/MenulibreApplication.py:167
+#: ../menulibre/MenulibreApplication.py:126
+#: ../menulibre/MenulibreApplication.py:171
 msgid "Other"
 msgstr "Басқа"
 
-#: ../menulibre/MenulibreApplication.py:225
+#: ../menulibre/MenulibreApplication.py:230
 msgid "MenuLibre cannot be run as root."
 msgstr "MenuLibre қолданбасын root атынан орындау мүмкін емес."
 
-#: ../menulibre/MenulibreApplication.py:226
+#: ../menulibre/MenulibreApplication.py:232
+#, python-format
 msgid ""
-"Please see the <a "
-"href='%s'>online "
-"documentation</a> for more information."
-msgstr ""
-"Көбірек білу үшін <a "
-"href='%s'>желідегі "
-"құжаттаманы</a> қараңыз."
+"Please see the <a href='%s'>online documentation</a> for more information."
+msgstr "Көбірек білу үшін <a href='%s'>желідегі құжаттаманы</a> қараңыз."
 
-#: ../menulibre/MenulibreApplication.py:325
+#: ../menulibre/MenulibreApplication.py:332
 msgid "Add _Launcher..."
 msgstr "Жөне_лткішті қосу..."
 
-#: ../menulibre/MenulibreApplication.py:326
+#: ../menulibre/MenulibreApplication.py:333
 msgid "Add Launcher..."
 msgstr "Жөнелткішті қосу..."
 
-#: ../menulibre/MenulibreApplication.py:332
+#: ../menulibre/MenulibreApplication.py:339
 msgid "Add _Directory..."
 msgstr "_Буманы қосу..."
 
-#: ../menulibre/MenulibreApplication.py:333
+#: ../menulibre/MenulibreApplication.py:340
 msgid "Add Directory..."
 msgstr "Буманы қосу..."
 
-#: ../menulibre/MenulibreApplication.py:339
+#: ../menulibre/MenulibreApplication.py:346
 msgid "_Add Separator..."
 msgstr "А_жыратқышты қосу..."
 
-#: ../menulibre/MenulibreApplication.py:340
+#: ../menulibre/MenulibreApplication.py:347
 msgid "Add Separator..."
 msgstr "Ажыратқышты қосу..."
 
-#: ../menulibre/MenulibreApplication.py:346
+#: ../menulibre/MenulibreApplication.py:353
 msgid "_Save"
 msgstr "_Сақтау"
 
-#: ../menulibre/MenulibreApplication.py:353
+#: ../menulibre/MenulibreApplication.py:360
 msgid "_Undo"
 msgstr "Бол_дырмау"
 
-#: ../menulibre/MenulibreApplication.py:360
+#: ../menulibre/MenulibreApplication.py:367
 msgid "_Redo"
 msgstr "Қа_йталау"
 
-#: ../menulibre/MenulibreApplication.py:367
+#: ../menulibre/MenulibreApplication.py:374
 msgid "_Revert"
 msgstr "Қай_тару"
 
-#: ../menulibre/MenulibreApplication.py:374
+#: ../menulibre/MenulibreApplication.py:381
 msgid "_Execute"
 msgstr "Ор_ындау"
 
-#: ../menulibre/MenulibreApplication.py:375
+#: ../menulibre/MenulibreApplication.py:382
 msgid "Execute Launcher"
 msgstr "Жөнелткішті орындау"
 
-#: ../menulibre/MenulibreApplication.py:381
+#: ../menulibre/MenulibreApplication.py:388
 msgid "_Delete"
 msgstr "Ө_шіру"
 
-#: ../menulibre/MenulibreApplication.py:388
+#: ../menulibre/MenulibreApplication.py:395
 msgid "_Quit"
 msgstr "_Шығу"
 
-#: ../menulibre/MenulibreApplication.py:389
-#: ../menulibre/MenulibreApplication.py:1908
+#: ../menulibre/MenulibreApplication.py:396
+#: ../menulibre/MenulibreApplication.py:2032
 msgid "Quit"
 msgstr "Шығу"
 
-#: ../menulibre/MenulibreApplication.py:395
+#: ../menulibre/MenulibreApplication.py:402
 msgid "_Contents"
 msgstr "Құра_масы"
 
-#: ../menulibre/MenulibreApplication.py:396
-#: ../menulibre/MenulibreApplication.py:1906
+#: ../menulibre/MenulibreApplication.py:403
+#: ../menulibre/MenulibreApplication.py:2030
 msgid "Help"
 msgstr "Көмек"
 
-#: ../menulibre/MenulibreApplication.py:402
+#: ../menulibre/MenulibreApplication.py:409
 msgid "_About"
 msgstr "Осы тур_алы"
 
-#: ../menulibre/MenulibreApplication.py:403
-#: ../menulibre/MenulibreApplication.py:1907
+#: ../menulibre/MenulibreApplication.py:410
+#: ../menulibre/MenulibreApplication.py:2031
 msgid "About"
 msgstr "Осы туралы"
 
-#: ../menulibre/MenulibreApplication.py:551
+#: ../menulibre/MenulibreApplication.py:553
 msgid "Categories"
 msgstr "Санаттар"
 
-#: ../menulibre/MenulibreApplication.py:553
+#: ../menulibre/MenulibreApplication.py:555
 msgid "Actions"
 msgstr "Әрекеттер"
 
-#: ../menulibre/MenulibreApplication.py:555
+#: ../menulibre/MenulibreApplication.py:557
 msgid "Advanced"
 msgstr "Кеңейтілген"
 
-#: ../menulibre/MenulibreApplication.py:702
+#: ../menulibre/MenulibreApplication.py:706
 msgid "ThisEntry"
 msgstr "БұлЖазба"
 
-#: ../menulibre/MenulibreApplication.py:720
+#: ../menulibre/MenulibreApplication.py:724
 msgid "Select a category"
 msgstr "Санатты таңдаңыз"
 
-#: ../menulibre/MenulibreApplication.py:723
+#: ../menulibre/MenulibreApplication.py:727
 msgid "Category Name"
 msgstr "Санат атауы"
 
-#: ../menulibre/MenulibreApplication.py:807
+#: ../menulibre/MenulibreApplication.py:827
 msgid "This Entry"
 msgstr "Бұл жазба"
 
-#: ../menulibre/MenulibreApplication.py:862
+#: ../menulibre/MenulibreApplication.py:887
 msgid "New Shortcut"
 msgstr "Жаңа жарлық"
 
-#: ../menulibre/MenulibreApplication.py:1008
+#: ../menulibre/MenulibreApplication.py:1033
 msgid "Select a working directory..."
 msgstr "Жұмыс бумасын таңдаңы..."
 
-#: ../menulibre/MenulibreApplication.py:1011
+#: ../menulibre/MenulibreApplication.py:1036
 msgid "Select an executable..."
 msgstr "Орындалатын файлды таңдаңыз..."
 
-#: ../menulibre/MenulibreApplication.py:1033
+#: ../menulibre/MenulibreApplication.py:1058
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1129
+#: ../menulibre/MenulibreApplication.py:1153
 msgid "No Longer Installed"
 msgstr "Енді орнатылмаған"
 
-#: ../menulibre/MenulibreApplication.py:1130
+#: ../menulibre/MenulibreApplication.py:1154
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1230
+#: ../menulibre/MenulibreApplication.py:1253
 msgid "You do not have permission to delete this file."
 msgstr "Бұл файлды өшіру үшін керек рұқсаттарыңыз жоқ"
 
-#: ../menulibre/MenulibreApplication.py:1462
+#: ../menulibre/MenulibreApplication.py:1489
 msgid "New Launcher"
 msgstr "Жаңа жөнелткіш"
 
-#: ../menulibre/MenulibreApplication.py:1520
+#: ../menulibre/MenulibreApplication.py:1539
 msgid "New Directory"
 msgstr "Жаңа бума"
 
-#: ../menulibre/MenulibreApplication.py:1785
+#: ../menulibre/MenulibreApplication.py:1909
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr "\"%s\" сіздің PATH ішінен табу мүмкін емес."
 
-#: ../menulibre/MenulibreApplication.py:1807
+#: ../menulibre/MenulibreApplication.py:1931
 msgid "Are you sure you want to delete this separator?"
 msgstr "Бұл ажыратқышты өшіруді шынымен қалайсыз ба?"
 
-#: ../menulibre/MenulibreApplication.py:1810
+#: ../menulibre/MenulibreApplication.py:1934
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "\"%s\" өшіруді шынымен қалайсыз ба?"
 
-#: ../menulibre/MenulibreApplication.py:1866
+#: ../menulibre/MenulibreApplication.py:1990
 #, python-format
 msgid ""
 "The following desktop files have failed parsing by the underlying library, "
@@ -701,24 +697,24 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1872
+#: ../menulibre/MenulibreApplication.py:1996
 msgid "All desktop files have been parsed successfully."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1901
+#: ../menulibre/MenulibreApplication.py:2025
 msgid "Check for bad desktop files"
 msgstr ""
 
-#: ../menulibre/MenulibreIconSelection.py:76
+#: ../menulibre/MenulibreIconSelection.py:77
 msgid "Select an image"
 msgstr "Суретті таңдау"
 
-#: ../menulibre/MenulibreIconSelection.py:84
+#: ../menulibre/MenulibreIconSelection.py:85
 msgid "Images"
 msgstr "Суреттер"
 
 #. Create a new column.
-#: ../menulibre/MenulibreTreeview.py:60
+#: ../menulibre/MenulibreTreeview.py:62
 msgid "Search Results"
 msgstr "Іздеу нәтижелері"
 
@@ -730,50 +726,61 @@ msgstr "Мәзірдің жаңа элементі"
 msgid "A small descriptive blurb about this application."
 msgstr ""
 
-#: ../menulibre/util.py:455
+#: ../menulibre/util.py:522
 #, python-format
 msgid "%s: Unable to load as a key file due to the following error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:463
+#: ../menulibre/util.py:530
 #, python-format
 msgid "%s: Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:472
+#. noqa
+#: ../menulibre/util.py:539
 #, python-format
 msgid "%s: Type key was not found"
 msgstr ""
 
-#: ../menulibre/util.py:475
+#: ../menulibre/util.py:542
 #, python-format
 msgid "%s: Type is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:488
+#: ../menulibre/util.py:555
 #, python-format
 msgid "%s: Try exec program '%s' has not been found in the PATH"
 msgstr ""
 
-#: ../menulibre/util.py:496
+#. noqa
+#: ../menulibre/util.py:563
 #, python-format
 msgid "%s: Exec key not found"
 msgstr ""
 
-#: ../menulibre/util.py:502
+#: ../menulibre/util.py:569
 msgid ""
 "%s: Exec program '%' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:507
+#: ../menulibre/util.py:574
 #, python-format
 msgid "%s: Exec program '%s' has not been found in the PATH"
 msgstr ""
 
 #. At this point the desktop file is valid - execution should never reach
 #. here
-#: ../menulibre/util.py:512
+#: ../menulibre/util.py:579
 #, python-format
 msgid "%s: Desktop file is valid??"
 msgstr ""
+
+#~ msgid ""
+#~ "Please see the <a "
+#~ "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
+#~ "documentation</a> for more information."
+#~ msgstr ""
+#~ "Көбірек білу үшін <a "
+#~ "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>желідегі "
+#~ "құжаттаманы</a> қараңыз."

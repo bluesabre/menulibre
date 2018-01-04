@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-01-02 05:25+0000\n"
+"POT-Creation-Date: 2018-01-03 22:16-0500\n"
 "PO-Revision-Date: 2014-03-01 05:44+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-01-03 05:25+0000\n"
+"X-Launchpad-Export-Date: 2018-01-04 05:26+0000\n"
 "X-Generator: Launchpad (build 18521)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -144,9 +144,9 @@ msgstr ""
 msgid "Browse Files..."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:28 ../menulibre/Dialogs.py:38
-#: ../menulibre/MenulibreApplication.py:248
-#: ../menulibre/MenulibreApplication.py:287
+#: ../data/ui/MenulibreWindow.ui.h:28 ../menulibre/Dialogs.py:39
+#: ../menulibre/MenulibreApplication.py:255
+#: ../menulibre/MenulibreApplication.py:294
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
@@ -154,15 +154,15 @@ msgstr "MenuLibre"
 msgid "Save Launcher"
 msgstr "儲存啟動器"
 
-#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:354
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:361
 msgid "Undo"
 msgstr "復原"
 
-#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:361
+#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:368
 msgid "Redo"
 msgstr "重做"
 
-#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:368
+#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:375
 msgid "Revert"
 msgstr "還原"
 
@@ -170,7 +170,7 @@ msgstr "還原"
 msgid "Test Launcher"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/MenulibreApplication.py:382
+#: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/MenulibreApplication.py:389
 msgid "Delete"
 msgstr "刪除"
 
@@ -206,7 +206,7 @@ msgstr ""
 msgid "Application Comment"
 msgstr "應用程式註解"
 
-#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/MenulibreApplication.py:728
+#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/MenulibreApplication.py:732
 msgid "Description"
 msgstr "說明"
 
@@ -291,10 +291,10 @@ msgstr "名稱"
 msgid "Select an icon…"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:63 ../menulibre/Dialogs.py:62
-#: ../menulibre/Dialogs.py:85 ../menulibre/Dialogs.py:101
-#: ../menulibre/Dialogs.py:124 ../menulibre/Dialogs.py:132
-#: ../menulibre/MenulibreIconSelection.py:79
+#: ../data/ui/MenulibreWindow.ui.h:63 ../menulibre/Dialogs.py:64
+#: ../menulibre/Dialogs.py:88 ../menulibre/Dialogs.py:105
+#: ../menulibre/Dialogs.py:130 ../menulibre/Dialogs.py:139
+#: ../menulibre/MenulibreIconSelection.py:80
 msgid "Cancel"
 msgstr "取消"
 
@@ -327,368 +327,367 @@ msgid "Show debug messages"
 msgstr "顯示除錯訊息"
 
 #. Populate the AboutDialog with all the relevant details.
-#: ../menulibre/Dialogs.py:37
+#: ../menulibre/Dialogs.py:38
 msgid "About MenuLibre"
 msgstr "關於 MenuLibre"
 
-#: ../menulibre/Dialogs.py:40
+#: ../menulibre/Dialogs.py:41
 msgid "Copyright © 2012-2015 Sean Davis"
 msgstr ""
 
-#: ../menulibre/Dialogs.py:55
+#: ../menulibre/Dialogs.py:57
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr "是否閱讀線上 MenuLibre 使用手冊？"
 
-#: ../menulibre/Dialogs.py:56
+#: ../menulibre/Dialogs.py:58
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr "會重導向至線上說明文件網站。"
 
-#: ../menulibre/Dialogs.py:63
+#: ../menulibre/Dialogs.py:65
 msgid "Read Online"
 msgstr "上線閱讀"
 
-#: ../menulibre/Dialogs.py:64
+#: ../menulibre/Dialogs.py:66
 msgid "Online Documentation"
 msgstr "線上說明文件"
 
-#: ../menulibre/Dialogs.py:75
+#: ../menulibre/Dialogs.py:78
 msgid "Do you want to save the changes before closing?"
 msgstr "關閉前是否儲存變更？"
 
-#: ../menulibre/Dialogs.py:76
+#: ../menulibre/Dialogs.py:79
 msgid "If you don't save the launcher, all the changes will be lost.'"
 msgstr "如不儲存啟動器，所有變更都會丟失。"
 
-#: ../menulibre/Dialogs.py:83 ../menulibre/Dialogs.py:99
+#: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:103
 msgid "Save Changes"
 msgstr "儲存變更"
 
-#: ../menulibre/Dialogs.py:84 ../menulibre/Dialogs.py:100
+#: ../menulibre/Dialogs.py:87 ../menulibre/Dialogs.py:104
 msgid "Don't Save"
 msgstr "不儲存"
 
-#: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:102
-#: ../menulibre/MenulibreApplication.py:347
+#: ../menulibre/Dialogs.py:89 ../menulibre/Dialogs.py:106
+#: ../menulibre/MenulibreApplication.py:354
 msgid "Save"
 msgstr "儲存"
 
-#: ../menulibre/Dialogs.py:90
+#: ../menulibre/Dialogs.py:94
 msgid "Do you want to save the changes before leaving this launcher?"
 msgstr "離開此啟動器前是否儲存變更？"
 
-#: ../menulibre/Dialogs.py:92
+#: ../menulibre/Dialogs.py:96
 msgid "If you don't save the launcher, all the changes will be lost."
 msgstr "如不儲存啟動器，所有變更都會丟失。"
 
-#: ../menulibre/Dialogs.py:106
+#: ../menulibre/Dialogs.py:111
 msgid "This cannot be undone."
 msgstr "這將無法復原。"
 
-#: ../menulibre/Dialogs.py:115
+#: ../menulibre/Dialogs.py:121
 msgid "Are you sure you want to restore this launcher?"
 msgstr "是否還原此啟動器？"
 
-#: ../menulibre/Dialogs.py:116
+#: ../menulibre/Dialogs.py:122
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr "在對上一次儲存的狀態之後所有變更都會丟失，並且無法自動還原。"
 
-#: ../menulibre/Dialogs.py:125 ../menulibre/Dialogs.py:126
+#: ../menulibre/Dialogs.py:131 ../menulibre/Dialogs.py:132
 msgid "Restore Launcher"
 msgstr "還原啟動器"
 
-#: ../menulibre/Dialogs.py:133 ../menulibre/MenulibreIconSelection.py:80
+#: ../menulibre/Dialogs.py:140 ../menulibre/MenulibreIconSelection.py:81
 msgid "OK"
 msgstr "確定"
 
-#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1078
-#: ../menulibre/MenulibreApplication.py:1537
+#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1103
+#: ../menulibre/MenulibreApplication.py:1557
 msgid "Separator"
 msgstr "分隔符"
 
 #. Standard Items
-#: ../menulibre/MenulibreApplication.py:45
+#: ../menulibre/MenulibreApplication.py:46
 msgid "Multimedia"
 msgstr "多媒體"
 
-#: ../menulibre/MenulibreApplication.py:46
+#: ../menulibre/MenulibreApplication.py:47
 msgid "Development"
 msgstr "開發"
 
-#: ../menulibre/MenulibreApplication.py:47
+#: ../menulibre/MenulibreApplication.py:48
 msgid "Education"
 msgstr "教育"
 
-#: ../menulibre/MenulibreApplication.py:48
+#: ../menulibre/MenulibreApplication.py:49
 msgid "Games"
 msgstr "遊戲"
 
-#: ../menulibre/MenulibreApplication.py:49
+#: ../menulibre/MenulibreApplication.py:50
 msgid "Graphics"
 msgstr "美工繪圖"
 
-#: ../menulibre/MenulibreApplication.py:50
+#: ../menulibre/MenulibreApplication.py:51
 msgid "Internet"
 msgstr "網際網路"
 
-#: ../menulibre/MenulibreApplication.py:51
+#: ../menulibre/MenulibreApplication.py:52
 msgid "Office"
 msgstr "辦公"
 
-#: ../menulibre/MenulibreApplication.py:52
+#: ../menulibre/MenulibreApplication.py:53
 msgid "Settings"
 msgstr "設定"
 
-#: ../menulibre/MenulibreApplication.py:53
+#: ../menulibre/MenulibreApplication.py:54
 msgid "System"
 msgstr "系統"
 
-#: ../menulibre/MenulibreApplication.py:54
+#: ../menulibre/MenulibreApplication.py:55
 msgid "Accessories"
 msgstr "附屬應用程式"
 
-#: ../menulibre/MenulibreApplication.py:55
+#: ../menulibre/MenulibreApplication.py:56
 msgid "WINE"
 msgstr "WINE"
 
 #. Desktop Environment
-#: ../menulibre/MenulibreApplication.py:57
+#: ../menulibre/MenulibreApplication.py:58
 msgid "Desktop configuration"
 msgstr "桌面設定"
 
-#: ../menulibre/MenulibreApplication.py:58
+#: ../menulibre/MenulibreApplication.py:59
 msgid "User configuration"
 msgstr "使用者設定"
 
-#: ../menulibre/MenulibreApplication.py:59
+#: ../menulibre/MenulibreApplication.py:60
 msgid "Hardware configuration"
 msgstr "硬體設定"
 
 #. GNOME Specific
-#: ../menulibre/MenulibreApplication.py:61
+#: ../menulibre/MenulibreApplication.py:62
 msgid "GNOME application"
 msgstr "GNOME 應用程式"
 
-#: ../menulibre/MenulibreApplication.py:62
+#: ../menulibre/MenulibreApplication.py:63
 msgid "GTK+ application"
 msgstr "GTK+ 應用程式"
 
-#: ../menulibre/MenulibreApplication.py:63
+#: ../menulibre/MenulibreApplication.py:64
 msgid "GNOME user configuration"
 msgstr "GNOME 使用者設定"
 
-#: ../menulibre/MenulibreApplication.py:64
+#: ../menulibre/MenulibreApplication.py:65
 msgid "GNOME hardware configuration"
 msgstr "GNOME 硬體設定"
 
-#: ../menulibre/MenulibreApplication.py:65
 #: ../menulibre/MenulibreApplication.py:66
+#: ../menulibre/MenulibreApplication.py:67
 msgid "GNOME system configuration"
 msgstr "GNOME 系統設定"
 
 #. Xfce Specific
-#: ../menulibre/MenulibreApplication.py:68
 #: ../menulibre/MenulibreApplication.py:69
+#: ../menulibre/MenulibreApplication.py:70
 msgid "Xfce menu item"
 msgstr "Xfce 選單項目"
 
-#: ../menulibre/MenulibreApplication.py:70
+#: ../menulibre/MenulibreApplication.py:71
 msgid "Xfce toplevel menu item"
 msgstr "Xfce 頂層選單項目"
 
-#: ../menulibre/MenulibreApplication.py:71
+#: ../menulibre/MenulibreApplication.py:72
 msgid "Xfce user configuration"
 msgstr "Xfce 使用者設定"
 
-#: ../menulibre/MenulibreApplication.py:72
+#: ../menulibre/MenulibreApplication.py:73
 msgid "Xfce hardware configuration"
 msgstr "Xfce 硬體設定"
 
-#: ../menulibre/MenulibreApplication.py:73
 #: ../menulibre/MenulibreApplication.py:74
+#: ../menulibre/MenulibreApplication.py:75
 msgid "Xfce system configuration"
 msgstr "Xfce 系統設定"
 
-#: ../menulibre/MenulibreApplication.py:122
-#: ../menulibre/MenulibreApplication.py:167
+#: ../menulibre/MenulibreApplication.py:126
+#: ../menulibre/MenulibreApplication.py:171
 msgid "Other"
 msgstr "其他"
 
-#: ../menulibre/MenulibreApplication.py:225
+#: ../menulibre/MenulibreApplication.py:230
 msgid "MenuLibre cannot be run as root."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:226
+#: ../menulibre/MenulibreApplication.py:232
+#, python-format
 msgid ""
-"Please see the <a "
-"href='%s'>online "
-"documentation</a> for more information."
+"Please see the <a href='%s'>online documentation</a> for more information."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:325
+#: ../menulibre/MenulibreApplication.py:332
 msgid "Add _Launcher..."
 msgstr "加入啟動器(_L)..."
 
-#: ../menulibre/MenulibreApplication.py:326
+#: ../menulibre/MenulibreApplication.py:333
 msgid "Add Launcher..."
 msgstr "加入啟動器..."
 
-#: ../menulibre/MenulibreApplication.py:332
+#: ../menulibre/MenulibreApplication.py:339
 msgid "Add _Directory..."
 msgstr "加入目錄(_D)..."
 
-#: ../menulibre/MenulibreApplication.py:333
+#: ../menulibre/MenulibreApplication.py:340
 msgid "Add Directory..."
 msgstr "加入目錄..."
 
-#: ../menulibre/MenulibreApplication.py:339
+#: ../menulibre/MenulibreApplication.py:346
 msgid "_Add Separator..."
 msgstr "加入分隔符(_A)..."
 
-#: ../menulibre/MenulibreApplication.py:340
+#: ../menulibre/MenulibreApplication.py:347
 msgid "Add Separator..."
 msgstr "加入分隔符..."
 
-#: ../menulibre/MenulibreApplication.py:346
+#: ../menulibre/MenulibreApplication.py:353
 msgid "_Save"
 msgstr "儲存(_S)"
 
-#: ../menulibre/MenulibreApplication.py:353
+#: ../menulibre/MenulibreApplication.py:360
 msgid "_Undo"
 msgstr "復原(_U)"
 
-#: ../menulibre/MenulibreApplication.py:360
+#: ../menulibre/MenulibreApplication.py:367
 msgid "_Redo"
 msgstr "重做(_R)"
 
-#: ../menulibre/MenulibreApplication.py:367
+#: ../menulibre/MenulibreApplication.py:374
 msgid "_Revert"
 msgstr "還原(_R)"
 
-#: ../menulibre/MenulibreApplication.py:374
+#: ../menulibre/MenulibreApplication.py:381
 msgid "_Execute"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:375
+#: ../menulibre/MenulibreApplication.py:382
 msgid "Execute Launcher"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:381
+#: ../menulibre/MenulibreApplication.py:388
 msgid "_Delete"
 msgstr "刪除(_D)"
 
-#: ../menulibre/MenulibreApplication.py:388
+#: ../menulibre/MenulibreApplication.py:395
 msgid "_Quit"
 msgstr "結束(_Q)"
 
-#: ../menulibre/MenulibreApplication.py:389
-#: ../menulibre/MenulibreApplication.py:1908
+#: ../menulibre/MenulibreApplication.py:396
+#: ../menulibre/MenulibreApplication.py:2032
 msgid "Quit"
 msgstr "結束"
 
-#: ../menulibre/MenulibreApplication.py:395
+#: ../menulibre/MenulibreApplication.py:402
 msgid "_Contents"
 msgstr "目錄(_C)"
 
-#: ../menulibre/MenulibreApplication.py:396
-#: ../menulibre/MenulibreApplication.py:1906
+#: ../menulibre/MenulibreApplication.py:403
+#: ../menulibre/MenulibreApplication.py:2030
 msgid "Help"
 msgstr "求助"
 
-#: ../menulibre/MenulibreApplication.py:402
+#: ../menulibre/MenulibreApplication.py:409
 msgid "_About"
 msgstr "關於(_A)"
 
-#: ../menulibre/MenulibreApplication.py:403
-#: ../menulibre/MenulibreApplication.py:1907
+#: ../menulibre/MenulibreApplication.py:410
+#: ../menulibre/MenulibreApplication.py:2031
 msgid "About"
 msgstr "關於"
 
-#: ../menulibre/MenulibreApplication.py:551
+#: ../menulibre/MenulibreApplication.py:553
 msgid "Categories"
 msgstr "分類"
 
-#: ../menulibre/MenulibreApplication.py:553
+#: ../menulibre/MenulibreApplication.py:555
 msgid "Actions"
 msgstr "動作"
 
-#: ../menulibre/MenulibreApplication.py:555
+#: ../menulibre/MenulibreApplication.py:557
 msgid "Advanced"
 msgstr "進階"
 
-#: ../menulibre/MenulibreApplication.py:702
+#: ../menulibre/MenulibreApplication.py:706
 msgid "ThisEntry"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:720
+#: ../menulibre/MenulibreApplication.py:724
 msgid "Select a category"
 msgstr "選取分類"
 
-#: ../menulibre/MenulibreApplication.py:723
+#: ../menulibre/MenulibreApplication.py:727
 msgid "Category Name"
 msgstr "分類名稱"
 
-#: ../menulibre/MenulibreApplication.py:807
+#: ../menulibre/MenulibreApplication.py:827
 msgid "This Entry"
 msgstr "此項目"
 
-#: ../menulibre/MenulibreApplication.py:862
+#: ../menulibre/MenulibreApplication.py:887
 msgid "New Shortcut"
 msgstr "新增捷徑"
 
-#: ../menulibre/MenulibreApplication.py:1008
+#: ../menulibre/MenulibreApplication.py:1033
 msgid "Select a working directory..."
 msgstr "選取工作目錄..."
 
-#: ../menulibre/MenulibreApplication.py:1011
+#: ../menulibre/MenulibreApplication.py:1036
 msgid "Select an executable..."
 msgstr "選取執行檔..."
 
-#: ../menulibre/MenulibreApplication.py:1033
+#: ../menulibre/MenulibreApplication.py:1058
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1129
+#: ../menulibre/MenulibreApplication.py:1153
 msgid "No Longer Installed"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1130
+#: ../menulibre/MenulibreApplication.py:1154
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1230
+#: ../menulibre/MenulibreApplication.py:1253
 msgid "You do not have permission to delete this file."
 msgstr "無權限刪除此檔案。"
 
-#: ../menulibre/MenulibreApplication.py:1462
+#: ../menulibre/MenulibreApplication.py:1489
 msgid "New Launcher"
 msgstr "新增啟動器"
 
-#: ../menulibre/MenulibreApplication.py:1520
+#: ../menulibre/MenulibreApplication.py:1539
 msgid "New Directory"
 msgstr "新增目錄"
 
-#: ../menulibre/MenulibreApplication.py:1785
+#: ../menulibre/MenulibreApplication.py:1909
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1807
+#: ../menulibre/MenulibreApplication.py:1931
 msgid "Are you sure you want to delete this separator?"
 msgstr "是否確定刪除此分隔符？"
 
-#: ../menulibre/MenulibreApplication.py:1810
+#: ../menulibre/MenulibreApplication.py:1934
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "是否確定刪除 \"%s\"？"
 
-#: ../menulibre/MenulibreApplication.py:1866
+#: ../menulibre/MenulibreApplication.py:1990
 #, python-format
 msgid ""
 "The following desktop files have failed parsing by the underlying library, "
@@ -698,24 +697,24 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1872
+#: ../menulibre/MenulibreApplication.py:1996
 msgid "All desktop files have been parsed successfully."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1901
+#: ../menulibre/MenulibreApplication.py:2025
 msgid "Check for bad desktop files"
 msgstr ""
 
-#: ../menulibre/MenulibreIconSelection.py:76
+#: ../menulibre/MenulibreIconSelection.py:77
 msgid "Select an image"
 msgstr "選取影像"
 
-#: ../menulibre/MenulibreIconSelection.py:84
+#: ../menulibre/MenulibreIconSelection.py:85
 msgid "Images"
 msgstr ""
 
 #. Create a new column.
-#: ../menulibre/MenulibreTreeview.py:60
+#: ../menulibre/MenulibreTreeview.py:62
 msgid "Search Results"
 msgstr "搜尋結果"
 
@@ -727,50 +726,52 @@ msgstr "新增選單項目"
 msgid "A small descriptive blurb about this application."
 msgstr "有關這應用程式的備註。"
 
-#: ../menulibre/util.py:455
+#: ../menulibre/util.py:522
 #, python-format
 msgid "%s: Unable to load as a key file due to the following error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:463
+#: ../menulibre/util.py:530
 #, python-format
 msgid "%s: Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:472
+#. noqa
+#: ../menulibre/util.py:539
 #, python-format
 msgid "%s: Type key was not found"
 msgstr ""
 
-#: ../menulibre/util.py:475
+#: ../menulibre/util.py:542
 #, python-format
 msgid "%s: Type is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:488
+#: ../menulibre/util.py:555
 #, python-format
 msgid "%s: Try exec program '%s' has not been found in the PATH"
 msgstr ""
 
-#: ../menulibre/util.py:496
+#. noqa
+#: ../menulibre/util.py:563
 #, python-format
 msgid "%s: Exec key not found"
 msgstr ""
 
-#: ../menulibre/util.py:502
+#: ../menulibre/util.py:569
 msgid ""
 "%s: Exec program '%' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:507
+#: ../menulibre/util.py:574
 #, python-format
 msgid "%s: Exec program '%s' has not been found in the PATH"
 msgstr ""
 
 #. At this point the desktop file is valid - execution should never reach
 #. here
-#: ../menulibre/util.py:512
+#: ../menulibre/util.py:579
 #, python-format
 msgid "%s: Desktop file is valid??"
 msgstr ""
