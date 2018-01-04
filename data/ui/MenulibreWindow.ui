@@ -762,7 +762,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                             <property name="tooltip_text" translatable="yes">Sort alphabetically</property>
                             <property name="label" translatable="yes">Sort</property>
                             <property name="use_underline">True</property>
-                            <property name="icon_name">gtk-sort-ascending</property>
+                            <property name="icon_name">view-sort-ascending-symbolic</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
