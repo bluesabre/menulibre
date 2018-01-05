@@ -586,12 +586,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             'MimeType': builder.get_object('entry_Mimetype'),
             'Keywords': builder.get_object('entry_Keywords'),
             'StartupWMClass': builder.get_object('entry_StartupWMClass'),
-            'Hidden': builder.get_object('entry_Hidden'),
-            'DBusActivatable': builder.get_object('entry_DBusActivatable')
+            'Hidden': builder.get_object('switch_Hidden'),
+            'DBusActivatable': builder.get_object('switch_DBusActivatable')
         }
 
         # Configure the switches
-        for widget_name in ['Terminal', 'StartupNotify', 'NoDisplay']:
+        for widget_name in ['Terminal', 'StartupNotify', 'NoDisplay', 'Hidden',
+                            'DBusActivatable']:
             widget = self.widgets[widget_name]
             widget.connect('notify::active', self.on_switch_toggle,
                            widget_name)
@@ -630,7 +631,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Commit changes to entries when focusing out.
         for widget_name in ['Exec', 'Path', 'GenericName', 'TryExec',
                             'OnlyShowIn', 'NotShowIn', 'MimeType', 'Keywords',
-                            'StartupWMClass', 'Hidden', 'DBusActivatable']:
+                            'StartupWMClass']:
             self.widgets[widget_name].connect('focus-out-event',
                                               self.on_entry_focus_out_event,
                                               widget_name)
@@ -638,7 +639,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Enable saving on any edit with an Entry.
         for widget_name in ['Exec', 'Path', 'GenericName', 'TryExec',
                             'OnlyShowIn', 'NotShowIn', 'MimeType', 'Keywords',
-                            'StartupWMClass', 'Hidden', 'DBusActivatable']:
+                            'StartupWMClass']:
             self.widgets[widget_name].connect("changed",
                                               self.on_entry_changed,
                                               widget_name)

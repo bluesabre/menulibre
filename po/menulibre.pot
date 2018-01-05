@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-04 18:43-0500\n"
+"POT-Creation-Date: 2018-01-04 19:14-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -206,7 +206,7 @@ msgstr ""
 msgid "Application Comment"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/MenulibreApplication.py:732
+#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/MenulibreApplication.py:733
 msgid "Description"
 msgstr ""
 
@@ -404,8 +404,8 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1103
-#: ../menulibre/MenulibreApplication.py:1557
+#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1104
+#: ../menulibre/MenulibreApplication.py:1558
 msgid "Separator"
 msgstr ""
 
@@ -584,7 +584,7 @@ msgid "_Quit"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:396
-#: ../menulibre/MenulibreApplication.py:2032
+#: ../menulibre/MenulibreApplication.py:2033
 msgid "Quit"
 msgstr ""
 
@@ -593,7 +593,7 @@ msgid "_Contents"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:403
-#: ../menulibre/MenulibreApplication.py:2030
+#: ../menulibre/MenulibreApplication.py:2031
 msgid "Help"
 msgstr ""
 
@@ -602,7 +602,7 @@ msgid "_About"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:410
-#: ../menulibre/MenulibreApplication.py:2031
+#: ../menulibre/MenulibreApplication.py:2032
 msgid "About"
 msgstr ""
 
@@ -618,76 +618,76 @@ msgstr ""
 msgid "Advanced"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:706
+#: ../menulibre/MenulibreApplication.py:707
 msgid "ThisEntry"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:724
+#: ../menulibre/MenulibreApplication.py:725
 msgid "Select a category"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:727
+#: ../menulibre/MenulibreApplication.py:728
 msgid "Category Name"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:827
+#: ../menulibre/MenulibreApplication.py:828
 msgid "This Entry"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:887
+#: ../menulibre/MenulibreApplication.py:888
 msgid "New Shortcut"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1033
+#: ../menulibre/MenulibreApplication.py:1034
 msgid "Select a working directory..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1036
+#: ../menulibre/MenulibreApplication.py:1037
 msgid "Select an executable..."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1058
+#: ../menulibre/MenulibreApplication.py:1059
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1153
+#: ../menulibre/MenulibreApplication.py:1154
 msgid "No Longer Installed"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1154
+#: ../menulibre/MenulibreApplication.py:1155
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1253
+#: ../menulibre/MenulibreApplication.py:1254
 msgid "You do not have permission to delete this file."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1489
+#: ../menulibre/MenulibreApplication.py:1490
 msgid "New Launcher"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1539
+#: ../menulibre/MenulibreApplication.py:1540
 msgid "New Directory"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1909
+#: ../menulibre/MenulibreApplication.py:1910
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1931
+#: ../menulibre/MenulibreApplication.py:1932
 msgid "Are you sure you want to delete this separator?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1934
+#: ../menulibre/MenulibreApplication.py:1935
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1990
+#: ../menulibre/MenulibreApplication.py:1991
 #, python-format
 msgid ""
 "The following desktop files have failed parsing by the underlying library, "
@@ -697,11 +697,11 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1996
+#: ../menulibre/MenulibreApplication.py:1997
 msgid "All desktop files have been parsed successfully."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2025
+#: ../menulibre/MenulibreApplication.py:2026
 msgid "Check for bad desktop files"
 msgstr ""
 

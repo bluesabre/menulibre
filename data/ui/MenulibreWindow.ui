@@ -45,6 +45,7 @@
             <property name="border_width">11</property>
             <property name="row_spacing">4</property>
             <property name="column_spacing">6</property>
+            <property name="row_homogeneous">True</property>
             <child>
               <object class="GtkLabel" id="label5">
                 <property name="visible">True</property>
@@ -244,25 +245,27 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="entry_DBusActivatable">
+              <object class="GtkSwitch" id="switch_Hidden">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="invisible_char">•</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">8</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="entry_Hidden">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">•</property>
+                <property name="halign">end</property>
+                <property name="valign">center</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
                 <property name="top_attach">7</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="switch_DBusActivatable">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="halign">end</property>
+                <property name="valign">center</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">8</property>
               </packing>
             </child>
           </object>
