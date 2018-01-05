@@ -522,29 +522,27 @@ def validate_desktop_file(desktop_file):  # noqa
         keyfile.load_from_file(desktop_file, GLib.KeyFileFlags.NONE)
 
     except Exception as e:
-        return _('%s: Unable to load as a key file due to the following error:'
-                 ' %s') % (desktop_file, e)
+        return _('Unable to load as a key file due to the following error:'
+                 ' %s') % e
 
     # File is at least a valid keyfile, so can start the real desktop
     # validation
     # Start group validation
     start_group = keyfile.get_start_group()
     if start_group != GLib.KEY_FILE_DESKTOP_GROUP:
-        return (_('%s: Start group is invalid - currently \'%s\', should be '
-                  '\'%s\'') % (desktop_file, start_group,
-                               GLib.KEY_FILE_DESKTOP_GROUP))
+        return (_('Start group is invalid - currently \'%s\', should be '
+                  '\'%s\'') % (start_group, GLib.KEY_FILE_DESKTOP_GROUP))
 
     # Type validation
     try:
         type_key = keyfile.get_string(start_group,
                                       GLib.KEY_FILE_DESKTOP_KEY_TYPE)
     except:  # noqa
-        return _('%s: Type key was not found') % desktop_file
+        return _('Type key was not found')
 
     if type_key != GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION:
-        return (_('%s: Type is invalid - currently \'%s\', should be \'%s\'')
-                % (desktop_file, type_key,
-                   GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION))
+        return (_('Type is invalid - currently \'%s\', should be \'%s\'')
+                % (type_key, GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION))
 
     # Validating 'try exec' if its present
     try:
@@ -555,28 +553,28 @@ def validate_desktop_file(desktop_file):  # noqa
 
     else:
         if GLib.find_program_in_path(try_exec) is None:
-            return (_('%s: Try exec program \'%s\' has not been found in the'
-                      ' PATH') % (desktop_file, try_exec))
+            return (_('Try exec program \'%s\' has not been found in the'
+                      ' PATH') % try_exec)
 
     # Validating executable
     try:
         exec_key = keyfile.get_string(start_group,
                                       GLib.KEY_FILE_DESKTOP_KEY_EXEC)
     except:  # noqa
-        return _('%s: Exec key not found') % desktop_file
+        return _('Exec key not found')
 
     try:
         GLib.shell_parse_argv(exec_key)
 
     except Exception as e:
-        return (_('%s: Exec program \'%\' is not a valid shell command '
+        return (_('Exec program \'%s\' is not a valid shell command '
                   'according to GLib.shell_parse_argv, error: %s')
-                % (desktop_file, exec_key, e))
+                % (exec_key, e))
 
     if GLib.find_program_in_path(exec_key) is None:
-        return (_('%s: Exec program \'%s\' has not been found in the PATH')
-                % (desktop_file, exec_key))
+        return (_('Exec program \'%s\' has not been found in the PATH')
+                % exec_key)
 
     # At this point the desktop file is valid - execution should never reach
     # here
-    return _('%s: Desktop file is valid??') % desktop_file
+    return _('Desktop file is valid??')

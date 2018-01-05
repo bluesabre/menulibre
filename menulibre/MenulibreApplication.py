@@ -1977,25 +1977,25 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Generate and display details of bad desktop files, or report
         successful parsing."""
 
+        log_dialog = MenulibreLog.LogDialog(self)
+
         # Building up a list of all known failures associated with the bad
         # desktop files
-        failure_report = [util.validate_desktop_file(desktop_file)
-                          for desktop_file in self.bad_desktop_files]
-
-        log_dialog = MenulibreLog.LogDialog(self)
+        for desktop_file in self.bad_desktop_files:
+            log_dialog.add_item(desktop_file,
+                                util.validate_desktop_file(desktop_file))
 
         # This functionality can now be called on demand, so there may not be
         # any problems present
-        if failure_report:
-            log_dialog.set_text(
-                _("The following desktop files have failed parsing by the "
-                  "underlying library, and will therefore not show up in "
-                  "menulibre - please investigate these problems with the "
-                  "associated package maintainer:\n\n%s")
-                % '\n\n'.join(failure_report))
-        else:
-            log_dialog.set_text(_("All desktop files have been parsed "
-                                  "successfully."))
+        #if failure_report:
+        #    log_dialog.set_text(
+        #        _("The following desktop files have failed parsing by the "
+        #          "underlying library, and will therefore not show up in "
+        #          "menulibre - please investigate these problems with the "
+        #          "associated package maintainer:\n\n%s")
+        #        % '\n\n'.join(failure_report))
+        #else:
+        #    print("No Errors")
         log_dialog.show()
 
 
