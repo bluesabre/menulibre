@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-01-03 22:16-0500\n"
-"PO-Revision-Date: 2017-09-04 18:48+0000\n"
-"Last-Translator: Marcos Lans <Unknown>\n"
+"POT-Creation-Date: 2018-01-04 19:25-0500\n"
+"PO-Revision-Date: 2018-01-04 04:49+0000\n"
+"Last-Translator: Sean Davis <Unknown>\n"
 "Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-01-04 05:30+0000\n"
+"X-Launchpad-Export-Date: 2018-01-05 05:27+0000\n"
 "X-Generator: Launchpad (build 18521)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -229,7 +229,7 @@ msgstr "Nome do aplicativo"
 msgid "Application Comment"
 msgstr "Comentario do aplicativo"
 
-#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/MenulibreApplication.py:732
+#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/MenulibreApplication.py:733
 msgid "Description"
 msgstr "Descrición"
 
@@ -443,8 +443,8 @@ msgstr "Restabelecer o Iniciador"
 msgid "OK"
 msgstr "Aceptar"
 
-#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1103
-#: ../menulibre/MenulibreApplication.py:1557
+#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1104
+#: ../menulibre/MenulibreApplication.py:1558
 msgid "Separator"
 msgstr "Separador"
 
@@ -624,7 +624,7 @@ msgid "_Quit"
 msgstr "_Saír"
 
 #: ../menulibre/MenulibreApplication.py:396
-#: ../menulibre/MenulibreApplication.py:2032
+#: ../menulibre/MenulibreApplication.py:2033
 msgid "Quit"
 msgstr "Saír"
 
@@ -633,7 +633,7 @@ msgid "_Contents"
 msgstr "_Contidos"
 
 #: ../menulibre/MenulibreApplication.py:403
-#: ../menulibre/MenulibreApplication.py:2030
+#: ../menulibre/MenulibreApplication.py:2031
 msgid "Help"
 msgstr "Axuda"
 
@@ -642,7 +642,7 @@ msgid "_About"
 msgstr "_Sobre"
 
 #: ../menulibre/MenulibreApplication.py:410
-#: ../menulibre/MenulibreApplication.py:2031
+#: ../menulibre/MenulibreApplication.py:2032
 msgid "About"
 msgstr "Sobre"
 
@@ -658,45 +658,45 @@ msgstr "Accións"
 msgid "Advanced"
 msgstr "Avanzado"
 
-#: ../menulibre/MenulibreApplication.py:706
+#: ../menulibre/MenulibreApplication.py:707
 msgid "ThisEntry"
 msgstr "EstaEntrada"
 
-#: ../menulibre/MenulibreApplication.py:724
+#: ../menulibre/MenulibreApplication.py:725
 msgid "Select a category"
 msgstr "Seleccionar unha categoría"
 
-#: ../menulibre/MenulibreApplication.py:727
+#: ../menulibre/MenulibreApplication.py:728
 msgid "Category Name"
 msgstr "Nome da categoría"
 
-#: ../menulibre/MenulibreApplication.py:827
+#: ../menulibre/MenulibreApplication.py:828
 msgid "This Entry"
 msgstr "Esta entrada"
 
-#: ../menulibre/MenulibreApplication.py:887
+#: ../menulibre/MenulibreApplication.py:888
 msgid "New Shortcut"
 msgstr "Novo atallo"
 
-#: ../menulibre/MenulibreApplication.py:1033
+#: ../menulibre/MenulibreApplication.py:1034
 msgid "Select a working directory..."
 msgstr "Seleccionar un directorio de traballo..."
 
-#: ../menulibre/MenulibreApplication.py:1036
+#: ../menulibre/MenulibreApplication.py:1037
 msgid "Select an executable..."
 msgstr "Seleccionar un executábel..."
 
-#: ../menulibre/MenulibreApplication.py:1058
+#: ../menulibre/MenulibreApplication.py:1059
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 "Non é posíbel engadir subdirectorios ás rutas do sistema preinstaladas."
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1153
+#: ../menulibre/MenulibreApplication.py:1154
 msgid "No Longer Installed"
 msgstr "Xa non está instalado"
 
-#: ../menulibre/MenulibreApplication.py:1154
+#: ../menulibre/MenulibreApplication.py:1155
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -704,33 +704,33 @@ msgstr ""
 "Este iniciador eliminouse do sistema.\n"
 "Seleccionando o seguinte elemento dispoñíbel."
 
-#: ../menulibre/MenulibreApplication.py:1253
+#: ../menulibre/MenulibreApplication.py:1254
 msgid "You do not have permission to delete this file."
 msgstr "Non ten permisos para eliminar este ficheiro."
 
-#: ../menulibre/MenulibreApplication.py:1489
+#: ../menulibre/MenulibreApplication.py:1490
 msgid "New Launcher"
 msgstr "Novo Iniciador"
 
-#: ../menulibre/MenulibreApplication.py:1539
+#: ../menulibre/MenulibreApplication.py:1540
 msgid "New Directory"
 msgstr "Novo directorio"
 
-#: ../menulibre/MenulibreApplication.py:1909
+#: ../menulibre/MenulibreApplication.py:1910
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr "Non foi posíbel atopar «%s» na súa RUTA."
 
-#: ../menulibre/MenulibreApplication.py:1931
+#: ../menulibre/MenulibreApplication.py:1932
 msgid "Are you sure you want to delete this separator?"
 msgstr "Confirma a eliminación do separador?"
 
-#: ../menulibre/MenulibreApplication.py:1934
+#: ../menulibre/MenulibreApplication.py:1935
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Confirma a eliminación de «%s»?"
 
-#: ../menulibre/MenulibreApplication.py:1990
+#: ../menulibre/MenulibreApplication.py:1991
 #, python-format
 msgid ""
 "The following desktop files have failed parsing by the underlying library, "
@@ -745,11 +745,11 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../menulibre/MenulibreApplication.py:1996
+#: ../menulibre/MenulibreApplication.py:1997
 msgid "All desktop files have been parsed successfully."
 msgstr "Todos os ficheiros do escritorio analizáronse correctamente."
 
-#: ../menulibre/MenulibreApplication.py:2025
+#: ../menulibre/MenulibreApplication.py:2026
 msgid "Check for bad desktop files"
 msgstr "Buscar ficheiros de escritorio defectuosos"
 
@@ -774,41 +774,41 @@ msgstr "Novo elemento do menú"
 msgid "A small descriptive blurb about this application."
 msgstr "Un pequeno resumo que describa este aplicativo."
 
-#: ../menulibre/util.py:522
+#: ../menulibre/util.py:525
 #, python-format
 msgid "%s: Unable to load as a key file due to the following error: %s"
 msgstr ""
 "%s: non foi quen de cargar un ficheiro clave debido ao erro seguinte: %s"
 
-#: ../menulibre/util.py:530
+#: ../menulibre/util.py:533
 #, python-format
 msgid "%s: Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 "%s: o grupo de inicio é incorrecto - actualmente «%s», debería ser «%s»"
 
 #. noqa
-#: ../menulibre/util.py:539
+#: ../menulibre/util.py:542
 #, python-format
 msgid "%s: Type key was not found"
 msgstr "%s: tipo de clave non atopada"
 
-#: ../menulibre/util.py:542
+#: ../menulibre/util.py:545
 #, python-format
 msgid "%s: Type is invalid - currently '%s', should be '%s'"
 msgstr "%s: o tipo é incorrecto - actualmente «%s», debería ser «%s»"
 
-#: ../menulibre/util.py:555
+#: ../menulibre/util.py:558
 #, python-format
 msgid "%s: Try exec program '%s' has not been found in the PATH"
 msgstr "%s: o programa executábel de proba «%s» non está na RUTA"
 
 #. noqa
-#: ../menulibre/util.py:563
+#: ../menulibre/util.py:566
 #, python-format
 msgid "%s: Exec key not found"
 msgstr "%s: non foi posíbel atopar a clave do executábel"
 
-#: ../menulibre/util.py:569
+#: ../menulibre/util.py:572
 msgid ""
 "%s: Exec program '%' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
@@ -816,23 +816,14 @@ msgstr ""
 "%s: o programa executábel «%» non é unha orde correcta para o intérprete de "
 "ordes de acordo co GLib.shell_parse_argv, erro: %s"
 
-#: ../menulibre/util.py:574
+#: ../menulibre/util.py:577
 #, python-format
 msgid "%s: Exec program '%s' has not been found in the PATH"
 msgstr "%s: o programa executábel «%s» non está na RUTA"
 
 #. At this point the desktop file is valid - execution should never reach
 #. here
-#: ../menulibre/util.py:579
+#: ../menulibre/util.py:582
 #, python-format
 msgid "%s: Desktop file is valid??"
 msgstr "%s: é correcto o ficheiro do escritorio??"
-
-#~ msgid ""
-#~ "Please see the <a "
-#~ "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
-#~ "documentation</a> for more information."
-#~ msgstr ""
-#~ "Vexa a <a "
-#~ "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>documentación en "
-#~ "liña</a> para obter máis información."

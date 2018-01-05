@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-03 22:16-0500\n"
-"PO-Revision-Date: 2015-09-11 23:41+0000\n"
+"POT-Creation-Date: 2018-01-04 19:25-0500\n"
+"PO-Revision-Date: 2018-01-04 04:52+0000\n"
 "Last-Translator: Pasi Lallinaho <pasi@shimmerproject.org>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-01-04 05:30+0000\n"
+"X-Launchpad-Export-Date: 2018-01-05 05:27+0000\n"
 "X-Generator: Launchpad (build 18521)\n"
 "Language: fi\n"
 
@@ -230,7 +230,7 @@ msgstr "Sovelluksen nimi"
 msgid "Application Comment"
 msgstr "Sovelluksen kommentti"
 
-#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/MenulibreApplication.py:732
+#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/MenulibreApplication.py:733
 msgid "Description"
 msgstr "Kuvaus"
 
@@ -442,8 +442,8 @@ msgstr "Palauta käynnistin"
 msgid "OK"
 msgstr "OK"
 
-#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1103
-#: ../menulibre/MenulibreApplication.py:1557
+#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1104
+#: ../menulibre/MenulibreApplication.py:1558
 msgid "Separator"
 msgstr "Erotin"
 
@@ -622,7 +622,7 @@ msgid "_Quit"
 msgstr "_Lopeta"
 
 #: ../menulibre/MenulibreApplication.py:396
-#: ../menulibre/MenulibreApplication.py:2032
+#: ../menulibre/MenulibreApplication.py:2033
 msgid "Quit"
 msgstr "Lopeta"
 
@@ -631,7 +631,7 @@ msgid "_Contents"
 msgstr "_Sisällys"
 
 #: ../menulibre/MenulibreApplication.py:403
-#: ../menulibre/MenulibreApplication.py:2030
+#: ../menulibre/MenulibreApplication.py:2031
 msgid "Help"
 msgstr "Ohje"
 
@@ -640,7 +640,7 @@ msgid "_About"
 msgstr "_Tietoja"
 
 #: ../menulibre/MenulibreApplication.py:410
-#: ../menulibre/MenulibreApplication.py:2031
+#: ../menulibre/MenulibreApplication.py:2032
 msgid "About"
 msgstr "Tietoja"
 
@@ -656,45 +656,45 @@ msgstr "Toiminnot"
 msgid "Advanced"
 msgstr "Lisäasetukset"
 
-#: ../menulibre/MenulibreApplication.py:706
+#: ../menulibre/MenulibreApplication.py:707
 msgid "ThisEntry"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:724
+#: ../menulibre/MenulibreApplication.py:725
 msgid "Select a category"
 msgstr "Valitse kategoria"
 
-#: ../menulibre/MenulibreApplication.py:727
+#: ../menulibre/MenulibreApplication.py:728
 msgid "Category Name"
 msgstr "Kategorian nimi"
 
-#: ../menulibre/MenulibreApplication.py:827
+#: ../menulibre/MenulibreApplication.py:828
 msgid "This Entry"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:887
+#: ../menulibre/MenulibreApplication.py:888
 msgid "New Shortcut"
 msgstr "Uusi pikakuvake"
 
-#: ../menulibre/MenulibreApplication.py:1033
+#: ../menulibre/MenulibreApplication.py:1034
 msgid "Select a working directory..."
 msgstr "Valitse työhakemisto..."
 
-#: ../menulibre/MenulibreApplication.py:1036
+#: ../menulibre/MenulibreApplication.py:1037
 msgid "Select an executable..."
 msgstr "Valitse suoritettava sovellus..."
 
-#: ../menulibre/MenulibreApplication.py:1058
+#: ../menulibre/MenulibreApplication.py:1059
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 "Alihakemistoja ei voida luoda valmiiksi asennettuihin järjestelmäpolkuihin."
 
 #. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1153
+#: ../menulibre/MenulibreApplication.py:1154
 msgid "No Longer Installed"
 msgstr "Ei enää asennettu"
 
-#: ../menulibre/MenulibreApplication.py:1154
+#: ../menulibre/MenulibreApplication.py:1155
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -702,33 +702,33 @@ msgstr ""
 "Tämä käynnistin on poistettu järjestelmä.\n"
 "Valitse seuraava käynnistin."
 
-#: ../menulibre/MenulibreApplication.py:1253
+#: ../menulibre/MenulibreApplication.py:1254
 msgid "You do not have permission to delete this file."
 msgstr "Sinulle ei ole oikeutta poistaa tätä tiedostoa."
 
-#: ../menulibre/MenulibreApplication.py:1489
+#: ../menulibre/MenulibreApplication.py:1490
 msgid "New Launcher"
 msgstr "Uusi käynnistin"
 
-#: ../menulibre/MenulibreApplication.py:1539
+#: ../menulibre/MenulibreApplication.py:1540
 msgid "New Directory"
 msgstr "Uusi hakemisto"
 
-#: ../menulibre/MenulibreApplication.py:1909
+#: ../menulibre/MenulibreApplication.py:1910
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1931
+#: ../menulibre/MenulibreApplication.py:1932
 msgid "Are you sure you want to delete this separator?"
 msgstr "Haluatko varmasti poistaa tämän erottimen?"
 
-#: ../menulibre/MenulibreApplication.py:1934
+#: ../menulibre/MenulibreApplication.py:1935
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Haluatko varmasti poistaa kohteen \"%s\"?"
 
-#: ../menulibre/MenulibreApplication.py:1990
+#: ../menulibre/MenulibreApplication.py:1991
 #, python-format
 msgid ""
 "The following desktop files have failed parsing by the underlying library, "
@@ -738,11 +738,11 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1996
+#: ../menulibre/MenulibreApplication.py:1997
 msgid "All desktop files have been parsed successfully."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2025
+#: ../menulibre/MenulibreApplication.py:2026
 msgid "Check for bad desktop files"
 msgstr ""
 
@@ -767,52 +767,52 @@ msgstr "Uusi valikkokohta"
 msgid "A small descriptive blurb about this application."
 msgstr "Lyhyt kuvaus tästä sovelluksesta."
 
-#: ../menulibre/util.py:522
+#: ../menulibre/util.py:525
 #, python-format
 msgid "%s: Unable to load as a key file due to the following error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:530
+#: ../menulibre/util.py:533
 #, python-format
 msgid "%s: Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
 #. noqa
-#: ../menulibre/util.py:539
+#: ../menulibre/util.py:542
 #, python-format
 msgid "%s: Type key was not found"
 msgstr ""
 
-#: ../menulibre/util.py:542
+#: ../menulibre/util.py:545
 #, python-format
 msgid "%s: Type is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:555
+#: ../menulibre/util.py:558
 #, python-format
 msgid "%s: Try exec program '%s' has not been found in the PATH"
 msgstr ""
 
 #. noqa
-#: ../menulibre/util.py:563
+#: ../menulibre/util.py:566
 #, python-format
 msgid "%s: Exec key not found"
 msgstr ""
 
-#: ../menulibre/util.py:569
+#: ../menulibre/util.py:572
 msgid ""
 "%s: Exec program '%' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:574
+#: ../menulibre/util.py:577
 #, python-format
 msgid "%s: Exec program '%s' has not been found in the PATH"
 msgstr ""
 
 #. At this point the desktop file is valid - execution should never reach
 #. here
-#: ../menulibre/util.py:579
+#: ../menulibre/util.py:582
 #, python-format
 msgid "%s: Desktop file is valid??"
 msgstr ""
@@ -986,12 +986,3 @@ msgstr ""
 #~ "http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 #~ "latest.html#exec-variables\n"
 #~ "näet listan tuetuista argumenteista."
-
-#~ msgid ""
-#~ "Please see the <a "
-#~ "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online "
-#~ "documentation</a> for more information."
-#~ msgstr ""
-#~ "Saadaksesi lisätietoja lue <a "
-#~ "href='https://wiki.smdavis.us/doku.php?id=menulibre_faq'>online-"
-#~ "dokumentaatiota</a>."
