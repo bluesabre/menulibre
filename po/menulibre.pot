@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-04 19:14-0500\n"
+"POT-Creation-Date: 2018-01-04 19:25-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -726,52 +726,52 @@ msgstr ""
 msgid "A small descriptive blurb about this application."
 msgstr ""
 
-#: ../menulibre/util.py:522
+#: ../menulibre/util.py:525
 #, python-format
 msgid "%s: Unable to load as a key file due to the following error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:530
+#: ../menulibre/util.py:533
 #, python-format
 msgid "%s: Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
 #. noqa
-#: ../menulibre/util.py:539
+#: ../menulibre/util.py:542
 #, python-format
 msgid "%s: Type key was not found"
 msgstr ""
 
-#: ../menulibre/util.py:542
+#: ../menulibre/util.py:545
 #, python-format
 msgid "%s: Type is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:555
+#: ../menulibre/util.py:558
 #, python-format
 msgid "%s: Try exec program '%s' has not been found in the PATH"
 msgstr ""
 
 #. noqa
-#: ../menulibre/util.py:563
+#: ../menulibre/util.py:566
 #, python-format
 msgid "%s: Exec key not found"
 msgstr ""
 
-#: ../menulibre/util.py:569
+#: ../menulibre/util.py:572
 msgid ""
 "%s: Exec program '%' is not a valid shell command according to GLib."
 "shell_parse_argv, error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:574
+#: ../menulibre/util.py:577
 #, python-format
 msgid "%s: Exec program '%s' has not been found in the PATH"
 msgstr ""
 
 #. At this point the desktop file is valid - execution should never reach
 #. here
-#: ../menulibre/util.py:579
+#: ../menulibre/util.py:582
 #, python-format
 msgid "%s: Desktop file is valid??"
 msgstr ""

@@ -477,8 +477,11 @@ def determine_bad_desktop_files():
 
     # Run the helper script with normal binary lookup via the shell, capturing
     # stderr, sensitive to errors
-    result = subprocess.run(['menulibre-menu-validate'],
-                            stderr=subprocess.PIPE, shell=True, check=True)
+    try:
+        result = subprocess.run(['menulibre-menu-validate'],
+                                stderr=subprocess.PIPE, shell=True, check=True)
+    except subprocess.CalledProcessError:
+        return []
 
     # stderr is returned as bytes, so converting it to the line-buffered output
     # I actually want
