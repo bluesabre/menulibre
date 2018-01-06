@@ -632,11 +632,8 @@ class Treeview(GObject.GObject):
                 parent = model.iter_parent(treeiter)
             while parent is not None:
                 parent_filename = model[parent][6]
+
                 # Do not do this method if this is a known system directory.
-                # Debug code
-                # Testing if this is safe
-#                 if getBasename(parent_filename).startswith(menu_prefix):
-#                     menu_install = False
                 parents.append(parent_filename)
                 parent = model.iter_parent(parent)
             parents.reverse()
@@ -896,24 +893,13 @@ class Treeview(GObject.GObject):
             _, parent_iter = self.get_parent(model, sel_iter)
             if parent_iter:
 
-                # Debug code
-                # print('\nUnsorted items:\n')
-
                 # Deteriming list of item names
                 for i in range(model.iter_n_children(parent_iter)):
                     child_iter = model.iter_nth_child(parent_iter, i)
                     item_names.append(model[child_iter][0])
 
-                    # Debug code
-                    # print('Row item: %s' % model[child_iter][0])
-
                 # Applying unstable (?) case-insensitive alphabetical sort
                 item_names = sorted(item_names, key=str.lower)
-
-                # Debug code
-                # print('\nSorted items:\n')
-                # for item_name in item_names:
-                #     print(item_name)
 
                 for i in range(len(item_names)):
                     child_iter = model.iter_nth_child(parent_iter, i)
@@ -930,12 +916,6 @@ class Treeview(GObject.GObject):
 
                         # Moving the found item into place
                         model.move_before(search_iter, child_iter)
-
-                # Debug code
-                # print('\nSorted model:\n')
-                # for i in range(model.iter_n_children(parent_iter)):
-                #     child_iter = model.iter_nth_child(parent_iter, i)
-                #     print(model[child_iter][0])
 
                 # Committing changes
                 self.update_menus()

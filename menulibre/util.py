@@ -494,12 +494,6 @@ def determine_bad_desktop_files():
     # Alphabetical sort on bad desktop file paths
     bad_desktop_files.sort()
 
-    # Debug code
-    # if bad_desktop_files:
-    #    print('determine_bad_desktop_files ran, bad desktop files detected:')
-    #    for bad_desktop_file in bad_desktop_files:
-    #        print(bad_desktop_file)
-
     return bad_desktop_files
 
 

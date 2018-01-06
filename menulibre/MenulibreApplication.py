@@ -1521,10 +1521,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # therefore it essentially has a parent of the current selection
             categories = util.getRequiredCategories(row_data[6])
 
-            # Debug code
-            # print('Launcher addition category determination: dir_selected, '
-            #      'categories: %s' % categories)
-
         else:
 
             # Parent was not found, this is a toplevel category
@@ -1962,10 +1958,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Bad desktop files infobar callback function to request the bad
         desktop files report if desired."""
 
-        # Debug code
-        # print('on_bad_desktop_files_infobar_response ran, response_id: %d'
-        #      % response_id)
-
         # Dealing with request for details
         if response_id == Gtk.ResponseType.YES:
             self.bad_desktop_files_report_dialog()
@@ -1985,17 +1977,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             log_dialog.add_item(desktop_file,
                                 util.validate_desktop_file(desktop_file))
 
-        # This functionality can now be called on demand, so there may not be
-        # any problems present
-        #if failure_report:
-        #    log_dialog.set_text(
-        #        _("The following desktop files have failed parsing by the "
-        #          "underlying library, and will therefore not show up in "
-        #          "menulibre - please investigate these problems with the "
-        #          "associated package maintainer:\n\n%s")
-        #        % '\n\n'.join(failure_report))
-        #else:
-        #    print("No Errors")
         log_dialog.show()
 
 
