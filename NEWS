@@ -1,5 +1,30 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+UNRELEASED, MenuLibre 2.1.4
+
+- New Features:
+  . Add button to test launchers without saving (LP: #1315875)
+  . Add button to sort menu directory contents alphabetically (LP: #1315536)
+  . Allow creation of subdirectories in preinstalled system paths
+    (LP: #1315872)
+  . New Parsing Errors log for notifying about bad desktop files
+- General:
+  . Use the folder icon instead of applications-other (LP: #1605905)
+  . Use switches for Hidden and DBusActivatable keys
+  . Include additional non-standard by commonly-used categories
+- Bug Fixes
+  . Invalid categories added to first launcher in top-level directory under
+    XFCE (LP: #1605973)
+  . Categories created by Alacarte not respected, custom launchers deleted
+    (LP: #1315880)
+  . Some categories cannot be removed from a launcher (LP: #1307002)
+  . Make hidden items italic (LP: #1310261)
+- Updated Translations:
+  . Brazilian Portuguese, Catalan, Croatian, Danish, French, Galician, German,
+    Italian, Kazakh, Lithuanian, Polish, Russian, Slovak, Spanish, Swedish,
+    Ukrainian
+
+
 07 Apr 2016, MenuLibre 2.1.3
 
 - Updated Translations:
