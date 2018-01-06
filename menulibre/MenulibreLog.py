@@ -38,9 +38,15 @@ class LogDialog:
         self._log_treeview = builder.get_object('log_treeview')
 
         # Connect the signals for the treeview
-        self._log_treeview.connect("button-press-event",
-                                   self.button_press_event_cb)
         self._log_treeview.connect("row-activated", self.row_activated_cb)
+        self._log_treeview.connect("button-release-event",
+                                   self.button_release_event_cb)
+        self._log_treeview.connect("motion-notify-event",
+                                   self.motion_notify_event_cb)
+        self._log_treeview.connect("enter-notify-event",
+                                   self.enter_notify_event_cb)
+        self._log_treeview.connect("leave-notify-event",
+                                   self.leave_notify_event_cb)
 
         # Connect the signal to destroy the LogDialog when OK is clicked
         self._log_ok.connect("clicked", self.log_close_cb)
@@ -58,40 +64,75 @@ class LogDialog:
             return info.get_executable()
         return None
 
-    def button_press_event_cb(self, widget, event):
-        pos = self._log_treeview.get_path_at_pos(event.x, event.y)
-        if pos is not None:
-            treepath, treecol, cell_x, cell_y = pos
-            treeiter = self._log_treeview.get_model().get_iter(treepath)
-            treecol_name = treecol.get_name()
-            filename = self._log_treeview.get_model()[treeiter][1]
+    def view_path(self, path):
+        if os.path.isdir(path):
+            uri = "file://%s" % path
+            if "show_uri_on_window" in dir(Gtk):
+                Gtk.show_uri_on_window(None, uri, 0)
+            else:
+                Gtk.show_uri(None, uri, 0)
+        else:
+            binary = self.get_editor_executable()
+            subprocess.Popen([binary, path])
 
-            if treecol_name == "log_action_file":
-                self.row_activated_cb(self._log_treeview, treepath, treecol)
-            if treecol_name == "log_action_directory":
-                dirname = os.path.dirname(filename)
-                uri = "file://%s" % dirname
-                if "show_uri_on_window" in dir(Gtk):
-                    Gtk.show_uri_on_window(None, uri, 0)
-                else:
-                    Gtk.show_uri(None, uri, 0)
-            if treecol_name == "log_action_copy":
-                clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
-                clipboard.set_text(filename, -1)
+    def get_path_details_at_pos(self, x, y):
+        pos = self._log_treeview.get_path_at_pos(x, y)
+
+        if pos is None:
+            return None
+
+        treepath, treecol, cell_x, cell_y = pos
+        treeiter = self._log_treeview.get_model().get_iter(treepath)
+        treecol_name = treecol.get_name()
+        filename = self._log_treeview.get_model()[treeiter][1]
+
+        return {"path": treepath, "column": treecol, "x": cell_x, "y": cell_y,
+                "iter": treeiter, "column_name": treecol_name,
+                "filename": filename}
+
+    def button_release_event_cb(self, widget, event):
+        details = self.get_path_details_at_pos(event.x, event.y)
+        if details is not None:
+            if details["column_name"] == "log_action_file":
+                self.view_path(details["filename"])
+            if details["column_name"] == "log_action_directory":
+                self.view_path(os.path.dirname(details["filename"]))
+            if details["column_name"] == "log_action_copy":
+                self.set_clipboard(details["filename"])
+
+    def set_cursor(self, cursor=None):
+        if cursor is not None:
+            cursor = Gdk.Cursor(Gdk.CursorType.HAND1)
+        self._log_dialog.get_window().set_cursor(cursor)
+        return True
+
+    def set_clipboard(self, text):
+        clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
+        clipboard.set_text(text, -1)
+
+    def motion_notify_event_cb(self, widget, event):
+        details = self.get_path_details_at_pos(event.x, event.y)
+        if details is not None and details["column_name"] != "log_text":
+            return self.set_cursor(Gdk.CursorType.HAND1)
+        return self.set_cursor(None)
+
+    def enter_notify_event_cb(self, widget, event):
+        details = self.get_path_details_at_pos(event.x, event.y)
+        if details is not None and details["column_name"] != "log_text":
+            return self.set_cursor(Gdk.CursorType.HAND1)
+        return self.set_cursor(None)
+
+    def leave_notify_event_cb(self, widget, event):
+        self.set_cursor(None)
 
     def row_activated_cb(self, treeview, path, column):
         treeiter = self._log_treeview.get_model().get_iter(path)
         filename = self._log_treeview.get_model()[treeiter][1]
-        binary = self.get_editor_executable()
-        subprocess.Popen([binary, filename])
+        self.view_path(filename)
 
     def log_close_cb(self, widget):
         """Destroy the LogDialog when it is OK'd."""
         self._log_dialog.destroy()
-
-    def set_text(self, text):
-        """Set the text to show in the log dialog."""
-        self._log_textbuffer.set_text(text)
 
     def show(self):
         """Show the log dialog."""
