@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-04 19:25-0500\n"
-"PO-Revision-Date: 2017-05-16 20:42+0000\n"
-"Last-Translator: toniem <toni.estevez@gmail.com>\n"
+"POT-Creation-Date: 2018-01-05 21:36-0500\n"
+"PO-Revision-Date: 2018-01-04 04:52+0000\n"
+"Last-Translator: Sean Davis <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-01-05 05:32+0000\n"
+"X-Launchpad-Export-Date: 2018-01-06 04:46+0000\n"
 "X-Generator: Launchpad (build 18521)\n"
 "Language: es\n"
 
@@ -359,6 +359,17 @@ msgid "Log - Menulibre"
 msgstr "Registro - MenuLibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:69
+msgid "<big><b>Parsing Errors</b></big>"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:70
+msgid ""
+"The following desktop files have failed parsing by the underlying library, "
+"and will therefore not show up in MenuLibre. \n"
+"Please investigate these problems with the associated package maintainer."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:72
 msgid "Search terms…"
 msgstr "Buscar…"
 
@@ -449,7 +460,7 @@ msgid "OK"
 msgstr "Aceptar"
 
 #: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1104
-#: ../menulibre/MenulibreApplication.py:1558
+#: ../menulibre/MenulibreApplication.py:1554
 msgid "Separator"
 msgstr "Separador"
 
@@ -630,7 +641,7 @@ msgid "_Quit"
 msgstr "_Salir"
 
 #: ../menulibre/MenulibreApplication.py:396
-#: ../menulibre/MenulibreApplication.py:2033
+#: ../menulibre/MenulibreApplication.py:2014
 msgid "Quit"
 msgstr "Salir"
 
@@ -639,7 +650,7 @@ msgid "_Contents"
 msgstr "_Contenido"
 
 #: ../menulibre/MenulibreApplication.py:403
-#: ../menulibre/MenulibreApplication.py:2031
+#: ../menulibre/MenulibreApplication.py:2012
 msgid "Help"
 msgstr "Ayuda"
 
@@ -648,7 +659,7 @@ msgid "_About"
 msgstr "_Acerca de"
 
 #: ../menulibre/MenulibreApplication.py:410
-#: ../menulibre/MenulibreApplication.py:2032
+#: ../menulibre/MenulibreApplication.py:2013
 msgid "About"
 msgstr "Acerca de"
 
@@ -718,44 +729,25 @@ msgstr "No tiene permiso para eliminar este archivo."
 msgid "New Launcher"
 msgstr "Lanzador nuevo"
 
-#: ../menulibre/MenulibreApplication.py:1540
+#: ../menulibre/MenulibreApplication.py:1536
 msgid "New Directory"
 msgstr "Carpeta nueva"
 
-#: ../menulibre/MenulibreApplication.py:1910
+#: ../menulibre/MenulibreApplication.py:1906
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr "No se ha podido encontrar «%s» en la ruta de búsqueda."
 
-#: ../menulibre/MenulibreApplication.py:1932
+#: ../menulibre/MenulibreApplication.py:1928
 msgid "Are you sure you want to delete this separator?"
 msgstr "¿Seguro que quiere eliminar este separador?"
 
-#: ../menulibre/MenulibreApplication.py:1935
+#: ../menulibre/MenulibreApplication.py:1931
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "¿Seguro de que quiere eliminar «%s»?"
 
-#: ../menulibre/MenulibreApplication.py:1991
-#, python-format
-msgid ""
-"The following desktop files have failed parsing by the underlying library, "
-"and will therefore not show up in menulibre - please investigate these "
-"problems with the associated package maintainer:\n"
-"\n"
-"%s"
-msgstr ""
-"Los archivos de escritorio siguientes no se han podido analizar por la "
-"biblioteca subyacente y, por lo tanto, no se mostrarán. Investigue estos "
-"problemas con el responsable del paquete asociado:\n"
-"\n"
-"%s"
-
-#: ../menulibre/MenulibreApplication.py:1997
-msgid "All desktop files have been parsed successfully."
-msgstr "Todos los archivos de escritorio se han analizado correctamente."
-
-#: ../menulibre/MenulibreApplication.py:2026
+#: ../menulibre/MenulibreApplication.py:2007
 msgid "Check for bad desktop files"
 msgstr "Comprobar si hay archivos de escritorio incorrectos"
 
@@ -780,62 +772,53 @@ msgstr "Elemento de menú nuevo"
 msgid "A small descriptive blurb about this application."
 msgstr "Una descripción corta de esta aplicación."
 
-#: ../menulibre/util.py:525
+#: ../menulibre/util.py:519
 #, python-format
-msgid "%s: Unable to load as a key file due to the following error: %s"
+msgid "Unable to load as a key file due to the following error: %s"
 msgstr ""
-"%s: No se puede cargar como un archivo de claves debido al error siguiente: "
-"%s"
 
-#: ../menulibre/util.py:533
+#: ../menulibre/util.py:527
 #, python-format
-msgid "%s: Start group is invalid - currently '%s', should be '%s'"
-msgstr "%s: El grupo de inicio no es válido; actualmente «%s», debe ser «%s»"
+msgid "Start group is invalid - currently '%s', should be '%s'"
+msgstr ""
 
 #. noqa
-#: ../menulibre/util.py:542
-#, python-format
-msgid "%s: Type key was not found"
-msgstr "%s: No se encontró la clave de tipo"
+#: ../menulibre/util.py:535
+msgid "Type key was not found"
+msgstr ""
 
-#: ../menulibre/util.py:545
+#: ../menulibre/util.py:538
 #, python-format
-msgid "%s: Type is invalid - currently '%s', should be '%s'"
-msgstr "%s: El tipo no es válido; actualmente «%s», debe ser «%s»"
+msgid "Type is invalid - currently '%s', should be '%s'"
+msgstr ""
 
+#: ../menulibre/util.py:550
+#, python-format
+msgid "Try exec program '%s' has not been found in the PATH"
+msgstr ""
+
+#. noqa
 #: ../menulibre/util.py:558
-#, python-format
-msgid "%s: Try exec program '%s' has not been found in the PATH"
+msgid "Exec key not found"
 msgstr ""
-"%s: El programa ejecutable de prueba «%s» no se ha encontrado en la ruta de "
-"búsqueda"
 
-#. noqa
-#: ../menulibre/util.py:566
+#: ../menulibre/util.py:564
 #, python-format
-msgid "%s: Exec key not found"
-msgstr "%s: No se encontró la clave de ejecutable"
-
-#: ../menulibre/util.py:572
 msgid ""
-"%s: Exec program '%' is not a valid shell command according to "
+"Exec program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
-"%s: El programa ejecutable «%» no es una orden válida según "
-"GLib.shell_parse_argv, error: %s"
 
-#: ../menulibre/util.py:577
+#: ../menulibre/util.py:569
 #, python-format
-msgid "%s: Exec program '%s' has not been found in the PATH"
+msgid "Exec program '%s' has not been found in the PATH"
 msgstr ""
-"%s: El programa ejecutable «%s» no se ha encontrado en la ruta de búsqueda"
 
 #. At this point the desktop file is valid - execution should never reach
 #. here
-#: ../menulibre/util.py:582
-#, python-format
-msgid "%s: Desktop file is valid??"
-msgstr "%s: ¿El archivo de escritorio es válido?"
+#: ../menulibre/util.py:574
+msgid "Desktop file is valid??"
+msgstr ""
 
 #~ msgid "Icon Name"
 #~ msgstr "Nombre del icono"
