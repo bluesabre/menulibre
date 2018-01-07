@@ -1133,6 +1133,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     self.editor.show_all()
                     entry = MenulibreXdg.MenulibreDesktopEntry(filename)
                     for key in getRelatedKeys(item_type, key_only=True):
+                        if key == 'Actions':
+                            continue
                         self.set_value(key, entry[key], store=True)
                     self.set_value('Actions', entry.get_actions(),
                                    store=True)
