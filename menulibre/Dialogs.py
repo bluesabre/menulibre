@@ -77,7 +77,7 @@ class SaveOnCloseDialog(Gtk.MessageDialog):
     def __init__(self, parent):
         question = _("Do you want to save the changes before closing?")
         details = _("If you don't save the launcher, all the changes "
-                    "will be lost.'")
+                    "will be lost.")
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.QUESTION,
                                    buttons=Gtk.ButtonsType.NONE,
@@ -138,3 +138,28 @@ class FileChooserDialog(Gtk.FileChooserDialog):
                                        action=action)
         self.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
         self.add_button(_("OK"), Gtk.ResponseType.OK)
+
+
+class LauncherRemovedDialog(Gtk.MessageDialog):
+    def __init__(self, parent):
+        primary = _("No Longer Installed")
+        secondary = _("This launcher has been removed from the "
+                      "system.\nSelecting the next available item.")
+        Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
+                                   message_type=Gtk.MessageType.INFO,
+                                   buttons=Gtk.ButtonsType.OK,
+                                   text=primary)
+        self.format_secondary_markup(secondary)
+
+
+class NotFoundInPathDialog(Gtk.MessageDialog):
+    def __init__(self, parent, command):
+        err = _("Could not find \"%s\" in your PATH.") % command
+        Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
+                                   message_type=Gtk.MessageType.ERROR,
+                                   buttons=Gtk.ButtonsType.OK,
+                                   text=err)
+        self.connect("response", self.response_cb)
+
+    def response_cb(self, widget, user_data):
+        widget.destroy()

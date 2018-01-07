@@ -230,7 +230,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                        _("MenuLibre cannot be run as root."))
             dialog.format_secondary_markup(
                 _("Please see the <a href='%s'>online documentation</a> "
-                  "for more information.")) % docs_url
+                  "for more information.") % docs_url)
             dialog.run()
             sys.exit(1)
 
@@ -1068,7 +1068,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             widget.set_sensitive(enabled)
             widget.set_tooltip_text(tooltip)
 
-    def on_apps_browser_cursor_changed(self, widget, value, builder):
+    def on_apps_browser_cursor_changed(self, widget, value, builder):  # noqa
         """Update the editor frame when the selected row is changed."""
         missing = False
 
@@ -1110,7 +1110,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             filename = self.treeview.get_selected_filename()
             new_launcher = filename is None
 
-            # Check if this file still exists, those tricksy hobbitses...
+            # Check if this file still exists
             if (not new_launcher) and (not os.path.isfile(filename)):
                 # If it does not, try to fallback...
                 basename = getBasename(filename)
@@ -1149,14 +1149,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             else:
                 # Display a dialog saying this item is missing
-                primary = _("No Longer Installed")
-                secondary = _("This launcher has been removed from the "
-                              "system.\nSelecting the next available item.")
-                dialog = Gtk.MessageDialog(transient_for=self, modal=True,
-                                           message_type=Gtk.MessageType.INFO,
-                                           buttons=Gtk.ButtonsType.OK,
-                                           text=primary)
-                dialog.format_secondary_markup(secondary)
+                dialog = Dialogs.LauncherRemovedDialog(self)
                 dialog.run()
                 dialog.destroy()
                 # Mark this item as missing to delete it later.
@@ -1916,16 +1909,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             GObject.timeout_add(2000, self.on_execute_timeout, filename)
         else:
             os.remove(filename)
-            err = _("Could not find \"%s\" in your PATH.") % command
-            dlg = Gtk.MessageDialog(parent=self, flags=Gtk.MessageType.ERROR,
-                                    buttons=Gtk.ButtonsType.OK,
-                                    message_format=err)
-
-            def dlg_destroy(widget, user_data):
-                widget.destroy()
-
-            dlg.connect("response", dlg_destroy)
-            dlg.show()
+            dlg = Dialogs.NotFoundInPathDialog(self, command)
+            dlg.run()
 
     def on_execute_timeout(self, filename):
         os.remove(filename)
