@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-07 07:38-0500\n"
+"POT-Creation-Date: 2018-01-07 07:51-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -416,7 +416,7 @@ msgid "OK"
 msgstr ""
 
 #: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1103
-#: ../menulibre/MenulibreApplication.py:1562
+#: ../menulibre/MenulibreApplication.py:1567
 msgid "Separator"
 msgstr ""
 
@@ -595,7 +595,7 @@ msgid "_Quit"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:396
-#: ../menulibre/MenulibreApplication.py:2022
+#: ../menulibre/MenulibreApplication.py:2027
 msgid "Quit"
 msgstr ""
 
@@ -604,7 +604,7 @@ msgid "_Contents"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:403
-#: ../menulibre/MenulibreApplication.py:2020
+#: ../menulibre/MenulibreApplication.py:2025
 msgid "Help"
 msgstr ""
 
@@ -613,7 +613,7 @@ msgid "_About"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:410
-#: ../menulibre/MenulibreApplication.py:2021
+#: ../menulibre/MenulibreApplication.py:2026
 msgid "About"
 msgstr ""
 
@@ -672,33 +672,33 @@ msgid ""
 "Selecting the next available item."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1252
+#: ../menulibre/MenulibreApplication.py:1257
 msgid "You do not have permission to delete this file."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1498
+#: ../menulibre/MenulibreApplication.py:1503
 msgid "New Launcher"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1544
+#: ../menulibre/MenulibreApplication.py:1549
 msgid "New Directory"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1914
+#: ../menulibre/MenulibreApplication.py:1919
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1936
+#: ../menulibre/MenulibreApplication.py:1941
 msgid "Are you sure you want to delete this separator?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1939
+#: ../menulibre/MenulibreApplication.py:1944
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2015
+#: ../menulibre/MenulibreApplication.py:2020
 msgid "Check for bad desktop files"
 msgstr ""
 

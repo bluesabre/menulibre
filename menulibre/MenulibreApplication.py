@@ -1165,6 +1165,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Renable updates to history.
         self.history.unblock()
 
+        if self.treeview.get_parent()[1] is None:
+            self.treeview.set_sortable(False)
+        else:
+            self.treeview.set_sortable(True)
+
         # Remove this item if it happens to be gone.
         if missing:
             self.delete_launcher()

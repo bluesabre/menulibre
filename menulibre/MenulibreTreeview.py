@@ -110,6 +110,10 @@ class Treeview(GObject.GObject):
         move_down.connect('clicked', self._move_iter, (self._treeview, 1))
         sort = builder.get_object('classic_view_sort')
         sort.connect('clicked', self._sort_iter)
+        self._sort_button = sort
+
+    def set_sortable(self, sortable):
+        self._sort_button.set_sensitive(sortable)
 
 # TreeView Modifiers
     def append(self, row_data):
