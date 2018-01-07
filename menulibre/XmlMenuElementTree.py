@@ -253,6 +253,9 @@ def model_to_xml_includes(model, model_parent=None, menu_parent=None):
         name, comment, categories, item_type, gicon, icon, desktop, expanded, \
             show = model[treeiter][:]
 
+        if desktop is None:
+            continue
+
         # Detecting custom user directories
         user_directory = False
         if model_parent and categories:
