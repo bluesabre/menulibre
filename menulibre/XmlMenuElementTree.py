@@ -309,7 +309,7 @@ def model_to_xml_layout(model, model_parent=None, menu_parent=None,  # noqa
                 directory_name = util.getDirectoryName(desktop)
                 layout.addMenuname(directory_name)
 
-        elif item_type == MenuItemTypes.APPLICATION:
+        elif item_type == MenuItemTypes.APPLICATION and desktop is not None:
             try:
 
                 # According to the spec, desktop files may be located in
