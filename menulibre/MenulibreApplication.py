@@ -31,7 +31,7 @@ from gi.repository import Gio, GObject, Gtk, Gdk, GdkPixbuf
 from . import MenulibreStackSwitcher, MenulibreIconSelection
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, MenulibreLog
-from .util import MenuItemTypes, check_keypress, getBasename
+from .util import MenuItemTypes, check_keypress, getBasename, getRelatedKeys
 import menulibre_lib
 
 import logging
@@ -1070,7 +1070,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_apps_browser_cursor_changed(self, widget, value, builder):
         """Update the editor frame when the selected row is changed."""
-
         missing = False
 
         # Clear history
@@ -1133,17 +1132,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 if item_type == MenuItemTypes.APPLICATION:
                     self.editor.show_all()
                     entry = MenulibreXdg.MenulibreDesktopEntry(filename)
-                    for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
-                                'NoDisplay', 'GenericName', 'TryExec',
-                                'OnlyShowIn', 'NotShowIn', 'MimeType',
-                                'Keywords', 'StartupWMClass', 'Categories',
-                                'Hidden', 'DBusActivatable']:
+                    for key in getRelatedKeys(item_type, key_only=True):
                         self.set_value(key, entry[key], store=True)
                     self.set_value('Actions', entry.get_actions(),
                                    store=True)
                     self.set_value('Type', 'Application')
                     self.execute_button.set_sensitive(True)
                 else:
+                    entry = MenulibreXdg.MenulibreDesktopEntry(filename)
+                    for key in getRelatedKeys(item_type, key_only=True):
+                        self.set_value(key, entry[key], store=True)
                     self.set_value('Type', 'Directory')
                     for widget in self.directory_hide_widgets:
                         widget.hide()
@@ -1427,8 +1425,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         elif key == 'Type':
             self.values['Type'] = value
 
+        # No associated widget for Version
+        elif key == 'Version':
+            pass
+
+        # No associated widget for Implements
+        elif key == 'Implements':
+            pass
+
         # Everything else is set by its widget type.
-        else:
+        elif key in self.widgets.keys():
             widget = self.widgets[key]
             # GtkButton
             if isinstance(widget, Gtk.Button):
@@ -1452,9 +1458,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 widget.set_active(value)
                 # If "Hide from menus", also clear Hidden setting.
                 if key == 'NoDisplay' and value is False:
-                    self.set_value('Hidden', "")
+                    self.set_value('Hidden', False)
             else:
                 logger.warning(("Unknown widget: %s" % key))
+        else:
+            logger.warning(("Unimplemented widget: %s" % key))
 
     def get_value(self, key):  # noqa
         """Return the value stored for the specified key."""

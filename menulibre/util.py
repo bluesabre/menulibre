@@ -46,6 +46,45 @@ MenuItemTypes = enum(
 )
 
 
+MenuItemKeys = (
+    # Key, Required, Types (MenuItemType)
+    ("Type", True, (0, 1, 2)),
+    ("Version", False, (0, 1, 2)),
+    ("Name", True, (0, 1, 2)),
+    ("GenericName", False, (0, 1, 2)),
+    ("NoDisplay", False, (0, 1, 2)),
+    ("Comment", False, (0, 1, 2)),
+    ("Icon", False, (0, 1, 2)),
+    ("Hidden", False, (0, 1, 2)),
+    ("OnlyShowIn", False, (0, 1, 2)),
+    ("NotShowIn", False, (0, 1, 2)),
+    ("DBusActivatable", False, (0,)),
+    ("TryExec", False, (0,)),
+    ("Exec", True, (0,)),
+    ("Path", False, (0,)),
+    ("Terminal", False, (0,)),
+    ("Actions", False, (0,)),
+    ("MimeType", False, (0,)),
+    ("Categories", False, (0,)),
+    ("Implements", False, (0,)),
+    ("Keywords", False, (0,)),
+    ("StartupNotify", False, (0,)),
+    ("StartupWMClass", False, (0,)),
+    ("URL", True, (1,))
+)
+
+
+def getRelatedKeys(menu_item_type, key_only=False):
+    results = []
+    for tup in MenuItemKeys:
+        if menu_item_type in tup[2]:
+            if key_only:
+                results.append(tup[0])
+            else:
+                results.append((tup[0], tup[1]))
+    return results
+
+
 def getProcessUsername(process):
     """Get the username of the process owner. Return None if fail."""
     username = None

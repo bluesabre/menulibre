@@ -161,7 +161,7 @@ def get_submenus(menu, tree_dir):
                 categories = ""
                 executable = None
                 filename = child.get_desktop_file_path()
-                hidden = False
+                hidden = child.get_is_nodisplay()
                 submenus = get_submenus(menu, child)
 
             if isinstance(icon, Gio.ThemedIcon):
