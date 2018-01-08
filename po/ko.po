@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-05 21:36-0500\n"
+"POT-Creation-Date: 2018-01-07 13:19-0500\n"
 "PO-Revision-Date: 2013-02-24 05:12+0000\n"
 "Last-Translator: Sang-hyeon Lee <Unknown>\n"
 "Language-Team: Korean <ko@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-01-07 04:45+0000\n"
+"X-Launchpad-Export-Date: 2018-01-08 05:23+0000\n"
 "X-Generator: Launchpad (build 18521)\n"
 "Language: ko\n"
 
@@ -369,8 +369,8 @@ msgstr ""
 msgid "Do you want to save the changes before closing?"
 msgstr ""
 
-#: ../menulibre/Dialogs.py:79
-msgid "If you don't save the launcher, all the changes will be lost.'"
+#: ../menulibre/Dialogs.py:79 ../menulibre/Dialogs.py:96
+msgid "If you don't save the launcher, all the changes will be lost."
 msgstr ""
 
 #: ../menulibre/Dialogs.py:86 ../menulibre/Dialogs.py:103
@@ -388,10 +388,6 @@ msgstr "저장"
 
 #: ../menulibre/Dialogs.py:94
 msgid "Do you want to save the changes before leaving this launcher?"
-msgstr ""
-
-#: ../menulibre/Dialogs.py:96
-msgid "If you don't save the launcher, all the changes will be lost."
 msgstr ""
 
 #: ../menulibre/Dialogs.py:111
@@ -416,8 +412,23 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1104
-#: ../menulibre/MenulibreApplication.py:1554
+#: ../menulibre/Dialogs.py:145
+msgid "No Longer Installed"
+msgstr ""
+
+#: ../menulibre/Dialogs.py:146
+msgid ""
+"This launcher has been removed from the system.\n"
+"Selecting the next available item."
+msgstr ""
+
+#: ../menulibre/Dialogs.py:157
+#, python-format
+msgid "Could not find \"%s\" in your PATH."
+msgstr ""
+
+#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1103
+#: ../menulibre/MenulibreApplication.py:1562
 msgid "Separator"
 msgstr ""
 
@@ -662,32 +673,16 @@ msgstr ""
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 
-#. Display a dialog saying this item is missing
-#: ../menulibre/MenulibreApplication.py:1154
-msgid "No Longer Installed"
-msgstr ""
-
-#: ../menulibre/MenulibreApplication.py:1155
-msgid ""
-"This launcher has been removed from the system.\n"
-"Selecting the next available item."
-msgstr ""
-
-#: ../menulibre/MenulibreApplication.py:1254
+#: ../menulibre/MenulibreApplication.py:1252
 msgid "You do not have permission to delete this file."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1490
+#: ../menulibre/MenulibreApplication.py:1498
 msgid "New Launcher"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1536
+#: ../menulibre/MenulibreApplication.py:1544
 msgid "New Directory"
-msgstr ""
-
-#: ../menulibre/MenulibreApplication.py:1906
-#, python-format
-msgid "Could not find \"%s\" in your PATH."
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1928
@@ -724,51 +719,51 @@ msgstr ""
 msgid "A small descriptive blurb about this application."
 msgstr ""
 
-#: ../menulibre/util.py:519
+#: ../menulibre/util.py:558
 #, python-format
 msgid "Unable to load as a key file due to the following error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:527
+#: ../menulibre/util.py:566
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
 #. noqa
-#: ../menulibre/util.py:535
+#: ../menulibre/util.py:574
 msgid "Type key was not found"
 msgstr ""
 
-#: ../menulibre/util.py:538
+#: ../menulibre/util.py:577
 #, python-format
 msgid "Type is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:550
+#: ../menulibre/util.py:589
 #, python-format
 msgid "Try exec program '%s' has not been found in the PATH"
 msgstr ""
 
 #. noqa
-#: ../menulibre/util.py:558
+#: ../menulibre/util.py:597
 msgid "Exec key not found"
 msgstr ""
 
-#: ../menulibre/util.py:564
+#: ../menulibre/util.py:603
 #, python-format
 msgid ""
 "Exec program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:569
+#: ../menulibre/util.py:608
 #, python-format
 msgid "Exec program '%s' has not been found in the PATH"
 msgstr ""
 
 #. At this point the desktop file is valid - execution should never reach
 #. here
-#: ../menulibre/util.py:574
+#: ../menulibre/util.py:613
 msgid "Desktop file is valid??"
 msgstr ""
 
