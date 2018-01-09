@@ -47,41 +47,49 @@ MenuItemTypes = enum(
 
 
 MenuItemKeys = (
-    # Key, Required, Types (MenuItemType)
-    ("Type", True, (0, 1, 2)),
-    ("Version", False, (0, 1, 2)),
-    ("Name", True, (0, 1, 2)),
-    ("GenericName", False, (0, 1, 2)),
-    ("NoDisplay", False, (0, 1, 2)),
-    ("Comment", False, (0, 1, 2)),
-    ("Icon", False, (0, 1, 2)),
-    ("Hidden", False, (0, 1, 2)),
-    ("OnlyShowIn", False, (0, 1, 2)),
-    ("NotShowIn", False, (0, 1, 2)),
-    ("DBusActivatable", False, (0,)),
-    ("TryExec", False, (0,)),
-    ("Exec", True, (0,)),
-    ("Path", False, (0,)),
-    ("Terminal", False, (0,)),
-    ("Actions", False, (0,)),
-    ("MimeType", False, (0,)),
-    ("Categories", False, (0,)),
-    ("Implements", False, (0,)),
-    ("Keywords", False, (0,)),
-    ("StartupNotify", False, (0,)),
-    ("StartupWMClass", False, (0,)),
-    ("URL", True, (1,))
+    # Key, Type, Required, Types (MenuItemType)
+    ("Version", str, False, (0, 1, 2)),
+    ("Type", str, True, (0, 1, 2)),
+    ("Name", str, True, (0, 1, 2)),
+    ("GenericName", str, False, (0, 1, 2)),
+    ("NoDisplay", bool, False, (0, 1, 2)),
+    ("Comment", str, False, (0, 1, 2)),
+    ("Icon", str, False, (0, 1, 2)),
+    ("Hidden", bool, False, (0, 1, 2)),
+    ("OnlyShowIn", list, False, (0, 1, 2)),
+    ("NotShowIn", list, False, (0, 1, 2)),
+    ("DBusActivatable", bool, False, (0,)),
+    ("TryExec", str, False, (0,)),
+    ("Exec", str, True, (0,)),
+    ("Path", str, False, (0,)),
+    ("Terminal", bool, False, (0,)),
+    ("Actions", list, False, (0,)),
+    ("MimeType", list, False, (0,)),
+    ("Categories", list, False, (0,)),
+    ("Implements", list, False, (0,)),
+    ("Keywords", list, False, (0,)),
+    ("StartupNotify", bool, False, (0,)),
+    ("StartupWMClass", str, False, (0,)),
+    ("URL", str, True, (1,))
 )
 
 
 def getRelatedKeys(menu_item_type, key_only=False):
+    if isinstance(menu_item_type, str):
+        if menu_item_type == "Application":
+            menu_item_type = MenuItemTypes.APPLICATION
+        elif menu_item_type == "Link":
+            menu_item_type = MenuItemTypes.LINK
+        elif menu_item_type == "Directory":
+            menu_item_type = MenuItemTypes.DIRECTORY
+
     results = []
     for tup in MenuItemKeys:
-        if menu_item_type in tup[2]:
+        if menu_item_type in tup[3]:
             if key_only:
                 results.append(tup[0])
             else:
-                results.append((tup[0], tup[1]))
+                results.append((tup[0], tup[1], tup[2]))
     return results
 
 

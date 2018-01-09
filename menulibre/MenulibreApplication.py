@@ -26,7 +26,7 @@ import tempfile
 
 from locale import gettext as _
 
-from gi.repository import Gio, GObject, Gtk, Gdk, GdkPixbuf
+from gi.repository import Gio, GLib, GObject, Gtk, Gdk, GdkPixbuf
 
 from . import MenulibreStackSwitcher, MenulibreIconSelection
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
@@ -1353,9 +1353,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         action_groups = []
 
-        # Return None if there are no actions.
+        # Return [] if there are no actions.
         if len(model) == 0:
-            return None
+            return []
 
         # For each row...
         for row in model:
@@ -1570,6 +1570,56 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.treeview.update_menus()
 
+    def list_str_to_list(self, value):
+        if isinstance(value, list):
+            return value
+        values = []
+        for value in value.replace(",", ";").split(";"):
+            value = value.strip()
+            if len(value) > 0:
+                values.append(value)
+        return values
+
+    def write_launcher(self, filename):  # noqa
+        keyfile = GLib.KeyFile.new()
+
+        for key, ktype, required in getRelatedKeys(self.get_value("Type")):
+            if key == "Version":
+                keyfile.set_string("Desktop Entry", "Version", "1.1")
+                continue
+
+            if key == "Actions":
+                action_list = []
+                for name, displayed, command, show in \
+                        self.get_editor_actions():
+                    group_name = "Desktop Action %s" % name
+                    keyfile.set_string(group_name, "Name", displayed)
+                    keyfile.set_string(group_name, "Exec", command)
+                    if show:
+                        action_list.append(name)
+                keyfile.set_string_list("Desktop Entry", key, action_list)
+                continue
+
+            value = self.get_value(key)
+            if ktype == str:
+                if len(value) > 0:
+                    keyfile.set_string("Desktop Entry", key, value)
+            if ktype == float:
+                if value != 0:
+                    keyfile.set_double("Desktop Entry", key, value)
+            if ktype == bool:
+                if value is not False:
+                    keyfile.set_boolean("Desktop Entry", key, value)
+            if ktype == list:
+                value = self.list_str_to_list(value)
+                if len(value) > 0:
+                    keyfile.set_string_list("Desktop Entry", key, value)
+
+        if not keyfile.save_to_file(filename):
+            return False
+
+        return True
+
     def save_launcher(self, temp=False):  # noqa
         """Save the current launcher details, remove from the current directory
         if it no longer has the required category."""
@@ -1618,23 +1668,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.cleanup_categories()
             self.cleanup_actions()
 
-        # Open the file and start writing.
-        with open(filename, 'w') as output:
-            output.write('[Desktop Entry]\n')
-            output.write('Version=1.1\n')
-            for prop in ['Type', 'Name', 'GenericName', 'Comment', 'Icon',
-                         'TryExec', 'Exec', 'Path', 'NoDisplay', 'Hidden',
-                         'OnlyShowIn', 'NotShowIn', 'Categories', 'Keywords',
-                         'MimeType', 'StartupWMClass', 'Implements',
-                         'StartupNotify', 'Terminal', 'DBusActivatable']:
-                value = self.get_value(prop)
-                if value in [True, False]:
-                    value = str(value).lower()
-                if value:
-                    output.write('%s=%s\n' % (prop, value))
-            actions = self.get_editor_actions_string()
-            if actions:
-                output.write(actions)
+        if not self.write_launcher(filename):
+            print("Failed to save %s" % filename)
 
         if temp:
             return filename
@@ -1802,6 +1837,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         superfluous_dirs = (set(launchers_in_top_level_dirs.keys())
                             - required_category_directories)
         _, parent_data = self.treeview.get_parent_row_data()
+
         for directory_name in superfluous_dirs:
 
             # Removing selected launcher from the UI if it is in the current
