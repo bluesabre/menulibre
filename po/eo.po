@@ -49,8 +49,7 @@ msgstr "Ĝenerala nomo"
 msgid ""
 "A list of environments that should not display this entry. You can only use "
 "this key if \"OnlyShowIn\" is not set.\n"
-"Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-"XFCE, Old"
+"Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:8
@@ -62,8 +61,7 @@ msgid ""
 "A list of environments that should display this entry. Other environments "
 "will not display this entry. You can only use this key if \"NotShowIn\" is "
 "not set.\n"
-"Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-"XFCE, Old"
+"Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:11
