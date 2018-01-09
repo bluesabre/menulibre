@@ -586,6 +586,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             'MimeType': builder.get_object('entry_Mimetype'),
             'Keywords': builder.get_object('entry_Keywords'),
             'StartupWMClass': builder.get_object('entry_StartupWMClass'),
+            'Implements': builder.get_object('entry_Implements'),
             'Hidden': builder.get_object('switch_Hidden'),
             'DBusActivatable': builder.get_object('switch_DBusActivatable')
         }
@@ -628,18 +629,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             button.connect('focus-out-event',
                            self.on_NameCommentIcon_focus_out_event)
 
-        # Commit changes to entries when focusing out.
         for widget_name in ['Exec', 'Path', 'GenericName', 'TryExec',
                             'OnlyShowIn', 'NotShowIn', 'MimeType', 'Keywords',
-                            'StartupWMClass']:
+                            'StartupWMClass', 'Implements']:
+
+            # Commit changes to entries when focusing out.
             self.widgets[widget_name].connect('focus-out-event',
                                               self.on_entry_focus_out_event,
                                               widget_name)
 
-        # Enable saving on any edit with an Entry.
-        for widget_name in ['Exec', 'Path', 'GenericName', 'TryExec',
-                            'OnlyShowIn', 'NotShowIn', 'MimeType', 'Keywords',
-                            'StartupWMClass']:
+            # Enable saving on any edit with an Entry.
             self.widgets[widget_name].connect("changed",
                                               self.on_entry_changed,
                                               widget_name)
@@ -1086,7 +1085,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         for key in ['Exec', 'Path', 'Terminal', 'StartupNotify',
                     'NoDisplay', 'GenericName', 'TryExec',
                     'OnlyShowIn', 'NotShowIn', 'MimeType',
-                    'Keywords', 'StartupWMClass', 'Categories',
+                    'Keywords', 'StartupWMClass', 'Implements', 'Categories',
                     'Hidden', 'DBusActivatable']:
                     self.set_value(key, None)
 
@@ -1429,10 +1428,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         elif key == 'Version':
             pass
 
-        # No associated widget for Implements
-        elif key == 'Implements':
-            pass
-
         # Everything else is set by its widget type.
         elif key in self.widgets.keys():
             widget = self.widgets[key]
@@ -1626,12 +1621,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Open the file and start writing.
         with open(filename, 'w') as output:
             output.write('[Desktop Entry]\n')
-            output.write('Version=1.0\n')
+            output.write('Version=1.1\n')
             for prop in ['Type', 'Name', 'GenericName', 'Comment', 'Icon',
                          'TryExec', 'Exec', 'Path', 'NoDisplay', 'Hidden',
                          'OnlyShowIn', 'NotShowIn', 'Categories', 'Keywords',
-                         'MimeType', 'StartupWMClass', 'StartupNotify',
-                         'Terminal', 'DBusActivatable']:
+                         'MimeType', 'StartupWMClass', 'Implements',
+                         'StartupNotify', 'Terminal', 'DBusActivatable']:
                 value = self.get_value(prop)
                 if value in [True, False]:
                     value = str(value).lower()
