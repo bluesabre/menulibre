@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-01-07 13:19-0500\n"
-"PO-Revision-Date: 2018-01-04 04:51+0000\n"
+"POT-Creation-Date: 2018-01-08 22:10-0500\n"
+"PO-Revision-Date: 2018-01-09 01:48+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-01-08 05:23+0000\n"
+"X-Launchpad-Export-Date: 2018-01-09 05:27+0000\n"
 "X-Generator: Launchpad (build 18521)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -49,11 +49,13 @@ msgstr "Bendrinis pavadinimas"
 msgid ""
 "A list of environments that should not display this entry. You can only use "
 "this key if \"OnlyShowIn\" is not set.\n"
-"Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, "
+"Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
 "Aplinkų, kurios neturėtų rodyti šio įrašo, sąrašas. Galite naudoti šį raktą "
 "tik tuo atveju, jei nėra nustatytas \"RodomaTik\".\n"
-"Galimos reikšmės:  Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"Galimos reikšmės:  Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, "
+"Razor, ROX, TDE, Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Not Shown In"
@@ -64,12 +66,14 @@ msgid ""
 "A list of environments that should display this entry. Other environments "
 "will not display this entry. You can only use this key if \"NotShowIn\" is "
 "not set.\n"
-"Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, "
+"Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
 "Aplinkų, kurios turėtų rodyti šį įrašą, sąrašas. Kitos aplinkos šio įrašo "
 "nerodys. Galite naudoti šį raktą tik tuo atveju, jei nėra nustatytas "
 "\"Nerodoma\".\n"
-"Galimos reikšmės:  Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"Galimos reikšmės:  Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, "
+"Razor, ROX, TDE, Unity, XFCE, Old"
 
 #: ../data/ui/MenulibreWindow.ui.h:11
 msgid "Only Shown In"
@@ -152,85 +156,93 @@ msgid "DBUS Activatable"
 msgstr "DBUS aktyvuojamas"
 
 #: ../data/ui/MenulibreWindow.ui.h:25
+msgid "A list of interfaces that this application implements."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:26
+msgid "Implements"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Invalid desktop files detected! Please see details"
 msgstr ""
 "Aptikti neteisingi darbalaukio failai! Prašome žiūrėti išsamesnę informaciją"
 
-#: ../data/ui/MenulibreWindow.ui.h:26
+#: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Browse Icons…"
 msgstr "Naršyti piktogramas..."
 
-#: ../data/ui/MenulibreWindow.ui.h:27
+#: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Browse Files..."
 msgstr "Naršyti failus..."
 
-#: ../data/ui/MenulibreWindow.ui.h:28 ../menulibre/Dialogs.py:39
+#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/Dialogs.py:39
 #: ../menulibre/MenulibreApplication.py:255
 #: ../menulibre/MenulibreApplication.py:294
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
-#: ../data/ui/MenulibreWindow.ui.h:29
+#: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Save Launcher"
 msgstr "Įrašyti leistuką"
 
-#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/MenulibreApplication.py:361
+#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:361
 msgid "Undo"
 msgstr "Atšaukti"
 
-#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/MenulibreApplication.py:368
+#: ../data/ui/MenulibreWindow.ui.h:33 ../menulibre/MenulibreApplication.py:368
 msgid "Redo"
 msgstr "Atstatyti"
 
-#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:375
+#: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/MenulibreApplication.py:375
 msgid "Revert"
 msgstr "Atkurti"
 
-#: ../data/ui/MenulibreWindow.ui.h:33
+#: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Test Launcher"
 msgstr "Išbandyti leistuką"
 
-#: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/MenulibreApplication.py:389
+#: ../data/ui/MenulibreWindow.ui.h:36 ../menulibre/MenulibreApplication.py:389
 msgid "Delete"
 msgstr "Ištrinti"
 
-#: ../data/ui/MenulibreWindow.ui.h:35
+#: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Move Up"
 msgstr "Perkelti aukštyn"
 
-#: ../data/ui/MenulibreWindow.ui.h:36
+#: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Move Down"
 msgstr "Nuleisti žemyn"
 
-#: ../data/ui/MenulibreWindow.ui.h:37
+#: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Sort alphabetically"
 msgstr "Rikiuoti pagal abėcėlę"
 
-#: ../data/ui/MenulibreWindow.ui.h:38
+#: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Sort"
 msgstr "Rikiuoti"
 
-#: ../data/ui/MenulibreWindow.ui.h:39
+#: ../data/ui/MenulibreWindow.ui.h:41
 msgid "<small><i>Filename</i></small>"
 msgstr "<small><i>Failo pavadinimas</i></small>"
 
-#: ../data/ui/MenulibreWindow.ui.h:40
+#: ../data/ui/MenulibreWindow.ui.h:42
 msgid "<big><b>Application Name</b></big>"
 msgstr "<big><b>Programos pavadinimas</b></big>"
 
-#: ../data/ui/MenulibreWindow.ui.h:41
+#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Application Name"
 msgstr "Programos pavadinimas"
 
-#: ../data/ui/MenulibreWindow.ui.h:42
+#: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Application Comment"
 msgstr "Programos komentaras"
 
-#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/MenulibreApplication.py:733
+#: ../data/ui/MenulibreWindow.ui.h:45 ../menulibre/MenulibreApplication.py:732
 msgid "Description"
 msgstr "Aprašas"
 
-#: ../data/ui/MenulibreWindow.ui.h:44
+#: ../data/ui/MenulibreWindow.ui.h:46
 msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable "
 "is not set to \"True\" or if you need compatibility with implementations "
@@ -245,32 +257,32 @@ msgstr ""
 "http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables"
 
-#: ../data/ui/MenulibreWindow.ui.h:46
+#: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Command"
 msgstr "Komanda"
 
-#: ../data/ui/MenulibreWindow.ui.h:47
+#: ../data/ui/MenulibreWindow.ui.h:49
 msgid "The working directory."
 msgstr "Darbinis katalogas"
 
-#: ../data/ui/MenulibreWindow.ui.h:48
+#: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Working Directory"
 msgstr "Darbinis katalogas"
 
-#: ../data/ui/MenulibreWindow.ui.h:49
+#: ../data/ui/MenulibreWindow.ui.h:51
 msgid "<b>Application Details</b>"
 msgstr "<b>Išsamiau apie programą</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:50
+#: ../data/ui/MenulibreWindow.ui.h:52
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
 "Jei nustatyta į \"Tiesa\", tuomet programa bus vykdoma terminalo lange."
 
-#: ../data/ui/MenulibreWindow.ui.h:51
+#: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Run in terminal"
 msgstr "Vykdyti terminale"
 
-#: ../data/ui/MenulibreWindow.ui.h:52
+#: ../data/ui/MenulibreWindow.ui.h:54
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
@@ -279,11 +291,11 @@ msgstr ""
 "Dažniausiai, tai reiškia, kad kol bus paleidžiama programa, žymeklis bus "
 "rodomas kaip užimtas."
 
-#: ../data/ui/MenulibreWindow.ui.h:53
+#: ../data/ui/MenulibreWindow.ui.h:55
 msgid "Use startup notification"
 msgstr "Naudoti paleidimo pranešimą"
 
-#: ../data/ui/MenulibreWindow.ui.h:54
+#: ../data/ui/MenulibreWindow.ui.h:56
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
@@ -291,77 +303,77 @@ msgstr ""
 "Jei nustatyta į \"Tiesa\", tuomet šis įrašas nebus rodomas meniu, tačiau bus "
 "prieinamas MIME tipų susiejimui ir t.t."
 
-#: ../data/ui/MenulibreWindow.ui.h:55
+#: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Hide from menus"
 msgstr "Slėpti iš meniu"
 
-#: ../data/ui/MenulibreWindow.ui.h:56
+#: ../data/ui/MenulibreWindow.ui.h:58
 msgid "<b>Options</b>"
 msgstr "<b>Parinktys</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:57
+#: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Add"
 msgstr "Pridėti"
 
-#: ../data/ui/MenulibreWindow.ui.h:58
+#: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Remove"
 msgstr "Šalinti"
 
-#: ../data/ui/MenulibreWindow.ui.h:59
+#: ../data/ui/MenulibreWindow.ui.h:61
 msgid "Clear"
 msgstr "Išvalyti"
 
-#: ../data/ui/MenulibreWindow.ui.h:60
+#: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Show"
 msgstr "Rodyti"
 
-#: ../data/ui/MenulibreWindow.ui.h:61
+#: ../data/ui/MenulibreWindow.ui.h:63
 msgid "Name"
 msgstr "Pavadinimas"
 
-#: ../data/ui/MenulibreWindow.ui.h:62
+#: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Select an icon…"
 msgstr "Pasirinkite piktogramą..."
 
-#: ../data/ui/MenulibreWindow.ui.h:63 ../menulibre/Dialogs.py:64
+#: ../data/ui/MenulibreWindow.ui.h:65 ../menulibre/Dialogs.py:64
 #: ../menulibre/Dialogs.py:88 ../menulibre/Dialogs.py:105
 #: ../menulibre/Dialogs.py:130 ../menulibre/Dialogs.py:139
 #: ../menulibre/MenulibreIconSelection.py:80
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: ../data/ui/MenulibreWindow.ui.h:64
+#: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Apply"
 msgstr "Taikyti"
 
-#: ../data/ui/MenulibreWindow.ui.h:65
+#: ../data/ui/MenulibreWindow.ui.h:67
 msgid "<b>Select an icon</b>"
 msgstr "<b>Pasirinkite piktogramą</b>"
 
-#: ../data/ui/MenulibreWindow.ui.h:66
+#: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Search"
 msgstr "Ieškoti"
 
-#: ../data/ui/MenulibreWindow.ui.h:67
+#: ../data/ui/MenulibreWindow.ui.h:69
 msgid "column"
 msgstr "stulpelis"
 
-#: ../data/ui/MenulibreWindow.ui.h:68
+#: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Log - Menulibre"
 msgstr "Žurnalas - Menulibre"
 
-#: ../data/ui/MenulibreWindow.ui.h:69
+#: ../data/ui/MenulibreWindow.ui.h:71
 msgid "<big><b>Parsing Errors</b></big>"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:70
+#: ../data/ui/MenulibreWindow.ui.h:72
 msgid ""
 "The following desktop files have failed parsing by the underlying library, "
 "and will therefore not show up in MenuLibre. \n"
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:72
+#: ../data/ui/MenulibreWindow.ui.h:74
 msgid "Search terms…"
 msgstr "Paieškos žodžiai..."
 
@@ -464,8 +476,8 @@ msgstr ""
 msgid "Could not find \"%s\" in your PATH."
 msgstr "Nepavyko jūsų KELYJE rasti \"%s\"."
 
-#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1103
-#: ../menulibre/MenulibreApplication.py:1562
+#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1102
+#: ../menulibre/MenulibreApplication.py:1557
 msgid "Separator"
 msgstr "Skirtukas"
 
@@ -646,7 +658,7 @@ msgid "_Quit"
 msgstr "_Baigti"
 
 #: ../menulibre/MenulibreApplication.py:396
-#: ../menulibre/MenulibreApplication.py:2014
+#: ../menulibre/MenulibreApplication.py:2045
 msgid "Quit"
 msgstr "Baigti"
 
@@ -655,7 +667,7 @@ msgid "_Contents"
 msgstr "Ži_nynas"
 
 #: ../menulibre/MenulibreApplication.py:403
-#: ../menulibre/MenulibreApplication.py:2012
+#: ../menulibre/MenulibreApplication.py:2043
 msgid "Help"
 msgstr "Pagalba"
 
@@ -664,7 +676,7 @@ msgid "_About"
 msgstr "_Apie"
 
 #: ../menulibre/MenulibreApplication.py:410
-#: ../menulibre/MenulibreApplication.py:2013
+#: ../menulibre/MenulibreApplication.py:2044
 msgid "About"
 msgstr "Apie"
 
@@ -680,61 +692,61 @@ msgstr "Veiksmai"
 msgid "Advanced"
 msgstr "Išsamiau"
 
-#: ../menulibre/MenulibreApplication.py:707
+#: ../menulibre/MenulibreApplication.py:706
 msgid "ThisEntry"
 msgstr "ŠisĮrašas"
 
-#: ../menulibre/MenulibreApplication.py:725
+#: ../menulibre/MenulibreApplication.py:724
 msgid "Select a category"
 msgstr "Pasirinkite kategoriją"
 
-#: ../menulibre/MenulibreApplication.py:728
+#: ../menulibre/MenulibreApplication.py:727
 msgid "Category Name"
 msgstr "Kategorijos pavadinimas"
 
-#: ../menulibre/MenulibreApplication.py:828
+#: ../menulibre/MenulibreApplication.py:827
 msgid "This Entry"
 msgstr "Šis įrašas"
 
-#: ../menulibre/MenulibreApplication.py:888
+#: ../menulibre/MenulibreApplication.py:887
 msgid "New Shortcut"
 msgstr "Naujas susiejimas"
 
-#: ../menulibre/MenulibreApplication.py:1034
+#: ../menulibre/MenulibreApplication.py:1033
 msgid "Select a working directory..."
 msgstr "Pasirinkite darbinį katalogą..."
 
-#: ../menulibre/MenulibreApplication.py:1037
+#: ../menulibre/MenulibreApplication.py:1036
 msgid "Select an executable..."
 msgstr "Pasirinkite vykdomąjį..."
 
-#: ../menulibre/MenulibreApplication.py:1059
+#: ../menulibre/MenulibreApplication.py:1058
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 "Nepavyko pridėti pakatalogių į preliminariai įdiegtus sistemos kelius."
 
-#: ../menulibre/MenulibreApplication.py:1252
+#: ../menulibre/MenulibreApplication.py:1251
 msgid "You do not have permission to delete this file."
 msgstr "Jūs neturite leidimo ištrinti šį failą."
 
-#: ../menulibre/MenulibreApplication.py:1498
+#: ../menulibre/MenulibreApplication.py:1493
 msgid "New Launcher"
 msgstr "Naujas leistukas"
 
-#: ../menulibre/MenulibreApplication.py:1544
+#: ../menulibre/MenulibreApplication.py:1539
 msgid "New Directory"
 msgstr "Naujas katalogas"
 
-#: ../menulibre/MenulibreApplication.py:1928
+#: ../menulibre/MenulibreApplication.py:1959
 msgid "Are you sure you want to delete this separator?"
 msgstr "Ar tikrai norite ištrinti šį skirtuką?"
 
-#: ../menulibre/MenulibreApplication.py:1931
+#: ../menulibre/MenulibreApplication.py:1962
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Ar tikrai norite ištrinti \"%s\"?"
 
-#: ../menulibre/MenulibreApplication.py:2007
+#: ../menulibre/MenulibreApplication.py:2038
 msgid "Check for bad desktop files"
 msgstr "Tikrinti ar yra blogų darbalaukio failų"
 
@@ -759,51 +771,51 @@ msgstr "Naujas meniu elementas"
 msgid "A small descriptive blurb about this application."
 msgstr "Trumpas ir aiškus šios programos aprašas."
 
-#: ../menulibre/util.py:558
+#: ../menulibre/util.py:566
 #, python-format
 msgid "Unable to load as a key file due to the following error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:566
+#: ../menulibre/util.py:574
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
 #. noqa
-#: ../menulibre/util.py:574
+#: ../menulibre/util.py:582
 msgid "Type key was not found"
 msgstr ""
 
-#: ../menulibre/util.py:577
+#: ../menulibre/util.py:585
 #, python-format
 msgid "Type is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:589
+#: ../menulibre/util.py:597
 #, python-format
 msgid "Try exec program '%s' has not been found in the PATH"
 msgstr ""
 
 #. noqa
-#: ../menulibre/util.py:597
+#: ../menulibre/util.py:605
 msgid "Exec key not found"
 msgstr ""
 
-#: ../menulibre/util.py:603
+#: ../menulibre/util.py:611
 #, python-format
 msgid ""
 "Exec program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:608
+#: ../menulibre/util.py:616
 #, python-format
 msgid "Exec program '%s' has not been found in the PATH"
 msgstr ""
 
 #. At this point the desktop file is valid - execution should never reach
 #. here
-#: ../menulibre/util.py:613
+#: ../menulibre/util.py:621
 msgid "Desktop file is valid??"
 msgstr ""
 
@@ -851,6 +863,28 @@ msgstr ""
 
 #~ msgid "Copyright © 2012-2014 Sean Davis"
 #~ msgstr "Autorinės Teisės © 2012-2014 Sean Davis"
+
+#~ msgid ""
+#~ "A list of environments that should not display this entry. You can only use "
+#~ "this key if \"OnlyShowIn\" is not set.\n"
+#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+#~ "XFCE, Old"
+#~ msgstr ""
+#~ "Aplinkų, kurios neturėtų rodyti šio įrašo, sąrašas. Galite naudoti šį raktą "
+#~ "tik tuo atveju, jei nėra nustatytas \"RodomaTik\".\n"
+#~ "Galimos reikšmės:  GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
+
+#~ msgid ""
+#~ "A list of environments that should display this entry. Other environments "
+#~ "will not display this entry. You can only use this key if \"NotShowIn\" is "
+#~ "not set.\n"
+#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+#~ "XFCE, Old"
+#~ msgstr ""
+#~ "Aplinkų, kurios turėtų rodyti šį įrašą, sąrašas. Kitos aplinkos šio įrašo "
+#~ "nerodys. Galite naudoti šį raktą tik tuo atveju, jei nėra nustatytas "
+#~ "\"Nerodoma\".\n"
+#~ "Galimos reikšmės:  GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #~ msgid ""
 #~ "\"Keywords\": A list of strings which may be used in addition to other "
