@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-08 22:10-0500\n"
+"POT-Creation-Date: 2018-01-09 05:26-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -614,7 +614,7 @@ msgid "_Quit"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:396
-#: ../menulibre/MenulibreApplication.py:2045
+#: ../menulibre/MenulibreApplication.py:2034
 msgid "Quit"
 msgstr ""
 
@@ -623,7 +623,7 @@ msgid "_Contents"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:403
-#: ../menulibre/MenulibreApplication.py:2043
+#: ../menulibre/MenulibreApplication.py:2032
 msgid "Help"
 msgstr ""
 
@@ -632,7 +632,7 @@ msgid "_About"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:410
-#: ../menulibre/MenulibreApplication.py:2044
+#: ../menulibre/MenulibreApplication.py:2033
 msgid "About"
 msgstr ""
 
@@ -692,16 +692,16 @@ msgstr ""
 msgid "New Directory"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1959
+#: ../menulibre/MenulibreApplication.py:1948
 msgid "Are you sure you want to delete this separator?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1962
+#: ../menulibre/MenulibreApplication.py:1951
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:2038
+#: ../menulibre/MenulibreApplication.py:2027
 msgid "Check for bad desktop files"
 msgstr ""
 

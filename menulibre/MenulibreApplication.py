@@ -1712,47 +1712,36 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         logger.debug("Saving launcher as \"%s\"" % save_filename)
 
         # Get the original contents
-        with open(original_filename, 'r') as original:
-            contents = original.readlines()
+        keyfile = GLib.KeyFile.new()
+        keyfile.load_from_file(original_filename, GLib.KeyFileFlags.NONE)
 
-        # Write the new contents
-        with open(save_filename, 'w') as new:
-            updated_categories = False
-            for line in contents:
-                # Update the first instance of Categories
-                if line.startswith('Categories=') and not updated_categories:
-                    # Cleanup the line
-                    line = line.strip()
+        categories = keyfile.get_string_list("Desktop Entry", "Categories")
+        if categories is None:
+            categories = []
 
-                    # Get the current unmodified values
-                    key, value = line.split('=')
-                    categories = value.split(';')
+        # Remove the old required categories
+        for category in remove:
+            if category in categories:
+                categories.remove(category)
 
-                    # Remove the old required categories
-                    for category in remove:
-                        if category in categories:
-                            categories.remove(category)
+        # Add the new required categories
+        for category in add:
+            if category not in categories:
+                categories.append(category)
 
-                    # Add the new required categories
-                    for category in add:
-                        if category not in categories:
-                            categories.append(category)
+        # Remove empty categories
+        for category in categories:
+            if category.strip() == "":
+                try:
+                    categories.remove(category)
+                except: # noqa
+                    pass
 
-                    # Remove empty categories
-                    for category in categories:
-                        if category.strip() == "":
-                            try:
-                                categories.remove(category)
-                            except: # noqa
-                                pass
+        categories.sort()
 
-                    categories.sort()
-
-                    # Commit the changes
-                    value = ';'.join(categories)
-                    line = 'Categories=' + value + '\n'
-                    updated_categories = True
-                new.write(line)
+        # Commit the changes to a new file
+        keyfile.set_string_list("Desktop Entry", "Categories", categories)
+        keyfile.save_to_file(save_filename)
 
         # Set the editor to the new filename.
         self.set_editor_filename(save_filename)
