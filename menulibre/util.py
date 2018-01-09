@@ -352,7 +352,7 @@ def getDirectoryNameFromCategory(name):  # noqa
     if name == 'Game':
         return 'Games'
 
-    if name == 'Network' and prefix != 'xfce-':
+    if name == 'Network':
         return 'Internet'
 
     if name == 'Utility':
