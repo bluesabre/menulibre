@@ -575,7 +575,11 @@ def validate_desktop_file(desktop_file):  # noqa
     # File is at least a valid keyfile, so can start the real desktop
     # validation
     # Start group validation
-    start_group = keyfile.get_start_group()
+    try:
+        start_group = keyfile.get_start_group()
+    except GLib.Error:
+        start_group = None
+
     if start_group != GLib.KEY_FILE_DESKTOP_GROUP:
         return (_('Start group is invalid - currently \'%s\', should be '
                   '\'%s\'') % (start_group, GLib.KEY_FILE_DESKTOP_GROUP))
@@ -584,7 +588,7 @@ def validate_desktop_file(desktop_file):  # noqa
     try:
         type_key = keyfile.get_string(start_group,
                                       GLib.KEY_FILE_DESKTOP_KEY_TYPE)
-    except:  # noqa
+    except GLib.Error:
         return _('Type key was not found')
 
     if type_key != GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION:
@@ -595,7 +599,7 @@ def validate_desktop_file(desktop_file):  # noqa
     try:
         try_exec = keyfile.get_string(start_group,
                                       GLib.KEY_FILE_DESKTOP_KEY_TRY_EXEC)
-    except:  # noqa
+    except GLib.Error:
         pass
 
     else:
@@ -607,7 +611,7 @@ def validate_desktop_file(desktop_file):  # noqa
     try:
         exec_key = keyfile.get_string(start_group,
                                       GLib.KEY_FILE_DESKTOP_KEY_EXEC)
-    except:  # noqa
+    except GLib.Error:
         return _('Exec key not found')
 
     try:

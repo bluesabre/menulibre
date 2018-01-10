@@ -1716,7 +1716,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         keyfile = GLib.KeyFile.new()
         keyfile.load_from_file(original_filename, GLib.KeyFileFlags.NONE)
 
-        categories = keyfile.get_string_list("Desktop Entry", "Categories")
+        try:
+            categories = keyfile.get_string_list("Desktop Entry", "Categories")
+        except GLib.Error:
+            categories = None
+
         if categories is None:
             categories = []
 
