@@ -65,45 +65,18 @@ class MenulibreDesktopEntry:
         """Get property from this object like a dictionary."""
         return self.get_property('Desktop Entry', prop_name, default_locale)
 
-    def __setitem__(self, prop_name, prop_value):
+    def __setitem__(self, key, value):
         """Set property to this object like a dictionary."""
-        self.properties['Desktop Entry'][prop_name] = prop_value
-        if prop_name in ['Name', 'Comment']:
-            prop_name = "%s[%s]" % (prop_name, default_locale)
-            self.properties['Desktop Entry'][prop_name] = prop_value
+        self._set_value("Desktop Entry", key, value)
+        if key in ["Name", "GenericName", "Comment", "Keywords"]:
+            self._set_locale_string("Desktop Entry", key, default_locale,
+                                    value)
 
     def load_properties(self, filename):
         """Load the properties."""
-        input_file = open(filename, 'r', -1, None, 'ignore')
-        self.load_properties_from_text(input_file.read())
-        input_file.close()
-
-    def load_properties_from_text(self, text):
-        """Load the properties from a string."""
-        current_property = ""
-        self.text = text
-        blank_count = 0
-        for line in text.split('\n'):
-            if line.startswith('[') and line.endswith(']'):
-                current_property = line[1:-1]
-                self.properties[current_property] = OrderedDict()
-                self.properties[current_property][
-                    "*OriginalName"] = current_property.replace(
-                                    ' Shortcut Group', '').replace(
-                                    'Desktop Action ', '')
-            elif '=' in line:
-                try:
-                    key, value = line.split('=', 1)
-                    self.properties[current_property][key] = value
-                except KeyError:
-                    pass
-            elif line.strip() == '':
-                try:
-                    self.properties[current_property]['*Blank%i' %
-                                                      blank_count] = None
-                    blank_count += 1
-                except KeyError:
-                    pass
+        self.keyfile = GLib.KeyFile.new()
+        self.keyfile.load_from_file(filename,
+                                    GLib.KeyFileFlags.KEEP_TRANSLATIONS)
 
     def get_property(self, category, prop_name, locale_str=default_locale):
         """Return the value of the specified property."""
@@ -114,52 +87,103 @@ class MenulibreDesktopEntry:
             return False
         return prop
 
-    def get_named_property(self, category, prop_name, locale_str=None):
+    def get_named_property(self, group, key, locale_str=None):
         """Return the value of the specified named property."""
-        if locale_str:
-            try:
-                return self.properties[category]["%s[%s]" %
-                                                 (prop_name, locale_str)]
-            except KeyError:
-                if '_' in locale_str:
-                    try:
-                        keystr = "%s[%s]" % (prop_name,
-                                             locale_str.split('_')[0])
-                        return self.properties[category][keystr]
-                    except KeyError:
-                        pass
-        try:
-            return self.properties[category][prop_name]
-        except KeyError:
-            return ""
+        if key in ["Name", "GenericName", "Comment", "Keywords"]:
+            if locale_str is not None:
+                return self._get_locale_string(group, key, locale_str)
+
+        value = self._get_value(group, key)
+
+        if value is not None:
+            return value
+
+        return ""
 
     def get_actions(self):
         """Return a list of the Unity action groups."""
+        if "Actions" in self._get_keys("Desktop Entry"):
+            action_key = "Actions"
+        elif "X-Ayatana-Desktop-Shortcuts" in self._get_keys("Desktop Entry"):
+            action_key = "X-Ayatana-Desktop-Shortcuts"
+        else:
+            return []
+
+        enabled_quicklists = self._get_string_list("Desktop Entry", action_key)
+
         quicklists = []
-        if self.get_property('Desktop Entry', 'Actions') != '':
-            enabled_quicklists = self.get_property(
-                'Desktop Entry', 'Actions').split(';')
-            for key in self.properties:
-                if key.startswith('Desktop Action'):
-                    name = key[15:]
-                    displayed_name = self.get_property(key, 'Name')
-                    command = self.get_property(key, 'Exec')
-                    enabled = name in enabled_quicklists
-                    quicklists.append(
-                        (name, displayed_name, command, enabled))
-        elif self.get_property('Desktop Entry',
-                               'X-Ayatana-Desktop-Shortcuts') != '':
-            enabled_quicklists = self.get_property(
-                'Desktop Entry', 'X-Ayatana-Desktop-Shortcuts').split(';')
-            for key in self.properties:
-                if key.endswith('Shortcut Group'):
-                    name = key[:-15]
-                    displayed_name = self.get_property(key, 'Name')
-                    command = self.get_property(key, 'Exec')
-                    enabled = name in enabled_quicklists
-                    quicklists.append(
-                        (name, displayed_name, command, enabled))
+
+        for group in self._get_groups():
+            name = self._get_action_group_name(group)
+            if name is None:
+                continue
+            displayed_name = self.get_property(group, "Name")
+            command = self.get_property(group, "Exec")
+            enabled = name in enabled_quicklists
+            quicklists.append((name, displayed_name, command, enabled))
+
         return quicklists
+
+    def _get_action_group_name(self, group):
+        if group.startswith("Desktop Action "):
+            name = group.replace("Desktop Action", "")
+        elif group.endswith(" Shortcut Group"):
+            name = group.replace("Shortcut Group", "")
+        else:
+            return None
+        name = name.strip()
+        if len(name) > 0:
+            return name
+        return None
+
+    def _get_locale_string(self, group, key, locale_str):
+        try:
+            value = self.keyfile.get_locale_string(group, key, locale_str)
+        except GLib.Error:
+            value = None
+
+        if value is not None:
+            return value
+
+        if '_' in locale_str:
+            locale_str = locale_str.split("_")[0]
+            return self._get_locale_string(group, key, locale_str)
+
+        return self._get_string(group, key)
+
+    def _set_locale_string(self, group, key, locale_str, value):
+        self.keyfile.set_locale_string(group, key, locale_str, value)
+
+    def _get_string(self, group, key):
+        try:
+            value = self.keyfile.get_string(group, key)
+        except GLib.Error:
+            value = None
+        if value is not None:
+            return value
+        return ""
+
+    def _get_value(self, group, key):
+        try:
+            value = self.keyfile.get_value(group, key)
+        except GLib.Error:
+            value = None
+        return value
+
+    def _set_value(self, group, key, value):
+        self.keyfile.set_value(group, key, value)
+
+    def _get_string_list(self, group, key):
+        value = self.keyfile.get_string_list(group, key)
+        if value is not None:
+            return value
+        return []
+
+    def _get_groups(self):
+        return self.keyfile.get_groups()[0]
+
+    def _get_keys(self, group):
+        return self.keyfile.get_keys(group)[0]
 
 
 def desktop_menu_update():
