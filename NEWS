@@ -13,7 +13,7 @@ UNRELEASED, MenuLibre 2.1.4
   . Use switches for Hidden and DBusActivatable keys
   . Include additional non-standard by commonly-used categories
   . Added support for "Implements" key
-  . Added Cinnamon, EDE, LXQt, and Pantheon to list of support ShowIn DEs
+  . Added Cinnamon, EDE, LXQt, and Pantheon to list of supported ShowIn DEs
   . Replaced KeyFile backend with GLib.KeyFile for better support
   . Version key bumped to the 1.1 version of the specification
 - Bug Fixes
