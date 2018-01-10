@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-09 22:24-0500\n"
+"POT-Creation-Date: 2018-01-10 06:12-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -718,11 +718,11 @@ msgstr ""
 msgid "Search Results"
 msgstr ""
 
-#: ../menulibre/MenulibreXdg.py:53
+#: ../menulibre/MenulibreXdg.py:45
 msgid "New Menu Item"
 msgstr ""
 
-#: ../menulibre/MenulibreXdg.py:55
+#: ../menulibre/MenulibreXdg.py:47
 msgid "A small descriptive blurb about this application."
 msgstr ""
 

@@ -17,7 +17,6 @@
 
 import locale
 import os
-from collections import OrderedDict
 from locale import gettext as _
 
 import subprocess
@@ -37,29 +36,21 @@ class MenulibreDesktopEntry:
 
     def __init__(self, filename=None):
         """Initialize the MenulibreDesktopEntry instance."""
-        self.filename = filename
-        self.properties = OrderedDict()
-        self.text = ""
-        if filename:
-            if os.path.isfile(filename):
-                self.load_properties(filename)
-                self.id = os.path.basename(filename)
-            else:
-                pass
+        self.keyfile = GLib.KeyFile.new()
+        if filename is not None and os.path.isfile(filename):
+            self.load_properties(filename)
         else:
-            self.properties['Desktop Entry'] = OrderedDict()
-            self.properties['Desktop Entry']['Version'] = '1.0'
-            self.properties['Desktop Entry']['Type'] = 'Application'
-            self.properties['Desktop Entry']['Name'] = _('New Menu Item')
-            self.properties['Desktop Entry']['Comment'] = _(
+            self['Version'] = '1.1'
+            self['Type'] = 'Application'
+            self['Name'] = _('New Menu Item')
+            self['Comment'] = _(
                 "A small descriptive blurb about this application.")
-            self.properties['Desktop Entry'][
-                'Icon'] = 'application-default-icon'
-            self.properties['Desktop Entry']['Exec'] = ''
-            self.properties['Desktop Entry']['Path'] = ''
-            self.properties['Desktop Entry']['Terminal'] = 'false'
-            self.properties['Desktop Entry']['StartupNotify'] = 'false'
-            self.properties['Desktop Entry']['Categories'] = ''
+            self['Icon'] = 'application-default-icon'
+            self['Exec'] = ''
+            self['Path'] = ''
+            self['Terminal'] = 'false'
+            self['StartupNotify'] = 'false'
+            self['Categories'] = ''
 
     def __getitem__(self, prop_name):
         """Get property from this object like a dictionary."""
@@ -174,16 +165,25 @@ class MenulibreDesktopEntry:
         self.keyfile.set_value(group, key, value)
 
     def _get_string_list(self, group, key):
-        value = self.keyfile.get_string_list(group, key)
+        try:
+            value = self.keyfile.get_string_list(group, key)
+        except GLib.Error:
+            value = None
         if value is not None:
             return value
         return []
 
     def _get_groups(self):
-        return self.keyfile.get_groups()[0]
+        try:
+            return self.keyfile.get_groups()[0]
+        except GLib.Error:
+            return []
 
     def _get_keys(self, group):
-        return self.keyfile.get_keys(group)[0]
+        try:
+            return self.keyfile.get_keys(group)[0]
+        except GLib.Error:
+            return []
 
 
 def desktop_menu_update():
