@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-01-08 22:10-0500\n"
-"PO-Revision-Date: 2017-02-03 12:47+0000\n"
-"Last-Translator: Max <Unknown>\n"
+"POT-Creation-Date: 2018-01-09 22:24-0500\n"
+"PO-Revision-Date: 2018-01-09 01:48+0000\n"
+"Last-Translator: Sean Davis <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-01-09 05:34+0000\n"
+"X-Launchpad-Export-Date: 2018-01-10 05:05+0000\n"
 "X-Generator: Launchpad (build 18521)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -174,8 +174,8 @@ msgid "Browse Files..."
 msgstr "Оглянути файли…"
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/Dialogs.py:39
-#: ../menulibre/MenulibreApplication.py:255
-#: ../menulibre/MenulibreApplication.py:294
+#: ../menulibre/MenulibreApplication.py:256
+#: ../menulibre/MenulibreApplication.py:295
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
@@ -183,15 +183,15 @@ msgstr "MenuLibre"
 msgid "Save Launcher"
 msgstr "Зберегти кнопку запуску"
 
-#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:361
+#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:362
 msgid "Undo"
 msgstr "Відкат"
 
-#: ../data/ui/MenulibreWindow.ui.h:33 ../menulibre/MenulibreApplication.py:368
+#: ../data/ui/MenulibreWindow.ui.h:33 ../menulibre/MenulibreApplication.py:369
 msgid "Redo"
 msgstr "Повторити"
 
-#: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/MenulibreApplication.py:375
+#: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/MenulibreApplication.py:376
 msgid "Revert"
 msgstr "Повернути"
 
@@ -199,7 +199,7 @@ msgstr "Повернути"
 msgid "Test Launcher"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:36 ../menulibre/MenulibreApplication.py:389
+#: ../data/ui/MenulibreWindow.ui.h:36 ../menulibre/MenulibreApplication.py:390
 msgid "Delete"
 msgstr "Видалити"
 
@@ -235,7 +235,7 @@ msgstr "Назва програми"
 msgid "Application Comment"
 msgstr "Коментар"
 
-#: ../data/ui/MenulibreWindow.ui.h:45 ../menulibre/MenulibreApplication.py:732
+#: ../data/ui/MenulibreWindow.ui.h:45 ../menulibre/MenulibreApplication.py:733
 msgid "Description"
 msgstr "Опис"
 
@@ -422,7 +422,7 @@ msgid "Don't Save"
 msgstr "Не зберігати"
 
 #: ../menulibre/Dialogs.py:89 ../menulibre/Dialogs.py:106
-#: ../menulibre/MenulibreApplication.py:354
+#: ../menulibre/MenulibreApplication.py:355
 msgid "Save"
 msgstr "Зберегти"
 
@@ -471,275 +471,275 @@ msgstr ""
 msgid "Could not find \"%s\" in your PATH."
 msgstr ""
 
-#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1102
-#: ../menulibre/MenulibreApplication.py:1557
+#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1103
+#: ../menulibre/MenulibreApplication.py:1558
 msgid "Separator"
 msgstr "Розділювач"
 
 #. Standard Items
-#: ../menulibre/MenulibreApplication.py:46
+#: ../menulibre/MenulibreApplication.py:47
 msgid "Multimedia"
 msgstr "Мультимедіа"
 
-#: ../menulibre/MenulibreApplication.py:47
+#: ../menulibre/MenulibreApplication.py:48
 msgid "Development"
 msgstr "Розробка"
 
-#: ../menulibre/MenulibreApplication.py:48
+#: ../menulibre/MenulibreApplication.py:49
 msgid "Education"
 msgstr "Навчання"
 
-#: ../menulibre/MenulibreApplication.py:49
+#: ../menulibre/MenulibreApplication.py:50
 msgid "Games"
 msgstr "Ігри"
 
-#: ../menulibre/MenulibreApplication.py:50
+#: ../menulibre/MenulibreApplication.py:51
 msgid "Graphics"
 msgstr "Графіка"
 
-#: ../menulibre/MenulibreApplication.py:51
+#: ../menulibre/MenulibreApplication.py:52
 msgid "Internet"
 msgstr "Інтернет"
 
-#: ../menulibre/MenulibreApplication.py:52
+#: ../menulibre/MenulibreApplication.py:53
 msgid "Office"
 msgstr "Офісні"
 
-#: ../menulibre/MenulibreApplication.py:53
+#: ../menulibre/MenulibreApplication.py:54
 msgid "Settings"
 msgstr "Налаштування"
 
-#: ../menulibre/MenulibreApplication.py:54
+#: ../menulibre/MenulibreApplication.py:55
 msgid "System"
 msgstr "Система"
 
-#: ../menulibre/MenulibreApplication.py:55
+#: ../menulibre/MenulibreApplication.py:56
 msgid "Accessories"
 msgstr "Інструменти"
 
-#: ../menulibre/MenulibreApplication.py:56
+#: ../menulibre/MenulibreApplication.py:57
 msgid "WINE"
 msgstr "Wine"
 
 #. Desktop Environment
-#: ../menulibre/MenulibreApplication.py:58
+#: ../menulibre/MenulibreApplication.py:59
 msgid "Desktop configuration"
 msgstr "Налаштування стільниці"
 
-#: ../menulibre/MenulibreApplication.py:59
+#: ../menulibre/MenulibreApplication.py:60
 msgid "User configuration"
 msgstr "Налаштування користувача"
 
-#: ../menulibre/MenulibreApplication.py:60
+#: ../menulibre/MenulibreApplication.py:61
 msgid "Hardware configuration"
 msgstr "Налаштування пристроїв"
 
 #. GNOME Specific
-#: ../menulibre/MenulibreApplication.py:62
+#: ../menulibre/MenulibreApplication.py:63
 msgid "GNOME application"
 msgstr "Програма GNOME"
 
-#: ../menulibre/MenulibreApplication.py:63
+#: ../menulibre/MenulibreApplication.py:64
 msgid "GTK+ application"
 msgstr "Програма GTK+"
 
-#: ../menulibre/MenulibreApplication.py:64
+#: ../menulibre/MenulibreApplication.py:65
 msgid "GNOME user configuration"
 msgstr "Налаштування користувача GNOME"
 
-#: ../menulibre/MenulibreApplication.py:65
+#: ../menulibre/MenulibreApplication.py:66
 msgid "GNOME hardware configuration"
 msgstr "Налаштування пристроїв GNOME"
 
-#: ../menulibre/MenulibreApplication.py:66
 #: ../menulibre/MenulibreApplication.py:67
+#: ../menulibre/MenulibreApplication.py:68
 msgid "GNOME system configuration"
 msgstr "Налаштування системи GNOME"
 
 #. Xfce Specific
-#: ../menulibre/MenulibreApplication.py:69
 #: ../menulibre/MenulibreApplication.py:70
+#: ../menulibre/MenulibreApplication.py:71
 msgid "Xfce menu item"
 msgstr "Пункт меню Xfce"
 
-#: ../menulibre/MenulibreApplication.py:71
+#: ../menulibre/MenulibreApplication.py:72
 msgid "Xfce toplevel menu item"
 msgstr "Пункт меню Xfce верхного рівня"
 
-#: ../menulibre/MenulibreApplication.py:72
+#: ../menulibre/MenulibreApplication.py:73
 msgid "Xfce user configuration"
 msgstr "Налаштування користувача Xfce"
 
-#: ../menulibre/MenulibreApplication.py:73
+#: ../menulibre/MenulibreApplication.py:74
 msgid "Xfce hardware configuration"
 msgstr "Налаштування пристроїв Xfce"
 
-#: ../menulibre/MenulibreApplication.py:74
 #: ../menulibre/MenulibreApplication.py:75
+#: ../menulibre/MenulibreApplication.py:76
 msgid "Xfce system configuration"
 msgstr "Налаштування системи Xfce"
 
-#: ../menulibre/MenulibreApplication.py:126
-#: ../menulibre/MenulibreApplication.py:171
+#: ../menulibre/MenulibreApplication.py:127
+#: ../menulibre/MenulibreApplication.py:172
 msgid "Other"
 msgstr "Інше"
 
-#: ../menulibre/MenulibreApplication.py:230
+#: ../menulibre/MenulibreApplication.py:231
 msgid "MenuLibre cannot be run as root."
 msgstr "Не вдалося запустити MenuLibre з правами root."
 
-#: ../menulibre/MenulibreApplication.py:232
+#: ../menulibre/MenulibreApplication.py:233
 #, python-format
 msgid ""
 "Please see the <a href='%s'>online documentation</a> for more information."
 msgstr "Подробиці в <a href='%s'>онлайн-справці</a>"
 
-#: ../menulibre/MenulibreApplication.py:332
+#: ../menulibre/MenulibreApplication.py:333
 msgid "Add _Launcher..."
 msgstr "Додати кнопку _запуску"
 
-#: ../menulibre/MenulibreApplication.py:333
+#: ../menulibre/MenulibreApplication.py:334
 msgid "Add Launcher..."
 msgstr "Додати кнопку запуску..."
 
-#: ../menulibre/MenulibreApplication.py:339
+#: ../menulibre/MenulibreApplication.py:340
 msgid "Add _Directory..."
 msgstr "Додати _теку"
 
-#: ../menulibre/MenulibreApplication.py:340
+#: ../menulibre/MenulibreApplication.py:341
 msgid "Add Directory..."
 msgstr "Додати теку"
 
-#: ../menulibre/MenulibreApplication.py:346
+#: ../menulibre/MenulibreApplication.py:347
 msgid "_Add Separator..."
 msgstr "_Додати розділювач..."
 
-#: ../menulibre/MenulibreApplication.py:347
+#: ../menulibre/MenulibreApplication.py:348
 msgid "Add Separator..."
 msgstr "Додати розділювач..."
 
-#: ../menulibre/MenulibreApplication.py:353
+#: ../menulibre/MenulibreApplication.py:354
 msgid "_Save"
 msgstr "_Зберегти"
 
-#: ../menulibre/MenulibreApplication.py:360
+#: ../menulibre/MenulibreApplication.py:361
 msgid "_Undo"
 msgstr "_Скасувати"
 
-#: ../menulibre/MenulibreApplication.py:367
+#: ../menulibre/MenulibreApplication.py:368
 msgid "_Redo"
 msgstr "_Повторити"
 
-#: ../menulibre/MenulibreApplication.py:374
+#: ../menulibre/MenulibreApplication.py:375
 msgid "_Revert"
 msgstr "_Відновити"
 
-#: ../menulibre/MenulibreApplication.py:381
+#: ../menulibre/MenulibreApplication.py:382
 msgid "_Execute"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:382
+#: ../menulibre/MenulibreApplication.py:383
 msgid "Execute Launcher"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:388
+#: ../menulibre/MenulibreApplication.py:389
 msgid "_Delete"
 msgstr "_Вилучити"
 
-#: ../menulibre/MenulibreApplication.py:395
+#: ../menulibre/MenulibreApplication.py:396
 msgid "_Quit"
 msgstr "_Вийти"
 
-#: ../menulibre/MenulibreApplication.py:396
-#: ../menulibre/MenulibreApplication.py:2045
+#: ../menulibre/MenulibreApplication.py:397
+#: ../menulibre/MenulibreApplication.py:2035
 msgid "Quit"
 msgstr "Вийти"
 
-#: ../menulibre/MenulibreApplication.py:402
+#: ../menulibre/MenulibreApplication.py:403
 msgid "_Contents"
 msgstr "_Зміст"
 
-#: ../menulibre/MenulibreApplication.py:403
-#: ../menulibre/MenulibreApplication.py:2043
+#: ../menulibre/MenulibreApplication.py:404
+#: ../menulibre/MenulibreApplication.py:2033
 msgid "Help"
 msgstr "Довідка"
 
-#: ../menulibre/MenulibreApplication.py:409
+#: ../menulibre/MenulibreApplication.py:410
 msgid "_About"
 msgstr "_Про програму"
 
-#: ../menulibre/MenulibreApplication.py:410
-#: ../menulibre/MenulibreApplication.py:2044
+#: ../menulibre/MenulibreApplication.py:411
+#: ../menulibre/MenulibreApplication.py:2034
 msgid "About"
 msgstr "Про програму"
 
-#: ../menulibre/MenulibreApplication.py:553
+#: ../menulibre/MenulibreApplication.py:554
 msgid "Categories"
 msgstr "Категорії"
 
-#: ../menulibre/MenulibreApplication.py:555
+#: ../menulibre/MenulibreApplication.py:556
 msgid "Actions"
 msgstr "Дії"
 
-#: ../menulibre/MenulibreApplication.py:557
+#: ../menulibre/MenulibreApplication.py:558
 msgid "Advanced"
 msgstr "Розширені"
 
-#: ../menulibre/MenulibreApplication.py:706
+#: ../menulibre/MenulibreApplication.py:707
 msgid "ThisEntry"
 msgstr "Цей запис"
 
-#: ../menulibre/MenulibreApplication.py:724
+#: ../menulibre/MenulibreApplication.py:725
 msgid "Select a category"
 msgstr "Виберіть категорію"
 
-#: ../menulibre/MenulibreApplication.py:727
+#: ../menulibre/MenulibreApplication.py:728
 msgid "Category Name"
 msgstr "Назва категорії"
 
-#: ../menulibre/MenulibreApplication.py:827
+#: ../menulibre/MenulibreApplication.py:828
 msgid "This Entry"
 msgstr "Цей запис"
 
-#: ../menulibre/MenulibreApplication.py:887
+#: ../menulibre/MenulibreApplication.py:888
 msgid "New Shortcut"
 msgstr "Новий ярлик"
 
-#: ../menulibre/MenulibreApplication.py:1033
+#: ../menulibre/MenulibreApplication.py:1034
 msgid "Select a working directory..."
 msgstr "Виберіть робочу теку..."
 
-#: ../menulibre/MenulibreApplication.py:1036
+#: ../menulibre/MenulibreApplication.py:1037
 msgid "Select an executable..."
 msgstr "Виберіть виконуючий файл ..."
 
-#: ../menulibre/MenulibreApplication.py:1058
+#: ../menulibre/MenulibreApplication.py:1059
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 "Неможливо додати підкаталоги в попередньо встановлені системні шляхи."
 
-#: ../menulibre/MenulibreApplication.py:1251
+#: ../menulibre/MenulibreApplication.py:1252
 msgid "You do not have permission to delete this file."
 msgstr "Для видалення пункту необхідні права root"
 
-#: ../menulibre/MenulibreApplication.py:1493
+#: ../menulibre/MenulibreApplication.py:1494
 msgid "New Launcher"
 msgstr "Нова кнопка запуску"
 
-#: ../menulibre/MenulibreApplication.py:1539
+#: ../menulibre/MenulibreApplication.py:1540
 msgid "New Directory"
 msgstr "Нова тека"
 
-#: ../menulibre/MenulibreApplication.py:1959
+#: ../menulibre/MenulibreApplication.py:1949
 msgid "Are you sure you want to delete this separator?"
 msgstr "Видалити розділювач?"
 
-#: ../menulibre/MenulibreApplication.py:1962
+#: ../menulibre/MenulibreApplication.py:1952
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Ви дійсно бажаєте видалити \"%s\"?"
 
-#: ../menulibre/MenulibreApplication.py:2038
+#: ../menulibre/MenulibreApplication.py:2028
 msgid "Check for bad desktop files"
 msgstr ""
 
@@ -764,51 +764,51 @@ msgstr "Новий пункт меню"
 msgid "A small descriptive blurb about this application."
 msgstr "Короткий опис програми."
 
-#: ../menulibre/util.py:566
+#: ../menulibre/util.py:572
 #, python-format
 msgid "Unable to load as a key file due to the following error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:574
+#: ../menulibre/util.py:580
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
 #. noqa
-#: ../menulibre/util.py:582
+#: ../menulibre/util.py:588
 msgid "Type key was not found"
 msgstr ""
 
-#: ../menulibre/util.py:585
+#: ../menulibre/util.py:591
 #, python-format
 msgid "Type is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:597
+#: ../menulibre/util.py:603
 #, python-format
 msgid "Try exec program '%s' has not been found in the PATH"
 msgstr ""
 
 #. noqa
-#: ../menulibre/util.py:605
+#: ../menulibre/util.py:611
 msgid "Exec key not found"
 msgstr ""
 
-#: ../menulibre/util.py:611
+#: ../menulibre/util.py:617
 #, python-format
 msgid ""
 "Exec program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:616
+#: ../menulibre/util.py:622
 #, python-format
 msgid "Exec program '%s' has not been found in the PATH"
 msgstr ""
 
 #. At this point the desktop file is valid - execution should never reach
 #. here
-#: ../menulibre/util.py:621
+#: ../menulibre/util.py:627
 msgid "Desktop file is valid??"
 msgstr ""
 
@@ -850,27 +850,6 @@ msgstr ""
 
 #~ msgid "Browse…"
 #~ msgstr "Огляд…"
-
-#~ msgid ""
-#~ "A list of environments that should not display this entry. You can only use "
-#~ "this key if \"OnlyShowIn\" is not set.\n"
-#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-#~ "XFCE, Old"
-#~ msgstr ""
-#~ "Список оточень, в яких пункт меню не буде відображатися. Використання ключа "
-#~ "можливо тільки в разі, якщо не встановлено ключ OnlyShowIn\n"
-#~ "Можливі значення: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
-
-#~ msgid ""
-#~ "A list of environments that should display this entry. Other environments "
-#~ "will not display this entry. You can only use this key if \"NotShowIn\" is "
-#~ "not set.\n"
-#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-#~ "XFCE, Old"
-#~ msgstr ""
-#~ "Список оточень, в яких пункт меню буде відображатися. Використання ключа "
-#~ "можливо тільки в разі, якщо не встановлено ключ NotShowIn\n"
-#~ "Можливі значення: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #~ msgid "If you don't save the launcher, all the changes will be lost.'"
 #~ msgstr "Якщо не зберегти кнопку запуску всі зміни будуть втрачені."
