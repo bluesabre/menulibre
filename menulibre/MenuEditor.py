@@ -35,7 +35,7 @@ gi.require_version('GMenu', '3.0')  # noqa
 from gi.repository import GdkPixbuf, Gio, GLib, GMenu, Gtk
 
 from . import util
-from .util import MenuItemTypes
+from .util import MenuItemTypes, escapeText
 
 locale.textdomain('menulibre')
 
@@ -96,7 +96,7 @@ def menu_to_treestore(treestore, parent, menu_items):
         else:
             displayed_name = escape(item[2]['display_name'])
             show = item[2]['show']
-            tooltip = item[2]['comment']
+            tooltip = escapeText(item[2]['comment'])
             categories = item[2]['categories']
             icon = item[2]['icon']
             filename = item[2]['filename']

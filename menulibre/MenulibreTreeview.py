@@ -22,7 +22,7 @@ from locale import gettext as _
 from gi.repository import Gio, GObject, Gtk, Pango, GLib
 
 from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
-from .util import MenuItemTypes, check_keypress, getBasename
+from .util import MenuItemTypes, check_keypress, getBasename, escapeText
 
 import logging
 logger = logging.getLogger('menulibre')
@@ -301,7 +301,7 @@ class Treeview(GObject.GObject):
         """Update the application treeview selected row data."""
         model, treeiter = self._get_selected_iter()
         model[treeiter][0] = name
-        model[treeiter][1] = comment
+        model[treeiter][1] = escapeText(comment)
         model[treeiter][2] = categories
         model[treeiter][3] = item_type
         if os.path.isfile(icon_name):

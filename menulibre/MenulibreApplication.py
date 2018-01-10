@@ -32,6 +32,7 @@ from . import MenulibreStackSwitcher, MenulibreIconSelection
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, MenulibreLog
 from .util import MenuItemTypes, check_keypress, getBasename, getRelatedKeys
+from .util import escapeText
 import menulibre_lib
 
 import logging
@@ -1401,10 +1402,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 value = ""
             button, label, entry = self.widgets[key]
             if key == 'Name':
-                markup = "<big><b>%s</b></big>" % (value)
+                markup = "<big><b>%s</b></big>" % escapeText(value)
             else:
                 markup = "%s" % (value)
-            tooltip = "%s <i>(Click to modify.)</i>" % (value)
+            tooltip = "%s <i>(Click to modify.)</i>" % escapeText(value)
 
             button.set_tooltip_markup(tooltip)
             entry.set_text(value)
