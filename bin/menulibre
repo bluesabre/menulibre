@@ -20,6 +20,7 @@ locale.textdomain('menulibre')
 
 import sys
 import os
+import signal
 
 import gi
 gi.require_version('Gtk', '3.0')
@@ -36,6 +37,9 @@ PROJECT_ROOT_DIRECTORY = os.path.abspath(
 
 # Add project root directory to python search path
 sys.path.append(PROJECT_ROOT_DIRECTORY)
+
+# Allow application shutdown with Ctrl-C in terminal
+signal.signal(signal.SIGINT, signal.SIG_DFL)
 
 import menulibre
 menulibre.main()
