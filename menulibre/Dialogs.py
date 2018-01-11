@@ -163,3 +163,20 @@ class NotFoundInPathDialog(Gtk.MessageDialog):
 
     def response_cb(self, widget, user_data):
         widget.destroy()
+
+
+class SaveErrorDialog(Gtk.MessageDialog):
+    def __init__(self, parent, filename):
+        err = _("Failed to save \"%s\".") % filename
+        secondary = \
+            _("Do you have write permission to the file and directory?")
+
+        Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
+                                   message_type=Gtk.MessageType.ERROR,
+                                   buttons=Gtk.ButtonsType.OK,
+                                   text=err)
+        self.format_secondary_markup(secondary)
+        self.connect("response", self.response_cb)
+
+    def response_cb(self, widget, user_data):
+        widget.destroy()

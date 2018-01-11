@@ -1629,7 +1629,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 if len(value) > 0:
                     keyfile.set_string_list("Desktop Entry", key, value)
 
-        if not keyfile.save_to_file(filename):
+        try:
+            if not keyfile.save_to_file(filename):
+                return False
+        except GLib.Error:
             return False
 
         return True
@@ -1683,7 +1686,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.cleanup_actions()
 
         if not self.write_launcher(filename):
-            print("Failed to save %s" % filename)
+            dlg = Dialogs.SaveErrorDialog(self, filename)
+            dlg.run()
+            return
 
         if temp:
             return filename
