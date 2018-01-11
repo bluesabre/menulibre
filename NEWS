@@ -23,6 +23,13 @@ UNRELEASED, MenuLibre 2.1.4
     (LP: #1315880)
   . Some categories cannot be removed from a launcher (LP: #1307002)
   . Make hidden items italic (LP: #1310261)
+  . Exit application when Ctrl-C is pressed in the terminal (LP: #1702725)
+  . Catch exceptions when saving and display an error (LP: #1444668)
+  . Automatically replace ~ with full home directory (LP: #1732099)
+  . TypeError when adding a launcher and nothing is selected in the directory
+    view (LP: #1556664)
+  . Limit when items can be moved up or down, preventing subdirectories from
+    leaving parent directories
   . Fix display of newly hidden directories
   . Fix markup errors in tooltips and labels
 - Updated Translations:
