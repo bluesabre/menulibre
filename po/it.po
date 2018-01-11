@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-09 22:24-0500\n"
-"PO-Revision-Date: 2016-06-23 22:23+0000\n"
-"Last-Translator: enrico <milanesi.enrico@gmail.com>\n"
+"POT-Creation-Date: 2018-01-10 18:28-0500\n"
+"PO-Revision-Date: 2018-01-09 01:48+0000\n"
+"Last-Translator: Man from Mars <manfrommars@libero.it>\n"
 "Language-Team: Italian <it@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-01-10 05:11+0000\n"
+"X-Launchpad-Export-Date: 2018-01-11 04:47+0000\n"
 "X-Generator: Launchpad (build 18521)\n"
 "Language: it\n"
 
@@ -656,7 +656,7 @@ msgid "_Quit"
 msgstr "_Esci"
 
 #: ../menulibre/MenulibreApplication.py:397
-#: ../menulibre/MenulibreApplication.py:2035
+#: ../menulibre/MenulibreApplication.py:2039
 msgid "Quit"
 msgstr "Esci"
 
@@ -665,7 +665,7 @@ msgid "_Contents"
 msgstr "_Contenuti"
 
 #: ../menulibre/MenulibreApplication.py:404
-#: ../menulibre/MenulibreApplication.py:2033
+#: ../menulibre/MenulibreApplication.py:2037
 msgid "Help"
 msgstr "Aiuto"
 
@@ -674,7 +674,7 @@ msgid "_About"
 msgstr "_Informazioni"
 
 #: ../menulibre/MenulibreApplication.py:411
-#: ../menulibre/MenulibreApplication.py:2034
+#: ../menulibre/MenulibreApplication.py:2038
 msgid "About"
 msgstr "Informazioni"
 
@@ -735,16 +735,16 @@ msgstr "Nuovo lanciatore"
 msgid "New Directory"
 msgstr "Nuova Directory"
 
-#: ../menulibre/MenulibreApplication.py:1949
+#: ../menulibre/MenulibreApplication.py:1953
 msgid "Are you sure you want to delete this separator?"
 msgstr "Sei sicuro di voler cancellare questo separatore?"
 
-#: ../menulibre/MenulibreApplication.py:1952
+#: ../menulibre/MenulibreApplication.py:1956
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Siete sicuri di voler eliminare \"%s\"?"
 
-#: ../menulibre/MenulibreApplication.py:2028
+#: ../menulibre/MenulibreApplication.py:2032
 msgid "Check for bad desktop files"
 msgstr ""
 
@@ -761,11 +761,11 @@ msgstr "Immagini"
 msgid "Search Results"
 msgstr "Risultati della ricerca"
 
-#: ../menulibre/MenulibreXdg.py:53
+#: ../menulibre/MenulibreXdg.py:45
 msgid "New Menu Item"
 msgstr "Nuovo elemento di menu"
 
-#: ../menulibre/MenulibreXdg.py:55
+#: ../menulibre/MenulibreXdg.py:47
 msgid "A small descriptive blurb about this application."
 msgstr "Un breve testo descrittivo di questa applicazione."
 
@@ -774,46 +774,44 @@ msgstr "Un breve testo descrittivo di questa applicazione."
 msgid "Unable to load as a key file due to the following error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:580
+#: ../menulibre/util.py:584
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#. noqa
-#: ../menulibre/util.py:588
+#: ../menulibre/util.py:592
 msgid "Type key was not found"
 msgstr ""
 
-#: ../menulibre/util.py:591
+#: ../menulibre/util.py:595
 #, python-format
 msgid "Type is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:603
+#: ../menulibre/util.py:607
 #, python-format
 msgid "Try exec program '%s' has not been found in the PATH"
 msgstr ""
 
-#. noqa
-#: ../menulibre/util.py:611
+#: ../menulibre/util.py:615
 msgid "Exec key not found"
 msgstr ""
 
-#: ../menulibre/util.py:617
+#: ../menulibre/util.py:621
 #, python-format
 msgid ""
 "Exec program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:622
+#: ../menulibre/util.py:626
 #, python-format
 msgid "Exec program '%s' has not been found in the PATH"
 msgstr ""
 
 #. At this point the desktop file is valid - execution should never reach
 #. here
-#: ../menulibre/util.py:627
+#: ../menulibre/util.py:631
 msgid "Desktop file is valid??"
 msgstr ""
 
