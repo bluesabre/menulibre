@@ -1019,7 +1019,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 # Store entry values when they lose focus.
     def on_entry_focus_out_event(self, widget, event, widget_name):
         """Store the new value in the history when changing fields."""
-        self.set_value(widget_name, widget.get_text())
+        text = widget.get_text()
+        if "~" in text:
+            text = os.path.expanduser(text)
+        self.set_value(widget_name, text)
 
     def on_entry_changed(self, widget, widget_name):
         """Enable saving when an entry has been modified."""

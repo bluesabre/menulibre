@@ -550,6 +550,23 @@ def determine_bad_desktop_files():
     return bad_desktop_files
 
 
+def find_program(program):
+    program = program.strip()
+    if len(program) == 0:
+        return None
+
+    params = list(GLib.shell_parse_argv(program)[1])
+    executable = params[0]
+
+    if os.path.exists(executable):
+        return executable
+
+    path = GLib.find_program_in_path(executable)
+    if path is not None:
+        return path
+
+    return None
+
 def validate_desktop_file(desktop_file):  # noqa
     """Validate a known-bad desktop file in the same way GMenu/glib does, to
     give a user real information about why certain files are broken."""
@@ -603,9 +620,14 @@ def validate_desktop_file(desktop_file):  # noqa
         pass
 
     else:
-        if GLib.find_program_in_path(try_exec) is None:
-            return (_('Try exec program \'%s\' has not been found in the'
-                      ' PATH') % try_exec)
+        try:
+            if len(try_exec) > 0 and find_program(try_exec) is None:
+                return (_('Try exec program \'%s\' has not been found in the'
+                          ' PATH') % try_exec)
+        except Exception as e:
+            return (_('Try exec program \'%s\' is not a valid shell command '
+                      'according to GLib.shell_parse_argv, error: %s')
+                    % (try_exec, e))
 
     # Validating executable
     try:
@@ -615,16 +637,13 @@ def validate_desktop_file(desktop_file):  # noqa
         return _('Exec key not found')
 
     try:
-        GLib.shell_parse_argv(exec_key)
-
+        if find_program(exec_key) is None:
+            return (_('Exec program \'%s\' has not been found in the PATH')
+                    % exec_key)
     except Exception as e:
         return (_('Exec program \'%s\' is not a valid shell command '
                   'according to GLib.shell_parse_argv, error: %s')
                 % (exec_key, e))
-
-    if GLib.find_program_in_path(exec_key) is None:
-        return (_('Exec program \'%s\' has not been found in the PATH')
-                % exec_key)
 
     # At this point the desktop file is valid - execution should never reach
     # here
