@@ -1520,6 +1520,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         model, parent_data = self.treeview.get_parent_row_data()
         model, row_data = self.treeview.get_selected_row_data()
 
+        # Exit early if no row is selected (LP #1556664)
+        if not row_data:
+            return
+
         # Add to the treeview on the current level or as a child of a selected
         # directory
         dir_selected = row_data[3] == MenuItemTypes.DIRECTORY
