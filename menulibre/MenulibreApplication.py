@@ -1804,6 +1804,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             categories = []
         filename = row_data[6]
 
+        required_category_directories = set()
+
         # Obtaining a dictionary of iters to launcher instances in top-level
         # directories
         launcher_instances = self.treeview._get_launcher_instances(filename)
@@ -1816,6 +1818,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             _, parent = self.treeview.get_parent(model, instance)
             if (parent is not None and
                     model[parent][3] == MenuItemTypes.DIRECTORY):
+
+                # Any direct parents are required directories.
+                required_category_directories.add(model[parent][0])
 
                 # Adding if the directory returned is top level
                 _, parent_parent = self.treeview.get_parent(model, parent)
@@ -1832,7 +1837,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # detail level, this needs to be converted to the parent group name,
         # and this needs to be converted into the directory name as it would
         # appear in the menu
-        required_category_directories = set()
         for category in categories:
             if category not in category_lookup.keys():
                 continue
