@@ -1162,8 +1162,21 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         if self.treeview.get_parent()[1] is None:
             self.treeview.set_sortable(False)
+            move_up_enabled = not self.treeview.is_first()
+            move_down_enabled = not self.treeview.is_last()
         else:
             self.treeview.set_sortable(True)
+            if item_type == MenuItemTypes.APPLICATION or \
+                    item_type == MenuItemTypes.LINK or \
+                    item_type == MenuItemTypes.SEPARATOR:
+                move_up_enabled = True
+                move_down_enabled = True
+            else:
+                move_up_enabled = not self.treeview.is_first()
+                move_down_enabled = not self.treeview.is_last()
+
+        self.treeview.set_move_up_enabled(move_up_enabled)
+        self.treeview.set_move_down_enabled(move_down_enabled)
 
         # Remove this item if it happens to be gone.
         if missing:

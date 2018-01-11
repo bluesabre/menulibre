@@ -111,9 +111,17 @@ class Treeview(GObject.GObject):
         sort = builder.get_object('classic_view_sort')
         sort.connect('clicked', self._sort_iter)
         self._sort_button = sort
+        self._move_up_button = move_up
+        self._move_down_button = move_down
 
     def set_sortable(self, sortable):
         self._sort_button.set_sensitive(sortable)
+
+    def set_move_up_enabled(self, enabled):
+        self._move_up_button.set_sensitive(enabled)
+
+    def set_move_down_enabled(self, enabled):
+        self._move_down_button.set_sensitive(enabled)
 
 # TreeView Modifiers
     def append(self, row_data):
@@ -252,6 +260,38 @@ class Treeview(GObject.GObject):
                     except:  # noqa
                         parent = None
         return model, parent
+
+    def is_first(self, model=None, treeiter=None):
+        if model is None:
+            model, treeiter = self._get_selected_iter()
+        if treeiter:
+            path = model.get_path(treeiter)
+            if path.prev():
+                return False
+        return True
+
+    def _next(self, model, treeiter, path):
+        # path.next() seems to be broken, so we will do it ourselves.
+        try:
+            string = path.to_string()
+            parts = string.split(":")
+            parts[-1] = str(int(parts[-1])+1)
+            string = ":".join(parts)
+            path = Gtk.TreePath.new_from_string(string)
+            model.get_iter(path)
+        except (TypeError, ValueError):
+            return None
+        return path
+
+    def is_last(self, model=None, treeiter=None):
+        if model is None:
+            model, treeiter = self._get_selected_iter()
+        if treeiter:
+            path = model.get_path(treeiter)
+
+            if self._next(model, treeiter, path) is not None:
+                return False
+        return True
 
     def get_parent_filename(self):
         """Get the filename of the parent iter."""
@@ -816,6 +856,8 @@ class Treeview(GObject.GObject):
                                                        new_categories)
 
         self.update_menus()
+
+        self.emit("cursor-changed", True)
 
     def _get_iter_by_data(self, row_data, model, parent=None):
         """Search the TreeModel for a row matching row_data.
