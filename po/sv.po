@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-01-10 18:28-0500\n"
-"PO-Revision-Date: 2017-04-09 18:39+0000\n"
-"Last-Translator: Påvel Nicklasson <Unknown>\n"
+"POT-Creation-Date: 2018-01-11 23:47+0000\n"
+"PO-Revision-Date: 2018-01-09 01:48+0000\n"
+"Last-Translator: Sean Davis <Unknown>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-01-11 04:53+0000\n"
-"X-Generator: Launchpad (build 18521)\n"
+"X-Launchpad-Export-Date: 2018-01-12 04:51+0000\n"
+"X-Generator: Launchpad (build 18531)\n"
 "Language: sv\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -477,8 +477,17 @@ msgstr ""
 msgid "Could not find \"%s\" in your PATH."
 msgstr "Det gick inte att hitta \"%s\" i din PATH."
 
-#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1103
-#: ../menulibre/MenulibreApplication.py:1558
+#: ../menulibre/Dialogs.py:170
+#, python-format
+msgid "Failed to save \"%s\"."
+msgstr ""
+
+#: ../menulibre/Dialogs.py:172
+msgid "Do you have write permission to the file and directory?"
+msgstr ""
+
+#: ../menulibre/MenuEditor.py:90 ../menulibre/MenulibreApplication.py:1106
+#: ../menulibre/MenulibreApplication.py:1578
 msgid "Separator"
 msgstr "Avskiljare"
 
@@ -657,7 +666,7 @@ msgid "_Quit"
 msgstr "A_vsluta"
 
 #: ../menulibre/MenulibreApplication.py:397
-#: ../menulibre/MenulibreApplication.py:2039
+#: ../menulibre/MenulibreApplication.py:2068
 msgid "Quit"
 msgstr "Avsluta"
 
@@ -666,7 +675,7 @@ msgid "_Contents"
 msgstr "_Innehåll"
 
 #: ../menulibre/MenulibreApplication.py:404
-#: ../menulibre/MenulibreApplication.py:2037
+#: ../menulibre/MenulibreApplication.py:2066
 msgid "Help"
 msgstr "Hjälp"
 
@@ -675,7 +684,7 @@ msgid "_About"
 msgstr "_Om"
 
 #: ../menulibre/MenulibreApplication.py:411
-#: ../menulibre/MenulibreApplication.py:2038
+#: ../menulibre/MenulibreApplication.py:2067
 msgid "About"
 msgstr "Om"
 
@@ -711,41 +720,41 @@ msgstr "Denna post"
 msgid "New Shortcut"
 msgstr "Ny genväg"
 
-#: ../menulibre/MenulibreApplication.py:1034
+#: ../menulibre/MenulibreApplication.py:1037
 msgid "Select a working directory..."
 msgstr "Välj en arbetskatalog"
 
-#: ../menulibre/MenulibreApplication.py:1037
+#: ../menulibre/MenulibreApplication.py:1040
 msgid "Select an executable..."
 msgstr "Välj en körbar fil..."
 
-#: ../menulibre/MenulibreApplication.py:1059
+#: ../menulibre/MenulibreApplication.py:1062
 msgid "Cannot add subdirectories to preinstalled system paths."
 msgstr ""
 "Kan inte lägga till underkataloger till förinstallerade systemsökvägar."
 
-#: ../menulibre/MenulibreApplication.py:1252
+#: ../menulibre/MenulibreApplication.py:1268
 msgid "You do not have permission to delete this file."
 msgstr "Du har inte tillåtelse att ta bort denna fil."
 
-#: ../menulibre/MenulibreApplication.py:1494
+#: ../menulibre/MenulibreApplication.py:1510
 msgid "New Launcher"
 msgstr "Ny programstartare"
 
-#: ../menulibre/MenulibreApplication.py:1540
+#: ../menulibre/MenulibreApplication.py:1560
 msgid "New Directory"
 msgstr "Ny katalog"
 
-#: ../menulibre/MenulibreApplication.py:1953
+#: ../menulibre/MenulibreApplication.py:1982
 msgid "Are you sure you want to delete this separator?"
 msgstr "Är du säker på att du vill ta bort denna avskiljare?"
 
-#: ../menulibre/MenulibreApplication.py:1956
+#: ../menulibre/MenulibreApplication.py:1985
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Är du säker på att du vill ta bort  \"%s\"?"
 
-#: ../menulibre/MenulibreApplication.py:2032
+#: ../menulibre/MenulibreApplication.py:2061
 msgid "Check for bad desktop files"
 msgstr ""
 
@@ -770,49 +779,56 @@ msgstr "Ny menypost"
 msgid "A small descriptive blurb about this application."
 msgstr "En kort beskrivning om detta program."
 
-#: ../menulibre/util.py:572
+#: ../menulibre/util.py:589
 #, python-format
 msgid "Unable to load as a key file due to the following error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:584
+#: ../menulibre/util.py:601
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:592
+#: ../menulibre/util.py:609
 msgid "Type key was not found"
 msgstr ""
 
-#: ../menulibre/util.py:595
+#: ../menulibre/util.py:612
 #, python-format
 msgid "Type is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:607
+#: ../menulibre/util.py:625
 #, python-format
 msgid "Try exec program '%s' has not been found in the PATH"
 msgstr ""
 
-#: ../menulibre/util.py:615
+#: ../menulibre/util.py:628
+#, python-format
+msgid ""
+"Try exec program '%s' is not a valid shell command according to "
+"GLib.shell_parse_argv, error: %s"
+msgstr ""
+
+#: ../menulibre/util.py:637
 msgid "Exec key not found"
 msgstr ""
 
-#: ../menulibre/util.py:621
+#: ../menulibre/util.py:641
+#, python-format
+msgid "Exec program '%s' has not been found in the PATH"
+msgstr ""
+
+#: ../menulibre/util.py:644
 #, python-format
 msgid ""
 "Exec program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:626
-#, python-format
-msgid "Exec program '%s' has not been found in the PATH"
-msgstr ""
-
 #. At this point the desktop file is valid - execution should never reach
 #. here
-#: ../menulibre/util.py:631
+#: ../menulibre/util.py:650
 msgid "Desktop file is valid??"
 msgstr ""
 
