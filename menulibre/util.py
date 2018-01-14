@@ -586,7 +586,10 @@ def validate_desktop_file(desktop_file):  # noqa
         keyfile.load_from_file(desktop_file, GLib.KeyFileFlags.NONE)
 
     except Exception as e:
-        return _('Unable to load as a key file due to the following error:'
+        # Translators: This error is displayed when a desktop file cannot
+        # be correctly read by MenuLibre. A (possibly untranslated) error
+        # code is displayed.
+        return _('Unable to load desktop file due to the following error:'
                  ' %s') % e
 
     # File is at least a valid keyfile, so can start the real desktop
@@ -598,6 +601,9 @@ def validate_desktop_file(desktop_file):  # noqa
         start_group = None
 
     if start_group != GLib.KEY_FILE_DESKTOP_GROUP:
+        # Translators: This error is displayed when the first group in a
+        # failing desktop file is incorrect. "Start group" can be safely
+        # translated.
         return (_('Start group is invalid - currently \'%s\', should be '
                   '\'%s\'') % (start_group, GLib.KEY_FILE_DESKTOP_GROUP))
 
@@ -606,11 +612,15 @@ def validate_desktop_file(desktop_file):  # noqa
         type_key = keyfile.get_string(start_group,
                                       GLib.KEY_FILE_DESKTOP_KEY_TYPE)
     except GLib.Error:
-        return _('Type key was not found')
+        # Translators: This error is displayed when a required key is
+        # missing in a failing desktop file.
+        return _('%s key not found') % 'Type'
 
     if type_key != GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION:
-        return (_('Type is invalid - currently \'%s\', should be \'%s\'')
-                % (type_key, GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION))
+        # Translators: This error is displayed when a failing desktop file
+        # has an invalid value for the provided key.
+        return (_('%s value is invalid - currently \'%s\', should be \'%s\'')
+                % ('Type', type_key, GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION))
 
     # Validating 'try exec' if its present
     try:
@@ -622,29 +632,33 @@ def validate_desktop_file(desktop_file):  # noqa
     else:
         try:
             if len(try_exec) > 0 and find_program(try_exec) is None:
-                return (_('Try exec program \'%s\' has not been found in the'
-                          ' PATH') % try_exec)
+                # Translators: This error is displayed when a failing desktop
+                # file contains an invalid path to an executable file.
+                return (_('%s program \'%s\' has not been found in the'
+                          ' PATH') % ('TryExec', try_exec))
         except Exception as e:
-            return (_('Try exec program \'%s\' is not a valid shell command '
+            # Translators: This error is displayed when a failing desktop
+            # file contains an invalid command to execute.
+            return (_('%s program \'%s\' is not a valid shell command '
                       'according to GLib.shell_parse_argv, error: %s')
-                    % (try_exec, e))
+                    % ('TryExec', try_exec, e))
 
     # Validating executable
     try:
         exec_key = keyfile.get_string(start_group,
                                       GLib.KEY_FILE_DESKTOP_KEY_EXEC)
     except GLib.Error:
-        return _('Exec key not found')
+        return _('%s key not found') % 'Exec'
 
     try:
         if find_program(exec_key) is None:
-            return (_('Exec program \'%s\' has not been found in the PATH')
-                    % exec_key)
+            return (_('%s program \'%s\' has not been found in the PATH')
+                    % ('Exec', exec_key))
     except Exception as e:
-        return (_('Exec program \'%s\' is not a valid shell command '
+        return (_('%s program \'%s\' is not a valid shell command '
                   'according to GLib.shell_parse_argv, error: %s')
-                % (exec_key, e))
+                % ('Exec', exec_key, e))
 
-    # At this point the desktop file is valid - execution should never reach
-    # here
-    return _('Desktop file is valid??')
+    # Translators: This error is displayed for a failing desktop file where
+    # errors were detected but the file seems otherwise valid.
+    return _('Unknown error. Desktop file appears to be are valid.')

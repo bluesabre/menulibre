@@ -51,7 +51,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Generic name of the application, for example "Web Browser".</property>
-                <property name="label" translatable="yes">Generic Name</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;GenericName&quot; text entry. Generic name of the application, for example &quot;Web Browser&quot;.">Generic Name</property>
                 <property name="xalign">0</property>
               </object>
               <packing>
@@ -63,9 +63,9 @@
               <object class="GtkLabel" id="label13">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes">A list of environments that should not display this entry. You can only use this key if "OnlyShowIn" is not set.
+                <property name="tooltip_text" translatable="yes" comments="Translators: Possible values &quot;Cinnamon&quot;, &quot;EDE&quot;, &quot;GNOME&quot;, &quot;KDE&quot;, &quot;LXDE&quot;, &quot;LXQt&quot;, &quot;MATE&quot;, &quot;Pantheon&quot;, &quot;Razor&quot;, &quot;ROX&quot;, &quot;TDE&quot;, &quot;Unity&quot;, &quot;XFCE&quot;, and &quot;Old&quot; should not be translated.">A list of environments that should not display this entry. You can only use this key if "OnlyShowIn" is not set.
 Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old</property>
-                <property name="label" translatable="yes">Not Shown In</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;NotShowIn&quot; text entry. A list of environments that should not display this entry.">Not Shown In</property>
                 <property name="xalign">0</property>
               </object>
               <packing>
@@ -77,9 +77,9 @@ Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, 
               <object class="GtkLabel" id="label6">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes">A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if "NotShowIn" is not set.
+                <property name="tooltip_text" translatable="yes" comments="Translators: Possible values &quot;Cinnamon&quot;, &quot;EDE&quot;, &quot;GNOME&quot;, &quot;KDE&quot;, &quot;LXDE&quot;, &quot;LXQt&quot;, &quot;MATE&quot;, &quot;Pantheon&quot;, &quot;Razor&quot;, &quot;ROX&quot;, &quot;TDE&quot;, &quot;Unity&quot;, &quot;XFCE&quot;, and &quot;Old&quot; should not be translated.">A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if "NotShowIn" is not set.
 Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old</property>
-                <property name="label" translatable="yes">Only Shown In</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;OnlyShowIn&quot; text entry. A list of environments that should display this entry.">Only Shown In</property>
                 <property name="xalign">0</property>
               </object>
               <packing>
@@ -92,7 +92,7 @@ Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, 
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Path to an executable file to determine if the program is installed. If the file is not present or is not executable, this entry may not be shown in a menu.</property>
-                <property name="label" translatable="yes">Try Exec</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;TryExec&quot; text entry. Path to an executable file to determine if the program is installed.">Try Exec</property>
                 <property name="xalign">0</property>
               </object>
               <packing>
@@ -105,7 +105,7 @@ Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, 
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">The MIME type(s) supported by this application.</property>
-                <property name="label" translatable="yes">Mimetypes</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;Mimetype&quot; text entry. The MIME type(s) supported by this application.">Mimetypes</property>
                 <property name="xalign">0</property>
               </object>
               <packing>
@@ -118,7 +118,7 @@ Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, 
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">A list of keywords to describe this entry. You can use these to help searching entries. These are not meant for display, and should not be redundant with the values of Name or GenericName.</property>
-                <property name="label" translatable="yes">Keywords</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;Keywords&quot; text entry. A list of keywords to describe this entry.">Keywords</property>
                 <property name="xalign">0</property>
               </object>
               <packing>
@@ -131,7 +131,7 @@ Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, 
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">If specified, the application will be requested to use the string as a WM class or a WM name hint at least in one window.</property>
-                <property name="label" translatable="yes">Startup WM Class</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;StartupWMClass&quot; text entry. A window manager hint for the application's name.">Startup WM Class</property>
                 <property name="xalign">0</property>
               </object>
               <packing>
@@ -222,7 +222,7 @@ Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, 
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">If set to "True", the result for the user is equivalent to the .desktop file not existing at all.</property>
-                <property name="label" translatable="yes">Hidden</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;Hidden&quot; on/off switch. When enabled, the application is hidden from the menu.">Hidden</property>
                 <property name="xalign">0</property>
               </object>
               <packing>
@@ -236,7 +236,7 @@ Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, 
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Set this key to "True" if D-Bus activation is supported for this application and you want to use it.
 See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for more information.</property>
-                <property name="label" translatable="yes">DBUS Activatable</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;DBusActivatable&quot; on/off switch. When enabled, the application is said to be activated via DBUS.">DBUS Activatable</property>
                 <property name="xalign">0</property>
               </object>
               <packing>
@@ -273,7 +273,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">A list of interfaces that this application implements.</property>
-                <property name="label" translatable="yes">Implements</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;Implements&quot; text entry. A list of interfaces that this application implements.">Implements</property>
                 <property name="xalign">0</property>
               </object>
               <packing>
@@ -331,7 +331,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
           <object class="GtkLabel" id="bad_desktop_files_label">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Invalid desktop files detected! Please see details</property>
+            <property name="label" translatable="yes" comments="Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.">Invalid desktop files detected! Please see details.</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -383,7 +383,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
       <object class="GtkMenuItem" id="icon_select_by_filename">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Browse Files...</property>
+        <property name="label" translatable="yes">Browse Files…</property>
         <property name="use_underline">True</property>
       </object>
     </child>
@@ -828,11 +828,14 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                           <object class="GtkLabel" id="label_Filename">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">&lt;small&gt;&lt;i&gt;Filename&lt;/i&gt;&lt;/small&gt;</property>
-                            <property name="use_markup">True</property>
+                            <property name="label" translatable="yes">Filename</property>
                             <property name="selectable">True</property>
                             <property name="ellipsize">middle</property>
                             <property name="xalign">0</property>
+                            <attributes>
+                              <attribute name="style" value="italic"/>
+                              <attribute name="size" value="9000"/>
+                            </attributes>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -907,10 +910,13 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                                                       <object class="GtkLabel" id="label_Name">
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
-                                                        <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Application Name&lt;/b&gt;&lt;/big&gt;</property>
-                                                        <property name="use_markup">True</property>
+                                                        <property name="label" translatable="yes">Application Name</property>
                                                         <property name="ellipsize">end</property>
                                                         <property name="xalign">0</property>
+                                                        <attributes>
+                                                          <attribute name="weight" value="bold"/>
+                                                          <attribute name="size" value="12000"/>
+                                                        </attributes>
                                                       </object>
                                                     </child>
                                                   </object>
@@ -926,7 +932,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                                                     <property name="no_show_all">True</property>
                                                     <property name="invisible_char">•</property>
                                                     <property name="secondary_icon_name">gtk-apply</property>
-                                                    <property name="placeholder_text" translatable="yes">Application Name</property>
+                                                    <property name="placeholder_text" translatable="yes" comments="Placeholder text/hint for the application name entry.">Application Name</property>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">False</property>
@@ -975,7 +981,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                                                     <property name="no_show_all">True</property>
                                                     <property name="invisible_char">•</property>
                                                     <property name="secondary_icon_name">gtk-apply</property>
-                                                    <property name="placeholder_text" translatable="yes">Description</property>
+                                                    <property name="placeholder_text" translatable="yes" comments="Placeholder text/hint for the application comment entry.">Description</property>
                                                   </object>
                                                   <packing>
                                                     <property name="expand">False</property>
@@ -1027,7 +1033,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                                                     <property name="can_focus">False</property>
                                                     <property name="tooltip_text" translatable="yes">Program to execute with arguments. This key is required if DBusActivatable is not set to "True" or if you need compatibility with implementations that do not understand D-Bus activation.
 See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#exec-variables for a list of supported arguments.</property>
-                                                    <property name="label" translatable="yes">Command</property>
+                                                    <property name="label" translatable="yes" comments="Translators: &quot;Exec&quot; text entry. Program to execute with arguments.">Command</property>
                                                     <property name="xalign">0</property>
                                                   </object>
                                                   <packing>
@@ -1040,7 +1046,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="tooltip_text" translatable="yes">The working directory.</property>
-                                                    <property name="label" translatable="yes">Working Directory</property>
+                                                    <property name="label" translatable="yes" comments="Translators: &quot;Path&quot; text entry. The working directory of the application.">Working Directory</property>
                                                     <property name="xalign">0</property>
                                                   </object>
                                                   <packing>
@@ -1082,8 +1088,10 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                                           <object class="GtkLabel" id="details_label">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
-                                            <property name="label" translatable="yes">&lt;b&gt;Application Details&lt;/b&gt;</property>
-                                            <property name="use_markup">True</property>
+                                            <property name="label" translatable="yes">Application Details</property>
+                                            <attributes>
+                                              <attribute name="weight" value="bold"/>
+                                            </attributes>
                                           </object>
                                         </child>
                                       </object>
@@ -1116,7 +1124,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                                                     <property name="can_focus">False</property>
                                                     <property name="tooltip_text" translatable="yes">If set to "True", the program will be ran in a terminal window.</property>
                                                     <property name="hexpand">True</property>
-                                                    <property name="label" translatable="yes">Run in terminal</property>
+                                                    <property name="label" translatable="yes" comments="Translators: &quot;Terminal&quot; on/off switch. When enabled, the application is executed in a terminal window.">Run in terminal</property>
                                                     <property name="xalign">0</property>
                                                   </object>
                                                   <packing>
@@ -1130,7 +1138,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                                                     <property name="can_focus">False</property>
                                                     <property name="tooltip_text" translatable="yes">If set to "True", a startup notification is sent. Usually means that a busy cursor is shown while the application launches.</property>
                                                     <property name="hexpand">True</property>
-                                                    <property name="label" translatable="yes">Use startup notification</property>
+                                                    <property name="label" translatable="yes" comments="Translators: &quot;StartupNotify&quot; on/off switch. When enabled, a busy cursor is shown while the application launches.">Use startup notification</property>
                                                     <property name="xalign">0</property>
                                                   </object>
                                                   <packing>
@@ -1144,7 +1152,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                                                     <property name="can_focus">False</property>
                                                     <property name="tooltip_text" translatable="yes">If set to "True", this entry will not be shown in menus, but will be available for MIME type associations etc.</property>
                                                     <property name="hexpand">True</property>
-                                                    <property name="label" translatable="yes">Hide from menus</property>
+                                                    <property name="label" translatable="yes" comments="Translators: &quot;NoDisplay&quot; on/off switch. When enabled, the application will not be shown in menus, but will be available for MIME type associations etc.">Hide from menus</property>
                                                     <property name="xalign">0</property>
                                                   </object>
                                                   <packing>
@@ -1190,8 +1198,10 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                                           <object class="GtkLabel" id="label11">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
-                                            <property name="label" translatable="yes">&lt;b&gt;Options&lt;/b&gt;</property>
-                                            <property name="use_markup">True</property>
+                                            <property name="label" translatable="yes">Options</property>
+                                            <attributes>
+                                              <attribute name="weight" value="bold"/>
+                                            </attributes>
                                           </object>
                                         </child>
                                       </object>
@@ -1579,8 +1589,10 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                   <object class="GtkLabel" id="label7">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label" translatable="yes">&lt;b&gt;Select an icon&lt;/b&gt;</property>
-                    <property name="use_markup">True</property>
+                    <property name="label" translatable="yes">Select an icon</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                    </attributes>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -1759,8 +1771,11 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">&lt;big&gt;&lt;b&gt;Parsing Errors&lt;/b&gt;&lt;/big&gt;</property>
-                        <property name="use_markup">True</property>
+                        <property name="label" translatable="yes">Parsing Errors</property>
+                        <attributes>
+                          <attribute name="weight" value="bold"/>
+                          <attribute name="size" value="12000"/>
+                        </attributes>
                       </object>
                       <packing>
                         <property name="expand">False</property>
@@ -1773,7 +1788,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="halign">start</property>
-                        <property name="label" translatable="yes">The following desktop files have failed parsing by the underlying library, and will therefore not show up in MenuLibre. 
+                        <property name="label" translatable="yes">The following desktop files have failed parsing by the underlying library, and will therefore not show up in MenuLibre.
 Please investigate these problems with the associated package maintainer.</property>
                         <property name="wrap">True</property>
                         <property name="xalign">0</property>

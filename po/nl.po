@@ -174,7 +174,7 @@ msgid "Browse Icons…"
 msgstr "Pictogrammen doorzoeken..."
 
 #: ../data/ui/MenulibreWindow.ui.h:29
-msgid "Browse Files..."
+msgid "Browse Files…"
 msgstr "Bestanden doorzoeken..."
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/Dialogs.py:39
@@ -224,14 +224,10 @@ msgid "Sort"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:41
-msgid "<small><i>Filename</i></small>"
-msgstr "<small><i>Bestandnaam</i></small>"
+msgid "Filename"
+msgstr "Bestandnaam"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
-msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Naam van toepassing</b></big>"
-
-#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Application Name"
 msgstr "Naam van toepassing"
 
@@ -270,8 +266,8 @@ msgid "Working Directory"
 msgstr "Werkmap"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
-msgid "<b>Application Details</b>"
-msgstr "<b>Bijzonderheden van de toepassing</b>"
+msgid "Application Details"
+msgstr "Bijzonderheden van de toepassing"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "If set to \"True\", the program will be ran in a terminal window."
@@ -309,8 +305,8 @@ msgid "Hide from menus"
 msgstr "Verbergen in menu's"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
-msgid "<b>Options</b>"
-msgstr "<b>Opties</b>"
+msgid "Options"
+msgstr "Opties"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Add"
@@ -348,8 +344,8 @@ msgid "Apply"
 msgstr "Toepassen"
 
 #: ../data/ui/MenulibreWindow.ui.h:67
-msgid "<b>Select an icon</b>"
-msgstr "<b>Kies een pictogram</b>"
+msgid "Select an icon"
+msgstr "Kies een pictogram"
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Search"
@@ -364,7 +360,7 @@ msgid "Log - Menulibre"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-msgid "<big><b>Parsing Errors</b></big>"
+msgid "Parsing Errors"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:72
@@ -611,27 +607,27 @@ msgid ""
 msgstr "Zie de <a href='%s'>internetdocumentatie</a> voor meer informatie."
 
 #: ../menulibre/MenulibreApplication.py:333
-msgid "Add _Launcher..."
+msgid "Add _Launcher…"
 msgstr "Starter toevoegen..."
 
 #: ../menulibre/MenulibreApplication.py:334
-msgid "Add Launcher..."
+msgid "Add Launcher…"
 msgstr "Starter toevoegen..."
 
 #: ../menulibre/MenulibreApplication.py:340
-msgid "Add _Directory..."
+msgid "Add _Directory…"
 msgstr "Map toevoegen..."
 
 #: ../menulibre/MenulibreApplication.py:341
-msgid "Add Directory..."
+msgid "Add Directory…"
 msgstr "Map toevoegen..."
 
 #: ../menulibre/MenulibreApplication.py:347
-msgid "_Add Separator..."
+msgid "_Add Separator…"
 msgstr "Scheidingsteken toevoegen..."
 
 #: ../menulibre/MenulibreApplication.py:348
-msgid "Add Separator..."
+msgid "Add Separator…"
 msgstr "Scheidingsteken toevoegen..."
 
 #: ../menulibre/MenulibreApplication.py:354
@@ -722,11 +718,11 @@ msgid "New Shortcut"
 msgstr "Nieuwe snelkoppeling"
 
 #: ../menulibre/MenulibreApplication.py:1037
-msgid "Select a working directory..."
+msgid "Select a working directory…"
 msgstr "Kies een werkmap..."
 
 #: ../menulibre/MenulibreApplication.py:1040
-msgid "Select an executable..."
+msgid "Select an executable…"
 msgstr "Kies een uitvoerbaar bestand..."
 
 #: ../menulibre/MenulibreApplication.py:1062
@@ -832,11 +828,8 @@ msgstr ""
 msgid "Desktop file is valid??"
 msgstr ""
 
-#~ msgid "<b>Select an image</b>"
-#~ msgstr "<b>Kies een afbeelding</b>"
-
-#~ msgid "<b>Preview</b>"
-#~ msgstr "<b>Voorbeeld</b>"
+#~ msgid "Preview"
+#~ msgstr "Voorbeeld"
 
 #~ msgid "32px"
 #~ msgstr "32px"

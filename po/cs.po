@@ -173,7 +173,7 @@ msgid "Browse Icons…"
 msgstr "Procházet ikony..."
 
 #: ../data/ui/MenulibreWindow.ui.h:29
-msgid "Browse Files..."
+msgid "Browse Files…"
 msgstr "Procházet soubory…"
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/Dialogs.py:39
@@ -223,14 +223,10 @@ msgid "Sort"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:41
-msgid "<small><i>Filename</i></small>"
-msgstr "<small><i>Jméno souboru</i></small>"
+msgid "Filename"
+msgstr "Jméno souboru"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
-msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Název aplikace</b></big>"
-
-#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Application Name"
 msgstr "Název aplikace"
 
@@ -269,8 +265,8 @@ msgid "Working Directory"
 msgstr "Pracovní adresář"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
-msgid "<b>Application Details</b>"
-msgstr "<b>Podrobnosti aplikace</b>"
+msgid "Application Details"
+msgstr "Podrobnosti aplikace"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "If set to \"True\", the program will be ran in a terminal window."
@@ -306,8 +302,8 @@ msgid "Hide from menus"
 msgstr "Nezobrazovat v nabídkách"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
-msgid "<b>Options</b>"
-msgstr "<b>Možnosti</b>"
+msgid "Options"
+msgstr "Možnosti"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Add"
@@ -345,8 +341,8 @@ msgid "Apply"
 msgstr "Použít"
 
 #: ../data/ui/MenulibreWindow.ui.h:67
-msgid "<b>Select an icon</b>"
-msgstr "<b>Vybrat ikonu</b>"
+msgid "Select an icon"
+msgstr "Vybrat ikonu"
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Search"
@@ -361,7 +357,7 @@ msgid "Log - Menulibre"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-msgid "<big><b>Parsing Errors</b></big>"
+msgid "Parsing Errors"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:72
@@ -609,27 +605,27 @@ msgstr ""
 "sem."
 
 #: ../menulibre/MenulibreApplication.py:333
-msgid "Add _Launcher..."
+msgid "Add _Launcher…"
 msgstr "Přidat _spouštěč..."
 
 #: ../menulibre/MenulibreApplication.py:334
-msgid "Add Launcher..."
+msgid "Add Launcher…"
 msgstr "Přidat spouštěč..."
 
 #: ../menulibre/MenulibreApplication.py:340
-msgid "Add _Directory..."
+msgid "Add _Directory…"
 msgstr "Přidat _adresář..."
 
 #: ../menulibre/MenulibreApplication.py:341
-msgid "Add Directory..."
+msgid "Add Directory…"
 msgstr "Přidat adresář..."
 
 #: ../menulibre/MenulibreApplication.py:347
-msgid "_Add Separator..."
+msgid "_Add Separator…"
 msgstr "_Přidat oddělovač..."
 
 #: ../menulibre/MenulibreApplication.py:348
-msgid "Add Separator..."
+msgid "Add Separator…"
 msgstr "Přidat oddělovač..."
 
 #: ../menulibre/MenulibreApplication.py:354
@@ -720,11 +716,11 @@ msgid "New Shortcut"
 msgstr "Nová zkratka"
 
 #: ../menulibre/MenulibreApplication.py:1037
-msgid "Select a working directory..."
+msgid "Select a working directory…"
 msgstr "Vybrat pracovní adresář..."
 
 #: ../menulibre/MenulibreApplication.py:1040
-msgid "Select an executable..."
+msgid "Select an executable…"
 msgstr "Vybrat spustitelný soubor..."
 
 #: ../menulibre/MenulibreApplication.py:1062
@@ -839,8 +835,8 @@ msgstr ""
 #~ msgid "_Help"
 #~ msgstr "_Nápověda"
 
-#~ msgid "<b>Preview</b>"
-#~ msgstr "<b>Náhled</b>"
+#~ msgid "Preview"
+#~ msgstr "Náhled"
 
 #~ msgid "Image File"
 #~ msgstr "Soubor obrázku"
@@ -850,9 +846,6 @@ msgstr ""
 
 #~ msgid "Icon Name"
 #~ msgstr "Název ikony"
-
-#~ msgid "<b>Select an image</b>"
-#~ msgstr "<b>Vybrat obrázek</b>"
 
 #~ msgid "32px"
 #~ msgstr "32px"

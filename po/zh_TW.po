@@ -149,7 +149,7 @@ msgid "Browse Icons…"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:29
-msgid "Browse Files..."
+msgid "Browse Files…"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/Dialogs.py:39
@@ -199,16 +199,12 @@ msgid "Sort"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:41
-msgid "<small><i>Filename</i></small>"
-msgstr "<small><i>檔案名稱</i></small>"
+msgid "Filename"
+msgstr "檔案名稱"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
-msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>應用程式名稱</b></big>"
-
-#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Application Name"
-msgstr ""
+msgstr "應用程式名稱"
 
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Application Comment"
@@ -240,8 +236,8 @@ msgid "Working Directory"
 msgstr "工作目錄"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
-msgid "<b>Application Details</b>"
-msgstr "<b>應用程式詳情</b>"
+msgid "Application Details"
+msgstr "應用程式詳情"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "If set to \"True\", the program will be ran in a terminal window."
@@ -272,8 +268,8 @@ msgid "Hide from menus"
 msgstr "從選單隱藏"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
-msgid "<b>Options</b>"
-msgstr "<b>選項</b>"
+msgid "Options"
+msgstr "選項"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Add"
@@ -311,8 +307,8 @@ msgid "Apply"
 msgstr "套用"
 
 #: ../data/ui/MenulibreWindow.ui.h:67
-msgid "<b>Select an icon</b>"
-msgstr "<b>選取圖示</b>"
+msgid "Select an icon"
+msgstr "選取圖示"
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Search"
@@ -327,7 +323,7 @@ msgid "Log - Menulibre"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-msgid "<big><b>Parsing Errors</b></big>"
+msgid "Parsing Errors"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:72
@@ -567,27 +563,27 @@ msgid ""
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:333
-msgid "Add _Launcher..."
+msgid "Add _Launcher…"
 msgstr "加入啟動器(_L)..."
 
 #: ../menulibre/MenulibreApplication.py:334
-msgid "Add Launcher..."
+msgid "Add Launcher…"
 msgstr "加入啟動器..."
 
 #: ../menulibre/MenulibreApplication.py:340
-msgid "Add _Directory..."
+msgid "Add _Directory…"
 msgstr "加入目錄(_D)..."
 
 #: ../menulibre/MenulibreApplication.py:341
-msgid "Add Directory..."
+msgid "Add Directory…"
 msgstr "加入目錄..."
 
 #: ../menulibre/MenulibreApplication.py:347
-msgid "_Add Separator..."
+msgid "_Add Separator…"
 msgstr "加入分隔符(_A)..."
 
 #: ../menulibre/MenulibreApplication.py:348
-msgid "Add Separator..."
+msgid "Add Separator…"
 msgstr "加入分隔符..."
 
 #: ../menulibre/MenulibreApplication.py:354
@@ -678,11 +674,11 @@ msgid "New Shortcut"
 msgstr "新增捷徑"
 
 #: ../menulibre/MenulibreApplication.py:1037
-msgid "Select a working directory..."
+msgid "Select a working directory…"
 msgstr "選取工作目錄..."
 
 #: ../menulibre/MenulibreApplication.py:1040
-msgid "Select an executable..."
+msgid "Select an executable…"
 msgstr "選取執行檔..."
 
 #: ../menulibre/MenulibreApplication.py:1062
@@ -803,11 +799,8 @@ msgstr ""
 #~ msgid "_File"
 #~ msgstr "檔案(_F)"
 
-#~ msgid "<b>Preview</b>"
-#~ msgstr "<b>預覽</b>"
-
-#~ msgid "<b>Select an image</b>"
-#~ msgstr "<b>選取影像</b>"
+#~ msgid "Preview"
+#~ msgstr "預覽"
 
 #~ msgid "Icon Selection"
 #~ msgstr "選取圖示"

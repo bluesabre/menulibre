@@ -170,7 +170,7 @@ msgid "Browse Icons…"
 msgstr "Обрати значки..."
 
 #: ../data/ui/MenulibreWindow.ui.h:29
-msgid "Browse Files..."
+msgid "Browse Files…"
 msgstr "Оглянути файли…"
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/Dialogs.py:39
@@ -220,14 +220,10 @@ msgid "Sort"
 msgstr "Впорядкувати"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
-msgid "<small><i>Filename</i></small>"
-msgstr "<small><i>Ім'я файлу</i></small>"
+msgid "Filename"
+msgstr "Ім'я файлу"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
-msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Назва програми</b></big>"
-
-#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Application Name"
 msgstr "Назва програми"
 
@@ -267,8 +263,8 @@ msgid "Working Directory"
 msgstr "Робочий каталог"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
-msgid "<b>Application Details</b>"
-msgstr "<b>Програма</b>"
+msgid "Application Details"
+msgstr "Програма"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "If set to \"True\", the program will be ran in a terminal window."
@@ -305,8 +301,8 @@ msgid "Hide from menus"
 msgstr "Приховати з меню"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
-msgid "<b>Options</b>"
-msgstr "<b>Параметри</b>"
+msgid "Options"
+msgstr "Параметри"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Add"
@@ -344,8 +340,8 @@ msgid "Apply"
 msgstr "Застосувати"
 
 #: ../data/ui/MenulibreWindow.ui.h:67
-msgid "<b>Select an icon</b>"
-msgstr "<b>Виберіть значок</b>"
+msgid "Select an icon"
+msgstr "Виберіть значок"
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Search"
@@ -360,7 +356,7 @@ msgid "Log - Menulibre"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-msgid "<big><b>Parsing Errors</b></big>"
+msgid "Parsing Errors"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:72
@@ -604,27 +600,27 @@ msgid ""
 msgstr "Подробиці в <a href='%s'>онлайн-справці</a>"
 
 #: ../menulibre/MenulibreApplication.py:333
-msgid "Add _Launcher..."
+msgid "Add _Launcher…"
 msgstr "Додати кнопку _запуску"
 
 #: ../menulibre/MenulibreApplication.py:334
-msgid "Add Launcher..."
+msgid "Add Launcher…"
 msgstr "Додати кнопку запуску..."
 
 #: ../menulibre/MenulibreApplication.py:340
-msgid "Add _Directory..."
+msgid "Add _Directory…"
 msgstr "Додати _теку"
 
 #: ../menulibre/MenulibreApplication.py:341
-msgid "Add Directory..."
+msgid "Add Directory…"
 msgstr "Додати теку"
 
 #: ../menulibre/MenulibreApplication.py:347
-msgid "_Add Separator..."
+msgid "_Add Separator…"
 msgstr "_Додати розділювач..."
 
 #: ../menulibre/MenulibreApplication.py:348
-msgid "Add Separator..."
+msgid "Add Separator…"
 msgstr "Додати розділювач..."
 
 #: ../menulibre/MenulibreApplication.py:354
@@ -715,11 +711,11 @@ msgid "New Shortcut"
 msgstr "Новий ярлик"
 
 #: ../menulibre/MenulibreApplication.py:1037
-msgid "Select a working directory..."
+msgid "Select a working directory…"
 msgstr "Виберіть робочу теку..."
 
 #: ../menulibre/MenulibreApplication.py:1040
-msgid "Select an executable..."
+msgid "Select an executable…"
 msgstr "Виберіть виконуючий файл ..."
 
 #: ../menulibre/MenulibreApplication.py:1062
@@ -844,11 +840,8 @@ msgstr ""
 #~ msgid "_File"
 #~ msgstr "Файл(_F)"
 
-#~ msgid "<b>Select an image</b>"
-#~ msgstr "<b>Вибір зображення</b>"
-
-#~ msgid "<b>Preview</b>"
-#~ msgstr "<b>Попередній перегляд</b>"
+#~ msgid "Preview"
+#~ msgstr "Попередній перегляд"
 
 #~ msgid "32px"
 #~ msgstr "Copy text \t 32px"

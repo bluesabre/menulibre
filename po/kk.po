@@ -150,7 +150,7 @@ msgid "Browse Icons…"
 msgstr "Таңбашаларды шолу…"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
-msgid "Browse Files..."
+msgid "Browse Files…"
 msgstr "Файлдарды шолу..."
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/Dialogs.py:39
@@ -200,14 +200,10 @@ msgid "Sort"
 msgstr "Сұрыптау"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
-msgid "<small><i>Filename</i></small>"
-msgstr "<small><i>Файл аты</i></small>"
+msgid "Filename"
+msgstr "Файл аты"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
-msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Қолданба атауы</b></big>"
-
-#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Application Name"
 msgstr "Қолданба атауы"
 
@@ -241,8 +237,8 @@ msgid "Working Directory"
 msgstr "Жұмыс бумасы"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
-msgid "<b>Application Details</b>"
-msgstr "<b>Қолданба ақпараты</b>"
+msgid "Application Details"
+msgstr "Қолданба ақпараты"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "If set to \"True\", the program will be ran in a terminal window."
@@ -273,8 +269,8 @@ msgid "Hide from menus"
 msgstr "Мәзірлерден жасыру"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
-msgid "<b>Options</b>"
-msgstr "<b>Опциялар</b>"
+msgid "Options"
+msgstr "Опциялар"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Add"
@@ -312,8 +308,8 @@ msgid "Apply"
 msgstr "Іске асыру"
 
 #: ../data/ui/MenulibreWindow.ui.h:67
-msgid "<b>Select an icon</b>"
-msgstr "<b>Таңбашаны таңдаңыз</b>"
+msgid "Select an icon"
+msgstr "Таңбашаны таңдаңыз"
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Search"
@@ -328,7 +324,7 @@ msgid "Log - Menulibre"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-msgid "<big><b>Parsing Errors</b></big>"
+msgid "Parsing Errors"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:72
@@ -568,27 +564,27 @@ msgid ""
 msgstr "Көбірек білу үшін <a href='%s'>желідегі құжаттаманы</a> қараңыз."
 
 #: ../menulibre/MenulibreApplication.py:333
-msgid "Add _Launcher..."
+msgid "Add _Launcher…"
 msgstr "Жөне_лткішті қосу..."
 
 #: ../menulibre/MenulibreApplication.py:334
-msgid "Add Launcher..."
+msgid "Add Launcher…"
 msgstr "Жөнелткішті қосу..."
 
 #: ../menulibre/MenulibreApplication.py:340
-msgid "Add _Directory..."
+msgid "Add _Directory…"
 msgstr "_Буманы қосу..."
 
 #: ../menulibre/MenulibreApplication.py:341
-msgid "Add Directory..."
+msgid "Add Directory…"
 msgstr "Буманы қосу..."
 
 #: ../menulibre/MenulibreApplication.py:347
-msgid "_Add Separator..."
+msgid "_Add Separator…"
 msgstr "А_жыратқышты қосу..."
 
 #: ../menulibre/MenulibreApplication.py:348
-msgid "Add Separator..."
+msgid "Add Separator…"
 msgstr "Ажыратқышты қосу..."
 
 #: ../menulibre/MenulibreApplication.py:354
@@ -679,11 +675,11 @@ msgid "New Shortcut"
 msgstr "Жаңа жарлық"
 
 #: ../menulibre/MenulibreApplication.py:1037
-msgid "Select a working directory..."
+msgid "Select a working directory…"
 msgstr "Жұмыс бумасын таңдаңы..."
 
 #: ../menulibre/MenulibreApplication.py:1040
-msgid "Select an executable..."
+msgid "Select an executable…"
 msgstr "Орындалатын файлды таңдаңыз..."
 
 #: ../menulibre/MenulibreApplication.py:1062

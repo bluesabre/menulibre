@@ -150,7 +150,7 @@ msgid "Browse Icons…"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:29
-msgid "Browse Files..."
+msgid "Browse Files…"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/Dialogs.py:39
@@ -200,14 +200,10 @@ msgid "Sort"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:41
-msgid "<small><i>Filename</i></small>"
-msgstr "<small><i>שם קובץ</i></small>"
+msgid "Filename"
+msgstr "שם קובץ"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
-msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>שם יישום</b></big>"
-
-#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Application Name"
 msgstr "שם יישום"
 
@@ -241,8 +237,8 @@ msgid "Working Directory"
 msgstr "ספריית פעילות"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
-msgid "<b>Application Details</b>"
-msgstr "<b>פרטי יישום</b>"
+msgid "Application Details"
+msgstr "פרטי יישום"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "If set to \"True\", the program will be ran in a terminal window."
@@ -273,8 +269,8 @@ msgid "Hide from menus"
 msgstr "הסתר מן תפריטים"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
-msgid "<b>Options</b>"
-msgstr "<b>אפשרויות</b>"
+msgid "Options"
+msgstr "אפשרויות"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Add"
@@ -312,8 +308,8 @@ msgid "Apply"
 msgstr "החל"
 
 #: ../data/ui/MenulibreWindow.ui.h:67
-msgid "<b>Select an icon</b>"
-msgstr "<b>בחירת צלמית</b>"
+msgid "Select an icon"
+msgstr "בחירת צלמית"
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Search"
@@ -328,7 +324,7 @@ msgid "Log - Menulibre"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-msgid "<big><b>Parsing Errors</b></big>"
+msgid "Parsing Errors"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:72
@@ -570,27 +566,27 @@ msgid ""
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:333
-msgid "Add _Launcher..."
+msgid "Add _Launcher…"
 msgstr "הוספת _משגר..."
 
 #: ../menulibre/MenulibreApplication.py:334
-msgid "Add Launcher..."
+msgid "Add Launcher…"
 msgstr "הוספת משגר..."
 
 #: ../menulibre/MenulibreApplication.py:340
-msgid "Add _Directory..."
+msgid "Add _Directory…"
 msgstr "הוספת _ספריה..."
 
 #: ../menulibre/MenulibreApplication.py:341
-msgid "Add Directory..."
+msgid "Add Directory…"
 msgstr "הוספת מדור..."
 
 #: ../menulibre/MenulibreApplication.py:347
-msgid "_Add Separator..."
+msgid "_Add Separator…"
 msgstr "_הוספת חוצץ..."
 
 #: ../menulibre/MenulibreApplication.py:348
-msgid "Add Separator..."
+msgid "Add Separator…"
 msgstr "הוספת חוצץ..."
 
 #: ../menulibre/MenulibreApplication.py:354
@@ -681,11 +677,11 @@ msgid "New Shortcut"
 msgstr "קיצור דרך חדש"
 
 #: ../menulibre/MenulibreApplication.py:1037
-msgid "Select a working directory..."
+msgid "Select a working directory…"
 msgstr "בחירת ספריית פעילות..."
 
 #: ../menulibre/MenulibreApplication.py:1040
-msgid "Select an executable..."
+msgid "Select an executable…"
 msgstr "בחירת בר השמה..."
 
 #: ../menulibre/MenulibreApplication.py:1062
@@ -803,14 +799,11 @@ msgstr ""
 #~ msgid "_File"
 #~ msgstr "_קובץ"
 
-#~ msgid "<b>Preview</b>"
-#~ msgstr "<b>תצוגה מקדימה</b>"
+#~ msgid "Preview"
+#~ msgstr "תצוגה מקדימה"
 
 #~ msgid "Icon Selection"
 #~ msgstr "מבחר צלמית"
-
-#~ msgid "<b>Select an image</b>"
-#~ msgstr "<b>בחירת תמונה</b>"
 
 #~ msgid "_Edit"
 #~ msgstr "ע_ריכה"

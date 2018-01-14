@@ -175,7 +175,7 @@ msgid "Browse Icons…"
 msgstr "Parcourir les icônes..."
 
 #: ../data/ui/MenulibreWindow.ui.h:29
-msgid "Browse Files..."
+msgid "Browse Files…"
 msgstr "Parcourir les fichiers..."
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/Dialogs.py:39
@@ -225,14 +225,10 @@ msgid "Sort"
 msgstr "Trier"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
-msgid "<small><i>Filename</i></small>"
-msgstr "<small><i>Nom du fichier</i></small>"
+msgid "Filename"
+msgstr "Nom du fichier"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
-msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Nom de l’application</b></big>"
-
-#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Application Name"
 msgstr "Nom de l’application"
 
@@ -272,8 +268,8 @@ msgid "Working Directory"
 msgstr "Répertoire de travail"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
-msgid "<b>Application Details</b>"
-msgstr "<b>Détails de l’application</b>"
+msgid "Application Details"
+msgstr "Détails de l’application"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "If set to \"True\", the program will be ran in a terminal window."
@@ -311,8 +307,8 @@ msgid "Hide from menus"
 msgstr "Ne pas afficher dans le menu"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
-msgid "<b>Options</b>"
-msgstr "<b>Options</b>"
+msgid "Options"
+msgstr "Options"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Add"
@@ -350,8 +346,8 @@ msgid "Apply"
 msgstr "Appliquer"
 
 #: ../data/ui/MenulibreWindow.ui.h:67
-msgid "<b>Select an icon</b>"
-msgstr "<b>Sélectionner une icône</b>"
+msgid "Select an icon"
+msgstr "Sélectionner une icône"
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Search"
@@ -366,7 +362,7 @@ msgid "Log - Menulibre"
 msgstr "journaux - Menulibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-msgid "<big><b>Parsing Errors</b></big>"
+msgid "Parsing Errors"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:72
@@ -617,27 +613,27 @@ msgstr ""
 "d'informations."
 
 #: ../menulibre/MenulibreApplication.py:333
-msgid "Add _Launcher..."
+msgid "Add _Launcher…"
 msgstr "Ajouter un _lanceur..."
 
 #: ../menulibre/MenulibreApplication.py:334
-msgid "Add Launcher..."
+msgid "Add Launcher…"
 msgstr "Ajouter un lanceur..."
 
 #: ../menulibre/MenulibreApplication.py:340
-msgid "Add _Directory..."
+msgid "Add _Directory…"
 msgstr "Ajouter un _répertoire..."
 
 #: ../menulibre/MenulibreApplication.py:341
-msgid "Add Directory..."
+msgid "Add Directory…"
 msgstr "Ajouter un répertoire..."
 
 #: ../menulibre/MenulibreApplication.py:347
-msgid "_Add Separator..."
+msgid "_Add Separator…"
 msgstr "Ajouter un _séparateur..."
 
 #: ../menulibre/MenulibreApplication.py:348
-msgid "Add Separator..."
+msgid "Add Separator…"
 msgstr "Ajouter un séparateur..."
 
 #: ../menulibre/MenulibreApplication.py:354
@@ -728,11 +724,11 @@ msgid "New Shortcut"
 msgstr "Nouveau raccourci"
 
 #: ../menulibre/MenulibreApplication.py:1037
-msgid "Select a working directory..."
+msgid "Select a working directory…"
 msgstr "Sélectionnez un répertoire de travail..."
 
 #: ../menulibre/MenulibreApplication.py:1040
-msgid "Select an executable..."
+msgid "Select an executable…"
 msgstr "Sélectionnez un exécutable..."
 
 #: ../menulibre/MenulibreApplication.py:1062
@@ -849,14 +845,11 @@ msgstr ""
 #~ msgid "_File"
 #~ msgstr "_Fichier"
 
-#~ msgid "<b>Preview</b>"
-#~ msgstr "<b>Aperçu</b>"
+#~ msgid "Preview"
+#~ msgstr "Aperçu"
 
 #~ msgid "Image File"
 #~ msgstr "Fichier image"
-
-#~ msgid "<b>Select an image</b>"
-#~ msgstr "<b>Sélectionner une image</b>"
 
 #~ msgid "32px"
 #~ msgstr "32 px"

@@ -330,22 +330,22 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Add Launcher
         self.actions['add_launcher'] = Gtk.Action(
                                             name='add_launcher',
-                                            label=_('Add _Launcher...'),
-                                            tooltip=_('Add Launcher...'),
+                                            label=_('Add _Launcher…'),
+                                            tooltip=_('Add Launcher…'),
                                             stock_id=Gtk.STOCK_NEW)
 
         # Add Directory
         self.actions['add_directory'] = Gtk.Action(
                                             name='add_directory',
-                                            label=_('Add _Directory...'),
-                                            tooltip=_('Add Directory...'),
+                                            label=_('Add _Directory…'),
+                                            tooltip=_('Add Directory…'),
                                             stock_id=Gtk.STOCK_NEW)
 
         # Add Separator
         self.actions['add_separator'] = Gtk.Action(
                                             name='add_separator',
-                                            label=_('_Add Separator...'),
-                                            tooltip=_('Add Separator...'),
+                                            label=_('_Add Separator…'),
+                                            tooltip=_('Add Separator…'),
                                             stock_id=Gtk.STOCK_NEW)
 
         # Save Launcher
@@ -1034,10 +1034,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_ExecPath_clicked(self, entry, icon, event, widget_name, builder):
         """Show the file selection dialog when Exec/Path Browse is clicked."""
         if widget_name == 'Path':
-            title = _("Select a working directory...")
+            title = _("Select a working directory…")
             action = Gtk.FileChooserAction.SELECT_FOLDER
         else:
-            title = _("Select an executable...")
+            title = _("Select an executable…")
             action = Gtk.FileChooserAction.OPEN
 
         dialog = Dialogs.FileChooserDialog(self, title, action)
@@ -1275,7 +1275,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         widget = self.widgets['Filename']
 
         # Set the label and tooltip.
-        widget.set_label("<small><i>%s</i></small>" % filename)
+        widget.set_label(filename)
         widget.set_tooltip_text(filename)
 
         # Store the filename value.
@@ -1418,10 +1418,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 value = ""
             button, label, entry = self.widgets[key]
             if key == 'Name':
-                markup = "<big><b>%s</b></big>" % escapeText(value)
+                markup = escapeText(value)
             else:
                 markup = "%s" % (value)
-            tooltip = "%s <i>(Click to modify.)</i>" % escapeText(value)
+            tooltip = escapeText(value)
 
             button.set_tooltip_markup(tooltip)
             entry.set_text(value)

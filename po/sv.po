@@ -175,7 +175,7 @@ msgid "Browse Icons…"
 msgstr "Bläddra bland ikoner..."
 
 #: ../data/ui/MenulibreWindow.ui.h:29
-msgid "Browse Files..."
+msgid "Browse Files…"
 msgstr "Bläddra bland filer..."
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/Dialogs.py:39
@@ -225,14 +225,10 @@ msgid "Sort"
 msgstr "Sortera"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
-msgid "<small><i>Filename</i></small>"
-msgstr "<small><i>Filnamn</i></small>"
+msgid "Filename"
+msgstr "Filnamn"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
-msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Programnamn</b></big>"
-
-#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Application Name"
 msgstr "Programnamn"
 
@@ -271,8 +267,8 @@ msgid "Working Directory"
 msgstr "Arbetskatalog"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
-msgid "<b>Application Details</b>"
-msgstr "<b>Programdetaljer</b>"
+msgid "Application Details"
+msgstr "Programdetaljer"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "If set to \"True\", the program will be ran in a terminal window."
@@ -308,8 +304,8 @@ msgid "Hide from menus"
 msgstr "Dölj i menyer"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
-msgid "<b>Options</b>"
-msgstr "<b>Alternativ</b>"
+msgid "Options"
+msgstr "Alternativ"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Add"
@@ -347,8 +343,8 @@ msgid "Apply"
 msgstr "Tillämpa"
 
 #: ../data/ui/MenulibreWindow.ui.h:67
-msgid "<b>Select an icon</b>"
-msgstr "<b>Välj en ikon</b>"
+msgid "Select an icon"
+msgstr "Välj en ikon"
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Search"
@@ -363,7 +359,7 @@ msgid "Log - Menulibre"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-msgid "<big><b>Parsing Errors</b></big>"
+msgid "Parsing Errors"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:72
@@ -610,27 +606,27 @@ msgid ""
 msgstr "Se <a href='%s'>online documentation</a> för mer information."
 
 #: ../menulibre/MenulibreApplication.py:333
-msgid "Add _Launcher..."
+msgid "Add _Launcher…"
 msgstr "_Lägg till programstartare..."
 
 #: ../menulibre/MenulibreApplication.py:334
-msgid "Add Launcher..."
+msgid "Add Launcher…"
 msgstr "Lägg till programstartare..."
 
 #: ../menulibre/MenulibreApplication.py:340
-msgid "Add _Directory..."
+msgid "Add _Directory…"
 msgstr "Lägg till _katalog..."
 
 #: ../menulibre/MenulibreApplication.py:341
-msgid "Add Directory..."
+msgid "Add Directory…"
 msgstr "Lägg till katalog..."
 
 #: ../menulibre/MenulibreApplication.py:347
-msgid "_Add Separator..."
+msgid "_Add Separator…"
 msgstr "Lägg till _avskiljare..."
 
 #: ../menulibre/MenulibreApplication.py:348
-msgid "Add Separator..."
+msgid "Add Separator…"
 msgstr "Lägg till avskiljare..."
 
 #: ../menulibre/MenulibreApplication.py:354
@@ -721,11 +717,11 @@ msgid "New Shortcut"
 msgstr "Ny genväg"
 
 #: ../menulibre/MenulibreApplication.py:1037
-msgid "Select a working directory..."
+msgid "Select a working directory…"
 msgstr "Välj en arbetskatalog"
 
 #: ../menulibre/MenulibreApplication.py:1040
-msgid "Select an executable..."
+msgid "Select an executable…"
 msgstr "Välj en körbar fil..."
 
 #: ../menulibre/MenulibreApplication.py:1062
@@ -841,9 +837,6 @@ msgstr ""
 #~ msgid "Image File"
 #~ msgstr "Bildfil"
 
-#~ msgid "<b>Select an image</b>"
-#~ msgstr "<b>Välj en bild</b>"
-
 #~ msgid "16px"
 #~ msgstr "16px"
 
@@ -856,8 +849,8 @@ msgstr ""
 #~ msgid "128px"
 #~ msgstr "128px"
 
-#~ msgid "<b>Preview</b>"
-#~ msgstr "<b>Förhandsvisning</b>"
+#~ msgid "Preview"
+#~ msgstr "Förhandsvisning"
 
 #~ msgid "_File"
 #~ msgstr "_Fil"

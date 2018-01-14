@@ -149,7 +149,7 @@ msgid "Browse Icons…"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:29
-msgid "Browse Files..."
+msgid "Browse Files…"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/Dialogs.py:39
@@ -199,14 +199,10 @@ msgid "Sort"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:41
-msgid "<small><i>Filename</i></small>"
+msgid "Filename"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:42
-msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Nafn forrits</b></big>"
-
-#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Application Name"
 msgstr "Nafn forrits"
 
@@ -240,7 +236,7 @@ msgid "Working Directory"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:51
-msgid "<b>Application Details</b>"
+msgid "Application Details"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:52
@@ -272,7 +268,7 @@ msgid "Hide from menus"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:58
-msgid "<b>Options</b>"
+msgid "Options"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:59
@@ -311,7 +307,7 @@ msgid "Apply"
 msgstr "Virkja"
 
 #: ../data/ui/MenulibreWindow.ui.h:67
-msgid "<b>Select an icon</b>"
+msgid "Select an icon"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:68
@@ -327,7 +323,7 @@ msgid "Log - Menulibre"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-msgid "<big><b>Parsing Errors</b></big>"
+msgid "Parsing Errors"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:72
@@ -567,27 +563,27 @@ msgid ""
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:333
-msgid "Add _Launcher..."
+msgid "Add _Launcher…"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:334
-msgid "Add Launcher..."
+msgid "Add Launcher…"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:340
-msgid "Add _Directory..."
+msgid "Add _Directory…"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:341
-msgid "Add Directory..."
+msgid "Add Directory…"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:347
-msgid "_Add Separator..."
+msgid "_Add Separator…"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:348
-msgid "Add Separator..."
+msgid "Add Separator…"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:354
@@ -678,11 +674,11 @@ msgid "New Shortcut"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1037
-msgid "Select a working directory..."
+msgid "Select a working directory…"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1040
-msgid "Select an executable..."
+msgid "Select an executable…"
 msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:1062
@@ -806,14 +802,11 @@ msgstr ""
 #~ msgid "_File"
 #~ msgstr "_Skrá"
 
-#~ msgid "<b>Select an image</b>"
-#~ msgstr "<b>Veldu mynd</b>"
-
 #~ msgid "128px"
 #~ msgstr "128px"
 
-#~ msgid "<b>Preview</b>"
-#~ msgstr "<b>Forsýning</b>"
+#~ msgid "Preview"
+#~ msgstr "Forsýning"
 
 #~ msgid "32px"
 #~ msgstr "32px"

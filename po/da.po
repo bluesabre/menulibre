@@ -171,7 +171,7 @@ msgid "Browse Icons…"
 msgstr "Gennemse ikoner…"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
-msgid "Browse Files..."
+msgid "Browse Files…"
 msgstr "Gennemse filer..."
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/Dialogs.py:39
@@ -221,14 +221,10 @@ msgid "Sort"
 msgstr "Sortér"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
-msgid "<small><i>Filename</i></small>"
-msgstr "<small><i>Filnavn</i></small>"
+msgid "Filename"
+msgstr "Filnavn"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
-msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Programnavn</b></big>"
-
-#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Application Name"
 msgstr "Programnavn"
 
@@ -267,8 +263,8 @@ msgid "Working Directory"
 msgstr "Arbejdsmappe"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
-msgid "<b>Application Details</b>"
-msgstr "<b>Programdetaljer</b>"
+msgid "Application Details"
+msgstr "Programdetaljer"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "If set to \"True\", the program will be ran in a terminal window."
@@ -304,8 +300,8 @@ msgid "Hide from menus"
 msgstr "Skjul fra menuer"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
-msgid "<b>Options</b>"
-msgstr "<b>Valgmuligheder</b>"
+msgid "Options"
+msgstr "Valgmuligheder"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Add"
@@ -343,8 +339,8 @@ msgid "Apply"
 msgstr "Anvend"
 
 #: ../data/ui/MenulibreWindow.ui.h:67
-msgid "<b>Select an icon</b>"
-msgstr "<b>Vælg et ikon</b>"
+msgid "Select an icon"
+msgstr "Vælg et ikon"
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Search"
@@ -359,8 +355,8 @@ msgid "Log - Menulibre"
 msgstr "Log - Menulibre"
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-msgid "<big><b>Parsing Errors</b></big>"
-msgstr "<big><b>Fortolkningsfejl</b></big>"
+msgid "Parsing Errors"
+msgstr "Fortolkningsfejl"
 
 #: ../data/ui/MenulibreWindow.ui.h:72
 msgid ""
@@ -609,27 +605,27 @@ msgstr ""
 "Se venligst <a href='%s'>online-dokumentationen</a> for mere information."
 
 #: ../menulibre/MenulibreApplication.py:333
-msgid "Add _Launcher..."
+msgid "Add _Launcher…"
 msgstr "Tilføj _programstarter..."
 
 #: ../menulibre/MenulibreApplication.py:334
-msgid "Add Launcher..."
+msgid "Add Launcher…"
 msgstr "Tilføj programstarter..."
 
 #: ../menulibre/MenulibreApplication.py:340
-msgid "Add _Directory..."
+msgid "Add _Directory…"
 msgstr "Tilføj _mappe..."
 
 #: ../menulibre/MenulibreApplication.py:341
-msgid "Add Directory..."
+msgid "Add Directory…"
 msgstr "Tilføj mappe..."
 
 #: ../menulibre/MenulibreApplication.py:347
-msgid "_Add Separator..."
+msgid "_Add Separator…"
 msgstr "_Tilføj separator..."
 
 #: ../menulibre/MenulibreApplication.py:348
-msgid "Add Separator..."
+msgid "Add Separator…"
 msgstr "Tilføj separator..."
 
 #: ../menulibre/MenulibreApplication.py:354
@@ -720,11 +716,11 @@ msgid "New Shortcut"
 msgstr "Ny genvej"
 
 #: ../menulibre/MenulibreApplication.py:1037
-msgid "Select a working directory..."
+msgid "Select a working directory…"
 msgstr "Vælg en arbejdsmappe..."
 
 #: ../menulibre/MenulibreApplication.py:1040
-msgid "Select an executable..."
+msgid "Select an executable…"
 msgstr "Vælg en eksekverbar..."
 
 #: ../menulibre/MenulibreApplication.py:1062
@@ -843,14 +839,11 @@ msgstr "Er skrivebordsfilen ugyldig?"
 #~ msgid "Icon Selection"
 #~ msgstr "Valg af ikon"
 
-#~ msgid "<b>Select an image</b>"
-#~ msgstr "<b>Vælg et billede</b>"
-
 #~ msgid "_File"
 #~ msgstr "_Fil"
 
-#~ msgid "<b>Preview</b>"
-#~ msgstr "<b>Forhåndsvisning</b>"
+#~ msgid "Preview"
+#~ msgstr "Forhåndsvisning"
 
 #~ msgid "Icon Name"
 #~ msgstr "Ikonnavn"

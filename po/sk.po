@@ -173,7 +173,7 @@ msgid "Browse Icons…"
 msgstr "Prehliadať ikony…"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
-msgid "Browse Files..."
+msgid "Browse Files…"
 msgstr "Prehliadať súbory..."
 
 #: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/Dialogs.py:39
@@ -223,14 +223,10 @@ msgid "Sort"
 msgstr "Usporiadať"
 
 #: ../data/ui/MenulibreWindow.ui.h:41
-msgid "<small><i>Filename</i></small>"
-msgstr "<small><i>Názov súboru</i></small>"
+msgid "Filename"
+msgstr "Názov súboru"
 
 #: ../data/ui/MenulibreWindow.ui.h:42
-msgid "<big><b>Application Name</b></big>"
-msgstr "<big><b>Názov aplikácie</b></big>"
-
-#: ../data/ui/MenulibreWindow.ui.h:43
 msgid "Application Name"
 msgstr "Názov aplikácie"
 
@@ -270,8 +266,8 @@ msgid "Working Directory"
 msgstr "Pracovný adresár"
 
 #: ../data/ui/MenulibreWindow.ui.h:51
-msgid "<b>Application Details</b>"
-msgstr "<b>Podrobnosti o aplikácii</b>"
+msgid "Application Details"
+msgstr "Podrobnosti o aplikácii"
 
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "If set to \"True\", the program will be ran in a terminal window."
@@ -306,8 +302,8 @@ msgid "Hide from menus"
 msgstr "Skryť z ponúk"
 
 #: ../data/ui/MenulibreWindow.ui.h:58
-msgid "<b>Options</b>"
-msgstr "<b>Voľby</b>"
+msgid "Options"
+msgstr "Voľby"
 
 #: ../data/ui/MenulibreWindow.ui.h:59
 msgid "Add"
@@ -345,8 +341,8 @@ msgid "Apply"
 msgstr "Použiť"
 
 #: ../data/ui/MenulibreWindow.ui.h:67
-msgid "<b>Select an icon</b>"
-msgstr "<b>Vyberte ikonu</b>"
+msgid "Select an icon"
+msgstr "Vyberte ikonu"
 
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Search"
@@ -361,7 +357,7 @@ msgid "Log - Menulibre"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:71
-msgid "<big><b>Parsing Errors</b></big>"
+msgid "Parsing Errors"
 msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:72
@@ -608,27 +604,27 @@ msgstr ""
 "Prosím, pre viac informácií si prezrite <a href='%s'>online dokumentáciu</a>."
 
 #: ../menulibre/MenulibreApplication.py:333
-msgid "Add _Launcher..."
+msgid "Add _Launcher…"
 msgstr "Pridať _spúšťač..."
 
 #: ../menulibre/MenulibreApplication.py:334
-msgid "Add Launcher..."
+msgid "Add Launcher…"
 msgstr "Pridá spúšťač..."
 
 #: ../menulibre/MenulibreApplication.py:340
-msgid "Add _Directory..."
+msgid "Add _Directory…"
 msgstr "Pridať _adresár..."
 
 #: ../menulibre/MenulibreApplication.py:341
-msgid "Add Directory..."
+msgid "Add Directory…"
 msgstr "Pridá adresár..."
 
 #: ../menulibre/MenulibreApplication.py:347
-msgid "_Add Separator..."
+msgid "_Add Separator…"
 msgstr "Pridať _oddeľovač..."
 
 #: ../menulibre/MenulibreApplication.py:348
-msgid "Add Separator..."
+msgid "Add Separator…"
 msgstr "Pridá oddeľovač..."
 
 #: ../menulibre/MenulibreApplication.py:354
@@ -719,11 +715,11 @@ msgid "New Shortcut"
 msgstr "Nová skratka"
 
 #: ../menulibre/MenulibreApplication.py:1037
-msgid "Select a working directory..."
+msgid "Select a working directory…"
 msgstr "Výber pracovného adresára..."
 
 #: ../menulibre/MenulibreApplication.py:1040
-msgid "Select an executable..."
+msgid "Select an executable…"
 msgstr "Výber spustiteľného súboru..."
 
 #: ../menulibre/MenulibreApplication.py:1062
