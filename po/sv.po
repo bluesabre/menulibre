@@ -9,14 +9,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-01-12 04:52+0000\n"
-"PO-Revision-Date: 2018-01-09 01:48+0000\n"
+"POT-Creation-Date: 2018-01-13 22:13-0500\n"
+"PO-Revision-Date: 2018-01-14 04:39+0000\n"
 "Last-Translator: Sean Davis <Unknown>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-01-13 04:50+0000\n"
+"X-Launchpad-Export-Date: 2018-01-14 05:27+0000\n"
 "X-Generator: Launchpad (build 18532)\n"
 "Language: sv\n"
 
@@ -44,11 +44,13 @@ msgstr "Lägg till av_skiljare"
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr "Allmänt namn på programmet, till exempel \"webbläsare\"."
 
-#: ../data/ui/MenulibreWindow.ui.h:5
+#. Translators: "GenericName" text entry. Generic name of the application, for example "Web Browser".
+#: ../data/ui/MenulibreWindow.ui.h:6
 msgid "Generic Name"
 msgstr "Allmänt namn"
 
-#: ../data/ui/MenulibreWindow.ui.h:6
+#. Translators: Possible values "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
+#: ../data/ui/MenulibreWindow.ui.h:8
 msgid ""
 "A list of environments that should not display this entry. You can only use "
 "this key if \"OnlyShowIn\" is not set.\n"
@@ -60,11 +62,13 @@ msgstr ""
 "Möjliga värden inkluderar: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, "
 "Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#: ../data/ui/MenulibreWindow.ui.h:8
+#. Translators: "NotShowIn" text entry. A list of environments that should not display this entry.
+#: ../data/ui/MenulibreWindow.ui.h:11
 msgid "Not Shown In"
 msgstr "Inte visad i"
 
-#: ../data/ui/MenulibreWindow.ui.h:9
+#. Translators: Possible values "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
+#: ../data/ui/MenulibreWindow.ui.h:13
 msgid ""
 "A list of environments that should display this entry. Other environments "
 "will not display this entry. You can only use this key if \"NotShowIn\" is "
@@ -78,11 +82,12 @@ msgstr ""
 "Möjliga värden inkluderar: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, "
 "Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#: ../data/ui/MenulibreWindow.ui.h:11
+#. Translators: "OnlyShowIn" text entry. A list of environments that should display this entry.
+#: ../data/ui/MenulibreWindow.ui.h:16
 msgid "Only Shown In"
 msgstr "Bara visad i"
 
-#: ../data/ui/MenulibreWindow.ui.h:12
+#: ../data/ui/MenulibreWindow.ui.h:17
 msgid ""
 "Path to an executable file to determine if the program is installed. If the "
 "file is not present or is not executable, this entry may not be shown in a "
@@ -92,19 +97,21 @@ msgstr ""
 "filen inte finns eller inte är körbar, kommer den här posten inte att visas "
 "i en meny."
 
-#: ../data/ui/MenulibreWindow.ui.h:13
+#. Translators: "TryExec" text entry. Path to an executable file to determine if the program is installed.
+#: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Try Exec"
 msgstr "Testkör"
 
-#: ../data/ui/MenulibreWindow.ui.h:14
+#: ../data/ui/MenulibreWindow.ui.h:20
 msgid "The MIME type(s) supported by this application."
 msgstr "De MIME-typer som stöds av det här programmet."
 
-#: ../data/ui/MenulibreWindow.ui.h:15
+#. Translators: "Mimetype" text entry. The MIME type(s) supported by this application.
+#: ../data/ui/MenulibreWindow.ui.h:22
 msgid "Mimetypes"
 msgstr "Mime-typer"
 
-#: ../data/ui/MenulibreWindow.ui.h:16
+#: ../data/ui/MenulibreWindow.ui.h:23
 msgid ""
 "A list of keywords to describe this entry. You can use these to help "
 "searching entries. These are not meant for display, and should not be "
@@ -114,11 +121,12 @@ msgstr ""
 "för att söka efter poster. De är inte avsedda att visas, och bör inte "
 "överlappa värden för Namn eller Allmänt namn."
 
-#: ../data/ui/MenulibreWindow.ui.h:17
+#. Translators: "Keywords" text entry. A list of keywords to describe this entry.
+#: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Keywords"
 msgstr "Nyckelord"
 
-#: ../data/ui/MenulibreWindow.ui.h:18
+#: ../data/ui/MenulibreWindow.ui.h:26
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
@@ -126,11 +134,12 @@ msgstr ""
 "Om valt, kommer programmet att uppmanas att använda strängen som en WM-klass "
 "eller ett WM-namnantydan åtminstone i ett fönster."
 
-#: ../data/ui/MenulibreWindow.ui.h:19
+#. Translators: "StartupWMClass" text entry. A window manager hint for the application
+#: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Startup WM Class"
 msgstr "Startup WM Class"
 
-#: ../data/ui/MenulibreWindow.ui.h:20
+#: ../data/ui/MenulibreWindow.ui.h:29
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
@@ -138,11 +147,12 @@ msgstr ""
 "Om satt till \"Sant\", motsvarar användarens resultat .desktop-filen som "
 "inte alls finns."
 
-#: ../data/ui/MenulibreWindow.ui.h:21
+#. Translators: "Hidden" on/off switch. When enabled, the application is hidden from the menu.
+#: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Hidden"
 msgstr "Dold"
 
-#: ../data/ui/MenulibreWindow.ui.h:22
+#: ../data/ui/MenulibreWindow.ui.h:32
 msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this "
 "application and you want to use it.\n"
@@ -154,93 +164,98 @@ msgstr ""
 "Se http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "för mer information."
 
-#: ../data/ui/MenulibreWindow.ui.h:24
+#. Translators: "DBusActivatable" on/off switch. When enabled, the application is said to be activated via DBUS.
+#: ../data/ui/MenulibreWindow.ui.h:35
 msgid "DBUS Activatable"
 msgstr "DBUS Activatable"
 
-#: ../data/ui/MenulibreWindow.ui.h:25
+#: ../data/ui/MenulibreWindow.ui.h:36
 msgid "A list of interfaces that this application implements."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:26
+#. Translators: "Implements" text entry. A list of interfaces that this application implements.
+#: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Implements"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:27
-msgid "Invalid desktop files detected! Please see details"
+#. Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.
+#: ../data/ui/MenulibreWindow.ui.h:40
+msgid "Invalid desktop files detected! Please see details."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:28
+#: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Browse Icons…"
 msgstr "Bläddra bland ikoner..."
 
-#: ../data/ui/MenulibreWindow.ui.h:29
+#: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Browse Files…"
 msgstr "Bläddra bland filer..."
 
-#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/Dialogs.py:39
+#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/Dialogs.py:39
 #: ../menulibre/MenulibreApplication.py:256
 #: ../menulibre/MenulibreApplication.py:295
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
-#: ../data/ui/MenulibreWindow.ui.h:31
+#: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Save Launcher"
 msgstr "Spara programstartare"
 
-#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:362
+#: ../data/ui/MenulibreWindow.ui.h:45 ../menulibre/MenulibreApplication.py:362
 msgid "Undo"
 msgstr "Ångra"
 
-#: ../data/ui/MenulibreWindow.ui.h:33 ../menulibre/MenulibreApplication.py:369
+#: ../data/ui/MenulibreWindow.ui.h:46 ../menulibre/MenulibreApplication.py:369
 msgid "Redo"
 msgstr "Gör om"
 
-#: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/MenulibreApplication.py:376
+#: ../data/ui/MenulibreWindow.ui.h:47 ../menulibre/MenulibreApplication.py:376
 msgid "Revert"
 msgstr "Återställ"
 
-#: ../data/ui/MenulibreWindow.ui.h:35
+#: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Test Launcher"
 msgstr "Testa startare"
 
-#: ../data/ui/MenulibreWindow.ui.h:36 ../menulibre/MenulibreApplication.py:390
+#: ../data/ui/MenulibreWindow.ui.h:49 ../menulibre/MenulibreApplication.py:390
 msgid "Delete"
 msgstr "Ta bort"
 
-#: ../data/ui/MenulibreWindow.ui.h:37
+#: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Move Up"
 msgstr "Flytta upp"
 
-#: ../data/ui/MenulibreWindow.ui.h:38
+#: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Move Down"
 msgstr "Flytta ner"
 
-#: ../data/ui/MenulibreWindow.ui.h:39
+#: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Sort alphabetically"
 msgstr "Sortera alfabetiskt"
 
-#: ../data/ui/MenulibreWindow.ui.h:40
+#: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Sort"
 msgstr "Sortera"
 
-#: ../data/ui/MenulibreWindow.ui.h:41
+#: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Filename"
 msgstr "Filnamn"
 
-#: ../data/ui/MenulibreWindow.ui.h:42
+#. Placeholder text/hint for the application name entry.
+#: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Application Name"
 msgstr "Programnamn"
 
-#: ../data/ui/MenulibreWindow.ui.h:44
+#: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Application Comment"
 msgstr "Programkommentar"
 
-#: ../data/ui/MenulibreWindow.ui.h:45 ../menulibre/MenulibreApplication.py:733
+#. Placeholder text/hint for the application comment entry.
+#: ../data/ui/MenulibreWindow.ui.h:59 ../menulibre/MenulibreApplication.py:733
 msgid "Description"
 msgstr "Beskrivning"
 
-#: ../data/ui/MenulibreWindow.ui.h:46
+#: ../data/ui/MenulibreWindow.ui.h:60
 msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable "
 "is not set to \"True\" or if you need compatibility with implementations "
@@ -254,32 +269,35 @@ msgstr ""
 "Se http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables för en lista på argument som stöds."
 
-#: ../data/ui/MenulibreWindow.ui.h:48
+#. Translators: "Exec" text entry. Program to execute with arguments.
+#: ../data/ui/MenulibreWindow.ui.h:63
 msgid "Command"
 msgstr "Kommando"
 
-#: ../data/ui/MenulibreWindow.ui.h:49
+#: ../data/ui/MenulibreWindow.ui.h:64
 msgid "The working directory."
 msgstr "Arbetskatalogen."
 
-#: ../data/ui/MenulibreWindow.ui.h:50
+#. Translators: "Path" text entry. The working directory of the application.
+#: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Working Directory"
 msgstr "Arbetskatalog"
 
-#: ../data/ui/MenulibreWindow.ui.h:51
+#: ../data/ui/MenulibreWindow.ui.h:67
 msgid "Application Details"
 msgstr "Programdetaljer"
 
-#: ../data/ui/MenulibreWindow.ui.h:52
+#: ../data/ui/MenulibreWindow.ui.h:68
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
 "Om satt till \"Sant\", kommer programmet att köras i ett terminalfönster."
 
-#: ../data/ui/MenulibreWindow.ui.h:53
+#. Translators: "Terminal" on/off switch. When enabled, the application is executed in a terminal window.
+#: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Run in terminal"
 msgstr "Kör i en terminal"
 
-#: ../data/ui/MenulibreWindow.ui.h:54
+#: ../data/ui/MenulibreWindow.ui.h:71
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
@@ -287,11 +305,12 @@ msgstr ""
 "Om satt till \"Sant\", skickas en startnotifiering. Oftast betyder det att "
 "en upptagen muspekare visas medan programmet startar."
 
-#: ../data/ui/MenulibreWindow.ui.h:55
+#. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is shown while the application launches.
+#: ../data/ui/MenulibreWindow.ui.h:73
 msgid "Use startup notification"
 msgstr "Använd startnotifieringar"
 
-#: ../data/ui/MenulibreWindow.ui.h:56
+#: ../data/ui/MenulibreWindow.ui.h:74
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
@@ -299,77 +318,78 @@ msgstr ""
 "Om satt till \"Sant\", kommer den här posten inte att visas i menyer, men "
 "kommer att vara tillgänglig för MIME-typ associeringar etc."
 
-#: ../data/ui/MenulibreWindow.ui.h:57
+#. Translators: "NoDisplay" on/off switch. When enabled, the application will not be shown in menus, but will be available for MIME type associations etc.
+#: ../data/ui/MenulibreWindow.ui.h:76
 msgid "Hide from menus"
 msgstr "Dölj i menyer"
 
-#: ../data/ui/MenulibreWindow.ui.h:58
+#: ../data/ui/MenulibreWindow.ui.h:77
 msgid "Options"
 msgstr "Alternativ"
 
-#: ../data/ui/MenulibreWindow.ui.h:59
+#: ../data/ui/MenulibreWindow.ui.h:78
 msgid "Add"
 msgstr "Lägg till"
 
-#: ../data/ui/MenulibreWindow.ui.h:60
+#: ../data/ui/MenulibreWindow.ui.h:79
 msgid "Remove"
 msgstr "Ta bort"
 
-#: ../data/ui/MenulibreWindow.ui.h:61
+#: ../data/ui/MenulibreWindow.ui.h:80
 msgid "Clear"
 msgstr "Rensa"
 
-#: ../data/ui/MenulibreWindow.ui.h:62
+#: ../data/ui/MenulibreWindow.ui.h:81
 msgid "Show"
 msgstr "Visa"
 
-#: ../data/ui/MenulibreWindow.ui.h:63
+#: ../data/ui/MenulibreWindow.ui.h:82
 msgid "Name"
 msgstr "Namn"
 
-#: ../data/ui/MenulibreWindow.ui.h:64
+#: ../data/ui/MenulibreWindow.ui.h:83
 msgid "Select an icon…"
 msgstr "Välj en ikon..."
 
-#: ../data/ui/MenulibreWindow.ui.h:65 ../menulibre/Dialogs.py:64
+#: ../data/ui/MenulibreWindow.ui.h:84 ../menulibre/Dialogs.py:64
 #: ../menulibre/Dialogs.py:88 ../menulibre/Dialogs.py:105
 #: ../menulibre/Dialogs.py:130 ../menulibre/Dialogs.py:139
 #: ../menulibre/MenulibreIconSelection.py:80
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: ../data/ui/MenulibreWindow.ui.h:66
+#: ../data/ui/MenulibreWindow.ui.h:85
 msgid "Apply"
 msgstr "Tillämpa"
 
-#: ../data/ui/MenulibreWindow.ui.h:67
+#: ../data/ui/MenulibreWindow.ui.h:86
 msgid "Select an icon"
 msgstr "Välj en ikon"
 
-#: ../data/ui/MenulibreWindow.ui.h:68
+#: ../data/ui/MenulibreWindow.ui.h:87
 msgid "Search"
 msgstr "Sök"
 
-#: ../data/ui/MenulibreWindow.ui.h:69
+#: ../data/ui/MenulibreWindow.ui.h:88
 msgid "column"
 msgstr "kolumn"
 
-#: ../data/ui/MenulibreWindow.ui.h:70
+#: ../data/ui/MenulibreWindow.ui.h:89
 msgid "Log - Menulibre"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:71
+#: ../data/ui/MenulibreWindow.ui.h:90
 msgid "Parsing Errors"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:72
+#: ../data/ui/MenulibreWindow.ui.h:91
 msgid ""
 "The following desktop files have failed parsing by the underlying library, "
-"and will therefore not show up in MenuLibre. \n"
+"and will therefore not show up in MenuLibre.\n"
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:74
+#: ../data/ui/MenulibreWindow.ui.h:93
 msgid "Search terms…"
 msgstr "Sökvillkor..."
 
@@ -775,57 +795,56 @@ msgstr "Ny menypost"
 msgid "A small descriptive blurb about this application."
 msgstr "En kort beskrivning om detta program."
 
-#: ../menulibre/util.py:589
+#. Translators: This error is displayed when a desktop file cannot
+#. be correctly read by MenuLibre. A (possibly untranslated) error
+#. code is displayed.
+#: ../menulibre/util.py:592
 #, python-format
-msgid "Unable to load as a key file due to the following error: %s"
+msgid "Unable to load desktop file due to the following error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:601
+#. Translators: This error is displayed when the first group in a
+#. failing desktop file is incorrect. "Start group" can be safely
+#. translated.
+#: ../menulibre/util.py:607
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:609
-msgid "Type key was not found"
-msgstr ""
-
-#: ../menulibre/util.py:612
+#. Translators: This error is displayed when a required key is
+#. missing in a failing desktop file.
+#: ../menulibre/util.py:617 ../menulibre/util.py:651
 #, python-format
-msgid "Type is invalid - currently '%s', should be '%s'"
+msgid "%s key not found"
 msgstr ""
 
-#: ../menulibre/util.py:625
+#. Translators: This error is displayed when a failing desktop file
+#. has an invalid value for the provided key.
+#: ../menulibre/util.py:622
 #, python-format
-msgid "Try exec program '%s' has not been found in the PATH"
+msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:628
+#. Translators: This error is displayed when a failing desktop
+#. file contains an invalid path to an executable file.
+#: ../menulibre/util.py:637 ../menulibre/util.py:655
+#, python-format
+msgid "%s program '%s' has not been found in the PATH"
+msgstr ""
+
+#. Translators: This error is displayed when a failing desktop
+#. file contains an invalid command to execute.
+#: ../menulibre/util.py:642 ../menulibre/util.py:658
 #, python-format
 msgid ""
-"Try exec program '%s' is not a valid shell command according to "
+"%s program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:637
-msgid "Exec key not found"
-msgstr ""
-
-#: ../menulibre/util.py:641
-#, python-format
-msgid "Exec program '%s' has not been found in the PATH"
-msgstr ""
-
-#: ../menulibre/util.py:644
-#, python-format
-msgid ""
-"Exec program '%s' is not a valid shell command according to "
-"GLib.shell_parse_argv, error: %s"
-msgstr ""
-
-#. At this point the desktop file is valid - execution should never reach
-#. here
-#: ../menulibre/util.py:650
-msgid "Desktop file is valid??"
+#. Translators: This error is displayed for a failing desktop file where
+#. errors were detected but the file seems otherwise valid.
+#: ../menulibre/util.py:664
+msgid "Unknown error. Desktop file appears to be are valid."
 msgstr ""
 
 #~ msgid "Icon Selection"
@@ -836,6 +855,9 @@ msgstr ""
 
 #~ msgid "Image File"
 #~ msgstr "Bildfil"
+
+#~ msgid "<b>Select an image</b>"
+#~ msgstr "<b>Välj en bild</b>"
 
 #~ msgid "16px"
 #~ msgstr "16px"
@@ -849,8 +871,8 @@ msgstr ""
 #~ msgid "128px"
 #~ msgstr "128px"
 
-#~ msgid "Preview"
-#~ msgstr "Förhandsvisning"
+#~ msgid "<b>Preview</b>"
+#~ msgstr "<b>Förhandsvisning</b>"
 
 #~ msgid "_File"
 #~ msgstr "_Fil"
@@ -860,6 +882,9 @@ msgstr ""
 
 #~ msgid "_Help"
 #~ msgstr "_Hjälp"
+
+#~ msgid "<big><b>Application Name</b></big>"
+#~ msgstr "<big><b>Programnamn</b></big>"
 
 #~ msgid ""
 #~ "\"Exec\": Program to execute, possibly with arguments. The Exec key is "
@@ -891,6 +916,9 @@ msgstr ""
 
 #~ msgid "Browse…"
 #~ msgstr "Bläddra..."
+
+#~ msgid "<b>Application Details</b>"
+#~ msgstr "<b>Programdetaljer</b>"
 
 #~ msgid "\"Terminal\": Whether the program runs in a terminal window."
 #~ msgstr "\"Terminal\": Huruvida programmet kör i ett terminalfönster."
@@ -934,6 +962,9 @@ msgstr ""
 #~ "typer, så att det startar från en filhanterare (eller andra program), utan\n"
 #~ "att ha en egen menypost (det finns mängder av goda skäl för detta,\n"
 #~ "inkluderande t. ex. netscape -remote, eller kfmclient openURL typ av saker)."
+
+#~ msgid "<b>Options</b>"
+#~ msgstr "<b>Alternativ</b>"
 
 #~ msgid "Action Name"
 #~ msgstr "Åtgärdsnamn"
@@ -1064,9 +1095,45 @@ msgstr ""
 #~ "i sina skrivbordsfiler för kompatibilitet med implementeringar som inte\n"
 #~ "förstår DBusActivatable nyckeln."
 
+#~ msgid "<small><i>Filename</i></small>"
+#~ msgstr "<small><i>Filnamn</i></small>"
+
+#~ msgid "<b>Select an icon</b>"
+#~ msgstr "<b>Välj en ikon</b>"
+
+#~ msgid "Add _Launcher..."
+#~ msgstr "_Lägg till programstartare..."
+
+#~ msgid "Add Launcher..."
+#~ msgstr "Lägg till programstartare..."
+
+#~ msgid "Add _Directory..."
+#~ msgstr "Lägg till _katalog..."
+
+#~ msgid "Add Directory..."
+#~ msgstr "Lägg till katalog..."
+
+#~ msgid "_Add Separator..."
+#~ msgstr "Lägg till _avskiljare..."
+
+#~ msgid "Add Separator..."
+#~ msgstr "Lägg till avskiljare..."
+
 #~ msgid "If you don't save the launcher, all the changes will be lost.'"
 #~ msgstr ""
 #~ "Om du inte sparar programstartaren, kommer alla ändringarna att förloras.'"
 
+#~ msgid "Select a working directory..."
+#~ msgstr "Välj en arbetskatalog"
+
+#~ msgid "Select an executable..."
+#~ msgstr "Välj en körbar fil..."
+
 #~ msgid "Copyright © 2012-2014 Sean Davis"
 #~ msgstr "Copyright © 2012-2014 Sean Davis"
+
+#~ msgid "Browse Files..."
+#~ msgstr "Bläddra bland filer..."
+
+#~ msgid "Preview"
+#~ msgstr "Förhandsvisning"

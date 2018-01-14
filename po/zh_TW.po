@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-01-12 04:52+0000\n"
-"PO-Revision-Date: 2014-03-01 05:44+0000\n"
+"POT-Creation-Date: 2018-01-13 22:13-0500\n"
+"PO-Revision-Date: 2018-01-14 04:39+0000\n"
 "Last-Translator: Walter Cheuk <wwycheuk@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-01-13 04:50+0000\n"
+"X-Launchpad-Export-Date: 2018-01-14 05:27+0000\n"
 "X-Generator: Launchpad (build 18532)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -41,11 +41,13 @@ msgstr "加入分隔符(_S)"
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:5
+#. Translators: "GenericName" text entry. Generic name of the application, for example "Web Browser".
+#: ../data/ui/MenulibreWindow.ui.h:6
 msgid "Generic Name"
 msgstr "通用名稱"
 
-#: ../data/ui/MenulibreWindow.ui.h:6
+#. Translators: Possible values "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
+#: ../data/ui/MenulibreWindow.ui.h:8
 msgid ""
 "A list of environments that should not display this entry. You can only use "
 "this key if \"OnlyShowIn\" is not set.\n"
@@ -53,11 +55,13 @@ msgid ""
 "Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:8
+#. Translators: "NotShowIn" text entry. A list of environments that should not display this entry.
+#: ../data/ui/MenulibreWindow.ui.h:11
 msgid "Not Shown In"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:9
+#. Translators: Possible values "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
+#: ../data/ui/MenulibreWindow.ui.h:13
 msgid ""
 "A list of environments that should display this entry. Other environments "
 "will not display this entry. You can only use this key if \"NotShowIn\" is "
@@ -66,61 +70,67 @@ msgid ""
 "Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:11
+#. Translators: "OnlyShowIn" text entry. A list of environments that should display this entry.
+#: ../data/ui/MenulibreWindow.ui.h:16
 msgid "Only Shown In"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:12
+#: ../data/ui/MenulibreWindow.ui.h:17
 msgid ""
 "Path to an executable file to determine if the program is installed. If the "
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:13
+#. Translators: "TryExec" text entry. Path to an executable file to determine if the program is installed.
+#: ../data/ui/MenulibreWindow.ui.h:19
 msgid "Try Exec"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:14
+#: ../data/ui/MenulibreWindow.ui.h:20
 msgid "The MIME type(s) supported by this application."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:15
+#. Translators: "Mimetype" text entry. The MIME type(s) supported by this application.
+#: ../data/ui/MenulibreWindow.ui.h:22
 msgid "Mimetypes"
 msgstr "MIME 類型"
 
-#: ../data/ui/MenulibreWindow.ui.h:16
+#: ../data/ui/MenulibreWindow.ui.h:23
 msgid ""
 "A list of keywords to describe this entry. You can use these to help "
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:17
+#. Translators: "Keywords" text entry. A list of keywords to describe this entry.
+#: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Keywords"
 msgstr "關鍵字"
 
-#: ../data/ui/MenulibreWindow.ui.h:18
+#: ../data/ui/MenulibreWindow.ui.h:26
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:19
+#. Translators: "StartupWMClass" text entry. A window manager hint for the application
+#: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Startup WM Class"
 msgstr "啟動 WM 類別"
 
-#: ../data/ui/MenulibreWindow.ui.h:20
+#: ../data/ui/MenulibreWindow.ui.h:29
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:21
+#. Translators: "Hidden" on/off switch. When enabled, the application is hidden from the menu.
+#: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Hidden"
 msgstr "隱藏"
 
-#: ../data/ui/MenulibreWindow.ui.h:22
+#: ../data/ui/MenulibreWindow.ui.h:32
 msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this "
 "application and you want to use it.\n"
@@ -128,93 +138,98 @@ msgid ""
 "for more information."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:24
+#. Translators: "DBusActivatable" on/off switch. When enabled, the application is said to be activated via DBUS.
+#: ../data/ui/MenulibreWindow.ui.h:35
 msgid "DBUS Activatable"
 msgstr "可由 DBUS 啟動"
 
-#: ../data/ui/MenulibreWindow.ui.h:25
+#: ../data/ui/MenulibreWindow.ui.h:36
 msgid "A list of interfaces that this application implements."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:26
+#. Translators: "Implements" text entry. A list of interfaces that this application implements.
+#: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Implements"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:27
-msgid "Invalid desktop files detected! Please see details"
+#. Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.
+#: ../data/ui/MenulibreWindow.ui.h:40
+msgid "Invalid desktop files detected! Please see details."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:28
+#: ../data/ui/MenulibreWindow.ui.h:41
 msgid "Browse Icons…"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:29
+#: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Browse Files…"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:30 ../menulibre/Dialogs.py:39
+#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/Dialogs.py:39
 #: ../menulibre/MenulibreApplication.py:256
 #: ../menulibre/MenulibreApplication.py:295
 msgid "MenuLibre"
 msgstr "MenuLibre"
 
-#: ../data/ui/MenulibreWindow.ui.h:31
+#: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Save Launcher"
 msgstr "儲存啟動器"
 
-#: ../data/ui/MenulibreWindow.ui.h:32 ../menulibre/MenulibreApplication.py:362
+#: ../data/ui/MenulibreWindow.ui.h:45 ../menulibre/MenulibreApplication.py:362
 msgid "Undo"
 msgstr "復原"
 
-#: ../data/ui/MenulibreWindow.ui.h:33 ../menulibre/MenulibreApplication.py:369
+#: ../data/ui/MenulibreWindow.ui.h:46 ../menulibre/MenulibreApplication.py:369
 msgid "Redo"
 msgstr "重做"
 
-#: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/MenulibreApplication.py:376
+#: ../data/ui/MenulibreWindow.ui.h:47 ../menulibre/MenulibreApplication.py:376
 msgid "Revert"
 msgstr "還原"
 
-#: ../data/ui/MenulibreWindow.ui.h:35
+#: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Test Launcher"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:36 ../menulibre/MenulibreApplication.py:390
+#: ../data/ui/MenulibreWindow.ui.h:49 ../menulibre/MenulibreApplication.py:390
 msgid "Delete"
 msgstr "刪除"
 
-#: ../data/ui/MenulibreWindow.ui.h:37
+#: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Move Up"
 msgstr "上移"
 
-#: ../data/ui/MenulibreWindow.ui.h:38
+#: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Move Down"
 msgstr "下移"
 
-#: ../data/ui/MenulibreWindow.ui.h:39
+#: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Sort alphabetically"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:40
+#: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Sort"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:41
+#: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Filename"
 msgstr "檔案名稱"
 
-#: ../data/ui/MenulibreWindow.ui.h:42
+#. Placeholder text/hint for the application name entry.
+#: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Application Name"
 msgstr "應用程式名稱"
 
-#: ../data/ui/MenulibreWindow.ui.h:44
+#: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Application Comment"
 msgstr "應用程式註解"
 
-#: ../data/ui/MenulibreWindow.ui.h:45 ../menulibre/MenulibreApplication.py:733
+#. Placeholder text/hint for the application comment entry.
+#: ../data/ui/MenulibreWindow.ui.h:59 ../menulibre/MenulibreApplication.py:733
 msgid "Description"
 msgstr "說明"
 
-#: ../data/ui/MenulibreWindow.ui.h:46
+#: ../data/ui/MenulibreWindow.ui.h:60
 msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable "
 "is not set to \"True\" or if you need compatibility with implementations "
@@ -223,117 +238,122 @@ msgid ""
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:48
+#. Translators: "Exec" text entry. Program to execute with arguments.
+#: ../data/ui/MenulibreWindow.ui.h:63
 msgid "Command"
 msgstr "指令"
 
-#: ../data/ui/MenulibreWindow.ui.h:49
+#: ../data/ui/MenulibreWindow.ui.h:64
 msgid "The working directory."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:50
+#. Translators: "Path" text entry. The working directory of the application.
+#: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Working Directory"
 msgstr "工作目錄"
 
-#: ../data/ui/MenulibreWindow.ui.h:51
+#: ../data/ui/MenulibreWindow.ui.h:67
 msgid "Application Details"
 msgstr "應用程式詳情"
 
-#: ../data/ui/MenulibreWindow.ui.h:52
+#: ../data/ui/MenulibreWindow.ui.h:68
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:53
+#. Translators: "Terminal" on/off switch. When enabled, the application is executed in a terminal window.
+#: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Run in terminal"
 msgstr "在終端機運行"
 
-#: ../data/ui/MenulibreWindow.ui.h:54
+#: ../data/ui/MenulibreWindow.ui.h:71
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:55
+#. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is shown while the application launches.
+#: ../data/ui/MenulibreWindow.ui.h:73
 msgid "Use startup notification"
 msgstr "使用啟動通知"
 
-#: ../data/ui/MenulibreWindow.ui.h:56
+#: ../data/ui/MenulibreWindow.ui.h:74
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:57
+#. Translators: "NoDisplay" on/off switch. When enabled, the application will not be shown in menus, but will be available for MIME type associations etc.
+#: ../data/ui/MenulibreWindow.ui.h:76
 msgid "Hide from menus"
 msgstr "從選單隱藏"
 
-#: ../data/ui/MenulibreWindow.ui.h:58
+#: ../data/ui/MenulibreWindow.ui.h:77
 msgid "Options"
 msgstr "選項"
 
-#: ../data/ui/MenulibreWindow.ui.h:59
+#: ../data/ui/MenulibreWindow.ui.h:78
 msgid "Add"
 msgstr "加入"
 
-#: ../data/ui/MenulibreWindow.ui.h:60
+#: ../data/ui/MenulibreWindow.ui.h:79
 msgid "Remove"
 msgstr "移除"
 
-#: ../data/ui/MenulibreWindow.ui.h:61
+#: ../data/ui/MenulibreWindow.ui.h:80
 msgid "Clear"
 msgstr "清除"
 
-#: ../data/ui/MenulibreWindow.ui.h:62
+#: ../data/ui/MenulibreWindow.ui.h:81
 msgid "Show"
 msgstr "顯示"
 
-#: ../data/ui/MenulibreWindow.ui.h:63
+#: ../data/ui/MenulibreWindow.ui.h:82
 msgid "Name"
 msgstr "名稱"
 
-#: ../data/ui/MenulibreWindow.ui.h:64
+#: ../data/ui/MenulibreWindow.ui.h:83
 msgid "Select an icon…"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:65 ../menulibre/Dialogs.py:64
+#: ../data/ui/MenulibreWindow.ui.h:84 ../menulibre/Dialogs.py:64
 #: ../menulibre/Dialogs.py:88 ../menulibre/Dialogs.py:105
 #: ../menulibre/Dialogs.py:130 ../menulibre/Dialogs.py:139
 #: ../menulibre/MenulibreIconSelection.py:80
 msgid "Cancel"
 msgstr "取消"
 
-#: ../data/ui/MenulibreWindow.ui.h:66
+#: ../data/ui/MenulibreWindow.ui.h:85
 msgid "Apply"
 msgstr "套用"
 
-#: ../data/ui/MenulibreWindow.ui.h:67
+#: ../data/ui/MenulibreWindow.ui.h:86
 msgid "Select an icon"
 msgstr "選取圖示"
 
-#: ../data/ui/MenulibreWindow.ui.h:68
+#: ../data/ui/MenulibreWindow.ui.h:87
 msgid "Search"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:69
+#: ../data/ui/MenulibreWindow.ui.h:88
 msgid "column"
 msgstr "欄"
 
-#: ../data/ui/MenulibreWindow.ui.h:70
+#: ../data/ui/MenulibreWindow.ui.h:89
 msgid "Log - Menulibre"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:71
+#: ../data/ui/MenulibreWindow.ui.h:90
 msgid "Parsing Errors"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:72
+#: ../data/ui/MenulibreWindow.ui.h:91
 msgid ""
 "The following desktop files have failed parsing by the underlying library, "
-"and will therefore not show up in MenuLibre. \n"
+"and will therefore not show up in MenuLibre.\n"
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:74
+#: ../data/ui/MenulibreWindow.ui.h:93
 msgid "Search terms…"
 msgstr ""
 
@@ -731,57 +751,56 @@ msgstr "新增選單項目"
 msgid "A small descriptive blurb about this application."
 msgstr "有關這應用程式的備註。"
 
-#: ../menulibre/util.py:589
+#. Translators: This error is displayed when a desktop file cannot
+#. be correctly read by MenuLibre. A (possibly untranslated) error
+#. code is displayed.
+#: ../menulibre/util.py:592
 #, python-format
-msgid "Unable to load as a key file due to the following error: %s"
+msgid "Unable to load desktop file due to the following error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:601
+#. Translators: This error is displayed when the first group in a
+#. failing desktop file is incorrect. "Start group" can be safely
+#. translated.
+#: ../menulibre/util.py:607
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:609
-msgid "Type key was not found"
-msgstr ""
-
-#: ../menulibre/util.py:612
+#. Translators: This error is displayed when a required key is
+#. missing in a failing desktop file.
+#: ../menulibre/util.py:617 ../menulibre/util.py:651
 #, python-format
-msgid "Type is invalid - currently '%s', should be '%s'"
+msgid "%s key not found"
 msgstr ""
 
-#: ../menulibre/util.py:625
+#. Translators: This error is displayed when a failing desktop file
+#. has an invalid value for the provided key.
+#: ../menulibre/util.py:622
 #, python-format
-msgid "Try exec program '%s' has not been found in the PATH"
+msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:628
+#. Translators: This error is displayed when a failing desktop
+#. file contains an invalid path to an executable file.
+#: ../menulibre/util.py:637 ../menulibre/util.py:655
+#, python-format
+msgid "%s program '%s' has not been found in the PATH"
+msgstr ""
+
+#. Translators: This error is displayed when a failing desktop
+#. file contains an invalid command to execute.
+#: ../menulibre/util.py:642 ../menulibre/util.py:658
 #, python-format
 msgid ""
-"Try exec program '%s' is not a valid shell command according to "
+"%s program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
 
-#: ../menulibre/util.py:637
-msgid "Exec key not found"
-msgstr ""
-
-#: ../menulibre/util.py:641
-#, python-format
-msgid "Exec program '%s' has not been found in the PATH"
-msgstr ""
-
-#: ../menulibre/util.py:644
-#, python-format
-msgid ""
-"Exec program '%s' is not a valid shell command according to "
-"GLib.shell_parse_argv, error: %s"
-msgstr ""
-
-#. At this point the desktop file is valid - execution should never reach
-#. here
-#: ../menulibre/util.py:650
-msgid "Desktop file is valid??"
+#. Translators: This error is displayed for a failing desktop file where
+#. errors were detected but the file seems otherwise valid.
+#: ../menulibre/util.py:664
+msgid "Unknown error. Desktop file appears to be are valid."
 msgstr ""
 
 #~ msgid "Image File"
@@ -789,6 +808,9 @@ msgstr ""
 
 #~ msgid "Icon Name"
 #~ msgstr "圖示名稱"
+
+#~ msgid "<big><b>Application Name</b></big>"
+#~ msgstr "<big><b>應用程式名稱</b></big>"
 
 #~ msgid "_Edit"
 #~ msgstr "編輯(_E)"
@@ -799,17 +821,59 @@ msgstr ""
 #~ msgid "_File"
 #~ msgstr "檔案(_F)"
 
-#~ msgid "Preview"
-#~ msgstr "預覽"
+#~ msgid "<b>Preview</b>"
+#~ msgstr "<b>預覽</b>"
+
+#~ msgid "<b>Options</b>"
+#~ msgstr "<b>選項</b>"
+
+#~ msgid "<b>Select an image</b>"
+#~ msgstr "<b>選取影像</b>"
+
+#~ msgid "<b>Select an icon</b>"
+#~ msgstr "<b>選取圖示</b>"
 
 #~ msgid "Icon Selection"
 #~ msgstr "選取圖示"
 
+#~ msgid "Select a working directory..."
+#~ msgstr "選取工作目錄..."
+
+#~ msgid "Select an executable..."
+#~ msgstr "選取執行檔..."
+
+#~ msgid "<b>Application Details</b>"
+#~ msgstr "<b>應用程式詳情</b>"
+
 #~ msgid "\"Terminal\": Whether the program runs in a terminal window."
 #~ msgstr "\"Terminal\"：該程式是否在終端機運行。"
+
+#~ msgid "<small><i>Filename</i></small>"
+#~ msgstr "<small><i>檔案名稱</i></small>"
+
+#~ msgid "Add _Launcher..."
+#~ msgstr "加入啟動器(_L)..."
+
+#~ msgid "Add Launcher..."
+#~ msgstr "加入啟動器..."
+
+#~ msgid "Add _Directory..."
+#~ msgstr "加入目錄(_D)..."
+
+#~ msgid "Add Directory..."
+#~ msgstr "加入目錄..."
+
+#~ msgid "Add Separator..."
+#~ msgstr "加入分隔符..."
+
+#~ msgid "_Add Separator..."
+#~ msgstr "加入分隔符(_A)..."
 
 #~ msgid "If you don't save the launcher, all the changes will be lost.'"
 #~ msgstr "如不儲存啟動器，所有變更都會丟失。"
 
 #~ msgid "Copyright © 2012-2014 Sean Davis"
 #~ msgstr "著作權 © 2012-2014 Sean Davis"
+
+#~ msgid "Preview"
+#~ msgstr "預覽"
