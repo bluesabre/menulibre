@@ -253,7 +253,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Initialize the GtkApplicationWindow.
         Gtk.Window.__init__(self, title=window_title, application=app)
-        self.set_wmclass(_("MenuLibre"), _("MenuLibre"))
+        self.set_wmclass("MenuLibre", "MenuLibre")
 
         # Restore the window properties.
         self.set_title(window_title)
@@ -292,7 +292,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def configure_headerbar(self, builder):
         headerbar = Gtk.HeaderBar.new()
         headerbar.set_show_close_button(True)
-        headerbar.set_title(_("MenuLibre"))
+        headerbar.set_title("MenuLibre")
         headerbar.set_custom_title(Gtk.Label.new())
 
         # Add Launcher/Directory/Separator

@@ -36,7 +36,7 @@ class AboutDialog(Gtk.AboutDialog):
 
         # Populate the AboutDialog with all the relevant details.
         self.set_title(_("About MenuLibre"))
-        self.set_program_name(_("MenuLibre"))
+        self.set_program_name("MenuLibre")
         self.set_logo_icon_name("menulibre")
         self.set_copyright(_("Copyright © 2012-2015 Sean Davis"))
         self.set_authors(authors)
