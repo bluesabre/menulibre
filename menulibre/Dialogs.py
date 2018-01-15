@@ -15,6 +15,8 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
+
 from locale import gettext as _
 
 from gi.repository import Gtk
@@ -27,18 +29,15 @@ logger = logging.getLogger('menulibre')
 
 class AboutDialog(Gtk.AboutDialog):
     def __init__(self, parent):
-        # Create and display the AboutDialog.
         Gtk.AboutDialog.__init__(self)
-
-        # Credits
         authors = ["Sean Davis"]
         documenters = ["Sean Davis"]
 
-        # Populate the AboutDialog with all the relevant details.
+        # Translators: About Dialog, window title.
         self.set_title(_("About MenuLibre"))
         self.set_program_name("MenuLibre")
         self.set_logo_icon_name("menulibre")
-        self.set_copyright(_("Copyright © 2012-2015 Sean Davis"))
+        self.set_copyright("Copyright © 2012-2018 Sean Davis")
         self.set_authors(authors)
         self.set_documenters(documenters)
         self.set_website("https://launchpad.net/menulibre")
@@ -54,97 +53,152 @@ class AboutDialog(Gtk.AboutDialog):
 
 
 def HelpDialog(parent):
-    question = _("Do you want to read the MenuLibre manual online?")
-    details = _("You will be redirected to the documentation website "
-                "where the help pages are maintained.")
+    # Translators: Help Dialog, window title.
+    title = _("Online Documentation")
+    # Translators: Help Dialog, primary text.
+    primary = _("Do you want to read the MenuLibre manual online?")
+    # Translators: Help Dialog, secondary text.
+    secondary = _("You will be redirected to the documentation website "
+                  "where the help pages are maintained.")
+    buttons = [
+        # Translators: Help Dialog, cancel button.
+        (_("Cancel"), Gtk.ResponseType.CANCEL),
+        # Translators: Help Dialog, confirmation button. Navigates to
+        # online documentation.
+        (_("Read Online"), Gtk.ResponseType.OK)
+    ]
+    url = "http://wiki.bluesabre.org/doku.php?id=menulibre-docs"
+
     dialog = Gtk.MessageDialog(transient_for=parent, modal=True,
                                message_type=Gtk.MessageType.QUESTION,
                                buttons=Gtk.ButtonsType.NONE,
-                               text=question)
-    dialog.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
-    dialog.add_button(_("Read Online"), Gtk.ResponseType.OK)
-    dialog.set_title(_("Online Documentation"))
+                               text=primary)
+    dialog.set_title(title)
+    dialog.format_secondary_markup(secondary)
+    for button in buttons:
+        dialog.add_button(button[0], button[1])
 
-    dialog.format_secondary_markup(details)
     if dialog.run() == Gtk.ResponseType.OK:
-        help_url = "http://wiki.bluesabre.org/doku.php?id=menulibre-docs"
-        logger.debug("Navigating to help page, %s" % help_url)
-        menulibre_lib.show_uri(parent, help_url)
+        logger.debug("Navigating to help page, %s" % url)
+        menulibre_lib.show_uri(parent, url)
     dialog.destroy()
 
 
 class SaveOnCloseDialog(Gtk.MessageDialog):
     def __init__(self, parent):
-        question = _("Do you want to save the changes before closing?")
-        details = _("If you don't save the launcher, all the changes "
+        # Translators: Save On Close Dialog, window title.
+        title = _("Save Changes")
+        # Translators: Save On Close Dialog, primary text.
+        primary = _("Do you want to save the changes before closing?")
+        # Translators: Save On Close Dialog, secondary text.
+        secondary = _("If you don't save the launcher, all the changes "
                     "will be lost.")
+        buttons = [
+            # Translators: Save On Close Dialog, don't save, then close.
+            (_("Don't Save"), Gtk.ResponseType.NO),
+            # Translators: Save On Close Dialog, don't save, cancel close.
+            (_("Cancel"), Gtk.ResponseType.CANCEL),
+            # Translators: Save On Close Dialog, do save, then close.
+            (_("Save"), Gtk.ResponseType.YES)
+        ]
+
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.QUESTION,
                                    buttons=Gtk.ButtonsType.NONE,
-                                   text=question)
-        self.format_secondary_markup(details)
-        self.set_title(_("Save Changes"))
-        self.add_button(_("Don't Save"), Gtk.ResponseType.NO)
-        self.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
-        self.add_button(_("Save"), Gtk.ResponseType.YES)
+                                   text=primary)
+        self.set_title(title)
+        self.format_secondary_markup(secondary)
+        for button in buttons:
+            self.add_button(button[0], button[1])
 
 
 class SaveOnLeaveDialog(Gtk.MessageDialog):
     def __init__(self, parent):
-        question = _("Do you want to save the changes before leaving this "
+        # Translators: Save On Leave Dialog, window title.
+        title = _("Save Changes")
+        # Translators: Save On Leave Dialog, primary text.
+        primary = _("Do you want to save the changes before leaving this "
                      "launcher?")
-        details = _("If you don't save the launcher, all the changes "
+        # Translators: Save On Leave Dialog, primary text.
+        secondary = _("If you don't save the launcher, all the changes "
                     "will be lost.")
+        buttons = [
+            # Translators: Save On Leave Dialog, don't save, then leave.
+            (_("Don't Save"), Gtk.ResponseType.NO),
+            # Translators: Save On Leave Dialog, don't save, cancel leave.
+            (_("Cancel"), Gtk.ResponseType.CANCEL),
+            # Translators: Save On Leave Dialog, do save, then leave.
+            (_("Save"), Gtk.ResponseType.YES)
+        ]
+
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.QUESTION,
                                    buttons=Gtk.ButtonsType.NONE,
-                                   text=question)
-        self.format_secondary_markup(details)
-        self.set_title(_("Save Changes"))
-        self.add_button(_("Don't Save"), Gtk.ResponseType.NO)
-        self.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
-        self.add_button(_("Save"), Gtk.ResponseType.YES)
+                                   text=primary)
+        self.set_title(title)
+        self.format_secondary_markup(secondary)
+        for button in buttons:
+            self.add_button(button[0], button[1])
 
 
 class DeleteDialog(Gtk.MessageDialog):
-    def __init__(self, parent, question):
-        details = _("This cannot be undone.")
+    def __init__(self, parent, primary):
+        # Translations: Delete Dialog, secondary text. Notifies user that
+        # the file cannot be restored once deleted.
+        secondary = _("This cannot be undone.")
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.QUESTION,
                                    buttons=Gtk.ButtonsType.OK_CANCEL,
-                                   text=question)
-        self.format_secondary_markup(details)
+                                   text=primary)
+        self.format_secondary_markup(secondary)
 
 
 class RevertDialog(Gtk.MessageDialog):
     def __init__(self, parent):
-        question = _("Are you sure you want to restore this launcher?")
-        details = _("All changes since the last saved state will be lost "
+        # Translators: Revert Dialog, window title.
+        title = _("Restore Launcher")
+        # Translators: Revert Dialog, primary text. Confirmation to revert
+        # all changes since the last file save.
+        primary = _("Are you sure you want to restore this launcher?")
+        # Translators: Revert Dialog, secondary text.
+        secondary = _("All changes since the last saved state will be lost "
                     "and cannot be restored automatically.")
+        buttons = [
+            # Translators: Revert Dialog, cancel button.
+            (_("Cancel"), Gtk.ResponseType.CANCEL),
+            # Translators: Revert Dialog, confirmation button.
+            (_("Restore Launcher"), Gtk.ResponseType.OK)
+        ]
+
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.QUESTION,
                                    buttons=Gtk.ButtonsType.NONE,
-                                   text=question)
-        self.format_secondary_markup(details)
-
-        self.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
-        self.add_button(_("Restore Launcher"), Gtk.ResponseType.OK)
-        self.set_title(_("Restore Launcher"))
+                                   text=primary)
+        self.set_title(title)
+        self.format_secondary_markup(secondary)
+        for button in buttons:
+            self.add_button(button[0], button[1])
 
 
 class FileChooserDialog(Gtk.FileChooserDialog):
     def __init__(self, parent, title, action):
         Gtk.FileChooserDialog.__init__(self, title=title, transient_for=parent,
                                        action=action)
+        # Translators: File Chooser Dialog, cancel button.
         self.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
+        # Translators: File Chooser Dialog, confirmation button.
         self.add_button(_("OK"), Gtk.ResponseType.OK)
 
 
 class LauncherRemovedDialog(Gtk.MessageDialog):
     def __init__(self, parent):
+        # Translators: Launcher Removed Dialog, primary text. Indicates that
+        # the selected application is no longer installed.
         primary = _("No Longer Installed")
+        # Translators: Launcher Removed Dialog, secondary text.
         secondary = _("This launcher has been removed from the "
                       "system.\nSelecting the next available item.")
+
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.INFO,
                                    buttons=Gtk.ButtonsType.OK,
@@ -154,11 +208,16 @@ class LauncherRemovedDialog(Gtk.MessageDialog):
 
 class NotFoundInPathDialog(Gtk.MessageDialog):
     def __init__(self, parent, command):
-        err = _("Could not find \"%s\" in your PATH.") % command
+        # Translators: Not Found In PATH Dialog, primary text. Indicates
+        # that the provided script was not found in any PATH directory.
+        primary = _("Could not find \"%s\" in your PATH.") % command
+
+        secondary = "<b>PATH:</b>\n%s" % "\n".join(os.getenv("PATH", "").split(":"))
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.ERROR,
                                    buttons=Gtk.ButtonsType.OK,
-                                   text=err)
+                                   text=primary)
+        self.format_secondary_markup(secondary)
         self.connect("response", self.response_cb)
 
     def response_cb(self, widget, user_data):
@@ -167,14 +226,16 @@ class NotFoundInPathDialog(Gtk.MessageDialog):
 
 class SaveErrorDialog(Gtk.MessageDialog):
     def __init__(self, parent, filename):
-        err = _("Failed to save \"%s\".") % filename
+        # Translators: Save Error Dialog, primary text.
+        primary = _("Failed to save \"%s\".") % filename
+        # Translators: Save Error Dialog, secondary text.
         secondary = \
             _("Do you have write permission to the file and directory?")
 
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.ERROR,
                                    buttons=Gtk.ButtonsType.OK,
-                                   text=err)
+                                   text=primary)
         self.format_secondary_markup(secondary)
         self.connect("response", self.response_cb)
 

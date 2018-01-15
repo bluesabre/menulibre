@@ -30,6 +30,7 @@ def parse_options():
     parser = optparse.OptionParser(version="%%prog %s" % get_version())
     parser.add_option(
         "-v", "--verbose", action="count", dest="verbose",
+        # Translators: Command line option to display debug messages on stdout
         help=_("Show debug messages"))
     (options, args) = parser.parse_args()
 
