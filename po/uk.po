@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-01-13 22:13-0500\n"
-"PO-Revision-Date: 2017-02-03 12:47+0000\n"
-"Last-Translator: Max <Unknown>\n"
+"POT-Creation-Date: 2018-01-14 15:52-0500\n"
+"PO-Revision-Date: 2018-01-14 04:39+0000\n"
+"Last-Translator: Sean Davis <Unknown>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-01-14 05:33+0000\n"
+"X-Launchpad-Export-Date: 2018-01-15 04:52+0000\n"
 "X-Generator: Launchpad (build 18532)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -25,29 +25,33 @@ msgstr "Редактор меню"
 msgid "Add or remove applications from the menu"
 msgstr "Додавання або вилучення програм з меню"
 
-#: ../data/ui/MenulibreWindow.ui.h:1
+#. Translators: This option adds a new application entry to the menu.
+#: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Add _Launcher"
 msgstr "Додати кнопку _запуску"
 
-#: ../data/ui/MenulibreWindow.ui.h:2
+#. Translators: This option adds a new directory entry to the menu.
+#: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Add _Directory"
 msgstr "Додати _теку"
 
-#: ../data/ui/MenulibreWindow.ui.h:3
+#. Translators: This option adds a new separator entry to the menu.
+#: ../data/ui/MenulibreWindow.ui.h:6
 msgid "Add _Separator"
 msgstr "Додати _розділювач"
 
-#: ../data/ui/MenulibreWindow.ui.h:4
+#. Translators: Tooltip for the "GenericName" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr "Загальна назва програми, наприклад, \"Веб-браузер\"."
 
 #. Translators: "GenericName" text entry. Generic name of the application, for example "Web Browser".
-#: ../data/ui/MenulibreWindow.ui.h:6
+#: ../data/ui/MenulibreWindow.ui.h:10
 msgid "Generic Name"
 msgstr "Загальна назва"
 
-#. Translators: Possible values "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
-#: ../data/ui/MenulibreWindow.ui.h:8
+#. Translators: Tooltip for the "NotShowIn" text entry. Possible values "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
+#: ../data/ui/MenulibreWindow.ui.h:12
 msgid ""
 "A list of environments that should not display this entry. You can only use "
 "this key if \"OnlyShowIn\" is not set.\n"
@@ -60,12 +64,12 @@ msgstr ""
 "Razor, ROX, TDE, Unity, XFCE, Old"
 
 #. Translators: "NotShowIn" text entry. A list of environments that should not display this entry.
-#: ../data/ui/MenulibreWindow.ui.h:11
+#: ../data/ui/MenulibreWindow.ui.h:15
 msgid "Not Shown In"
 msgstr "Не показувати в"
 
-#. Translators: Possible values "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
-#: ../data/ui/MenulibreWindow.ui.h:13
+#. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
+#: ../data/ui/MenulibreWindow.ui.h:17
 msgid ""
 "A list of environments that should display this entry. Other environments "
 "will not display this entry. You can only use this key if \"NotShowIn\" is "
@@ -79,11 +83,12 @@ msgstr ""
 "Razor, ROX, TDE, Unity, XFCE, Old"
 
 #. Translators: "OnlyShowIn" text entry. A list of environments that should display this entry.
-#: ../data/ui/MenulibreWindow.ui.h:16
+#: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Only Shown In"
 msgstr "Показувати в"
 
-#: ../data/ui/MenulibreWindow.ui.h:17
+#. Translators: Tooltip for the "TryExec" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:22
 msgid ""
 "Path to an executable file to determine if the program is installed. If the "
 "file is not present or is not executable, this entry may not be shown in a "
@@ -93,20 +98,22 @@ msgstr ""
 "файл відсутній або не є виконуваним, цей запис може не відображатися в меню."
 
 #. Translators: "TryExec" text entry. Path to an executable file to determine if the program is installed.
-#: ../data/ui/MenulibreWindow.ui.h:19
+#: ../data/ui/MenulibreWindow.ui.h:24
 msgid "Try Exec"
 msgstr "Шлях перевірки"
 
-#: ../data/ui/MenulibreWindow.ui.h:20
+#. Translators: Tooltip for the "Mimetypes" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:26
 msgid "The MIME type(s) supported by this application."
 msgstr "Тип MIME який підтримується цим додатком."
 
 #. Translators: "Mimetype" text entry. The MIME type(s) supported by this application.
-#: ../data/ui/MenulibreWindow.ui.h:22
+#: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Mimetypes"
 msgstr "Типи MIME"
 
-#: ../data/ui/MenulibreWindow.ui.h:23
+#. Translators: Tooltip for the "Keywords" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:30
 msgid ""
 "A list of keywords to describe this entry. You can use these to help "
 "searching entries. These are not meant for display, and should not be "
@@ -117,11 +124,12 @@ msgstr ""
 "повинні бути надмірними для значень Name або GenericName."
 
 #. Translators: "Keywords" text entry. A list of keywords to describe this entry.
-#: ../data/ui/MenulibreWindow.ui.h:25
+#: ../data/ui/MenulibreWindow.ui.h:32
 msgid "Keywords"
 msgstr "Ключові слова"
 
-#: ../data/ui/MenulibreWindow.ui.h:26
+#. Translators: Tooltip for the "StartupWMClass" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:34
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
@@ -130,11 +138,12 @@ msgstr ""
 "якості класу WM або ім'я підказки WM принаймні, в одному вікні."
 
 #. Translators: "StartupWMClass" text entry. A window manager hint for the application
-#: ../data/ui/MenulibreWindow.ui.h:28
+#: ../data/ui/MenulibreWindow.ui.h:36
 msgid "Startup WM Class"
 msgstr "Клас WM"
 
-#: ../data/ui/MenulibreWindow.ui.h:29
+#. Translators: Tooltip for the "Hidden" on/off switch.
+#: ../data/ui/MenulibreWindow.ui.h:38
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
@@ -143,11 +152,12 @@ msgstr ""
 "еквівалентно, що .desktop файл не існує взагалі."
 
 #. Translators: "Hidden" on/off switch. When enabled, the application is hidden from the menu.
-#: ../data/ui/MenulibreWindow.ui.h:31
+#: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Hidden"
 msgstr "Прихований"
 
-#: ../data/ui/MenulibreWindow.ui.h:32
+#. Translators: Tooltip for the "DBusActivatable" on/off switch.
+#: ../data/ui/MenulibreWindow.ui.h:42
 msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this "
 "application and you want to use it.\n"
@@ -160,97 +170,92 @@ msgstr ""
 "для отримання додаткової інформації"
 
 #. Translators: "DBusActivatable" on/off switch. When enabled, the application is said to be activated via DBUS.
-#: ../data/ui/MenulibreWindow.ui.h:35
+#: ../data/ui/MenulibreWindow.ui.h:45
 msgid "DBUS Activatable"
 msgstr "DBUS активація"
 
-#: ../data/ui/MenulibreWindow.ui.h:36
+#. Translators: Tooltip for the "Implements" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:47
 msgid "A list of interfaces that this application implements."
 msgstr ""
 
 #. Translators: "Implements" text entry. A list of interfaces that this application implements.
-#: ../data/ui/MenulibreWindow.ui.h:38
+#: ../data/ui/MenulibreWindow.ui.h:49
 msgid "Implements"
 msgstr ""
 
 #. Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.
-#: ../data/ui/MenulibreWindow.ui.h:40
+#: ../data/ui/MenulibreWindow.ui.h:51
 msgid "Invalid desktop files detected! Please see details."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:41
+#. Translators: Icon popup menu item to browse available icons.
+#: ../data/ui/MenulibreWindow.ui.h:53
 msgid "Browse Icons…"
 msgstr "Обрати значки..."
 
-#: ../data/ui/MenulibreWindow.ui.h:42
+#. Translators: Icon popup menu item to browse files for an icon file.
+#: ../data/ui/MenulibreWindow.ui.h:55
 msgid "Browse Files…"
 msgstr "Оглянути файли…"
 
-#: ../data/ui/MenulibreWindow.ui.h:43 ../menulibre/Dialogs.py:39
-#: ../menulibre/MenulibreApplication.py:256
-#: ../menulibre/MenulibreApplication.py:295
-msgid "MenuLibre"
-msgstr "MenuLibre"
-
-#: ../data/ui/MenulibreWindow.ui.h:44
+#. Translators: Toolbar button to save the currently selected item.
+#: ../data/ui/MenulibreWindow.ui.h:57
 msgid "Save Launcher"
 msgstr "Зберегти кнопку запуску"
 
-#: ../data/ui/MenulibreWindow.ui.h:45 ../menulibre/MenulibreApplication.py:362
+#. Translators: Toolbar button to undo last change to currently selected item.
+#: ../data/ui/MenulibreWindow.ui.h:59 ../menulibre/MenulibreApplication.py:362
 msgid "Undo"
 msgstr "Відкат"
 
-#: ../data/ui/MenulibreWindow.ui.h:46 ../menulibre/MenulibreApplication.py:369
+#. Translators: Toolbar button to redo the last undone change to currently selected item.
+#: ../data/ui/MenulibreWindow.ui.h:61 ../menulibre/MenulibreApplication.py:369
 msgid "Redo"
 msgstr "Повторити"
 
-#: ../data/ui/MenulibreWindow.ui.h:47 ../menulibre/MenulibreApplication.py:376
+#. Translators: Toolbar button to revery the currently selected item to it
+#: ../data/ui/MenulibreWindow.ui.h:63 ../menulibre/MenulibreApplication.py:376
 msgid "Revert"
 msgstr "Повернути"
 
-#: ../data/ui/MenulibreWindow.ui.h:48
+#. Translators: Toolbar button to test the currently selected item.
+#: ../data/ui/MenulibreWindow.ui.h:65
 msgid "Test Launcher"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:49 ../menulibre/MenulibreApplication.py:390
+#. Translators: Toolbar button to delete the currently selected item.
+#: ../data/ui/MenulibreWindow.ui.h:67 ../menulibre/MenulibreApplication.py:390
 msgid "Delete"
 msgstr "Видалити"
 
-#: ../data/ui/MenulibreWindow.ui.h:50
+#. Translators: Treeview toolbar button to move the currently selected item up.
+#: ../data/ui/MenulibreWindow.ui.h:69
 msgid "Move Up"
 msgstr "Перемістити вгору"
 
-#: ../data/ui/MenulibreWindow.ui.h:51
+#. Translators: Treeview toolbar button to move the currently selected item down.
+#: ../data/ui/MenulibreWindow.ui.h:71
 msgid "Move Down"
 msgstr "Перемістити вниз"
 
-#: ../data/ui/MenulibreWindow.ui.h:52
-msgid "Sort alphabetically"
-msgstr "Впорядкувати за алфавітом"
+#. Translators: Treeview toolbar button to sort the currently open submenu alphabetically.
+#: ../data/ui/MenulibreWindow.ui.h:73
+msgid "Sort Alphabetically"
+msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:53
-msgid "Sort"
-msgstr "Впорядкувати"
-
-#: ../data/ui/MenulibreWindow.ui.h:54
-msgid "Filename"
-msgstr "Ім'я файлу"
-
-#. Placeholder text/hint for the application name entry.
-#: ../data/ui/MenulibreWindow.ui.h:56
+#. Translators: Placeholder text/hint for the application name entry.
+#: ../data/ui/MenulibreWindow.ui.h:75
 msgid "Application Name"
 msgstr "Назва програми"
 
-#: ../data/ui/MenulibreWindow.ui.h:57
-msgid "Application Comment"
-msgstr "Коментар"
-
-#. Placeholder text/hint for the application comment entry.
-#: ../data/ui/MenulibreWindow.ui.h:59 ../menulibre/MenulibreApplication.py:733
+#. Translators: Placeholder text/hint for the application comment entry.
+#: ../data/ui/MenulibreWindow.ui.h:77 ../menulibre/MenulibreApplication.py:733
 msgid "Description"
 msgstr "Опис"
 
-#: ../data/ui/MenulibreWindow.ui.h:60
+#. Translators: Tooltip for the "Exec" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:79
 msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable "
 "is not set to \"True\" or if you need compatibility with implementations "
@@ -265,35 +270,39 @@ msgstr ""
 "Див. http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables для списку підтримуваних аргументів."
 
-#. Translators: "Exec" text entry. Program to execute with arguments.
-#: ../data/ui/MenulibreWindow.ui.h:63
+#. Translators: Treeview column for an action item
+#: ../data/ui/MenulibreWindow.ui.h:82
 msgid "Command"
 msgstr "Команда"
 
-#: ../data/ui/MenulibreWindow.ui.h:64
+#. Translators: Tooltip for the "Path" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:84
 msgid "The working directory."
 msgstr "Робочий каталог"
 
 #. Translators: "Path" text entry. The working directory of the application.
-#: ../data/ui/MenulibreWindow.ui.h:66
+#: ../data/ui/MenulibreWindow.ui.h:86
 msgid "Working Directory"
 msgstr "Робочий каталог"
 
-#: ../data/ui/MenulibreWindow.ui.h:67
+#. Translators: Header for the commonly used application fields.
+#: ../data/ui/MenulibreWindow.ui.h:88
 msgid "Application Details"
 msgstr "Програма"
 
-#: ../data/ui/MenulibreWindow.ui.h:68
+#. Translators: Tooltip for the "Terminal" on/off switch.
+#: ../data/ui/MenulibreWindow.ui.h:90
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
 "Якщо встановлено значення \"True\", програма буде запущена у вікні терміналу."
 
 #. Translators: "Terminal" on/off switch. When enabled, the application is executed in a terminal window.
-#: ../data/ui/MenulibreWindow.ui.h:70
+#: ../data/ui/MenulibreWindow.ui.h:92
 msgid "Run in terminal"
 msgstr "Запустити в терміналі"
 
-#: ../data/ui/MenulibreWindow.ui.h:71
+#. Translators: Tooltip for the "StartupNotify" on/off switch.
+#: ../data/ui/MenulibreWindow.ui.h:94
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
@@ -303,11 +312,12 @@ msgstr ""
 "курсор зі значком \"зайнятості\"."
 
 #. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is shown while the application launches.
-#: ../data/ui/MenulibreWindow.ui.h:73
+#: ../data/ui/MenulibreWindow.ui.h:96
 msgid "Use startup notification"
 msgstr "Повідомляти про запуск"
 
-#: ../data/ui/MenulibreWindow.ui.h:74
+#. Translators: Tooltip for the "NoDisplay" on/off switch.
+#: ../data/ui/MenulibreWindow.ui.h:98
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
@@ -316,79 +326,75 @@ msgstr ""
 "але буде доступний для асоціацій типів MIME і т.д."
 
 #. Translators: "NoDisplay" on/off switch. When enabled, the application will not be shown in menus, but will be available for MIME type associations etc.
-#: ../data/ui/MenulibreWindow.ui.h:76
+#: ../data/ui/MenulibreWindow.ui.h:100
 msgid "Hide from menus"
 msgstr "Приховати з меню"
 
-#: ../data/ui/MenulibreWindow.ui.h:77
+#. Translators: Header for the less common application and directory fields.
+#: ../data/ui/MenulibreWindow.ui.h:102
 msgid "Options"
 msgstr "Параметри"
 
-#: ../data/ui/MenulibreWindow.ui.h:78
+#. Translators: Button to add item to list.
+#: ../data/ui/MenulibreWindow.ui.h:104
 msgid "Add"
 msgstr "Додати"
 
-#: ../data/ui/MenulibreWindow.ui.h:79
+#. Translators: Button to remove item from list.
+#: ../data/ui/MenulibreWindow.ui.h:106
 msgid "Remove"
 msgstr "Видалити"
 
-#: ../data/ui/MenulibreWindow.ui.h:80
+#. Translators: Button to remove all items from list.
+#: ../data/ui/MenulibreWindow.ui.h:108
 msgid "Clear"
 msgstr "Очистити"
 
-#: ../data/ui/MenulibreWindow.ui.h:81
+#. Translators: Treeview column for whether an action item is displayed (boolean).
+#: ../data/ui/MenulibreWindow.ui.h:110
 msgid "Show"
 msgstr "Показувати"
 
-#: ../data/ui/MenulibreWindow.ui.h:82
+#. Translators: Treeview column for the name of the displayed action item.
+#: ../data/ui/MenulibreWindow.ui.h:112
 msgid "Name"
 msgstr "Ім'я"
 
-#: ../data/ui/MenulibreWindow.ui.h:83
+#. Translators: Window title for the Select Icon dialog
+#: ../data/ui/MenulibreWindow.ui.h:114
 msgid "Select an icon…"
 msgstr "Виберіть значок..."
 
-#: ../data/ui/MenulibreWindow.ui.h:84 ../menulibre/Dialogs.py:64
+#. Translators: Button to cancel and leave a dialog.
+#: ../data/ui/MenulibreWindow.ui.h:116 ../menulibre/Dialogs.py:64
 #: ../menulibre/Dialogs.py:88 ../menulibre/Dialogs.py:105
 #: ../menulibre/Dialogs.py:130 ../menulibre/Dialogs.py:139
 #: ../menulibre/MenulibreIconSelection.py:80
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: ../data/ui/MenulibreWindow.ui.h:85
+#. Translators: Button to accept and apply changes in a dialog.
+#: ../data/ui/MenulibreWindow.ui.h:118
 msgid "Apply"
 msgstr "Застосувати"
 
-#: ../data/ui/MenulibreWindow.ui.h:86
-msgid "Select an icon"
-msgstr "Виберіть значок"
-
-#: ../data/ui/MenulibreWindow.ui.h:87
+#. Translators: Placeholder text for the search text entry.
+#: ../data/ui/MenulibreWindow.ui.h:120
 msgid "Search"
 msgstr "Пошук"
 
-#: ../data/ui/MenulibreWindow.ui.h:88
-msgid "column"
-msgstr "стовпчик"
-
-#: ../data/ui/MenulibreWindow.ui.h:89
-msgid "Log - Menulibre"
-msgstr ""
-
-#: ../data/ui/MenulibreWindow.ui.h:90
+#. Translators: Window title for the parsing error log dialog.
+#: ../data/ui/MenulibreWindow.ui.h:122
 msgid "Parsing Errors"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:91
+#. Translators: This text is displayed in the Parsing Errors dialog and provides a basic summary of the errors reported.
+#: ../data/ui/MenulibreWindow.ui.h:124
 msgid ""
 "The following desktop files have failed parsing by the underlying library, "
 "and will therefore not show up in MenuLibre.\n"
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
-
-#: ../data/ui/MenulibreWindow.ui.h:93
-msgid "Search terms…"
-msgstr "Пошук пункту..."
 
 #: ../menulibre/__init__.py:33
 msgid "Show debug messages"
@@ -856,6 +862,9 @@ msgstr ""
 #~ msgid "_Help"
 #~ msgstr "Довідка(_H)"
 
+#~ msgid "MenuLibre"
+#~ msgstr "MenuLibre"
+
 #~ msgid "_File"
 #~ msgstr "Файл(_F)"
 
@@ -883,11 +892,11 @@ msgstr ""
 #~ msgid "Browse…"
 #~ msgstr "Огляд…"
 
-#~ msgid "Browse Files..."
-#~ msgstr "Оглянути файли…"
-
 #~ msgid "<small><i>Filename</i></small>"
 #~ msgstr "<small><i>Ім'я файлу</i></small>"
+
+#~ msgid "Application Comment"
+#~ msgstr "Коментар"
 
 #~ msgid "<b>Application Details</b>"
 #~ msgstr "<b>Програма</b>"
@@ -897,6 +906,9 @@ msgstr ""
 
 #~ msgid "<b>Select an icon</b>"
 #~ msgstr "<b>Виберіть значок</b>"
+
+#~ msgid "column"
+#~ msgstr "стовпчик"
 
 #~ msgid "If you don't save the launcher, all the changes will be lost.'"
 #~ msgstr "Якщо не зберегти кнопку запуску всі зміни будуть втрачені."
@@ -924,3 +936,6 @@ msgstr ""
 
 #~ msgid "Select a working directory..."
 #~ msgstr "Виберіть робочу теку..."
+
+#~ msgid "Search terms…"
+#~ msgstr "Пошук пункту..."
