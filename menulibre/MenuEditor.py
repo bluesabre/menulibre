@@ -87,6 +87,7 @@ def menu_to_treestore(treestore, parent, menu_items):
         item_type = item[0]
         if item_type == MenuItemTypes.SEPARATOR:
             displayed_name = "<s>                    </s>"
+            # Translators: Separator menu item
             tooltip = _("Separator")
             categories = ""
             filename = None

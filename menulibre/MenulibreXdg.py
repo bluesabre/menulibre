@@ -42,7 +42,9 @@ class MenulibreDesktopEntry:
         else:
             self['Version'] = '1.1'
             self['Type'] = 'Application'
+            # Translators: Placeholder text for a new menu item name.
             self['Name'] = _('New Menu Item')
+            # Translators: Placeholder text for a new menu item description.
             self['Comment'] = _(
                 "A small descriptive blurb about this application.")
             self['Icon'] = 'application-default-icon'

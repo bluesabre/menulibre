@@ -58,7 +58,7 @@ class Treeview(GObject.GObject):
 
         self._treeview = builder.get_object('classic_view_treeview')
 
-        # Create a new column.
+        # Translators: "Search Results" treeview column header
         col = Gtk.TreeViewColumn(_("Search Results"))
 
         # Create and pack the PixbufRenderer.

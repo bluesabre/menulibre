@@ -74,7 +74,8 @@ class IconSelector:
 
     def _get_file_selection_dialog(self):
         """Get the image selection dialog."""
-        dialog = Gtk.FileChooserDialog(title=_("Select an image"),
+        # Translators: File Chooser Dialog, window title.
+        dialog = Gtk.FileChooserDialog(title=_("Select an image…"),
                                        transient_for=self._parent,
                                        action=Gtk.FileChooserAction.OPEN)
         dialog.add_buttons(_("Cancel"), Gtk.ResponseType.CANCEL,
@@ -82,6 +83,7 @@ class IconSelector:
         if self._filename is not None:
             dialog.set_filename(self._filename)
         file_filter = Gtk.FileFilter()
+        # Translators: "Images" file chooser dialog filter
         file_filter.set_name(_("Images"))
         file_filter.add_mime_type("image/*")
         dialog.add_filter(file_filter)

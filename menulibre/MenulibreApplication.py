@@ -43,36 +43,59 @@ session = os.getenv("DESKTOP_SESSION")
 root = os.getuid() == 0
 
 category_descriptions = {
-    # Standard Items
+    # Translators: Launcher category description
     'AudioVideo': _('Multimedia'),
+    # Translators: Launcher category description
     'Development': _('Development'),
+    # Translators: Launcher category description
     'Education': _('Education'),
+    # Translators: Launcher category description
     'Game': _('Games'),
+    # Translators: Launcher category description
     'Graphics': _('Graphics'),
+    # Translators: Launcher category description
     'Network': _('Internet'),
+    # Translators: Launcher category description
     'Office': _('Office'),
+    # Translators: Launcher category description
     'Settings': _('Settings'),
+    # Translators: Launcher category description
     'System': _('System'),
+    # Translators: Launcher category description
     'Utility': _('Accessories'),
+    # Translators: Launcher category description
     'WINE': _('WINE'),
-    # Desktop Environment
+    # Translators: Launcher category description
     'DesktopSettings': _('Desktop configuration'),
+    # Translators: Launcher category description
     'PersonalSettings': _('User configuration'),
+    # Translators: Launcher category description
     'HardwareSettings': _('Hardware configuration'),
-    # GNOME Specific
+    # Translators: Launcher category description
     'GNOME': _('GNOME application'),
+    # Translators: Launcher category description
     'GTK': _('GTK+ application'),
+    # Translators: Launcher category description
     'X-GNOME-PersonalSettings': _('GNOME user configuration'),
+    # Translators: Launcher category description
     'X-GNOME-HardwareSettings': _('GNOME hardware configuration'),
+    # Translators: Launcher category description
     'X-GNOME-SystemSettings': _('GNOME system configuration'),
+    # Translators: Launcher category description
     'X-GNOME-Settings-Panel': _('GNOME system configuration'),
-    # Xfce Specific
+    # Translators: Launcher category description
     'XFCE': _('Xfce menu item'),
+    # Translators: Launcher category description
     'X-XFCE': _('Xfce menu item'),
+    # Translators: Launcher category description
     'X-Xfce-Toplevel': _('Xfce toplevel menu item'),
+    # Translators: Launcher category description
     'X-XFCE-PersonalSettings': _('Xfce user configuration'),
+    # Translators: Launcher category description
     'X-XFCE-HardwareSettings': _('Xfce hardware configuration'),
+    # Translators: Launcher category description
     'X-XFCE-SettingsDialog': _('Xfce system configuration'),
+    # Translators: Launcher category description
     'X-XFCE-SystemSettings': _('Xfce system configuration'),
 }
 
@@ -124,6 +147,8 @@ category_groups = {
         'Photography', 'ProjectManagement', 'Presentation', 'Publishing',
         'Spreadsheet', 'WordProcessor'
     ),
+    # Translators: "Other" category group. This item is only displayed for unknown
+    # or non-standard categories.
     _('Other'): (
         'Amusement', 'ConsoleOnly', 'Core', 'Documentation',
         'Electronics', 'Engineering', 'GNOME', 'GTK', 'Java', 'KDE',
@@ -169,6 +194,8 @@ def lookup_category_description(spec_name):
     try:
         description = re.sub('(?!^)([A-Z]+)', r' \1', spec_name)
     except TypeError:
+        # Translators: "Other" category group. This item is only displayed for unknown 
+        # or non-standard categories.
         description = _("Other")
     return description
 
@@ -225,13 +252,17 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def root_lockout(self):
         if root:
+            # Translators: This error is displayed when the application is run
+            # as a root user. The application exits once the dialog is dismissed.
+            primary = _("MenuLibre cannot be run as root.")
+            # Translators: This link goes to the online documentation with more
+            # information.
+            secondary = _("Please see the <a href='%s'>online documentation</a> "
+                          "for more information.") % docs_url
             docs_url = "https://wiki.bluesabre.org/doku.php?id=menulibre_faq"
             dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
-                                       Gtk.ButtonsType.CLOSE,
-                                       _("MenuLibre cannot be run as root."))
-            dialog.format_secondary_markup(
-                _("Please see the <a href='%s'>online documentation</a> "
-                  "for more information.") % docs_url)
+                                       Gtk.ButtonsType.CLOSE, primary)
+            dialog.format_secondary_markup(secondary)
             dialog.run()
             sys.exit(1)
 
@@ -330,84 +361,108 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Add Launcher
         self.actions['add_launcher'] = Gtk.Action(
                                             name='add_launcher',
+                                            # Translators: Add Launcher action label
                                             label=_('Add _Launcher…'),
+                                            # Translators: Add Launcher action tooltip
                                             tooltip=_('Add Launcher…'),
                                             stock_id=Gtk.STOCK_NEW)
 
         # Add Directory
         self.actions['add_directory'] = Gtk.Action(
                                             name='add_directory',
+                                            # Translators: Add Directory action label
                                             label=_('Add _Directory…'),
+                                            # Translators: Add Directory action tooltip
                                             tooltip=_('Add Directory…'),
                                             stock_id=Gtk.STOCK_NEW)
 
         # Add Separator
         self.actions['add_separator'] = Gtk.Action(
                                             name='add_separator',
+                                            # Translators: Add Separator action label
                                             label=_('_Add Separator…'),
+                                            # Translators: Add Separator action tooltip
                                             tooltip=_('Add Separator…'),
                                             stock_id=Gtk.STOCK_NEW)
 
         # Save Launcher
         self.actions['save_launcher'] = Gtk.Action(
                                             name='save_launcher',
+                                            # Translators: Save Launcher action label
                                             label=_('_Save'),
+                                            # Translators: Save Launcher action tooltip
                                             tooltip=_('Save'),
                                             stock_id=Gtk.STOCK_SAVE)
 
         # Undo
         self.actions['undo'] = Gtk.Action(
                                             name='undo',
+                                            # Translators: Undo action label
                                             label=_('_Undo'),
+                                            # Translators: Undo action tooltip
                                             tooltip=_('Undo'),
                                             stock_id=Gtk.STOCK_UNDO)
 
         # Redo
         self.actions['redo'] = Gtk.Action(
                                             name='redo',
+                                            # Translators: Redo action label
                                             label=_('_Redo'),
+                                            # Translators: Redo action tooltip
                                             tooltip=_('Redo'),
                                             stock_id=Gtk.STOCK_REDO)
 
         # Revert
         self.actions['revert'] = Gtk.Action(
                                             name='revert',
+                                            # Translators: Revert action label
                                             label=_('_Revert'),
+                                            # Translators: Revert action tooltip
                                             tooltip=_('Revert'),
                                             stock_id=Gtk.STOCK_REVERT_TO_SAVED)
 
         # Execute
         self.actions['execute'] = Gtk.Action(
                                             name='execute',
+                                            # Translators: Execute action label
                                             label=_('_Execute'),
+                                            # Translators: Execute action tooltip
                                             tooltip=_('Execute Launcher'),
                                             stock_id=Gtk.STOCK_MEDIA_PLAY)
 
         # Delete
         self.actions['delete'] = Gtk.Action(
                                             name='delete',
+                                            # Translators: Delete action label
                                             label=_('_Delete'),
+                                            # Translators: Delete action tooltip
                                             tooltip=_('Delete'),
                                             stock_id=Gtk.STOCK_DELETE)
 
         # Quit
         self.actions['quit'] = Gtk.Action(
                                             name='quit',
+                                            # Translators: Quit action label
                                             label=_('_Quit'),
+                                            # Translators: Quit action tooltip
                                             tooltip=_('Quit'),
                                             stock_id=Gtk.STOCK_QUIT)
 
         # Help
         self.actions['help'] = Gtk.Action(
                                             name='help',
+                                            # Translators: Help action label
                                             label=_('_Contents'),
+                                            # Translators: Help action tooltip
                                             tooltip=_('Help'),
                                             stock_id=Gtk.STOCK_HELP)
 
         # About
         self.actions['about'] = Gtk.Action(
                                             name='about',
+                                            # Translators: About action label
                                             label=_('_About'),
+                                            # Translators: About action tooltip
                                             tooltip=_('About'),
                                             stock_id=Gtk.STOCK_ABOUT)
 
@@ -551,10 +606,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.switcher = MenulibreStackSwitcher.StackSwitcherBox()
         placeholder.add(self.switcher)
         self.switcher.add_child(builder.get_object('categories'),
+                                # Translators: "Categories" launcher section
                                 'categories', _('Categories'))
         self.switcher.add_child(builder.get_object('actions'),
+                                # Translators: "Actions" launcher section
                                 'actions', _('Actions'))
         self.switcher.add_child(builder.get_object('advanced'),
+                                # Translators: "Advanced" launcher section
                                 'advanced', _('Advanced'))
 
         # Store the editor.
@@ -704,6 +762,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         keys = list(category_groups.keys())
         keys.sort()
+
+        # Translators: Launcher-specific categories, camelcase "This Entry"
         keys.append(_('ThisEntry'))
 
         for key in keys:
@@ -722,14 +782,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         renderer_combo.set_property("model", self.categories_treefilter)
         renderer_combo.set_property("text-column", 0)
         renderer_combo.set_property("has-entry", False)
+
+        # Translators: Placeholder text for the launcher-specific category selection.
         renderer_combo.set_property("placeholder-text", _("Select a category"))
         renderer_combo.connect("edited", self.on_category_combo_changed)
 
+        # Translators: "Category Name" tree column header
         column_combo = Gtk.TreeViewColumn(_("Category Name"),
                                           renderer_combo, text=0)
         treeview.append_column(column_combo)
 
         renderer_text = Gtk.CellRendererText()
+
+        # Translators: "Description" tree column header
         column_text = Gtk.TreeViewColumn(_("Description"),
                                          renderer_text, text=1)
         treeview.append_column(column_text)
@@ -825,6 +890,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         row = model[treeiter]
         if row.get_parent() is not None:
             return True
+        # Translators: "This Entry" launcher-specific category group
         if row[0] == _('This Entry'):
             return model.iter_n_children(treeiter) != 0
         return True
@@ -885,6 +951,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         while name in existing:
             name = 'NewShortcut%i' % n
             n += 1
+        # Translators: Placeholder text for a newly created action
         displayed = _("New Shortcut")
         self.treeview_add(self.actions_treeview, [True, name, displayed, ''])
         self.set_value('Actions', self.get_editor_actions(), False)
@@ -1034,9 +1101,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_ExecPath_clicked(self, entry, icon, event, widget_name, builder):
         """Show the file selection dialog when Exec/Path Browse is clicked."""
         if widget_name == 'Path':
+            # Translators: File Chooser Dialog, window title.
             title = _("Select a working directory…")
             action = Gtk.FileChooserAction.SELECT_FOLDER
         else:
+            # Translators: File Chooser Dialog, window title.
             title = _("Select an executable…")
             action = Gtk.FileChooserAction.OPEN
 
@@ -1056,20 +1125,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_apps_browser_add_directory_enabled(self, widget, enabled, builder):
         """Update the Add Directory menu item when the selected row is
         changed."""
-        if enabled:
-            tooltip = None
-        else:
-            tooltip = _("Cannot add subdirectories to preinstalled"
-                        " system paths.")
-
-        # Debug code
-        # Testing always allowing creating sub directories
+        # Always allow creating sub directories
         enabled = True
 
         self.actions['add_directory'].set_sensitive(enabled)
         for widget in self.action_items['add_directory']:
             widget.set_sensitive(enabled)
-            widget.set_tooltip_text(tooltip)
+            widget.set_tooltip_text(None)
 
     def on_apps_browser_cursor_changed(self, widget, value, builder):  # noqa
         """Update the editor frame when the selected row is changed."""
@@ -1103,6 +1165,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # If the selected row is a separator, hide the editor.
         if item_type == MenuItemTypes.SEPARATOR:
             self.editor.hide()
+            # Translators: Separator menu item
             self.set_value('Name', _("Separator"), store=True)
             self.set_value('Comment', "", store=True)
             self.set_value('Filename', None, store=True)
@@ -1265,6 +1328,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         else:
             self.delete_button.set_sensitive(False)
             self.delete_button.set_tooltip_text(
+                # Translators: This error is displayed when the user does not
+                # have sufficient file system permissions to delete the
+                # selected file.
                 _("You do not have permission to delete this file."))
 
         # If the filename is None, make it blank.
@@ -1507,6 +1573,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 # Action Functions
     def add_launcher(self):
         """Add Launcher callback function."""
+        # Translators: Placeholder text for a newly created launcher.
         name = _("New Launcher")
         comment = ""
         categories = ""
@@ -1557,6 +1624,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def add_directory(self):
         """Add Directory callback function."""
+        # Translators: Placeholder text for a newly created directory.
         name = _("New Directory")
         comment = ""
         categories = ""
@@ -1575,6 +1643,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def add_separator(self):
         """Add Separator callback function."""
         name = "<s>                    </s>"
+        # Translators: Separator menu item
         tooltip = _("Separator")
         categories = ""
         filename = None
@@ -1979,9 +2048,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Prepare the strings
         if item_type == MenuItemTypes.SEPARATOR:
+            # Translators: Confirmation dialog to delete the selected separator.
             question = _("Are you sure you want to delete this separator?")
             delete_func = self.delete_separator
         else:
+            # Translators: Confirmation dialog to delete the selected launcher.
             question = _("Are you sure you want to delete \"%s\"?") % name
             delete_func = self.delete_launcher
 
@@ -2058,7 +2129,8 @@ class Application(Gtk.Application):
         # groups of menu items
         self.menu = Gio.Menu()
         section_1_menu = Gio.Menu()
-        section_1_menu.append(_("Check for bad desktop files"),
+        # Translators: Menu item to open the Parsing Errors dialog.
+        section_1_menu.append(_("Parsing Error Log"),
                               "app.bad_files")
         self.menu.append_section(None, section_1_menu)
 
