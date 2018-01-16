@@ -147,8 +147,8 @@ category_groups = {
         'Photography', 'ProjectManagement', 'Presentation', 'Publishing',
         'Spreadsheet', 'WordProcessor'
     ),
-    # Translators: "Other" category group. This item is only displayed for unknown
-    # or non-standard categories.
+    # Translators: "Other" category group. This item is only displayed for
+    # unknown or non-standard categories.
     _('Other'): (
         'Amusement', 'ConsoleOnly', 'Core', 'Documentation',
         'Electronics', 'Engineering', 'GNOME', 'GTK', 'Java', 'KDE',
@@ -194,8 +194,8 @@ def lookup_category_description(spec_name):
     try:
         description = re.sub('(?!^)([A-Z]+)', r' \1', spec_name)
     except TypeError:
-        # Translators: "Other" category group. This item is only displayed for unknown 
-        # or non-standard categories.
+        # Translators: "Other" category group. This item is only displayed for
+        # unknown or non-standard categories.
         description = _("Other")
     return description
 
@@ -253,13 +253,18 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def root_lockout(self):
         if root:
             # Translators: This error is displayed when the application is run
-            # as a root user. The application exits once the dialog is dismissed.
+            # as a root user. The application exits once the dialog is
+            # dismissed.
             primary = _("MenuLibre cannot be run as root.")
+
+            docs_url = "https://wiki.bluesabre.org/doku.php?id=menulibre_faq"
+
             # Translators: This link goes to the online documentation with more
             # information.
-            secondary = _("Please see the <a href='%s'>online documentation</a> "
+            secondary = _("Please see the "
+                          "<a href='%s'>online documentation</a> "
                           "for more information.") % docs_url
-            docs_url = "https://wiki.bluesabre.org/doku.php?id=menulibre_faq"
+
             dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
                                        Gtk.ButtonsType.CLOSE, primary)
             dialog.format_secondary_markup(secondary)
@@ -360,111 +365,111 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Add Launcher
         self.actions['add_launcher'] = Gtk.Action(
-                                            name='add_launcher',
-                                            # Translators: Add Launcher action label
-                                            label=_('Add _Launcher…'),
-                                            # Translators: Add Launcher action tooltip
-                                            tooltip=_('Add Launcher…'),
-                                            stock_id=Gtk.STOCK_NEW)
+                name='add_launcher',
+                # Translators: Add Launcher action label
+                label=_('Add _Launcher…'),
+                # Translators: Add Launcher action tooltip
+                tooltip=_('Add Launcher…'),
+                stock_id=Gtk.STOCK_NEW)
 
         # Add Directory
         self.actions['add_directory'] = Gtk.Action(
-                                            name='add_directory',
-                                            # Translators: Add Directory action label
-                                            label=_('Add _Directory…'),
-                                            # Translators: Add Directory action tooltip
-                                            tooltip=_('Add Directory…'),
-                                            stock_id=Gtk.STOCK_NEW)
+                name='add_directory',
+                # Translators: Add Directory action label
+                label=_('Add _Directory…'),
+                # Translators: Add Directory action tooltip
+                tooltip=_('Add Directory…'),
+                stock_id=Gtk.STOCK_NEW)
 
         # Add Separator
         self.actions['add_separator'] = Gtk.Action(
-                                            name='add_separator',
-                                            # Translators: Add Separator action label
-                                            label=_('_Add Separator…'),
-                                            # Translators: Add Separator action tooltip
-                                            tooltip=_('Add Separator…'),
-                                            stock_id=Gtk.STOCK_NEW)
+                name='add_separator',
+                # Translators: Add Separator action label
+                label=_('_Add Separator…'),
+                # Translators: Add Separator action tooltip
+                tooltip=_('Add Separator…'),
+                stock_id=Gtk.STOCK_NEW)
 
         # Save Launcher
         self.actions['save_launcher'] = Gtk.Action(
-                                            name='save_launcher',
-                                            # Translators: Save Launcher action label
-                                            label=_('_Save'),
-                                            # Translators: Save Launcher action tooltip
-                                            tooltip=_('Save'),
-                                            stock_id=Gtk.STOCK_SAVE)
+                name='save_launcher',
+                # Translators: Save Launcher action label
+                label=_('_Save'),
+                # Translators: Save Launcher action tooltip
+                tooltip=_('Save'),
+                stock_id=Gtk.STOCK_SAVE)
 
         # Undo
         self.actions['undo'] = Gtk.Action(
-                                            name='undo',
-                                            # Translators: Undo action label
-                                            label=_('_Undo'),
-                                            # Translators: Undo action tooltip
-                                            tooltip=_('Undo'),
-                                            stock_id=Gtk.STOCK_UNDO)
+                name='undo',
+                # Translators: Undo action label
+                label=_('_Undo'),
+                # Translators: Undo action tooltip
+                tooltip=_('Undo'),
+                stock_id=Gtk.STOCK_UNDO)
 
         # Redo
         self.actions['redo'] = Gtk.Action(
-                                            name='redo',
-                                            # Translators: Redo action label
-                                            label=_('_Redo'),
-                                            # Translators: Redo action tooltip
-                                            tooltip=_('Redo'),
-                                            stock_id=Gtk.STOCK_REDO)
+                name='redo',
+                # Translators: Redo action label
+                label=_('_Redo'),
+                # Translators: Redo action tooltip
+                tooltip=_('Redo'),
+                stock_id=Gtk.STOCK_REDO)
 
         # Revert
         self.actions['revert'] = Gtk.Action(
-                                            name='revert',
-                                            # Translators: Revert action label
-                                            label=_('_Revert'),
-                                            # Translators: Revert action tooltip
-                                            tooltip=_('Revert'),
-                                            stock_id=Gtk.STOCK_REVERT_TO_SAVED)
+                name='revert',
+                # Translators: Revert action label
+                label=_('_Revert'),
+                # Translators: Revert action tooltip
+                tooltip=_('Revert'),
+                stock_id=Gtk.STOCK_REVERT_TO_SAVED)
 
         # Execute
         self.actions['execute'] = Gtk.Action(
-                                            name='execute',
-                                            # Translators: Execute action label
-                                            label=_('_Execute'),
-                                            # Translators: Execute action tooltip
-                                            tooltip=_('Execute Launcher'),
-                                            stock_id=Gtk.STOCK_MEDIA_PLAY)
+                name='execute',
+                # Translators: Execute action label
+                label=_('_Execute'),
+                # Translators: Execute action tooltip
+                tooltip=_('Execute Launcher'),
+                stock_id=Gtk.STOCK_MEDIA_PLAY)
 
         # Delete
         self.actions['delete'] = Gtk.Action(
-                                            name='delete',
-                                            # Translators: Delete action label
-                                            label=_('_Delete'),
-                                            # Translators: Delete action tooltip
-                                            tooltip=_('Delete'),
-                                            stock_id=Gtk.STOCK_DELETE)
+                name='delete',
+                # Translators: Delete action label
+                label=_('_Delete'),
+                # Translators: Delete action tooltip
+                tooltip=_('Delete'),
+                stock_id=Gtk.STOCK_DELETE)
 
         # Quit
         self.actions['quit'] = Gtk.Action(
-                                            name='quit',
-                                            # Translators: Quit action label
-                                            label=_('_Quit'),
-                                            # Translators: Quit action tooltip
-                                            tooltip=_('Quit'),
-                                            stock_id=Gtk.STOCK_QUIT)
+                name='quit',
+                # Translators: Quit action label
+                label=_('_Quit'),
+                # Translators: Quit action tooltip
+                tooltip=_('Quit'),
+                stock_id=Gtk.STOCK_QUIT)
 
         # Help
         self.actions['help'] = Gtk.Action(
-                                            name='help',
-                                            # Translators: Help action label
-                                            label=_('_Contents'),
-                                            # Translators: Help action tooltip
-                                            tooltip=_('Help'),
-                                            stock_id=Gtk.STOCK_HELP)
+                name='help',
+                # Translators: Help action label
+                label=_('_Contents'),
+                # Translators: Help action tooltip
+                tooltip=_('Help'),
+                stock_id=Gtk.STOCK_HELP)
 
         # About
         self.actions['about'] = Gtk.Action(
-                                            name='about',
-                                            # Translators: About action label
-                                            label=_('_About'),
-                                            # Translators: About action tooltip
-                                            tooltip=_('About'),
-                                            stock_id=Gtk.STOCK_ABOUT)
+                name='about',
+                # Translators: About action label
+                label=_('_About'),
+                # Translators: About action tooltip
+                tooltip=_('About'),
+                stock_id=Gtk.STOCK_ABOUT)
 
         # Connect the GtkAction events.
         self.actions['add_launcher'].connect('activate',
@@ -783,7 +788,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         renderer_combo.set_property("text-column", 0)
         renderer_combo.set_property("has-entry", False)
 
-        # Translators: Placeholder text for the launcher-specific category selection.
+        # Translators: Placeholder text for the launcher-specific category
+        # selection.
         renderer_combo.set_property("placeholder-text", _("Select a category"))
         renderer_combo.connect("edited", self.on_category_combo_changed)
 
@@ -2048,7 +2054,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Prepare the strings
         if item_type == MenuItemTypes.SEPARATOR:
-            # Translators: Confirmation dialog to delete the selected separator.
+            # Translators: Confirmation dialog to delete the selected
+            # separator.
             question = _("Are you sure you want to delete this separator?")
             delete_func = self.delete_separator
         else:

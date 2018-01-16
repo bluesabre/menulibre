@@ -92,7 +92,7 @@ class SaveOnCloseDialog(Gtk.MessageDialog):
         primary = _("Do you want to save the changes before closing?")
         # Translators: Save On Close Dialog, secondary text.
         secondary = _("If you don't save the launcher, all the changes "
-                    "will be lost.")
+                      "will be lost.")
         buttons = [
             # Translators: Save On Close Dialog, don't save, then close.
             (_("Don't Save"), Gtk.ResponseType.NO),
@@ -118,10 +118,10 @@ class SaveOnLeaveDialog(Gtk.MessageDialog):
         title = _("Save Changes")
         # Translators: Save On Leave Dialog, primary text.
         primary = _("Do you want to save the changes before leaving this "
-                     "launcher?")
+                    "launcher?")
         # Translators: Save On Leave Dialog, primary text.
         secondary = _("If you don't save the launcher, all the changes "
-                    "will be lost.")
+                      "will be lost.")
         buttons = [
             # Translators: Save On Leave Dialog, don't save, then leave.
             (_("Don't Save"), Gtk.ResponseType.NO),
@@ -162,7 +162,7 @@ class RevertDialog(Gtk.MessageDialog):
         primary = _("Are you sure you want to restore this launcher?")
         # Translators: Revert Dialog, secondary text.
         secondary = _("All changes since the last saved state will be lost "
-                    "and cannot be restored automatically.")
+                      "and cannot be restored automatically.")
         buttons = [
             # Translators: Revert Dialog, cancel button.
             (_("Cancel"), Gtk.ResponseType.CANCEL),
@@ -212,7 +212,8 @@ class NotFoundInPathDialog(Gtk.MessageDialog):
         # that the provided script was not found in any PATH directory.
         primary = _("Could not find \"%s\" in your PATH.") % command
 
-        secondary = "<b>PATH:</b>\n%s" % "\n".join(os.getenv("PATH", "").split(":"))
+        path = os.getenv("PATH", "").split(":")
+        secondary = "<b>PATH:</b>\n%s" % "\n".join(path)
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.ERROR,
                                    buttons=Gtk.ButtonsType.OK,
