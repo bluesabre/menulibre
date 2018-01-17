@@ -30,332 +30,6 @@
       </object>
     </child>
   </object>
-  <object class="GtkScrolledWindow" id="advanced">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="shadow_type">in</property>
-    <child>
-      <object class="GtkViewport" id="viewport3">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <child>
-          <object class="GtkGrid" id="grid3">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="border_width">11</property>
-            <property name="row_spacing">4</property>
-            <property name="column_spacing">6</property>
-            <property name="row_homogeneous">True</property>
-            <child>
-              <object class="GtkLabel" id="label5">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;GenericName&quot; text entry.">Generic name of the application, for example "Web Browser".</property>
-                <property name="label" translatable="yes" comments="Translators: &quot;GenericName&quot; text entry. Generic name of the application, for example &quot;Web Browser&quot;.">Generic Name</property>
-                <property name="xalign">0</property>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label13">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;NotShowIn&quot; text entry. Possible values &quot;Cinnamon&quot;, &quot;EDE&quot;, &quot;GNOME&quot;, &quot;KDE&quot;, &quot;LXDE&quot;, &quot;LXQt&quot;, &quot;MATE&quot;, &quot;Pantheon&quot;, &quot;Razor&quot;, &quot;ROX&quot;, &quot;TDE&quot;, &quot;Unity&quot;, &quot;XFCE&quot;, and &quot;Old&quot; should not be translated.">A list of environments that should not display this entry. You can only use this key if "OnlyShowIn" is not set.
-Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old</property>
-                <property name="label" translatable="yes" comments="Translators: &quot;NotShowIn&quot; text entry. A list of environments that should not display this entry.">Not Shown In</property>
-                <property name="xalign">0</property>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">3</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label6">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;OnlyShowIn&quot; text entry. Possible values &quot;Cinnamon&quot;, &quot;EDE&quot;, &quot;GNOME&quot;, &quot;KDE&quot;, &quot;LXDE&quot;, &quot;LXQt&quot;, &quot;MATE&quot;, &quot;Pantheon&quot;, &quot;Razor&quot;, &quot;ROX&quot;, &quot;TDE&quot;, &quot;Unity&quot;, &quot;XFCE&quot;, and &quot;Old&quot; should not be translated.">A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if "NotShowIn" is not set.
-Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old</property>
-                <property name="label" translatable="yes" comments="Translators: &quot;OnlyShowIn&quot; text entry. A list of environments that should display this entry.">Only Shown In</property>
-                <property name="xalign">0</property>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">2</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label14">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;TryExec&quot; text entry.">Path to an executable file to determine if the program is installed. If the file is not present or is not executable, this entry may not be shown in a menu.</property>
-                <property name="label" translatable="yes" comments="Translators: &quot;TryExec&quot; text entry. Path to an executable file to determine if the program is installed.">Try Exec</property>
-                <property name="xalign">0</property>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label15">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;Mimetypes&quot; text entry.">The MIME type(s) supported by this application.</property>
-                <property name="label" translatable="yes" comments="Translators: &quot;Mimetype&quot; text entry. The MIME type(s) supported by this application.">Mimetypes</property>
-                <property name="xalign">0</property>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">4</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label16">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;Keywords&quot; text entry.">A list of keywords to describe this entry. You can use these to help searching entries. These are not meant for display, and should not be redundant with the values of Name or GenericName.</property>
-                <property name="label" translatable="yes" comments="Translators: &quot;Keywords&quot; text entry. A list of keywords to describe this entry.">Keywords</property>
-                <property name="xalign">0</property>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">5</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label23">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;StartupWMClass&quot; text entry.">If specified, the application will be requested to use the string as a WM class or a WM name hint at least in one window.</property>
-                <property name="label" translatable="yes" comments="Translators: &quot;StartupWMClass&quot; text entry. A window manager hint for the application's name.">Startup WM Class</property>
-                <property name="xalign">0</property>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">6</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="entry_GenericName">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="hexpand">True</property>
-                <property name="invisible_char">•</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="entry_TryExec">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">•</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="entry_OnlyShowIn">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">•</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">2</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="entry_NotShowIn">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">•</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">3</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="entry_Mimetype">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">•</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">4</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="entry_Keywords">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">•</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">5</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="entry_StartupWMClass">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">•</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">6</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;Hidden&quot; on/off switch.">If set to "True", the result for the user is equivalent to the .desktop file not existing at all.</property>
-                <property name="label" translatable="yes" comments="Translators: &quot;Hidden&quot; on/off switch. When enabled, the application is hidden from the menu.">Hidden</property>
-                <property name="xalign">0</property>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">8</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label2">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;DBusActivatable&quot; on/off switch.">Set this key to "True" if D-Bus activation is supported for this application and you want to use it.
-See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for more information.</property>
-                <property name="label" translatable="yes" comments="Translators: &quot;DBusActivatable&quot; on/off switch. When enabled, the application is said to be activated via DBUS.">DBUS Activatable</property>
-                <property name="xalign">0</property>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">9</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkSwitch" id="switch_Hidden">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="halign">end</property>
-                <property name="valign">center</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">8</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkSwitch" id="switch_DBusActivatable">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="halign">end</property>
-                <property name="valign">center</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">9</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkLabel" id="label3">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;Implements&quot; text entry.">A list of interfaces that this application implements.</property>
-                <property name="label" translatable="yes" comments="Translators: &quot;Implements&quot; text entry. A list of interfaces that this application implements.">Implements</property>
-                <property name="xalign">0</property>
-              </object>
-              <packing>
-                <property name="left_attach">0</property>
-                <property name="top_attach">7</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="entry_Implements">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">•</property>
-              </object>
-              <packing>
-                <property name="left_attach">1</property>
-                <property name="top_attach">7</property>
-              </packing>
-            </child>
-          </object>
-        </child>
-      </object>
-    </child>
-  </object>
-  <object class="GtkInfoBar" id="bad_desktop_files_infobar">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="message_type">warning</property>
-    <property name="show_close_button">True</property>
-    <child internal-child="action_area">
-      <object class="GtkButtonBox">
-        <property name="can_focus">False</property>
-        <property name="spacing">6</property>
-        <property name="layout_style">end</property>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">False</property>
-        <property name="position">0</property>
-      </packing>
-    </child>
-    <child internal-child="content_area">
-      <object class="GtkBox">
-        <property name="can_focus">False</property>
-        <property name="spacing">16</property>
-        <child>
-          <object class="GtkLabel" id="bad_desktop_files_label">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes" comments="Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.">Invalid desktop files detected! Please see details.</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-      </object>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">False</property>
-        <property name="position">0</property>
-      </packing>
-    </child>
-    <child>
-      <placeholder/>
-    </child>
-  </object>
   <object class="GtkListStore" id="categories_liststore">
     <columns>
       <!-- column-name category_text -->
@@ -388,47 +62,183 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
       </object>
     </child>
   </object>
-  <object class="GtkImage" id="image1">
+  <object class="GtkImage" id="image11">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
     <property name="icon_name">media-playback-start-symbolic</property>
     <property name="use_fallback">True</property>
   </object>
-  <object class="GtkImage" id="image10">
+  <object class="GtkImage" id="image12">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
     <property name="icon_name">edit-delete-symbolic</property>
     <property name="use_fallback">True</property>
   </object>
-  <object class="GtkImage" id="image4">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixel_size">16</property>
-    <property name="icon_name">edit-undo-symbolic</property>
-    <property name="use_fallback">True</property>
-  </object>
-  <object class="GtkImage" id="image7">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="pixel_size">16</property>
-    <property name="icon_name">edit-redo-symbolic</property>
-    <property name="use_fallback">True</property>
-  </object>
-  <object class="GtkImage" id="image8">
+  <object class="GtkImage" id="image2">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
     <property name="icon_name">document-save-symbolic</property>
     <property name="use_fallback">True</property>
   </object>
-  <object class="GtkImage" id="image9">
+  <object class="GtkImage" id="image3">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixel_size">16</property>
+    <property name="icon_name">edit-undo-symbolic</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image5">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="pixel_size">16</property>
+    <property name="icon_name">edit-redo-symbolic</property>
+    <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image6">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="pixel_size">16</property>
     <property name="icon_name">document-revert-symbolic</property>
     <property name="use_fallback">True</property>
+  </object>
+  <object class="GtkHeaderBar" id="headerbar">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="show_close_button">True</property>
+    <child>
+      <object class="GtkMenuButton" id="headerbar_add">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="receives_default">True</property>
+        <property name="popup">add_popup_menu</property>
+        <child>
+          <object class="GtkImage">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="icon_name">list-add-symbolic</property>
+            <property name="use_fallback">True</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="headerbar_save_launcher">
+        <property name="visible">True</property>
+        <property name="sensitive">False</property>
+        <property name="can_focus">True</property>
+        <property name="receives_default">True</property>
+        <property name="tooltip_markup" translatable="yes" comments="Translators: Toolbar button to save the currently selected item.">Save Launcher</property>
+        <property name="tooltip_text" translatable="yes">Save Launcher</property>
+        <property name="image">image2</property>
+      </object>
+      <packing>
+        <property name="position">1</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkBox" id="hb_history_buttons">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="homogeneous">True</property>
+        <child>
+          <object class="GtkButton" id="headerbar_undo">
+            <property name="visible">True</property>
+            <property name="sensitive">False</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_text" translatable="yes" comments="Translators: Toolbar button to undo last change to currently selected item.">Undo</property>
+            <property name="image">image3</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="headerbar_redo">
+            <property name="visible">True</property>
+            <property name="sensitive">False</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_text" translatable="yes" comments="Translators: Toolbar button to redo the last undone change to currently selected item.">Redo</property>
+            <property name="image">image5</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <style>
+          <class name="linked"/>
+        </style>
+      </object>
+      <packing>
+        <property name="position">2</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkButton" id="headerbar_revert">
+        <property name="visible">True</property>
+        <property name="sensitive">False</property>
+        <property name="can_focus">True</property>
+        <property name="receives_default">True</property>
+        <property name="tooltip_text" translatable="yes" comments="Translators: Toolbar button to revery the currently selected item to it's last saved state.">Revert</property>
+        <property name="image">image6</property>
+      </object>
+      <packing>
+        <property name="position">3</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkButton" id="headerbar_execute">
+        <property name="visible">True</property>
+        <property name="sensitive">False</property>
+        <property name="can_focus">True</property>
+        <property name="receives_default">True</property>
+        <property name="tooltip_text" translatable="yes" comments="Translators: Toolbar button to test the currently selected item.">Test Launcher</property>
+        <property name="image">image11</property>
+        <property name="always_show_image">True</property>
+      </object>
+      <packing>
+        <property name="position">4</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkButton" id="headerbar_delete">
+        <property name="label" translatable="yes" comments="Translators: Toolbar button to delete the currently selected item.">Delete</property>
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="receives_default">True</property>
+        <property name="image">image12</property>
+        <property name="always_show_image">True</property>
+      </object>
+      <packing>
+        <property name="position">5</property>
+      </packing>
+    </child>
+    <child type="title">
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkBox" id="headerbar_search">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="valign">center</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+      <packing>
+        <property name="pack_type">end</property>
+        <property name="position">6</property>
+      </packing>
+    </child>
   </object>
   <object class="GtkListStore" id="liststore1"/>
   <object class="GtkApplicationWindow" id="menulibre_window">
@@ -574,129 +384,205 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
             <property name="can_focus">False</property>
             <property name="show_arrow">False</property>
             <child>
-              <object class="GtkToolItem" id="toolbar_left">
-                <property name="height_request">32</property>
+              <object class="GtkToolItem" id="toolbar_left1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <child>
-                  <object class="GtkBox" id="box8">
+                  <object class="GtkMenuButton" id="toolbar_add">
                     <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="border_width">4</property>
-                    <property name="spacing">6</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="relief">none</property>
+                    <property name="popup">add_popup_menu</property>
                     <child>
-                      <object class="GtkButton" id="toolbar_save_launcher">
-                        <property name="visible">True</property>
-                        <property name="sensitive">False</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="tooltip_markup" translatable="yes" comments="Translators: Toolbar button to save the currently selected item.">Save Launcher</property>
-                        <property name="tooltip_text" translatable="yes">Save Launcher</property>
-                        <property name="image">image8</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkBox" id="history_buttons">
+                      <object class="GtkImage">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="homogeneous">True</property>
-                        <child>
-                          <object class="GtkButton" id="toolbar_undo">
-                            <property name="visible">True</property>
-                            <property name="sensitive">False</property>
-                            <property name="can_focus">True</property>
-                            <property name="receives_default">True</property>
-                            <property name="tooltip_text" translatable="yes" comments="Translators: Toolbar button to undo last change to currently selected item.">Undo</property>
-                            <property name="image">image4</property>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">1</property>
-                          </packing>
-                        </child>
-                        <child>
-                          <object class="GtkButton" id="toolbar_redo">
-                            <property name="visible">True</property>
-                            <property name="sensitive">False</property>
-                            <property name="can_focus">True</property>
-                            <property name="receives_default">True</property>
-                            <property name="tooltip_text" translatable="yes" comments="Translators: Toolbar button to redo the last undone change to currently selected item.">Redo</property>
-                            <property name="image">image7</property>
-                          </object>
-                          <packing>
-                            <property name="expand">False</property>
-                            <property name="fill">False</property>
-                            <property name="position">2</property>
-                          </packing>
-                        </child>
-                        <style>
-                          <class name="linked"/>
-                        </style>
+                        <property name="icon_name">list-add</property>
+                        <property name="use_fallback">True</property>
+                        <property name="icon_size">3</property>
                       </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">1</property>
-                      </packing>
                     </child>
-                    <child>
-                      <object class="GtkButton" id="toolbar_revert">
-                        <property name="visible">True</property>
-                        <property name="sensitive">False</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="tooltip_text" translatable="yes" comments="Translators: Toolbar button to revery the currently selected item to it's last saved state.">Revert</property>
-                        <property name="image">image9</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">2</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkButton" id="toolbar_execute">
-                        <property name="visible">True</property>
-                        <property name="sensitive">False</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="tooltip_text" translatable="yes" comments="Translators: Toolbar button to test the currently selected item.">Test Launcher</property>
-                        <property name="image">image1</property>
-                        <property name="always_show_image">True</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">3</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkButton" id="toolbar_delete">
-                        <property name="label" translatable="yes" comments="Translators: Toolbar button to delete the currently selected item.">Delete</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                        <property name="image">image10</property>
-                        <property name="always_show_image">True</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="fill">True</property>
-                        <property name="position">4</property>
-                      </packing>
-                    </child>
+                    <style>
+                      <class name="toolbutton"/>
+                    </style>
                   </object>
                 </child>
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="homogeneous">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSeparatorToolItem" id="toolbar_sep2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToolButton" id="toolbar_save_launcher">
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Save Launcher</property>
+                <property name="label" translatable="yes">Save</property>
+                <property name="use_underline">True</property>
+                <property name="icon_name">document-save</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSeparatorToolItem" id="toolbar_sep1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToolButton" id="toolbar_undo">
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Undo</property>
+                <property name="label" translatable="yes">Undo</property>
+                <property name="use_underline">True</property>
+                <property name="icon_name">edit-undo</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToolButton" id="toolbar_redo">
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Redo</property>
+                <property name="label" translatable="yes">Redo</property>
+                <property name="use_underline">True</property>
+                <property name="icon_name">edit-redo</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSeparatorToolItem" id="toolbar_sep3">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToolButton" id="toolbar_revert">
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Revert</property>
+                <property name="label" translatable="yes">Revert</property>
+                <property name="use_underline">True</property>
+                <property name="icon_name">document-revert</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSeparatorToolItem" id="toolbar_sep4">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToolButton" id="toolbar_execute">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Test Launcher</property>
+                <property name="label" translatable="yes">Test Launcher</property>
+                <property name="use_underline">True</property>
+                <property name="icon_name">system-run</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSeparatorToolItem" id="toolbar_sep5">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToolButton" id="toolbar_delete">
+                <property name="visible">True</property>
+                <property name="sensitive">False</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes">Delete</property>
+                <property name="label" translatable="yes">Delete</property>
+                <property name="use_underline">True</property>
+                <property name="icon_name">edit-delete</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSeparatorToolItem" id="toolbar_sep6">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="draw">False</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkToolItem" id="toolbar_search">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="valign">center</property>
+                <child>
+                  <object class="GtkSearchEntry" id="search">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="primary_icon_name">edit-find-symbolic</property>
+                    <property name="primary_icon_activatable">False</property>
+                    <property name="primary_icon_sensitive">False</property>
+                    <property name="placeholder_text" translatable="yes" comments="Translators: Placeholder text for the search text entry.">Search</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
               </packing>
             </child>
             <style>
@@ -707,6 +593,60 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkInfoBar" id="bad_desktop_files_infobar">
+            <property name="can_focus">False</property>
+            <property name="no_show_all">True</property>
+            <property name="message_type">warning</property>
+            <property name="show_close_button">True</property>
+            <child internal-child="action_area">
+              <object class="GtkButtonBox">
+                <property name="can_focus">False</property>
+                <property name="spacing">6</property>
+                <property name="layout_style">end</property>
+                <child>
+                  <placeholder/>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child internal-child="content_area">
+              <object class="GtkBox">
+                <property name="can_focus">False</property>
+                <property name="spacing">16</property>
+                <child>
+                  <object class="GtkLabel" id="bad_desktop_files_label">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes" comments="Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.">Invalid desktop files detected! Please see details.</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
           </packing>
         </child>
         <child>
@@ -755,6 +695,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                       <object class="GtkToolbar" id="browser_toolbar">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                        <property name="show_arrow">False</property>
                         <property name="icon_size">1</property>
                         <child>
                           <object class="GtkToolButton" id="classic_view_move_up">
@@ -1252,11 +1193,8 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
           <packing>
             <property name="expand">True</property>
             <property name="fill">True</property>
-            <property name="position">2</property>
+            <property name="position">3</property>
           </packing>
-        </child>
-        <child>
-          <placeholder/>
         </child>
       </object>
     </child>
@@ -1271,7 +1209,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
       <column type="gchararray"/>
     </columns>
   </object>
-  <object class="GtkBox" id="categories">
+  <object class="GtkBox" id="page_categories">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="orientation">vertical</property>
@@ -1303,6 +1241,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
       <object class="GtkToolbar" id="toolbar1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="show_arrow">False</property>
         <property name="icon_size">1</property>
         <child>
           <object class="GtkToolButton" id="categories_add">
@@ -1369,7 +1308,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
       <column type="gchararray"/>
     </columns>
   </object>
-  <object class="GtkBox" id="actions">
+  <object class="GtkBox" id="page_actions">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="orientation">vertical</property>
@@ -1441,6 +1380,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
       <object class="GtkToolbar" id="toolbar2">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="show_arrow">False</property>
         <property name="icon_size">1</property>
         <child>
           <object class="GtkToolButton" id="actions_add">
@@ -1723,11 +1663,10 @@ See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-lates
             <property name="layout_style">end</property>
             <child>
               <object class="GtkButton" id="log_ok">
-                <property name="label">gtk-ok</property>
+                <property name="label">OK</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_stock">True</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -1904,12 +1843,271 @@ Please investigate these problems with the associated package maintainer.</prope
       </object>
     </child>
   </object>
-  <object class="GtkSearchEntry" id="toolbar_search">
+  <object class="GtkScrolledWindow" id="page_advanced">
     <property name="visible">True</property>
-    <property name="can_focus">True</property>
-    <property name="primary_icon_name">edit-find-symbolic</property>
-    <property name="primary_icon_activatable">False</property>
-    <property name="primary_icon_sensitive">False</property>
-    <property name="placeholder_text" translatable="yes" comments="Translators: Placeholder text for the search text entry.">Search</property>
+    <property name="can_focus">False</property>
+    <property name="shadow_type">in</property>
+    <child>
+      <object class="GtkViewport" id="viewport3">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <child>
+          <object class="GtkGrid" id="grid3">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="border_width">11</property>
+            <property name="row_spacing">4</property>
+            <property name="column_spacing">6</property>
+            <property name="row_homogeneous">True</property>
+            <child>
+              <object class="GtkLabel" id="label5">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;GenericName&quot; text entry.">Generic name of the application, for example "Web Browser".</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;GenericName&quot; text entry. Generic name of the application, for example &quot;Web Browser&quot;.">Generic Name</property>
+                <property name="xalign">0</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label13">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;NotShowIn&quot; text entry. Possible values &quot;Cinnamon&quot;, &quot;EDE&quot;, &quot;GNOME&quot;, &quot;KDE&quot;, &quot;LXDE&quot;, &quot;LXQt&quot;, &quot;MATE&quot;, &quot;Pantheon&quot;, &quot;Razor&quot;, &quot;ROX&quot;, &quot;TDE&quot;, &quot;Unity&quot;, &quot;XFCE&quot;, and &quot;Old&quot; should not be translated.">A list of environments that should not display this entry. You can only use this key if "OnlyShowIn" is not set.
+Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;NotShowIn&quot; text entry. A list of environments that should not display this entry.">Not Shown In</property>
+                <property name="xalign">0</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label6">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;OnlyShowIn&quot; text entry. Possible values &quot;Cinnamon&quot;, &quot;EDE&quot;, &quot;GNOME&quot;, &quot;KDE&quot;, &quot;LXDE&quot;, &quot;LXQt&quot;, &quot;MATE&quot;, &quot;Pantheon&quot;, &quot;Razor&quot;, &quot;ROX&quot;, &quot;TDE&quot;, &quot;Unity&quot;, &quot;XFCE&quot;, and &quot;Old&quot; should not be translated.">A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if "NotShowIn" is not set.
+Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;OnlyShowIn&quot; text entry. A list of environments that should display this entry.">Only Shown In</property>
+                <property name="xalign">0</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label14">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;TryExec&quot; text entry.">Path to an executable file to determine if the program is installed. If the file is not present or is not executable, this entry may not be shown in a menu.</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;TryExec&quot; text entry. Path to an executable file to determine if the program is installed.">Try Exec</property>
+                <property name="xalign">0</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label15">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;Mimetypes&quot; text entry.">The MIME type(s) supported by this application.</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;Mimetype&quot; text entry. The MIME type(s) supported by this application.">Mimetypes</property>
+                <property name="xalign">0</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label16">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;Keywords&quot; text entry.">A list of keywords to describe this entry. You can use these to help searching entries. These are not meant for display, and should not be redundant with the values of Name or GenericName.</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;Keywords&quot; text entry. A list of keywords to describe this entry.">Keywords</property>
+                <property name="xalign">0</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">5</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label23">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;StartupWMClass&quot; text entry.">If specified, the application will be requested to use the string as a WM class or a WM name hint at least in one window.</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;StartupWMClass&quot; text entry. A window manager hint for the application's name.">Startup WM Class</property>
+                <property name="xalign">0</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">6</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_GenericName">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="hexpand">True</property>
+                <property name="invisible_char">•</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_TryExec">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">•</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_OnlyShowIn">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">•</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_NotShowIn">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">•</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">3</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_Mimetype">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">•</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_Keywords">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">•</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">5</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_StartupWMClass">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">•</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">6</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;Hidden&quot; on/off switch.">If set to "True", the result for the user is equivalent to the .desktop file not existing at all.</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;Hidden&quot; on/off switch. When enabled, the application is hidden from the menu.">Hidden</property>
+                <property name="xalign">0</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">8</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;DBusActivatable&quot; on/off switch.">Set this key to "True" if D-Bus activation is supported for this application and you want to use it.
+See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for more information.</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;DBusActivatable&quot; on/off switch. When enabled, the application is said to be activated via DBUS.">DBUS Activatable</property>
+                <property name="xalign">0</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">9</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="switch_Hidden">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="halign">end</property>
+                <property name="valign">center</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">8</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="switch_DBusActivatable">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="halign">end</property>
+                <property name="valign">center</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">9</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="label3">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;Implements&quot; text entry.">A list of interfaces that this application implements.</property>
+                <property name="label" translatable="yes" comments="Translators: &quot;Implements&quot; text entry. A list of interfaces that this application implements.">Implements</property>
+                <property name="xalign">0</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">7</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="entry_Implements">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">•</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">7</property>
+              </packing>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
   </object>
 </interface>

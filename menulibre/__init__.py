@@ -32,16 +32,33 @@ def parse_options():
         "-v", "--verbose", action="count", dest="verbose",
         # Translators: Command line option to display debug messages on stdout
         help=_("Show debug messages"))
+    parser.add_option(
+        "-b", "--headerbar", action="count", dest="headerbar",
+        # Translators: Command line option to switch layout
+        help=_("Use headerbar layout (client side decorations)")
+    )
+    parser.add_option(
+        "-t", "--toolbar", action="count", dest="toolbar",
+        # Translators: Command line option to switch layout
+        help=_("Use toolbar layout (server side decorations)")
+    )
     (options, args) = parser.parse_args()
 
     set_up_logging(options)
 
+    return options
+
 
 def main():
     """Main application for Menulibre"""
-    parse_options()
+    opts = parse_options()
 
     # Run the application.
     app = MenulibreApplication.Application()
+    if opts.headerbar is not None:
+        app.use_headerbar = True
+    elif opts.toolbar is not None:
+        app.use_toolbar = True
+
     exit_status = app.run(None)
     sys.exit(exit_status)

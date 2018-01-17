@@ -39,7 +39,8 @@ import logging
 
 logger = logging.getLogger('menulibre')
 
-session = os.getenv("DESKTOP_SESSION")
+session = os.getenv("DESKTOP_SESSION", "")
+current_desktop = os.getenv("XDG_CURRENT_DESKTOP", "")
 root = os.getuid() == 0
 
 category_descriptions = {
@@ -212,7 +213,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                  (GObject.TYPE_BOOLEAN,))
     }
 
-    def __init__(self, app):
+    def __init__(self, app, headerbar_pref=True):
         """Initialize the Menulibre application."""
         self.root_lockout()
 
@@ -233,9 +234,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Set up the actions, menubar, and toolbar
         self.configure_application_actions(builder)
         self.configure_application_menubar(builder)
-        self.configure_application_toolbar(builder)
 
-        self.configure_headerbar(builder)
+        if headerbar_pref:
+            self.configure_headerbar(builder)
+        else:
+            self.configure_application_toolbar(builder)
+
         self.configure_css()
 
         # Set up the application editor
@@ -326,34 +330,49 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         )
 
     def configure_headerbar(self, builder):
-        headerbar = Gtk.HeaderBar.new()
-        headerbar.set_show_close_button(True)
+        # Configure the Add, Save, Undo, Redo, Revert, Delete widgets.
+        for action_name in ['save_launcher', 'undo', 'redo',
+                            'revert', 'execute', 'delete']:
+            widget = builder.get_object("headerbar_%s" % action_name)
+            widget.connect("clicked", self.activate_action_cb, action_name)
+
+        self.action_items = dict()
+        self.action_items['add_button'] = builder.get_object('headerbar_add')
+
+        for action_name in ['add_launcher', 'add_directory', 'add_separator']:
+            self.action_items[action_name] = []
+            widget = builder.get_object('menubar_%s' % action_name)
+            widget.connect('activate', self.activate_action_cb, action_name)
+            self.action_items[action_name].append(widget)
+            widget = builder.get_object('popup_%s' % action_name)
+            widget.connect('activate', self.activate_action_cb, action_name)
+            self.action_items[action_name].append(widget)
+
+        # Save
+        self.save_button = builder.get_object('headerbar_save_launcher')
+
+        # Undo/Redo/Revert
+        self.undo_button = builder.get_object('headerbar_undo')
+        self.redo_button = builder.get_object('headerbar_redo')
+        self.revert_button = builder.get_object('headerbar_revert')
+
+        # Configure the Delete widget.
+        self.delete_button = builder.get_object('headerbar_delete')
+
+        # Configure the Test Launcher widget.
+        self.execute_button = builder.get_object('headerbar_execute')
+
+        # Configure the search widget.
+        self.search_box = builder.get_object('search')
+        self.search_box.connect('icon-press', self.on_search_cleared)
+
+        self.search_box.reparent(builder.get_object('headerbar_search'))
+
+        headerbar = builder.get_object('headerbar')
         headerbar.set_title("MenuLibre")
         headerbar.set_custom_title(Gtk.Label.new())
 
-        # Add Launcher/Directory/Separator
-        button = Gtk.MenuButton()
-        self.action_items['add_button'] = [button]
-        image = Gtk.Image.new_from_icon_name("list-add-symbolic",
-                                             Gtk.IconSize.MENU)
-        button.set_image(image)
-
-        popup = builder.get_object('add_popup_menu')
-        button.set_popup(popup)
-
-        headerbar.pack_start(button)
-
-        self.save_button.reparent(headerbar)
-
-        builder.get_object("history_buttons").reparent(headerbar)
-
-        self.revert_button.reparent(headerbar)
-        self.execute_button.reparent(headerbar)
-        self.delete_button.reparent(headerbar)
-
-        headerbar.pack_end(self.search_box)
-
-        builder.get_object("toolbar").destroy()
+        builder.get_object("toolbar").hide()
 
         self.set_titlebar(headerbar)
         headerbar.show_all()
@@ -495,22 +514,20 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Configure InfoBar to alert user to bad desktop files."""
 
         # Fetching UI widgets
-        infobar = builder.get_object('bad_desktop_files_infobar')
-        box = builder.get_object('box1')
+        self.infobar = builder.get_object('bad_desktop_files_infobar')
 
         # Configuring buttons for the InfoBar - looks like you can't set a
         # response ID via a button defined in glade?
         # Can't get a stock button then change its icon, so leaving with no
         # icon
-        infobar.add_button('Details', Gtk.ResponseType.YES)
+        self.infobar.add_button('Details', Gtk.ResponseType.YES)
 
-        # Looks like you can't just insert a widget where you want??
-        box.pack_start(infobar, False, False, 0)
-        box.reorder_child(infobar, 1)
+        self.infobar.show()
 
         # Hook up events
-        infobar.set_default_response(Gtk.ResponseType.CLOSE)
-        infobar.connect('response', self.on_bad_desktop_files_infobar_response)
+        self.infobar.set_default_response(Gtk.ResponseType.CLOSE)
+        self.infobar.connect('response',
+                             self.on_bad_desktop_files_infobar_response)
 
     def configure_application_menubar(self, builder):
         """Configure the application GlobalMenu (in Unity) and AppMenu."""
@@ -537,6 +554,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             widget.connect("clicked", self.activate_action_cb, action_name)
 
         self.action_items = dict()
+        self.action_items['add_button'] = builder.get_object('toolbar_add')
 
         for action_name in ['add_launcher', 'add_directory', 'add_separator']:
             self.action_items[action_name] = []
@@ -562,7 +580,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.execute_button = builder.get_object('toolbar_execute')
 
         # Configure the search widget.
-        self.search_box = builder.get_object('toolbar_search')
+        self.search_box = builder.get_object('search')
         self.search_box.connect('icon-press', self.on_search_cleared)
 
     def configure_application_treeview(self, builder):
@@ -610,13 +628,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         placeholder = builder.get_object('settings_placeholder')
         self.switcher = MenulibreStackSwitcher.StackSwitcherBox()
         placeholder.add(self.switcher)
-        self.switcher.add_child(builder.get_object('categories'),
+        self.switcher.add_child(builder.get_object('page_categories'),
                                 # Translators: "Categories" launcher section
                                 'categories', _('Categories'))
-        self.switcher.add_child(builder.get_object('actions'),
+        self.switcher.add_child(builder.get_object('page_actions'),
                                 # Translators: "Actions" launcher section
                                 'actions', _('Actions'))
-        self.switcher.add_child(builder.get_object('advanced'),
+        self.switcher.add_child(builder.get_object('page_advanced'),
                                 # Translators: "Advanced" launcher section
                                 'advanced', _('Advanced'))
 
@@ -2118,10 +2136,50 @@ class Application(Gtk.Application):
     def __init__(self):
         """Initialize the GtkApplication."""
         Gtk.Application.__init__(self)
+        self.use_headerbar = False
+        self.use_toolbar = False
+
+        self.settings_file = os.path.expanduser("~/.config/menulibre.cfg")
+
+    def set_use_headerbar(self, preference):
+        try:
+            settings = GLib.KeyFile.new()
+            settings.set_boolean("menulibre", "UseHeaderbar", preference)
+            settings.save_to_file(self.settings_file)
+        except: # noqa
+            pass
+
+    def get_use_headerbar(self):
+        if not os.path.exists(self.settings_file):
+            return None
+        try:
+            settings = GLib.KeyFile.new()
+            settings.load_from_file(self.settings_file, GLib.KeyFileFlags.NONE)
+            return settings.get_boolean("menulibre", "UseHeaderbar")
+        except: # noqa
+            return None
 
     def do_activate(self):
         """Handle GtkApplication do_activate."""
-        self.win = MenulibreWindow(self)
+        settings = GLib.KeyFile.new()
+
+        if self.use_toolbar:
+            headerbar = False
+            settings.set_boolean("menulibre", "UseHeaderbar", False)
+            settings.save_to_file(self.settings_file)
+        elif self.use_headerbar:
+            headerbar = True
+            settings.set_boolean("menulibre", "UseHeaderbar", True)
+            settings.save_to_file(self.settings_file)
+        elif self.get_use_headerbar() is not None:
+            headerbar = self.get_use_headerbar()
+        # Desktops that prefer CSD
+        elif current_desktop in ["budgie", "gnome", "pantheon"]:
+            headerbar = True
+        else:
+            headerbar = False
+
+        self.win = MenulibreWindow(self, headerbar)
         self.win.show()
 
         self.win.connect('about', self.about_cb)
