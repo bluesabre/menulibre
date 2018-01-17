@@ -2161,19 +2161,14 @@ class Application(Gtk.Application):
 
     def do_activate(self):
         """Handle GtkApplication do_activate."""
-        settings = GLib.KeyFile.new()
-
         if self.use_toolbar:
             headerbar = False
-            settings.set_boolean("menulibre", "UseHeaderbar", False)
-            settings.save_to_file(self.settings_file)
+            self.set_use_headerbar(False)
         elif self.use_headerbar:
             headerbar = True
-            settings.set_boolean("menulibre", "UseHeaderbar", True)
-            settings.save_to_file(self.settings_file)
+            self.set_use_headerbar(True)
         elif self.get_use_headerbar() is not None:
             headerbar = self.get_use_headerbar()
-        # Desktops that prefer CSD
         elif current_desktop in ["budgie", "gnome", "pantheon"]:
             headerbar = True
         else:
