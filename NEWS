@@ -8,6 +8,10 @@ UNRELEASED, MenuLibre 2.1.4
   . Allow creation of subdirectories in preinstalled system paths
     (LP: #1315872)
   . New Parsing Errors log for notifying about bad desktop files
+  . New Layout Preferences! Budgie, GNOME, and Pantheon will utilize client
+    side decorations by default while all other desktops use a more traditional
+    toolbar and server side decorations. Users can define their preference
+    with the -b and -t commandline flags.
 - General:
   . Use the folder icon instead of applications-other (LP: #1605905)
   . Use switches for Hidden and DBusActivatable keys
@@ -36,6 +40,9 @@ UNRELEASED, MenuLibre 2.1.4
   . Brazilian Portuguese, Catalan, Croatian, Danish, French, Galician, German,
     Italian, Kazakh, Lithuanian, Polish, Russian, Slovak, Spanish, Swedish,
     Ukrainian
+  . Translation templates have been updated with simplified strings and notes
+    for every string used in MenuLibre. This should make adding additional
+    translations much easier in the future.
 
 
 07 Apr 2016, MenuLibre 2.1.3
