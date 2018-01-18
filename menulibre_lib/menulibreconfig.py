@@ -25,7 +25,7 @@ __all__ = [
 # files). By default, this is ../data, relative your trunk layout
 __menulibre_data_directory__ = '../data/'
 __license__ = 'GPL-3'
-__version__ = '2.1.3'
+__version__ = '2.1.4'
 
 import os
 

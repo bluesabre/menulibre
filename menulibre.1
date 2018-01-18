@@ -2,14 +2,14 @@
 \\$2 \(laURL: \\$1 \(ra\\$3
 ..
 .if \n[.g] .mso www.tmac
-.TH MENULIBRE "1" "January 2014" "menulibre 2.0" "User Commands"
+.TH MENULIBRE "1" "January 2018" "menulibre 2.1" "User Commands"
 .SH NAME
 menulibre \- advanced fd.o compliant menu editor
 .SH DESCRIPTION
 menulibre is an easy to use FreeDesktop.org-compliant menu editor. All fields specified in the FreeDesktop.org Desktop Entry and Menu specifications are available to quickly update. Additionally, menulibre provides an editor for the launcher actions used by applications such as Unity and Plank.
 .SH SYNOPSIS
 .B menulibre
-[\fIoptions\fR]
+[\fI\,options\/\fR]
 .SH OPTIONS
 .TP
 \fB\-\-version\fR
@@ -20,12 +20,19 @@ show this help message and exit
 .TP
 \fB\-v\fR, \fB\-\-verbose\fR
 Show debug messages
+.TP
+\fB\-b\fR, \fB\-\-headerbar\fR
+Use headerbar layout (client side decorations)
+.TP
+\fB\-t\fR, \fB\-\-toolbar\fR
+Use toolbar layout (server side decorations)
 .SH "SEE ALSO"
 The full documentation for
 .B menulibre
 is maintained online at
 .URL "http://wiki.bluesabre.org/doku.php?id=menulibre-docs" "the authors documentation portal" "."
 .SH BUGS
-No known bugs.
+Please report any bugs found at
+.URL "https://bugs.launchpad.net/menulibre" "launchpad.net" "."
 .SH AUTHOR
 Sean Davis (smd.seandavis@gmail.com)
