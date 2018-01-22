@@ -1235,6 +1235,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     for key in getRelatedKeys(item_type, key_only=True):
                         self.set_value(key, entry[key], store=True)
                     self.set_value('Type', 'Directory')
+                    self.set_value('Icon', 'folder')
                     for widget in self.directory_hide_widgets:
                         widget.hide()
                     self.execute_button.set_sensitive(False)
