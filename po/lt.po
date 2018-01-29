@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-01-27 05:30+0000\n"
+"POT-Creation-Date: 2018-01-28 05:27+0000\n"
 "PO-Revision-Date: 2018-01-14 04:39+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-01-28 05:26+0000\n"
+"X-Launchpad-Export-Date: 2018-01-29 05:29+0000\n"
 "X-Generator: Launchpad (build 18534)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -116,7 +116,7 @@ msgstr "Nuleisti žemyn"
 #. Translators: Treeview toolbar button to sort the currently open submenu alphabetically.
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Sort Alphabetically"
-msgstr ""
+msgstr "Rikiuoti pagal abėcėlę"
 
 #. Translators: Placeholder text/hint for the application name entry.
 #: ../data/ui/MenulibreWindow.ui.h:35
@@ -428,12 +428,12 @@ msgstr "Rodyti derinimo pranešimus"
 #. Translators: Command line option to switch layout
 #: ../menulibre/__init__.py:38
 msgid "Use headerbar layout (client side decorations)"
-msgstr ""
+msgstr "Naudoti antraštės juostos išdėstymą (kliento pusės dekoracijas)"
 
 #. Translators: Command line option to switch layout
 #: ../menulibre/__init__.py:43
 msgid "Use toolbar layout (server side decorations)"
-msgstr ""
+msgstr "Naudoti įrankių juostos išdėstymą (serverio pusės dekoracijas)"
 
 #. Translators: About Dialog, window title.
 #: ../menulibre/Dialogs.py:37
@@ -779,13 +779,13 @@ msgstr "_Ištrinti"
 #. Translators: Quit action label
 #: ../menulibre/MenulibreApplication.py:470
 msgid "_Quit"
-msgstr "_Baigti"
+msgstr "_Išeiti"
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:472
 #: ../menulibre/MenulibreApplication.py:2201
 msgid "Quit"
-msgstr "Baigti"
+msgstr "Išeiti"
 
 #. Translators: Help action label
 #: ../menulibre/MenulibreApplication.py:479
@@ -892,12 +892,12 @@ msgstr "Ar tikrai norite ištrinti \"%s\"?"
 #. Translators: Menu item to open the Parsing Errors dialog.
 #: ../menulibre/MenulibreApplication.py:2194
 msgid "Parsing Error Log"
-msgstr ""
+msgstr "Nagrinėjimo klaidų žurnalas"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
 msgid "Select an image…"
-msgstr ""
+msgstr "Pasirinkite paveikslą…"
 
 #. Translators: "Images" file chooser dialog filter
 #: ../menulibre/MenulibreIconSelection.py:87
