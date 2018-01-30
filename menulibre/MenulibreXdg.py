@@ -47,7 +47,7 @@ class MenulibreDesktopEntry:
             # Translators: Placeholder text for a new menu item description.
             self['Comment'] = _(
                 "A small descriptive blurb about this application.")
-            self['Icon'] = 'application-default-icon'
+            self['Icon'] = 'applications-other'
             self['Exec'] = ''
             self['Path'] = ''
             self['Terminal'] = 'false'

@@ -135,7 +135,7 @@ def get_submenus(menu, tree_dir):
                 entry_id = child.get_desktop_file_id()
                 app_info = child.get_app_info()
                 icon = app_info.get_icon()
-                icon_name = "application-default-icon"
+                icon_name = "applications-other"
                 display_name = app_info.get_display_name()
                 generic_name = app_info.get_generic_name()
                 comment = app_info.get_description()
@@ -154,7 +154,7 @@ def get_submenus(menu, tree_dir):
                 item_type = MenuItemTypes.DIRECTORY
                 entry_id = child.get_menu_id()
                 icon = child.get_icon()
-                icon_name = "application-default-icon"
+                icon_name = "folder"
                 display_name = child.get_name()
                 generic_name = child.get_generic_name()
                 comment = child.get_comment()

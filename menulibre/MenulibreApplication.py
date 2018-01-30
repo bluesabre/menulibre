@@ -1342,7 +1342,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 self.icon_selector.set_filename(icon_name)
                 return
 
-        image.set_from_icon_name("application-default-icon", 48)
+        image.set_from_icon_name("applications-other", 48)
 
     def set_editor_filename(self, filename):
         """Set the editor filename."""
@@ -1603,7 +1603,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         comment = ""
         categories = ""
         item_type = MenuItemTypes.APPLICATION
-        icon_name = "application-default-icon"
+        icon_name = "applications-other"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
         new_row_data = [name, comment, categories, item_type, icon, icon_name,
