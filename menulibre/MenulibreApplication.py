@@ -1223,7 +1223,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     self.editor.show_all()
                     entry = MenulibreXdg.MenulibreDesktopEntry(filename)
                     for key in getRelatedKeys(item_type, key_only=True):
-                        if key == 'Actions':
+                        if key in ['Actions', 'Comment', 'Filename', 'Icon',
+                                   'Name']:
                             continue
                         self.set_value(key, entry[key], store=True)
                     self.set_value('Actions', entry.get_actions(),
@@ -1233,9 +1234,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 else:
                     entry = MenulibreXdg.MenulibreDesktopEntry(filename)
                     for key in getRelatedKeys(item_type, key_only=True):
+                        if key in ['Comment', 'Filename', 'Icon', 'Name']:
+                            continue
                         self.set_value(key, entry[key], store=True)
                     self.set_value('Type', 'Directory')
-                    self.set_value('Icon', 'folder')
                     for widget in self.directory_hide_widgets:
                         widget.hide()
                     self.execute_button.set_sensitive(False)
@@ -1600,7 +1602,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Add Launcher callback function."""
         # Translators: Placeholder text for a newly created launcher.
         name = _("New Launcher")
-        comment = ""
+        # Translators: Placeholder text for a newly created launcher's
+        # description.
+        comment = _("A small descriptive blurb about this application.")
         categories = ""
         item_type = MenuItemTypes.APPLICATION
         icon_name = "applications-other"
@@ -1651,14 +1655,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Add Directory callback function."""
         # Translators: Placeholder text for a newly created directory.
         name = _("New Directory")
-        comment = ""
+        # Translators: Placeholder text for a newly created directory's
+        # description.
+        comment = _("A small descriptive blurb about this directory.")
         categories = ""
         item_type = MenuItemTypes.DIRECTORY
         icon_name = "folder"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
         row_data = [name, comment, categories, item_type, icon, icon_name,
-                    filename, False, True]
+                    filename, True, True]
 
         self.treeview.append(row_data)
 
