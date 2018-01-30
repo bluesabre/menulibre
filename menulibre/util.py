@@ -163,15 +163,19 @@ def getDefaultMenuPrefix():
     """Return the default menu prefix."""
     prefix = os.environ.get('XDG_MENU_PREFIX', '')
 
-    # Cinnamon doesn't set this variable
+    # Cinnamon and MATE don't set this variable
     if prefix == "":
         if 'cinnamon' in os.environ.get('DESKTOP_SESSION', ''):
             prefix = 'cinnamon-'
+        elif 'mate' in os.environ.get('DESKTOP_SESSION', ''):
+            prefix = 'mate-'
 
     if prefix == "":
         processes = getProcessList()
         if 'xfce4-panel' in processes:
             prefix = 'xfce-'
+        elif 'mate-panel' in processes:
+            prefix = 'mate-'
 
     if len(prefix) == 0:
         logger.warning("No menu prefix found, MenuLibre will not function "
