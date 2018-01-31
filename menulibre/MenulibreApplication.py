@@ -40,8 +40,12 @@ import logging
 logger = logging.getLogger('menulibre')
 
 session = os.getenv("DESKTOP_SESSION", "")
-current_desktop = os.getenv("XDG_CURRENT_DESKTOP", "")
 root = os.getuid() == 0
+
+current_desktop = os.getenv("XDG_CURRENT_DESKTOP", "")
+for desktop in ["budgie", "pantheon", "gnome"]:
+    if desktop in current_desktop.lower():
+        current_desktop = desktop
 
 category_descriptions = {
     # Translators: Launcher category description
