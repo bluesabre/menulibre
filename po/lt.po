@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-01-30 07:28-0500\n"
+"POT-Creation-Date: 2018-01-31 22:10-0500\n"
 "PO-Revision-Date: 2018-01-14 04:39+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-01-31 04:52+0000\n"
+"X-Launchpad-Export-Date: 2018-02-01 05:30+0000\n"
 "X-Generator: Launchpad (build 18534)\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -57,19 +57,19 @@ msgstr "Įrašyti leistuką"
 
 #. Translators: Toolbar button to undo last change to currently selected item.
 #. Translators: Undo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:14 ../menulibre/MenulibreApplication.py:427
+#: ../data/ui/MenulibreWindow.ui.h:14 ../menulibre/MenulibreApplication.py:428
 msgid "Undo"
 msgstr "Atšaukti"
 
 #. Translators: Toolbar button to redo the last undone change to currently selected item.
 #. Translators: Redo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:16 ../menulibre/MenulibreApplication.py:436
+#: ../data/ui/MenulibreWindow.ui.h:16 ../menulibre/MenulibreApplication.py:437
 msgid "Redo"
 msgstr "Atstatyti"
 
 #. Translators: Toolbar button to revery the currently selected item to it
 #. Translators: Revert action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:445
+#: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:446
 msgid "Revert"
 msgstr "Atkurti"
 
@@ -80,7 +80,7 @@ msgstr "Išbandyti leistuką"
 
 #. Translators: Toolbar button to delete the currently selected item.
 #. Translators: Delete action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:463
+#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:464
 msgid "Delete"
 msgstr "Ištrinti"
 
@@ -88,7 +88,7 @@ msgstr "Ištrinti"
 #. Translators: Save On Leave Dialog, do save, then leave.
 #. Translators: Save Launcher action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/Dialogs.py:102
-#: ../menulibre/Dialogs.py:131 ../menulibre/MenulibreApplication.py:418
+#: ../menulibre/Dialogs.py:131 ../menulibre/MenulibreApplication.py:419
 msgid "Save"
 msgstr "Įrašyti"
 
@@ -125,7 +125,7 @@ msgstr "Programos pavadinimas"
 
 #. Translators: Placeholder text/hint for the application comment entry.
 #. Translators: "Description" tree column header
-#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:822
+#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:823
 msgid "Description"
 msgstr "Aprašas"
 
@@ -559,151 +559,151 @@ msgid "Do you have write permission to the file and directory?"
 msgstr "Ar turite leidimą rašyti į failą ir katalogą?"
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1193
-#: ../menulibre/MenulibreApplication.py:1678
+#: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1194
+#: ../menulibre/MenulibreApplication.py:1679
 msgid "Separator"
 msgstr "Skirtukas"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:48
+#: ../menulibre/MenulibreApplication.py:49
 msgid "Multimedia"
 msgstr "Multimedija"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:50
+#: ../menulibre/MenulibreApplication.py:51
 msgid "Development"
 msgstr "Programavimas"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:52
+#: ../menulibre/MenulibreApplication.py:53
 msgid "Education"
 msgstr "Švietimas"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:54
+#: ../menulibre/MenulibreApplication.py:55
 msgid "Games"
 msgstr "Žaidimai"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:56
+#: ../menulibre/MenulibreApplication.py:57
 msgid "Graphics"
 msgstr "Grafika"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:58
+#: ../menulibre/MenulibreApplication.py:59
 msgid "Internet"
 msgstr "Internetas"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:60
+#: ../menulibre/MenulibreApplication.py:61
 msgid "Office"
 msgstr "Raštinė"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:62
+#: ../menulibre/MenulibreApplication.py:63
 msgid "Settings"
 msgstr "Nustatymai"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:64
+#: ../menulibre/MenulibreApplication.py:65
 msgid "System"
 msgstr "Sistema"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:66
+#: ../menulibre/MenulibreApplication.py:67
 msgid "Accessories"
 msgstr "Reikmenys"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:68
+#: ../menulibre/MenulibreApplication.py:69
 msgid "WINE"
 msgstr "WINE"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:70
+#: ../menulibre/MenulibreApplication.py:71
 msgid "Desktop configuration"
 msgstr "Darbalaukio konfigūracija"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:72
+#: ../menulibre/MenulibreApplication.py:73
 msgid "User configuration"
 msgstr "Naudotojo konfigūracija"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:74
+#: ../menulibre/MenulibreApplication.py:75
 msgid "Hardware configuration"
 msgstr "Aparatinės įrangos konfigūracija"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:76
+#: ../menulibre/MenulibreApplication.py:77
 msgid "GNOME application"
 msgstr "GNOME programa"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:78
+#: ../menulibre/MenulibreApplication.py:79
 msgid "GTK+ application"
 msgstr "GTK+ programa"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:80
+#: ../menulibre/MenulibreApplication.py:81
 msgid "GNOME user configuration"
 msgstr "GNOME naudotojo konfigūracija"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:82
+#: ../menulibre/MenulibreApplication.py:83
 msgid "GNOME hardware configuration"
 msgstr "GNOME aparatinės įrangos konfigūracija"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:84
-#: ../menulibre/MenulibreApplication.py:86
+#: ../menulibre/MenulibreApplication.py:85
+#: ../menulibre/MenulibreApplication.py:87
 msgid "GNOME system configuration"
 msgstr "GNOME sistemos konfigūracija"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:88
-#: ../menulibre/MenulibreApplication.py:90
+#: ../menulibre/MenulibreApplication.py:89
+#: ../menulibre/MenulibreApplication.py:91
 msgid "Xfce menu item"
 msgstr "Xfce meniu elementas"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:92
+#: ../menulibre/MenulibreApplication.py:93
 msgid "Xfce toplevel menu item"
 msgstr "Xfce aukščiausio lygio meniu elementas"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:94
+#: ../menulibre/MenulibreApplication.py:95
 msgid "Xfce user configuration"
 msgstr "Xfce naudotojo konfigūracija"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:96
+#: ../menulibre/MenulibreApplication.py:97
 msgid "Xfce hardware configuration"
 msgstr "Xfce aparatinės įrangos konfigūracija"
 
 #. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:98
-#: ../menulibre/MenulibreApplication.py:100
+#: ../menulibre/MenulibreApplication.py:99
+#: ../menulibre/MenulibreApplication.py:101
 msgid "Xfce system configuration"
 msgstr "Xfce sistemos konfigūracija"
 
 #. Translators: "Other" category group. This item is only displayed for
 #. unknown or non-standard categories.
-#: ../menulibre/MenulibreApplication.py:153
-#: ../menulibre/MenulibreApplication.py:200
+#: ../menulibre/MenulibreApplication.py:154
+#: ../menulibre/MenulibreApplication.py:201
 msgid "Other"
 msgstr "Kita"
 
 #. Translators: This error is displayed when the application is run
 #. as a root user. The application exits once the dialog is
 #. dismissed.
-#: ../menulibre/MenulibreApplication.py:262
+#: ../menulibre/MenulibreApplication.py:263
 msgid "MenuLibre cannot be run as root."
 msgstr "MenuLibre negali būti vykdoma kaip root."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
-#: ../menulibre/MenulibreApplication.py:268
+#: ../menulibre/MenulibreApplication.py:269
 #, python-format
 msgid ""
 "Please see the <a href='%s'>online documentation</a> for more information."
@@ -712,197 +712,197 @@ msgstr ""
 "internete</a>."
 
 #. Translators: Add Launcher action label
-#: ../menulibre/MenulibreApplication.py:389
+#: ../menulibre/MenulibreApplication.py:390
 msgid "Add _Launcher…"
 msgstr "Pridėti _leistuką..."
 
 #. Translators: Add Launcher action tooltip
-#: ../menulibre/MenulibreApplication.py:391
+#: ../menulibre/MenulibreApplication.py:392
 msgid "Add Launcher…"
 msgstr "Pridėti leistuką..."
 
 #. Translators: Add Directory action label
-#: ../menulibre/MenulibreApplication.py:398
+#: ../menulibre/MenulibreApplication.py:399
 msgid "Add _Directory…"
 msgstr "Pridėti _katalogą..."
 
 #. Translators: Add Directory action tooltip
-#: ../menulibre/MenulibreApplication.py:400
+#: ../menulibre/MenulibreApplication.py:401
 msgid "Add Directory…"
 msgstr "Pridėti katalogą..."
 
 #. Translators: Add Separator action label
-#: ../menulibre/MenulibreApplication.py:407
+#: ../menulibre/MenulibreApplication.py:408
 msgid "_Add Separator…"
 msgstr "Pridėti _skirtuką..."
 
 #. Translators: Add Separator action tooltip
-#: ../menulibre/MenulibreApplication.py:409
+#: ../menulibre/MenulibreApplication.py:410
 msgid "Add Separator…"
 msgstr "Pridėti skirtuką..."
 
 #. Translators: Save Launcher action label
-#: ../menulibre/MenulibreApplication.py:416
+#: ../menulibre/MenulibreApplication.py:417
 msgid "_Save"
 msgstr "Į_rašyti"
 
 #. Translators: Undo action label
-#: ../menulibre/MenulibreApplication.py:425
+#: ../menulibre/MenulibreApplication.py:426
 msgid "_Undo"
 msgstr "_Atšaukti"
 
 #. Translators: Redo action label
-#: ../menulibre/MenulibreApplication.py:434
+#: ../menulibre/MenulibreApplication.py:435
 msgid "_Redo"
 msgstr "At_statyti"
 
 #. Translators: Revert action label
-#: ../menulibre/MenulibreApplication.py:443
+#: ../menulibre/MenulibreApplication.py:444
 msgid "_Revert"
 msgstr "At_kurti"
 
 #. Translators: Execute action label
-#: ../menulibre/MenulibreApplication.py:452
+#: ../menulibre/MenulibreApplication.py:453
 msgid "_Execute"
 msgstr "_Vykdyti"
 
 #. Translators: Execute action tooltip
-#: ../menulibre/MenulibreApplication.py:454
+#: ../menulibre/MenulibreApplication.py:455
 msgid "Execute Launcher"
 msgstr "Vykdyti leistuką"
 
 #. Translators: Delete action label
-#: ../menulibre/MenulibreApplication.py:461
+#: ../menulibre/MenulibreApplication.py:462
 msgid "_Delete"
 msgstr "_Ištrinti"
 
 #. Translators: Quit action label
-#: ../menulibre/MenulibreApplication.py:470
+#: ../menulibre/MenulibreApplication.py:471
 msgid "_Quit"
 msgstr "_Išeiti"
 
 #. Translators: Quit action tooltip
-#: ../menulibre/MenulibreApplication.py:472
-#: ../menulibre/MenulibreApplication.py:2207
+#: ../menulibre/MenulibreApplication.py:473
+#: ../menulibre/MenulibreApplication.py:2208
 msgid "Quit"
 msgstr "Išeiti"
 
 #. Translators: Help action label
-#: ../menulibre/MenulibreApplication.py:479
+#: ../menulibre/MenulibreApplication.py:480
 msgid "_Contents"
 msgstr "Ži_nynas"
 
 #. Translators: Help action tooltip
-#: ../menulibre/MenulibreApplication.py:481
-#: ../menulibre/MenulibreApplication.py:2205
+#: ../menulibre/MenulibreApplication.py:482
+#: ../menulibre/MenulibreApplication.py:2206
 msgid "Help"
 msgstr "Pagalba"
 
 #. Translators: About action label
-#: ../menulibre/MenulibreApplication.py:488
+#: ../menulibre/MenulibreApplication.py:489
 msgid "_About"
 msgstr "_Apie"
 
 #. Translators: About action tooltip
-#: ../menulibre/MenulibreApplication.py:490
-#: ../menulibre/MenulibreApplication.py:2206
+#: ../menulibre/MenulibreApplication.py:491
+#: ../menulibre/MenulibreApplication.py:2207
 msgid "About"
 msgstr "Apie"
 
 #. Translators: "Categories" launcher section
-#: ../menulibre/MenulibreApplication.py:633
+#: ../menulibre/MenulibreApplication.py:634
 msgid "Categories"
 msgstr "Kategorijos"
 
 #. Translators: "Actions" launcher section
-#: ../menulibre/MenulibreApplication.py:636
+#: ../menulibre/MenulibreApplication.py:637
 msgid "Actions"
 msgstr "Veiksmai"
 
 #. Translators: "Advanced" launcher section
-#: ../menulibre/MenulibreApplication.py:639
+#: ../menulibre/MenulibreApplication.py:640
 msgid "Advanced"
 msgstr "Išsamiau"
 
 #. Translators: Launcher-specific categories, camelcase "This Entry"
-#: ../menulibre/MenulibreApplication.py:790
+#: ../menulibre/MenulibreApplication.py:791
 msgid "ThisEntry"
 msgstr "ŠisĮrašas"
 
 #. Translators: Placeholder text for the launcher-specific category
 #. selection.
-#: ../menulibre/MenulibreApplication.py:811
+#: ../menulibre/MenulibreApplication.py:812
 msgid "Select a category"
 msgstr "Pasirinkite kategoriją"
 
 #. Translators: "Category Name" tree column header
-#: ../menulibre/MenulibreApplication.py:815
+#: ../menulibre/MenulibreApplication.py:816
 msgid "Category Name"
 msgstr "Kategorijos pavadinimas"
 
 #. Translators: "This Entry" launcher-specific category group
-#: ../menulibre/MenulibreApplication.py:918
+#: ../menulibre/MenulibreApplication.py:919
 msgid "This Entry"
 msgstr "Šis įrašas"
 
 #. Translators: Placeholder text for a newly created action
-#: ../menulibre/MenulibreApplication.py:979
+#: ../menulibre/MenulibreApplication.py:980
 msgid "New Shortcut"
 msgstr "Naujas susiejimas"
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1129
+#: ../menulibre/MenulibreApplication.py:1130
 msgid "Select a working directory…"
 msgstr "Pasirinkite darbinį katalogą..."
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1133
+#: ../menulibre/MenulibreApplication.py:1134
 msgid "Select an executable…"
 msgstr "Pasirinkite vykdomąjį..."
 
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:1361
+#: ../menulibre/MenulibreApplication.py:1362
 msgid "You do not have permission to delete this file."
 msgstr "Jūs neturite leidimo ištrinti šį failą."
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1604
+#: ../menulibre/MenulibreApplication.py:1605
 msgid "New Launcher"
 msgstr "Naujas leistukas"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1607 ../menulibre/MenulibreXdg.py:49
+#: ../menulibre/MenulibreApplication.py:1608 ../menulibre/MenulibreXdg.py:49
 msgid "A small descriptive blurb about this application."
 msgstr "Trumpas ir aiškus šios programos aprašas."
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1657
+#: ../menulibre/MenulibreApplication.py:1658
 msgid "New Directory"
 msgstr "Naujas katalogas"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1660
+#: ../menulibre/MenulibreApplication.py:1661
 msgid "A small descriptive blurb about this directory."
 msgstr ""
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:2084
+#: ../menulibre/MenulibreApplication.py:2085
 msgid "Are you sure you want to delete this separator?"
 msgstr "Ar tikrai norite ištrinti šį skirtuką?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:2088
+#: ../menulibre/MenulibreApplication.py:2089
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Ar tikrai norite ištrinti \"%s\"?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:2200
+#: ../menulibre/MenulibreApplication.py:2201
 msgid "Parsing Error Log"
 msgstr "Nagrinėjimo klaidų žurnalas"
 
@@ -917,7 +917,7 @@ msgid "Images"
 msgstr "Paveikslai"
 
 #. Translators: "Search Results" treeview column header
-#: ../menulibre/MenulibreTreeview.py:62
+#: ../menulibre/MenulibreTreeview.py:64
 msgid "Search Results"
 msgstr "Paieškos rezultatai"
 
@@ -929,7 +929,7 @@ msgstr "Naujas meniu elementas"
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
 #. code is displayed.
-#: ../menulibre/util.py:596
+#: ../menulibre/util.py:617
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr "Nepavyko įkelti darbalaukio failo dėl šios klaidos: %s"
@@ -937,35 +937,35 @@ msgstr "Nepavyko įkelti darbalaukio failo dėl šios klaidos: %s"
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
 #. translated.
-#: ../menulibre/util.py:611
+#: ../menulibre/util.py:632
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr "Neteisinga pradžios grupė - šiuo metu \"%s\", turėtų būti \"%s\""
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:621 ../menulibre/util.py:655
+#: ../menulibre/util.py:642 ../menulibre/util.py:676
 #, python-format
 msgid "%s key not found"
 msgstr "Nerastas %s raktas"
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
-#: ../menulibre/util.py:626
+#: ../menulibre/util.py:647
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr "Neteisinga %s reikšmė - šiuo metu \"%s\", turėtų būti \"%s\""
 
 #. Translators: This error is displayed when a failing desktop
 #. file contains an invalid path to an executable file.
-#: ../menulibre/util.py:641 ../menulibre/util.py:659
+#: ../menulibre/util.py:662 ../menulibre/util.py:680
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
 msgstr "%s programa \"%s\" nebuvo rasta KELYJE"
 
 #. Translators: This error is displayed when a failing desktop
 #. file contains an invalid command to execute.
-#: ../menulibre/util.py:646 ../menulibre/util.py:662
+#: ../menulibre/util.py:667 ../menulibre/util.py:683
 #, python-format
 msgid ""
 "%s program '%s' is not a valid shell command according to "
@@ -976,7 +976,7 @@ msgstr ""
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
-#: ../menulibre/util.py:668
+#: ../menulibre/util.py:689
 msgid "Unknown error. Desktop file appears to be are valid."
 msgstr "Nežinoma klaida. Atrodo, kad darbalaukio failas yra teisingas."
 
