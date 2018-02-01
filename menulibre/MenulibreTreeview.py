@@ -24,6 +24,9 @@ from gi.repository import Gio, GObject, Gtk, Pango, GLib
 from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
 from .util import MenuItemTypes, check_keypress, getBasename, escapeText
 
+# DBUS interface is used to update kde menus.
+import dbus
+
 import logging
 logger = logging.getLogger('menulibre')
 
@@ -713,6 +716,17 @@ class Treeview(GObject.GObject):
         # Do not save menu layout if in search mode (lp #1306999)
         if not self._is_menu_locked():
             XmlMenuElementTree.treeview_to_xml(self._treeview)
+            self.update_menus_kde()
+
+    def update_menus_kde(self):
+        # Based on kmenuedit
+        try:
+            bus = dbus.SessionBus()
+            obj = bus.get_object("org.kde.plasma", "/kickoff")
+            iface = dbus.Interface(obj, "org.kde.plasma")
+            iface.reloadMenu()
+        except dbus.exceptions.DBusException:
+            pass
 
     def _cleanup_applications_merged(self):
         """Cleanup items from ~/.config/menus/applications-merged"""
