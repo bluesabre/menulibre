@@ -6,7 +6,7 @@
 #   output on stderr, which exposes information about invalid desktop files,
 #   without doing strange hacks on menulibre's own stderr
 
-#   Copyright (C) 2017 OmegaPhil <OmegaPhil@startmail.com>
+#   Copyright (C) 2017-2018 OmegaPhil <OmegaPhil@startmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published

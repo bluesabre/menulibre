@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
-#   Copyright (C) 2012-2015 Sean Davis <smd.seandavis@gmail.com>
-#   Copyright (C) 2017 OmegaPhil <OmegaPhil@startmail.com>
+#   Copyright (C) 2012-2018 Sean Davis <smd.seandavis@gmail.com>
+#   Copyright (C) 2017-2018 OmegaPhil <OmegaPhil@startmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published

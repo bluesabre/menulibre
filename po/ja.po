@@ -1048,8 +1048,8 @@ msgstr ""
 #~ msgstr ""
 #~ "インストールされているシステムのパスにサブディレクトリを追加できません。"
 
-#~ msgid "Copyright © 2012-2014 Sean Davis"
-#~ msgstr "Copyright © 2012-2014 Sean Davis"
+#~ msgid "Copyright © 2012-2018 Sean Davis"
+#~ msgstr "Copyright © 2012-2018 Sean Davis"
 
 #~ msgid ""
 #~ "\"NoDisplay\": NoDisplay means \"this application exists, but don't "

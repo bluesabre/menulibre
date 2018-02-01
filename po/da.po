@@ -1102,8 +1102,8 @@ msgstr "Ukendt fejl. Skrivebordsfilen ser ud til at være gyldig."
 #~ msgid "Action Name"
 #~ msgstr "Handlingsnavn"
 
-#~ msgid "Copyright © 2012-2014 Sean Davis"
-#~ msgstr "Ophavsret © 2012-2014 Sean Davis"
+#~ msgid "Copyright © 2012-2018 Sean Davis"
+#~ msgstr "Ophavsret © 2012-2018 Sean Davis"
 
 #~ msgid "\"Terminal\": Whether the program runs in a terminal window."
 #~ msgstr "\"Terminal\": Om programmet kører i et terminalvindue."
