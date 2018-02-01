@@ -1876,8 +1876,8 @@ Please investigate these problems with the associated package maintainer.</prope
               <object class="GtkLabel" id="label13">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;NotShowIn&quot; text entry. Possible values &quot;Cinnamon&quot;, &quot;EDE&quot;, &quot;GNOME&quot;, &quot;KDE&quot;, &quot;LXDE&quot;, &quot;LXQt&quot;, &quot;MATE&quot;, &quot;Pantheon&quot;, &quot;Razor&quot;, &quot;ROX&quot;, &quot;TDE&quot;, &quot;Unity&quot;, &quot;XFCE&quot;, and &quot;Old&quot; should not be translated.">A list of environments that should not display this entry. You can only use this key if "OnlyShowIn" is not set.
-Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old</property>
+                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;NotShowIn&quot; text entry. Possible values &quot;Budgie&quot;, &quot;Cinnamon&quot;, &quot;EDE&quot;, &quot;GNOME&quot;, &quot;KDE&quot;, &quot;LXDE&quot;, &quot;LXQt&quot;, &quot;MATE&quot;, &quot;Pantheon&quot;, &quot;Razor&quot;, &quot;ROX&quot;, &quot;TDE&quot;, &quot;Unity&quot;, &quot;XFCE&quot;, and &quot;Old&quot; should not be translated.">A list of environments that should not display this entry. You can only use this key if "OnlyShowIn" is not set.
+Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old</property>
                 <property name="label" translatable="yes" comments="Translators: &quot;NotShowIn&quot; text entry. A list of environments that should not display this entry.">Not Shown In</property>
                 <property name="xalign">0</property>
               </object>
@@ -1890,8 +1890,8 @@ Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, 
               <object class="GtkLabel" id="label6">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;OnlyShowIn&quot; text entry. Possible values &quot;Cinnamon&quot;, &quot;EDE&quot;, &quot;GNOME&quot;, &quot;KDE&quot;, &quot;LXDE&quot;, &quot;LXQt&quot;, &quot;MATE&quot;, &quot;Pantheon&quot;, &quot;Razor&quot;, &quot;ROX&quot;, &quot;TDE&quot;, &quot;Unity&quot;, &quot;XFCE&quot;, and &quot;Old&quot; should not be translated.">A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if "NotShowIn" is not set.
-Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old</property>
+                <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;OnlyShowIn&quot; text entry. Possible values &quot;Budgie&quot;, &quot;Cinnamon&quot;, &quot;EDE&quot;, &quot;GNOME&quot;, &quot;KDE&quot;, &quot;LXDE&quot;, &quot;LXQt&quot;, &quot;MATE&quot;, &quot;Pantheon&quot;, &quot;Razor&quot;, &quot;ROX&quot;, &quot;TDE&quot;, &quot;Unity&quot;, &quot;XFCE&quot;, and &quot;Old&quot; should not be translated.">A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if "NotShowIn" is not set.
+Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old</property>
                 <property name="label" translatable="yes" comments="Translators: &quot;OnlyShowIn&quot; text entry. A list of environments that should display this entry.">Only Shown In</property>
                 <property name="xalign">0</property>
               </object>

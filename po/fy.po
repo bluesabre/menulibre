@@ -6,11 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2018-01-31 22:10-0500\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-01 06:41-0500\n"
 "PO-Revision-Date: 2018-01-14 04:39+0000\n"
 "Last-Translator: Robin van der Vliet <info@robinvandervliet.com>\n"
 "Language-Team: Frisian <fy@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -268,13 +269,13 @@ msgstr ""
 msgid "Generic Name"
 msgstr ""
 
-#. Translators: Tooltip for the "NotShowIn" text entry. Possible values "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
+#. Translators: Tooltip for the "NotShowIn" text entry. Possible values "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
 #: ../data/ui/MenulibreWindow.ui.h:89
 msgid ""
 "A list of environments that should not display this entry. You can only use "
 "this key if \"OnlyShowIn\" is not set.\n"
-"Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, "
-"Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
+"MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
 
 #. Translators: "NotShowIn" text entry. A list of environments that should not display this entry.
@@ -282,14 +283,14 @@ msgstr ""
 msgid "Not Shown In"
 msgstr ""
 
-#. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
+#. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
 #: ../data/ui/MenulibreWindow.ui.h:94
 msgid ""
 "A list of environments that should display this entry. Other environments "
 "will not display this entry. You can only use this key if \"NotShowIn\" is "
 "not set.\n"
-"Possible values include: Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, "
-"Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
+"MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
 
 #. Translators: "OnlyShowIn" text entry. A list of environments that should display this entry.
@@ -921,8 +922,8 @@ msgstr ""
 #: ../menulibre/util.py:667 ../menulibre/util.py:683
 #, python-format
 msgid ""
-"%s program '%s' is not a valid shell command according to "
-"GLib.shell_parse_argv, error: %s"
+"%s program '%s' is not a valid shell command according to GLib."
+"shell_parse_argv, error: %s"
 msgstr ""
 
 #. Translators: This error is displayed for a failing desktop file where
