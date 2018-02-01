@@ -159,7 +159,21 @@ def getBasename(filename):
     return basename
 
 
-def getDefaultMenuPrefix():
+def getCurrentDesktop():
+    current_desktop = os.environ.get("XDG_CURRENT_DESKTOP", "")
+    current_desktop = current_desktop.lower()
+    for desktop in ["budgie", "pantheon", "gnome"]:
+        if desktop in current_desktop:
+            return desktop
+    if "kde" in current_desktop:
+        kde_version = int(os.environ.get("KDE_SESSION_VERSION", "4"))
+        if kde_version >= 5:
+            return "plasma"
+        return "kde"
+    return current_desktop
+
+
+def getDefaultMenuPrefix(): # noqa
     """Return the default menu prefix."""
     prefix = os.environ.get('XDG_MENU_PREFIX', '')
 
@@ -169,6 +183,13 @@ def getDefaultMenuPrefix():
             prefix = 'cinnamon-'
         elif 'mate' in os.environ.get('DESKTOP_SESSION', ''):
             prefix = 'mate-'
+
+    if prefix == "":
+        desktop = getCurrentDesktop()
+        if desktop == 'plasma':
+            prefix = 'kf5-'
+        elif desktop == 'kde':
+            prefix = 'kde4-'
 
     if prefix == "":
         processes = getProcessList()

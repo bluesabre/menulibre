@@ -32,7 +32,7 @@ from . import MenulibreStackSwitcher, MenulibreIconSelection
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, MenulibreLog
 from .util import MenuItemTypes, check_keypress, getBasename, getRelatedKeys
-from .util import escapeText
+from .util import escapeText, getCurrentDesktop
 import menulibre_lib
 
 import logging
@@ -42,10 +42,7 @@ logger = logging.getLogger('menulibre')
 session = os.getenv("DESKTOP_SESSION", "")
 root = os.getuid() == 0
 
-current_desktop = os.getenv("XDG_CURRENT_DESKTOP", "")
-for desktop in ["budgie", "pantheon", "gnome"]:
-    if desktop in current_desktop.lower():
-        current_desktop = desktop
+current_desktop = getCurrentDesktop()
 
 category_descriptions = {
     # Translators: Launcher category description
