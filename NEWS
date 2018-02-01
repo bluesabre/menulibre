@@ -1,5 +1,18 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+UNRELEASED, MenuLibre 2.1.5
+- New Features:
+  . Added support for the Budgie and KDE Plasma desktop environments
+  . Improved support for the MATE desktop environment
+- General:
+  . Added manpage for menulibre-menu-validate
+- Bug Fixes:
+  . Fix icon used when creating new directory (LP: #1744594)
+  . Use 'applications-other' instead of 'application-default-icon' for better
+    icon standards support (LP: #1745840)
+  . Fix incorrect display of newly created directories
+
+
 18 Jan 2018, MenuLibre 2.1.4
 
 - New Features:
