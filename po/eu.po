@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-01 06:41-0500\n"
-"PO-Revision-Date: 2018-01-14 04:39+0000\n"
+"POT-Creation-Date: 2018-02-01 23:39+0000\n"
+"PO-Revision-Date: 2018-02-02 00:45+0000\n"
 "Last-Translator: Sean Davis <Unknown>\n"
 "Language-Team: Basque <eu@li.org>\n"
-"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-02-01 05:30+0000\n"
-"X-Generator: Launchpad (build 18534)\n"
+"X-Launchpad-Export-Date: 2018-02-02 05:27+0000\n"
+"X-Generator: Launchpad (build 18544)\n"
+"Language: eu\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -927,8 +927,8 @@ msgstr ""
 #: ../menulibre/util.py:667 ../menulibre/util.py:683
 #, python-format
 msgid ""
-"%s program '%s' is not a valid shell command according to GLib."
-"shell_parse_argv, error: %s"
+"%s program '%s' is not a valid shell command according to "
+"GLib.shell_parse_argv, error: %s"
 msgstr ""
 
 #. Translators: This error is displayed for a failing desktop file where
@@ -1038,8 +1038,10 @@ msgstr ""
 
 #~ msgid "Cannot add subdirectories to preinstalled system paths."
 #~ msgstr ""
-#~ "Ezin da azpidirektoriorik gehitu aurreinstalatutako sistemaren bide-"
-#~ "izenetan."
+#~ "Ezin da azpidirektoriorik gehitu aurreinstalatutako sistemaren bide-izenetan."
+
+#~ msgid "Copyright © 2012-2014 Sean Davis"
+#~ msgstr "Copyright © 2012-2014 Sean Davis"
 
 #~ msgid "Copyright © 2012-2018 Sean Davis"
 #~ msgstr "Copyright © 2012-2018 Sean Davis"
