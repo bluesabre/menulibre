@@ -10,6 +10,7 @@ UNRELEASED, MenuLibre 2.1.5
   . Fix icon used when creating new directory (LP: #1744594)
   . Use 'applications-other' instead of 'application-default-icon' for better
     icon standards support (LP: #1745840)
+  . Ensure categories are saved in the model when updated (LP: #1746802)
   . Fix incorrect display of newly created directories
 
 
