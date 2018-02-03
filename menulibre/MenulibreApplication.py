@@ -1879,6 +1879,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Update all instances
         model, row_data = self.treeview.get_selected_row_data()
+        row_data[2] = ';'.join(categories)
         row_data[6] = save_filename
         self.treeview.update_launcher_instances(original_filename, row_data)
 
