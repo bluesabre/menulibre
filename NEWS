@@ -4,6 +4,7 @@ UNRELEASED, MenuLibre 2.1.5
 - New Features:
   . Added support for the Budgie and KDE Plasma desktop environments
   . Improved support for the MATE desktop environment
+  . Window identification for StartupWmClass using optional xprop
 - General:
   . Added manpage for menulibre-menu-validate
 - Bug Fixes:

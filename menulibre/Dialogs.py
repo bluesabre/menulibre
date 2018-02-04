@@ -16,10 +16,11 @@
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
+import subprocess
 
 from locale import gettext as _
 
-from gi.repository import Gtk
+from gi.repository import Gtk, GLib
 
 import menulibre_lib
 
@@ -242,3 +243,56 @@ class SaveErrorDialog(Gtk.MessageDialog):
 
     def response_cb(self, widget, user_data):
         widget.destroy()
+
+
+class XpropWindowDialog(Gtk.MessageDialog):
+    def __init__(self, parent, launcher_name):
+        # Translators: Identify Window Dialog, primary text.
+        primary = _("Identify Window")
+        # Translators: Identify Window Dialog, secondary text. The selected
+        # application is displayed in the placeholder text.
+        secondary = _("Click on the main application window for '%s'.") % \
+            launcher_name
+        icon_name = "edit-find"
+
+        Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
+                                   message_type=Gtk.MessageType.INFO,
+                                   buttons=Gtk.ButtonsType.OK,
+                                   text=primary)
+        self.format_secondary_markup(secondary)
+
+        image = Gtk.Image.new_from_icon_name(icon_name, Gtk.IconSize.DIALOG)
+        self.set_image(image)
+
+        self.process = None
+        self.classes = []
+
+    def run_xprop(self):
+        GLib.timeout_add(500, self.start_xprop)
+        self.run()
+        self.classes.sort()
+        return self.classes
+
+    def start_xprop(self):
+        cmd = ['xprop', 'WM_CLASS']
+        self.classes = []
+        env = os.environ.copy()
+        self.process = subprocess.Popen(
+            cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env
+        )
+        GLib.idle_add(self.check_xprop)
+        return False
+
+    def check_xprop(self):
+        if self.process.poll() is not None:
+            output = self.process.stdout.read().decode('UTF-8').strip()
+            if output.startswith("WM_CLASS"):
+                values = output.split("=", 1)[1].split(", ")
+                for value in values:
+                    value = value.strip()
+                    value = value[1:-1]
+                    if value not in self.classes:
+                        self.classes.append(value)
+            self.destroy()
+            return False
+        return True

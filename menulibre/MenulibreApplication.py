@@ -32,7 +32,7 @@ from . import MenulibreStackSwitcher, MenulibreIconSelection
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, MenulibreLog
 from .util import MenuItemTypes, check_keypress, getBasename, getRelatedKeys
-from .util import escapeText, getCurrentDesktop
+from .util import escapeText, getCurrentDesktop, find_program
 import menulibre_lib
 
 import logging
@@ -732,6 +732,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             button.connect('icon-press', self.on_ExecPath_clicked, widget_name,
                            builder)
 
+        xprop = find_program('xprop')
+        if xprop is None:
+            self.widgets['StartupWMClass'].set_icon_from_icon_name(
+                Gtk.EntryIconPosition.SECONDARY, None)
+        else:
+            self.widgets['StartupWMClass'].connect(
+                'icon-press', self.on_StartupWmClass_clicked)
+
         # Icon Selector
         self.icon_selector = MenulibreIconSelection.IconSelector(parent=self)
 
@@ -1145,6 +1153,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     filename = '\"%s\"' % filename
             self.set_value(widget_name, filename)
         entry.grab_focus()
+
+    def on_StartupWmClass_clicked(self, entry, icon, event):
+        dialog = Dialogs.XpropWindowDialog(self, self.get_value('Name'))
+        wm_classes = dialog.run_xprop()
+        current = entry.get_text()
+        for wm_class in wm_classes:
+            if wm_class != current:
+                self.set_value("StartupWMClass", wm_class)
+                return
+
 
 # Applications Treeview
     def on_apps_browser_add_directory_enabled(self, widget, enabled, builder):
