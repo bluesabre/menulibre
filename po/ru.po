@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-03 22:55+0000\n"
+"POT-Creation-Date: 2018-02-04 13:27-0500\n"
 "PO-Revision-Date: 2018-02-02 00:45+0000\n"
 "Last-Translator: Rodion R. <rodikr2005@yandex.ru>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-02-04 05:30+0000\n"
+"X-Launchpad-Export-Date: 2018-02-05 05:29+0000\n"
 "X-Generator: Launchpad (build 18544)\n"
 "Language: ru\n"
 
@@ -89,8 +89,8 @@ msgstr "Удалить"
 #. Translators: Save On Close Dialog, do save, then close.
 #. Translators: Save On Leave Dialog, do save, then leave.
 #. Translators: Save Launcher action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/Dialogs.py:102
-#: ../menulibre/Dialogs.py:131 ../menulibre/MenulibreApplication.py:419
+#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/Dialogs.py:103
+#: ../menulibre/Dialogs.py:132 ../menulibre/MenulibreApplication.py:419
 msgid "Save"
 msgstr "Сохранить"
 
@@ -126,7 +126,7 @@ msgstr "Имя программы"
 
 #. Translators: Placeholder text/hint for the application comment entry.
 #. Translators: "Description" tree column header
-#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:823
+#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:831
 msgid "Description"
 msgstr "Описание"
 
@@ -260,9 +260,9 @@ msgstr "Выберите значок..."
 #. Translators: Save On Leave Dialog, don't save, cancel leave.
 #. Translators: Revert Dialog, cancel button.
 #. Translators: File Chooser Dialog, cancel button.
-#: ../data/ui/MenulibreWindow.ui.h:76 ../menulibre/Dialogs.py:65
-#: ../menulibre/Dialogs.py:100 ../menulibre/Dialogs.py:129
-#: ../menulibre/Dialogs.py:168 ../menulibre/Dialogs.py:188
+#: ../data/ui/MenulibreWindow.ui.h:76 ../menulibre/Dialogs.py:66
+#: ../menulibre/Dialogs.py:101 ../menulibre/Dialogs.py:130
+#: ../menulibre/Dialogs.py:169 ../menulibre/Dialogs.py:189
 #: ../menulibre/MenulibreIconSelection.py:81
 msgid "Cancel"
 msgstr "Отмена"
@@ -409,8 +409,13 @@ msgstr ""
 msgid "Startup WM Class"
 msgstr "Класс WM"
 
+#. Translators: Identify Window Dialog, primary text.
+#: ../data/ui/MenulibreWindow.ui.h:114 ../menulibre/Dialogs.py:251
+msgid "Identify Window"
+msgstr ""
+
 #. Translators: Tooltip for the "Hidden" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:115
+#: ../data/ui/MenulibreWindow.ui.h:116
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
@@ -421,12 +426,12 @@ msgstr ""
 "пользователя равнозначно тому, что файл \".desktop\" вообще не существует"
 
 #. Translators: "Hidden" on/off switch. When enabled, the application is hidden from the menu.
-#: ../data/ui/MenulibreWindow.ui.h:117
+#: ../data/ui/MenulibreWindow.ui.h:118
 msgid "Hidden"
 msgstr "Удалённый"
 
 #. Translators: Tooltip for the "DBusActivatable" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:119
+#: ../data/ui/MenulibreWindow.ui.h:120
 msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this "
 "application and you want to use it.\n"
@@ -440,17 +445,17 @@ msgstr ""
 "необходимо её использовать"
 
 #. Translators: "DBusActivatable" on/off switch. When enabled, the application is said to be activated via DBUS.
-#: ../data/ui/MenulibreWindow.ui.h:122
+#: ../data/ui/MenulibreWindow.ui.h:123
 msgid "DBUS Activatable"
 msgstr "DBus-активация"
 
 #. Translators: Tooltip for the "Implements" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:124
+#: ../data/ui/MenulibreWindow.ui.h:125
 msgid "A list of interfaces that this application implements."
 msgstr ""
 
 #. Translators: "Implements" text entry. A list of interfaces that this application implements.
-#: ../data/ui/MenulibreWindow.ui.h:126
+#: ../data/ui/MenulibreWindow.ui.h:127
 msgid "Implements"
 msgstr ""
 
@@ -470,22 +475,22 @@ msgid "Use toolbar layout (server side decorations)"
 msgstr ""
 
 #. Translators: About Dialog, window title.
-#: ../menulibre/Dialogs.py:37
+#: ../menulibre/Dialogs.py:38
 msgid "About MenuLibre"
 msgstr "О MenuLibre"
 
 #. Translators: Help Dialog, window title.
-#: ../menulibre/Dialogs.py:57
+#: ../menulibre/Dialogs.py:58
 msgid "Online Documentation"
 msgstr "Онлайн-справка"
 
 #. Translators: Help Dialog, primary text.
-#: ../menulibre/Dialogs.py:59
+#: ../menulibre/Dialogs.py:60
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr "Открыть онлайн-справку MenuLibre?"
 
 #. Translators: Help Dialog, secondary text.
-#: ../menulibre/Dialogs.py:61
+#: ../menulibre/Dialogs.py:62
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
@@ -493,58 +498,58 @@ msgstr "Будет открыт сайт с документацией"
 
 #. Translators: Help Dialog, confirmation button. Navigates to
 #. online documentation.
-#: ../menulibre/Dialogs.py:68
+#: ../menulibre/Dialogs.py:69
 msgid "Read Online"
 msgstr "Читать онлайн"
 
 #. Translators: Save On Close Dialog, window title.
 #. Translators: Save On Leave Dialog, window title.
-#: ../menulibre/Dialogs.py:90 ../menulibre/Dialogs.py:118
+#: ../menulibre/Dialogs.py:91 ../menulibre/Dialogs.py:119
 msgid "Save Changes"
 msgstr "Сохранить"
 
 #. Translators: Save On Close Dialog, primary text.
-#: ../menulibre/Dialogs.py:92
+#: ../menulibre/Dialogs.py:93
 msgid "Do you want to save the changes before closing?"
 msgstr "Сохранить изменения?"
 
 #. Translators: Save On Close Dialog, secondary text.
 #. Translators: Save On Leave Dialog, primary text.
-#: ../menulibre/Dialogs.py:94 ../menulibre/Dialogs.py:123
+#: ../menulibre/Dialogs.py:95 ../menulibre/Dialogs.py:124
 msgid "If you don't save the launcher, all the changes will be lost."
 msgstr "Если не сохранить кнопку запуска, изменения будут утрачены"
 
 #. Translators: Save On Close Dialog, don't save, then close.
 #. Translators: Save On Leave Dialog, don't save, then leave.
-#: ../menulibre/Dialogs.py:98 ../menulibre/Dialogs.py:127
+#: ../menulibre/Dialogs.py:99 ../menulibre/Dialogs.py:128
 msgid "Don't Save"
 msgstr "Не сохранять"
 
 #. Translators: Save On Leave Dialog, primary text.
-#: ../menulibre/Dialogs.py:120
+#: ../menulibre/Dialogs.py:121
 msgid "Do you want to save the changes before leaving this launcher?"
 msgstr "Сохранить изменения кнопки запуска?"
 
 #. Translations: Delete Dialog, secondary text. Notifies user that
 #. the file cannot be restored once deleted.
-#: ../menulibre/Dialogs.py:148
+#: ../menulibre/Dialogs.py:149
 msgid "This cannot be undone."
 msgstr "Действие не может быть отменено"
 
 #. Translators: Revert Dialog, window title.
 #. Translators: Revert Dialog, confirmation button.
-#: ../menulibre/Dialogs.py:159 ../menulibre/Dialogs.py:170
+#: ../menulibre/Dialogs.py:160 ../menulibre/Dialogs.py:171
 msgid "Restore Launcher"
 msgstr "Восстановить"
 
 #. Translators: Revert Dialog, primary text. Confirmation to revert
 #. all changes since the last file save.
-#: ../menulibre/Dialogs.py:162
+#: ../menulibre/Dialogs.py:163
 msgid "Are you sure you want to restore this launcher?"
 msgstr "Восстановить кнопку запуска?"
 
 #. Translators: Revert Dialog, secondary text.
-#: ../menulibre/Dialogs.py:164
+#: ../menulibre/Dialogs.py:165
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
@@ -553,18 +558,18 @@ msgstr ""
 "восстановлены автоматически"
 
 #. Translators: File Chooser Dialog, confirmation button.
-#: ../menulibre/Dialogs.py:190 ../menulibre/MenulibreIconSelection.py:82
+#: ../menulibre/Dialogs.py:191 ../menulibre/MenulibreIconSelection.py:82
 msgid "OK"
 msgstr "OK"
 
 #. Translators: Launcher Removed Dialog, primary text. Indicates that
 #. the selected application is no longer installed.
-#: ../menulibre/Dialogs.py:197
+#: ../menulibre/Dialogs.py:198
 msgid "No Longer Installed"
 msgstr "Было удалено"
 
 #. Translators: Launcher Removed Dialog, secondary text.
-#: ../menulibre/Dialogs.py:199
+#: ../menulibre/Dialogs.py:200
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -574,25 +579,32 @@ msgstr ""
 
 #. Translators: Not Found In PATH Dialog, primary text. Indicates
 #. that the provided script was not found in any PATH directory.
-#: ../menulibre/Dialogs.py:213
+#: ../menulibre/Dialogs.py:214
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr "Не удалось найти \"%s\" в расположениях переменной PATH."
 
 #. Translators: Save Error Dialog, primary text.
-#: ../menulibre/Dialogs.py:231
+#: ../menulibre/Dialogs.py:232
 #, python-format
 msgid "Failed to save \"%s\"."
 msgstr ""
 
 #. Translators: Save Error Dialog, secondary text.
-#: ../menulibre/Dialogs.py:234
+#: ../menulibre/Dialogs.py:235
 msgid "Do you have write permission to the file and directory?"
 msgstr ""
 
+#. Translators: Identify Window Dialog, secondary text. The selected
+#. application is displayed in the placeholder text.
+#: ../menulibre/Dialogs.py:254
+#, python-format
+msgid "Click on the main application window for '%s'."
+msgstr ""
+
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1194
-#: ../menulibre/MenulibreApplication.py:1679
+#: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1212
+#: ../menulibre/MenulibreApplication.py:1697
 msgid "Separator"
 msgstr "Разделитель"
 
@@ -813,7 +825,7 @@ msgstr "_Выход"
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:473
-#: ../menulibre/MenulibreApplication.py:2209
+#: ../menulibre/MenulibreApplication.py:2227
 msgid "Quit"
 msgstr "Выход"
 
@@ -824,7 +836,7 @@ msgstr "_Содержание"
 
 #. Translators: Help action tooltip
 #: ../menulibre/MenulibreApplication.py:482
-#: ../menulibre/MenulibreApplication.py:2207
+#: ../menulibre/MenulibreApplication.py:2225
 msgid "Help"
 msgstr "Справка"
 
@@ -835,7 +847,7 @@ msgstr "_О программе"
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:491
-#: ../menulibre/MenulibreApplication.py:2208
+#: ../menulibre/MenulibreApplication.py:2226
 msgid "About"
 msgstr "О программе"
 
@@ -855,84 +867,84 @@ msgid "Advanced"
 msgstr "Расширенные"
 
 #. Translators: Launcher-specific categories, camelcase "This Entry"
-#: ../menulibre/MenulibreApplication.py:791
+#: ../menulibre/MenulibreApplication.py:799
 msgid "ThisEntry"
 msgstr "Эта запись"
 
 #. Translators: Placeholder text for the launcher-specific category
 #. selection.
-#: ../menulibre/MenulibreApplication.py:812
+#: ../menulibre/MenulibreApplication.py:820
 msgid "Select a category"
 msgstr "Выберите категорию"
 
 #. Translators: "Category Name" tree column header
-#: ../menulibre/MenulibreApplication.py:816
+#: ../menulibre/MenulibreApplication.py:824
 msgid "Category Name"
 msgstr "Имя категории"
 
 #. Translators: "This Entry" launcher-specific category group
-#: ../menulibre/MenulibreApplication.py:919
+#: ../menulibre/MenulibreApplication.py:927
 msgid "This Entry"
 msgstr "Эта запись"
 
 #. Translators: Placeholder text for a newly created action
-#: ../menulibre/MenulibreApplication.py:980
+#: ../menulibre/MenulibreApplication.py:988
 msgid "New Shortcut"
 msgstr "Новый ярлык"
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1130
+#: ../menulibre/MenulibreApplication.py:1138
 msgid "Select a working directory…"
 msgstr "Выберите рабочую папку..."
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1134
+#: ../menulibre/MenulibreApplication.py:1142
 msgid "Select an executable…"
 msgstr "Выберите исполняемый файл..."
 
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:1362
+#: ../menulibre/MenulibreApplication.py:1380
 msgid "You do not have permission to delete this file."
 msgstr "Для удаления пункта необходимы права root"
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1605
+#: ../menulibre/MenulibreApplication.py:1623
 msgid "New Launcher"
 msgstr "Новая кнопка запуска"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1608 ../menulibre/MenulibreXdg.py:49
+#: ../menulibre/MenulibreApplication.py:1626 ../menulibre/MenulibreXdg.py:49
 msgid "A small descriptive blurb about this application."
 msgstr "Краткое описание программы"
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1658
+#: ../menulibre/MenulibreApplication.py:1676
 msgid "New Directory"
 msgstr "Новая папка"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1661
+#: ../menulibre/MenulibreApplication.py:1679
 msgid "A small descriptive blurb about this directory."
 msgstr ""
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:2086
+#: ../menulibre/MenulibreApplication.py:2104
 msgid "Are you sure you want to delete this separator?"
 msgstr "Удалить разделитель?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:2090
+#: ../menulibre/MenulibreApplication.py:2108
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Удалить \"%s\"?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:2202
+#: ../menulibre/MenulibreApplication.py:2220
 msgid "Parsing Error Log"
 msgstr ""
 
