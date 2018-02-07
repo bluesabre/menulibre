@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-05 06:19-0500\n"
+"POT-Creation-Date: 2018-02-06 05:38+0000\n"
 "PO-Revision-Date: 2018-02-02 00:45+0000\n"
 "Last-Translator: Tobias Bannert <tobannert@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-02-06 05:36+0000\n"
+"X-Launchpad-Export-Date: 2018-02-07 05:28+0000\n"
 "X-Generator: Launchpad (build 18544)\n"
 "Language: de\n"
 
@@ -271,6 +271,9 @@ msgid ""
 "and will therefore not show up in MenuLibre.\n"
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
+"Die folgenden Desktop-Dateien haben das Parsen durch die zugrunde liegende "
+"Bibliothek nicht bestanden und werden daher nicht in MenuLibre angezeigt.\n"
+"Bitte untersuchen Sie diese Probleme mit dem zuständigen Paketbetreuer."
 
 #. Translators: Tooltip for the "GenericName" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:85
@@ -383,7 +386,7 @@ msgstr "Start-WM-Klasse"
 #. Translators: Identify Window Dialog, primary text.
 #: ../data/ui/MenulibreWindow.ui.h:114 ../menulibre/Dialogs.py:251
 msgid "Identify Window"
-msgstr ""
+msgstr "Fenster identifizieren"
 
 #. Translators: Tooltip for the "Hidden" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:116
@@ -435,12 +438,12 @@ msgstr "Diagnosemeldungen anzeigen"
 #. Translators: Command line option to switch layout
 #: ../menulibre/__init__.py:38
 msgid "Use headerbar layout (client side decorations)"
-msgstr ""
+msgstr "Kopfzeilen-Layout verwenden (clientseitige Dekorationen)"
 
 #. Translators: Command line option to switch layout
 #: ../menulibre/__init__.py:43
 msgid "Use toolbar layout (server side decorations)"
-msgstr ""
+msgstr "Symbolleisten-Layout verwenden (serverseitige Dekorationen)"
 
 #. Translators: About Dialog, window title.
 #: ../menulibre/Dialogs.py:38
@@ -572,7 +575,7 @@ msgstr "Haben Sie Schreibrechte für die Datei und das Verzeichnis?"
 #: ../menulibre/Dialogs.py:254
 #, python-format
 msgid "Click on the main application window for '%s'."
-msgstr ""
+msgstr "Klicken Sie auf das Hauptanwendungsfenster für '%s'."
 
 #. Translators: Separator menu item
 #: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1212
@@ -903,7 +906,7 @@ msgstr "Neuer Ordner"
 #. description.
 #: ../menulibre/MenulibreApplication.py:1679
 msgid "A small descriptive blurb about this directory."
-msgstr ""
+msgstr "Eine kurze Beschreibung für dieses Verzeichnis."
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
@@ -972,14 +975,14 @@ msgstr "%s-Schlüssel nicht gefunden"
 #: ../menulibre/util.py:647
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
-msgstr ""
+msgstr "%s Wert ist ungültig - derzeit '%s', sollte '%s' sein"
 
 #. Translators: This error is displayed when a failing desktop
 #. file contains an invalid path to an executable file.
 #: ../menulibre/util.py:662 ../menulibre/util.py:680
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
-msgstr ""
+msgstr "%s Das Programm '%s' wurde im Pfad nicht gefunden"
 
 #. Translators: This error is displayed when a failing desktop
 #. file contains an invalid command to execute.
@@ -989,6 +992,8 @@ msgid ""
 "%s program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
+"%s Das Programm '%s' ist kein gültiger Shell-Befehl gemäß "
+"GLib.shell_parse_argv, Fehler: %s"
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.

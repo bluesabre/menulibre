@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-05 06:19-0500\n"
+"POT-Creation-Date: 2018-02-06 05:38+0000\n"
 "PO-Revision-Date: 2018-02-02 00:45+0000\n"
 "Last-Translator: Moo <hazap@hotmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-02-06 05:36+0000\n"
+"X-Launchpad-Export-Date: 2018-02-07 05:28+0000\n"
 "X-Generator: Launchpad (build 18544)\n"
 "Language: lt\n"
 
@@ -382,7 +382,7 @@ msgstr "Paleidimo WM klasė"
 #. Translators: Identify Window Dialog, primary text.
 #: ../data/ui/MenulibreWindow.ui.h:114 ../menulibre/Dialogs.py:251
 msgid "Identify Window"
-msgstr ""
+msgstr "Atpažinti langą"
 
 #. Translators: Tooltip for the "Hidden" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:116
@@ -569,7 +569,7 @@ msgstr "Ar turite leidimą rašyti į failą ir katalogą?"
 #: ../menulibre/Dialogs.py:254
 #, python-format
 msgid "Click on the main application window for '%s'."
-msgstr ""
+msgstr "Spustelėkite ant pagrindinio \"%s\" programos lango."
 
 #. Translators: Separator menu item
 #: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1212
