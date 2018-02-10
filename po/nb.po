@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-08 05:48+0000\n"
+"POT-Creation-Date: 2018-02-09 05:38+0000\n"
 "PO-Revision-Date: 2018-01-18 14:17+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-02-09 05:35+0000\n"
+"X-Launchpad-Export-Date: 2018-02-10 05:49+0000\n"
 "X-Generator: Launchpad (build 18544)\n"
 "Language: nb\n"
 
@@ -29,12 +29,12 @@ msgstr "Legg til eller fjern programmer fra menyen"
 #. Translators: This option adds a new application entry to the menu.
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Add _Launcher"
-msgstr ""
+msgstr "_Legg till oppstarter"
 
 #. Translators: This option adds a new directory entry to the menu.
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Add _Directory"
-msgstr ""
+msgstr "Legg til _katalog"
 
 #. Translators: This option adds a new separator entry to the menu.
 #: ../data/ui/MenulibreWindow.ui.h:6
@@ -54,7 +54,7 @@ msgstr "Bla gjennom filer…"
 #. Translators: Toolbar button to save the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "Save Launcher"
-msgstr ""
+msgstr "Lagre oppstarter"
 
 #. Translators: Toolbar button to undo last change to currently selected item.
 #. Translators: Undo action tooltip
@@ -77,7 +77,7 @@ msgstr "Tilbakestill"
 #. Translators: Toolbar button to test the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Test Launcher"
-msgstr ""
+msgstr "Test oppstarter"
 
 #. Translators: Toolbar button to delete the currently selected item.
 #. Translators: Delete action tooltip
@@ -179,7 +179,7 @@ msgstr ""
 #. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is shown while the application launches.
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Use startup notification"
-msgstr ""
+msgstr "Bruk oppstartsvarsling"
 
 #. Translators: Tooltip for the "NoDisplay" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:58
@@ -415,7 +415,7 @@ msgstr "Dokumentasjon på nett"
 #. Translators: Help Dialog, primary text.
 #: ../menulibre/Dialogs.py:60
 msgid "Do you want to read the MenuLibre manual online?"
-msgstr ""
+msgstr "Vil du lese MenuLibre manualen på nett?"
 
 #. Translators: Help Dialog, secondary text.
 #: ../menulibre/Dialogs.py:62
@@ -423,6 +423,8 @@ msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr ""
+"Du vil bli videresendt til dokumentasjonsnettstedet hvor hjelpesidene blir "
+"vedlikeholdt."
 
 #. Translators: Help Dialog, confirmation button. Navigates to
 #. online documentation.
@@ -445,7 +447,7 @@ msgstr "Vil du lagre endingen(e) før du lukker?"
 #. Translators: Save On Leave Dialog, primary text.
 #: ../menulibre/Dialogs.py:95 ../menulibre/Dialogs.py:124
 msgid "If you don't save the launcher, all the changes will be lost."
-msgstr ""
+msgstr "Hvis du ikke lagrer oppstarteren, vil alle endringer gå tapt."
 
 #. Translators: Save On Close Dialog, don't save, then close.
 #. Translators: Save On Leave Dialog, don't save, then leave.
@@ -456,7 +458,7 @@ msgstr "Ikke lagre"
 #. Translators: Save On Leave Dialog, primary text.
 #: ../menulibre/Dialogs.py:121
 msgid "Do you want to save the changes before leaving this launcher?"
-msgstr ""
+msgstr "Vil du lagre endringene før du forlater denne oppstarteren?"
 
 #. Translations: Delete Dialog, secondary text. Notifies user that
 #. the file cannot be restored once deleted.
@@ -468,13 +470,13 @@ msgstr "Dette kan ikke gjøres om."
 #. Translators: Revert Dialog, confirmation button.
 #: ../menulibre/Dialogs.py:160 ../menulibre/Dialogs.py:171
 msgid "Restore Launcher"
-msgstr ""
+msgstr "Gjenopprett oppstarter"
 
 #. Translators: Revert Dialog, primary text. Confirmation to revert
 #. all changes since the last file save.
 #: ../menulibre/Dialogs.py:163
 msgid "Are you sure you want to restore this launcher?"
-msgstr ""
+msgstr "Er du sikker på at du vil gjenopprette denne oppstarteren?"
 
 #. Translators: Revert Dialog, secondary text.
 #: ../menulibre/Dialogs.py:165
@@ -499,7 +501,7 @@ msgstr "Ikke lenger installert"
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
-msgstr ""
+msgstr "Denne oppstarteren har blitt fjernet fra systemet."
 
 #. Translators: Not Found In PATH Dialog, primary text. Indicates
 #. that the provided script was not found in any PATH directory.
@@ -517,7 +519,7 @@ msgstr "Kunne ikke lagre \"%s\"."
 #. Translators: Save Error Dialog, secondary text.
 #: ../menulibre/Dialogs.py:235
 msgid "Do you have write permission to the file and directory?"
-msgstr ""
+msgstr "Har du skriverettigheter til filen og mappen?"
 
 #. Translators: Identify Window Dialog, secondary text. The selected
 #. application is displayed in the placeholder text.
@@ -530,7 +532,7 @@ msgstr ""
 #: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1212
 #: ../menulibre/MenulibreApplication.py:1697
 msgid "Separator"
-msgstr ""
+msgstr "Separator"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:49
@@ -590,49 +592,49 @@ msgstr "Wine"
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:71
 msgid "Desktop configuration"
-msgstr ""
+msgstr "Skrivebordskonfigurering"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:73
 msgid "User configuration"
-msgstr ""
+msgstr "Brukerkonfigurering"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:75
 msgid "Hardware configuration"
-msgstr ""
+msgstr "Maskinvarekonfigurasjon"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:77
 msgid "GNOME application"
-msgstr ""
+msgstr "Gnome program"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:79
 msgid "GTK+ application"
-msgstr ""
+msgstr "GTK+ program"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:81
 msgid "GNOME user configuration"
-msgstr ""
+msgstr "Gnome brukerkonfigurasjon"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:83
 msgid "GNOME hardware configuration"
-msgstr ""
+msgstr "Gnome maskinvarekonfigurasjon"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:85
 #: ../menulibre/MenulibreApplication.py:87
 msgid "GNOME system configuration"
-msgstr ""
+msgstr "Gnome systemkonfigurasjon"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:89
 #: ../menulibre/MenulibreApplication.py:91
 msgid "Xfce menu item"
-msgstr ""
+msgstr "Xfce menyartikkel"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:93
@@ -642,18 +644,18 @@ msgstr ""
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:95
 msgid "Xfce user configuration"
-msgstr ""
+msgstr "Xfce brukerkonfigurasjon"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:97
 msgid "Xfce hardware configuration"
-msgstr ""
+msgstr "Xfce maskinvarekonfigurasjon"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:99
 #: ../menulibre/MenulibreApplication.py:101
 msgid "Xfce system configuration"
-msgstr ""
+msgstr "Xfce systemkonfigurasjon"
 
 #. Translators: "Other" category group. This item is only displayed for
 #. unknown or non-standard categories.
@@ -667,7 +669,7 @@ msgstr "Annet"
 #. dismissed.
 #: ../menulibre/MenulibreApplication.py:263
 msgid "MenuLibre cannot be run as root."
-msgstr ""
+msgstr "MenuLibre kan ikke kjøres som rot."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
@@ -676,61 +678,62 @@ msgstr ""
 msgid ""
 "Please see the <a href='%s'>online documentation</a> for more information."
 msgstr ""
+"Vennligst se <a href='%s'>dokumentasjon på nett</a> for mer informasjon"
 
 #. Translators: Add Launcher action label
 #: ../menulibre/MenulibreApplication.py:390
 msgid "Add _Launcher…"
-msgstr ""
+msgstr "_Legg til oppstarter..."
 
 #. Translators: Add Launcher action tooltip
 #: ../menulibre/MenulibreApplication.py:392
 msgid "Add Launcher…"
-msgstr ""
+msgstr "Legg til oppstarter..."
 
 #. Translators: Add Directory action label
 #: ../menulibre/MenulibreApplication.py:399
 msgid "Add _Directory…"
-msgstr ""
+msgstr "Legg til _katalog..."
 
 #. Translators: Add Directory action tooltip
 #: ../menulibre/MenulibreApplication.py:401
 msgid "Add Directory…"
-msgstr ""
+msgstr "Legg til katalog..."
 
 #. Translators: Add Separator action label
 #: ../menulibre/MenulibreApplication.py:408
 msgid "_Add Separator…"
-msgstr ""
+msgstr "Legg til sep_arator..."
 
 #. Translators: Add Separator action tooltip
 #: ../menulibre/MenulibreApplication.py:410
 msgid "Add Separator…"
-msgstr ""
+msgstr "Legg til separator..."
 
 #. Translators: Save Launcher action label
 #: ../menulibre/MenulibreApplication.py:417
 msgid "_Save"
-msgstr ""
+msgstr "_Lagre"
 
 #. Translators: Undo action label
 #: ../menulibre/MenulibreApplication.py:426
 msgid "_Undo"
-msgstr ""
+msgstr "_Angre"
 
 #. Translators: Redo action label
 #: ../menulibre/MenulibreApplication.py:435
 msgid "_Redo"
-msgstr ""
+msgstr "_Gjør om"
 
 #. Translators: Revert action label
 #: ../menulibre/MenulibreApplication.py:444
 msgid "_Revert"
-msgstr ""
+msgstr "_Angre"
 
 #. Translators: Execute action label
 #: ../menulibre/MenulibreApplication.py:453
 msgid "_Execute"
-msgstr ""
+msgstr "_Kjør"
 
 #. Translators: Execute action tooltip
 #: ../menulibre/MenulibreApplication.py:455
@@ -740,55 +743,55 @@ msgstr ""
 #. Translators: Delete action label
 #: ../menulibre/MenulibreApplication.py:462
 msgid "_Delete"
-msgstr ""
+msgstr "_Slett"
 
 #. Translators: Quit action label
 #: ../menulibre/MenulibreApplication.py:471
 msgid "_Quit"
-msgstr ""
+msgstr "Av_slutt"
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:473
 #: ../menulibre/MenulibreApplication.py:2227
 msgid "Quit"
-msgstr ""
+msgstr "Avslutt"
 
 #. Translators: Help action label
 #: ../menulibre/MenulibreApplication.py:480
 msgid "_Contents"
-msgstr ""
+msgstr "_Innhold"
 
 #. Translators: Help action tooltip
 #: ../menulibre/MenulibreApplication.py:482
 #: ../menulibre/MenulibreApplication.py:2225
 msgid "Help"
-msgstr ""
+msgstr "Hjelp"
 
 #. Translators: About action label
 #: ../menulibre/MenulibreApplication.py:489
 msgid "_About"
-msgstr ""
+msgstr "_Om"
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:491
 #: ../menulibre/MenulibreApplication.py:2226
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #. Translators: "Categories" launcher section
 #: ../menulibre/MenulibreApplication.py:634
 msgid "Categories"
-msgstr ""
+msgstr "Kategorier"
 
 #. Translators: "Actions" launcher section
 #: ../menulibre/MenulibreApplication.py:637
 msgid "Actions"
-msgstr ""
+msgstr "Handlinger"
 
 #. Translators: "Advanced" launcher section
 #: ../menulibre/MenulibreApplication.py:640
 msgid "Advanced"
-msgstr ""
+msgstr "Avansert"
 
 #. Translators: Launcher-specific categories, camelcase "This Entry"
 #: ../menulibre/MenulibreApplication.py:799
@@ -799,12 +802,12 @@ msgstr ""
 #. selection.
 #: ../menulibre/MenulibreApplication.py:820
 msgid "Select a category"
-msgstr ""
+msgstr "Velg en kategori"
 
 #. Translators: "Category Name" tree column header
 #: ../menulibre/MenulibreApplication.py:824
 msgid "Category Name"
-msgstr ""
+msgstr "Kategorinavn"
 
 #. Translators: "This Entry" launcher-specific category group
 #: ../menulibre/MenulibreApplication.py:927
@@ -814,7 +817,7 @@ msgstr ""
 #. Translators: Placeholder text for a newly created action
 #: ../menulibre/MenulibreApplication.py:988
 msgid "New Shortcut"
-msgstr ""
+msgstr "Ny snarvei"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1138
@@ -836,7 +839,7 @@ msgstr ""
 #. Translators: Placeholder text for a newly created launcher.
 #: ../menulibre/MenulibreApplication.py:1623
 msgid "New Launcher"
-msgstr ""
+msgstr "Ny oppstarter"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
@@ -847,7 +850,7 @@ msgstr ""
 #. Translators: Placeholder text for a newly created directory.
 #: ../menulibre/MenulibreApplication.py:1676
 msgid "New Directory"
-msgstr ""
+msgstr "Ny katalog"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
@@ -875,17 +878,17 @@ msgstr ""
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
 msgid "Select an image…"
-msgstr ""
+msgstr "Velg et bilde..."
 
 #. Translators: "Images" file chooser dialog filter
 #: ../menulibre/MenulibreIconSelection.py:87
 msgid "Images"
-msgstr ""
+msgstr "Bilder"
 
 #. Translators: "Search Results" treeview column header
 #: ../menulibre/MenulibreTreeview.py:64
 msgid "Search Results"
-msgstr ""
+msgstr "Søkeresultater"
 
 #. Translators: Placeholder text for a new menu item name.
 #: ../menulibre/MenulibreXdg.py:46
