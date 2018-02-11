@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-09 05:38+0000\n"
-"PO-Revision-Date: 2018-02-01 13:24+0000\n"
-"Last-Translator: Sean Davis <Unknown>\n"
+"POT-Creation-Date: 2018-02-10 05:51+0000\n"
+"PO-Revision-Date: 2018-02-10 19:24+0000\n"
+"Last-Translator: Robert Antoni Buj Gelonch <Unknown>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-02-10 05:49+0000\n"
+"X-Launchpad-Export-Date: 2018-02-11 05:48+0000\n"
 "X-Generator: Launchpad (build 18544)\n"
 "Language: ca\n"
 
@@ -34,7 +34,7 @@ msgstr "Afegeix un _llançador"
 #. Translators: This option adds a new directory entry to the menu.
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Add _Directory"
-msgstr "Afegeix una _carpeta"
+msgstr "Afegeix un _directori"
 
 #. Translators: This option adds a new separator entry to the menu.
 #: ../data/ui/MenulibreWindow.ui.h:6
@@ -44,12 +44,12 @@ msgstr "Afegeix un _separador"
 #. Translators: Icon popup menu item to browse available icons.
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Browse Icons…"
-msgstr "Explora les icones…"
+msgstr "Navega per les icones..."
 
 #. Translators: Icon popup menu item to browse files for an icon file.
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "Browse Files…"
-msgstr "Explora els fitxers…"
+msgstr "Navega pels fitxers..."
 
 #. Translators: Toolbar button to save the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:12
@@ -102,6 +102,7 @@ msgstr "Cerca"
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Invalid desktop files detected! Please see details."
 msgstr ""
+"S'han detectat fitxers d'escriptori no vàlids. Consulteu els detalls."
 
 #. Translators: Treeview toolbar button to move the currently selected item up.
 #: ../data/ui/MenulibreWindow.ui.h:29
@@ -116,7 +117,7 @@ msgstr "Mou avall"
 #. Translators: Treeview toolbar button to sort the currently open submenu alphabetically.
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Sort Alphabetically"
-msgstr ""
+msgstr "Ordena alfabèticament"
 
 #. Translators: Placeholder text/hint for the application name entry.
 #: ../data/ui/MenulibreWindow.ui.h:35
@@ -153,12 +154,12 @@ msgstr "Ordre"
 #. Translators: Tooltip for the "Path" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "The working directory."
-msgstr "La carpeta de treball."
+msgstr "El directori de treball."
 
 #. Translators: "Path" text entry. The working directory of the application.
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Working Directory"
-msgstr "Carpeta de treball"
+msgstr "Directori de treball"
 
 #. Translators: Header for the commonly used application fields.
 #: ../data/ui/MenulibreWindow.ui.h:48
@@ -189,7 +190,7 @@ msgstr ""
 #. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is shown while the application launches.
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Use startup notification"
-msgstr "Usa la notificació d'inici"
+msgstr "Utilitza la notificació d'inici"
 
 #. Translators: Tooltip for the "NoDisplay" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:58
@@ -261,7 +262,7 @@ msgstr "Aplica"
 #. Translators: Window title for the parsing error log dialog.
 #: ../data/ui/MenulibreWindow.ui.h:80
 msgid "Parsing Errors"
-msgstr ""
+msgstr "Errors d'anàlisi"
 
 #. Translators: This text is displayed in the Parsing Errors dialog and provides a basic summary of the errors reported.
 #: ../data/ui/MenulibreWindow.ui.h:82
@@ -270,6 +271,9 @@ msgid ""
 "and will therefore not show up in MenuLibre.\n"
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
+"No s'ha pogut analitzar els següents fitxers d'escriptori amb la biblioteca "
+"subjacent i, per tant, no es mostraran a MenuLibre.\n"
+"Investigueu aquests problemes amb el mantenidor del paquet associat."
 
 #. Translators: Tooltip for the "GenericName" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:85
@@ -298,7 +302,7 @@ msgstr ""
 #. Translators: "NotShowIn" text entry. A list of environments that should not display this entry.
 #: ../data/ui/MenulibreWindow.ui.h:92
 msgid "Not Shown In"
-msgstr "No mostris en"
+msgstr "No ho mostris a"
 
 #. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
 #: ../data/ui/MenulibreWindow.ui.h:94
@@ -318,7 +322,7 @@ msgstr ""
 #. Translators: "OnlyShowIn" text entry. A list of environments that should display this entry.
 #: ../data/ui/MenulibreWindow.ui.h:97
 msgid "Only Shown In"
-msgstr "Mostra només en"
+msgstr "Mostra-ho només a"
 
 #. Translators: Tooltip for the "TryExec" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:99
@@ -421,7 +425,7 @@ msgstr ""
 #. Translators: "Implements" text entry. A list of interfaces that this application implements.
 #: ../data/ui/MenulibreWindow.ui.h:127
 msgid "Implements"
-msgstr ""
+msgstr "Implementa"
 
 #. Translators: Command line option to display debug messages on stdout
 #: ../menulibre/__init__.py:34
@@ -432,16 +436,19 @@ msgstr "Mostra els missatges de depuració"
 #: ../menulibre/__init__.py:38
 msgid "Use headerbar layout (client side decorations)"
 msgstr ""
+"Utilitza el disseny de la barra de capçalera (decoracions en la part del "
+"client)"
 
 #. Translators: Command line option to switch layout
 #: ../menulibre/__init__.py:43
 msgid "Use toolbar layout (server side decorations)"
 msgstr ""
+"Utilitza el disseny de la barra d'eines (decoracions en la part del servidor)"
 
 #. Translators: About Dialog, window title.
 #: ../menulibre/Dialogs.py:38
 msgid "About MenuLibre"
-msgstr "Quant al MenuLibre"
+msgstr "Quant a MenuLibre"
 
 #. Translators: Help Dialog, window title.
 #: ../menulibre/Dialogs.py:58
@@ -512,7 +519,7 @@ msgstr "Restaura un llançador"
 #. all changes since the last file save.
 #: ../menulibre/Dialogs.py:163
 msgid "Are you sure you want to restore this launcher?"
-msgstr "Segur que voleu restaurar aquest llançador?"
+msgstr "Esteu segur que voleu restaurar aquest llançador?"
 
 #. Translators: Revert Dialog, secondary text.
 #: ../menulibre/Dialogs.py:165
@@ -554,19 +561,19 @@ msgstr "No s'ha pogut trobar «%s» en el camí de cerca."
 #: ../menulibre/Dialogs.py:232
 #, python-format
 msgid "Failed to save \"%s\"."
-msgstr ""
+msgstr "No s’ha pogut desar «%s»."
 
 #. Translators: Save Error Dialog, secondary text.
 #: ../menulibre/Dialogs.py:235
 msgid "Do you have write permission to the file and directory?"
-msgstr ""
+msgstr "Teniu permís d'escriptura al fitxer i al directori?"
 
 #. Translators: Identify Window Dialog, secondary text. The selected
 #. application is displayed in the placeholder text.
 #: ../menulibre/Dialogs.py:254
 #, python-format
 msgid "Click on the main application window for '%s'."
-msgstr ""
+msgstr "Feu clic a la finestra principal de l'aplicació per '%s'."
 
 #. Translators: Separator menu item
 #: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1212
@@ -734,12 +741,12 @@ msgstr "Afegeix un llançador…"
 #. Translators: Add Directory action label
 #: ../menulibre/MenulibreApplication.py:399
 msgid "Add _Directory…"
-msgstr "Afegeix una _carpeta…"
+msgstr "Afegeix un _directori…"
 
 #. Translators: Add Directory action tooltip
 #: ../menulibre/MenulibreApplication.py:401
 msgid "Add Directory…"
-msgstr "Afegeix una carpeta…"
+msgstr "Afegeix un directori…"
 
 #. Translators: Add Separator action label
 #: ../menulibre/MenulibreApplication.py:408
@@ -832,7 +839,7 @@ msgstr "Accions"
 #. Translators: "Advanced" launcher section
 #: ../menulibre/MenulibreApplication.py:640
 msgid "Advanced"
-msgstr "Claus avançades"
+msgstr "Avançat"
 
 #. Translators: Launcher-specific categories, camelcase "This Entry"
 #: ../menulibre/MenulibreApplication.py:799
@@ -863,7 +870,7 @@ msgstr "Drecera nova"
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1138
 msgid "Select a working directory…"
-msgstr "Seleccioneu una carpeta de treball…"
+msgstr "Seleccioneu un directori de treball…"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1142
@@ -891,7 +898,7 @@ msgstr "Una descripció curta d'aquesta aplicació."
 #. Translators: Placeholder text for a newly created directory.
 #: ../menulibre/MenulibreApplication.py:1676
 msgid "New Directory"
-msgstr "Carpeta nova"
+msgstr "Directori nou"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
@@ -903,23 +910,23 @@ msgstr ""
 #. separator.
 #: ../menulibre/MenulibreApplication.py:2104
 msgid "Are you sure you want to delete this separator?"
-msgstr "Segur que voleu esborrar aquest separador?"
+msgstr "Esteu segur que voleu suprimir aquest separador?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
 #: ../menulibre/MenulibreApplication.py:2108
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Segur que voleu suprimir «%s»?"
+msgstr "Esteu segur que voleu suprimir «%s»?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
 #: ../menulibre/MenulibreApplication.py:2220
 msgid "Parsing Error Log"
-msgstr ""
+msgstr "Registre d'errors d'anàlisi"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
 msgid "Select an image…"
-msgstr ""
+msgstr "Seleccioneu una imatge…"
 
 #. Translators: "Images" file chooser dialog filter
 #: ../menulibre/MenulibreIconSelection.py:87
@@ -943,6 +950,7 @@ msgstr "Element de menú nou"
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr ""
+"No es pot carregar el fitxer d'escriptori a causa del següent error: %s"
 
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
@@ -957,7 +965,7 @@ msgstr ""
 #: ../menulibre/util.py:642 ../menulibre/util.py:676
 #, python-format
 msgid "%s key not found"
-msgstr ""
+msgstr "No s'ha trobat la clau %s"
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
@@ -986,7 +994,7 @@ msgstr ""
 #. errors were detected but the file seems otherwise valid.
 #: ../menulibre/util.py:689
 msgid "Unknown error. Desktop file appears to be are valid."
-msgstr ""
+msgstr "Error desconegut. El fitxer d'escriptori sembla ser vàlid."
 
 #~ msgid "Icon Name"
 #~ msgstr "Nom de la icona"
