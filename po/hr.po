@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-16 05:31+0000\n"
+"POT-Creation-Date: 2018-02-17 05:49+0000\n"
 "PO-Revision-Date: 2018-02-01 13:24+0000\n"
 "Last-Translator: Sean Davis <Unknown>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-02-17 05:48+0000\n"
+"X-Launchpad-Export-Date: 2018-02-18 05:32+0000\n"
 "X-Generator: Launchpad (build 18553)\n"
 "Language: hr\n"
 
@@ -49,7 +49,7 @@ msgstr "Pregleda ikone...."
 #. Translators: Icon popup menu item to browse files for an icon file.
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "Browse Files…"
-msgstr ""
+msgstr "Pregledaj datoteke..."
 
 #. Translators: Toolbar button to save the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:12
@@ -102,6 +102,8 @@ msgstr "Traži"
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Invalid desktop files detected! Please see details."
 msgstr ""
+"Otkrivene su neispravne datoteke radne površine! Molim pogledajte "
+"pojedinosti."
 
 #. Translators: Treeview toolbar button to move the currently selected item up.
 #: ../data/ui/MenulibreWindow.ui.h:29
@@ -393,7 +395,7 @@ msgstr ""
 #. Translators: Tooltip for the "Implements" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:125
 msgid "A list of interfaces that this application implements."
-msgstr ""
+msgstr "List sučelja koja ovaj program primjenjuje."
 
 #. Translators: "Implements" text entry. A list of interfaces that this application implements.
 #: ../data/ui/MenulibreWindow.ui.h:127
@@ -497,6 +499,8 @@ msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr ""
+"Sve izmjene od zadnjeg spremljenog stanja biti će izgubljene i neće se moći "
+"automatski obnoviti."
 
 #. Translators: File Chooser Dialog, confirmation button.
 #: ../menulibre/Dialogs.py:191 ../menulibre/MenulibreIconSelection.py:82
@@ -507,7 +511,7 @@ msgstr ""
 #. the selected application is no longer installed.
 #: ../menulibre/Dialogs.py:198
 msgid "No Longer Installed"
-msgstr ""
+msgstr "Nije više instaliran"
 
 #. Translators: Launcher Removed Dialog, secondary text.
 #: ../menulibre/Dialogs.py:200
@@ -523,25 +527,25 @@ msgstr ""
 #: ../menulibre/Dialogs.py:214
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
-msgstr ""
+msgstr "Ne mogu naći \"%s\" na vašoj PUTANJI."
 
 #. Translators: Save Error Dialog, primary text.
 #: ../menulibre/Dialogs.py:232
 #, python-format
 msgid "Failed to save \"%s\"."
-msgstr ""
+msgstr "Neuspjelo spremanje \"%s\"."
 
 #. Translators: Save Error Dialog, secondary text.
 #: ../menulibre/Dialogs.py:235
 msgid "Do you have write permission to the file and directory?"
-msgstr ""
+msgstr "Imate li dozvolu pisanja za datoteku i direktorij?"
 
 #. Translators: Identify Window Dialog, secondary text. The selected
 #. application is displayed in the placeholder text.
 #: ../menulibre/Dialogs.py:254
 #, python-format
 msgid "Click on the main application window for '%s'."
-msgstr ""
+msgstr "Kliknite na glavni ptozor programa za  '%s'."
 
 #. Translators: Separator menu item
 #: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1212
@@ -607,7 +611,7 @@ msgstr "WINE"
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:71
 msgid "Desktop configuration"
-msgstr ""
+msgstr "Konfiguracija radne površine"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:73
@@ -693,6 +697,7 @@ msgstr ""
 msgid ""
 "Please see the <a href='%s'>online documentation</a> for more information."
 msgstr ""
+"Molim vidite <a href='%s'>dokumentaciju na mreži</a> za više informacija."
 
 #. Translators: Add Launcher action label
 #: ../menulibre/MenulibreApplication.py:390
@@ -752,7 +757,7 @@ msgstr ""
 #. Translators: Execute action tooltip
 #: ../menulibre/MenulibreApplication.py:455
 msgid "Execute Launcher"
-msgstr ""
+msgstr "Izvrši pokretač"
 
 #. Translators: Delete action label
 #: ../menulibre/MenulibreApplication.py:462
@@ -779,18 +784,18 @@ msgstr "_Sadržaj"
 #: ../menulibre/MenulibreApplication.py:482
 #: ../menulibre/MenulibreApplication.py:2225
 msgid "Help"
-msgstr ""
+msgstr "Pomoć"
 
 #. Translators: About action label
 #: ../menulibre/MenulibreApplication.py:489
 msgid "_About"
-msgstr ""
+msgstr "_O programu"
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:491
 #: ../menulibre/MenulibreApplication.py:2226
 msgid "About"
-msgstr ""
+msgstr "O programu"
 
 #. Translators: "Categories" launcher section
 #: ../menulibre/MenulibreApplication.py:634
@@ -800,12 +805,12 @@ msgstr "Kategorije"
 #. Translators: "Actions" launcher section
 #: ../menulibre/MenulibreApplication.py:637
 msgid "Actions"
-msgstr ""
+msgstr "Akcije"
 
 #. Translators: "Advanced" launcher section
 #: ../menulibre/MenulibreApplication.py:640
 msgid "Advanced"
-msgstr ""
+msgstr "Napredno"
 
 #. Translators: Launcher-specific categories, camelcase "This Entry"
 #: ../menulibre/MenulibreApplication.py:799
@@ -892,7 +897,7 @@ msgstr ""
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
 msgid "Select an image…"
-msgstr ""
+msgstr "Odaberite sliku..."
 
 #. Translators: "Images" file chooser dialog filter
 #: ../menulibre/MenulibreIconSelection.py:87
