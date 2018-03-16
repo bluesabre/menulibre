@@ -1,5 +1,15 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+16 Mar 2018, MenuLibre 2.2.0
+
+- New Stable Release
+- General:
+  . Delay menu updates for 1 second to prevent file writing collisions
+- Bug Fixes:
+  . Fix infinite loop entered when deleting a file in search mode
+    (by disabling deletions while in search mode) (LP: #1751616)
+
+
 05 Feb 2018, MenuLibre 2.1.5
 
 - New Features:
