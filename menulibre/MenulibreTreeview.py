@@ -103,6 +103,8 @@ class Treeview(GObject.GObject):
         self._treeview.show_all()
         self._treeview.grab_focus()
 
+        self.menu_timeout_id = 0
+
     def _configure_toolbar(self, builder):
         """Configure the toolbar widget."""
         self._toolbar = builder.get_object('browser_toolbar')
@@ -712,10 +714,18 @@ class Treeview(GObject.GObject):
 
     def update_menus(self):
         """Update the menu files."""
+        if self.menu_timeout_id > 0:
+            GLib.source_remove(self.menu_timeout_id)
+        self.menu_timeout_id = GLib.timeout_add_seconds(1,
+            self.update_menu_timeout)
+
+    def update_menu_timeout(self):
         # Do not save menu layout if in search mode (lp #1306999)
         if not self._is_menu_locked():
             XmlMenuElementTree.treeview_to_xml(self._treeview)
             self.update_menus_kde()
+        self.menu_timeout_id = 0
+        return False
 
     def update_menus_kde(self):
         try:
