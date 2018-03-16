@@ -1315,6 +1315,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 if name in self.actions:
                     self.actions[name].set_sensitive(True)
 
+            # Enable deletion (LP: #1751616)
+            self.delete_button.set_sensitive(True)
+            self.delete_button.set_tooltip_text("")
+
         # If the entry has a query...
         else:
             # Show the clear button.
@@ -1333,6 +1337,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             # Rerun the filter.
             self.treeview.search(self.search_box.get_text())
+
+            # Disable deletion (LP: #1751616)
+            self.delete_button.set_sensitive(False)
+            self.delete_button.set_tooltip_text("")
 
     def on_search_cleared(self, widget, event, user_data=None):
         """Generic search cleared callback function."""
@@ -1378,6 +1386,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 # have sufficient file system permissions to delete the
                 # selected file.
                 _("You do not have permission to delete this file."))
+
+        # Disable deletion if we're in search mode (LP: #1751616)
+        if self.search_box.get_text() != "":
+            self.delete_button.set_sensitive(False)
+            self.delete_button.set_tooltip_text("")
 
         # If the filename is None, make it blank.
         if filename is None:
