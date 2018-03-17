@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-16 06:52-0400\n"
+"POT-Creation-Date: 2018-03-16 20:19-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -894,7 +894,7 @@ msgstr ""
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
 #. code is displayed.
-#: ../menulibre/util.py:617
+#: ../menulibre/util.py:619
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr ""
@@ -902,35 +902,31 @@ msgstr ""
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
 #. translated.
-#: ../menulibre/util.py:632
+#: ../menulibre/util.py:634
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:642 ../menulibre/util.py:676
+#: ../menulibre/util.py:644 ../menulibre/util.py:674
 #, python-format
 msgid "%s key not found"
 msgstr ""
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
-#: ../menulibre/util.py:647
+#: ../menulibre/util.py:649
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#. Translators: This error is displayed when a failing desktop
-#. file contains an invalid path to an executable file.
-#: ../menulibre/util.py:662 ../menulibre/util.py:680
+#: ../menulibre/util.py:678
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
 msgstr ""
 
-#. Translators: This error is displayed when a failing desktop
-#. file contains an invalid command to execute.
-#: ../menulibre/util.py:667 ../menulibre/util.py:683
+#: ../menulibre/util.py:681
 #, python-format
 msgid ""
 "%s program '%s' is not a valid shell command according to GLib."
@@ -939,6 +935,6 @@ msgstr ""
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
-#: ../menulibre/util.py:689
+#: ../menulibre/util.py:687
 msgid "Unknown error. Desktop file appears to be are valid."
 msgstr ""

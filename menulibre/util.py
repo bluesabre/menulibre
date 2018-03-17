@@ -567,7 +567,9 @@ def determine_bad_desktop_files():
     for line in result.stderr.decode().split('\n'):
         matches = re.match(r'^Failed to load "(.+\.desktop)"$', line)
         if matches:
-            bad_desktop_files.append(matches.groups()[0])
+            desktop_file = matches.groups()[0]
+            if validate_desktop_file(desktop_file):
+                bad_desktop_files.append(matches.groups()[0])
 
     # Alphabetical sort on bad desktop file paths
     bad_desktop_files.sort()
@@ -648,6 +650,9 @@ def validate_desktop_file(desktop_file):  # noqa
                 % ('Type', type_key, GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION))
 
     # Validating 'try exec' if its present
+    # Invalid TryExec is a valid state. "If the file is not present or if it
+    # is not executable, the entry may be ignored (not be used in menus, for
+    # example)."
     try:
         try_exec = keyfile.get_string(start_group,
                                       GLib.KEY_FILE_DESKTOP_KEY_TRY_EXEC)
@@ -657,16 +662,9 @@ def validate_desktop_file(desktop_file):  # noqa
     else:
         try:
             if len(try_exec) > 0 and find_program(try_exec) is None:
-                # Translators: This error is displayed when a failing desktop
-                # file contains an invalid path to an executable file.
-                return (_('%s program \'%s\' has not been found in the'
-                          ' PATH') % ('TryExec', try_exec))
+                return False
         except Exception as e:
-            # Translators: This error is displayed when a failing desktop
-            # file contains an invalid command to execute.
-            return (_('%s program \'%s\' is not a valid shell command '
-                      'according to GLib.shell_parse_argv, error: %s')
-                    % ('TryExec', try_exec, e))
+            return False
 
     # Validating executable
     try:

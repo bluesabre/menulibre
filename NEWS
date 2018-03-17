@@ -7,6 +7,8 @@ MenuLibre                                                                  NEWS
   . Delay menu updates for 1 second to prevent file writing collisions
   . Added GTK to desktop entry categories
   . Added OnlyShowIn to desktop entry for known supported desktops
+  . Adjusted desktop file validation for "TryExec". An invalid value here
+    is actually a valid state. (LP #1754888)
 - Bug Fixes:
   . Fix infinite loop entered when deleting a file in search mode
     (by disabling deletions while in search mode) (LP: #1751616)
