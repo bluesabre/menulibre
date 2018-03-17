@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-15 22:06-0400\n"
+"POT-Creation-Date: 2018-03-16 20:33-0400\n"
 "PO-Revision-Date: 2018-02-02 00:45+0000\n"
 "Last-Translator: Tobias Bannert <tobannert@gmail.com>\n"
 "Language-Team: German <de@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-03-16 05:32+0000\n"
+"X-Launchpad-Export-Date: 2018-03-17 05:31+0000\n"
 "X-Generator: Launchpad (build 18571)\n"
 "Language: de\n"
 
@@ -579,7 +579,7 @@ msgstr "Klicken Sie auf das Hauptanwendungsfenster für '%s'."
 
 #. Translators: Separator menu item
 #: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1212
-#: ../menulibre/MenulibreApplication.py:1697
+#: ../menulibre/MenulibreApplication.py:1710
 msgid "Separator"
 msgstr "Trennlinie"
 
@@ -802,7 +802,7 @@ msgstr "_Beenden"
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:473
-#: ../menulibre/MenulibreApplication.py:2227
+#: ../menulibre/MenulibreApplication.py:2240
 msgid "Quit"
 msgstr "Beenden"
 
@@ -813,7 +813,7 @@ msgstr "_Hilfethemen"
 
 #. Translators: Help action tooltip
 #: ../menulibre/MenulibreApplication.py:482
-#: ../menulibre/MenulibreApplication.py:2225
+#: ../menulibre/MenulibreApplication.py:2238
 msgid "Help"
 msgstr "Hilfe"
 
@@ -824,7 +824,7 @@ msgstr "_Über"
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:491
-#: ../menulibre/MenulibreApplication.py:2226
+#: ../menulibre/MenulibreApplication.py:2239
 msgid "About"
 msgstr "Über"
 
@@ -882,46 +882,46 @@ msgstr "Eine ausführbare Datei auswählen …"
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:1380
+#: ../menulibre/MenulibreApplication.py:1388
 msgid "You do not have permission to delete this file."
 msgstr "Sie haben keine Berechtigung diese Datei zu löschen."
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1623
+#: ../menulibre/MenulibreApplication.py:1636
 msgid "New Launcher"
 msgstr "Neuer Starter"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1626 ../menulibre/MenulibreXdg.py:49
+#: ../menulibre/MenulibreApplication.py:1639 ../menulibre/MenulibreXdg.py:49
 msgid "A small descriptive blurb about this application."
 msgstr "Eine Kurzbeschreibung dieser Anwendung"
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1676
+#: ../menulibre/MenulibreApplication.py:1689
 msgid "New Directory"
 msgstr "Neuer Ordner"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1679
+#: ../menulibre/MenulibreApplication.py:1692
 msgid "A small descriptive blurb about this directory."
 msgstr "Eine kurze Beschreibung für dieses Verzeichnis."
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:2104
+#: ../menulibre/MenulibreApplication.py:2117
 msgid "Are you sure you want to delete this separator?"
 msgstr "Sind Sie sicher, dass Sie diese Trennlinie löschen möchten?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:2108
+#: ../menulibre/MenulibreApplication.py:2121
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Sind Sie sicher, dass Sie »%s« löschen wollen?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:2220
+#: ../menulibre/MenulibreApplication.py:2233
 msgid "Parsing Error Log"
 msgstr "Analysefehlerprotokoll"
 
@@ -948,7 +948,7 @@ msgstr "Neuer Menüeintrag"
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
 #. code is displayed.
-#: ../menulibre/util.py:617
+#: ../menulibre/util.py:619
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr ""
@@ -958,35 +958,31 @@ msgstr ""
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
 #. translated.
-#: ../menulibre/util.py:632
+#: ../menulibre/util.py:634
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr "Startgruppe ist ungültig – zur Zeit »%s«, sollte »%s« sein."
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:642 ../menulibre/util.py:676
+#: ../menulibre/util.py:644 ../menulibre/util.py:674
 #, python-format
 msgid "%s key not found"
 msgstr "%s-Schlüssel nicht gefunden"
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
-#: ../menulibre/util.py:647
+#: ../menulibre/util.py:649
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr "%s Wert ist ungültig - derzeit '%s', sollte '%s' sein"
 
-#. Translators: This error is displayed when a failing desktop
-#. file contains an invalid path to an executable file.
-#: ../menulibre/util.py:662 ../menulibre/util.py:680
+#: ../menulibre/util.py:678
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
 msgstr "%s Das Programm '%s' wurde im Pfad nicht gefunden"
 
-#. Translators: This error is displayed when a failing desktop
-#. file contains an invalid command to execute.
-#: ../menulibre/util.py:667 ../menulibre/util.py:683
+#: ../menulibre/util.py:681
 #, python-format
 msgid ""
 "%s program '%s' is not a valid shell command according to "
@@ -997,7 +993,7 @@ msgstr ""
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
-#: ../menulibre/util.py:689
+#: ../menulibre/util.py:687
 msgid "Unknown error. Desktop file appears to be are valid."
 msgstr "Unbekannter Fehler. Die Schreibtischdatei scheint gültig zu sein."
 
