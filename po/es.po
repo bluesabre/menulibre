@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-01 05:36+0000\n"
+"POT-Creation-Date: 2018-04-02 05:37+0000\n"
 "PO-Revision-Date: 2018-02-02 00:45+0000\n"
 "Last-Translator: Sean Davis <Unknown>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-04-02 05:36+0000\n"
+"X-Launchpad-Export-Date: 2018-04-04 05:54+0000\n"
 "X-Generator: Launchpad (build 18599)\n"
 "Language: es\n"
 
@@ -102,6 +102,7 @@ msgstr "Buscar"
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Invalid desktop files detected! Please see details."
 msgstr ""
+"Se han detectado archivos de escritorio no válidos. Consulte los detalles."
 
 #. Translators: Treeview toolbar button to move the currently selected item up.
 #: ../data/ui/MenulibreWindow.ui.h:29
@@ -116,7 +117,7 @@ msgstr "Mover hacia abajo"
 #. Translators: Treeview toolbar button to sort the currently open submenu alphabetically.
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Sort Alphabetically"
-msgstr ""
+msgstr "Ordenar alfabéticamente"
 
 #. Translators: Placeholder text/hint for the application name entry.
 #: ../data/ui/MenulibreWindow.ui.h:35
@@ -263,7 +264,7 @@ msgstr "Aplicar"
 #. Translators: Window title for the parsing error log dialog.
 #: ../data/ui/MenulibreWindow.ui.h:80
 msgid "Parsing Errors"
-msgstr ""
+msgstr "Errores de análisis"
 
 #. Translators: This text is displayed in the Parsing Errors dialog and provides a basic summary of the errors reported.
 #: ../data/ui/MenulibreWindow.ui.h:82
@@ -272,6 +273,9 @@ msgid ""
 "and will therefore not show up in MenuLibre.\n"
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
+"No se han podido analizar los archivos de escritorio siguientes con la "
+"biblioteca  subyacente y, por tanto, no se mostrarán en MenuLibre.\n"
+"Investigue estos problemas con el mantenedor del paquete asociado."
 
 #. Translators: Tooltip for the "GenericName" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:85
@@ -329,9 +333,9 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
-"Ruta de acceso a un archivo ejecutable para determinar si el programa está "
-"instalado. Si el archivo no existe o no es ejecutable, esta entrada no se "
-"muestra en el menú."
+"Ruta a un archivo ejecutable para determinar si el programa está instalado. "
+"Si el archivo no existe o no es ejecutable, esta entrada no se muestra en el "
+"menú."
 
 #. Translators: "TryExec" text entry. Path to an executable file to determine if the program is installed.
 #: ../data/ui/MenulibreWindow.ui.h:101
@@ -381,7 +385,7 @@ msgstr "Clase WM de inicio"
 #. Translators: Identify Window Dialog, primary text.
 #: ../data/ui/MenulibreWindow.ui.h:114 ../menulibre/Dialogs.py:251
 msgid "Identify Window"
-msgstr ""
+msgstr "Identificar ventana"
 
 #. Translators: Tooltip for the "Hidden" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:116
@@ -418,12 +422,12 @@ msgstr "Activable por D-BUS"
 #. Translators: Tooltip for the "Implements" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:125
 msgid "A list of interfaces that this application implements."
-msgstr ""
+msgstr "Una lista de les intefaces que implementa aquesta aplicación."
 
 #. Translators: "Implements" text entry. A list of interfaces that this application implements.
 #: ../data/ui/MenulibreWindow.ui.h:127
 msgid "Implements"
-msgstr ""
+msgstr "Interfaces"
 
 #. Translators: Command line option to display debug messages on stdout
 #: ../menulibre/__init__.py:34
@@ -434,11 +438,13 @@ msgstr "Mostrar mensajes de depuración"
 #: ../menulibre/__init__.py:38
 msgid "Use headerbar layout (client side decorations)"
 msgstr ""
+"Usar  el diseño con barra de título (decoraciones del lado del cliente)"
 
 #. Translators: Command line option to switch layout
 #: ../menulibre/__init__.py:43
 msgid "Use toolbar layout (server side decorations)"
 msgstr ""
+"Usar el diseño con barra de herramientas (decoraciones del lado del servidor)"
 
 #. Translators: About Dialog, window title.
 #: ../menulibre/Dialogs.py:38
@@ -550,7 +556,7 @@ msgstr ""
 #: ../menulibre/Dialogs.py:214
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
-msgstr "No se ha podido encontrar «%s» en la ruta de búsqueda."
+msgstr "No se ha podido encontrar «%s» en su RUTA."
 
 #. Translators: Save Error Dialog, primary text.
 #: ../menulibre/Dialogs.py:232
@@ -561,14 +567,14 @@ msgstr "No se pudo guardar «%s»."
 #. Translators: Save Error Dialog, secondary text.
 #: ../menulibre/Dialogs.py:235
 msgid "Do you have write permission to the file and directory?"
-msgstr ""
+msgstr "¿Tiene permisos de escritura para el archivo y la carpeta?"
 
 #. Translators: Identify Window Dialog, secondary text. The selected
 #. application is displayed in the placeholder text.
 #: ../menulibre/Dialogs.py:254
 #, python-format
 msgid "Click on the main application window for '%s'."
-msgstr ""
+msgstr "Haga clic en la ventana principal de la aplicación para '%s'."
 
 #. Translators: Separator menu item
 #: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1212
@@ -899,7 +905,7 @@ msgstr "Carpeta nueva"
 #. description.
 #: ../menulibre/MenulibreApplication.py:1692
 msgid "A small descriptive blurb about this directory."
-msgstr ""
+msgstr "Una descripción corta de esta carpeta"
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
@@ -916,12 +922,12 @@ msgstr "¿Seguro de que quiere eliminar «%s»?"
 #. Translators: Menu item to open the Parsing Errors dialog.
 #: ../menulibre/MenulibreApplication.py:2233
 msgid "Parsing Error Log"
-msgstr ""
+msgstr "Registro de errores de análisis"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
 msgid "Select an image…"
-msgstr ""
+msgstr "Seleccionar una imagen…"
 
 #. Translators: "Images" file chooser dialog filter
 #: ../menulibre/MenulibreIconSelection.py:87
@@ -945,6 +951,7 @@ msgstr "Elemento de menú nuevo"
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr ""
+"No se puede cargar el archivo de escritorio debido al error siguiente: %s"
 
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
@@ -953,25 +960,26 @@ msgstr ""
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
+"El grupo de inicio no es válido:  actualmente es «%s» y debería ser «%s»"
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
 #: ../menulibre/util.py:644 ../menulibre/util.py:674
 #, python-format
 msgid "%s key not found"
-msgstr ""
+msgstr "No se ha encontrado la clave %s"
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
 #: ../menulibre/util.py:649
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
-msgstr ""
+msgstr "El valor de %s no es válido: actualmente es «%s» y debería ser «%s»"
 
 #: ../menulibre/util.py:678
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
-msgstr ""
+msgstr "%s El  programa «%s» no se ha encontrado en la RUTA"
 
 #: ../menulibre/util.py:681
 #, python-format
@@ -979,12 +987,14 @@ msgid ""
 "%s program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
+"%s El programa «%s» no es una orden válida para la línea de órdenes según "
+"GLib.shell_parse_argv, error: %s"
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
 #: ../menulibre/util.py:687
 msgid "Unknown error. Desktop file appears to be are valid."
-msgstr ""
+msgstr "Error desconocido. El archivo de escritorio parece ser válido."
 
 #~ msgid "Icon Name"
 #~ msgstr "Nombre del icono"
