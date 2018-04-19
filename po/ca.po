@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-17 05:40+0000\n"
-"PO-Revision-Date: 2018-02-10 19:24+0000\n"
-"Last-Translator: Robert Antoni Buj Gelonch <Unknown>\n"
+"POT-Creation-Date: 2018-04-18 06:00+0000\n"
+"PO-Revision-Date: 2018-04-18 17:13+0000\n"
+"Last-Translator: toniem <toni.estevez@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-04-18 05:59+0000\n"
+"X-Launchpad-Export-Date: 2018-04-19 04:56+0000\n"
 "X-Generator: Launchpad (build 18617)\n"
 "Language: ca\n"
 
@@ -101,8 +101,7 @@ msgstr "Cerca"
 #. Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Invalid desktop files detected! Please see details."
-msgstr ""
-"S'han detectat fitxers d'escriptori no vàlids. Consulteu els detalls."
+msgstr "S'han detectat fitxers de menú no vàlids. Consulteu els detalls."
 
 #. Translators: Treeview toolbar button to move the currently selected item up.
 #: ../data/ui/MenulibreWindow.ui.h:29
@@ -139,9 +138,9 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
-"Programa per executar amb arguments. Aquesta clau és necessària si "
-"«Activable per D-BUS» no està definida com a «true» o cal compatibilitat amb "
-"implementacions que no entenen l'activació per D-Bus.\n"
+"Programa per executar amb arguments. Aquesta clau és necessària si la clau "
+"«Activable per D-BUS» no està definida com a «True» o cal compatibilitat amb "
+"les implementacions que no entenen l'activació per D-Bus.\n"
 "Consulteu http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
 "spec-latest.html#exec-variables per obtenir una llista d'arguments "
 "compatibles."
@@ -154,12 +153,12 @@ msgstr "Ordre"
 #. Translators: Tooltip for the "Path" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "The working directory."
-msgstr "El directori de treball."
+msgstr "La carpeta de treball."
 
 #. Translators: "Path" text entry. The working directory of the application.
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Working Directory"
-msgstr "Directori de treball"
+msgstr "Carpeta de treball"
 
 #. Translators: Header for the commonly used application fields.
 #: ../data/ui/MenulibreWindow.ui.h:48
@@ -169,9 +168,7 @@ msgstr "Detalls de l'aplicació"
 #. Translators: Tooltip for the "Terminal" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "If set to \"True\", the program will be ran in a terminal window."
-msgstr ""
-"Si es defineix com a «true», el programa s'executarà en una finestra del "
-"terminal."
+msgstr "Si s'activa, el programa s'executarà en una finestra del terminal."
 
 #. Translators: "Terminal" on/off switch. When enabled, the application is executed in a terminal window.
 #: ../data/ui/MenulibreWindow.ui.h:52
@@ -184,8 +181,8 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
-"Si es defineix com a «true», s'envia una notificació d'inici. Normalment vol "
-"dir que es mostra el cursor ocupat mentre s'inicia l'aplicació."
+"Si s'activa, s'envia una notificació d'inici. Normalment vol dir que es "
+"mostra el cursor ocupat mentre s'inicia l'aplicació."
 
 #. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is shown while the application launches.
 #: ../data/ui/MenulibreWindow.ui.h:56
@@ -198,13 +195,13 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
-"Si es defineix com a «true», aquesta entrada no es mostrarà en el menú, però "
-"estarà disponible per a les associacions dels tipus MIME."
+"Si s'activa, aquesta entrada no es mostrarà al menú, però estarà disponible "
+"per a les associacions dels tipus MIME."
 
 #. Translators: "NoDisplay" on/off switch. When enabled, the application will not be shown in menus, but will be available for MIME type associations etc.
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Hide from menus"
-msgstr "Ocult al menú"
+msgstr "Oculta al menú"
 
 #. Translators: Header for the less common application and directory fields.
 #: ../data/ui/MenulibreWindow.ui.h:62
@@ -239,7 +236,7 @@ msgstr "Nom"
 #. Translators: Window title for the Select Icon dialog
 #: ../data/ui/MenulibreWindow.ui.h:74
 msgid "Select an icon…"
-msgstr "Seleccioneu una icona…"
+msgstr "Selecciona una icona…"
 
 #. Translators: Button to cancel and leave a dialog.
 #. Translators: Help Dialog, cancel button.
@@ -271,14 +268,14 @@ msgid ""
 "and will therefore not show up in MenuLibre.\n"
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
-"No s'ha pogut analitzar els següents fitxers d'escriptori amb la biblioteca "
-"subjacent i, per tant, no es mostraran a MenuLibre.\n"
+"No s'han pogut analitzar els fitxers de menú següents amb la biblioteca "
+"subjacent i, per tant, no es mostraran al MenuLibre.\n"
 "Investigueu aquests problemes amb el mantenidor del paquet associat."
 
 #. Translators: Tooltip for the "GenericName" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:85
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr "El nom genèric de l'aplicació, per exemple «Navegador web»."
+msgstr "Nom genèric de l'aplicació, per exemple «Navegador web»."
 
 #. Translators: "GenericName" text entry. Generic name of the application, for example "Web Browser".
 #: ../data/ui/MenulibreWindow.ui.h:87
@@ -293,16 +290,16 @@ msgid ""
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
 "MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
-"Llista dels entorns d'escriptori que no han de mostrar aquesta entrada del "
-"menú. Aquesta clau només es pot utilitzar si «Mostra només en» no està "
-"definida.\n"
+"Llista dels entorns d'escriptori que no han de mostrar aquesta entrada de "
+"menú. Aquesta clau només es pot utilitzar si la clau «Es mostra només a» no "
+"està definida.\n"
 "Entre els valors possibles s'inclouen: Budgie, Cinnamon, EDE, GNOME, KDE, "
 "LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE i Old."
 
 #. Translators: "NotShowIn" text entry. A list of environments that should not display this entry.
 #: ../data/ui/MenulibreWindow.ui.h:92
 msgid "Not Shown In"
-msgstr "No ho mostris a"
+msgstr "No es mostra a"
 
 #. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
 #: ../data/ui/MenulibreWindow.ui.h:94
@@ -315,14 +312,14 @@ msgid ""
 msgstr ""
 "Llista dels entorns d'escriptori que han de mostrar aquesta entrada de menú. "
 "Els altres entorns no mostraran aquesta entrada. Aquesta clau només es pot "
-"utilitzar si «No mostris en» no està definida.\n"
+"utilitzar si la clau «No es mostra a» no està definida.\n"
 "Entre els valors possibles s'inclouen: Budgie, Cinnamon, EDE, GNOME, KDE, "
 "LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE i Old."
 
 #. Translators: "OnlyShowIn" text entry. A list of environments that should display this entry.
 #: ../data/ui/MenulibreWindow.ui.h:97
 msgid "Only Shown In"
-msgstr "Mostra-ho només a"
+msgstr "Només es mostra a"
 
 #. Translators: Tooltip for the "TryExec" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:99
@@ -331,9 +328,9 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
-"Camí d'accés a un fitxer executable per determinar si s'ha instal·lat el "
-"programa. Si el fitxer no és present o no és executable, aquesta entrada no "
-"es mostra en el menú."
+"Camí a un fitxer executable per determinar si s'ha instal·lat el programa. "
+"Si el fitxer no hi és o no és executable, aquesta entrada no es mostrarà al "
+"menú."
 
 #. Translators: "TryExec" text entry. Path to an executable file to determine if the program is installed.
 #: ../data/ui/MenulibreWindow.ui.h:101
@@ -357,9 +354,9 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
-"Llista de paraules clau per descriure aquesta entrada del menú. Serveixen "
-"per ajudar en la recerca d'entrades. No tenen la finalitat de mostrar-se i "
-"no han de ser redundants amb el nom o el nom genèric de l'entrada."
+"Llista de paraules clau per descriure aquesta entrada de menú. Serveixen per "
+"ajudar en la recerca d'entrades. No tenen la finalitat de mostrar-se i no "
+"han de ser redundants amb el nom o el nom genèric de l'entrada."
 
 #. Translators: "Keywords" text entry. A list of keywords to describe this entry.
 #: ../data/ui/MenulibreWindow.ui.h:109
@@ -373,12 +370,12 @@ msgid ""
 "class or a WM name hint at least in one window."
 msgstr ""
 "Si s'especifica, es demanarà a l'aplicació que utilitzi la cadena de text "
-"com una classe WM o un suggeriment de nom WM almenys en una finestra."
+"com una classe GF o un suggeriment de nom GF almenys en una finestra."
 
 #. Translators: "StartupWMClass" text entry. A window manager hint for the application
 #: ../data/ui/MenulibreWindow.ui.h:113
 msgid "Startup WM Class"
-msgstr "Classe WM d'inici"
+msgstr "Classe GF d'inici"
 
 #. Translators: Identify Window Dialog, primary text.
 #: ../data/ui/MenulibreWindow.ui.h:114 ../menulibre/Dialogs.py:251
@@ -391,8 +388,8 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
-"Si es defineix com a «true», el resultat per a l'usuari és equivalent a "
-"suprimir el fitxer .desktop."
+"Si s'activa, el resultat per a l'usuari és equivalent a suprimir el fitxer "
+".desktop."
 
 #. Translators: "Hidden" on/off switch. When enabled, the application is hidden from the menu.
 #: ../data/ui/MenulibreWindow.ui.h:118
@@ -407,7 +404,7 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
-"Definiu aquesta clau com a «true» si l'activació per D-Bus és compatible amb "
+"Definiu aquesta clau com a «True» si l'activació per D-Bus és compatible amb "
 "aquesta aplicació i voleu utilitzar-la.\n"
 "Vegeu http://standards.freedesktop.org/desktop-entry-"
 "spec/latest/ar01s07.html per a més informació."
@@ -425,7 +422,7 @@ msgstr "Una llista de les interfícies que implementa aquesta aplicació."
 #. Translators: "Implements" text entry. A list of interfaces that this application implements.
 #: ../data/ui/MenulibreWindow.ui.h:127
 msgid "Implements"
-msgstr "Implementa"
+msgstr "Interfícies"
 
 #. Translators: Command line option to display debug messages on stdout
 #: ../menulibre/__init__.py:34
@@ -436,19 +433,19 @@ msgstr "Mostra els missatges de depuració"
 #: ../menulibre/__init__.py:38
 msgid "Use headerbar layout (client side decorations)"
 msgstr ""
-"Utilitza el disseny de la barra de capçalera (decoracions en la part del "
+"Utilitza el disseny amb barra de capçalera (decoracions en la part del "
 "client)"
 
 #. Translators: Command line option to switch layout
 #: ../menulibre/__init__.py:43
 msgid "Use toolbar layout (server side decorations)"
 msgstr ""
-"Utilitza el disseny de la barra d'eines (decoracions en la part del servidor)"
+"Utilitza el disseny amb barra d'eines (decoracions en la part del servidor)"
 
 #. Translators: About Dialog, window title.
 #: ../menulibre/Dialogs.py:38
 msgid "About MenuLibre"
-msgstr "Quant a MenuLibre"
+msgstr "Quant al MenuLibre"
 
 #. Translators: Help Dialog, window title.
 #: ../menulibre/Dialogs.py:58
@@ -466,14 +463,14 @@ msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr ""
-"Se us redirigirà al lloc web de documentació, on es mantenen les pàgines "
+"Se us redirigirà al lloc web de la documentació, on es mantenen les pàgines "
 "d'ajuda."
 
 #. Translators: Help Dialog, confirmation button. Navigates to
 #. online documentation.
 #: ../menulibre/Dialogs.py:69
 msgid "Read Online"
-msgstr "Llegir en línia"
+msgstr "Llegeix en línia"
 
 #. Translators: Save On Close Dialog, window title.
 #. Translators: Save On Leave Dialog, window title.
@@ -484,7 +481,7 @@ msgstr "Desa els canvis"
 #. Translators: Save On Close Dialog, primary text.
 #: ../menulibre/Dialogs.py:93
 msgid "Do you want to save the changes before closing?"
-msgstr "Voleu desar els canvis abans de tancar?"
+msgstr "Voleu desar els canvis abans de tancar l'aplicació?"
 
 #. Translators: Save On Close Dialog, secondary text.
 #. Translators: Save On Leave Dialog, primary text.
@@ -555,7 +552,7 @@ msgstr ""
 #: ../menulibre/Dialogs.py:214
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
-msgstr "No s'ha pogut trobar «%s» en el camí de cerca."
+msgstr "No s'ha pogut trobar «%s» al camí de cerca."
 
 #. Translators: Save Error Dialog, primary text.
 #: ../menulibre/Dialogs.py:232
@@ -566,14 +563,14 @@ msgstr "No s’ha pogut desar «%s»."
 #. Translators: Save Error Dialog, secondary text.
 #: ../menulibre/Dialogs.py:235
 msgid "Do you have write permission to the file and directory?"
-msgstr "Teniu permís d'escriptura al fitxer i al directori?"
+msgstr "Teniu permís d'escriptura al fitxer i a la carpeta?"
 
 #. Translators: Identify Window Dialog, secondary text. The selected
 #. application is displayed in the placeholder text.
 #: ../menulibre/Dialogs.py:254
 #, python-format
 msgid "Click on the main application window for '%s'."
-msgstr "Feu clic a la finestra principal de l'aplicació per '%s'."
+msgstr "Feu clic a la finestra principal de l'aplicació per «%s»."
 
 #. Translators: Separator menu item
 #: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1212
@@ -614,7 +611,7 @@ msgstr "Internet"
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:61
 msgid "Office"
-msgstr "Ofimàtica"
+msgstr "Oficina"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:63
@@ -686,7 +683,7 @@ msgstr "Element del menú del l'Xfce"
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:93
 msgid "Xfce toplevel menu item"
-msgstr "Element de menú de nivell superior de Xfce"
+msgstr "Element del menú de nivell superior de l'Xfce"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:95
@@ -741,12 +738,12 @@ msgstr "Afegeix un llançador…"
 #. Translators: Add Directory action label
 #: ../menulibre/MenulibreApplication.py:399
 msgid "Add _Directory…"
-msgstr "Afegeix un _directori…"
+msgstr "Afegeix una _carpeta…"
 
 #. Translators: Add Directory action tooltip
 #: ../menulibre/MenulibreApplication.py:401
 msgid "Add Directory…"
-msgstr "Afegeix un directori…"
+msgstr "Afegeix una carpeta…"
 
 #. Translators: Add Separator action label
 #: ../menulibre/MenulibreApplication.py:408
@@ -839,7 +836,7 @@ msgstr "Accions"
 #. Translators: "Advanced" launcher section
 #: ../menulibre/MenulibreApplication.py:640
 msgid "Advanced"
-msgstr "Avançat"
+msgstr "Claus avançades"
 
 #. Translators: Launcher-specific categories, camelcase "This Entry"
 #: ../menulibre/MenulibreApplication.py:799
@@ -850,7 +847,7 @@ msgstr "Aquesta entrada"
 #. selection.
 #: ../menulibre/MenulibreApplication.py:820
 msgid "Select a category"
-msgstr "Seleccioneu una categoria"
+msgstr "Selecciona una categoria"
 
 #. Translators: "Category Name" tree column header
 #: ../menulibre/MenulibreApplication.py:824
@@ -870,12 +867,12 @@ msgstr "Drecera nova"
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1138
 msgid "Select a working directory…"
-msgstr "Seleccioneu un directori de treball…"
+msgstr "Selecciona una carpeta de treball…"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1142
 msgid "Select an executable…"
-msgstr "Seleccioneu un executable…"
+msgstr "Selecciona un executable…"
 
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
@@ -898,13 +895,13 @@ msgstr "Una descripció curta d'aquesta aplicació."
 #. Translators: Placeholder text for a newly created directory.
 #: ../menulibre/MenulibreApplication.py:1689
 msgid "New Directory"
-msgstr "Directori nou"
+msgstr "Carpeta nova"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
 #: ../menulibre/MenulibreApplication.py:1692
 msgid "A small descriptive blurb about this directory."
-msgstr "Una descripció curta sobre aquest directori."
+msgstr "Una descripció curta sobre aquesta carpeta."
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
@@ -926,7 +923,7 @@ msgstr "Registre d'errors d'anàlisi"
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
 msgid "Select an image…"
-msgstr "Seleccioneu una imatge…"
+msgstr "Selecciona una imatge…"
 
 #. Translators: "Images" file chooser dialog filter
 #: ../menulibre/MenulibreIconSelection.py:87
@@ -949,8 +946,7 @@ msgstr "Element de menú nou"
 #: ../menulibre/util.py:619
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
-msgstr ""
-"No es pot carregar el fitxer d'escriptori a causa del següent error: %s"
+msgstr "No es pot carregar el fitxer de menú a causa de l'error següent: %s"
 
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
@@ -958,9 +954,7 @@ msgstr ""
 #: ../menulibre/util.py:634
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
-msgstr ""
-"El valor del grup d'inici no és vàlid, actualment és «%s» i hauria de ser "
-"«%s»"
+msgstr "El grup d'inici no és vàlid: actualment és «%s» i hauria de ser «%s»"
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
@@ -974,12 +968,12 @@ msgstr "No s'ha trobat la clau %s"
 #: ../menulibre/util.py:649
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
-msgstr "El valor de %s no és vàlid, actualment és «%s» i hauria de ser «%s»"
+msgstr "El valor de %s no és vàlid: actualment és «%s» i hauria de ser «%s»"
 
 #: ../menulibre/util.py:678
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
-msgstr "%s El programa «%s» no s'ha trobat en el CAMÍ"
+msgstr "El programa %s «%s» no s'ha trobat al camí de cerca"
 
 #: ../menulibre/util.py:681
 #, python-format
@@ -987,14 +981,14 @@ msgid ""
 "%s program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
-"%s El programa «%s» no és una ordre vàlida per a la línia d'ordres segons "
+"El programa %s «%s» no és una ordre vàlida per a la línia d'ordres segons "
 "GLib.shell_parse_argv, error: %s"
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
 #: ../menulibre/util.py:687
 msgid "Unknown error. Desktop file appears to be are valid."
-msgstr "Error desconegut. El fitxer d'escriptori sembla ser vàlid."
+msgstr "Error desconegut. El fitxer de menú sembla vàlid."
 
 #~ msgid "Icon Name"
 #~ msgstr "Nom de la icona"
@@ -1059,82 +1053,12 @@ msgstr "Error desconegut. El fitxer d'escriptori sembla ser vàlid."
 #~ msgid "Add Separator..."
 #~ msgstr "Afegeix un separador…"
 
-#~ msgid "Select a working directory..."
-#~ msgstr "Seleccioneu una carpeta de treball…"
-
-#~ msgid "Select an executable..."
-#~ msgstr "Seleccioneu un executable…"
-
 #~ msgid "Cannot add subdirectories to preinstalled system paths."
 #~ msgstr ""
 #~ "No es poden afegir subcarpetes als camins del sistema preinstal·lats."
 
-#~ msgid "Select an image"
-#~ msgstr "Seleccioneu una imatge"
-
 #~ msgid "\"Terminal\": Whether the program runs in a terminal window."
 #~ msgstr "«Terminal»: si el programa s'executa en una finestra de terminal."
-
-#~ msgid ""
-#~ "\"Exec\": Program to execute, possibly with arguments. The Exec key is "
-#~ "required\n"
-#~ "if DBusActivatable is not set to true. Even if DBusActivatable is true, "
-#~ "Exec\n"
-#~ "should be specified for compatibility with implementations that do not\n"
-#~ "understand DBusActivatable. \n"
-#~ "\n"
-#~ "Please see\n"
-#~ "http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
-#~ "latest.html#exec-variables\n"
-#~ "for a list of supported arguments."
-#~ msgstr ""
-#~ "«Ordre»: programa per executar, possiblement amb arguments. Aquesta clau és\n"
-#~ "necessària si no s'activa «Activable per D-BUS». Fins i tot si s'activa "
-#~ "«Activable per\n"
-#~ "D-BUS» s'ha d'especificar per compatibilitat amb implementacions que no fan "
-#~ "servir\n"
-#~ "«Activable per D-BUS»."
-
-#~ msgid ""
-#~ "\"NoDisplay\": NoDisplay means \"this application exists, but don't display "
-#~ "it in\n"
-#~ "the menus\". This can be useful to e.g. associate this application with "
-#~ "MIME\n"
-#~ "types, so that it gets launched from a file manager (or other apps), "
-#~ "without\n"
-#~ "having a menu entry for it (there are tons of good reasons for this,\n"
-#~ "including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
-#~ msgstr ""
-#~ "«No mostrar»: indica que l'aplicació existeix però que no ha de mostrar-se "
-#~ "al\n"
-#~ "menú. Això pot ser útil per a associar l'aplicació amb els tipus MIME o "
-#~ "perquè\n"
-#~ "s'iniciï des de l'administrador de fitxers (o altres aplicacions) sense "
-#~ "tenir una\n"
-#~ "entrada de menú dedicada. Hi ha molt bones raons per això, incloses coses\n"
-#~ "com netscape -remote o kfmclient OpenURL)."
-
-#~ msgid ""
-#~ "\"StartupNotify\": If true, it is KNOWN that the application will send a "
-#~ "\"remove\"\n"
-#~ "message when started with the DESKTOP_STARTUP_ID environment variable set. "
-#~ "If\n"
-#~ "false, it is KNOWN that the application does not work with startup "
-#~ "notification\n"
-#~ "at all (does not shown any window, breaks even when using StartupWMClass, "
-#~ "etc.).\n"
-#~ "If absent, a reasonable handling is up to implementations (assuming false,\n"
-#~ "using StartupWMClass, etc.)."
-#~ msgstr ""
-#~ "«Notificació d'inici»: si s'activa, se sap que l'aplicació envia un missatge "
-#~ "de\n"
-#~ "surpressió quan s'inicia amb la variable d'entorn DESKTOP_STARTUP_ID "
-#~ "definida.\n"
-#~ "Si es desactiva, se sap que l'aplicació no funciona en absolut amb la "
-#~ "notificació de\n"
-#~ "inici (no es mostra cap finestra, provoca un error fins i tot quan s'usa\n"
-#~ "«Classe GV d'inici», etc.). Si està absent, un maneig raonable depèn de les\n"
-#~ "implementacions (desactivació per defecte, ús de «Classe GV d'inici», etc.)."
 
 #~ msgid "\"Path\": The working directory to run the program in."
 #~ msgstr ""
@@ -1153,22 +1077,6 @@ msgstr "Error desconegut. El fitxer d'escriptori sembla ser vàlid."
 #~ msgstr "16 px"
 
 #~ msgid ""
-#~ "\"NotShowIn\": A list of strings identifying the environments that should "
-#~ "not\n"
-#~ "display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
-#~ "NotShowIn, may appear in a group.\n"
-#~ "\n"
-#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-#~ "XFCE, Old"
-#~ msgstr ""
-#~ "«No mostrar a»: una llista de les cadenes que identifiquen els entorns de\n"
-#~ "escriptori que no han de mostrar una entrada de menú determinada. No\n"
-#~ "pot aparèixer en el mateix grup que la clau «Mostra només a».\n"
-#~ "\n"
-#~ "Els valors possibles inclouen: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, "
-#~ "Unity, XFCE, Old"
-
-#~ msgid ""
 #~ "\"GenericName\": Generic name of the application, for example \"Web "
 #~ "Browser\"."
 #~ msgstr ""
@@ -1177,18 +1085,58 @@ msgstr "Error desconegut. El fitxer d'escriptori sembla ser vàlid."
 #~ msgid "Action Name"
 #~ msgstr "Nom de l'acció"
 
+#~ msgid "\"MimeType\": The MIME type(s) supported by this application."
+#~ msgstr "«Tipus MIME»: els tipus MIME admesos per l'aplicació."
+
+#~ msgid "Copyright © 2012-2014 Sean Davis"
+#~ msgstr "Copyright © 2012-2014 Sean Davis"
+
+#~ msgid "Browse…"
+#~ msgstr "Navega…"
+
+#~ msgid "Icon Selection"
+#~ msgstr "Selecció de la icona"
+
+#~ msgid "<b>Select an image</b>"
+#~ msgstr "<b>Selecciona una imatge</b>"
+
+#~ msgid "<b>Preview</b>"
+#~ msgstr "<b>Vista prèvia</b>"
+
 #~ msgid ""
-#~ "\"OnlyShowIn\": A list of strings identifying the environments that should\n"
+#~ "\"StartupNotify\": If true, it is KNOWN that the application will send a "
+#~ "\"remove\"\n"
+#~ "message when started with the DESKTOP_STARTUP_ID environment variable set. "
+#~ "If\n"
+#~ "false, it is KNOWN that the application does not work with startup "
+#~ "notification\n"
+#~ "at all (does not shown any window, breaks even when using StartupWMClass, "
+#~ "etc.).\n"
+#~ "If absent, a reasonable handling is up to implementations (assuming false,\n"
+#~ "using StartupWMClass, etc.)."
+#~ msgstr ""
+#~ "«Notificació d'inici»: si s'activa, se sap que l'aplicació envia un missatge "
+#~ "de supressió\n"
+#~ "quan s'inicia amb la variable d'entorn DESKTOP_STARTUP_ID definida. Si es\n"
+#~ "desactiva, se sap que l'aplicació no funciona en absolut amb la notificació "
+#~ "de inici\n"
+#~ "(no es mostra cap finestra, provoca un error fins i tot quan s'usa «Classe "
+#~ "GV d'inici»,\n"
+#~ "etc.). Si està absent, un maneig raonable depèn de les implementacions\n"
+#~ "(desactivació per defecte, ús de «Classe GV d'inici», etc.)."
+
+#~ msgid ""
+#~ "\"NotShowIn\": A list of strings identifying the environments that should "
+#~ "not\n"
 #~ "display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
 #~ "NotShowIn, may appear in a group.\n"
 #~ "\n"
 #~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
 #~ "XFCE, Old"
 #~ msgstr ""
-#~ "«Només mostrar a»: una llista de cadenes que identifiquen els entorns que "
-#~ "han de\n"
-#~ "mostrar una entrada de menú determinada. No pot aparèixer en el mateix grup\n"
-#~ "que la clau «No mostrar a».\n"
+#~ "«No es mostra a»: una llista de les cadenes que identifiquen els entorns\n"
+#~ "d'escriptori que no han de mostrar una entrada de menú determinada.\n"
+#~ "No pot aparèixer en el mateix grup que la clau «Es mostra només a».\n"
 #~ "\n"
 #~ "Els valors possibles inclouen: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, "
 #~ "Unity, XFCE, Old"
@@ -1203,13 +1151,13 @@ msgstr "Error desconegut. El fitxer d'escriptori sembla ser vàlid."
 #~ "not executable, the entry may be ignored (not be used in menus, for "
 #~ "example). "
 #~ msgstr ""
-#~ "«Provar l'executable»: el camí al fitxer executable que s'utilitza per "
+#~ "«Prova l'executable»: el camí al fitxer executable que s'utilitza per "
 #~ "comprovar\n"
-#~ "si el programa està realment instal·lat. Si el camí no és absolut, el fitxer "
+#~ "si el programa està realment instal·lat. Si no és un camí absolut, el fitxer "
 #~ "se cerca\n"
 #~ "utilitzant la variable d'entorn $PATH. Si el fitxer no hi és o no és "
 #~ "executable,\n"
-#~ "l'entrada es pot ignorar (no es farà servir al menú, per exemple). "
+#~ "l'entrada s'ignorarà (no es farà servir al menú, per exemple). "
 
 #~ msgid ""
 #~ "\"Keywords\": A list of strings which may be used in addition to other "
@@ -1219,22 +1167,13 @@ msgstr "Error desconegut. El fitxer d'escriptori sembla ser vàlid."
 #~ "entries. The values are not meant for display, and should not be redundant\n"
 #~ "with the values of Name or GenericName."
 #~ msgstr ""
-#~ "«Paraules clau»: una llista de cadenes que es poden usar, al costat d'altres "
+#~ "«Paraules clau»: una llista de cadenes que es poden usar, a més d'altres "
 #~ "metadades,\n"
 #~ "per descriure aquesta entrada. Serveixen per facilitar la recerca "
 #~ "d'entrades. Aquests\n"
 #~ "valors no estan destinats a mostrar-se i no haurien de ser redundants amb "
 #~ "els de\n"
 #~ "«Nom» o «Nom genèric»."
-
-#~ msgid ""
-#~ "\"StartupWMClass\": If specified, it is known that the application will map "
-#~ "at\n"
-#~ "least one window with the given string as its WM class or WM name hint."
-#~ msgstr ""
-#~ "«Classe GF d'inici»: si s'especifica, se sap que l'aplicació assignarà "
-#~ "almenys a una\n"
-#~ "finestra la cadena donada com la seva classe GF o suggeriment de nom GF."
 
 #~ msgid ""
 #~ "\"Hidden\": Hidden should have been called Deleted. It means the user "
@@ -1246,20 +1185,94 @@ msgstr "Error desconegut. El fitxer d'escriptori sembla ser vàlid."
 #~ "existing files (e.g. due to a renaming) - by letting make install install a\n"
 #~ "file with Hidden=true in it."
 #~ msgstr ""
-#~ "«Ocult»: s'hauria d'haver anomenat «suprimir». Permet que l'usuari "
-#~ "suprimeixi,\n"
-#~ "en el seu nivell, una entrada present en un nivell superior, per exemple, en "
-#~ "les\n"
-#~ "carpetes del sistema. És estrictament equivalent a suprimir el fitxer "
-#~ "«.desktop»\n"
-#~ "per a aquest usuari. També es pot usar per desinstal·lar fitxers existents "
+#~ "«Ocult»: s'hauria d'anomenar «suprimit». Permet que l'usuari suprimeixi, en "
+#~ "seu\n"
+#~ "nivell, una entrada present en un nivell superior, per exemple, en les "
+#~ "carpetes\n"
+#~ "del sistema. És estrictament equivalent a suprimir el fitxer «.desktop» per "
+#~ "a\n"
+#~ "aquest usuari. També es pot fer servir per desinstal·lar fitxers existents "
 #~ "(per\n"
 #~ "exemple, a causa d'un canvi de nom) en permetre que s'instal·li un fitxer "
 #~ "que\n"
 #~ "contingui «Hidden=true»."
 
-#~ msgid "\"MimeType\": The MIME type(s) supported by this application."
-#~ msgstr "«Tipus MIME»: els tipus MIME admesos per l'aplicació."
+#~ msgid "Select an executable..."
+#~ msgstr "Selecciona un executable…"
+
+#~ msgid "Select an image"
+#~ msgstr "Selecciona una imatge"
+
+#~ msgid "Select a working directory..."
+#~ msgstr "Selecciona una carpeta de treball…"
+
+#~ msgid ""
+#~ "\"OnlyShowIn\": A list of strings identifying the environments that should\n"
+#~ "display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
+#~ "NotShowIn, may appear in a group.\n"
+#~ "\n"
+#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
+#~ "XFCE, Old"
+#~ msgstr ""
+#~ "«Només es mostra a»: una llista de cadenes que identifiquen els entorns\n"
+#~ "d'escriptori que han de mostrar una entrada de menú determinada. No\n"
+#~ "pot aparèixer en el mateix grup que la clau «No es mostra a».\n"
+#~ "\n"
+#~ "Els valors possibles inclouen: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, "
+#~ "Unity, XFCE, Old"
+
+#~ msgid ""
+#~ "\"Exec\": Program to execute, possibly with arguments. The Exec key is "
+#~ "required\n"
+#~ "if DBusActivatable is not set to true. Even if DBusActivatable is true, "
+#~ "Exec\n"
+#~ "should be specified for compatibility with implementations that do not\n"
+#~ "understand DBusActivatable. \n"
+#~ "\n"
+#~ "Please see\n"
+#~ "http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+#~ "latest.html#exec-variables\n"
+#~ "for a list of supported arguments."
+#~ msgstr ""
+#~ "«Ordre»: programa per executar, possiblement amb arguments. Aquesta clau és\n"
+#~ "necessària si no s'activa «Activable per D-BUS». Fins i tot si s'activa "
+#~ "«Activable per\n"
+#~ "D-BUS», s'ha d'especificar per compatibilitat amb implementacions que no fan "
+#~ "servir\n"
+#~ "«Activable per D-BUS».\n"
+#~ "\n"
+#~ "Consulteu\n"
+#~ "http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
+#~ "latest.html#exec-variables\n"
+#~ "per obtenir una llista dels arguments admesos."
+
+#~ msgid ""
+#~ "\"NoDisplay\": NoDisplay means \"this application exists, but don't display "
+#~ "it in\n"
+#~ "the menus\". This can be useful to e.g. associate this application with "
+#~ "MIME\n"
+#~ "types, so that it gets launched from a file manager (or other apps), "
+#~ "without\n"
+#~ "having a menu entry for it (there are tons of good reasons for this,\n"
+#~ "including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
+#~ msgstr ""
+#~ "«No es mostra»: indica que l'aplicació existeix però que no ha de mostrar-se "
+#~ "al\n"
+#~ "menú. Això pot ser útil per a associar l'aplicació amb els tipus MIME o "
+#~ "perquè\n"
+#~ "s'iniciï des de l'administrador de fitxers (o altres aplicacions) sense "
+#~ "tenir una\n"
+#~ "entrada de menú dedicada. Hi ha molt bones raons per això, incloses coses\n"
+#~ "com netscape -remote o kfmclient OpenURL."
+
+#~ msgid ""
+#~ "\"StartupWMClass\": If specified, it is known that the application will map "
+#~ "at\n"
+#~ "least one window with the given string as its WM class or WM name hint."
+#~ msgstr ""
+#~ "«Classe GF d'inici»: si s'especifica, se sap que l'aplicació assignarà "
+#~ "almenys a una\n"
+#~ "finestra la cadena donada com a classe GF o suggeriment de nom GF."
 
 #~ msgid ""
 #~ "\"DBusActivatable\": A boolean value specifying if D-Bus activation is "
@@ -1277,27 +1290,12 @@ msgstr "Error desconegut. El fitxer d'escriptori sembla ser vàlid."
 #~ "«Activable per D-BUS»: especifica si l'activació per D-Bus és compatible "
 #~ "amb\n"
 #~ "aquesta aplicació. Si aquesta clau no està present, el valor predeterminat "
-#~ "és fals.\n"
-#~ "Si el valor és veritable, les implementacions ignoren la clau «Ordre» i "
-#~ "envien un\n"
+#~ "és «false».\n"
+#~ "Si el valor és «true», les implementacions ignoren la clau «Ordre» i envien "
+#~ "un\n"
 #~ "missatge de D-Bus per iniciar l'aplicació. Consulteu l'activació per D-Bus "
 #~ "per\n"
 #~ "obtenir més informació sobre el seu funcionament. Les entrades de menú\n"
-#~ "encara han d'incloure la clau «Ordre» per compatibilitat amb "
+#~ "encara han d'incloure la clau «Ordre» per compatibilitat amb les "
 #~ "implementacions\n"
 #~ "que no utilitzen la clau «Activable per D-BUS»."
-
-#~ msgid "Copyright © 2012-2014 Sean Davis"
-#~ msgstr "Copyright © 2012-2014 Sean Davis"
-
-#~ msgid "Browse…"
-#~ msgstr "Navega…"
-
-#~ msgid "Icon Selection"
-#~ msgstr "Selecció de la icona"
-
-#~ msgid "<b>Select an image</b>"
-#~ msgstr "<b>Selecciona una imatge</b>"
-
-#~ msgid "<b>Preview</b>"
-#~ msgstr "<b>Vista prèvia</b>"
