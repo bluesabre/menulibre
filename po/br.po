@@ -1,91 +1,88 @@
-# Swedish translation for menulibre
-# Copyright (c) 2015 Rosetta Contributors and Canonical Ltd 2015
+# Breton translation for menulibre
+# Copyright (c) 2018 Rosetta Contributors and Canonical Ltd 2018
 # This file is distributed under the same license as the menulibre package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
-# Translators:
-# Påvel Nicklasson <pavel2@frimix.se>, 2015-2017
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
-"Report-Msgid-Bugs-To: \n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2018-04-24 05:42+0000\n"
-"PO-Revision-Date: 2018-02-02 00:45+0000\n"
-"Last-Translator: Sean Davis <Unknown>\n"
-"Language-Team: Swedish <sv@li.org>\n"
+"PO-Revision-Date: 2018-04-24 12:39+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Breton <br@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2018-04-25 05:38+0000\n"
 "X-Generator: Launchpad (build 18623)\n"
-"Language: sv\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
-msgstr "Menyredigerare"
+msgstr ""
 
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
-msgstr "Lägg till eller ta bort program från menyn"
+msgstr ""
 
 #. Translators: This option adds a new application entry to the menu.
 #: ../data/ui/MenulibreWindow.ui.h:2
 msgid "Add _Launcher"
-msgstr "Lägg till progr_amstartare"
+msgstr ""
 
 #. Translators: This option adds a new directory entry to the menu.
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Add _Directory"
-msgstr "Lägg till _katalog"
+msgstr ""
 
 #. Translators: This option adds a new separator entry to the menu.
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "Add _Separator"
-msgstr "Lägg till av_skiljare"
+msgstr ""
 
 #. Translators: Icon popup menu item to browse available icons.
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Browse Icons…"
-msgstr "Bläddra bland ikoner…"
+msgstr ""
 
 #. Translators: Icon popup menu item to browse files for an icon file.
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "Browse Files…"
-msgstr "Bläddra bland filer…"
+msgstr ""
 
 #. Translators: Toolbar button to save the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "Save Launcher"
-msgstr "Spara programstartare"
+msgstr ""
 
 #. Translators: Toolbar button to undo last change to currently selected item.
 #. Translators: Undo action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:14 ../menulibre/MenulibreApplication.py:428
 msgid "Undo"
-msgstr "Ångra"
+msgstr ""
 
 #. Translators: Toolbar button to redo the last undone change to currently selected item.
 #. Translators: Redo action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:16 ../menulibre/MenulibreApplication.py:437
 msgid "Redo"
-msgstr "Gör om"
+msgstr "Adober"
 
 #. Translators: Toolbar button to revery the currently selected item to it
 #. Translators: Revert action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:446
 msgid "Revert"
-msgstr "Återställ"
+msgstr ""
 
 #. Translators: Toolbar button to test the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Test Launcher"
-msgstr "Testa startare"
+msgstr ""
 
 #. Translators: Toolbar button to delete the currently selected item.
 #. Translators: Delete action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:464
 msgid "Delete"
-msgstr "Ta bort"
+msgstr ""
 
 #. Translators: Save On Close Dialog, do save, then close.
 #. Translators: Save On Leave Dialog, do save, then leave.
@@ -93,12 +90,12 @@ msgstr "Ta bort"
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/Dialogs.py:103
 #: ../menulibre/Dialogs.py:132 ../menulibre/MenulibreApplication.py:419
 msgid "Save"
-msgstr "Spara"
+msgstr "Enrollañ"
 
 #. Translators: Placeholder text for the search text entry.
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Search"
-msgstr "Sök"
+msgstr "Klask"
 
 #. Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.
 #: ../data/ui/MenulibreWindow.ui.h:27
@@ -108,28 +105,28 @@ msgstr ""
 #. Translators: Treeview toolbar button to move the currently selected item up.
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Move Up"
-msgstr "Flytta upp"
+msgstr ""
 
 #. Translators: Treeview toolbar button to move the currently selected item down.
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Move Down"
-msgstr "Flytta ner"
+msgstr ""
 
 #. Translators: Treeview toolbar button to sort the currently open submenu alphabetically.
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Sort Alphabetically"
-msgstr "Sortera i bokstavsordning"
+msgstr ""
 
 #. Translators: Placeholder text/hint for the application name entry.
 #: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Application Name"
-msgstr "Programnamn"
+msgstr ""
 
 #. Translators: Placeholder text/hint for the application comment entry.
 #. Translators: "Description" tree column header
 #: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:831
 msgid "Description"
-msgstr "Beskrivning"
+msgstr "Deskrivadur"
 
 #. Translators: Tooltip for the "Exec" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:39
@@ -140,42 +137,36 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
-"Program att köra med argument. Den här nyckeln krävs om DBusActivatable inte "
-"är inställd till \"Sant\" eller om du behöver kompatibilitet med "
-"implementeringar som inte förstår D-Bus aktivering.\n"
-"Se http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
-"latest.html#exec-variables för en lista på argument som stöds."
 
 #. Translators: Treeview column for an action item
 #: ../data/ui/MenulibreWindow.ui.h:42
 msgid "Command"
-msgstr "Kommando"
+msgstr ""
 
 #. Translators: Tooltip for the "Path" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "The working directory."
-msgstr "Arbetskatalogen."
+msgstr ""
 
 #. Translators: "Path" text entry. The working directory of the application.
 #: ../data/ui/MenulibreWindow.ui.h:46
 msgid "Working Directory"
-msgstr "Arbetskatalog"
+msgstr ""
 
 #. Translators: Header for the commonly used application fields.
 #: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Application Details"
-msgstr "Programdetaljer"
+msgstr ""
 
 #. Translators: Tooltip for the "Terminal" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
-"Om satt till \"Sant\", kommer programmet att köras i ett terminalfönster."
 
 #. Translators: "Terminal" on/off switch. When enabled, the application is executed in a terminal window.
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Run in terminal"
-msgstr "Kör i en terminal"
+msgstr ""
 
 #. Translators: Tooltip for the "StartupNotify" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:54
@@ -183,13 +174,11 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
-"Om satt till \"Sant\", skickas en startnotifiering. Oftast betyder det att "
-"en upptagen muspekare visas medan programmet startar."
 
 #. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is shown while the application launches.
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Use startup notification"
-msgstr "Använd startnotifieringar"
+msgstr ""
 
 #. Translators: Tooltip for the "NoDisplay" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:58
@@ -197,48 +186,46 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
-"Om satt till \"Sant\", kommer den här posten inte att visas i menyer, men "
-"kommer att vara tillgänglig för MIME-typ associeringar etc."
 
 #. Translators: "NoDisplay" on/off switch. When enabled, the application will not be shown in menus, but will be available for MIME type associations etc.
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Hide from menus"
-msgstr "Dölj i menyer"
+msgstr ""
 
 #. Translators: Header for the less common application and directory fields.
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Options"
-msgstr "Alternativ"
+msgstr ""
 
 #. Translators: Button to add item to list.
 #: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Add"
-msgstr "Lägg till"
+msgstr ""
 
 #. Translators: Button to remove item from list.
 #: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Remove"
-msgstr "Ta bort"
+msgstr ""
 
 #. Translators: Button to remove all items from list.
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Clear"
-msgstr "Rensa"
+msgstr ""
 
 #. Translators: Treeview column for whether an action item is displayed (boolean).
 #: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Show"
-msgstr "Visa"
+msgstr ""
 
 #. Translators: Treeview column for the name of the displayed action item.
 #: ../data/ui/MenulibreWindow.ui.h:72
 msgid "Name"
-msgstr "Namn"
+msgstr "Anv"
 
 #. Translators: Window title for the Select Icon dialog
 #: ../data/ui/MenulibreWindow.ui.h:74
 msgid "Select an icon…"
-msgstr "Välj en ikon…"
+msgstr ""
 
 #. Translators: Button to cancel and leave a dialog.
 #. Translators: Help Dialog, cancel button.
@@ -251,12 +238,12 @@ msgstr "Välj en ikon…"
 #: ../menulibre/Dialogs.py:169 ../menulibre/Dialogs.py:189
 #: ../menulibre/MenulibreIconSelection.py:81
 msgid "Cancel"
-msgstr "Avbryt"
+msgstr ""
 
 #. Translators: Button to accept and apply changes in a dialog.
 #: ../data/ui/MenulibreWindow.ui.h:78
 msgid "Apply"
-msgstr "Tillämpa"
+msgstr ""
 
 #. Translators: Window title for the parsing error log dialog.
 #: ../data/ui/MenulibreWindow.ui.h:80
@@ -274,12 +261,12 @@ msgstr ""
 #. Translators: Tooltip for the "GenericName" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:85
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr "Allmänt namn på programmet, till exempel \"webbläsare\"."
+msgstr ""
 
 #. Translators: "GenericName" text entry. Generic name of the application, for example "Web Browser".
 #: ../data/ui/MenulibreWindow.ui.h:87
 msgid "Generic Name"
-msgstr "Allmänt namn"
+msgstr ""
 
 #. Translators: Tooltip for the "NotShowIn" text entry. Possible values "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
 #: ../data/ui/MenulibreWindow.ui.h:89
@@ -289,15 +276,11 @@ msgid ""
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
 "MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
-"En lista med miljöer som inte ska visa den här posten. Du kan bara använda "
-"den här nyckeln om \"OnlyShowIn\" inte är inställd.\n"
-"Möjliga värden inkluderar: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
-"MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #. Translators: "NotShowIn" text entry. A list of environments that should not display this entry.
 #: ../data/ui/MenulibreWindow.ui.h:92
 msgid "Not Shown In"
-msgstr "Inte visad i"
+msgstr ""
 
 #. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
 #: ../data/ui/MenulibreWindow.ui.h:94
@@ -308,16 +291,11 @@ msgid ""
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
 "MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
-"En lista med miljöer som ska visa den här posten. Andra miljöer kommer inte "
-"att visa den här posten. Du kan bara använda den här nyckeln om "
-"\"OnlyShowIn\" inte är inställd.\n"
-"Möjliga värden inkluderar: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
-"MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #. Translators: "OnlyShowIn" text entry. A list of environments that should display this entry.
 #: ../data/ui/MenulibreWindow.ui.h:97
 msgid "Only Shown In"
-msgstr "Bara visad i"
+msgstr ""
 
 #. Translators: Tooltip for the "TryExec" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:99
@@ -326,24 +304,21 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
-"Sökväg till en körbar fil för att avgöra om programmet är installerat. Om "
-"filen inte finns eller inte är körbar, kommer den här posten inte att visas "
-"i en meny."
 
 #. Translators: "TryExec" text entry. Path to an executable file to determine if the program is installed.
 #: ../data/ui/MenulibreWindow.ui.h:101
 msgid "Try Exec"
-msgstr "Testkör"
+msgstr ""
 
 #. Translators: Tooltip for the "Mimetypes" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:103
 msgid "The MIME type(s) supported by this application."
-msgstr "De MIME-typer som stöds av det här programmet."
+msgstr ""
 
 #. Translators: "Mimetype" text entry. The MIME type(s) supported by this application.
 #: ../data/ui/MenulibreWindow.ui.h:105
 msgid "Mimetypes"
-msgstr "Mime-typer"
+msgstr ""
 
 #. Translators: Tooltip for the "Keywords" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:107
@@ -352,14 +327,11 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
-"En lista med nyckelord för att beskriva den här posten. Du kan använda dessa "
-"för att söka efter poster. De är inte avsedda att visas, och bör inte "
-"överlappa värden för Namn eller Allmänt namn."
 
 #. Translators: "Keywords" text entry. A list of keywords to describe this entry.
 #: ../data/ui/MenulibreWindow.ui.h:109
 msgid "Keywords"
-msgstr "Nyckelord"
+msgstr ""
 
 #. Translators: Tooltip for the "StartupWMClass" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:111
@@ -367,13 +339,11 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
-"Om valt, kommer programmet att uppmanas att använda strängen som en WM-klass "
-"eller ett WM-namnantydan åtminstone i ett fönster."
 
 #. Translators: "StartupWMClass" text entry. A window manager hint for the application
 #: ../data/ui/MenulibreWindow.ui.h:113
 msgid "Startup WM Class"
-msgstr "Startup WM Class"
+msgstr ""
 
 #. Translators: Identify Window Dialog, primary text.
 #: ../data/ui/MenulibreWindow.ui.h:114 ../menulibre/Dialogs.py:251
@@ -386,13 +356,11 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
-"Om satt till \"Sant\", motsvarar användarens resultat .desktop-filen som "
-"inte alls finns."
 
 #. Translators: "Hidden" on/off switch. When enabled, the application is hidden from the menu.
 #: ../data/ui/MenulibreWindow.ui.h:118
 msgid "Hidden"
-msgstr "Dold"
+msgstr ""
 
 #. Translators: Tooltip for the "DBusActivatable" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:120
@@ -402,15 +370,11 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
 "for more information."
 msgstr ""
-"Sätt denna nyckel till  \"Sant\" om D-Bus aktivering stöds av det här "
-"programmet och du vill använda det.\n"
-"Se http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
-"för mer information."
 
 #. Translators: "DBusActivatable" on/off switch. When enabled, the application is said to be activated via DBUS.
 #: ../data/ui/MenulibreWindow.ui.h:123
 msgid "DBUS Activatable"
-msgstr "DBUS Activatable"
+msgstr ""
 
 #. Translators: Tooltip for the "Implements" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:125
@@ -420,12 +384,12 @@ msgstr ""
 #. Translators: "Implements" text entry. A list of interfaces that this application implements.
 #: ../data/ui/MenulibreWindow.ui.h:127
 msgid "Implements"
-msgstr "Implementerar"
+msgstr ""
 
 #. Translators: Command line option to display debug messages on stdout
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages"
-msgstr "Visa felsökningsmeddelanden"
+msgstr ""
 
 #. Translators: Command line option to switch layout
 #: ../menulibre/__init__.py:38
@@ -440,17 +404,17 @@ msgstr ""
 #. Translators: About Dialog, window title.
 #: ../menulibre/Dialogs.py:38
 msgid "About MenuLibre"
-msgstr "Om MenuLibre"
+msgstr ""
 
 #. Translators: Help Dialog, window title.
 #: ../menulibre/Dialogs.py:58
 msgid "Online Documentation"
-msgstr "Onlinedokumentation"
+msgstr ""
 
 #. Translators: Help Dialog, primary text.
 #: ../menulibre/Dialogs.py:60
 msgid "Do you want to read the MenuLibre manual online?"
-msgstr "Vill du läsa MenuLibres manual online?"
+msgstr ""
 
 #. Translators: Help Dialog, secondary text.
 #: ../menulibre/Dialogs.py:62
@@ -458,61 +422,58 @@ msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
 msgstr ""
-"Du kommer att skickas vidare till webbsidan för dokumentation där "
-"hjälpsidorna underhålls."
 
 #. Translators: Help Dialog, confirmation button. Navigates to
 #. online documentation.
 #: ../menulibre/Dialogs.py:69
 msgid "Read Online"
-msgstr "Läs online"
+msgstr ""
 
 #. Translators: Save On Close Dialog, window title.
 #. Translators: Save On Leave Dialog, window title.
 #: ../menulibre/Dialogs.py:91 ../menulibre/Dialogs.py:119
 msgid "Save Changes"
-msgstr "Spara ändringar"
+msgstr ""
 
 #. Translators: Save On Close Dialog, primary text.
 #: ../menulibre/Dialogs.py:93
 msgid "Do you want to save the changes before closing?"
-msgstr "Vill du spara ändringarna innan stängning?"
+msgstr ""
 
 #. Translators: Save On Close Dialog, secondary text.
 #. Translators: Save On Leave Dialog, primary text.
 #: ../menulibre/Dialogs.py:95 ../menulibre/Dialogs.py:124
 msgid "If you don't save the launcher, all the changes will be lost."
 msgstr ""
-"Om du inte sparar programstartaren, kommer alla ändringar att förloras."
 
 #. Translators: Save On Close Dialog, don't save, then close.
 #. Translators: Save On Leave Dialog, don't save, then leave.
 #: ../menulibre/Dialogs.py:99 ../menulibre/Dialogs.py:128
 msgid "Don't Save"
-msgstr "Spara inte"
+msgstr ""
 
 #. Translators: Save On Leave Dialog, primary text.
 #: ../menulibre/Dialogs.py:121
 msgid "Do you want to save the changes before leaving this launcher?"
-msgstr "Vill du spara ändringarna innan du lämnar denna programstartare?"
+msgstr ""
 
 #. Translations: Delete Dialog, secondary text. Notifies user that
 #. the file cannot be restored once deleted.
 #: ../menulibre/Dialogs.py:149
 msgid "This cannot be undone."
-msgstr "Detta kan inte ångras."
+msgstr ""
 
 #. Translators: Revert Dialog, window title.
 #. Translators: Revert Dialog, confirmation button.
 #: ../menulibre/Dialogs.py:160 ../menulibre/Dialogs.py:171
 msgid "Restore Launcher"
-msgstr "Återställ Programstartare"
+msgstr ""
 
 #. Translators: Revert Dialog, primary text. Confirmation to revert
 #. all changes since the last file save.
 #: ../menulibre/Dialogs.py:163
 msgid "Are you sure you want to restore this launcher?"
-msgstr "Är du säker på att du vill återställa denna programstartare?"
+msgstr ""
 
 #. Translators: Revert Dialog, secondary text.
 #: ../menulibre/Dialogs.py:165
@@ -520,19 +481,17 @@ msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr ""
-"Alla ändringar sedan senast sparade tillstånd kommer att förloras och kan "
-"inte återställas automatiskt."
 
 #. Translators: File Chooser Dialog, confirmation button.
 #: ../menulibre/Dialogs.py:191 ../menulibre/MenulibreIconSelection.py:82
 msgid "OK"
-msgstr "OK"
+msgstr "Mat eo"
 
 #. Translators: Launcher Removed Dialog, primary text. Indicates that
 #. the selected application is no longer installed.
 #: ../menulibre/Dialogs.py:198
 msgid "No Longer Installed"
-msgstr "Inte längre installerat"
+msgstr ""
 
 #. Translators: Launcher Removed Dialog, secondary text.
 #: ../menulibre/Dialogs.py:200
@@ -540,21 +499,19 @@ msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
-"Denna programstartare har tagits bort från systemet.\n"
-"Väljer nästa tillgängliga objekt."
 
 #. Translators: Not Found In PATH Dialog, primary text. Indicates
 #. that the provided script was not found in any PATH directory.
 #: ../menulibre/Dialogs.py:214
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
-msgstr "Det gick inte att hitta \"%s\" i din PATH."
+msgstr ""
 
 #. Translators: Save Error Dialog, primary text.
 #: ../menulibre/Dialogs.py:232
 #, python-format
 msgid "Failed to save \"%s\"."
-msgstr "Misslyckades med att spara \"%s\"."
+msgstr ""
 
 #. Translators: Save Error Dialog, secondary text.
 #: ../menulibre/Dialogs.py:235
@@ -572,144 +529,144 @@ msgstr ""
 #: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1212
 #: ../menulibre/MenulibreApplication.py:1710
 msgid "Separator"
-msgstr "Avskiljare"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:49
 msgid "Multimedia"
-msgstr "Multimedia"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:51
 msgid "Development"
-msgstr "Utveckling"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:53
 msgid "Education"
-msgstr "Utbildning"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:55
 msgid "Games"
-msgstr "Spel"
+msgstr "C'hoarioù"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:57
 msgid "Graphics"
-msgstr "Grafik"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:59
 msgid "Internet"
-msgstr "Internet"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:61
 msgid "Office"
-msgstr "Kontor"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:63
 msgid "Settings"
-msgstr "Inställningar"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:65
 msgid "System"
-msgstr "System"
+msgstr "Reizhiad"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:67
 msgid "Accessories"
-msgstr "Tillbehör"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:69
 msgid "WINE"
-msgstr "WINE"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:71
 msgid "Desktop configuration"
-msgstr "Skrivbordsinställning"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:73
 msgid "User configuration"
-msgstr "Ånvändarinställning"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:75
 msgid "Hardware configuration"
-msgstr "Hårdvaruinställning"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:77
 msgid "GNOME application"
-msgstr "GNOME-program"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:79
 msgid "GTK+ application"
-msgstr "GTK+-program"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:81
 msgid "GNOME user configuration"
-msgstr "GNOME-användarinställning"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:83
 msgid "GNOME hardware configuration"
-msgstr "GNOME-hårdvaruinställning"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:85
 #: ../menulibre/MenulibreApplication.py:87
 msgid "GNOME system configuration"
-msgstr "Gnome-systeminställning"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:89
 #: ../menulibre/MenulibreApplication.py:91
 msgid "Xfce menu item"
-msgstr "Xfce-menypost"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:93
 msgid "Xfce toplevel menu item"
-msgstr "Xfce-toppnivåmenypost"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:95
 msgid "Xfce user configuration"
-msgstr "Xfce-användarinställning"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:97
 msgid "Xfce hardware configuration"
-msgstr "Xfce-hårdvaruinställning"
+msgstr ""
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:99
 #: ../menulibre/MenulibreApplication.py:101
 msgid "Xfce system configuration"
-msgstr "Xfce-systeminställning"
+msgstr ""
 
 #. Translators: "Other" category group. This item is only displayed for
 #. unknown or non-standard categories.
 #: ../menulibre/MenulibreApplication.py:154
 #: ../menulibre/MenulibreApplication.py:201
 msgid "Other"
-msgstr "Annan"
+msgstr "All"
 
 #. Translators: This error is displayed when the application is run
 #. as a root user. The application exits once the dialog is
 #. dismissed.
 #: ../menulibre/MenulibreApplication.py:263
 msgid "MenuLibre cannot be run as root."
-msgstr "MenuLibre kan inte köras som rot."
+msgstr ""
 
 #. Translators: This link goes to the online documentation with more
 #. information.
@@ -717,179 +674,179 @@ msgstr "MenuLibre kan inte köras som rot."
 #, python-format
 msgid ""
 "Please see the <a href='%s'>online documentation</a> for more information."
-msgstr "Se <a href='%s'>online documentation</a> för mer information."
+msgstr ""
 
 #. Translators: Add Launcher action label
 #: ../menulibre/MenulibreApplication.py:390
 msgid "Add _Launcher…"
-msgstr "_Lägg till programstartare…"
+msgstr ""
 
 #. Translators: Add Launcher action tooltip
 #: ../menulibre/MenulibreApplication.py:392
 msgid "Add Launcher…"
-msgstr "Lägg till programstartare…"
+msgstr ""
 
 #. Translators: Add Directory action label
 #: ../menulibre/MenulibreApplication.py:399
 msgid "Add _Directory…"
-msgstr "Lägg till _katalog…"
+msgstr ""
 
 #. Translators: Add Directory action tooltip
 #: ../menulibre/MenulibreApplication.py:401
 msgid "Add Directory…"
-msgstr "Lägg till katalog…"
+msgstr ""
 
 #. Translators: Add Separator action label
 #: ../menulibre/MenulibreApplication.py:408
 msgid "_Add Separator…"
-msgstr "Lägg till _avskiljare…"
+msgstr ""
 
 #. Translators: Add Separator action tooltip
 #: ../menulibre/MenulibreApplication.py:410
 msgid "Add Separator…"
-msgstr "Lägg till avskiljare…"
+msgstr ""
 
 #. Translators: Save Launcher action label
 #: ../menulibre/MenulibreApplication.py:417
 msgid "_Save"
-msgstr "_Spara"
+msgstr ""
 
 #. Translators: Undo action label
 #: ../menulibre/MenulibreApplication.py:426
 msgid "_Undo"
-msgstr "_Ångra"
+msgstr ""
 
 #. Translators: Redo action label
 #: ../menulibre/MenulibreApplication.py:435
 msgid "_Redo"
-msgstr "Gö_r om"
+msgstr ""
 
 #. Translators: Revert action label
 #: ../menulibre/MenulibreApplication.py:444
 msgid "_Revert"
-msgstr "Åte_rställ"
+msgstr ""
 
 #. Translators: Execute action label
 #: ../menulibre/MenulibreApplication.py:453
 msgid "_Execute"
-msgstr "_Kör"
+msgstr ""
 
 #. Translators: Execute action tooltip
 #: ../menulibre/MenulibreApplication.py:455
 msgid "Execute Launcher"
-msgstr "Kör startare"
+msgstr ""
 
 #. Translators: Delete action label
 #: ../menulibre/MenulibreApplication.py:462
 msgid "_Delete"
-msgstr "Ta _bort"
+msgstr ""
 
 #. Translators: Quit action label
 #: ../menulibre/MenulibreApplication.py:471
 msgid "_Quit"
-msgstr "A_vsluta"
+msgstr ""
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:473
 #: ../menulibre/MenulibreApplication.py:2240
 msgid "Quit"
-msgstr "Avsluta"
+msgstr ""
 
 #. Translators: Help action label
 #: ../menulibre/MenulibreApplication.py:480
 msgid "_Contents"
-msgstr "_Innehåll"
+msgstr ""
 
 #. Translators: Help action tooltip
 #: ../menulibre/MenulibreApplication.py:482
 #: ../menulibre/MenulibreApplication.py:2238
 msgid "Help"
-msgstr "Hjälp"
+msgstr ""
 
 #. Translators: About action label
 #: ../menulibre/MenulibreApplication.py:489
 msgid "_About"
-msgstr "_Om"
+msgstr ""
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:491
 #: ../menulibre/MenulibreApplication.py:2239
 msgid "About"
-msgstr "Om"
+msgstr ""
 
 #. Translators: "Categories" launcher section
 #: ../menulibre/MenulibreApplication.py:634
 msgid "Categories"
-msgstr "Kategorier"
+msgstr ""
 
 #. Translators: "Actions" launcher section
 #: ../menulibre/MenulibreApplication.py:637
 msgid "Actions"
-msgstr "Åtgärder"
+msgstr ""
 
 #. Translators: "Advanced" launcher section
 #: ../menulibre/MenulibreApplication.py:640
 msgid "Advanced"
-msgstr "Avancerat"
+msgstr ""
 
 #. Translators: Launcher-specific categories, camelcase "This Entry"
 #: ../menulibre/MenulibreApplication.py:799
 msgid "ThisEntry"
-msgstr "DennaPost"
+msgstr ""
 
 #. Translators: Placeholder text for the launcher-specific category
 #. selection.
 #: ../menulibre/MenulibreApplication.py:820
 msgid "Select a category"
-msgstr "Välj en kategori"
+msgstr ""
 
 #. Translators: "Category Name" tree column header
 #: ../menulibre/MenulibreApplication.py:824
 msgid "Category Name"
-msgstr "Kategorinamn"
+msgstr ""
 
 #. Translators: "This Entry" launcher-specific category group
 #: ../menulibre/MenulibreApplication.py:927
 msgid "This Entry"
-msgstr "Denna post"
+msgstr ""
 
 #. Translators: Placeholder text for a newly created action
 #: ../menulibre/MenulibreApplication.py:988
 msgid "New Shortcut"
-msgstr "Ny genväg"
+msgstr ""
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1138
 msgid "Select a working directory…"
-msgstr "Välj en arbetskatalog…"
+msgstr ""
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1142
 msgid "Select an executable…"
-msgstr "Välj en körbar fil…"
+msgstr ""
 
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
 #: ../menulibre/MenulibreApplication.py:1388
 msgid "You do not have permission to delete this file."
-msgstr "Du har inte tillåtelse att ta bort denna fil."
+msgstr ""
 
 #. Translators: Placeholder text for a newly created launcher.
 #: ../menulibre/MenulibreApplication.py:1636
 msgid "New Launcher"
-msgstr "Ny programstartare"
+msgstr ""
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
 #: ../menulibre/MenulibreApplication.py:1639 ../menulibre/MenulibreXdg.py:49
 msgid "A small descriptive blurb about this application."
-msgstr "En kort beskrivning om detta program."
+msgstr ""
 
 #. Translators: Placeholder text for a newly created directory.
 #: ../menulibre/MenulibreApplication.py:1689
 msgid "New Directory"
-msgstr "Ny katalog"
+msgstr ""
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
@@ -901,13 +858,13 @@ msgstr ""
 #. separator.
 #: ../menulibre/MenulibreApplication.py:2117
 msgid "Are you sure you want to delete this separator?"
-msgstr "Är du säker på att du vill ta bort denna avskiljare?"
+msgstr ""
 
 #. Translators: Confirmation dialog to delete the selected launcher.
 #: ../menulibre/MenulibreApplication.py:2121
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Är du säker på att du vill ta bort  \"%s\"?"
+msgstr ""
 
 #. Translators: Menu item to open the Parsing Errors dialog.
 #: ../menulibre/MenulibreApplication.py:2233
@@ -917,22 +874,22 @@ msgstr ""
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
 msgid "Select an image…"
-msgstr "Välj en bild…"
+msgstr ""
 
 #. Translators: "Images" file chooser dialog filter
 #: ../menulibre/MenulibreIconSelection.py:87
 msgid "Images"
-msgstr "Bilder"
+msgstr "Skeudennoù"
 
 #. Translators: "Search Results" treeview column header
 #: ../menulibre/MenulibreTreeview.py:64
 msgid "Search Results"
-msgstr "Sökresultat"
+msgstr "Disoc'hoù ar c'hlask"
 
 #. Translators: Placeholder text for a new menu item name.
 #: ../menulibre/MenulibreXdg.py:46
 msgid "New Menu Item"
-msgstr "Ny menypost"
+msgstr ""
 
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
@@ -981,307 +938,3 @@ msgstr ""
 #: ../menulibre/util.py:687
 msgid "Unknown error. Desktop file appears to be are valid."
 msgstr ""
-
-#~ msgid "Icon Selection"
-#~ msgstr "Ikonval"
-
-#~ msgid "Icon Name"
-#~ msgstr "Ikonnamn"
-
-#~ msgid "Image File"
-#~ msgstr "Bildfil"
-
-#~ msgid "<b>Select an image</b>"
-#~ msgstr "<b>Välj en bild</b>"
-
-#~ msgid "16px"
-#~ msgstr "16px"
-
-#~ msgid "32px"
-#~ msgstr "32px"
-
-#~ msgid "64px"
-#~ msgstr "64px"
-
-#~ msgid "128px"
-#~ msgstr "128px"
-
-#~ msgid "<b>Preview</b>"
-#~ msgstr "<b>Förhandsvisning</b>"
-
-#~ msgid "MenuLibre"
-#~ msgstr "MenuLibre"
-
-#~ msgid "_File"
-#~ msgstr "_Fil"
-
-#~ msgid "_Edit"
-#~ msgstr "R_edigera"
-
-#~ msgid "_Help"
-#~ msgstr "_Hjälp"
-
-#~ msgid "Search terms…"
-#~ msgstr "Sökvillkor..."
-
-#~ msgid "<big><b>Application Name</b></big>"
-#~ msgstr "<big><b>Programnamn</b></big>"
-
-#~ msgid "Application Comment"
-#~ msgstr "Programkommentar"
-
-#~ msgid ""
-#~ "\"Exec\": Program to execute, possibly with arguments. The Exec key is "
-#~ "required\n"
-#~ "if DBusActivatable is not set to true. Even if DBusActivatable is true, "
-#~ "Exec\n"
-#~ "should be specified for compatibility with implementations that do not\n"
-#~ "understand DBusActivatable. \n"
-#~ "\n"
-#~ "Please see\n"
-#~ "http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
-#~ "latest.html#exec-variables\n"
-#~ "for a list of supported arguments."
-#~ msgstr ""
-#~ "\"Kör\": Program som ska köras, möjligen med argument, eventuellt med "
-#~ "argument. Denna Körtangent krävs\n"
-#~ "om DBusActivatable inte är satt till sann. Även om DBusActivatable är sann, "
-#~ "bör Kör\n"
-#~ "vara specificerat för kompatibilitet med implementation som inte\n"
-#~ "förstår DBusActivatable.\n"
-#~ "\n"
-#~ "Se\n"
-#~ "http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
-#~ "latest.html#exec-variables\n"
-#~ "för en lista på argument som stöds."
-
-#~ msgid "\"Path\": The working directory to run the program in."
-#~ msgstr "\"Sökväg\": Arbetskatalogen att köra programmet i."
-
-#~ msgid "Browse…"
-#~ msgstr "Bläddra..."
-
-#~ msgid "<b>Application Details</b>"
-#~ msgstr "<b>Programdetaljer</b>"
-
-#~ msgid "\"Terminal\": Whether the program runs in a terminal window."
-#~ msgstr "\"Terminal\": Huruvida programmet kör i ett terminalfönster."
-
-#~ msgid ""
-#~ "\"StartupNotify\": If true, it is KNOWN that the application will send a "
-#~ "\"remove\"\n"
-#~ "message when started with the DESKTOP_STARTUP_ID environment variable set. "
-#~ "If\n"
-#~ "false, it is KNOWN that the application does not work with startup "
-#~ "notification\n"
-#~ "at all (does not shown any window, breaks even when using StartupWMClass, "
-#~ "etc.).\n"
-#~ "If absent, a reasonable handling is up to implementations (assuming false,\n"
-#~ "using StartupWMClass, etc.)."
-#~ msgstr ""
-#~ "\"StartMeddelande\": Om sant, är det KÄNT att programmet kommer att skicka "
-#~ "ett  \"ta bort\"\n"
-#~ "meddelande då det startar med DESKTOP_STARTUP_ID miljövariablen satt. Om\n"
-#~ "falsk, är det KÄNT att programmet inte fungerar med startnotifiering\n"
-#~ "alls (visar inget fönster, kraschar till och med då StartupWMClass används "
-#~ "etc.).\n"
-#~ "Om det saknas, är förnuftig hantering upp till implementeringar (förutsätter "
-#~ "falsk,\n"
-#~ "använder StartupWMClass, etc.)."
-
-#~ msgid ""
-#~ "\"NoDisplay\": NoDisplay means \"this application exists, but don't display "
-#~ "it in\n"
-#~ "the menus\". This can be useful to e.g. associate this application with "
-#~ "MIME\n"
-#~ "types, so that it gets launched from a file manager (or other apps), "
-#~ "without\n"
-#~ "having a menu entry for it (there are tons of good reasons for this,\n"
-#~ "including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
-#~ msgstr ""
-#~ "\"IngenVisning\": IngenVisning betyder \"detta program finns, men visas inte "
-#~ "i\n"
-#~ "menyerna\". Detta kan vara användbart för att t. ex. associera programmet "
-#~ "med MIME-\n"
-#~ "typer, så att det startar från en filhanterare (eller andra program), utan\n"
-#~ "att ha en egen menypost (det finns mängder av goda skäl för detta,\n"
-#~ "inkluderande t. ex. netscape -remote, eller kfmclient openURL typ av saker)."
-
-#~ msgid "<b>Options</b>"
-#~ msgstr "<b>Alternativ</b>"
-
-#~ msgid "Action Name"
-#~ msgstr "Åtgärdsnamn"
-
-#~ msgid ""
-#~ "\"GenericName\": Generic name of the application, for example \"Web "
-#~ "Browser\"."
-#~ msgstr ""
-#~ "\"GenericName\": Allmänt namn på programmet, till exempel \"Webbläsare\"."
-
-#~ msgid ""
-#~ "\"NotShowIn\": A list of strings identifying the environments that should "
-#~ "not\n"
-#~ "display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
-#~ "NotShowIn, may appear in a group.\n"
-#~ "\n"
-#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-#~ "XFCE, Old"
-#~ msgstr ""
-#~ "\"NotShowIn\": En lista på strängar  som identifierar miljöer som inte bör\n"
-#~ "visa en angiven skrivbordspost. Endast en av dessa nycklar, antingen "
-#~ "OnlyShowIn eller\n"
-#~ "NotShowIn, kan finnas i en grupp.\n"
-#~ "\n"
-#~ "möjliga värden inkluderar: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-#~ "XFCE, Old"
-
-#~ msgid ""
-#~ "\"OnlyShowIn\": A list of strings identifying the environments that should\n"
-#~ "display a given desktop entry. Only one of these keys, either OnlyShowIn or\n"
-#~ "NotShowIn, may appear in a group.\n"
-#~ "\n"
-#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-#~ "XFCE, Old"
-#~ msgstr ""
-#~ "\"OnlyShowIn\": En lista strängar som identifierar miljöer som bör\n"
-#~ "visa en angiven skrivbordspost. Endast en av dessa nycklar, antingen "
-#~ "OnlyShowIn eller\n"
-#~ "NotShowIn, kan finnas i en grupp.\n"
-#~ "\n"
-#~ "Möjliga värden inkluderar: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-#~ "XFCE, Old"
-
-#~ msgid ""
-#~ "\"TryExec\": Path to an executable file on disk used to determine if the "
-#~ "program\n"
-#~ "is actually installed. If the path is not an absolute path, the file is "
-#~ "looked\n"
-#~ "up in the $PATH environment variable. If the file is not present or if it "
-#~ "is\n"
-#~ "not executable, the entry may be ignored (not be used in menus, for "
-#~ "example). "
-#~ msgstr ""
-#~ "\"TryExec\": Sökväg till en körbar fil på disk som används för att avgöra om "
-#~ "programmet\n"
-#~ "verkligen är installerat. Om sökvägen inte är en absolut sökväg, söks filen\n"
-#~ "i mijövariabeln $PATH. Om filen inte finns eller om den inte är\n"
-#~ "körbar, kan posten ignoreras (inte användas i i menyer, till exempel). "
-
-#~ msgid "\"MimeType\": The MIME type(s) supported by this application."
-#~ msgstr "\"MimeType\": De(n) MIME-typ(er) som stöds av detta program."
-
-#~ msgid ""
-#~ "\"Keywords\": A list of strings which may be used in addition to other "
-#~ "metadata\n"
-#~ "to describe this entry. This can be useful e.g. to facilitate searching "
-#~ "through\n"
-#~ "entries. The values are not meant for display, and should not be redundant\n"
-#~ "with the values of Name or GenericName."
-#~ msgstr ""
-#~ "\"Keywords\": En lista strängar som kan användas utöver annan metadata för\n"
-#~ "att beskriva denna post. Detta kan vara användbart t. ex. för att underlätta "
-#~ "sökning\n"
-#~ "bland poster. Värdena är inte avsedda att visas, och bör inte vara "
-#~ "överflödiga.\n"
-#~ "med värdena Namn eller AllmäntNamn."
-
-#~ msgid ""
-#~ "\"StartupWMClass\": If specified, it is known that the application will map "
-#~ "at\n"
-#~ "least one window with the given string as its WM class or WM name hint."
-#~ msgstr ""
-#~ "\"StartupWMClass\": Om angivet, är det känt att programmet kommer att rita\n"
-#~ "åtminstone ett fönster med angiven sträng som dess WM-klass eller WM-namn "
-#~ "antydan."
-
-#~ msgid ""
-#~ "\"Hidden\": Hidden should have been called Deleted. It means the user "
-#~ "deleted\n"
-#~ "(at his level) something that was present (at an upper level, e.g. in the\n"
-#~ "system dirs). It's strictly equivalent to the .desktop file not existing at\n"
-#~ "all, as far as that user is concerned. This can also be used to "
-#~ "\"uninstall\"\n"
-#~ "existing files (e.g. due to a renaming) - by letting make install install a\n"
-#~ "file with Hidden=true in it."
-#~ msgstr ""
-#~ "\"Hidden\": Hidden (Dold) borde ha kallats borttagen. Det betyder att "
-#~ "användaren\n"
-#~ "har tagit bort (på denna nivå) något som fanns (på en högre nivå, t. ex. i\n"
-#~ "systemkataloger). Det är helt likvärdigt med att skrivbordsfilen inte finns "
-#~ "alls,\n"
-#~ "så långt den användaren berörs. Detta kan också användas för att "
-#~ "\"avinstallera\"\n"
-#~ "befintliga filer (t. ex. föranlett av omdöpning) - genom att låta "
-#~ "installationen\n"
-#~ "installera en fil med Hidden=true i den."
-
-#~ msgid ""
-#~ "\"DBusActivatable\": A boolean value specifying if D-Bus activation is "
-#~ "supported\n"
-#~ "for this application. If this key is missing, the default value is false. "
-#~ "If\n"
-#~ "the value is true then implementations should ignore the Exec key and send "
-#~ "a\n"
-#~ "D-Bus message to launch the application. See D-Bus Activation for more\n"
-#~ "information on how this works. Applications should still include Exec= "
-#~ "lines\n"
-#~ "in their desktop files for compatibility with implementations that do not\n"
-#~ "understand the DBusActivatable key."
-#~ msgstr ""
-#~ "\"DBusActivatable\": Ett booleanskt värde som anger om D-Bus aktivering "
-#~ "stöds\n"
-#~ "för detta program. Om denna nyckel saknas, är standardvärdet falskt. Om\n"
-#~ "värdet är sant bör implementeringar ignorera Exec-nyckeln och skicka ett\n"
-#~ "D-Bus meddelande för att starta programmet. Se D-Bus Activation för mer\n"
-#~ "information om hur detta fungerar. Program bör fortfarande inkludera "
-#~ "Exec=lines\n"
-#~ "i sina skrivbordsfiler för kompatibilitet med implementeringar som inte\n"
-#~ "förstår DBusActivatable nyckeln."
-
-#~ msgid "<small><i>Filename</i></small>"
-#~ msgstr "<small><i>Filnamn</i></small>"
-
-#~ msgid "<b>Select an icon</b>"
-#~ msgstr "<b>Välj en ikon</b>"
-
-#~ msgid "column"
-#~ msgstr "kolumn"
-
-#~ msgid "Add _Launcher..."
-#~ msgstr "_Lägg till programstartare..."
-
-#~ msgid "Add Launcher..."
-#~ msgstr "Lägg till programstartare..."
-
-#~ msgid "Add _Directory..."
-#~ msgstr "Lägg till _katalog..."
-
-#~ msgid "Add Directory..."
-#~ msgstr "Lägg till katalog..."
-
-#~ msgid "_Add Separator..."
-#~ msgstr "Lägg till _avskiljare..."
-
-#~ msgid "Add Separator..."
-#~ msgstr "Lägg till avskiljare..."
-
-#~ msgid "If you don't save the launcher, all the changes will be lost.'"
-#~ msgstr ""
-#~ "Om du inte sparar programstartaren, kommer alla ändringarna att förloras.'"
-
-#~ msgid "Select an image"
-#~ msgstr "Välj en bild"
-
-#~ msgid "Select a working directory..."
-#~ msgstr "Välj en arbetskatalog"
-
-#~ msgid "Select an executable..."
-#~ msgstr "Välj en körbar fil..."
-
-#~ msgid "Cannot add subdirectories to preinstalled system paths."
-#~ msgstr ""
-#~ "Kan inte lägga till underkataloger till förinstallerade systemsökvägar."
-
-#~ msgid "Copyright © 2012-2014 Sean Davis"
-#~ msgstr "Copyright © 2012-2014 Sean Davis"
