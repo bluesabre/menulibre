@@ -671,7 +671,7 @@ def validate_desktop_file(desktop_file):  # noqa
         exec_key = keyfile.get_string(start_group,
                                       GLib.KEY_FILE_DESKTOP_KEY_EXEC)
     except GLib.Error:
-        return _('%s key not found') % 'Exec'
+        return False # LP: #1788814, Exec key is not required
 
     try:
         if find_program(exec_key) is None:
