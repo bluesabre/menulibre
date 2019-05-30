@@ -1,5 +1,15 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+UNRELEASED, MenuLibre 2.2.1
+
+- Bug Fixes:
+  . Decode stderr as UTF-8 (LP: #1789635)
+  . Correctly display markup in the application name (LP: #1813427)
+  . Fix UnicodeDecodeError (LP: #1825213)
+  . Drop invalid error for non-existent Exec key (LP: #1788814)
+- Updated Translations:
+  . br, ca, da, en_GB, es, fr, nl, pl, ru, sr, tr, zh_CN
+
 16 Mar 2018, MenuLibre 2.2.0
 
 - New Stable Release
