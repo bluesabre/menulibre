@@ -564,7 +564,7 @@ def determine_bad_desktop_files():
     # stderr is returned as bytes, so converting it to the line-buffered output
     # I actually want
     bad_desktop_files = []
-    for line in result.stderr.decode().split('\n'):
+    for line in result.stderr.decode('UTF-8').split('\n'):
         matches = re.match(r'^Failed to load "(.+\.desktop)"$', line)
         if matches:
             desktop_file = matches.groups()[0]
