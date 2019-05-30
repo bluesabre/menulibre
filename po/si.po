@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-26 05:38+0000\n"
-"PO-Revision-Date: 2018-02-02 00:45+0000\n"
-"Last-Translator: Sean Davis <Unknown>\n"
+"POT-Creation-Date: 2019-05-29 22:08-0400\n"
+"PO-Revision-Date: 2015-02-21 05:19+0000\n"
+"Last-Translator: Mohamed Rizmi <Unknown>\n"
 "Language-Team: Sinhalese <si@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-04-27 05:41+0000\n"
-"X-Generator: Launchpad (build 18623)\n"
+"X-Launchpad-Export-Date: 2019-05-30 03:24+0000\n"
+"X-Generator: Launchpad (build 18968)\n"
 "Language: \n"
 
 #: ../menulibre.desktop.in.h:1
@@ -910,7 +910,7 @@ msgstr ""
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:644 ../menulibre/util.py:674
+#: ../menulibre/util.py:644
 #, python-format
 msgid "%s key not found"
 msgstr ""

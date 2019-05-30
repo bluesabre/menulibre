@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-26 05:38+0000\n"
-"PO-Revision-Date: 2018-04-27 13:44+0000\n"
-"Last-Translator: toniem <toni.estevez@gmail.com>\n"
+"POT-Creation-Date: 2019-05-29 22:08-0400\n"
+"PO-Revision-Date: 2019-02-17 15:38+0000\n"
+"Last-Translator: Toni Estevez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-04-28 05:31+0000\n"
-"X-Generator: Launchpad (build 18623)\n"
+"X-Launchpad-Export-Date: 2019-05-30 03:24+0000\n"
+"X-Generator: Launchpad (build 18968)\n"
 "Language: es\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -899,7 +899,7 @@ msgstr "Carpeta nueva"
 #. description.
 #: ../menulibre/MenulibreApplication.py:1692
 msgid "A small descriptive blurb about this directory."
-msgstr "Una descripción corta de esta carpeta"
+msgstr "Una descripción corta de esta carpeta."
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
@@ -957,7 +957,7 @@ msgstr ""
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:644 ../menulibre/util.py:674
+#: ../menulibre/util.py:644
 #, python-format
 msgid "%s key not found"
 msgstr "No se ha encontrado la clave %s"

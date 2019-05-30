@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-16 20:33-0400\n"
-"PO-Revision-Date: 2018-05-16 06:33+0000\n"
+"POT-Creation-Date: 2019-05-29 22:08-0400\n"
+"PO-Revision-Date: 2018-07-19 11:02+0000\n"
 "Last-Translator: Piotr Strębski <strebski@gmail.com>\n"
 "Language-Team: polski <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-05-17 05:52+0000\n"
-"X-Generator: Launchpad (build 18658)\n"
+"X-Launchpad-Export-Date: 2019-05-30 03:24+0000\n"
+"X-Generator: Launchpad (build 18968)\n"
 "Language: \n"
 
 #: ../menulibre.desktop.in.h:1
@@ -378,7 +378,7 @@ msgstr "Początkowa klasa menedżera okien"
 #. Translators: Identify Window Dialog, primary text.
 #: ../data/ui/MenulibreWindow.ui.h:114 ../menulibre/Dialogs.py:251
 msgid "Identify Window"
-msgstr ""
+msgstr "Zidentyfikuj okno"
 
 #. Translators: Tooltip for the "Hidden" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:116
@@ -566,7 +566,7 @@ msgstr "Czy masz uprawnienia do zapisu dla tego pliku i katalogu?"
 #: ../menulibre/Dialogs.py:254
 #, python-format
 msgid "Click on the main application window for '%s'."
-msgstr ""
+msgstr "Kliknij główne okno programu dla \"%s\"."
 
 #. Translators: Separator menu item
 #: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1212
@@ -955,7 +955,7 @@ msgstr ""
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:644 ../menulibre/util.py:674
+#: ../menulibre/util.py:644
 #, python-format
 msgid "%s key not found"
 msgstr "Nie znaleziono klucza %s"
@@ -978,6 +978,8 @@ msgid ""
 "%s program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
+"\"%s\" programu %s nie jest prawidłowym poleceniem powłoki zgodnie z "
+"GLib.shell_parse_argv, błąd: %s"
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.

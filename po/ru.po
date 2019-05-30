@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-26 05:38+0000\n"
-"PO-Revision-Date: 2018-02-02 00:45+0000\n"
-"Last-Translator: Rodion R. <rodikr2005@yandex.ru>\n"
+"POT-Creation-Date: 2019-05-29 22:08-0400\n"
+"PO-Revision-Date: 2018-06-23 23:01+0000\n"
+"Last-Translator: ned <Unknown>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2018-04-27 05:41+0000\n"
-"X-Generator: Launchpad (build 18623)\n"
+"X-Launchpad-Export-Date: 2019-05-30 03:24+0000\n"
+"X-Generator: Launchpad (build 18968)\n"
 "Language: ru\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -102,7 +102,7 @@ msgstr "Поиск"
 #. Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Invalid desktop files detected! Please see details."
-msgstr ""
+msgstr "Обнаружены неверные desktop-файлы! Ознакомьтесь с подробностями."
 
 #. Translators: Treeview toolbar button to move the currently selected item up.
 #: ../data/ui/MenulibreWindow.ui.h:29
@@ -117,7 +117,7 @@ msgstr "Ниже"
 #. Translators: Treeview toolbar button to sort the currently open submenu alphabetically.
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Sort Alphabetically"
-msgstr ""
+msgstr "Сортировать по алфавиту"
 
 #. Translators: Placeholder text/hint for the application name entry.
 #: ../data/ui/MenulibreWindow.ui.h:35
@@ -275,7 +275,7 @@ msgstr "Применить"
 #. Translators: Window title for the parsing error log dialog.
 #: ../data/ui/MenulibreWindow.ui.h:80
 msgid "Parsing Errors"
-msgstr ""
+msgstr "Ошибки разбора"
 
 #. Translators: This text is displayed in the Parsing Errors dialog and provides a basic summary of the errors reported.
 #: ../data/ui/MenulibreWindow.ui.h:82
@@ -284,6 +284,9 @@ msgid ""
 "and will therefore not show up in MenuLibre.\n"
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
+"Для перечисленных desktop-файлов не удалось выполнить разбор с помощью\n"
+"основной библиотеки. Эти файлы не будут отображаться в MenuLibre.\n"
+"Пожалуйста, исследуйте эти проблемы с соответствующими сопровождающими."
 
 #. Translators: Tooltip for the "GenericName" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:85
@@ -412,7 +415,7 @@ msgstr "Класс WM"
 #. Translators: Identify Window Dialog, primary text.
 #: ../data/ui/MenulibreWindow.ui.h:114 ../menulibre/Dialogs.py:251
 msgid "Identify Window"
-msgstr ""
+msgstr "Определение окна"
 
 #. Translators: Tooltip for the "Hidden" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:116
@@ -452,12 +455,12 @@ msgstr "DBus-активация"
 #. Translators: Tooltip for the "Implements" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:125
 msgid "A list of interfaces that this application implements."
-msgstr ""
+msgstr "Список интерфейсов, реализуемых этим приложением."
 
 #. Translators: "Implements" text entry. A list of interfaces that this application implements.
 #: ../data/ui/MenulibreWindow.ui.h:127
 msgid "Implements"
-msgstr ""
+msgstr "Реализация"
 
 #. Translators: Command line option to display debug messages on stdout
 #: ../menulibre/__init__.py:34
@@ -467,12 +470,12 @@ msgstr "Отладочные сообщения"
 #. Translators: Command line option to switch layout
 #: ../menulibre/__init__.py:38
 msgid "Use headerbar layout (client side decorations)"
-msgstr ""
+msgstr "Компоновка с заголовком (декорация на клиенте)"
 
 #. Translators: Command line option to switch layout
 #: ../menulibre/__init__.py:43
 msgid "Use toolbar layout (server side decorations)"
-msgstr ""
+msgstr "Компоновка с панелью инструментов (декорация на сервере)"
 
 #. Translators: About Dialog, window title.
 #: ../menulibre/Dialogs.py:38
@@ -588,19 +591,19 @@ msgstr "Не удалось найти \"%s\" в расположениях пе
 #: ../menulibre/Dialogs.py:232
 #, python-format
 msgid "Failed to save \"%s\"."
-msgstr ""
+msgstr "Не удалось сохранить «%s»."
 
 #. Translators: Save Error Dialog, secondary text.
 #: ../menulibre/Dialogs.py:235
 msgid "Do you have write permission to the file and directory?"
-msgstr ""
+msgstr "У вас есть права на запись в файл и каталог?"
 
 #. Translators: Identify Window Dialog, secondary text. The selected
 #. application is displayed in the placeholder text.
 #: ../menulibre/Dialogs.py:254
 #, python-format
 msgid "Click on the main application window for '%s'."
-msgstr ""
+msgstr "Нажмите на главное окно приложения для '%s'."
 
 #. Translators: Separator menu item
 #: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1212
@@ -929,7 +932,7 @@ msgstr "Новая папка"
 #. description.
 #: ../menulibre/MenulibreApplication.py:1692
 msgid "A small descriptive blurb about this directory."
-msgstr ""
+msgstr "Краткое описание для этой папки."
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
@@ -946,12 +949,12 @@ msgstr "Удалить \"%s\"?"
 #. Translators: Menu item to open the Parsing Errors dialog.
 #: ../menulibre/MenulibreApplication.py:2233
 msgid "Parsing Error Log"
-msgstr ""
+msgstr "Ошибки разбора"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
 msgid "Select an image…"
-msgstr ""
+msgstr "Выберите изображение..."
 
 #. Translators: "Images" file chooser dialog filter
 #: ../menulibre/MenulibreIconSelection.py:87
@@ -974,7 +977,7 @@ msgstr "Новый пункт меню"
 #: ../menulibre/util.py:619
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
-msgstr ""
+msgstr "Не удаётся открыть desktop-файл из-за ошибки: %s"
 
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
@@ -982,26 +985,26 @@ msgstr ""
 #: ../menulibre/util.py:634
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
-msgstr ""
+msgstr "Неверная группа запуска - текущая '%s', должна быть '%s'"
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:644 ../menulibre/util.py:674
+#: ../menulibre/util.py:644
 #, python-format
 msgid "%s key not found"
-msgstr ""
+msgstr "ключ %s не найден"
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
 #: ../menulibre/util.py:649
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
-msgstr ""
+msgstr "значение %s неверно - текущее '%s', должно быть '%s'"
 
 #: ../menulibre/util.py:678
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
-msgstr ""
+msgstr "%s программа '%s' не найдена в расположениях, указанных в PATH"
 
 #: ../menulibre/util.py:681
 #, python-format
@@ -1009,12 +1012,14 @@ msgid ""
 "%s program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
+"%s программа '%s' не является допустимой командой оболочки в соответствии с "
+"GLib.shell_parse_argv, ошибка: %s"
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
 #: ../menulibre/util.py:687
 msgid "Unknown error. Desktop file appears to be are valid."
-msgstr ""
+msgstr "Неизвестная ошибка. Desktop-файл выглядит верным."
 
 #~ msgid "_Edit"
 #~ msgstr "_Правка"
