@@ -96,7 +96,7 @@ def getRelatedKeys(menu_item_type, key_only=False):
 def escapeText(text):
     if text is None:
         return ""
-    return GLib.markup_escape_text(text, len(text))
+    return GLib.markup_escape_text(text)
 
 
 def getProcessUsername(process):
