@@ -1550,7 +1550,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             button.set_tooltip_markup(tooltip)
             entry.set_text(value)
-            label.set_label(markup)
+            label.set_markup(markup)
 
         # Filename, Actions, Categories, and Icon have their own functions.
         elif key == 'Filename':
