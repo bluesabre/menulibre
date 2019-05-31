@@ -1,0 +1,7 @@
+.vscode
+ChangeLog
+MANIFEST
+build/
+dist/
+menulibre/__pycache__/
+menulibre_lib/__pycache__/

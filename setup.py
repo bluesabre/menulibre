@@ -16,6 +16,7 @@
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
+import subprocess
 import sys
 
 try:
@@ -130,11 +131,31 @@ def update_desktop_file(filename, script_path):
         sys.exit(1)
 
 
+def generate_changelog():
+    try:
+        script_path = os.path.dirname(os.path.abspath(__file__))
+        git_path = os.path.join(script_path, ".git")
+        if os.path.exists(git_path):
+            cmd = ['git', 'log', '--pretty=format:"%ad %h %s"',
+                                    '--no-merges', '--date=short']
+            data = subprocess.check_output(cmd).decode("UTF-8")
+            commits = data.split("\n")
+            if len(commits) > 0:
+                changelog_path = os.path.join(script_path, "ChangeLog")
+                with open(changelog_path, "w") as outfile:
+                    for line in commits:
+                        outfile.write("%s\n" % line[1:-1])
+    except:
+        pass
+
+
 class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
     """Command Class to install and update the directory."""
     def run(self):
         """Run the setup commands."""
         DistUtilsExtra.auto.install_auto.run(self)
+
+        generate_changelog()
 
         print(("=== Installing %s, version %s ===" %
                (self.distribution.get_name(),
