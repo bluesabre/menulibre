@@ -1,6 +1,6 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-UNRELEASED, MenuLibre 2.2.1
+31 May 2019, MenuLibre 2.2.1
 
 - General:
   . Automatically generate changelog when built from git or released
@@ -13,6 +13,7 @@ UNRELEASED, MenuLibre 2.2.1
   . Breton, Catalan, Chinese (Simplified), Danish, Dutch,
     English (United Kingdom), French, Polish, Russian,
     Serbian, Spanish, Turkish
+
 
 16 Mar 2018, MenuLibre 2.2.0
 
