@@ -684,4 +684,4 @@ def validate_desktop_file(desktop_file):  # noqa
 
     # Translators: This error is displayed for a failing desktop file where
     # errors were detected but the file seems otherwise valid.
-    return _('Unknown error. Desktop file appears to be are valid.')
+    return _('Unknown error. Desktop file appears to be valid.')

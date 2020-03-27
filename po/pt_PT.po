@@ -940,7 +940,7 @@ msgstr ""
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
 #: ../menulibre/util.py:687
-msgid "Unknown error. Desktop file appears to be are valid."
+msgid "Unknown error. Desktop file appears to be valid."
 msgstr ""
 
 #~ msgid "Image File"
