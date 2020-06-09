@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-30 22:02-0400\n"
+"POT-Creation-Date: 2020-06-09 18:45-0400\n"
 "PO-Revision-Date: 2020-04-25 11:57+0000\n"
 "Last-Translator: Ihor Chomko <igorchomko@gmail.com>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2020-06-09 10:56+0000\n"
 "X-Generator: Launchpad (build ef9fc486e875d54078fa61cf91e898b895125d89)\n"
-"Language: uk\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -101,8 +101,7 @@ msgstr "Пошук"
 #. Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Invalid desktop files detected! Please see details."
-msgstr ""
-"Виявлені недійсні файли стільниці! Будь ласка, перегляньте подробиці."
+msgstr "Виявлені недійсні файли стільниці! Будь ласка, перегляньте подробиці."
 
 #. Translators: Treeview toolbar button to move the currently selected item up.
 #: ../data/ui/MenulibreWindow.ui.h:29
@@ -437,8 +436,7 @@ msgstr "Використовувати макет заголовка (прикр
 #. Translators: Command line option to switch layout
 #: ../menulibre/__init__.py:43
 msgid "Use toolbar layout (server side decorations)"
-msgstr ""
-"Використовуйте макет панелі інструментів (прикраси на стороні сервера)"
+msgstr "Використовуйте макет панелі інструментів (прикраси на стороні сервера)"
 
 #. Translators: About Dialog, window title.
 #: ../menulibre/Dialogs.py:38
@@ -972,11 +970,11 @@ msgstr "%s програма '%s' не знайдена в ШЛЯХУ"
 #: ../menulibre/util.py:681
 #, python-format
 msgid ""
-"%s program '%s' is not a valid shell command according to "
-"GLib.shell_parse_argv, error: %s"
+"%s program '%s' is not a valid shell command according to GLib."
+"shell_parse_argv, error: %s"
 msgstr ""
-"%s програма '%s' не є дійсною командою оболонки відповідно до "
-"GLib.shell_parse_argv, error: %s"
+"%s програма '%s' не є дійсною командою оболонки відповідно до GLib."
+"shell_parse_argv, error: %s"
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
@@ -1083,6 +1081,3 @@ msgstr "Невідома помилка. Схоже, що файл на стіл
 
 #~ msgid "Search terms…"
 #~ msgstr "Пошук пункту..."
-
-#~ msgid "Unknown error. Desktop file appears to be valid."
-#~ msgstr "Невідома помилка. Файл стільниці, схоже, дійсний."

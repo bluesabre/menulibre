@@ -6,11 +6,12 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2019-05-30 22:02-0400\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-09 18:45-0400\n"
 "PO-Revision-Date: 2020-03-27 17:31+0000\n"
 "Last-Translator: Sean Davis <Unknown>\n"
 "Language-Team: Turkish <tr@li.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -140,9 +141,9 @@ msgstr ""
 "Argümanlarla yürütme programı. DBusActivatable \"True\" olarak "
 "ayarlanmadıysa veya D-Bus aktivasyonunu anlamayan uygulamalarla uyumluluk "
 "gerekiyorsa bu anahtar gereklidir.\n"
-"Desteklenen argümanların bir listesi için "
-"http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
-"latest.html#exec-variables sayfasına bakın."
+"Desteklenen argümanların bir listesi için http://standards.freedesktop.org/"
+"desktop-entry-spec/desktop-entry-spec-latest.html#exec-variables sayfasına "
+"bakın."
 
 #. Translators: Treeview column for an action item
 #: ../data/ui/MenulibreWindow.ui.h:42
@@ -405,8 +406,8 @@ msgid ""
 msgstr ""
 "Bu uygulama için D-Bus aktivasyonu destekleniyorsa ve bunu kullanmak "
 "istiyorsanız, bu anahtarı \"Doğru\" olarak ayarlayın.\n"
-"Daha fazla bilgi için http://standards.freedesktop.org/desktop-entry-"
-"spec/latest/ar01s07.html adresini ziyaret edin."
+"Daha fazla bilgi için http://standards.freedesktop.org/desktop-entry-spec/"
+"latest/ar01s07.html adresini ziyaret edin."
 
 #. Translators: "DBusActivatable" on/off switch. When enabled, the application is said to be activated via DBUS.
 #: ../data/ui/MenulibreWindow.ui.h:123
@@ -974,8 +975,8 @@ msgstr "%s programı '%s' YOL'unda bulunamadı"
 #: ../menulibre/util.py:681
 #, python-format
 msgid ""
-"%s program '%s' is not a valid shell command according to "
-"GLib.shell_parse_argv, error: %s"
+"%s program '%s' is not a valid shell command according to GLib."
+"shell_parse_argv, error: %s"
 msgstr ""
 "%s uygulaması '% s' GLib.shell_parse_argv dosyasına göre geçerli bir kabuk "
 "komutu değil, hata: %s"
@@ -985,9 +986,6 @@ msgstr ""
 #: ../menulibre/util.py:687
 msgid "Unknown error. Desktop file appears to be valid."
 msgstr "Bilinmeyen hata. Masaüstü dosyası geçerli gibi görünüyor."
-
-#~ msgid "Unknown error. Desktop file appears to be valid."
-#~ msgstr "Bilinmeyen hata. Masaüstü dosyası geçerli gibi görünüyor."
 
 #~ msgid "Image File"
 #~ msgstr "Resim Dosyası"
