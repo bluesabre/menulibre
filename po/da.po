@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-29 22:08-0400\n"
-"PO-Revision-Date: 2019-05-18 22:20+0000\n"
+"POT-Creation-Date: 2019-05-30 22:02-0400\n"
+"PO-Revision-Date: 2020-03-27 17:32+0000\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-30 03:24+0000\n"
-"X-Generator: Launchpad (build 18968)\n"
+"X-Launchpad-Export-Date: 2020-06-09 10:56+0000\n"
+"X-Generator: Launchpad (build ef9fc486e875d54078fa61cf91e898b895125d89)\n"
 "Language: da\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -267,8 +267,8 @@ msgid ""
 "and will therefore not show up in MenuLibre.\n"
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
-"Følgende skrivebordsfiler kunne ikke tolkes af det underliggende bibliotek "
-"og vil derfor ikke blive vist i MenuLibre.\n"
+"Følgende skrivebordsfiler kunne ikke fortolkes af det underliggende "
+"bibliotek og vil derfor ikke blive vist i MenuLibre.\n"
 "Undersøg venligst disse problemer med den tilknyttede pakkehåndtering."
 
 #. Translators: Tooltip for the "GenericName" text entry.
@@ -297,7 +297,7 @@ msgstr ""
 #. Translators: "NotShowIn" text entry. A list of environments that should not display this entry.
 #: ../data/ui/MenulibreWindow.ui.h:92
 msgid "Not Shown In"
-msgstr "Ikke vist i"
+msgstr "Vises ikke i"
 
 #. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
 #: ../data/ui/MenulibreWindow.ui.h:94
@@ -911,7 +911,7 @@ msgstr "Er du sikker på, at du vil slette \"%s\"?"
 #. Translators: Menu item to open the Parsing Errors dialog.
 #: ../menulibre/MenulibreApplication.py:2233
 msgid "Parsing Error Log"
-msgstr "Tolkningsfejl-log"
+msgstr "Fortolkningsfejllog"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
@@ -1098,3 +1098,6 @@ msgstr "Ukendt fejl. Skrivebordsfilen ser ud til at være gyldig."
 #~ "\"GenericName\": Generic name of the application, for example \"Web "
 #~ "Browser\"."
 #~ msgstr "\"GenericName\": Generisk navn af programmet, f.eks. \"Webbrowser\"."
+
+#~ msgid "Unknown error. Desktop file appears to be valid."
+#~ msgstr "Ukendt fejl. Skrivebordsfilen ser ud til at være gyldig."

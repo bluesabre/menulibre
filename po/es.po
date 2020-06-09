@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-29 22:08-0400\n"
-"PO-Revision-Date: 2019-02-17 15:38+0000\n"
+"POT-Creation-Date: 2019-05-30 22:02-0400\n"
+"PO-Revision-Date: 2020-03-27 17:33+0000\n"
 "Last-Translator: Toni Estevez <toni.estevez@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-30 03:24+0000\n"
-"X-Generator: Launchpad (build 18968)\n"
+"X-Launchpad-Export-Date: 2020-06-09 10:56+0000\n"
+"X-Generator: Launchpad (build ef9fc486e875d54078fa61cf91e898b895125d89)\n"
 "Language: es\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -106,12 +106,12 @@ msgstr "Se han detectado archivos de menú no válidos. Consulte los detalles."
 #. Translators: Treeview toolbar button to move the currently selected item up.
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Move Up"
-msgstr "Mover hacia arriba"
+msgstr "Subir"
 
 #. Translators: Treeview toolbar button to move the currently selected item down.
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Move Down"
-msgstr "Mover hacia abajo"
+msgstr "Bajar"
 
 #. Translators: Treeview toolbar button to sort the currently open submenu alphabetically.
 #: ../data/ui/MenulibreWindow.ui.h:33
@@ -138,12 +138,12 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
-"Programa para ejecutar con argumentos. Esta clave es necesaria si la clave "
-"«Activable por D-BUS» no está activada o si necesita compatibilidad con las "
-"implementaciones que no utilizan la activación por D-Bus.\n"
+"Programa para ejecutar con argumentos. Esta clave es necesaria si no se ha "
+"activado la clave «Activable por D-BUS» o si necesita compatibilidad con "
+"implementaciones que no usan la activación por D-Bus.\n"
 "Consulte http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
 "spec-latest.html#exec-variables para obtener una lista de los argumentos "
-"compatibles."
+"admitidos."
 
 #. Translators: Treeview column for an action item
 #: ../data/ui/MenulibreWindow.ui.h:42
@@ -221,7 +221,7 @@ msgstr "Eliminar"
 #. Translators: Button to remove all items from list.
 #: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Clear"
-msgstr "Limpiar"
+msgstr "Borrar"
 
 #. Translators: Treeview column for whether an action item is displayed (boolean).
 #: ../data/ui/MenulibreWindow.ui.h:70
@@ -353,9 +353,9 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
-"Lista de palabras clave para describir esta entrada. Sirven para ayudar en "
-"la búsqueda de entradas. No tienen la finalidad de mostrarse y no deben ser "
-"redundantes con el nombre o el nombre genérico de la entrada."
+"Lista de palabras clave para describir esta entrada. Puede usarlas como "
+"ayuda para la búsqueda de entradas. No están pensadas para ser mostradas y "
+"no deberían ser redundantes con el nombre o el nombre genérico de la entrada."
 
 #. Translators: "Keywords" text entry. A list of keywords to describe this entry.
 #: ../data/ui/MenulibreWindow.ui.h:109
@@ -368,13 +368,13 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
-"Si se especifica, se pedirá a la aplicación que utilice la cadena de texto "
-"como una clase GV o una sugerencia de nombre GV por lo menos en una ventana."
+"Si se especifica, se pedirá a la aplicación que use la cadena como una clase "
+"del gestor de ventanas o una pista del nombre de por lo menos una ventana."
 
 #. Translators: "StartupWMClass" text entry. A window manager hint for the application
 #: ../data/ui/MenulibreWindow.ui.h:113
 msgid "Startup WM Class"
-msgstr "Clase GV de inicio"
+msgstr "Clase de inicio"
 
 #. Translators: Identify Window Dialog, primary text.
 #: ../data/ui/MenulibreWindow.ui.h:114 ../menulibre/Dialogs.py:251
@@ -393,7 +393,7 @@ msgstr ""
 #. Translators: "Hidden" on/off switch. When enabled, the application is hidden from the menu.
 #: ../data/ui/MenulibreWindow.ui.h:118
 msgid "Hidden"
-msgstr "Oculto"
+msgstr "Ocultar"
 
 #. Translators: Tooltip for the "DBusActivatable" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:120
@@ -416,7 +416,7 @@ msgstr "Activable por D-BUS"
 #. Translators: Tooltip for the "Implements" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:125
 msgid "A list of interfaces that this application implements."
-msgstr "Lista de les intefaces que implementa aquesta aplicación."
+msgstr "Lista de las intefaces que implementa esta aplicación."
 
 #. Translators: "Implements" text entry. A list of interfaces that this application implements.
 #: ../data/ui/MenulibreWindow.ui.h:127
@@ -432,13 +432,15 @@ msgstr "Mostrar los mensajes de depuración"
 #: ../menulibre/__init__.py:38
 msgid "Use headerbar layout (client side decorations)"
 msgstr ""
-"Usar el diseño con barra de título (decoraciones del lado del cliente)"
+"Usar la distribución con la barra de título (decoraciones del lado del "
+"cliente)"
 
 #. Translators: Command line option to switch layout
 #: ../menulibre/__init__.py:43
 msgid "Use toolbar layout (server side decorations)"
 msgstr ""
-"Usar el diseño con barra de herramientas (decoraciones del lado del servidor)"
+"Usar la distribución con la barra de herramientas (decoraciones del lado del "
+"servidor)"
 
 #. Translators: About Dialog, window title.
 #: ../menulibre/Dialogs.py:38
@@ -550,18 +552,18 @@ msgstr ""
 #: ../menulibre/Dialogs.py:214
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
-msgstr "No se ha podido encontrar «%s» en su ruta de búsqueda."
+msgstr "No se ha podido encontrar «%s» en la ruta de búsqueda."
 
 #. Translators: Save Error Dialog, primary text.
 #: ../menulibre/Dialogs.py:232
 #, python-format
 msgid "Failed to save \"%s\"."
-msgstr "No se pudo guardar «%s»."
+msgstr "No se ha podido guardar «%s»."
 
 #. Translators: Save Error Dialog, secondary text.
 #: ../menulibre/Dialogs.py:235
 msgid "Do you have write permission to the file and directory?"
-msgstr "¿Tiene permiso de escritura en el archivo y la carpeta?"
+msgstr "¿Tiene permiso de escritura en el archivo y en la carpeta?"
 
 #. Translators: Identify Window Dialog, secondary text. The selected
 #. application is displayed in the placeholder text.
@@ -911,7 +913,7 @@ msgstr "¿Seguro que quiere eliminar este separador?"
 #: ../menulibre/MenulibreApplication.py:2121
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "¿Seguro de que quiere eliminar «%s»?"
+msgstr "¿Seguro que quiere eliminar «%s»?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
 #: ../menulibre/MenulibreApplication.py:2233
@@ -1299,3 +1301,6 @@ msgstr "Error desconocido. El archivo de menú parece ser válido."
 #~ "aún deben incluir la clave «Orden» por compatibilidad con las "
 #~ "implementaciones\n"
 #~ "que no utilizan la clave «Activable por D-BUS»."
+
+#~ msgid "Unknown error. Desktop file appears to be valid."
+#~ msgstr "Error desconocido. El archivo de menú parece ser válido."

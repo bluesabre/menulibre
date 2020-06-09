@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-29 22:08-0400\n"
-"PO-Revision-Date: 2018-04-02 22:24+0000\n"
+"POT-Creation-Date: 2019-05-30 22:02-0400\n"
+"PO-Revision-Date: 2020-03-27 17:34+0000\n"
 "Last-Translator: Toni Estevez <toni.estevez@gmail.com>\n"
 "Language-Team: Catalan <ca@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2019-05-30 03:24+0000\n"
-"X-Generator: Launchpad (build 18968)\n"
+"X-Launchpad-Export-Date: 2020-06-09 10:56+0000\n"
+"X-Generator: Launchpad (build ef9fc486e875d54078fa61cf91e898b895125d89)\n"
 "Language: ca\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -138,8 +138,8 @@ msgid ""
 "See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
 "latest.html#exec-variables for a list of supported arguments."
 msgstr ""
-"Programa per executar amb arguments. Aquesta clau és necessària si la clau "
-"«Activable per D-BUS» no s'activat o cal compatibilitat amb les "
+"Programa per executar amb arguments. Aquesta clau és necessària si no s'ha "
+"activat la clau «Activable per D-BUS» o cal compatibilitat amb les "
 "implementacions que no fan servir l'activació per D-Bus.\n"
 "Consulteu http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-"
 "spec-latest.html#exec-variables per obtenir una llista d'arguments "
@@ -356,7 +356,7 @@ msgid ""
 msgstr ""
 "Llista de paraules clau per descriure aquesta entrada de menú. Serveixen per "
 "ajudar en la recerca d'entrades. No tenen la finalitat de mostrar-se i no "
-"han de ser redundants amb el nom o el nom genèric de l'entrada."
+"haurien de ser redundants amb el nom o el nom genèric de l'entrada."
 
 #. Translators: "Keywords" text entry. A list of keywords to describe this entry.
 #: ../data/ui/MenulibreWindow.ui.h:109
@@ -370,12 +370,13 @@ msgid ""
 "class or a WM name hint at least in one window."
 msgstr ""
 "Si s'especifica, es demanarà a l'aplicació que utilitzi la cadena de text "
-"com una classe GF o un suggeriment de nom GF almenys en una finestra."
+"com una classe del gestor de finestres o un suggeriment de nom en almenys "
+"una finestra."
 
 #. Translators: "StartupWMClass" text entry. A window manager hint for the application
 #: ../data/ui/MenulibreWindow.ui.h:113
 msgid "Startup WM Class"
-msgstr "Classe GF d'inici"
+msgstr "Classe d'inici"
 
 #. Translators: Identify Window Dialog, primary text.
 #: ../data/ui/MenulibreWindow.ui.h:114 ../menulibre/Dialogs.py:251
@@ -394,7 +395,7 @@ msgstr ""
 #. Translators: "Hidden" on/off switch. When enabled, the application is hidden from the menu.
 #: ../data/ui/MenulibreWindow.ui.h:118
 msgid "Hidden"
-msgstr "Ocult"
+msgstr "Oculta"
 
 #. Translators: Tooltip for the "DBusActivatable" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:120
@@ -432,15 +433,12 @@ msgstr "Mostra els missatges de depuració"
 #. Translators: Command line option to switch layout
 #: ../menulibre/__init__.py:38
 msgid "Use headerbar layout (client side decorations)"
-msgstr ""
-"Utilitza el disseny amb barra de capçalera (decoracions en la part del "
-"client)"
+msgstr "Utilitza el disseny amb barra de capçalera (decoracions del client)"
 
 #. Translators: Command line option to switch layout
 #: ../menulibre/__init__.py:43
 msgid "Use toolbar layout (server side decorations)"
-msgstr ""
-"Utilitza el disseny amb barra d'eines (decoracions en la part del servidor)"
+msgstr "Utilitza el disseny amb barra d'eines (decoracions del servidor)"
 
 #. Translators: About Dialog, window title.
 #: ../menulibre/Dialogs.py:38
@@ -907,13 +905,13 @@ msgstr "Una descripció curta sobre aquesta carpeta."
 #. separator.
 #: ../menulibre/MenulibreApplication.py:2117
 msgid "Are you sure you want to delete this separator?"
-msgstr "Esteu segur que voleu suprimir aquest separador?"
+msgstr "Segur que voleu suprimir aquest separador?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
 #: ../menulibre/MenulibreApplication.py:2121
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Esteu segur que voleu suprimir «%s»?"
+msgstr "Segur que voleu suprimir «%s»?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
 #: ../menulibre/MenulibreApplication.py:2233
@@ -1299,3 +1297,6 @@ msgstr "Error desconegut. El fitxer de menú sembla vàlid."
 #~ "encara han d'incloure la clau «Ordre» per compatibilitat amb les "
 #~ "implementacions\n"
 #~ "que no utilitzen la clau «Activable per D-BUS»."
+
+#~ msgid "Unknown error. Desktop file appears to be valid."
+#~ msgstr "Error desconegut. El fitxer de menú sembla vàlid."
