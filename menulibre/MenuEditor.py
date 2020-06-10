@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
-#   Copyright (C) 2012-2019 Sean Davis <smd.seandavis@gmail.com>
+#   Copyright (C) 2012-2020 Sean Davis <sean@bluesabre.org>
 #   Copyright (C) 2016-2018 OmegaPhil <OmegaPhil@startmail.com>
 #
 #   Portions of this file are adapted from Alacarte Menu Editor,

@@ -19,7 +19,7 @@ Installation:
        sudo python3 setup.py install
 
 Please report comments, suggestions, and bugs to:
-    Sean Davis <smd.seandavis@gmail.com>
+    Sean Davis <sean@bluesabre.org>
 
 Check for new versions at:
     https://github.com/bluesabre/menulibre/releases
