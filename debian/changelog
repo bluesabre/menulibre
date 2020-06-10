@@ -1,3 +1,140 @@
+menulibre (2.2.1-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Use debhelper-compat instead of debian/compat.
+
+  [ Sean Davis ]
+  * New upstream release. Closes: #934755, #937736.
+  * d/control:
+    - Update Standards-Version to 4.4.0
+    - Bump debhelper compatibility to 12
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Sat, 31 Aug 2019 08:22:41 -0400
+
+menulibre (2.2.0-2) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/copyright: Change Format URL to correct one
+
+  [ Sean Davis ]
+  * d/control:
+    - Update Standards-Version to 4.1.4
+    - Add build dependency on dh-python. Closes: #896732
+    - Run wrap-and-sort
+  * d/manpages:
+    - Run wrap-and-sort
+  * d/menulibre.lintian-overrides:
+    - Add override for desktop-entry-limited-to-environments
+
+  [ Mattia Rizzolo ]
+  * d/control:
+    - Bump Standards-Version to 4.1.5, no changes needed.
+    - Set Rules-Requires-Root:no.
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Mon, 09 Jul 2018 19:43:23 +0200
+
+menulibre (2.2.0-1) unstable; urgency=medium
+
+  [ SVN-Git Migration ]
+  * debian/control:
+    - Update Vcs fields for git migration
+
+  [ Sean Davis ]
+  * New upstream release.
+    - Fix TryExec validation (LP: #1754888)
+  * debian/copyright:
+    - Add myself to debian packaging copyright
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Tue, 20 Mar 2018 21:29:04 -0400
+
+menulibre (2.1.5-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Fixes removal of categories from launchers (LP: #1307002)
+    - Fixes PermissionError when saving launchers (LP: #1444668)
+    - Reworked file and directory handling, resolving various issues
+      with naming, saving, and reverting. Closes: #861540, #866133.
+  * debian/compat:
+    - Bump debhelper compatibility to 11
+  * debian/control:
+    - Update Standards-Version to 4.1.3
+    - Updated VCS-Browser to secure origin
+  * debian/copyright:
+    - Add OmegaPhil to menulibre copyright
+  * debian/manpages:
+    - Added, resolves binary-without-manpage lintian warning
+  * debian/menu:
+    - Removed, resolves command-in-menu-file-and-desktop-file lintian
+      warning
+  * debian/rules:
+    - Disabled verbose output.
+    - Fixed typos in override_dh_installchangelogs and forced overwrite
+      of NEWS.gz. Closes: #834650
+  * debian/watch:
+    - Add upstream signing-key.asc
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Sun, 11 Feb 2018 22:07:52 +0100
+
+menulibre (2.0.7-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Build-depend on python3-psutil, gir1.2-gtk-3.0 (closes: #811324).
+  * debian/clean: Create and add missing entry for po file.
+
+ -- Samuel Henrique <samueloph@debian.org>  Sun, 24 Apr 2016 12:39:46 -0300
+
+menulibre (2.0.7-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Fixes saving launchers in subdirectories (LP: #1313682)
+  * debian/control:
+    - Bump Standards-Version to 3.9.6
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Tue, 11 Aug 2015 22:02:47 -0400
+
+menulibre (2.0.6-1) unstable; urgency=medium
+
+  * New upstream release. Closes: #752486
+  * debian/control: Make the PAPT the maintainer, Jackson and myself uploaders
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Sat, 27 Sep 2014 11:40:48 -0400
+
+menulibre (2.0.5-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release
+    - Fixed AttributeError when moving unsaved launcher (LP: #1349763)
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Fri, 08 Aug 2014 07:04:59 -0400
+
+menulibre (2.0.4-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release
+    - Fixed preprocess_layout_info segfault (LP: #1307729)
+    - Fixed corruption of xfce-applications.menu (LP: #1313276)
+    - Fixed menu corruption when saving after search (LP: 1306999)
+    - Allow moving launchers into empty categories (LP: #1318209)
+    - Install menulibre icon to pixmaps (LP: #1307469)
+    - Update launcher categories on move (LP: #1313586)
+    - Fixed deleted launchers being replaced by others (LP: #1315890)
+    - Uninstall launchers from custom categories (LP: #1318235)
+    - Escape spaces in Exec after browsing (LP: #1214815)
+    - Restore previous view after search (LP: #1307000)
+    - Enable X-Xfce-Toplevel category in Xfce (LP: #1309468)
+    - Do not add X-Xfce-Toplevel to new directories (LP: #1315874)
+    - Allow saving when entries are modified (LP: #1315878)
+  * debian/control
+    - Add xdg-utils to depends, hard dependency (LP: #1307481)
+
+ -- Sean Davis <smd.seandavis@gmail.com>  Tue, 13 May 2014 22:28:42 -0400
+
+menulibre (2.0.3-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Jackson Doak <noskcaj@ubuntu.com>  Wed, 12 Mar 2014 07:17:46 +1100
+
 menulibre (2.0.2-1) unstable; urgency=medium
 
   * New upstream release.

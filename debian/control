@@ -1,27 +1,35 @@
 Source: menulibre
 Section: utils
 Priority: optional
-Maintainer: Jackson Doak <noskcaj@ubuntu.com>
-Uploaders: Python Applications Team <python-apps-team@lists.alioth.debian.org>
-Build-Depends: debhelper (>= 9), python3, 
- python3-distutils-extra (>= 2.18), libgnome-menu-3-dev (>= 3.5.3), python-gi-dev
-Standards-Version: 3.9.5
+Maintainer: Python Applications Packaging Team <python-apps-team@lists.alioth.debian.org>
+Uploaders: Jackson Doak <noskcaj@ubuntu.com>,
+           Sean Davis <smd.seandavis@gmail.com>
+Build-Depends: debhelper-compat (= 12),
+               dh-python,
+               gir1.2-gtk-3.0,
+               libgnome-menu-3-dev (>= 3.5.3),
+               python-gi-dev,
+               python3,
+               python3-distutils-extra (>= 2.18),
+               python3-psutil
+Standards-Version: 4.4.0
+Rules-Requires-Root: no
 Homepage: https://launchpad.net/menulibre
-Vcs-Svn: svn://anonscm.debian.org/python-apps/packages/menulibre/trunk/
-Vcs-Browser: http://anonscm.debian.org/viewvc/python-apps/packages/menulibre/trunk/
+Vcs-Git: https://salsa.debian.org/python-team/applications/menulibre.git
+Vcs-Browser: https://salsa.debian.org/python-team/applications/menulibre
 
 Package: menulibre
 Architecture: all
-Depends: ${python3:Depends}, 
-         ${misc:Depends},
+Depends: gir1.2-gdkpixbuf-2.0,
+         gir1.2-glib-2.0,
+         gir1.2-gmenu-3.0 (>= 3.5.3),
+         gir1.2-gtk-3.0,
          gnome-menus (>= 3.5.3),
          python3-gi (>= 3.0),
          python3-psutil,
-         gir1.2-gtk-3.0,
-         gir1.2-gmenu-3.0 (>= 3.5.3),
-         gir1.2-glib-2.0,
-         gir1.2-gdkpixbuf-2.0,
-         xdg-utils
+         xdg-utils,
+         ${misc:Depends},
+         ${python3:Depends}
 Description: advanced FreeDesktop.org compliant menu editor
  An advanced menu editor that provides modern features in a clean, easy-to-use
  interface. All without GNOME dependencies, so even lightweight systems can

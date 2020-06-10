@@ -1,0 +1,4 @@
+# Each desktop environment implements the FreeDesktop.org menu specification
+# differently. Menulibre whitelists known working desktops so it does not
+# get run in an unsupported environment and damage user menus.
+menulibre binary: desktop-entry-limited-to-environments usr/share/applications/menulibre.desktop

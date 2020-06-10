@@ -1,2 +1,0 @@
-?package(menulibre):needs="X11" section="Applications/System/Administration"\
-  title="menulibre" command="menulibre"
