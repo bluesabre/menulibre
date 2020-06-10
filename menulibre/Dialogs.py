@@ -38,10 +38,10 @@ class AboutDialog(Gtk.AboutDialog):
         self.set_title(_("About MenuLibre"))
         self.set_program_name("MenuLibre")
         self.set_logo_icon_name("menulibre")
-        self.set_copyright("Copyright © 2012-2019 Sean Davis")
+        self.set_copyright("Copyright © 2012-2020 Sean Davis")
         self.set_authors(authors)
         self.set_documenters(documenters)
-        self.set_website("https://launchpad.net/menulibre")
+        self.set_website("https://github.com/bluesabre/menulibre")
         self.set_version(menulibre_lib.get_version())
 
         # Connect the signal to destroy the AboutDialog when Close is clicked.

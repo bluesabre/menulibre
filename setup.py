@@ -217,7 +217,7 @@ DistUtilsExtra.auto.setup(
     long_description='An advanced menu editor that provides modern features '
                      'and full Unity action support. Suitable for lightweight '
                      'desktop environments.',
-    url='https://launchpad.net/menulibre',
+    url='https://github.com/bluesabre/menulibre',
     data_files=[('share/man/man1', ['menulibre.1',
                                     'menulibre-menu-validate.1'])],
     cmdclass={'install': InstallAndUpdateDataDirectory}
