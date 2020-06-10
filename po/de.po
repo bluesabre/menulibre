@@ -1,22 +1,25 @@
-# German translation for menulibre
-# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
-# This file is distributed under the same license as the menulibre package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Sean Davis <sean@bluesabre.org>, 2020
+# 
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: menulibre\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-09 18:45-0400\n"
-"PO-Revision-Date: 2020-03-27 17:34+0000\n"
-"Last-Translator: Alexander Nolting <a.nolting@almano.de>\n"
-"Language-Team: German <de@li.org>\n"
-"Language: de\n"
+"PO-Revision-Date: 2020-06-10 02:27+0000\n"
+"Last-Translator: Sean Davis <sean@bluesabre.org>, 2020\n"
+"Language-Team: German (https://www.transifex.com/bluesabreorg/teams/99550/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2020-06-09 10:56+0000\n"
-"X-Generator: Launchpad (build ef9fc486e875d54078fa61cf91e898b895125d89)\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -62,7 +65,8 @@ msgstr "Starter speichern"
 msgid "Undo"
 msgstr "Rückgängig machen"
 
-#. Translators: Toolbar button to redo the last undone change to currently selected item.
+#. Translators: Toolbar button to redo the last undone change to currently
+#. selected item.
 #. Translators: Redo action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:16 ../menulibre/MenulibreApplication.py:437
 msgid "Redo"
@@ -98,22 +102,26 @@ msgstr "Speichern"
 msgid "Search"
 msgstr "Suchen"
 
-#. Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.
+#. Translators: This error is displayed in a notice at the top of the
+#. application when one or more desktop files fails processing.
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Invalid desktop files detected! Please see details."
 msgstr "Ungültige Schreibtischdatei erkannt! Bitte Details ansehen."
 
-#. Translators: Treeview toolbar button to move the currently selected item up.
+#. Translators: Treeview toolbar button to move the currently selected item
+#. up.
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Move Up"
 msgstr "Nach oben"
 
-#. Translators: Treeview toolbar button to move the currently selected item down.
+#. Translators: Treeview toolbar button to move the currently selected item
+#. down.
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Move Down"
 msgstr "Nach unten"
 
-#. Translators: Treeview toolbar button to sort the currently open submenu alphabetically.
+#. Translators: Treeview toolbar button to sort the currently open submenu
+#. alphabetically.
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Sort Alphabetically"
 msgstr "Alphabetisch sortieren"
@@ -132,18 +140,14 @@ msgstr "Beschreibung"
 #. Translators: Tooltip for the "Exec" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid ""
-"Program to execute with arguments. This key is required if DBusActivatable "
-"is not set to \"True\" or if you need compatibility with implementations "
-"that do not understand D-Bus activation.\n"
-"See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
-"latest.html#exec-variables for a list of supported arguments."
+"Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
+"See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#exec-variables for a list of supported arguments."
 msgstr ""
 "Programm mit Argumenten auszuführen. Dieser Schlüssel wird benötigt, wenn\n"
 "DBusActivatable nicht auf »Wahr« gestellt ist oder wenn Sie Kompatibilität\n"
 "mit Implementierungen benötigen, die die D-Bus-Aktivierung nicht verstehen.\n"
 "Für eine Liste von unterstützten Argumenten:\n"
-"http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
-"latest.html#exec-variables"
+"http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#exec-variables"
 
 #. Translators: Treeview column for an action item
 #: ../data/ui/MenulibreWindow.ui.h:42
@@ -172,7 +176,8 @@ msgstr ""
 "Wenn auf »AN« gestellt, wird das Programm in einem Terminal-Fenster "
 "gestartet."
 
-#. Translators: "Terminal" on/off switch. When enabled, the application is executed in a terminal window.
+#. Translators: "Terminal" on/off switch. When enabled, the application is
+#. executed in a terminal window.
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Run in terminal"
 msgstr "Im Terminal ausführen"
@@ -187,7 +192,8 @@ msgstr ""
 "bedeutet üblicherweise, dass der Mauszeiger als »beschäftigt« angezeigt "
 "wird, während das Programm startet."
 
-#. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is shown while the application launches.
+#. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is
+#. shown while the application launches.
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Use startup notification"
 msgstr "Startbenachrichtigung benutzen"
@@ -198,10 +204,13 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
-"Wenn auf »AN« gestellt, wird dieser Eintrag in den Menüs nicht angezeigt. Er "
-"wird aber für Dateitypenverknüpfungen (MIME-Typen) usw. zur Verfügung stehen."
+"Wenn auf »AN« gestellt, wird dieser Eintrag in den Menüs nicht angezeigt. Er"
+" wird aber für Dateitypenverknüpfungen (MIME-Typen) usw. zur Verfügung "
+"stehen."
 
-#. Translators: "NoDisplay" on/off switch. When enabled, the application will not be shown in menus, but will be available for MIME type associations etc.
+#. Translators: "NoDisplay" on/off switch. When enabled, the application will
+#. not be shown in menus, but will be available for MIME type associations
+#. etc.
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Hide from menus"
 msgstr "Im Menü verstecken"
@@ -226,7 +235,8 @@ msgstr "Entfernen"
 msgid "Clear"
 msgstr "Leeren"
 
-#. Translators: Treeview column for whether an action item is displayed (boolean).
+#. Translators: Treeview column for whether an action item is displayed
+#. (boolean).
 #: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Show"
 msgstr "Anzeigen"
@@ -264,15 +274,14 @@ msgstr "Anwenden"
 msgid "Parsing Errors"
 msgstr "Analysierungsfehler"
 
-#. Translators: This text is displayed in the Parsing Errors dialog and provides a basic summary of the errors reported.
+#. Translators: This text is displayed in the Parsing Errors dialog and
+#. provides a basic summary of the errors reported.
 #: ../data/ui/MenulibreWindow.ui.h:82
 msgid ""
-"The following desktop files have failed parsing by the underlying library, "
-"and will therefore not show up in MenuLibre.\n"
+"The following desktop files have failed parsing by the underlying library, and will therefore not show up in MenuLibre.\n"
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
-"Die folgenden Desktop-Dateien haben das Parsen durch die zugrunde liegende "
-"Bibliothek nicht bestanden und werden daher nicht in MenuLibre angezeigt.\n"
+"Die folgenden Desktop-Dateien haben das Parsen durch die zugrunde liegende Bibliothek nicht bestanden und werden daher nicht in MenuLibre angezeigt.\n"
 "Bitte untersuchen Sie diese Probleme mit dem zuständigen Paketbetreuer."
 
 #. Translators: Tooltip for the "GenericName" text entry.
@@ -280,46 +289,44 @@ msgstr ""
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr "Allgemeiner Name der Anwendung, z.B. »Internetbrowser«."
 
-#. Translators: "GenericName" text entry. Generic name of the application, for example "Web Browser".
+#. Translators: "GenericName" text entry. Generic name of the application, for
+#. example "Web Browser".
 #: ../data/ui/MenulibreWindow.ui.h:87
 msgid "Generic Name"
 msgstr "Allgemeiner Name"
 
-#. Translators: Tooltip for the "NotShowIn" text entry. Possible values "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
+#. Translators: Tooltip for the "NotShowIn" text entry. Possible values
+#. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
+#. "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be
+#. translated.
 #: ../data/ui/MenulibreWindow.ui.h:89
 msgid ""
-"A list of environments that should not display this entry. You can only use "
-"this key if \"OnlyShowIn\" is not set.\n"
-"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
-"MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
+"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
-"Eine Liste von Arbeitsumgebungen, die diesen Eintrag nicht anzeigen sollen. "
-"Diese Option kann nur verwendet werden, wenn »Nur anzeigen in« nicht "
-"verwendet wird.\n"
-"Mögliche Werte sind: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, "
-"Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"Eine Liste von Arbeitsumgebungen, die diesen Eintrag nicht anzeigen sollen. Diese Option kann nur verwendet werden, wenn »Nur anzeigen in« nicht verwendet wird.\n"
+"Mögliche Werte sind: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#. Translators: "NotShowIn" text entry. A list of environments that should not display this entry.
+#. Translators: "NotShowIn" text entry. A list of environments that should not
+#. display this entry.
 #: ../data/ui/MenulibreWindow.ui.h:92
 msgid "Not Shown In"
 msgstr "Nicht anzeigen in"
 
-#. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
+#. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values
+#. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
+#. "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be
+#. translated.
 #: ../data/ui/MenulibreWindow.ui.h:94
 msgid ""
-"A list of environments that should display this entry. Other environments "
-"will not display this entry. You can only use this key if \"NotShowIn\" is "
-"not set.\n"
-"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
-"MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if \"NotShowIn\" is not set.\n"
+"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
-"Eine Liste von Arbeitsumgebungen, die diesen Eintrag anzeigen sollen. Diese "
-"Option kann nur verwendet werden, wenn »Nicht anzeigen in« nicht verwendet "
-"wird.\n"
-"Mögliche Werte sind: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, "
-"Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"Eine Liste von Arbeitsumgebungen, die diesen Eintrag anzeigen sollen. Diese Option kann nur verwendet werden, wenn »Nicht anzeigen in« nicht verwendet wird.\n"
+"Mögliche Werte sind: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#. Translators: "OnlyShowIn" text entry. A list of environments that should display this entry.
+#. Translators: "OnlyShowIn" text entry. A list of environments that should
+#. display this entry.
 #: ../data/ui/MenulibreWindow.ui.h:97
 msgid "Only Shown In"
 msgstr "Nur anzeigen in"
@@ -335,7 +342,8 @@ msgstr ""
 "ist. Wenn die Datei nicht vorhanden ist oder nicht ausführbar ist, wird "
 "dieser Eintrag im Menü nicht angezeigt."
 
-#. Translators: "TryExec" text entry. Path to an executable file to determine if the program is installed.
+#. Translators: "TryExec" text entry. Path to an executable file to determine
+#. if the program is installed.
 #: ../data/ui/MenulibreWindow.ui.h:101
 msgid "Try Exec"
 msgstr "Abfragebefehl"
@@ -346,7 +354,8 @@ msgid "The MIME type(s) supported by this application."
 msgstr ""
 "Die Dateitypen (MIME-Typen), die von dieser Anwendung unterstützt werden."
 
-#. Translators: "Mimetype" text entry. The MIME type(s) supported by this application.
+#. Translators: "Mimetype" text entry. The MIME type(s) supported by this
+#. application.
 #: ../data/ui/MenulibreWindow.ui.h:105
 msgid "Mimetypes"
 msgstr "MIME-Typen"
@@ -363,7 +372,8 @@ msgstr ""
 "gedacht und sollten nicht die Werte aus »Name« und »Allgemeiner Name« "
 "enthalten."
 
-#. Translators: "Keywords" text entry. A list of keywords to describe this entry.
+#. Translators: "Keywords" text entry. A list of keywords to describe this
+#. entry.
 #: ../data/ui/MenulibreWindow.ui.h:109
 msgid "Keywords"
 msgstr "Schlagwörter"
@@ -375,10 +385,11 @@ msgid ""
 "class or a WM name hint at least in one window."
 msgstr ""
 "Wenn angegeben, wird diese Anwendung aufgefordert, die Zeichenkette als "
-"Fensterverwaltungsklasse oder -namenshinweis, in wenigstens einem Fenster zu "
-"benutzen."
+"Fensterverwaltungsklasse oder -namenshinweis, in wenigstens einem Fenster zu"
+" benutzen."
 
-#. Translators: "StartupWMClass" text entry. A window manager hint for the application
+#. Translators: "StartupWMClass" text entry. A window manager hint for the
+#. application
 #: ../data/ui/MenulibreWindow.ui.h:113
 msgid "Startup WM Class"
 msgstr "Start-WM-Klasse"
@@ -394,10 +405,11 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
-"Wenn auf »AN« gestellt, ist das Ergebnis, für den Benutzer, entsprechend "
-"zur .desktop-Datei, die nicht vorhanden ist."
+"Wenn auf »AN« gestellt, ist das Ergebnis, für den Benutzer, entsprechend zur"
+" .desktop-Datei, die nicht vorhanden ist."
 
-#. Translators: "Hidden" on/off switch. When enabled, the application is hidden from the menu.
+#. Translators: "Hidden" on/off switch. When enabled, the application is
+#. hidden from the menu.
 #: ../data/ui/MenulibreWindow.ui.h:118
 msgid "Hidden"
 msgstr "Versteckt"
@@ -405,17 +417,14 @@ msgstr "Versteckt"
 #. Translators: Tooltip for the "DBusActivatable" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:120
 msgid ""
-"Set this key to \"True\" if D-Bus activation is supported for this "
-"application and you want to use it.\n"
-"See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
-"for more information."
+"Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
+"See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for more information."
 msgstr ""
-"Diesen Wert auf »AN« stellen, wenn D-Bus Aktivierung, für diese Anwendung, "
-"unterstützt wird und wenn sie verwendet werden soll.\n"
-"Für weitere Information: http://standards.freedesktop.org/desktop-entry-spec/"
-"latest/ar01s07.html"
+"Diesen Wert auf »AN« stellen, wenn D-Bus Aktivierung, für diese Anwendung, unterstützt wird und wenn sie verwendet werden soll.\n"
+"Für weitere Information: http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html"
 
-#. Translators: "DBusActivatable" on/off switch. When enabled, the application is said to be activated via DBUS.
+#. Translators: "DBusActivatable" on/off switch. When enabled, the application
+#. is said to be activated via DBUS.
 #: ../data/ui/MenulibreWindow.ui.h:123
 msgid "DBUS Activatable"
 msgstr "DBus-Aktivierbar"
@@ -425,7 +434,8 @@ msgstr "DBus-Aktivierbar"
 msgid "A list of interfaces that this application implements."
 msgstr "Eine Liste von Schnittstellen, die diese Anwendung enthält."
 
-#. Translators: "Implements" text entry. A list of interfaces that this application implements.
+#. Translators: "Implements" text entry. A list of interfaces that this
+#. application implements.
 #: ../data/ui/MenulibreWindow.ui.h:127
 msgid "Implements"
 msgstr "Enthält"
@@ -463,8 +473,8 @@ msgstr "Wollen Sie die Bedienungsanleitung von MenuLibre im Internet lesen?"
 #. Translators: Help Dialog, secondary text.
 #: ../menulibre/Dialogs.py:62
 msgid ""
-"You will be redirected to the documentation website where the help pages are "
-"maintained."
+"You will be redirected to the documentation website where the help pages are"
+" maintained."
 msgstr ""
 "Sie werden auf die Dokumentationsseite weitergeleitet, wo die Hilfeseiten "
 "verwaltet werden."
@@ -985,343 +995,14 @@ msgstr "%s Das Programm '%s' wurde im Pfad nicht gefunden"
 #: ../menulibre/util.py:681
 #, python-format
 msgid ""
-"%s program '%s' is not a valid shell command according to GLib."
-"shell_parse_argv, error: %s"
+"%s program '%s' is not a valid shell command according to "
+"GLib.shell_parse_argv, error: %s"
 msgstr ""
-"%s Das Programm '%s' ist kein gültiger Shell-Befehl gemäß GLib."
-"shell_parse_argv, Fehler: %s"
+"%s Das Programm '%s' ist kein gültiger Shell-Befehl gemäß "
+"GLib.shell_parse_argv, Fehler: %s"
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
 #: ../menulibre/util.py:687
 msgid "Unknown error. Desktop file appears to be valid."
 msgstr "Unbekannter Fehler. Die Schreibtischdatei scheint gültig zu sein."
-
-#~ msgid "Image File"
-#~ msgstr "Bilddatei"
-
-#~ msgid "Icon Name"
-#~ msgstr "Symbolname"
-
-#~ msgid "MenuLibre"
-#~ msgstr "MenuLibre"
-
-#~ msgid "<b>Preview</b>"
-#~ msgstr "<b>Vorschau</b>"
-
-#~ msgid "<big><b>Application Name</b></big>"
-#~ msgstr "<big><b>Name der Anwendung</b></big>"
-
-#~ msgid "<b>Options</b>"
-#~ msgstr "<b>Einstellungen</b>"
-
-#~ msgid "_Edit"
-#~ msgstr "_Bearbeiten"
-
-#~ msgid "_Help"
-#~ msgstr "_Hilfe"
-
-#~ msgid "_File"
-#~ msgstr "_Datei"
-
-#~ msgid "Icon Selection"
-#~ msgstr "Symbolauswahl"
-
-#~ msgid "32px"
-#~ msgstr "32px"
-
-#~ msgid "16px"
-#~ msgstr "16px"
-
-#~ msgid "<b>Select an image</b>"
-#~ msgstr "<b>Ein Bild auswählen</b>"
-
-#~ msgid "Application Comment"
-#~ msgstr "Anwendungskommentar"
-
-#~ msgid "128px"
-#~ msgstr "128px"
-
-#~ msgid "64px"
-#~ msgstr "64px"
-
-#~ msgid "<b>Select an icon</b>"
-#~ msgstr "<b>Ein Symbol auswählen</b>"
-
-#~ msgid "column"
-#~ msgstr "Spalte"
-
-#~ msgid "<b>Application Details</b>"
-#~ msgstr "<b>Anwendungsdetails</b>"
-
-#~ msgid "Select an executable..."
-#~ msgstr "Eine ausführbare Datei auswählen …"
-
-#~ msgid "Add _Launcher..."
-#~ msgstr "_Starter hinzufügen …"
-
-#~ msgid "Add Launcher..."
-#~ msgstr "Starter hinzufügen …"
-
-#~ msgid "Add _Directory..."
-#~ msgstr "_Ordner hinzufügen …"
-
-#~ msgid "Add Directory..."
-#~ msgstr "Ordner hinzufügen …"
-
-#~ msgid "Add Separator..."
-#~ msgstr "Trennlinie hinzufügen …"
-
-#~ msgid "_Add Separator..."
-#~ msgstr "_Trennlinie hinzufügen …"
-
-#~ msgid "\"Terminal\": Whether the program runs in a terminal window."
-#~ msgstr "»Terminal«: Ob das Programm im Terminal ausgeführt werden soll."
-
-#~ msgid "<small><i>Filename</i></small>"
-#~ msgstr "<small><i>Dateiname</i></small>"
-
-#~ msgid "Select an image"
-#~ msgstr "Bild auswählen"
-
-#~ msgid "Select a working directory..."
-#~ msgstr "Einen Arbeitsordner auswählen …"
-
-#~ msgid "Copyright © 2012-2014 Sean Davis"
-#~ msgstr "Urheberrecht © 2012-2014 Sean Davis"
-
-#~ msgid "Browse…"
-#~ msgstr "Durchsuchen …"
-
-#~ msgid "Action Name"
-#~ msgstr "Aktionsname"
-
-#~ msgid ""
-#~ "\"NotShowIn\": A list of strings identifying the environments that should "
-#~ "not\n"
-#~ "display a given desktop entry. Only one of these keys, either OnlyShowIn "
-#~ "or\n"
-#~ "NotShowIn, may appear in a group.\n"
-#~ "\n"
-#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-#~ "XFCE, Old"
-#~ msgstr ""
-#~ "„Nicht anzeigen in“: Eine Liste von Zeichenketten, welche die Umgebungen "
-#~ "angeben,\n"
-#~ "in denen der Eintrag nicht angezeigt werden soll. In einer Gruppe sollte "
-#~ "entweder \n"
-#~ "nur „Nicht anzeigen in“ oder „Nur anzeigen in“ auftauchen.\n"
-#~ "\n"
-#~ "Mögliche Werte: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
-
-#~ msgid ""
-#~ "\"TryExec\": Path to an executable file on disk used to determine if the "
-#~ "program\n"
-#~ "is actually installed. If the path is not an absolute path, the file is "
-#~ "looked\n"
-#~ "up in the $PATH environment variable. If the file is not present or if it "
-#~ "is\n"
-#~ "not executable, the entry may be ignored (not be used in menus, for "
-#~ "example). "
-#~ msgstr ""
-#~ "„Abfragebefehl“: Pfad zu einer ausführbaren Datei auf der Festplatte, "
-#~ "die\n"
-#~ "genutzt werden kann, um herauszuginden, ob ein Programm bereits "
-#~ "installiert\n"
-#~ "ist. Falls der Pfad nicht absolut ist, die Datei in der $PATH-"
-#~ "Umgebungsvariable\n"
-#~ "gesucht. Falls die Datei nicht existiert oder nicht ausführbar ist, "
-#~ "sollte der \n"
-#~ "Eintrag ignoriert werden (z.B. in Menüs) "
-
-#~ msgid ""
-#~ "\"NoDisplay\": NoDisplay means \"this application exists, but don't "
-#~ "display it in\n"
-#~ "the menus\". This can be useful to e.g. associate this application with "
-#~ "MIME\n"
-#~ "types, so that it gets launched from a file manager (or other apps), "
-#~ "without\n"
-#~ "having a menu entry for it (there are tons of good reasons for this,\n"
-#~ "including e.g. the netscape -remote, or kfmclient openURL kind of stuff)."
-#~ msgstr ""
-#~ "„Im Menü verstecken“: Im Menü verstecken bedeutet, die Anwendung "
-#~ "exisitiert,\n"
-#~ "aber wird nicht im Menü angezeigt. Das kann beispielsweise nützlich sein, "
-#~ "wenn\n"
-#~ "die Anwendung mit MIME-Typen verknüpft wird, so dass sie von einer "
-#~ "Datei-\n"
-#~ "verwaltung oder anderen Anwendungen gestaret werden kann, ohne einen\n"
-#~ "Menüeintrag zu brauchen (es gibt massenhaft weitere Gründe, warum das\n"
-#~ "nützlich ist, z.B. netscape -remote oder etwas wie kfmclient openURL)."
-
-#~ msgid ""
-#~ "\"Exec\": Program to execute, possibly with arguments. The Exec key is "
-#~ "required\n"
-#~ "if DBusActivatable is not set to true. Even if DBusActivatable is true, "
-#~ "Exec\n"
-#~ "should be specified for compatibility with implementations that do not\n"
-#~ "understand DBusActivatable. \n"
-#~ "\n"
-#~ "Please see\n"
-#~ "http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
-#~ "latest.html#exec-variables\n"
-#~ "for a list of supported arguments."
-#~ msgstr ""
-#~ "„Befehl“: Programm, das ausgeführt werden soll, ggf. mit Argumenten. \n"
-#~ "Der Befehl ist erforderlich, es sei denn DBusActivatable ist auf wahr "
-#~ "gesetzt.\n"
-#~ "Aber selbst dann sollte der Befehl angegeben werden für die "
-#~ "Kompatibilität\n"
-#~ "mit Implementierungen, die DBusActivatable nicht verstehen.\n"
-#~ "\n"
-#~ "Auf\n"
-#~ "http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
-#~ "latest.html#exec-variables\n"
-#~ "findet sich eine Liste mit unterstützten Argumenten."
-
-#~ msgid "Search terms…"
-#~ msgstr "Suchbegriffe …"
-
-#~ msgid "\"Path\": The working directory to run the program in."
-#~ msgstr ""
-#~ "„Pfad“: Das Arbeitsverzeichnis, in dem das Programm ausgeführt werden "
-#~ "soll."
-
-#~ msgid ""
-#~ "\"GenericName\": Generic name of the application, for example \"Web "
-#~ "Browser\"."
-#~ msgstr ""
-#~ "„Allgemeiner Name“: Allgemeiner Name der Anwendung, zum Beispiel \"Web "
-#~ "Browser\"."
-
-#~ msgid ""
-#~ "\"OnlyShowIn\": A list of strings identifying the environments that "
-#~ "should\n"
-#~ "display a given desktop entry. Only one of these keys, either OnlyShowIn "
-#~ "or\n"
-#~ "NotShowIn, may appear in a group.\n"
-#~ "\n"
-#~ "Possible values include: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, "
-#~ "XFCE, Old"
-#~ msgstr ""
-#~ "„Nur anzeigen in“: Eine Liste von Zeichenketten, welche die Umgebungen "
-#~ "angeben,\n"
-#~ "in denen der Eintrag angezeigt werden soll. In einer Gruppe sollte "
-#~ "entweder \n"
-#~ "nur „Nicht anzeigen in“ oder „Nur anzeigen in“ auftauchen.\n"
-#~ "\n"
-#~ "Mögliche Werte: GNOME, KDE, LXDE, MATE, Razor, ROX, TDE, Unity, XFCE, Old"
-
-#~ msgid "\"MimeType\": The MIME type(s) supported by this application."
-#~ msgstr ""
-#~ "„Mime-Typ“: Die MIME-Typen, die von dieser Anwendung unterstützt werden."
-
-#~ msgid ""
-#~ "\"Keywords\": A list of strings which may be used in addition to other "
-#~ "metadata\n"
-#~ "to describe this entry. This can be useful e.g. to facilitate searching "
-#~ "through\n"
-#~ "entries. The values are not meant for display, and should not be "
-#~ "redundant\n"
-#~ "with the values of Name or GenericName."
-#~ msgstr ""
-#~ "„Schlagwörter“: Eine Liste von Zeichenketten, welche nützlich sein "
-#~ "können,\n"
-#~ "um den Eintrag zu beschreiben, zusätzlich zu den Metadaten. Das kann\n"
-#~ "beispielsweise nützlich sein, um eine Suche nach den Einträge "
-#~ "durchzuführen.\n"
-#~ "Diese Werte sind nicht für die Anzeige gedacht und sollten nicht "
-#~ "redundant\n"
-#~ "zu den Werten des Namens bzw. Allgemeinen Namens sein."
-
-#~ msgid ""
-#~ "\"StartupWMClass\": If specified, it is known that the application will "
-#~ "map at\n"
-#~ "least one window with the given string as its WM class or WM name hint."
-#~ msgstr ""
-#~ "„Start-WM-Klasse“: Falls angegeben, ist es bekannt, dass die Anwendung\n"
-#~ "mindestens ein Fenster mit der gegebenen Zeichenkette als WM-Klasse\n"
-#~ "oder WM-Namenshinweis verbinden wird."
-
-#~ msgid ""
-#~ "\"Hidden\": Hidden should have been called Deleted. It means the user "
-#~ "deleted\n"
-#~ "(at his level) something that was present (at an upper level, e.g. in "
-#~ "the\n"
-#~ "system dirs). It's strictly equivalent to the .desktop file not existing "
-#~ "at\n"
-#~ "all, as far as that user is concerned. This can also be used to "
-#~ "\"uninstall\"\n"
-#~ "existing files (e.g. due to a renaming) - by letting make install install "
-#~ "a\n"
-#~ "file with Hidden=true in it."
-#~ msgstr ""
-#~ "„Versteckt“: Versteckt könnte auch gelöscht genannt werden. Es\n"
-#~ "bedeutet, dass der Nutzer (auf seiner Stufe) etwas gelöscht hat,\n"
-#~ "dass auf einer anderen Stufe präsent war (auf einer höheren Stufe,\n"
-#~ "z.B. im Systemverzeichnis). Es ist völlig identisch dazu, dass eine\n"
-#~ ".desktop-Datei nicht existiert, insofern es den Nutzer betrifft.\n"
-#~ "Es kann auch für die „Deinstallation“ von Dateien verwendet\n"
-#~ "werden (z.B. wegen Umbenennung), indem man „make install“ eine\n"
-#~ "Datei mit „Hidden=true“ erstellen lässt."
-
-#~ msgid "Cannot add subdirectories to preinstalled system paths."
-#~ msgstr ""
-#~ "Unterverzeichnisse können zu vorinstallierten Systempfaden nicht "
-#~ "hinzugefügt werden."
-
-#~ msgid ""
-#~ "\"DBusActivatable\": A boolean value specifying if D-Bus activation is "
-#~ "supported\n"
-#~ "for this application. If this key is missing, the default value is false. "
-#~ "If\n"
-#~ "the value is true then implementations should ignore the Exec key and "
-#~ "send a\n"
-#~ "D-Bus message to launch the application. See D-Bus Activation for more\n"
-#~ "information on how this works. Applications should still include Exec= "
-#~ "lines\n"
-#~ "in their desktop files for compatibility with implementations that do "
-#~ "not\n"
-#~ "understand the DBusActivatable key."
-#~ msgstr ""
-#~ "„DBus-Aktivierbar“: Ein bool'scher Wert, der angibt, ob D-Bus-"
-#~ "Aktivierung\n"
-#~ "von dieser Anwendung unterstützt wird. Falls der Wert fehlt, ist falsch "
-#~ "der\n"
-#~ "Standardwert. Falls der Wert wahr ist, sollte die Implementierung den\n"
-#~ "Befehl ignorieren und eine D-Bus-Nachricht senden, um die Anwendung\n"
-#~ "zu starten. Unter D-Bus-Aktivierung finden sich mehr Informationen "
-#~ "darüber,\n"
-#~ "wie das funktioniert. Anwendungen sollten dennoch die Befehlszeile in\n"
-#~ "ihren Desktop-Dateien aufnehmen für die Kompatibilität mit \n"
-#~ "Implementierungen, die DBus-Aktivierungen nicht verstehen."
-
-#~ msgid ""
-#~ "\"StartupNotify\": If true, it is KNOWN that the application will send a "
-#~ "\"remove\"\n"
-#~ "message when started with the DESKTOP_STARTUP_ID environment variable "
-#~ "set. If\n"
-#~ "false, it is KNOWN that the application does not work with startup "
-#~ "notification\n"
-#~ "at all (does not shown any window, breaks even when using StartupWMClass, "
-#~ "etc.).\n"
-#~ "If absent, a reasonable handling is up to implementations (assuming "
-#~ "false,\n"
-#~ "using StartupWMClass, etc.)."
-#~ msgstr ""
-#~ "„Startbenachrichtigung nutzen“: Falls wahr, ist es bekannt, dass die "
-#~ "Anwendung eine\n"
-#~ "„Entfernen“-Nachricht senden wird, mit der gesetzten DESKTOP_STARTUP_ID-\n"
-#~ "Umgebungsvariable. Falls falsch, ist es bekannt, dass die Anwendung "
-#~ "grundsätzlich\n"
-#~ "nicht mit Startbenachrichtigungen funktioniert (in keinem Fenster "
-#~ "angezeigt, stürzt\n"
-#~ "selbst ab, wenn Start-WM-Klasse benutzt wird, etc.). Falls nicht "
-#~ "angegeben, liegt es\n"
-#~ "an der Implementierung, einen geeigneten Umgang zu finden (falsch "
-#~ "annehmen,\n"
-#~ "wenn StartupWMClass genutzt wird, etc.)."
-
-#~ msgid "If you don't save the launcher, all the changes will be lost.'"
-#~ msgstr ""
-#~ "Wenn der Starter nicht gespeichert wird, werden alle Änderungen verworfen."
