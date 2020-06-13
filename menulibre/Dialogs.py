@@ -68,7 +68,7 @@ def HelpDialog(parent):
         # online documentation.
         (_("Read Online"), Gtk.ResponseType.OK)
     ]
-    url = "https://wiki.bluesabre.org/menulibre-docs"
+    url = "https://github.com/bluesabre/menulibre/wiki"
 
     dialog = Gtk.MessageDialog(transient_for=parent, modal=True,
                                message_type=Gtk.MessageType.QUESTION,

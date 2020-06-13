@@ -262,7 +262,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # dismissed.
             primary = _("MenuLibre cannot be run as root.")
 
-            docs_url = "https://wiki.bluesabre.org/menulibre_faq"
+            docs_url = "https://github.com/bluesabre/menulibre/wiki/Frequently-Asked-Questions"
 
             # Translators: This link goes to the online documentation with more
             # information.
