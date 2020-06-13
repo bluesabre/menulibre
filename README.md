@@ -1,7 +1,7 @@
 # MenuLibre
 **MenuLibre** is an advanced FreeDesktop.org compliant menu editor.
 
-![MenuLibre window](https://screenshots.bluesabre.org/menulibre/docs/menulibre-github.png)
+![MenuLibre window](https://github.com/bluesabre/menulibre/blob/wiki-assets/readme/menulibre-github.png)
 
 All fields specified in the FreeDesktop.org [Desktop Entry](https://specifications.freedesktop.org/desktop-entry-spec/latest/) and [Menu](https://specifications.freedesktop.org/menu-spec/latest/) 
 specifications are available to quickly update.
