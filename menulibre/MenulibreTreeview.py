@@ -876,6 +876,8 @@ class Treeview(GObject.GObject):
 
         self.update_menus()
 
+        self.scroll_to_selection()
+
         self.emit("cursor-changed", True)
 
     def _get_iter_by_data(self, row_data, model, parent=None):
@@ -984,3 +986,10 @@ class Treeview(GObject.GObject):
 
                 # Committing changes
                 self.update_menus()
+
+            self.scroll_to_selection()
+
+    def scroll_to_selection(self):
+        model, sel_iter = self._get_selected_iter()
+        self._treeview.scroll_to_cell(model.get_path(sel_iter), None,
+                                False, 0.0, 0.0)
