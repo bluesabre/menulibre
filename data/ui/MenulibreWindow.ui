@@ -978,7 +978,7 @@
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;Exec&quot; text entry.">Program to execute with arguments. This key is required if DBusActivatable is not set to "True" or if you need compatibility with implementations that do not understand D-Bus activation.
-See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#exec-variables for a list of supported arguments.</property>
+See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments.</property>
                                                     <property name="label" translatable="yes" comments="Translators: &quot;Exec&quot; text entry. Program to execute with arguments.">Command</property>
                                                     <property name="xalign">0</property>
                                                   </object>
@@ -2059,7 +2059,7 @@ Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pa
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;DBusActivatable&quot; on/off switch.">Set this key to "True" if D-Bus activation is supported for this application and you want to use it.
-See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for more information.</property>
+See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information.</property>
                 <property name="label" translatable="yes" comments="Translators: &quot;DBusActivatable&quot; on/off switch. When enabled, the application is said to be activated via DBUS.">DBUS Activatable</property>
                 <property name="xalign">0</property>
               </object>
@@ -2121,7 +2121,7 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes" context="If true, the application prefers to be run on a more powerful GPU (graphics processing unit, graphics card) if available.">Set this key to "True" if this application prefers to be run on a more powerful GPU if available.
-See https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#recognized-keys for more information.</property>
+See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information.</property>
                 <property name="label" translatable="yes" context="If true, the application prefers to be run on a more powerful GPU (graphics processing unit, graphics card) if available.">Prefers Non-Default GPU</property>
               </object>
               <packing>

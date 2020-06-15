@@ -2,23 +2,24 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Sean Davis <sean@bluesabre.org>, 2020
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-09 18:45-0400\n"
+"POT-Creation-Date: 2020-06-15 07:19-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Sean Davis <sean@bluesabre.org>, 2020\n"
-"Language-Team: Danish (https://www.transifex.com/bluesabreorg/teams/99550/da/)\n"
+"Language-Team: Danish (https://www.transifex.com/bluesabreorg/teams/99550/"
+"da/)\n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -65,8 +66,7 @@ msgstr "Gem programstarter"
 msgid "Undo"
 msgstr "Fortryd"
 
-#. Translators: Toolbar button to redo the last undone change to currently
-#. selected item.
+#. Translators: Toolbar button to redo the last undone change to currently selected item.
 #. Translators: Redo action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:16 ../menulibre/MenulibreApplication.py:437
 msgid "Redo"
@@ -102,26 +102,22 @@ msgstr "Gem"
 msgid "Search"
 msgstr "Søg"
 
-#. Translators: This error is displayed in a notice at the top of the
-#. application when one or more desktop files fails processing.
+#. Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Invalid desktop files detected! Please see details."
 msgstr "Ugyldig skrivebordsfil registreret! Se venligst detaljerne."
 
-#. Translators: Treeview toolbar button to move the currently selected item
-#. up.
+#. Translators: Treeview toolbar button to move the currently selected item up.
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Move Up"
 msgstr "Flyt op"
 
-#. Translators: Treeview toolbar button to move the currently selected item
-#. down.
+#. Translators: Treeview toolbar button to move the currently selected item down.
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Move Down"
 msgstr "Flyt ned"
 
-#. Translators: Treeview toolbar button to sort the currently open submenu
-#. alphabetically.
+#. Translators: Treeview toolbar button to sort the currently open submenu alphabetically.
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Sort Alphabetically"
 msgstr "Sortér alfabetisk"
@@ -133,18 +129,24 @@ msgstr "Programnavn"
 
 #. Translators: Placeholder text/hint for the application comment entry.
 #. Translators: "Description" tree column header
-#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:831
+#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:832
 msgid "Description"
 msgstr "Beskrivelse"
 
 #. Translators: Tooltip for the "Exec" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid ""
-"Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
-"See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#exec-variables for a list of supported arguments."
+"Program to execute with arguments. This key is required if DBusActivatable "
+"is not set to \"True\" or if you need compatibility with implementations "
+"that do not understand D-Bus activation.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
+"Keys#exec for a list of supported arguments."
 msgstr ""
-"Program som skal eksekveres med argumenter. Denne nøgle kræves hvis DBusActivatable ikke er sat til \"True\" eller hvis du behøver kompatibilitet med implementeringer som ikke forstår D-Bus-aktivering.\n"
-"Se http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#exec-variables for en liste over understøttede argumenter."
+"Program som skal eksekveres med argumenter. Denne nøgle kræves hvis "
+"DBusActivatable ikke er sat til \"True\" eller hvis du behøver "
+"kompatibilitet med implementeringer som ikke forstår D-Bus-aktivering.\n"
+"Se https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
+"Keys#exec for en liste over understøttede argumenter."
 
 #. Translators: Treeview column for an action item
 #: ../data/ui/MenulibreWindow.ui.h:42
@@ -169,10 +171,10 @@ msgstr "Programdetaljer"
 #. Translators: Tooltip for the "Terminal" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "If set to \"True\", the program will be ran in a terminal window."
-msgstr "Hvis den er sat til \"True\", så vil programmet køre i et terminalvindue."
+msgstr ""
+"Hvis den er sat til \"True\", så vil programmet køre i et terminalvindue."
 
-#. Translators: "Terminal" on/off switch. When enabled, the application is
-#. executed in a terminal window.
+#. Translators: "Terminal" on/off switch. When enabled, the application is executed in a terminal window.
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Run in terminal"
 msgstr "Kør i terminal"
@@ -183,11 +185,10 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
-"Hvis den er sat til \"True\", så sendes en opstartsunderretning. Det betyder"
-" typisk at en optaget-markør vises mens programmet starter."
+"Hvis den er sat til \"True\", så sendes en opstartsunderretning. Det betyder "
+"typisk at en optaget-markør vises mens programmet starter."
 
-#. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is
-#. shown while the application launches.
+#. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is shown while the application launches.
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Use startup notification"
 msgstr "Brug opstartsunderretning"
@@ -201,9 +202,7 @@ msgstr ""
 "Hvis den er sat til \"True\", så vises denne post ikke i menuer, men vil "
 "være tilgængelig for MIME-type-tilknytninger osv."
 
-#. Translators: "NoDisplay" on/off switch. When enabled, the application will
-#. not be shown in menus, but will be available for MIME type associations
-#. etc.
+#. Translators: "NoDisplay" on/off switch. When enabled, the application will not be shown in menus, but will be available for MIME type associations etc.
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Hide from menus"
 msgstr "Skjul fra menuer"
@@ -228,8 +227,7 @@ msgstr "Fjern"
 msgid "Clear"
 msgstr "Ryd"
 
-#. Translators: Treeview column for whether an action item is displayed
-#. (boolean).
+#. Translators: Treeview column for whether an action item is displayed (boolean).
 #: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Show"
 msgstr "Vis"
@@ -267,14 +265,15 @@ msgstr "Anvend"
 msgid "Parsing Errors"
 msgstr "Fortolkningsfejl"
 
-#. Translators: This text is displayed in the Parsing Errors dialog and
-#. provides a basic summary of the errors reported.
+#. Translators: This text is displayed in the Parsing Errors dialog and provides a basic summary of the errors reported.
 #: ../data/ui/MenulibreWindow.ui.h:82
 msgid ""
-"The following desktop files have failed parsing by the underlying library, and will therefore not show up in MenuLibre.\n"
+"The following desktop files have failed parsing by the underlying library, "
+"and will therefore not show up in MenuLibre.\n"
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
-"Følgende skrivebordsfiler kunne ikke fortolkes af det underliggende bibliotek og vil derfor ikke blive vist i MenuLibre.\n"
+"Følgende skrivebordsfiler kunne ikke fortolkes af det underliggende "
+"bibliotek og vil derfor ikke blive vist i MenuLibre.\n"
 "Undersøg venligst disse problemer med den tilknyttede pakkehåndtering."
 
 #. Translators: Tooltip for the "GenericName" text entry.
@@ -282,44 +281,44 @@ msgstr ""
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr "Generisk navn på programmet, f.eks. \"Webbrowser\"."
 
-#. Translators: "GenericName" text entry. Generic name of the application, for
-#. example "Web Browser".
+#. Translators: "GenericName" text entry. Generic name of the application, for example "Web Browser".
 #: ../data/ui/MenulibreWindow.ui.h:87
 msgid "Generic Name"
 msgstr "Generisk navn"
 
-#. Translators: Tooltip for the "NotShowIn" text entry. Possible values
-#. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
-#. "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be
-#. translated.
+#. Translators: Tooltip for the "NotShowIn" text entry. Possible values "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
 #: ../data/ui/MenulibreWindow.ui.h:89
 msgid ""
-"A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
-"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"A list of environments that should not display this entry. You can only use "
+"this key if \"OnlyShowIn\" is not set.\n"
+"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
+"MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
-"En liste over miljøer som ikke skal vise denne post. Du kan kun bruge denne nøgle hvis \"OnlyShowIn\" ikke er sat.\n"
-"Mulige værdier inkludere: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"En liste over miljøer som ikke skal vise denne post. Du kan kun bruge denne "
+"nøgle hvis \"OnlyShowIn\" ikke er sat.\n"
+"Mulige værdier inkludere: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
+"MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#. Translators: "NotShowIn" text entry. A list of environments that should not
-#. display this entry.
+#. Translators: "NotShowIn" text entry. A list of environments that should not display this entry.
 #: ../data/ui/MenulibreWindow.ui.h:92
 msgid "Not Shown In"
 msgstr "Vises ikke i"
 
-#. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values
-#. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
-#. "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be
-#. translated.
+#. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
 #: ../data/ui/MenulibreWindow.ui.h:94
 msgid ""
-"A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if \"NotShowIn\" is not set.\n"
-"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"A list of environments that should display this entry. Other environments "
+"will not display this entry. You can only use this key if \"NotShowIn\" is "
+"not set.\n"
+"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
+"MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
-"En liste over miljøer som skal vise denne post. Andre miljøer vil ikke vise denne post. Du kan kun bruge denne nøgle hvis \"NotShowIn\" ikke er sat.\n"
-"Mulige værdier inkludere: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"En liste over miljøer som skal vise denne post. Andre miljøer vil ikke vise "
+"denne post. Du kan kun bruge denne nøgle hvis \"NotShowIn\" ikke er sat.\n"
+"Mulige værdier inkludere: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
+"MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#. Translators: "OnlyShowIn" text entry. A list of environments that should
-#. display this entry.
+#. Translators: "OnlyShowIn" text entry. A list of environments that should display this entry.
 #: ../data/ui/MenulibreWindow.ui.h:97
 msgid "Only Shown In"
 msgstr "Vis kun i"
@@ -335,8 +334,7 @@ msgstr ""
 "Hvis filen ikke er tilstede eller ikke er eksekverbar, så vises denne post "
 "muligvis ikke i en menu."
 
-#. Translators: "TryExec" text entry. Path to an executable file to determine
-#. if the program is installed.
+#. Translators: "TryExec" text entry. Path to an executable file to determine if the program is installed.
 #: ../data/ui/MenulibreWindow.ui.h:101
 msgid "Try Exec"
 msgstr "Prøve exec"
@@ -346,8 +344,7 @@ msgstr "Prøve exec"
 msgid "The MIME type(s) supported by this application."
 msgstr "MIME-type(r) som understøttes af dette program."
 
-#. Translators: "Mimetype" text entry. The MIME type(s) supported by this
-#. application.
+#. Translators: "Mimetype" text entry. The MIME type(s) supported by this application.
 #: ../data/ui/MenulibreWindow.ui.h:105
 msgid "Mimetypes"
 msgstr "MIME-typer"
@@ -363,8 +360,7 @@ msgstr ""
 "hjælpe med søgeindtastninger. De er ikke beregnet til visning og behøver "
 "ikke indeholde værdierne af Name eller GenericName."
 
-#. Translators: "Keywords" text entry. A list of keywords to describe this
-#. entry.
+#. Translators: "Keywords" text entry. A list of keywords to describe this entry.
 #: ../data/ui/MenulibreWindow.ui.h:109
 msgid "Keywords"
 msgstr "Nøgleord"
@@ -378,8 +374,7 @@ msgstr ""
 "Hvis den er angivet, så vil programmet blive anmodet om at bruge strengen "
 "som en VM-klasse eller et WM-navnetip i mindst ét vindue."
 
-#. Translators: "StartupWMClass" text entry. A window manager hint for the
-#. application
+#. Translators: "StartupWMClass" text entry. A window manager hint for the application
 #: ../data/ui/MenulibreWindow.ui.h:113
 msgid "Startup WM Class"
 msgstr "Opstarts WM-klasse"
@@ -398,8 +393,7 @@ msgstr ""
 "Hvis den er sat til \"True\", så er resultater for brugeren det samme som "
 "hvis .desktop-filen overhovedet ikke fandtes."
 
-#. Translators: "Hidden" on/off switch. When enabled, the application is
-#. hidden from the menu.
+#. Translators: "Hidden" on/off switch. When enabled, the application is hidden from the menu.
 #: ../data/ui/MenulibreWindow.ui.h:118
 msgid "Hidden"
 msgstr "Skjult"
@@ -407,14 +401,17 @@ msgstr "Skjult"
 #. Translators: Tooltip for the "DBusActivatable" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:120
 msgid ""
-"Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
-"See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for more information."
+"Set this key to \"True\" if D-Bus activation is supported for this "
+"application and you want to use it.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
+"Keys#dbusactivatable for more information."
 msgstr ""
-"Sæt denne nøgle til \"True\" hvis D-Bus-aktivering understøttes for dette program og du ønsker at bruge det.\n"
-"Se http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for mere information."
+"Sæt denne nøgle til \"True\" hvis D-Bus-aktivering understøttes for dette "
+"program og du ønsker at bruge det.\n"
+"Se https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
+"Keys#dbusactivatable for mere information."
 
-#. Translators: "DBusActivatable" on/off switch. When enabled, the application
-#. is said to be activated via DBUS.
+#. Translators: "DBusActivatable" on/off switch. When enabled, the application is said to be activated via DBUS.
 #: ../data/ui/MenulibreWindow.ui.h:123
 msgid "DBUS Activatable"
 msgstr "DBUS kan aktiveres"
@@ -424,11 +421,33 @@ msgstr "DBUS kan aktiveres"
 msgid "A list of interfaces that this application implements."
 msgstr "En liste over grænseflader som programmet implementerer."
 
-#. Translators: "Implements" text entry. A list of interfaces that this
-#. application implements.
+#. Translators: "Implements" text entry. A list of interfaces that this application implements.
 #: ../data/ui/MenulibreWindow.ui.h:127
 msgid "Implements"
 msgstr "Implementerer"
+
+#: ../data/ui/MenulibreWindow.ui.h:128
+#, fuzzy
+msgctxt ""
+"If true, the application prefers to be run on a more powerful GPU (graphics "
+"processing unit, graphics card) if available."
+msgid ""
+"Set this key to \"True\" if this application prefers to be run on a more "
+"powerful GPU if available.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
+"Keys#prefersnondefaultgpu for more information."
+msgstr ""
+"Sæt denne nøgle til \"True\" hvis D-Bus-aktivering understøttes for dette "
+"program og du ønsker at bruge det.\n"
+"Se https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
+"Keys#dbusactivatable for mere information."
+
+#: ../data/ui/MenulibreWindow.ui.h:130
+msgctxt ""
+"If true, the application prefers to be run on a more powerful GPU (graphics "
+"processing unit, graphics card) if available."
+msgid "Prefers Non-Default GPU"
+msgstr ""
 
 #. Translators: Command line option to display debug messages on stdout
 #: ../menulibre/__init__.py:34
@@ -463,8 +482,8 @@ msgstr "Vil du læse MenuLibre-manualen online?"
 #. Translators: Help Dialog, secondary text.
 #: ../menulibre/Dialogs.py:62
 msgid ""
-"You will be redirected to the documentation website where the help pages are"
-" maintained."
+"You will be redirected to the documentation website where the help pages are "
+"maintained."
 msgstr ""
 "Du vil blive viderestillet til dokumentationswebstedet hvor hjælpesiderne "
 "vedligeholdes."
@@ -576,8 +595,8 @@ msgid "Click on the main application window for '%s'."
 msgstr "Klik på hovedprogrammets vindue for '%s'."
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1212
-#: ../menulibre/MenulibreApplication.py:1710
+#: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1213
+#: ../menulibre/MenulibreApplication.py:1711
 msgid "Separator"
 msgstr "Separator"
 
@@ -799,7 +818,7 @@ msgstr "_Afslut"
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:473
-#: ../menulibre/MenulibreApplication.py:2240
+#: ../menulibre/MenulibreApplication.py:2241
 msgid "Quit"
 msgstr "Afslut"
 
@@ -810,7 +829,7 @@ msgstr "_Indhold"
 
 #. Translators: Help action tooltip
 #: ../menulibre/MenulibreApplication.py:482
-#: ../menulibre/MenulibreApplication.py:2238
+#: ../menulibre/MenulibreApplication.py:2239
 msgid "Help"
 msgstr "Hjælp"
 
@@ -821,7 +840,7 @@ msgstr "_Om"
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:491
-#: ../menulibre/MenulibreApplication.py:2239
+#: ../menulibre/MenulibreApplication.py:2240
 msgid "About"
 msgstr "Om"
 
@@ -841,84 +860,84 @@ msgid "Advanced"
 msgstr "Avanceret"
 
 #. Translators: Launcher-specific categories, camelcase "This Entry"
-#: ../menulibre/MenulibreApplication.py:799
+#: ../menulibre/MenulibreApplication.py:800
 msgid "ThisEntry"
 msgstr "DennePost"
 
 #. Translators: Placeholder text for the launcher-specific category
 #. selection.
-#: ../menulibre/MenulibreApplication.py:820
+#: ../menulibre/MenulibreApplication.py:821
 msgid "Select a category"
 msgstr "Vælg en kategori"
 
 #. Translators: "Category Name" tree column header
-#: ../menulibre/MenulibreApplication.py:824
+#: ../menulibre/MenulibreApplication.py:825
 msgid "Category Name"
 msgstr "Kategorinavn"
 
 #. Translators: "This Entry" launcher-specific category group
-#: ../menulibre/MenulibreApplication.py:927
+#: ../menulibre/MenulibreApplication.py:928
 msgid "This Entry"
 msgstr "Denne post"
 
 #. Translators: Placeholder text for a newly created action
-#: ../menulibre/MenulibreApplication.py:988
+#: ../menulibre/MenulibreApplication.py:989
 msgid "New Shortcut"
 msgstr "Ny genvej"
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1138
+#: ../menulibre/MenulibreApplication.py:1139
 msgid "Select a working directory…"
 msgstr "Vælg en arbejdsmappe..."
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1142
+#: ../menulibre/MenulibreApplication.py:1143
 msgid "Select an executable…"
 msgstr "Vælg en eksekverbar..."
 
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:1388
+#: ../menulibre/MenulibreApplication.py:1389
 msgid "You do not have permission to delete this file."
 msgstr "Du har ikke tilladelse til at slette denne fil."
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1636
+#: ../menulibre/MenulibreApplication.py:1637
 msgid "New Launcher"
 msgstr "Ny programstarter"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1639 ../menulibre/MenulibreXdg.py:49
+#: ../menulibre/MenulibreApplication.py:1640 ../menulibre/MenulibreXdg.py:49
 msgid "A small descriptive blurb about this application."
 msgstr "En lille beskrivende bagsidetekst om dette program."
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1689
+#: ../menulibre/MenulibreApplication.py:1690
 msgid "New Directory"
 msgstr "Ny mappe"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1692
+#: ../menulibre/MenulibreApplication.py:1693
 msgid "A small descriptive blurb about this directory."
 msgstr "En kort beskrivende tekstbid om mappen."
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:2117
+#: ../menulibre/MenulibreApplication.py:2118
 msgid "Are you sure you want to delete this separator?"
 msgstr "Er du sikker på, at du vil slette denne separator?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:2121
+#: ../menulibre/MenulibreApplication.py:2122
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Er du sikker på, at du vil slette \"%s\"?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:2233
+#: ../menulibre/MenulibreApplication.py:2234
 msgid "Parsing Error Log"
 msgstr "Fortolkningsfejllog"
 
@@ -945,7 +964,7 @@ msgstr "Nyt menuelement"
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
 #. code is displayed.
-#: ../menulibre/util.py:619
+#: ../menulibre/util.py:620
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr "Kan ikke indlæse skrivebordsfil pga. følgende fejl: %s"
@@ -953,41 +972,41 @@ msgstr "Kan ikke indlæse skrivebordsfil pga. følgende fejl: %s"
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
 #. translated.
-#: ../menulibre/util.py:634
+#: ../menulibre/util.py:635
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr "Startgruppe er ugyldig - nuværende er '%s', skal være '%s'"
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:644
+#: ../menulibre/util.py:645
 #, python-format
 msgid "%s key not found"
 msgstr "%s-nøgle ikke fundet"
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
-#: ../menulibre/util.py:649
+#: ../menulibre/util.py:650
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr "%s værdi er ugyldig - nuværende er '%s', skal være '%s'"
 
-#: ../menulibre/util.py:678
+#: ../menulibre/util.py:679
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
 msgstr "%s programmet '%s' blev ikke fundet i PATH"
 
-#: ../menulibre/util.py:681
+#: ../menulibre/util.py:682
 #, python-format
 msgid ""
-"%s program '%s' is not a valid shell command according to "
-"GLib.shell_parse_argv, error: %s"
+"%s program '%s' is not a valid shell command according to GLib."
+"shell_parse_argv, error: %s"
 msgstr ""
-"%s programmet '%s' er ikke en gyldig skalkommando i følge "
-"GLib.shell_parse_argv, fejl: %s"
+"%s programmet '%s' er ikke en gyldig skalkommando i følge GLib."
+"shell_parse_argv, fejl: %s"
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
-#: ../menulibre/util.py:687
+#: ../menulibre/util.py:688
 msgid "Unknown error. Desktop file appears to be valid."
 msgstr "Ukendt fejl. Skrivebordsfilen ser ud til at være gyldig."

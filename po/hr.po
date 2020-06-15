@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-09 18:45-0400\n"
+"POT-Creation-Date: 2020-06-15 07:19-0400\n"
 "PO-Revision-Date: 2018-03-03 16:48+0000\n"
 "Last-Translator: zvacet <ikoli@yahoo.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -127,7 +127,7 @@ msgstr "Naziv aplikacije"
 
 #. Translators: Placeholder text/hint for the application comment entry.
 #. Translators: "Description" tree column header
-#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:831
+#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:832
 msgid "Description"
 msgstr "Opis"
 
@@ -137,8 +137,8 @@ msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable "
 "is not set to \"True\" or if you need compatibility with implementations "
 "that do not understand D-Bus activation.\n"
-"See http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-"
-"latest.html#exec-variables for a list of supported arguments."
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
+"Keys#exec for a list of supported arguments."
 msgstr ""
 
 #. Translators: Treeview column for an action item
@@ -383,8 +383,8 @@ msgstr ""
 msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this "
 "application and you want to use it.\n"
-"See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html "
-"for more information."
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
+"Keys#dbusactivatable for more information."
 msgstr ""
 
 #. Translators: "DBusActivatable" on/off switch. When enabled, the application is said to be activated via DBUS.
@@ -400,6 +400,24 @@ msgstr "List sučelja koja ovaj program primjenjuje."
 #. Translators: "Implements" text entry. A list of interfaces that this application implements.
 #: ../data/ui/MenulibreWindow.ui.h:127
 msgid "Implements"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:128
+msgctxt ""
+"If true, the application prefers to be run on a more powerful GPU (graphics "
+"processing unit, graphics card) if available."
+msgid ""
+"Set this key to \"True\" if this application prefers to be run on a more "
+"powerful GPU if available.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
+"Keys#prefersnondefaultgpu for more information."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:130
+msgctxt ""
+"If true, the application prefers to be run on a more powerful GPU (graphics "
+"processing unit, graphics card) if available."
+msgid "Prefers Non-Default GPU"
 msgstr ""
 
 #. Translators: Command line option to display debug messages on stdout
@@ -548,8 +566,8 @@ msgid "Click on the main application window for '%s'."
 msgstr "Kliknite na glavni ptozor programa za  '%s'."
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1212
-#: ../menulibre/MenulibreApplication.py:1710
+#: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1213
+#: ../menulibre/MenulibreApplication.py:1711
 msgid "Separator"
 msgstr ""
 
@@ -771,7 +789,7 @@ msgstr ""
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:473
-#: ../menulibre/MenulibreApplication.py:2240
+#: ../menulibre/MenulibreApplication.py:2241
 msgid "Quit"
 msgstr ""
 
@@ -782,7 +800,7 @@ msgstr "_Sadržaj"
 
 #. Translators: Help action tooltip
 #: ../menulibre/MenulibreApplication.py:482
-#: ../menulibre/MenulibreApplication.py:2238
+#: ../menulibre/MenulibreApplication.py:2239
 msgid "Help"
 msgstr "Pomoć"
 
@@ -793,7 +811,7 @@ msgstr "_O programu"
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:491
-#: ../menulibre/MenulibreApplication.py:2239
+#: ../menulibre/MenulibreApplication.py:2240
 msgid "About"
 msgstr "O programu"
 
@@ -813,84 +831,84 @@ msgid "Advanced"
 msgstr "Napredno"
 
 #. Translators: Launcher-specific categories, camelcase "This Entry"
-#: ../menulibre/MenulibreApplication.py:799
+#: ../menulibre/MenulibreApplication.py:800
 msgid "ThisEntry"
 msgstr ""
 
 #. Translators: Placeholder text for the launcher-specific category
 #. selection.
-#: ../menulibre/MenulibreApplication.py:820
+#: ../menulibre/MenulibreApplication.py:821
 msgid "Select a category"
 msgstr ""
 
 #. Translators: "Category Name" tree column header
-#: ../menulibre/MenulibreApplication.py:824
+#: ../menulibre/MenulibreApplication.py:825
 msgid "Category Name"
 msgstr ""
 
 #. Translators: "This Entry" launcher-specific category group
-#: ../menulibre/MenulibreApplication.py:927
+#: ../menulibre/MenulibreApplication.py:928
 msgid "This Entry"
 msgstr "Ovaj unos"
 
 #. Translators: Placeholder text for a newly created action
-#: ../menulibre/MenulibreApplication.py:988
+#: ../menulibre/MenulibreApplication.py:989
 msgid "New Shortcut"
 msgstr "Nova Prečica"
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1138
+#: ../menulibre/MenulibreApplication.py:1139
 msgid "Select a working directory…"
 msgstr "Odaberite radni direktorij..."
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1142
+#: ../menulibre/MenulibreApplication.py:1143
 msgid "Select an executable…"
 msgstr ""
 
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:1388
+#: ../menulibre/MenulibreApplication.py:1389
 msgid "You do not have permission to delete this file."
 msgstr "Nemate dozvolu za brisanje ove datoteke."
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1636
+#: ../menulibre/MenulibreApplication.py:1637
 msgid "New Launcher"
 msgstr "Novi pokretač"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1639 ../menulibre/MenulibreXdg.py:49
+#: ../menulibre/MenulibreApplication.py:1640 ../menulibre/MenulibreXdg.py:49
 msgid "A small descriptive blurb about this application."
 msgstr ""
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1689
+#: ../menulibre/MenulibreApplication.py:1690
 msgid "New Directory"
 msgstr ""
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1692
+#: ../menulibre/MenulibreApplication.py:1693
 msgid "A small descriptive blurb about this directory."
 msgstr ""
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:2117
+#: ../menulibre/MenulibreApplication.py:2118
 msgid "Are you sure you want to delete this separator?"
 msgstr "Jeste li sigurni da želite izbrisati ovaj razdjelnik?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:2121
+#: ../menulibre/MenulibreApplication.py:2122
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr ""
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:2233
+#: ../menulibre/MenulibreApplication.py:2234
 msgid "Parsing Error Log"
 msgstr ""
 
@@ -917,7 +935,7 @@ msgstr "Nova stavka izbornika"
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
 #. code is displayed.
-#: ../menulibre/util.py:619
+#: ../menulibre/util.py:620
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr ""
@@ -925,31 +943,31 @@ msgstr ""
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
 #. translated.
-#: ../menulibre/util.py:634
+#: ../menulibre/util.py:635
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:644
+#: ../menulibre/util.py:645
 #, python-format
 msgid "%s key not found"
 msgstr ""
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
-#: ../menulibre/util.py:649
+#: ../menulibre/util.py:650
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:678
+#: ../menulibre/util.py:679
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
 msgstr ""
 
-#: ../menulibre/util.py:681
+#: ../menulibre/util.py:682
 #, python-format
 msgid ""
 "%s program '%s' is not a valid shell command according to GLib."
@@ -958,7 +976,7 @@ msgstr ""
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
-#: ../menulibre/util.py:687
+#: ../menulibre/util.py:688
 msgid "Unknown error. Desktop file appears to be valid."
 msgstr ""
 
