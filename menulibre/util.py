@@ -59,6 +59,7 @@ MenuItemKeys = (
     ("OnlyShowIn", list, False, (0, 1, 2)),
     ("NotShowIn", list, False, (0, 1, 2)),
     ("DBusActivatable", bool, False, (0,)),
+    ("PrefersNonDefaultGPU", bool, False, (0,)),
     ("TryExec", str, False, (0,)),
     ("Exec", str, True, (0,)),
     ("Path", str, False, (0,)),

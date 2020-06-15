@@ -671,12 +671,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             'StartupWMClass': builder.get_object('entry_StartupWMClass'),
             'Implements': builder.get_object('entry_Implements'),
             'Hidden': builder.get_object('switch_Hidden'),
-            'DBusActivatable': builder.get_object('switch_DBusActivatable')
+            'DBusActivatable': builder.get_object('switch_DBusActivatable'),
+            'PrefersNonDefaultGPU': builder.get_object('switch_PrefersNonDefaultGPU')
         }
 
         # Configure the switches
         for widget_name in ['Terminal', 'StartupNotify', 'NoDisplay', 'Hidden',
-                            'DBusActivatable']:
+                            'DBusActivatable', 'PrefersNonDefaultGPU']:
             widget = self.widgets[widget_name]
             widget.connect('notify::active', self.on_switch_toggle,
                            widget_name)
@@ -1195,7 +1196,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     'NoDisplay', 'GenericName', 'TryExec',
                     'OnlyShowIn', 'NotShowIn', 'MimeType',
                     'Keywords', 'StartupWMClass', 'Implements', 'Categories',
-                    'Hidden', 'DBusActivatable']:
+                    'Hidden', 'DBusActivatable', 'PrefersNonDefaultGPU']:
                     self.set_value(key, None)
 
         # Clear the Actions and Icon.

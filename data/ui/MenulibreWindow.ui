@@ -2116,6 +2116,31 @@ See http://standards.freedesktop.org/desktop-entry-spec/latest/ar01s07.html for 
                 <property name="top_attach">7</property>
               </packing>
             </child>
+            <child>
+              <object class="GtkLabel" id="label24">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="tooltip_text" translatable="yes" context="If true, the application prefers to be run on a more powerful GPU (graphics processing unit, graphics card) if available.">Set this key to "True" if this application prefers to be run on a more powerful GPU if available.
+See https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#recognized-keys for more information.</property>
+                <property name="label" translatable="yes" context="If true, the application prefers to be run on a more powerful GPU (graphics processing unit, graphics card) if available.">Prefers Non-Default GPU</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">10</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkSwitch" id="switch_PrefersNonDefaultGPU">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="halign">end</property>
+                <property name="valign">center</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">10</property>
+              </packing>
+            </child>
           </object>
         </child>
       </object>
