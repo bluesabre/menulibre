@@ -41,7 +41,7 @@ used by applications such as Unity and Plank.
     sudo python3 setup.py install
 
 ## Links
- - [Homepage](https://github.com/bluesabre/menulibre)
+ - [Homepage](https://bluesabre.org/menulibre/)
  - [Releases](https://github.com/bluesabre/menulibre/releases)
  - [Bug Reports](https://github.com/bluesabre/menulibre/issues)
  - [Translations](https://www.transifex.com/bluesabreorg/menulibre)
