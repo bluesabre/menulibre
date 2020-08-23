@@ -16,6 +16,7 @@ used by applications such as Unity and Plank.
 
 ### Build Requirements
  - gir1.2-gtk-3.0
+ - intltool
  - libgnome-menu-3-dev
  - python-gi-dev
  - python3
