@@ -590,7 +590,7 @@ msgstr "Gagal menyimpan \"%s\"."
 #. Translators: Save Error Dialog, secondary text.
 #: ../menulibre/Dialogs.py:235
 msgid "Do you have write permission to the file and directory?"
-msgstr "Adakah anda mempunyai kebenaran menulis ke fail dan direktori?"
+msgstr "Adakah anda mempunyai keizinan menulis ke fail dan direktori?"
 
 #. Translators: Identify Window Dialog, secondary text. The selected
 #. application is displayed in the placeholder text.
