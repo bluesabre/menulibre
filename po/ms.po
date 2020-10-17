@@ -245,7 +245,7 @@ msgstr "Nama"
 #. Translators: Window title for the Select Icon dialog
 #: ../data/ui/MenulibreWindow.ui.h:74
 msgid "Select an icon…"
-msgstr "Pilih satu ikon..."
+msgstr "Pilih satu ikon…"
 
 #. Translators: Button to cancel and leave a dialog.
 #. Translators: Help Dialog, cancel button.
