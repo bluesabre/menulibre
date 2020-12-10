@@ -29,6 +29,14 @@
         <property name="use_underline">True</property>
       </object>
     </child>
+    <child>
+      <object class="GtkMenuItem" id="popup_add_link">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Add Lin_k</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
   </object>
   <object class="GtkListStore" id="categories_liststore">
     <columns>
@@ -272,6 +280,13 @@
                       <object class="GtkMenuItem" id="menubar_add_launcher">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkMenuItem" id="menubar_add_link">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="use_underline">True</property>
                       </object>
                     </child>
                     <child>
@@ -1024,6 +1039,31 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#ex
                                                   <packing>
                                                     <property name="left_attach">1</property>
                                                     <property name="top_attach">1</property>
+                                                  </packing>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkLabel" id="label4">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="tooltip_text" translatable="yes" comments="Translators: Tooltip for the &quot;Path&quot; text entry.">The URL to use.</property>
+                                                    <property name="label" translatable="yes" comments="Translators: &quot;Path&quot; text entry. The working directory of the application.">URL</property>
+                                                    <property name="xalign">0</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="left_attach">0</property>
+                                                    <property name="top_attach">2</property>
+                                                  </packing>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkEntry" id="entry_URL">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">True</property>
+                                                    <property name="hexpand">True</property>
+                                                    <property name="invisible_char">•</property>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="left_attach">1</property>
+                                                    <property name="top_attach">2</property>
                                                   </packing>
                                                 </child>
                                               </object>

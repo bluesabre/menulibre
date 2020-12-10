@@ -236,6 +236,9 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
         elif item_type == MenuItemTypes.APPLICATION:
             pass
 
+        elif item_type == MenuItemTypes.LINK:
+            pass
+
         elif item_type == MenuItemTypes.SEPARATOR:
             pass
 
@@ -266,7 +269,7 @@ def model_to_xml_includes(model, model_parent=None, menu_parent=None):
 
         # Items in custom directories by menulibre have a category, but
         # includes are required otherwise they are dropped by GMenu
-        if item_type == MenuItemTypes.APPLICATION and (
+        if item_type in (MenuItemTypes.APPLICATION, MenuItemTypes.LINK) and (
                 not categories or user_directory):
             include = menu_parent.addInclude()
             try:
@@ -309,7 +312,7 @@ def model_to_xml_layout(model, model_parent=None, menu_parent=None,  # noqa
                 directory_name = util.getDirectoryName(desktop)
                 layout.addMenuname(directory_name)
 
-        elif item_type == MenuItemTypes.APPLICATION and desktop is not None:
+        elif item_type in (MenuItemTypes.APPLICATION, MenuItemTypes.LINK) and desktop is not None:
             try:
 
                 # According to the spec, desktop files may be located in

@@ -129,59 +129,60 @@ def get_submenus(menu, tree_dir):
     for child in menu.getContents(tree_dir):
         if isinstance(child, GMenu.TreeSeparator):
             structure.append([MenuItemTypes.SEPARATOR, child, None, None])
-        else:
-            if isinstance(child, GMenu.TreeEntry):
-                item_type = MenuItemTypes.APPLICATION
-                entry_id = child.get_desktop_file_id()
-                app_info = child.get_app_info()
-                icon = app_info.get_icon()
-                icon_name = "applications-other"
-                display_name = app_info.get_display_name()
-                generic_name = app_info.get_generic_name()
-                comment = app_info.get_description()
-                keywords = app_info.get_keywords()
-                categories = app_info.get_categories()
-                executable = app_info.get_executable()
-                filename = child.get_desktop_file_path()
-                submenus = None
+            continue
 
-                is_hidden = app_info.get_is_hidden()
-                no_display = app_info.get_nodisplay()
-                show_in = app_info.get_show_in()
-                hidden = is_hidden or no_display or not show_in
+        elif isinstance(child, GMenu.TreeEntry):
+            item_type = MenuItemTypes.APPLICATION
+            entry_id = child.get_desktop_file_id()
+            app_info = child.get_app_info()
+            icon = app_info.get_icon()
+            icon_name = "applications-other"
+            display_name = app_info.get_display_name()
+            generic_name = app_info.get_generic_name()
+            comment = app_info.get_description()
+            keywords = app_info.get_keywords()
+            categories = app_info.get_categories()
+            executable = app_info.get_executable()
+            filename = child.get_desktop_file_path()
+            submenus = None
 
-            elif isinstance(child, GMenu.TreeDirectory):
-                item_type = MenuItemTypes.DIRECTORY
-                entry_id = child.get_menu_id()
-                icon = child.get_icon()
-                icon_name = "folder"
-                display_name = child.get_name()
-                generic_name = child.get_generic_name()
-                comment = child.get_comment()
-                keywords = []
-                categories = ""
-                executable = None
-                filename = child.get_desktop_file_path()
-                hidden = child.get_is_nodisplay()
-                submenus = get_submenus(menu, child)
+            is_hidden = app_info.get_is_hidden()
+            no_display = app_info.get_nodisplay()
+            show_in = app_info.get_show_in()
+            hidden = is_hidden or no_display or not show_in
 
-            if isinstance(icon, Gio.ThemedIcon):
-                icon_name = icon.get_names()[0]
-            elif isinstance(icon, Gio.FileIcon):
-                icon_name = icon.get_file().get_path()
+        elif isinstance(child, GMenu.TreeDirectory):
+            item_type = MenuItemTypes.DIRECTORY
+            entry_id = child.get_menu_id()
+            icon = child.get_icon()
+            icon_name = "folder"
+            display_name = child.get_name()
+            generic_name = child.get_generic_name()
+            comment = child.get_comment()
+            keywords = []
+            categories = ""
+            executable = None
+            filename = child.get_desktop_file_path()
+            hidden = child.get_is_nodisplay()
+            submenus = get_submenus(menu, child)
 
-            details = {'display_name': display_name,
-                       'generic_name': generic_name,
-                       'comment': comment,
-                       'keywords': keywords,
-                       'categories': categories,
-                       'executable': executable,
-                       'filename': filename,
-                       'icon': icon,
-                       'icon_name': icon_name,
-                       'show': not hidden}
-            entry = [item_type, entry_id, details, submenus]
-            structure.append(entry)
+        if isinstance(icon, Gio.ThemedIcon):
+            icon_name = icon.get_names()[0]
+        elif isinstance(icon, Gio.FileIcon):
+            icon_name = icon.get_file().get_path()
+
+        details = {'display_name': display_name,
+                    'generic_name': generic_name,
+                    'comment': comment,
+                    'keywords': keywords,
+                    'categories': categories,
+                    'executable': executable,
+                    'filename': filename,
+                    'icon': icon,
+                    'icon_name': icon_name,
+                    'show': not hidden}
+        entry = [item_type, entry_id, details, submenus]
+        structure.append(entry)
 
     return structure
 
@@ -276,7 +277,7 @@ class MenuEditor(object):
         while item_type != GMenu.TreeItemType.INVALID:
             if item_type == GMenu.TreeItemType.DIRECTORY:
                 item = item_iter.get_directory()
-                yield (item, self.isVisible(item))
+                yield (item, True)
             item_type = item_iter.next()
 
     def getContents(self, item):

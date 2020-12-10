@@ -77,11 +77,11 @@ MenuItemKeys = (
 
 def getRelatedKeys(menu_item_type, key_only=False):
     if isinstance(menu_item_type, str):
-        if menu_item_type == "Application":
+        if menu_item_type == GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION:
             menu_item_type = MenuItemTypes.APPLICATION
-        elif menu_item_type == "Link":
+        elif menu_item_type == GLib.KEY_FILE_DESKTOP_TYPE_LINK:
             menu_item_type = MenuItemTypes.LINK
-        elif menu_item_type == "Directory":
+        elif menu_item_type == GLib.KEY_FILE_DESKTOP_TYPE_DIRECTORY:
             menu_item_type = MenuItemTypes.DIRECTORY
 
     results = []
@@ -470,6 +470,9 @@ def getSaveFilename(name, filename, item_type, force_update=False):  # noqa
         if item_type == 'Application':
             path = getUserItemPath()
             ext = '.desktop'
+        elif item_type == 'Link':
+            path = getUserItemPath()
+            ext = '.desktop'
         elif item_type == 'Directory':
             path = getUserDirectoryPath()
             ext = '.directory'
@@ -644,11 +647,12 @@ def validate_desktop_file(desktop_file):  # noqa
         # missing in a failing desktop file.
         return _('%s key not found') % 'Type'
 
-    if type_key != GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION:
-        # Translators: This error is displayed when a failing desktop file
-        # has an invalid value for the provided key.
-        return (_('%s value is invalid - currently \'%s\', should be \'%s\'')
-                % ('Type', type_key, GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION))
+    if type_key not in (
+        GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION,
+        GLib.KEY_FILE_DESKTOP_TYPE_LINK,
+        GLib.KEY_FILE_DESKTOP_TYPE_DIRECTORY,
+    ):
+        return False
 
     # Validating 'try exec' if its present
     # Invalid TryExec is a valid state. "If the file is not present or if it
