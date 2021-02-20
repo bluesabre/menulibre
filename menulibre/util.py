@@ -31,6 +31,7 @@ import logging
 logger = logging.getLogger('menulibre')
 
 old_psutil_format = isinstance(psutil.Process.username, property)
+sandboxed = os.path.exists("/run/host")
 
 
 def enum(**enums):
@@ -589,11 +590,20 @@ def find_program(program):
     if os.path.exists(executable):
         return executable
 
-    path = GLib.find_program_in_path(executable)
+    basename = os.path.basename(executable)
+
+    path = GLib.find_program_in_path(basename)
     if path is not None:
         return path
 
+    if sandboxed:
+        if not executable.startswith("/run/host"):
+            sandbox = os.path.join("/run/host", executable[1:])
+            if os.path.exists(sandbox):
+                return sandbox
+
     return None
+
 
 def validate_desktop_file(desktop_file):  # noqa
     """Validate a known-bad desktop file in the same way GMenu/glib does, to
@@ -682,6 +692,9 @@ def validate_desktop_file(desktop_file):  # noqa
         return (_('%s program \'%s\' is not a valid shell command '
                   'according to GLib.shell_parse_argv, error: %s')
                 % ('Exec', exec_key, e))
+
+    if sandboxed:
+        return False
 
     # Translators: This error is displayed for a failing desktop file where
     # errors were detected but the file seems otherwise valid.

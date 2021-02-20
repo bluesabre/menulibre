@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 07:20-0400\n"
+"POT-Creation-Date: 2021-02-20 06:15-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -912,7 +912,7 @@ msgstr ""
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
 #. code is displayed.
-#: ../menulibre/util.py:620
+#: ../menulibre/util.py:630
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr ""
@@ -920,31 +920,31 @@ msgstr ""
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
 #. translated.
-#: ../menulibre/util.py:635
+#: ../menulibre/util.py:645
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:645
+#: ../menulibre/util.py:655
 #, python-format
 msgid "%s key not found"
 msgstr ""
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
-#: ../menulibre/util.py:650
+#: ../menulibre/util.py:660
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:679
+#: ../menulibre/util.py:689
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
 msgstr ""
 
-#: ../menulibre/util.py:682
+#: ../menulibre/util.py:692
 #, python-format
 msgid ""
 "%s program '%s' is not a valid shell command according to GLib."
@@ -953,6 +953,6 @@ msgstr ""
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
-#: ../menulibre/util.py:688
+#: ../menulibre/util.py:699
 msgid "Unknown error. Desktop file appears to be valid."
 msgstr ""
