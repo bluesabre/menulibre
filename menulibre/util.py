@@ -697,3 +697,12 @@ def validate_desktop_file(desktop_file):  # noqa
     # Translators: This error is displayed for a failing desktop file where
     # errors were detected but the file seems otherwise valid.
     return _('Unknown error. Desktop file appears to be valid.')
+
+
+def unsandbox(filename):
+    if filename.startswith("/run/host"):
+        filename = filename[9:]
+    if "/.var/app/org.bluesabre.MenuLibre/data" in filename:
+        basepath = filename.split("/.var/app/org.bluesabre.MenuLibre/data/")[1]
+        filename = os.path.join(os.path.expanduser("~/.local/share"), basepath)
+    return filename

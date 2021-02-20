@@ -32,7 +32,7 @@ from . import MenulibreStackSwitcher, MenulibreIconSelection
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, MenulibreLog
 from .util import MenuItemTypes, check_keypress, getBasename, getRelatedKeys
-from .util import escapeText, getCurrentDesktop, find_program
+from .util import escapeText, getCurrentDesktop, find_program, unsandbox
 import menulibre_lib
 
 import logging
@@ -1401,8 +1401,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         widget = self.widgets['Filename']
 
         # Set the label and tooltip.
-        widget.set_label(filename)
-        widget.set_tooltip_text(filename)
+        show_filename = unsandbox(filename)
+        widget.set_label(show_filename)
+        widget.set_tooltip_text(show_filename)
 
         # Store the filename value.
         self.values['filename'] = filename
