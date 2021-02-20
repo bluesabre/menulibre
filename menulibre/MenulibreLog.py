@@ -52,10 +52,15 @@ class LogDialog:
         self._log_ok.connect("clicked", self.log_close_cb)
 
         self._log_dialog.set_transient_for(parent)
+    
+    def unsandbox(self, text):
+        if text.startswith("/run/host"):
+            text = text[9:]
+        return text
 
     def add_item(self, filename, error):
         model = self._log_treeview.get_model()
-        model.append(["<b>%s</b>\n%s" % (filename, error),
+        model.append(["<b>%s</b>\n%s" % (self.unsandbox(filename), error),
                       filename])
 
     def get_editor_executable(self):
@@ -68,9 +73,9 @@ class LogDialog:
         if os.path.isdir(path):
             uri = "file://%s" % path
             if "show_uri_on_window" in dir(Gtk):
-                Gtk.show_uri_on_window(None, uri, 0)
+                Gtk.show_uri_on_window(None, uri, Gdk.CURRENT_TIME)
             else:
-                Gtk.show_uri(None, uri, 0)
+                Gtk.show_uri(None, uri, Gdk.CURRENT_TIME)
         else:
             binary = self.get_editor_executable()
             subprocess.Popen([binary, path])
@@ -108,7 +113,7 @@ class LogDialog:
 
     def set_clipboard(self, text):
         clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
-        clipboard.set_text(text, -1)
+        clipboard.set_text(self.unsandbox(text), -1)
 
     def motion_notify_event_cb(self, widget, event):
         details = self.get_path_details_at_pos(event.x, event.y)
