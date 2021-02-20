@@ -590,16 +590,14 @@ def find_program(program):
     if os.path.exists(executable):
         return executable
 
-    basename = os.path.basename(executable)
-
-    path = GLib.find_program_in_path(basename)
+    path = GLib.find_program_in_path(executable)
     if path is not None:
         return path
 
-    if sandboxed:
+    if sandboxed and executable.startswith("/"):
         if not executable.startswith("/run/host"):
             sandbox = os.path.join("/run/host", executable[1:])
-            if os.path.exists(sandbox):
+            if os.path.lexists(sandbox):
                 return sandbox
 
     return None

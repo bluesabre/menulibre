@@ -2080,9 +2080,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         return False
 
     def find_command_in_string(self, command):
-        for piece in shlex.split(command):
-            if "=" not in piece:
-                return piece
+        executable = find_program(command)
+        if executable:
+            return executable
         return False
 
     def on_execute_cb(self, widget, builder):
