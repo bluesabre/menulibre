@@ -26,6 +26,8 @@ import tempfile
 
 from locale import gettext as _
 
+from gi import require_version
+require_version('Gtk', '3.0')
 from gi.repository import Gio, GLib, GObject, Gtk, Gdk, GdkPixbuf
 
 from . import MenulibreStackSwitcher, MenulibreIconSelection
