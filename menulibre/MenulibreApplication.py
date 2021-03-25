@@ -672,7 +672,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             'Implements': builder.get_object('entry_Implements'),
             'Hidden': builder.get_object('switch_Hidden'),
             'DBusActivatable': builder.get_object('switch_DBusActivatable'),
-            'PrefersNonDefaultGPU': builder.get_object('switch_PrefersNonDefaultGPU')
+            'PrefersNonDefaultGPU': builder.get_object('switch_PrefersNonDefaultGPU'),
+            'X-GNOME-UsesNotifications': builder.get_object('switch_UsesNotifications')
         }
 
         # Configure the switches
@@ -1196,7 +1197,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     'NoDisplay', 'GenericName', 'TryExec',
                     'OnlyShowIn', 'NotShowIn', 'MimeType',
                     'Keywords', 'StartupWMClass', 'Implements', 'Categories',
-                    'Hidden', 'DBusActivatable', 'PrefersNonDefaultGPU']:
+                    'Hidden', 'DBusActivatable', 'PrefersNonDefaultGPU',
+                    'X-GNOME-UsesNotifications']:
                     self.set_value(key, None)
 
         # Clear the Actions and Icon.
