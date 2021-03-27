@@ -361,9 +361,8 @@ msgid ""
 "redundant with the values of Name or GenericName."
 msgstr ""
 "Lista de palabras clave para describir esta entrada. Puede usarlas como "
-"ayuda para la búsqueda de entradas. No están pensadas para ser mostradas y "
-"no deberían ser redundantes con el nombre o el nombre genérico de la "
-"entrada."
+"ayuda para la búsqueda de entradas. No están pensadas para mostrarse y no "
+"deberían coincidir con el nombre o el nombre genérico de la entrada."
 
 #. Translators: "Keywords" text entry. A list of keywords to describe this
 #. entry.
