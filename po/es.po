@@ -752,7 +752,7 @@ msgstr "Otras"
 #. dismissed.
 #: ../menulibre/MenulibreApplication.py:263
 msgid "MenuLibre cannot be run as root."
-msgstr "No se puede ejecutar MenuLibre con permisos de administrador."
+msgstr "No se puede ejecutar MenuLibre como superusuario."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
