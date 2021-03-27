@@ -478,8 +478,8 @@ msgstr ""
 #: ../menulibre/__init__.py:43
 msgid "Use toolbar layout (server side decorations)"
 msgstr ""
-"Usar la distribución con la barra de herramientas (decoraciones del lado del"
-" servidor)"
+"Usar la distribución con barra de herramientas (decoraciones del lado del "
+"servidor)"
 
 #. Translators: About Dialog, window title.
 #: ../menulibre/Dialogs.py:38
