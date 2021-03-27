@@ -377,7 +377,8 @@ msgid ""
 "class or a WM name hint at least in one window."
 msgstr ""
 "Si se especifica, se pedirá a la aplicación que use la cadena como una clase"
-" del gestor de ventanas o una pista del nombre de por lo menos una ventana."
+" del gestor de ventanas o una sugerencia de nombre en por lo menos una "
+"ventana."
 
 #. Translators: "StartupWMClass" text entry. A window manager hint for the
 #. application
