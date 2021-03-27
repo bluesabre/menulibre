@@ -440,7 +440,7 @@ msgid ""
 "Set this key to \"True\" if this application prefers to be run on a more powerful GPU if available.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information."
 msgstr ""
-"Active esta clave si prefiere que se ejecute esta aplicación en una GPU más potente si está disponible.\n"
+"Active esta clave si prefiere que esta aplicación se ejecute en una GPU más potente si está disponible.\n"
 "Consulte https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu para obtener más información."
 
 #: ../data/ui/MenulibreWindow.ui.h:130
