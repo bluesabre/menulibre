@@ -471,7 +471,7 @@ msgstr "Mostrar los mensajes de depuración"
 #: ../menulibre/__init__.py:38
 msgid "Use headerbar layout (client side decorations)"
 msgstr ""
-"Usar la distribución con la barra de título (decoraciones del lado del "
+"Usar la distribución con barra de encabezado (decoraciones del lado del "
 "cliente)"
 
 #. Translators: Command line option to switch layout
