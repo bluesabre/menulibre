@@ -460,7 +460,7 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:133
 msgid "Uses Notifications"
-msgstr "Usa notificaciones"
+msgstr "Usar notificaciones"
 
 #. Translators: Command line option to display debug messages on stdout
 #: ../menulibre/__init__.py:34
