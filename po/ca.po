@@ -2,24 +2,24 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 # Translators:
 # Sean Davis <sean@bluesabre.org>, 2020
-#
+# Toni Estévez <toni.estevez@gmail.com>, 2021
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 07:19-0400\n"
+"POT-Creation-Date: 2021-03-24 23:18-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
-"Last-Translator: Sean Davis <sean@bluesabre.org>, 2020\n"
-"Language-Team: Catalan (https://www.transifex.com/bluesabreorg/teams/99550/"
-"ca/)\n"
-"Language: ca\n"
+"Last-Translator: Toni Estévez <toni.estevez@gmail.com>, 2021\n"
+"Language-Team: Catalan (https://www.transifex.com/bluesabreorg/teams/99550/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../menulibre.desktop.in.h:1
@@ -66,7 +66,8 @@ msgstr "Desa el llançador"
 msgid "Undo"
 msgstr "Desfés"
 
-#. Translators: Toolbar button to redo the last undone change to currently selected item.
+#. Translators: Toolbar button to redo the last undone change to currently
+#. selected item.
 #. Translators: Redo action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:16 ../menulibre/MenulibreApplication.py:437
 msgid "Redo"
@@ -102,22 +103,26 @@ msgstr "Desa"
 msgid "Search"
 msgstr "Cerca"
 
-#. Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.
+#. Translators: This error is displayed in a notice at the top of the
+#. application when one or more desktop files fails processing.
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Invalid desktop files detected! Please see details."
 msgstr "S'han detectat fitxers de menú no vàlids. Consulteu els detalls."
 
-#. Translators: Treeview toolbar button to move the currently selected item up.
+#. Translators: Treeview toolbar button to move the currently selected item
+#. up.
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Move Up"
 msgstr "Mou amunt"
 
-#. Translators: Treeview toolbar button to move the currently selected item down.
+#. Translators: Treeview toolbar button to move the currently selected item
+#. down.
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Move Down"
 msgstr "Mou avall"
 
-#. Translators: Treeview toolbar button to sort the currently open submenu alphabetically.
+#. Translators: Treeview toolbar button to sort the currently open submenu
+#. alphabetically.
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Sort Alphabetically"
 msgstr "Ordena alfabèticament"
@@ -129,24 +134,18 @@ msgstr "Nom de l'aplicació"
 
 #. Translators: Placeholder text/hint for the application comment entry.
 #. Translators: "Description" tree column header
-#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:832
+#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:833
 msgid "Description"
 msgstr "Descripció"
 
 #. Translators: Tooltip for the "Exec" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:39
 msgid ""
-"Program to execute with arguments. This key is required if DBusActivatable "
-"is not set to \"True\" or if you need compatibility with implementations "
-"that do not understand D-Bus activation.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
-"Keys#exec for a list of supported arguments."
+"Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."
 msgstr ""
-"Programa per executar amb arguments. Aquesta clau és necessària si no s'ha "
-"activat la clau «Activable per D-BUS» o cal compatibilitat amb les "
-"implementacions que no fan servir l'activació per D-Bus.\n"
-"Consulteu https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-"
-"Entry-Keys#exec per obtenir una llista d'arguments compatibles."
+"Programa per executar amb arguments. Aquesta clau és necessària si no s'ha activat la clau «Activable per D-BUS» o necessiteu compatibilitat amb implementacions que no entenen l'activació per D-Bus.\n"
+"Consulteu https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec per obtenir una llista dels arguments admesos."
 
 #. Translators: Treeview column for an action item
 #: ../data/ui/MenulibreWindow.ui.h:42
@@ -173,7 +172,8 @@ msgstr "Detalls de l'aplicació"
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr "Si s'activa, el programa s'executarà en una finestra del terminal."
 
-#. Translators: "Terminal" on/off switch. When enabled, the application is executed in a terminal window.
+#. Translators: "Terminal" on/off switch. When enabled, the application is
+#. executed in a terminal window.
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Run in terminal"
 msgstr "Executa en un terminal"
@@ -187,7 +187,8 @@ msgstr ""
 "Si s'activa, s'envia una notificació d'inici. Normalment vol dir que es "
 "mostra el cursor ocupat mentre s'inicia l'aplicació."
 
-#. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is shown while the application launches.
+#. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is
+#. shown while the application launches.
 #: ../data/ui/MenulibreWindow.ui.h:56
 msgid "Use startup notification"
 msgstr "Utilitza la notificació d'inici"
@@ -201,7 +202,9 @@ msgstr ""
 "Si s'activa, aquesta entrada no es mostrarà al menú, però estarà disponible "
 "per a les associacions dels tipus MIME."
 
-#. Translators: "NoDisplay" on/off switch. When enabled, the application will not be shown in menus, but will be available for MIME type associations etc.
+#. Translators: "NoDisplay" on/off switch. When enabled, the application will
+#. not be shown in menus, but will be available for MIME type associations
+#. etc.
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Hide from menus"
 msgstr "Oculta al menú"
@@ -226,7 +229,8 @@ msgstr "Suprimeix"
 msgid "Clear"
 msgstr "Neteja"
 
-#. Translators: Treeview column for whether an action item is displayed (boolean).
+#. Translators: Treeview column for whether an action item is displayed
+#. (boolean).
 #: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Show"
 msgstr "Mostra"
@@ -264,15 +268,14 @@ msgstr "Aplica"
 msgid "Parsing Errors"
 msgstr "Errors d'anàlisi"
 
-#. Translators: This text is displayed in the Parsing Errors dialog and provides a basic summary of the errors reported.
+#. Translators: This text is displayed in the Parsing Errors dialog and
+#. provides a basic summary of the errors reported.
 #: ../data/ui/MenulibreWindow.ui.h:82
 msgid ""
-"The following desktop files have failed parsing by the underlying library, "
-"and will therefore not show up in MenuLibre.\n"
+"The following desktop files have failed parsing by the underlying library, and will therefore not show up in MenuLibre.\n"
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
-"No s'han pogut analitzar els fitxers de menú següents amb la biblioteca "
-"subjacent i, per tant, no es mostraran al MenuLibre.\n"
+"No s'han pogut analitzar els fitxers de menú següents amb la biblioteca subjacent i, per tant, no es mostraran al MenuLibre.\n"
 "Investigueu aquests problemes amb el mantenidor del paquet associat."
 
 #. Translators: Tooltip for the "GenericName" text entry.
@@ -280,46 +283,44 @@ msgstr ""
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr "Nom genèric de l'aplicació, per exemple «Navegador web»."
 
-#. Translators: "GenericName" text entry. Generic name of the application, for example "Web Browser".
+#. Translators: "GenericName" text entry. Generic name of the application, for
+#. example "Web Browser".
 #: ../data/ui/MenulibreWindow.ui.h:87
 msgid "Generic Name"
 msgstr "Nom genèric"
 
-#. Translators: Tooltip for the "NotShowIn" text entry. Possible values "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
+#. Translators: Tooltip for the "NotShowIn" text entry. Possible values
+#. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
+#. "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be
+#. translated.
 #: ../data/ui/MenulibreWindow.ui.h:89
 msgid ""
-"A list of environments that should not display this entry. You can only use "
-"this key if \"OnlyShowIn\" is not set.\n"
-"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
-"MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
+"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
-"Llista dels entorns d'escriptori que no han de mostrar aquesta entrada de "
-"menú. Aquesta clau només es pot utilitzar si la clau «Es mostra només a» no "
-"està definida.\n"
-"Entre els valors possibles s'inclouen: Budgie, Cinnamon, EDE, GNOME, KDE, "
-"LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE i Old."
+"Llista dels entorns d'escriptori que no han de mostrar aquesta entrada de menú. Aquesta clau només es pot utilitzar si la clau «Es mostra només a» no està definida.\n"
+"Entre els valors possibles s'inclouen: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE i Old."
 
-#. Translators: "NotShowIn" text entry. A list of environments that should not display this entry.
+#. Translators: "NotShowIn" text entry. A list of environments that should not
+#. display this entry.
 #: ../data/ui/MenulibreWindow.ui.h:92
 msgid "Not Shown In"
 msgstr "No es mostra a"
 
-#. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
+#. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values
+#. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
+#. "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be
+#. translated.
 #: ../data/ui/MenulibreWindow.ui.h:94
 msgid ""
-"A list of environments that should display this entry. Other environments "
-"will not display this entry. You can only use this key if \"NotShowIn\" is "
-"not set.\n"
-"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
-"MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if \"NotShowIn\" is not set.\n"
+"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
-"Llista dels entorns d'escriptori que han de mostrar aquesta entrada de menú. "
-"Els altres entorns no mostraran aquesta entrada. Aquesta clau només es pot "
-"utilitzar si la clau «No es mostra a» no està definida.\n"
-"Entre els valors possibles s'inclouen: Budgie, Cinnamon, EDE, GNOME, KDE, "
-"LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE i Old."
+"Llista dels entorns d'escriptori que han de mostrar aquesta entrada de menú. Els altres entorns no mostraran aquesta entrada. Aquesta clau només es pot utilitzar si la clau «No es mostra a» no està definida.\n"
+"Entre els valors possibles s'inclouen: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE i Old."
 
-#. Translators: "OnlyShowIn" text entry. A list of environments that should display this entry.
+#. Translators: "OnlyShowIn" text entry. A list of environments that should
+#. display this entry.
 #: ../data/ui/MenulibreWindow.ui.h:97
 msgid "Only Shown In"
 msgstr "Només es mostra a"
@@ -335,7 +336,8 @@ msgstr ""
 "Si el fitxer no hi és o no és executable, aquesta entrada no es mostrarà al "
 "menú."
 
-#. Translators: "TryExec" text entry. Path to an executable file to determine if the program is installed.
+#. Translators: "TryExec" text entry. Path to an executable file to determine
+#. if the program is installed.
 #: ../data/ui/MenulibreWindow.ui.h:101
 msgid "Try Exec"
 msgstr "Prova l'executable"
@@ -345,7 +347,8 @@ msgstr "Prova l'executable"
 msgid "The MIME type(s) supported by this application."
 msgstr "Els tipus MIME que admet aquesta aplicació."
 
-#. Translators: "Mimetype" text entry. The MIME type(s) supported by this application.
+#. Translators: "Mimetype" text entry. The MIME type(s) supported by this
+#. application.
 #: ../data/ui/MenulibreWindow.ui.h:105
 msgid "Mimetypes"
 msgstr "Tipus MIME"
@@ -357,11 +360,12 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
-"Llista de paraules clau per descriure aquesta entrada de menú. Serveixen per "
-"ajudar en la recerca d'entrades. No tenen la finalitat de mostrar-se i no "
+"Llista de paraules clau per descriure aquesta entrada de menú. Serveixen per"
+" ajudar en la recerca d'entrades. No tenen la finalitat de mostrar-se i no "
 "haurien de ser redundants amb el nom o el nom genèric de l'entrada."
 
-#. Translators: "Keywords" text entry. A list of keywords to describe this entry.
+#. Translators: "Keywords" text entry. A list of keywords to describe this
+#. entry.
 #: ../data/ui/MenulibreWindow.ui.h:109
 msgid "Keywords"
 msgstr "Paraules clau"
@@ -376,7 +380,8 @@ msgstr ""
 "com una classe del gestor de finestres o un suggeriment de nom en almenys "
 "una finestra."
 
-#. Translators: "StartupWMClass" text entry. A window manager hint for the application
+#. Translators: "StartupWMClass" text entry. A window manager hint for the
+#. application
 #: ../data/ui/MenulibreWindow.ui.h:113
 msgid "Startup WM Class"
 msgstr "Classe d'inici"
@@ -392,10 +397,11 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
-"Si s'activa, el resultat per a l'usuari és equivalent a suprimir el fitxer ."
-"desktop."
+"Si s'activa, el resultat per a l'usuari és equivalent a suprimir el fitxer "
+".desktop."
 
-#. Translators: "Hidden" on/off switch. When enabled, the application is hidden from the menu.
+#. Translators: "Hidden" on/off switch. When enabled, the application is
+#. hidden from the menu.
 #: ../data/ui/MenulibreWindow.ui.h:118
 msgid "Hidden"
 msgstr "Oculta"
@@ -403,17 +409,14 @@ msgstr "Oculta"
 #. Translators: Tooltip for the "DBusActivatable" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:120
 msgid ""
-"Set this key to \"True\" if D-Bus activation is supported for this "
-"application and you want to use it.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
-"Keys#dbusactivatable for more information."
+"Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information."
 msgstr ""
-"Activeu aquesta clau si l'activació per D-Bus és compatible amb aquesta "
-"aplicació i voleu utilitzar-la.\n"
-"Vegeu https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
-"Keys#dbusactivatable per a més informació."
+"Activeu aquesta clau si l'activació per D-Bus és compatible amb aquesta aplicació i voleu utilitzar-la.\n"
+"Consulteu https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable per obtenir més informació."
 
-#. Translators: "DBusActivatable" on/off switch. When enabled, the application is said to be activated via DBUS.
+#. Translators: "DBusActivatable" on/off switch. When enabled, the application
+#. is said to be activated via DBUS.
 #: ../data/ui/MenulibreWindow.ui.h:123
 msgid "DBUS Activatable"
 msgstr "Activable per D-BUS"
@@ -423,33 +426,41 @@ msgstr "Activable per D-BUS"
 msgid "A list of interfaces that this application implements."
 msgstr "Una llista de les interfícies que implementa aquesta aplicació."
 
-#. Translators: "Implements" text entry. A list of interfaces that this application implements.
+#. Translators: "Implements" text entry. A list of interfaces that this
+#. application implements.
 #: ../data/ui/MenulibreWindow.ui.h:127
 msgid "Implements"
 msgstr "Interfícies"
 
 #: ../data/ui/MenulibreWindow.ui.h:128
-#, fuzzy
 msgctxt ""
 "If true, the application prefers to be run on a more powerful GPU (graphics "
 "processing unit, graphics card) if available."
 msgid ""
-"Set this key to \"True\" if this application prefers to be run on a more "
-"powerful GPU if available.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
-"Keys#prefersnondefaultgpu for more information."
+"Set this key to \"True\" if this application prefers to be run on a more powerful GPU if available.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information."
 msgstr ""
-"Activeu aquesta clau si l'activació per D-Bus és compatible amb aquesta "
-"aplicació i voleu utilitzar-la.\n"
-"Vegeu https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
-"Keys#dbusactivatable per a més informació."
+"Activeu aquesta clau si preferiu que aquesta aplicació s'executi en una GPU més potent si està disponible.\n"
+"Consulteu https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu per obtenir més informació."
 
 #: ../data/ui/MenulibreWindow.ui.h:130
 msgctxt ""
 "If true, the application prefers to be run on a more powerful GPU (graphics "
 "processing unit, graphics card) if available."
 msgid "Prefers Non-Default GPU"
+msgstr "Prefereix la GPU no predeterminada "
+
+#: ../data/ui/MenulibreWindow.ui.h:131
+msgid ""
+"Set this key to \"True\" if this application uses notifications.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information."
 msgstr ""
+"Activeu aquesta clau si aquesta aplicació fa servir notificacions.\n"
+"Consulteu https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications per obtenir més informació."
+
+#: ../data/ui/MenulibreWindow.ui.h:133
+msgid "Uses Notifications"
+msgstr "Utilitza notificacions"
 
 #. Translators: Command line option to display debug messages on stdout
 #: ../menulibre/__init__.py:34
@@ -484,8 +495,8 @@ msgstr "Voleu llegir el manual del MenuLibre en línia?"
 #. Translators: Help Dialog, secondary text.
 #: ../menulibre/Dialogs.py:62
 msgid ""
-"You will be redirected to the documentation website where the help pages are "
-"maintained."
+"You will be redirected to the documentation website where the help pages are"
+" maintained."
 msgstr ""
 "Se us redirigirà al lloc web de la documentació, on es mantenen les pàgines "
 "d'ajuda."
@@ -597,8 +608,8 @@ msgid "Click on the main application window for '%s'."
 msgstr "Feu clic a la finestra principal de l'aplicació per «%s»."
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1213
-#: ../menulibre/MenulibreApplication.py:1711
+#: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1215
+#: ../menulibre/MenulibreApplication.py:1713
 msgid "Separator"
 msgstr "Separador"
 
@@ -821,7 +832,7 @@ msgstr "_Surt"
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:473
-#: ../menulibre/MenulibreApplication.py:2241
+#: ../menulibre/MenulibreApplication.py:2243
 msgid "Quit"
 msgstr "Surt"
 
@@ -832,7 +843,7 @@ msgstr "_Contingut"
 
 #. Translators: Help action tooltip
 #: ../menulibre/MenulibreApplication.py:482
-#: ../menulibre/MenulibreApplication.py:2239
+#: ../menulibre/MenulibreApplication.py:2241
 msgid "Help"
 msgstr "Ajuda"
 
@@ -843,7 +854,7 @@ msgstr "_Quant a"
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:491
-#: ../menulibre/MenulibreApplication.py:2240
+#: ../menulibre/MenulibreApplication.py:2242
 msgid "About"
 msgstr "Quant a"
 
@@ -863,84 +874,84 @@ msgid "Advanced"
 msgstr "Claus avançades"
 
 #. Translators: Launcher-specific categories, camelcase "This Entry"
-#: ../menulibre/MenulibreApplication.py:800
+#: ../menulibre/MenulibreApplication.py:801
 msgid "ThisEntry"
 msgstr "Aquesta entrada"
 
 #. Translators: Placeholder text for the launcher-specific category
 #. selection.
-#: ../menulibre/MenulibreApplication.py:821
+#: ../menulibre/MenulibreApplication.py:822
 msgid "Select a category"
 msgstr "Selecciona una categoria"
 
 #. Translators: "Category Name" tree column header
-#: ../menulibre/MenulibreApplication.py:825
+#: ../menulibre/MenulibreApplication.py:826
 msgid "Category Name"
 msgstr "Nom de la categoria"
 
 #. Translators: "This Entry" launcher-specific category group
-#: ../menulibre/MenulibreApplication.py:928
+#: ../menulibre/MenulibreApplication.py:929
 msgid "This Entry"
 msgstr "Aquesta entrada"
 
 #. Translators: Placeholder text for a newly created action
-#: ../menulibre/MenulibreApplication.py:989
+#: ../menulibre/MenulibreApplication.py:990
 msgid "New Shortcut"
 msgstr "Drecera nova"
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1139
+#: ../menulibre/MenulibreApplication.py:1140
 msgid "Select a working directory…"
 msgstr "Selecciona una carpeta de treball…"
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1143
+#: ../menulibre/MenulibreApplication.py:1144
 msgid "Select an executable…"
 msgstr "Selecciona un executable…"
 
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:1389
+#: ../menulibre/MenulibreApplication.py:1391
 msgid "You do not have permission to delete this file."
 msgstr "No teniu permís per suprimir aquest fitxer."
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1637
+#: ../menulibre/MenulibreApplication.py:1639
 msgid "New Launcher"
 msgstr "Llançador nou"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1640 ../menulibre/MenulibreXdg.py:49
+#: ../menulibre/MenulibreApplication.py:1642 ../menulibre/MenulibreXdg.py:49
 msgid "A small descriptive blurb about this application."
 msgstr "Una descripció curta d'aquesta aplicació."
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1690
+#: ../menulibre/MenulibreApplication.py:1692
 msgid "New Directory"
 msgstr "Carpeta nova"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1693
+#: ../menulibre/MenulibreApplication.py:1695
 msgid "A small descriptive blurb about this directory."
 msgstr "Una descripció curta sobre aquesta carpeta."
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:2118
+#: ../menulibre/MenulibreApplication.py:2120
 msgid "Are you sure you want to delete this separator?"
 msgstr "Segur que voleu suprimir aquest separador?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:2122
+#: ../menulibre/MenulibreApplication.py:2124
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Segur que voleu suprimir «%s»?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:2234
+#: ../menulibre/MenulibreApplication.py:2236
 msgid "Parsing Error Log"
 msgstr "Registre d'errors d'anàlisi"
 
@@ -967,7 +978,7 @@ msgstr "Element de menú nou"
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
 #. code is displayed.
-#: ../menulibre/util.py:620
+#: ../menulibre/util.py:621
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr "No es pot carregar el fitxer de menú a causa de l'error següent: %s"
@@ -975,41 +986,41 @@ msgstr "No es pot carregar el fitxer de menú a causa de l'error següent: %s"
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
 #. translated.
-#: ../menulibre/util.py:635
+#: ../menulibre/util.py:636
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr "El grup d'inici no és vàlid: actualment és «%s» i hauria de ser «%s»"
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:645
+#: ../menulibre/util.py:646
 #, python-format
 msgid "%s key not found"
 msgstr "No s'ha trobat la clau %s"
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
-#: ../menulibre/util.py:650
+#: ../menulibre/util.py:651
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr "El valor de %s no és vàlid: actualment és «%s» i hauria de ser «%s»"
 
-#: ../menulibre/util.py:679
+#: ../menulibre/util.py:680
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
 msgstr "El programa %s «%s» no s'ha trobat al camí de cerca"
 
-#: ../menulibre/util.py:682
+#: ../menulibre/util.py:683
 #, python-format
 msgid ""
-"%s program '%s' is not a valid shell command according to GLib."
-"shell_parse_argv, error: %s"
+"%s program '%s' is not a valid shell command according to "
+"GLib.shell_parse_argv, error: %s"
 msgstr ""
 "El programa %s «%s» no és una ordre vàlida per a la línia d'ordres segons "
 "GLib.shell_parse_argv, error: %s"
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
-#: ../menulibre/util.py:688
+#: ../menulibre/util.py:689
 msgid "Unknown error. Desktop file appears to be valid."
 msgstr "Error desconegut. El fitxer de menú sembla vàlid."
