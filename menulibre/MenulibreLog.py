@@ -23,6 +23,7 @@ from gi.repository import Gdk, Gio, Gtk
 
 import menulibre_lib
 from .util import unsandbox
+from . util import find_program
 
 
 class LogDialog:
@@ -64,6 +65,49 @@ class LogDialog:
         if info is not None:
             return info.get_executable()
         return None
+    
+    def get_pkexecs(self):
+        try:
+            output = subprocess.check_output(["pkaction"], stderr=subprocess.STDOUT)
+        except Exception as e:
+            output = e.output
+        try:
+            return output.decode('utf-8').split("\n")
+        except:
+            return []
+
+    def get_editor_executables(self):
+        execs = {}
+        infos = Gio.AppInfo.get_all_for_type("text/plain")
+        for info in infos:
+            executable = info.get_executable()
+            appid = info.get_id()
+            appid = appid[:-8]
+            execs[appid] = executable
+        return execs
+
+    def get_root_editor_executable(self):
+        pkexecs = self.get_pkexecs()
+        default = self.get_editor_executable()
+        preferred = None
+        for appid, executable in self.get_editor_executables().items():
+            for pkexec in pkexecs:
+                if pkexec == appid or pkexec == "org.freedesktop.policykit.pkexec.%s" % appid:
+                    if executable == default:
+                        return executable
+                    if preferred is None:
+                        preferred = executable
+        if preferred is not None:
+            return preferred
+        return default
+
+    def file_is_writable(self, path):
+        try:
+            gfile = Gio.File.new_for_path(path)
+            info = gfile.query_info(Gio.FILE_ATTRIBUTE_ACCESS_CAN_WRITE, Gio.FileQueryInfoFlags.NONE, None)
+            return info.get_attribute_boolean(Gio.FILE_ATTRIBUTE_ACCESS_CAN_WRITE)
+        except:
+            return False
 
     def view_path(self, path):
         if os.path.isdir(path):
@@ -73,8 +117,15 @@ class LogDialog:
             else:
                 Gtk.show_uri(None, uri, Gdk.CURRENT_TIME)
         else:
-            binary = self.get_editor_executable()
-            subprocess.Popen([binary, path])
+            if not find_program("pkexec"):
+                binary = self.get_editor_executable()
+                subprocess.Popen([binary, path])
+            elif self.file_is_writable(path):
+                binary = self.get_editor_executable()
+                subprocess.Popen([binary, path])
+            else:
+                binary = self.get_root_editor_executable()
+                subprocess.Popen(["pkexec", binary, path])
 
     def get_path_details_at_pos(self, x, y):
         pos = self._log_treeview.get_path_at_pos(x, y)
