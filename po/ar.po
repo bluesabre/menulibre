@@ -1,0 +1,1026 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Osama Chibani, 2021
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-24 23:18-0400\n"
+"PO-Revision-Date: 2020-06-10 02:27+0000\n"
+"Last-Translator: Osama Chibani, 2021\n"
+"Language-Team: Arabic (https://www.transifex.com/bluesabreorg/teams/99550/ar/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: ../menulibre.desktop.in.h:1
+msgid "Menu Editor"
+msgstr "محرر القائمة"
+
+#: ../menulibre.desktop.in.h:2
+msgid "Add or remove applications from the menu"
+msgstr "إضافة أو إزالة التطبيقات من القائمة"
+
+#. Translators: This option adds a new application entry to the menu.
+#: ../data/ui/MenulibreWindow.ui.h:2
+msgid "Add _Launcher"
+msgstr "إضافة _مُطلق"
+
+#. Translators: This option adds a new directory entry to the menu.
+#: ../data/ui/MenulibreWindow.ui.h:4
+msgid "Add _Directory"
+msgstr "إضافة _مجلد"
+
+#. Translators: This option adds a new separator entry to the menu.
+#: ../data/ui/MenulibreWindow.ui.h:6
+msgid "Add _Separator"
+msgstr "إضافة _فاصل"
+
+#. Translators: Icon popup menu item to browse available icons.
+#: ../data/ui/MenulibreWindow.ui.h:8
+msgid "Browse Icons…"
+msgstr "تصفح الأيقونات..."
+
+#. Translators: Icon popup menu item to browse files for an icon file.
+#: ../data/ui/MenulibreWindow.ui.h:10
+msgid "Browse Files…"
+msgstr "تصفح الملفات..."
+
+#. Translators: Toolbar button to save the currently selected item.
+#: ../data/ui/MenulibreWindow.ui.h:12
+msgid "Save Launcher"
+msgstr "حفظ المُطلق"
+
+#. Translators: Toolbar button to undo last change to currently selected item.
+#. Translators: Undo action tooltip
+#: ../data/ui/MenulibreWindow.ui.h:14 ../menulibre/MenulibreApplication.py:428
+msgid "Undo"
+msgstr "تراجع"
+
+#. Translators: Toolbar button to redo the last undone change to currently
+#. selected item.
+#. Translators: Redo action tooltip
+#: ../data/ui/MenulibreWindow.ui.h:16 ../menulibre/MenulibreApplication.py:437
+msgid "Redo"
+msgstr "تقدم"
+
+#. Translators: Toolbar button to revery the currently selected item to it
+#. Translators: Revert action tooltip
+#: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:446
+msgid "Revert"
+msgstr "استرجاع"
+
+#. Translators: Toolbar button to test the currently selected item.
+#: ../data/ui/MenulibreWindow.ui.h:20
+msgid "Test Launcher"
+msgstr "اختبار المُطلق"
+
+#. Translators: Toolbar button to delete the currently selected item.
+#. Translators: Delete action tooltip
+#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:464
+msgid "Delete"
+msgstr "حذف"
+
+#. Translators: Save On Close Dialog, do save, then close.
+#. Translators: Save On Leave Dialog, do save, then leave.
+#. Translators: Save Launcher action tooltip
+#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/Dialogs.py:103
+#: ../menulibre/Dialogs.py:132 ../menulibre/MenulibreApplication.py:419
+msgid "Save"
+msgstr "حفظ"
+
+#. Translators: Placeholder text for the search text entry.
+#: ../data/ui/MenulibreWindow.ui.h:25
+msgid "Search"
+msgstr "بحث"
+
+#. Translators: This error is displayed in a notice at the top of the
+#. application when one or more desktop files fails processing.
+#: ../data/ui/MenulibreWindow.ui.h:27
+msgid "Invalid desktop files detected! Please see details."
+msgstr "اكتشاف ملف سطح مكتب غير صالح!  الرجاء الاطلاع على التفاصيل."
+
+#. Translators: Treeview toolbar button to move the currently selected item
+#. up.
+#: ../data/ui/MenulibreWindow.ui.h:29
+msgid "Move Up"
+msgstr "تحريك للأعلى"
+
+#. Translators: Treeview toolbar button to move the currently selected item
+#. down.
+#: ../data/ui/MenulibreWindow.ui.h:31
+msgid "Move Down"
+msgstr "تحرك للأسفل"
+
+#. Translators: Treeview toolbar button to sort the currently open submenu
+#. alphabetically.
+#: ../data/ui/MenulibreWindow.ui.h:33
+msgid "Sort Alphabetically"
+msgstr "ترتيب أبجدي"
+
+#. Translators: Placeholder text/hint for the application name entry.
+#: ../data/ui/MenulibreWindow.ui.h:35
+msgid "Application Name"
+msgstr "اسم التطبيق"
+
+#. Translators: Placeholder text/hint for the application comment entry.
+#. Translators: "Description" tree column header
+#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:833
+msgid "Description"
+msgstr "وصف"
+
+#. Translators: Tooltip for the "Exec" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:39
+msgid ""
+"Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."
+msgstr ""
+"البرنامج سينفذ مع معطيات. هذه المفاتيح مطلوبة إذا كان تفعيل DBus غير مضبوط "
+"على \"True\" أو عند حاجتك للتوافقية مع تطبيقات لا تفهم تفعيل D-Bus للحصول "
+"على قائمة المعطيات المدعومة انظر https://github.com/bluesabre/menulibre/wiki"
+"/Recognized-Desktop-Entry-Keys#exec."
+
+#. Translators: Treeview column for an action item
+#: ../data/ui/MenulibreWindow.ui.h:42
+msgid "Command"
+msgstr "أمر"
+
+#. Translators: Tooltip for the "Path" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:44
+msgid "The working directory."
+msgstr "مجلد العمل."
+
+#. Translators: "Path" text entry. The working directory of the application.
+#: ../data/ui/MenulibreWindow.ui.h:46
+msgid "Working Directory"
+msgstr "مجلد عمل"
+
+#. Translators: Header for the commonly used application fields.
+#: ../data/ui/MenulibreWindow.ui.h:48
+msgid "Application Details"
+msgstr "تفاصيل التطبيق"
+
+#. Translators: Tooltip for the "Terminal" on/off switch.
+#: ../data/ui/MenulibreWindow.ui.h:50
+msgid "If set to \"True\", the program will be ran in a terminal window."
+msgstr "عند الضبط ل \"True\"، البرنامج سيعمل داخل نافذة الطرفية."
+
+#. Translators: "Terminal" on/off switch. When enabled, the application is
+#. executed in a terminal window.
+#: ../data/ui/MenulibreWindow.ui.h:52
+msgid "Run in terminal"
+msgstr "تشغيل في الطرفية"
+
+#. Translators: Tooltip for the "StartupNotify" on/off switch.
+#: ../data/ui/MenulibreWindow.ui.h:54
+msgid ""
+"If set to \"True\", a startup notification is sent. Usually means that a "
+"busy cursor is shown while the application launches."
+msgstr ""
+"عند الضبط ل\"True\"، سيتم إرسال تنبيه بدأ تشغيل. عادة هذا يعني ظهور مؤشر "
+"الانشغال عند انطلاق التطبيق."
+
+#. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is
+#. shown while the application launches.
+#: ../data/ui/MenulibreWindow.ui.h:56
+msgid "Use startup notification"
+msgstr "استعمال تنبيه بدأ التشغيل"
+
+#. Translators: Tooltip for the "NoDisplay" on/off switch.
+#: ../data/ui/MenulibreWindow.ui.h:58
+msgid ""
+"If set to \"True\", this entry will not be shown in menus, but will be "
+"available for MIME type associations etc."
+msgstr ""
+"عند الضبط ل\"True\"، هذا المدخل لن يظهر في القائمة، لكن سيكون متاح ﻷنواع "
+"الارتباط MIME إلخ."
+
+#. Translators: "NoDisplay" on/off switch. When enabled, the application will
+#. not be shown in menus, but will be available for MIME type associations
+#. etc.
+#: ../data/ui/MenulibreWindow.ui.h:60
+msgid "Hide from menus"
+msgstr "إخفاء من القوائم"
+
+#. Translators: Header for the less common application and directory fields.
+#: ../data/ui/MenulibreWindow.ui.h:62
+msgid "Options"
+msgstr "خيارات"
+
+#. Translators: Button to add item to list.
+#: ../data/ui/MenulibreWindow.ui.h:64
+msgid "Add"
+msgstr "إضافة"
+
+#. Translators: Button to remove item from list.
+#: ../data/ui/MenulibreWindow.ui.h:66
+msgid "Remove"
+msgstr "إزالة"
+
+#. Translators: Button to remove all items from list.
+#: ../data/ui/MenulibreWindow.ui.h:68
+msgid "Clear"
+msgstr "تنظيف"
+
+#. Translators: Treeview column for whether an action item is displayed
+#. (boolean).
+#: ../data/ui/MenulibreWindow.ui.h:70
+msgid "Show"
+msgstr "إظهار"
+
+#. Translators: Treeview column for the name of the displayed action item.
+#: ../data/ui/MenulibreWindow.ui.h:72
+msgid "Name"
+msgstr "اسم"
+
+#. Translators: Window title for the Select Icon dialog
+#: ../data/ui/MenulibreWindow.ui.h:74
+msgid "Select an icon…"
+msgstr "اختيار أيقونة..."
+
+#. Translators: Button to cancel and leave a dialog.
+#. Translators: Help Dialog, cancel button.
+#. Translators: Save On Close Dialog, don't save, cancel close.
+#. Translators: Save On Leave Dialog, don't save, cancel leave.
+#. Translators: Revert Dialog, cancel button.
+#. Translators: File Chooser Dialog, cancel button.
+#: ../data/ui/MenulibreWindow.ui.h:76 ../menulibre/Dialogs.py:66
+#: ../menulibre/Dialogs.py:101 ../menulibre/Dialogs.py:130
+#: ../menulibre/Dialogs.py:169 ../menulibre/Dialogs.py:189
+#: ../menulibre/MenulibreIconSelection.py:81
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. Translators: Button to accept and apply changes in a dialog.
+#: ../data/ui/MenulibreWindow.ui.h:78
+msgid "Apply"
+msgstr "تطبيق"
+
+#. Translators: Window title for the parsing error log dialog.
+#: ../data/ui/MenulibreWindow.ui.h:80
+msgid "Parsing Errors"
+msgstr "أخطاء التفسير"
+
+#. Translators: This text is displayed in the Parsing Errors dialog and
+#. provides a basic summary of the errors reported.
+#: ../data/ui/MenulibreWindow.ui.h:82
+msgid ""
+"The following desktop files have failed parsing by the underlying library, and will therefore not show up in MenuLibre.\n"
+"Please investigate these problems with the associated package maintainer."
+msgstr ""
+"ملفات سطح المكتب التالية فشل تفسيرها بواسطة المكتبة الأساسية، وبذلك لن تظهر "
+"في MenuLibre. الرجاء التحقق من هذه المشاكل مع المشرف على الحزمة."
+
+#. Translators: Tooltip for the "GenericName" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:85
+msgid "Generic name of the application, for example \"Web Browser\"."
+msgstr "الاسم العام للتطبيق، على سبيل المثال \"متصفح الشبكة\"."
+
+#. Translators: "GenericName" text entry. Generic name of the application, for
+#. example "Web Browser".
+#: ../data/ui/MenulibreWindow.ui.h:87
+msgid "Generic Name"
+msgstr "اسم عام"
+
+#. Translators: Tooltip for the "NotShowIn" text entry. Possible values
+#. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
+#. "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be
+#. translated.
+#: ../data/ui/MenulibreWindow.ui.h:89
+msgid ""
+"A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
+"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+msgstr ""
+"قائمة البيئات التي يجب ألا تعرض هذا المدخل. يمكنك استخدام هذا المفتاح في "
+"حالة عدم الضبط ل \"OnlyShowIn\". القيم الممكنة تتضمن : Budgie, Cinnamon, "
+"EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, "
+"Old"
+
+#. Translators: "NotShowIn" text entry. A list of environments that should not
+#. display this entry.
+#: ../data/ui/MenulibreWindow.ui.h:92
+msgid "Not Shown In"
+msgstr "عدم اﻹظهار في"
+
+#. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values
+#. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
+#. "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be
+#. translated.
+#: ../data/ui/MenulibreWindow.ui.h:94
+msgid ""
+"A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if \"NotShowIn\" is not set.\n"
+"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+msgstr ""
+"قائمة البيئات التي تعرض هذا المدخل. البيئات الأخرى لن تعرض هذا المدخل. يمكنك"
+" استخدام هذا المفتاح في حالة عدم الضبط ل\"NotShowIn\". القيم الممكنة تتضمن: "
+"Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, "
+"TDE, Unity, XFCE, Old"
+
+#. Translators: "OnlyShowIn" text entry. A list of environments that should
+#. display this entry.
+#: ../data/ui/MenulibreWindow.ui.h:97
+msgid "Only Shown In"
+msgstr "إظهار فقط في"
+
+#. Translators: Tooltip for the "TryExec" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:99
+msgid ""
+"Path to an executable file to determine if the program is installed. If the "
+"file is not present or is not executable, this entry may not be shown in a "
+"menu."
+msgstr ""
+"تحديد مسار الملف التنفيذي في حالة أن البرنامج قد تم تنزيله. إذا كان الملف "
+"غير متاح أو لا يمكن تشغيله، هذا المدخل قد لا يتم إظهاره في القائمة."
+
+#. Translators: "TryExec" text entry. Path to an executable file to determine
+#. if the program is installed.
+#: ../data/ui/MenulibreWindow.ui.h:101
+msgid "Try Exec"
+msgstr "حاول تشغيل"
+
+#. Translators: Tooltip for the "Mimetypes" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:103
+msgid "The MIME type(s) supported by this application."
+msgstr "نوع (أو أنواع) MIME المدعومة بواسطة التطبيق."
+
+#. Translators: "Mimetype" text entry. The MIME type(s) supported by this
+#. application.
+#: ../data/ui/MenulibreWindow.ui.h:105
+msgid "Mimetypes"
+msgstr "أنواع Mime"
+
+#. Translators: Tooltip for the "Keywords" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:107
+msgid ""
+"A list of keywords to describe this entry. You can use these to help "
+"searching entries. These are not meant for display, and should not be "
+"redundant with the values of Name or GenericName."
+msgstr ""
+"قائمة الكلمات المفتاحية لوصف المدخل. يمكنك استعمالها للمساعدة في البحث. هي "
+"غير مخصصة للعرض، ولا ينبغي تكرارها في الاسم أو الاسم العام."
+
+#. Translators: "Keywords" text entry. A list of keywords to describe this
+#. entry.
+#: ../data/ui/MenulibreWindow.ui.h:109
+msgid "Keywords"
+msgstr "كلمات مفتاحية"
+
+#. Translators: Tooltip for the "StartupWMClass" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:111
+msgid ""
+"If specified, the application will be requested to use the string as a WM "
+"class or a WM name hint at least in one window."
+msgstr ""
+"عند تخصيصها سيطلب من التطبيق استعمال النص ك\"WM class\" أو تلميح لاسم مدير "
+"النوافذ على الأقل في نافذة واحدة."
+
+#. Translators: "StartupWMClass" text entry. A window manager hint for the
+#. application
+#: ../data/ui/MenulibreWindow.ui.h:113
+msgid "Startup WM Class"
+msgstr "Startup WM Class"
+
+#. Translators: Identify Window Dialog, primary text.
+#: ../data/ui/MenulibreWindow.ui.h:114 ../menulibre/Dialogs.py:251
+msgid "Identify Window"
+msgstr "تحديد نافذة"
+
+#. Translators: Tooltip for the "Hidden" on/off switch.
+#: ../data/ui/MenulibreWindow.ui.h:116
+msgid ""
+"If set to \"True\", the result for the user is equivalent to the .desktop "
+"file not existing at all."
+msgstr ""
+"عند الضبط ل\"True\"، النتيجة للمستخدم تتكافأ مع عدم وجود ملف سطح المكتب على "
+"اﻹطلاق."
+
+#. Translators: "Hidden" on/off switch. When enabled, the application is
+#. hidden from the menu.
+#: ../data/ui/MenulibreWindow.ui.h:118
+msgid "Hidden"
+msgstr "مخفي"
+
+#. Translators: Tooltip for the "DBusActivatable" on/off switch.
+#: ../data/ui/MenulibreWindow.ui.h:120
+msgid ""
+"Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information."
+msgstr ""
+"ضبط هذا المفتاح ل\"True\" إذا كان هذا التطبيق يدعم تفعيل D-Bus وكنت ترغب في "
+"استخدامه. لمزيد من المعلومات انظر "
+"https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
+"Keys#dbusactivatable"
+
+#. Translators: "DBusActivatable" on/off switch. When enabled, the application
+#. is said to be activated via DBUS.
+#: ../data/ui/MenulibreWindow.ui.h:123
+msgid "DBUS Activatable"
+msgstr "تفعيل DBUS"
+
+#. Translators: Tooltip for the "Implements" text entry.
+#: ../data/ui/MenulibreWindow.ui.h:125
+msgid "A list of interfaces that this application implements."
+msgstr "قائمة بالواجهات التي ينجزها هذا التطبيق."
+
+#. Translators: "Implements" text entry. A list of interfaces that this
+#. application implements.
+#: ../data/ui/MenulibreWindow.ui.h:127
+msgid "Implements"
+msgstr "تطبيقات"
+
+#: ../data/ui/MenulibreWindow.ui.h:128
+msgctxt ""
+"If true, the application prefers to be run on a more powerful GPU (graphics "
+"processing unit, graphics card) if available."
+msgid ""
+"Set this key to \"True\" if this application prefers to be run on a more powerful GPU if available.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information."
+msgstr ""
+"ضبط هذا المفتاح ل\"True\" إذا كان من الأفضل تشغيل هذا التطبيق على معالج "
+"رسوميات أكثر قوة عندما يكون متاحاً. لمزيد من المعلومات انظر "
+"https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
+"Keys#prefersnondefaultgpu"
+
+#: ../data/ui/MenulibreWindow.ui.h:130
+msgctxt ""
+"If true, the application prefers to be run on a more powerful GPU (graphics "
+"processing unit, graphics card) if available."
+msgid "Prefers Non-Default GPU"
+msgstr "تفضيل معالج الرسوميات الغير افتراضي"
+
+#: ../data/ui/MenulibreWindow.ui.h:131
+msgid ""
+"Set this key to \"True\" if this application uses notifications.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information."
+msgstr ""
+"ضبط هذا المفتاح ل\"True\" إذا كان هذا التطبيق يستخدم التنبيهات. لمزيد من "
+"المعلومات انظر https://github.com/bluesabre/menulibre/wiki/Recognized-"
+"Desktop-Entry-Keys#x-gnome-usesnotifications"
+
+#: ../data/ui/MenulibreWindow.ui.h:133
+msgid "Uses Notifications"
+msgstr "استخدام التنبيهات"
+
+#. Translators: Command line option to display debug messages on stdout
+#: ../menulibre/__init__.py:34
+msgid "Show debug messages"
+msgstr "إظهار رسائل تتبع العلل"
+
+#. Translators: Command line option to switch layout
+#: ../menulibre/__init__.py:38
+msgid "Use headerbar layout (client side decorations)"
+msgstr "استعمال طبقة الشريط العلوي (client side decorations)"
+
+#. Translators: Command line option to switch layout
+#: ../menulibre/__init__.py:43
+msgid "Use toolbar layout (server side decorations)"
+msgstr "استعمال طبقة شريط الأدوات (server side decorations)"
+
+#. Translators: About Dialog, window title.
+#: ../menulibre/Dialogs.py:38
+msgid "About MenuLibre"
+msgstr "حول MenuLibre"
+
+#. Translators: Help Dialog, window title.
+#: ../menulibre/Dialogs.py:58
+msgid "Online Documentation"
+msgstr "التوثيق عبر اﻹنترنت"
+
+#. Translators: Help Dialog, primary text.
+#: ../menulibre/Dialogs.py:60
+msgid "Do you want to read the MenuLibre manual online?"
+msgstr "هل ترغب في قراءة دليل MenuLibre على الإنترنت؟"
+
+#. Translators: Help Dialog, secondary text.
+#: ../menulibre/Dialogs.py:62
+msgid ""
+"You will be redirected to the documentation website where the help pages are"
+" maintained."
+msgstr "سيتم إعادة توجيهك إلى موقع التوثيق الذي يشرف على صفحات المساعدة."
+
+#. Translators: Help Dialog, confirmation button. Navigates to
+#. online documentation.
+#: ../menulibre/Dialogs.py:69
+msgid "Read Online"
+msgstr "اقرأ على اﻹنترنت"
+
+#. Translators: Save On Close Dialog, window title.
+#. Translators: Save On Leave Dialog, window title.
+#: ../menulibre/Dialogs.py:91 ../menulibre/Dialogs.py:119
+msgid "Save Changes"
+msgstr "حفظ التغييرات"
+
+#. Translators: Save On Close Dialog, primary text.
+#: ../menulibre/Dialogs.py:93
+msgid "Do you want to save the changes before closing?"
+msgstr "هل ترغب في حفظ التغييرات قبل اﻹغلاق؟"
+
+#. Translators: Save On Close Dialog, secondary text.
+#. Translators: Save On Leave Dialog, primary text.
+#: ../menulibre/Dialogs.py:95 ../menulibre/Dialogs.py:124
+msgid "If you don't save the launcher, all the changes will be lost."
+msgstr "إذا لم تحفظ المُطلق، سيتم خسارة جميع التغييرات."
+
+#. Translators: Save On Close Dialog, don't save, then close.
+#. Translators: Save On Leave Dialog, don't save, then leave.
+#: ../menulibre/Dialogs.py:99 ../menulibre/Dialogs.py:128
+msgid "Don't Save"
+msgstr "لا تحفظ"
+
+#. Translators: Save On Leave Dialog, primary text.
+#: ../menulibre/Dialogs.py:121
+msgid "Do you want to save the changes before leaving this launcher?"
+msgstr "هل ترغب في حفظ التغييرات قبل مغادرة هذا المُطلق؟"
+
+#. Translations: Delete Dialog, secondary text. Notifies user that
+#. the file cannot be restored once deleted.
+#: ../menulibre/Dialogs.py:149
+msgid "This cannot be undone."
+msgstr "هذا لا يمكن التراجع عنه."
+
+#. Translators: Revert Dialog, window title.
+#. Translators: Revert Dialog, confirmation button.
+#: ../menulibre/Dialogs.py:160 ../menulibre/Dialogs.py:171
+msgid "Restore Launcher"
+msgstr "استعادة المُطلق"
+
+#. Translators: Revert Dialog, primary text. Confirmation to revert
+#. all changes since the last file save.
+#: ../menulibre/Dialogs.py:163
+msgid "Are you sure you want to restore this launcher?"
+msgstr "هل أنت متأكد من أنك تريد استعادة المُطلق؟"
+
+#. Translators: Revert Dialog, secondary text.
+#: ../menulibre/Dialogs.py:165
+msgid ""
+"All changes since the last saved state will be lost and cannot be restored "
+"automatically."
+msgstr ""
+"جميع التغييرات من آخر وضعية محفوظة سيتم فقدانها ولا يمكن استعادتها بشكل "
+"تلقائي."
+
+#. Translators: File Chooser Dialog, confirmation button.
+#: ../menulibre/Dialogs.py:191 ../menulibre/MenulibreIconSelection.py:82
+msgid "OK"
+msgstr "نعم"
+
+#. Translators: Launcher Removed Dialog, primary text. Indicates that
+#. the selected application is no longer installed.
+#: ../menulibre/Dialogs.py:198
+msgid "No Longer Installed"
+msgstr "غير مثبت بعد اﻵن"
+
+#. Translators: Launcher Removed Dialog, secondary text.
+#: ../menulibre/Dialogs.py:200
+msgid ""
+"This launcher has been removed from the system.\n"
+"Selecting the next available item."
+msgstr "هذا المُطلق تم إزالته من النظام. اختر العنصر المتاح التالي."
+
+#. Translators: Not Found In PATH Dialog, primary text. Indicates
+#. that the provided script was not found in any PATH directory.
+#: ../menulibre/Dialogs.py:214
+#, python-format
+msgid "Could not find \"%s\" in your PATH."
+msgstr "لا يمكن العثور على \"%s\" في مسارك."
+
+#. Translators: Save Error Dialog, primary text.
+#: ../menulibre/Dialogs.py:232
+#, python-format
+msgid "Failed to save \"%s\"."
+msgstr "فشل حفظ \"%s\"."
+
+#. Translators: Save Error Dialog, secondary text.
+#: ../menulibre/Dialogs.py:235
+msgid "Do you have write permission to the file and directory?"
+msgstr "هل لديك صلاحية الكتابة للملف والمجلد؟"
+
+#. Translators: Identify Window Dialog, secondary text. The selected
+#. application is displayed in the placeholder text.
+#: ../menulibre/Dialogs.py:254
+#, python-format
+msgid "Click on the main application window for '%s'."
+msgstr "اضغط على نافذة التطبيق الرئيسية ل'%s'. "
+
+#. Translators: Separator menu item
+#: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1215
+#: ../menulibre/MenulibreApplication.py:1713
+msgid "Separator"
+msgstr "فاصل"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:49
+msgid "Multimedia"
+msgstr "وسائط متعددة"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:51
+msgid "Development"
+msgstr "تطوير"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:53
+msgid "Education"
+msgstr "تعليم"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:55
+msgid "Games"
+msgstr "ألعاب"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:57
+msgid "Graphics"
+msgstr "رسوميات"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:59
+msgid "Internet"
+msgstr "شبكة"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:61
+msgid "Office"
+msgstr "مكتب"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:63
+msgid "Settings"
+msgstr "إعدادات"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:65
+msgid "System"
+msgstr "نظام"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:67
+msgid "Accessories"
+msgstr "كماليات"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:69
+msgid "WINE"
+msgstr "واين"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:71
+msgid "Desktop configuration"
+msgstr "إعدادات سطح المكتب"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:73
+msgid "User configuration"
+msgstr "إعدادات المستخدم"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:75
+msgid "Hardware configuration"
+msgstr "إعدادات العتاد"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:77
+msgid "GNOME application"
+msgstr "تطبيق غنوم"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:79
+msgid "GTK+ application"
+msgstr "تطبيق +GTK"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:81
+msgid "GNOME user configuration"
+msgstr "إعدادات المستخدم في غنوم"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:83
+msgid "GNOME hardware configuration"
+msgstr "إعدادات العتاد في غنوم"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:85
+#: ../menulibre/MenulibreApplication.py:87
+msgid "GNOME system configuration"
+msgstr "إعدادات النظام في غنوم"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:89
+#: ../menulibre/MenulibreApplication.py:91
+msgid "Xfce menu item"
+msgstr "عنصر قائمة Xfce"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:93
+msgid "Xfce toplevel menu item"
+msgstr "عنصر قائمة Xfce ذو مستوى عالي"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:95
+msgid "Xfce user configuration"
+msgstr "إعدادات المستخدم في Xfce"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:97
+msgid "Xfce hardware configuration"
+msgstr "إعدادات العتاد في Xfce"
+
+#. Translators: Launcher category description
+#: ../menulibre/MenulibreApplication.py:99
+#: ../menulibre/MenulibreApplication.py:101
+msgid "Xfce system configuration"
+msgstr "إعدادات النظام في Xfce"
+
+#. Translators: "Other" category group. This item is only displayed for
+#. unknown or non-standard categories.
+#: ../menulibre/MenulibreApplication.py:154
+#: ../menulibre/MenulibreApplication.py:201
+msgid "Other"
+msgstr "أخرى"
+
+#. Translators: This error is displayed when the application is run
+#. as a root user. The application exits once the dialog is
+#. dismissed.
+#: ../menulibre/MenulibreApplication.py:263
+msgid "MenuLibre cannot be run as root."
+msgstr "لا يمكن تشغيل MenuLibre في حالة الجذر."
+
+#. Translators: This link goes to the online documentation with more
+#. information.
+#: ../menulibre/MenulibreApplication.py:269
+#, python-format
+msgid ""
+"Please see the <a href='%s'>online documentation</a> for more information."
+msgstr "من فضلك انظر <a href='%s'>وثائق اﻹنترنت</a> لمزيد من المعلومات."
+
+#. Translators: Add Launcher action label
+#: ../menulibre/MenulibreApplication.py:390
+msgid "Add _Launcher…"
+msgstr "إضافة _مُطلق"
+
+#. Translators: Add Launcher action tooltip
+#: ../menulibre/MenulibreApplication.py:392
+msgid "Add Launcher…"
+msgstr "إضافة مُطلق..."
+
+#. Translators: Add Directory action label
+#: ../menulibre/MenulibreApplication.py:399
+msgid "Add _Directory…"
+msgstr "إضافة _مجلد..."
+
+#. Translators: Add Directory action tooltip
+#: ../menulibre/MenulibreApplication.py:401
+msgid "Add Directory…"
+msgstr "إضافة مجلد..."
+
+#. Translators: Add Separator action label
+#: ../menulibre/MenulibreApplication.py:408
+msgid "_Add Separator…"
+msgstr "_إضافة فاصل..."
+
+#. Translators: Add Separator action tooltip
+#: ../menulibre/MenulibreApplication.py:410
+msgid "Add Separator…"
+msgstr "إضافة فاصل..."
+
+#. Translators: Save Launcher action label
+#: ../menulibre/MenulibreApplication.py:417
+msgid "_Save"
+msgstr "_حفظ"
+
+#. Translators: Undo action label
+#: ../menulibre/MenulibreApplication.py:426
+msgid "_Undo"
+msgstr "_تراجع"
+
+#. Translators: Redo action label
+#: ../menulibre/MenulibreApplication.py:435
+msgid "_Redo"
+msgstr "_تقدم"
+
+#. Translators: Revert action label
+#: ../menulibre/MenulibreApplication.py:444
+msgid "_Revert"
+msgstr "_استرجاع"
+
+#. Translators: Execute action label
+#: ../menulibre/MenulibreApplication.py:453
+msgid "_Execute"
+msgstr "_تنفيذ"
+
+#. Translators: Execute action tooltip
+#: ../menulibre/MenulibreApplication.py:455
+msgid "Execute Launcher"
+msgstr "تنفيذ المُطلق"
+
+#. Translators: Delete action label
+#: ../menulibre/MenulibreApplication.py:462
+msgid "_Delete"
+msgstr "_حذف"
+
+#. Translators: Quit action label
+#: ../menulibre/MenulibreApplication.py:471
+msgid "_Quit"
+msgstr "_خروج"
+
+#. Translators: Quit action tooltip
+#: ../menulibre/MenulibreApplication.py:473
+#: ../menulibre/MenulibreApplication.py:2243
+msgid "Quit"
+msgstr "خروج"
+
+#. Translators: Help action label
+#: ../menulibre/MenulibreApplication.py:480
+msgid "_Contents"
+msgstr "_محتويات"
+
+#. Translators: Help action tooltip
+#: ../menulibre/MenulibreApplication.py:482
+#: ../menulibre/MenulibreApplication.py:2241
+msgid "Help"
+msgstr "مساعدة"
+
+#. Translators: About action label
+#: ../menulibre/MenulibreApplication.py:489
+msgid "_About"
+msgstr "_حول"
+
+#. Translators: About action tooltip
+#: ../menulibre/MenulibreApplication.py:491
+#: ../menulibre/MenulibreApplication.py:2242
+msgid "About"
+msgstr "حول"
+
+#. Translators: "Categories" launcher section
+#: ../menulibre/MenulibreApplication.py:634
+msgid "Categories"
+msgstr "تصنيفات"
+
+#. Translators: "Actions" launcher section
+#: ../menulibre/MenulibreApplication.py:637
+msgid "Actions"
+msgstr "إجراءات"
+
+#. Translators: "Advanced" launcher section
+#: ../menulibre/MenulibreApplication.py:640
+msgid "Advanced"
+msgstr "متقدم"
+
+#. Translators: Launcher-specific categories, camelcase "This Entry"
+#: ../menulibre/MenulibreApplication.py:801
+msgid "ThisEntry"
+msgstr "هذا المدخل"
+
+#. Translators: Placeholder text for the launcher-specific category
+#. selection.
+#: ../menulibre/MenulibreApplication.py:822
+msgid "Select a category"
+msgstr "اختيار تصنيف"
+
+#. Translators: "Category Name" tree column header
+#: ../menulibre/MenulibreApplication.py:826
+msgid "Category Name"
+msgstr "اسم التصنيف"
+
+#. Translators: "This Entry" launcher-specific category group
+#: ../menulibre/MenulibreApplication.py:929
+msgid "This Entry"
+msgstr "هذا المدخل"
+
+#. Translators: Placeholder text for a newly created action
+#: ../menulibre/MenulibreApplication.py:990
+msgid "New Shortcut"
+msgstr "اختصار جديد"
+
+#. Translators: File Chooser Dialog, window title.
+#: ../menulibre/MenulibreApplication.py:1140
+msgid "Select a working directory…"
+msgstr "اختيار مجلد العمل..."
+
+#. Translators: File Chooser Dialog, window title.
+#: ../menulibre/MenulibreApplication.py:1144
+msgid "Select an executable…"
+msgstr "اختيار قابل للتنفيذ..."
+
+#. Translators: This error is displayed when the user does not
+#. have sufficient file system permissions to delete the
+#. selected file.
+#: ../menulibre/MenulibreApplication.py:1391
+msgid "You do not have permission to delete this file."
+msgstr "ليس لديك صلاحية لحذف هذا الملف."
+
+#. Translators: Placeholder text for a newly created launcher.
+#: ../menulibre/MenulibreApplication.py:1639
+msgid "New Launcher"
+msgstr "مُطلق جديد"
+
+#. Translators: Placeholder text for a newly created launcher's
+#. description.
+#: ../menulibre/MenulibreApplication.py:1642 ../menulibre/MenulibreXdg.py:49
+msgid "A small descriptive blurb about this application."
+msgstr "دعاية وصفية صغيرة حول هذا التطبيق."
+
+#. Translators: Placeholder text for a newly created directory.
+#: ../menulibre/MenulibreApplication.py:1692
+msgid "New Directory"
+msgstr "مجلد جديد"
+
+#. Translators: Placeholder text for a newly created directory's
+#. description.
+#: ../menulibre/MenulibreApplication.py:1695
+msgid "A small descriptive blurb about this directory."
+msgstr "دعاية وصفية صغيرة حول هذا المجلد."
+
+#. Translators: Confirmation dialog to delete the selected
+#. separator.
+#: ../menulibre/MenulibreApplication.py:2120
+msgid "Are you sure you want to delete this separator?"
+msgstr "هل أنت متأكد من انك تريد حذف هذا الفاصل؟"
+
+#. Translators: Confirmation dialog to delete the selected launcher.
+#: ../menulibre/MenulibreApplication.py:2124
+#, python-format
+msgid "Are you sure you want to delete \"%s\"?"
+msgstr "هل أنت متأكد من أنك تريد حذف \"%s\"؟"
+
+#. Translators: Menu item to open the Parsing Errors dialog.
+#: ../menulibre/MenulibreApplication.py:2236
+msgid "Parsing Error Log"
+msgstr "سجل أخطاء التفسير"
+
+#. Translators: File Chooser Dialog, window title.
+#: ../menulibre/MenulibreIconSelection.py:78
+msgid "Select an image…"
+msgstr "اختيار صورة..."
+
+#. Translators: "Images" file chooser dialog filter
+#: ../menulibre/MenulibreIconSelection.py:87
+msgid "Images"
+msgstr "صوَر"
+
+#. Translators: "Search Results" treeview column header
+#: ../menulibre/MenulibreTreeview.py:64
+msgid "Search Results"
+msgstr "بحث النتائج"
+
+#. Translators: Placeholder text for a new menu item name.
+#: ../menulibre/MenulibreXdg.py:46
+msgid "New Menu Item"
+msgstr "عنصر قائمة جديد"
+
+#. Translators: This error is displayed when a desktop file cannot
+#. be correctly read by MenuLibre. A (possibly untranslated) error
+#. code is displayed.
+#: ../menulibre/util.py:621
+#, python-format
+msgid "Unable to load desktop file due to the following error: %s"
+msgstr "غير قادر على تحميل ملف سطح المكتب بسبب الخطأ التالي: %s"
+
+#. Translators: This error is displayed when the first group in a
+#. failing desktop file is incorrect. "Start group" can be safely
+#. translated.
+#: ../menulibre/util.py:636
+#, python-format
+msgid "Start group is invalid - currently '%s', should be '%s'"
+msgstr "بدأ مجموعة غير صالحة - حالياَ '%s'، يفترض أن تكون '%s'"
+
+#. Translators: This error is displayed when a required key is
+#. missing in a failing desktop file.
+#: ../menulibre/util.py:646
+#, python-format
+msgid "%s key not found"
+msgstr "لم يعتر على المفتاح %s"
+
+#. Translators: This error is displayed when a failing desktop file
+#. has an invalid value for the provided key.
+#: ../menulibre/util.py:651
+#, python-format
+msgid "%s value is invalid - currently '%s', should be '%s'"
+msgstr "قيمة %s غير صالحة - حالياً '%s'، يفترض أن تكون '%s'"
+
+#: ../menulibre/util.py:680
+#, python-format
+msgid "%s program '%s' has not been found in the PATH"
+msgstr " %s البرنامج  '%s' لم يعتر عليه في المسار"
+
+#: ../menulibre/util.py:683
+#, python-format
+msgid ""
+"%s program '%s' is not a valid shell command according to "
+"GLib.shell_parse_argv, error: %s"
+msgstr ""
+"%s البرنامج '%s' ليس أمر صدفة صالح وفقاً لGLib.shell_parse_argv, error: %s"
+
+#. Translators: This error is displayed for a failing desktop file where
+#. errors were detected but the file seems otherwise valid.
+#: ../menulibre/util.py:689
+msgid "Unknown error. Desktop file appears to be valid."
+msgstr "خطأ غير معروف. يبدوا أن ملف سطح المكتب غير صالح."
