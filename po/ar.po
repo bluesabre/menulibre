@@ -412,10 +412,8 @@ msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information."
 msgstr ""
-"ضبط هذا المفتاح ل\"True\" إذا كان هذا التطبيق يدعم تفعيل D-Bus وكنت ترغب في "
-"استخدامه. لمزيد من المعلومات انظر "
-"https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
-"Keys#dbusactivatable"
+"ضبط هذا المفتاح ل\"True\" إذا كان هذا التطبيق يدعم تفعيل D-Bus وكنت ترغب في استخدامه.\n"
+"لمزيد من المعلومات انظر https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable"
 
 #. Translators: "DBusActivatable" on/off switch. When enabled, the application
 #. is said to be activated via DBUS.
