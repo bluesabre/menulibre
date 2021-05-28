@@ -374,7 +374,7 @@ msgid ""
 "class or a WM name hint at least in one window."
 msgstr ""
 "عند تخصيصها سيطلب من التطبيق استعمال النص كفئة مدير نوافذ أو تلميح لاسم مدير"
-" النوافذ \"على الأقل في نافذة واحدة\"."
+" النوافذ على الأقل في نافذة واحدة."
 
 #. Translators: "StartupWMClass" text entry. A window manager hint for the
 #. application
