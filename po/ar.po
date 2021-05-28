@@ -1000,7 +1000,7 @@ msgstr "قيمة %s غير صالحة - حالياً '%s'، يفترض أن تك
 #: ../menulibre/util.py:680
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
-msgstr "البرنامج  %s  '%s' لم يعتر عليه في المسار"
+msgstr " %s البرنامج  '%s' لم يعتر عليه في المسار"
 
 #: ../menulibre/util.py:683
 #, python-format
@@ -1008,7 +1008,7 @@ msgid ""
 "%s program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
-"البرنامج %s  '%s' ليس أمر صدفة صالح وفقاً لGLib.shell_parse_argv, error: %s"
+"%s البرنامج '%s' ليس أمر صدفة صالح وفقاً لGLib.shell_parse_argv, error: %s"
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
