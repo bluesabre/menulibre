@@ -1008,7 +1008,7 @@ msgid ""
 "%s program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
-"%s البرنامج '%s' ليس أمر صدفة صالح وفقاً لGLib.shell_parse_argv, error: %s"
+"%s البرنامج '%s' ليس أمر صدفة صالح وفقاً للخطأ GLib.shell_parse_argv : %s"
 
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
