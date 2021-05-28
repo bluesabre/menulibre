@@ -1009,7 +1009,7 @@ msgstr "قيمة %s غير صالحة - حالياً '%s'، يفترض أن تك
 #: ../menulibre/util.py:680
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
-msgstr " %s البرنامج  '%s' لم يعتر عليه في المسار"
+msgstr "البرنامج  %s  '%s' لم يعتر عليه في المسار"
 
 #: ../menulibre/util.py:683
 #, python-format
