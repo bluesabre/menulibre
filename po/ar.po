@@ -559,7 +559,7 @@ msgstr ""
 #. Translators: File Chooser Dialog, confirmation button.
 #: ../menulibre/Dialogs.py:191 ../menulibre/MenulibreIconSelection.py:82
 msgid "OK"
-msgstr "نعم"
+msgstr "موافق"
 
 #. Translators: Launcher Removed Dialog, primary text. Indicates that
 #. the selected application is no longer installed.
