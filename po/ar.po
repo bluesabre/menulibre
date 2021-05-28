@@ -118,7 +118,7 @@ msgstr "تحريك للأعلى"
 #. down.
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Move Down"
-msgstr "تحريك للأسفل"
+msgstr "حرك للأسفل"
 
 #. Translators: Treeview toolbar button to sort the currently open submenu
 #. alphabetically.
