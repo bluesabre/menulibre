@@ -143,7 +143,7 @@ msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."
 msgstr ""
-"البرنامج سينفذ مع وسيط. هذا المفتاح مطلوب إذا كان تفعيل DBus غير مضبوط على \"نعم\" أو عند حاجتك للتوافقية مع تطبيقات لا تفهم تفعيل D-Bus.\n"
+"البرنامج سينفذ مع وسيط. هذا المفتاح مطلوب إذا كان تفعيل DBus غير مضبوط على \"صواب\" أو عند حاجتك للتوافقية مع تطبيقات لا تفهم تفعيل D-Bus.\n"
 "للحصول على قائمة الوسطاء المدعومة انظر https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec."
 
 #. Translators: Treeview column for an action item
