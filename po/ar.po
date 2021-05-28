@@ -444,7 +444,7 @@ msgctxt ""
 "If true, the application prefers to be run on a more powerful GPU (graphics "
 "processing unit, graphics card) if available."
 msgid "Prefers Non-Default GPU"
-msgstr "تفضيل GPU الغير افتراضي"
+msgstr "تفضيل GPU غير الافتراضي"
 
 #: ../data/ui/MenulibreWindow.ui.h:131
 msgid ""
