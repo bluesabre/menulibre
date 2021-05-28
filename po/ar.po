@@ -106,7 +106,7 @@ msgstr "بحث"
 #. application when one or more desktop files fails processing.
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Invalid desktop files detected! Please see details."
-msgstr "اكتشاف ملف سطح مكتب غير صالح!  الرجاء الاطلاع على التفاصيل."
+msgstr "اكتشاف ملفات سطح مكتب غير صالحة!  الرجاء الاطلاع على التفاصيل."
 
 #. Translators: Treeview toolbar button to move the currently selected item
 #. up.
