@@ -458,7 +458,7 @@ msgid ""
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information."
 msgstr ""
 "ضبط هذا المفتاح ل\"True\" إذا كان هذا التطبيق يستخدم التنبيهات.\n"
-" لمزيد من المعلومات انظر https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications"
+"لمزيد من المعلومات انظر https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications"
 
 #: ../data/ui/MenulibreWindow.ui.h:133
 msgid "Uses Notifications"
