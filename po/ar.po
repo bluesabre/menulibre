@@ -782,7 +782,7 @@ msgstr "إضافة مجلد..."
 #. Translators: Add Separator action label
 #: ../menulibre/MenulibreApplication.py:408
 msgid "_Add Separator…"
-msgstr "_إضافة فاصل..."
+msgstr "إضافة _فاصل..."
 
 #. Translators: Add Separator action tooltip
 #: ../menulibre/MenulibreApplication.py:410
