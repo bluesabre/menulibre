@@ -436,7 +436,7 @@ msgid ""
 "Set this key to \"True\" if this application prefers to be run on a more powerful GPU if available.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information."
 msgstr ""
-"ضبط هذا المفتاح ل\"نعم\" إذا كان من الأفضل تشغيل هذا التطبيق على معالج رسوميات أكثر قوة عندما يكون متاحاً.\n"
+"ضبط هذا المفتاح ل\"صواب\" إذا كان من الأفضل تشغيل هذا التطبيق على معالج رسوميات أكثر قوة عندما يكون متاحاً.\n"
 " لمزيد من المعلومات انظر https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu"
 
 #: ../data/ui/MenulibreWindow.ui.h:130
