@@ -277,7 +277,7 @@ msgid ""
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
 "ملفات سطح المكتب التالية فشل تفسيرها بواسطة المكتبة الأساسية، وبذلك لن تظهر في MenuLibre.\n"
-" الرجاء التحقق من هذه المشاكل مع المشرف على الحزمة."
+"الرجاء التحقق من هذه المشاكل مع المشرف على الحزمة."
 
 #. Translators: Tooltip for the "GenericName" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:85
