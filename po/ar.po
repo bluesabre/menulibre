@@ -742,7 +742,7 @@ msgstr "أخرى"
 #. dismissed.
 #: ../menulibre/MenulibreApplication.py:263
 msgid "MenuLibre cannot be run as root."
-msgstr "لا يمكن تشغيل MenuLibre في حالة الجذر."
+msgstr "لا يمكن تشغيل MenuLibre كجذر."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
