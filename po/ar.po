@@ -112,7 +112,7 @@ msgstr "اكتشاف ملفات سطح مكتب غير صالحة!  الرجاء
 #. up.
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Move Up"
-msgstr "تحريك للأعلى"
+msgstr "حرك للأعلى"
 
 #. Translators: Treeview toolbar button to move the currently selected item
 #. down.
