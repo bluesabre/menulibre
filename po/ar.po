@@ -338,7 +338,7 @@ msgstr ""
 #. if the program is installed.
 #: ../data/ui/MenulibreWindow.ui.h:101
 msgid "Try Exec"
-msgstr "حاول تشغيل"
+msgstr "حاول تنفيذ"
 
 #. Translators: Tooltip for the "Mimetypes" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:103
