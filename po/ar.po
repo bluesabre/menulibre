@@ -572,7 +572,9 @@ msgstr "غير مثبت بعد اﻵن"
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
-msgstr "هذا المُطلق تم إزالته من النظام. اختر العنصر المتاح التالي."
+msgstr ""
+"هذا المُطلق تم إزالته من النظام.\n"
+"اختر العنصر المتاح التالي."
 
 #. Translators: Not Found In PATH Dialog, primary text. Indicates
 #. that the provided script was not found in any PATH directory.
