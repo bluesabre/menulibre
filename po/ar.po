@@ -877,7 +877,7 @@ msgstr "متقدم"
 #. Translators: Launcher-specific categories, camelcase "This Entry"
 #: ../menulibre/MenulibreApplication.py:801
 msgid "ThisEntry"
-msgstr "هذا المدخل"
+msgstr "هذاالمدخل"
 
 #. Translators: Placeholder text for the launcher-specific category
 #. selection.
