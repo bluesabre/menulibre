@@ -393,8 +393,8 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
-"عند الضبط ل\"True\"، النتيجة للمستخدم تتكافأ مع عدم وجود ملف سطح المكتب على "
-"اﻹطلاق."
+"عند الضبط على\"صواب\"، النتيجة للمستخدم تتكافأ مع عدم وجود ملف سطح المكتب "
+"على اﻹطلاق."
 
 #. Translators: "Hidden" on/off switch. When enabled, the application is
 #. hidden from the menu.
