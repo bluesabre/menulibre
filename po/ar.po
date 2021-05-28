@@ -169,7 +169,7 @@ msgstr "تفاصيل التطبيق"
 #. Translators: Tooltip for the "Terminal" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "If set to \"True\", the program will be ran in a terminal window."
-msgstr "عند الضبط ل \"True\"، البرنامج سيعمل داخل نافذة الطرفية."
+msgstr "عند الضبط على \"صواب\"، البرنامج سيعمل داخل نافذة الطرفية."
 
 #. Translators: "Terminal" on/off switch. When enabled, the application is
 #. executed in a terminal window.
