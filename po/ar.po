@@ -198,7 +198,7 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
-"عند الضبط ل\"نعم\"، هذا المدخل لن يظهر في القائمة، لكن سيكون متاح ﻷنواع "
+"عند الضبط ل\"True\"، هذا المدخل لن يظهر في القائمة، لكن سيكون متاح ﻷنواع "
 "الارتباط MIME إلخ."
 
 #. Translators: "NoDisplay" on/off switch. When enabled, the application will
