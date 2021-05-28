@@ -373,8 +373,8 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
-"عند تخصيصها سيطلب من التطبيق استعمال النص ك\"WM class\" أو تلميح لاسم مدير "
-"النوافذ على الأقل في نافذة واحدة."
+"عند تخصيصها سيطلب من التطبيق استعمال النص كفئة مدير نوافذ أو تلميح لاسم مدير"
+" النوافذ (على الأقل في نافذة واحدة)."
 
 #. Translators: "StartupWMClass" text entry. A window manager hint for the
 #. application
