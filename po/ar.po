@@ -58,7 +58,7 @@ msgstr "تصفح الملفات..."
 #. Translators: Toolbar button to save the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "Save Launcher"
-msgstr "حفظ المُطلق"
+msgstr "حفظ المشغل"
 
 #. Translators: Toolbar button to undo last change to currently selected item.
 #. Translators: Undo action tooltip
