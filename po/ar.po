@@ -136,7 +136,7 @@ msgstr "اسم التطبيق"
 #. Translators: "Description" tree column header
 #: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:833
 msgid "Description"
-msgstr "وصف"
+msgstr "الوصف"
 
 #. Translators: Tooltip for the "Exec" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:39
