@@ -1005,7 +1005,8 @@ msgstr "Nieuw menu-item"
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr ""
-"Het .desktop-bestand kan niet worden geladen vanwege de volgende fout: %s"
+"Het .desktop-bestand kan niet worden geladen vanwege de volgende "
+"foutmelding: %s"
 
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
