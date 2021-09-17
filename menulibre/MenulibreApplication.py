@@ -251,7 +251,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Set up the application editor
         self.configure_application_editor(builder)
 
-        # Set up the applicaton browser
+        # Set up the application browser
         self.configure_application_treeview(builder)
 
         # Determining paths of bad desktop files GMenu can't load - if some are
@@ -718,6 +718,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                            self.on_NameCommentIcon_focus_in_event)
             button.connect('focus-out-event',
                            self.on_NameCommentIcon_focus_out_event)
+
+        for widget_name in ['Name', 'Comment']:
+            entry = builder.get_object('entry_%s' % widget_name)
+
+            # Commit changes to entries when focusing out.
+            entry.connect('focus-out-event',
+                          self.on_entry_focus_out_event,
+                          widget_name)
+
+            # Enable saving on any edit with an Entry.
+            entry.connect("changed",
+                          self.on_entry_changed,
+                          widget_name)
 
         for widget_name in ['Exec', 'Path', 'GenericName', 'TryExec',
                             'OnlyShowIn', 'NotShowIn', 'MimeType', 'Keywords',
