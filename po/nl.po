@@ -187,8 +187,8 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
-"Stel in op \"True\" om een opstartmelding te tonen. Dit betekent doorgaans "
-"dat er een bezige muispijl wordt getoond tijdens het opstarten."
+"Stel in op ‘True’ om een opstartmelding te tonen. Dit betekent doorgaans dat"
+" er een bezige muispijl wordt getoond tijdens het opstarten."
 
 #. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is
 #. shown while the application launches.
