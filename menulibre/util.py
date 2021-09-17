@@ -207,6 +207,34 @@ def getDefaultMenuPrefix(): # noqa
     return prefix
 
 
+def getMenuDiagnostics():
+    diagnostics = {}
+    keys = [
+        "XDG_CURRENT_DESKTOP",
+        "XDG_MENU_PREFIX",
+        "DESKTOP_SESSION",
+        "KDE_SESSION_VERSION"
+    ]
+    for k in keys:
+        diagnostics[k] = os.environ.get(k, "None")
+
+    menu_dirs = [
+        getUserMenuPath()
+    ]
+    for path in GLib.get_system_config_dirs():
+        menu_dirs.append(os.path.join(path, 'menus'))
+    menus = []
+    for menu_dir in menu_dirs:
+        for filename in os.listdir(menu_dir):
+            if filename.endswith(".menu"):
+                menus.append(os.path.join(menu_dir, filename))
+    menus.sort()
+
+    diagnostics["MENUS"] = ", ".join(menus)
+
+    return diagnostics
+
+
 def getItemPath(file_id):
     """Return the path to the system-installed .desktop file."""
     for path in GLib.get_system_data_dirs():

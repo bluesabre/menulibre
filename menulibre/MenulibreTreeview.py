@@ -40,12 +40,17 @@ class Treeview(GObject.GObject):
                                   (GObject.TYPE_BOOLEAN,)),
     }
 
+    loaded = False
+
     def __init__(self, parent, builder):
         GObject.GObject.__init__(self)
         self.parent = parent
 
         # Configure Widgets
-        self._configure_treeview(builder)
+        if self._configure_treeview(builder):
+            self.loaded = True
+        else:
+            return
         self._configure_toolbar(builder)
 
         # Defaults
@@ -57,6 +62,8 @@ class Treeview(GObject.GObject):
         """Configure the TreeView widget."""
         # Get the menu treestore.
         treestore = MenuEditor.get_treestore()
+        if not treestore:
+            return False
 
         self._treeview = builder.get_object('classic_view_treeview')
 
@@ -104,6 +111,8 @@ class Treeview(GObject.GObject):
         self._treeview.grab_focus()
 
         self.menu_timeout_id = 0
+
+        return True
 
     def _configure_toolbar(self, builder):
         """Configure the toolbar widget."""

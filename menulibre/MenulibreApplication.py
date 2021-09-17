@@ -281,6 +281,39 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             dialog.run()
             sys.exit(1)
 
+    def menu_load_failure(self):
+        primary = _("MenuLibre failed to load.")
+
+        docs_url = "https://github.com/bluesabre/menulibre/wiki/Frequently-Asked-Questions"
+
+        # Translators: This link goes to the online documentation with more
+        # information.
+        secondary = _("The default menu could not be found. Please see the "
+                        "<a href='%s'>online documentation</a> "
+                        "for more information.") % docs_url
+
+        secondary += "\n\n<big><b>%s</b></big>" % _("Diagnostics")
+
+        diagnostics = util.getMenuDiagnostics()
+        for k, v in diagnostics.items():
+            secondary += "\n<b>%s</b>: %s" % (k, v)
+
+        dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
+                                    Gtk.ButtonsType.CLOSE, primary)
+        dialog.format_secondary_markup(secondary)
+
+        try:
+            box = dialog.get_children()[0]
+            box = box.get_children()[0]
+            box = box.get_children()[1]
+            label = box.get_children()[1]
+            label.set_selectable(True)
+        except AttributeError:
+            pass
+
+        dialog.run()
+        sys.exit(1)
+
     def configure_application_window(self, builder, app):
         """Glade is currently unable to create a GtkApplicationWindow.  This
         function takes the GtkWindow from the UI file and reparents the
@@ -592,6 +625,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def configure_application_treeview(self, builder):
         """Configure the menu-browsing GtkTreeView."""
         self.treeview = MenulibreTreeview.Treeview(self, builder)
+        if not self.treeview.loaded:
+            self.menu_load_failure()
         treeview = self.treeview.get_treeview()
         treeview.set_search_entry(self.search_box)
         self.search_box.connect('changed', self.on_app_search_changed,

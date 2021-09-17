@@ -46,7 +46,20 @@ menu_name = ""
 
 def get_default_menu():
     """Return the filename of the default application menu."""
-    return '%s%s' % (util.getDefaultMenuPrefix(), 'applications.menu')
+    prefixes = [
+        util.getDefaultMenuPrefix(),
+        ''
+    ]
+    user_basedir = util.getUserMenuPath()
+    for prefix in prefixes:
+        filename = '%s%s' % (prefix, 'applications.menu')
+        user_dir = os.path.join(user_basedir, filename)
+        if os.path.exists(user_dir):
+            return filename
+        system_dir = util.getSystemMenuPath(filename)
+        if system_dir:
+            return filename
+    return None
 
 
 def load_fallback_icon(icon_size):
@@ -119,8 +132,10 @@ def get_treestore():
     # Filename, exp, show
     treestore = Gtk.TreeStore(str, str, str, int, Gio.Icon, str, str, bool,
                               bool)
-    menu = get_menus()[0]
-    return menu_to_treestore(treestore, None, menu)
+    menus = get_menus()
+    if not menus:
+        return None
+    return menu_to_treestore(treestore, None, menus[0])
 
 
 def get_submenus(menu, tree_dir):
@@ -189,6 +204,8 @@ def get_submenus(menu, tree_dir):
 def get_menus():
     """Get the menus from the MenuEditor"""
     menu = MenuEditor()
+    if not menu.loaded:
+        return None
     structure = []
     toplevels = []
     global menu_name
@@ -230,12 +247,16 @@ def getUserMenuXml(tree):
 class MenuEditor(object):
     """MenuEditor class, adapted and minimized from Alacarte Menu Editor."""
 
+    loaded = False
+
     def __init__(self, basename=None):
         """init"""
 
         # Remember to keep menulibre-menu-validate's GMenu object creation
         # in-sync with this code
         basename = basename or get_default_menu()
+        if basename is None:
+            return
 
         self.tree = GMenu.Tree.new(basename,
                                    GMenu.TreeFlags.SHOW_EMPTY |
@@ -249,6 +270,8 @@ class MenuEditor(object):
             util.getUserMenuPath(), self.tree.props.menu_basename)
         logger.debug("Using menu: %s" % self.path)
         self.loadDOM()
+
+        self.loaded = True
 
     def loadDOM(self):
         """loadDOM"""
