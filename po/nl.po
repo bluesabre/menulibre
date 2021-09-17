@@ -146,7 +146,7 @@ msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."
 msgstr ""
-"De uit te voeren toepassing, inclusief opdrachtregelopties. Deze sleutel is vereist indien DBusActivatable niet is ingesteld op \"True\" of indien u comptabiliteit nodig hebt met implementaties die D-Bus-activatie niet begrijpen.\n"
+"De uit te voeren toepassing, inclusief opdrachtregelopties. Deze sleutel is vereist indien DBusActivatable niet is ingesteld op ‘True’ of indien u comptabiliteit nodig hebt met implementaties die D-Bus-activatie niet begrijpen.\n"
 "Bekijk de lijst met ondersteunde opdrachtregelopties op http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#exec-variables"
 
 #. Translators: Treeview column for an action item
