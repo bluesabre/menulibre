@@ -323,9 +323,9 @@ msgid ""
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
 "Een lijst met werkomgevingen waarin dit item moet worden getoond. U kunt "
-"deze sleutel alleen gebruiken als \"NotShowIn\" niet is ingesteld. Mogelijke"
-" waarden zijn: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, "
-"Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+"deze sleutel alleen gebruiken als ‘NotShowIn’ niet is ingesteld. Mogelijke "
+"waarden zijn: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon,"
+" Razor, ROX, TDE, Unity, XFCE, Old"
 
 #. Translators: "OnlyShowIn" text entry. A list of environments that should
 #. display this entry.
@@ -371,7 +371,7 @@ msgid ""
 msgstr ""
 "Een lijst met trefwoorden die dit item beschrijven. U kunt deze gebruiken "
 "tijdens het doorzoeken van menu's. Deze worden verder niet getoond en moeten"
-" niet overeen moeten met de waarden van 'Naam' of 'Algemene naam'."
+" niet overeen moeten met de waarden van ‘Naam’ of ‘Algemene naam’."
 
 #. Translators: "Keywords" text entry. A list of keywords to describe this
 #. entry.
@@ -405,8 +405,8 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
-"Stel in op \"True\" om het resultaat voor de gebruiker hetzelfde te laten "
-"zijn als wanneer het .desktop-bestand niet bestaat."
+"Stel in op ‘True’ om het resultaat voor de gebruiker hetzelfde te laten zijn"
+" als wanneer het .desktop-bestand niet bestaat."
 
 #. Translators: "Hidden" on/off switch. When enabled, the application is
 #. hidden from the menu.
@@ -420,7 +420,7 @@ msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information."
 msgstr ""
-"Stel deze sleutel in op \"True\" als D-Bus-activatie wordt ondersteund door deze toepassing en u die wilt gebruiken.\n"
+"Stel deze sleutel in op ‘True’ als D-Bus-activatie wordt ondersteund door deze toepassing en u die wilt gebruiken.\n"
 "Ga voor meer informatie naar https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable"
 
 #. Translators: "DBusActivatable" on/off switch. When enabled, the application
@@ -448,7 +448,7 @@ msgid ""
 "Set this key to \"True\" if this application prefers to be run on a more powerful GPU if available.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information."
 msgstr ""
-"Stel in op \"True\" als deze toepassing moet worden uitgevoerd op een krachtiger GPU.\n"
+"Stel in op ‘True’ als deze toepassing moet worden uitgevoerd op een krachtiger gpu.\n"
 "Ga voor meer informatie naar https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu"
 
 #: ../data/ui/MenulibreWindow.ui.h:130
@@ -456,14 +456,14 @@ msgctxt ""
 "If true, the application prefers to be run on a more powerful GPU (graphics "
 "processing unit, graphics card) if available."
 msgid "Prefers Non-Default GPU"
-msgstr "Voorkeur voor niet-standaard GPU"
+msgstr "Voorkeur voor niet-standaard gpu"
 
 #: ../data/ui/MenulibreWindow.ui.h:131
 msgid ""
 "Set this key to \"True\" if this application uses notifications.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information."
 msgstr ""
-"Stel in op \"True\" als deze toepassing meldingen toont.\n"
+"Stel in op ‘True’ als deze toepassing meldingen toont.\n"
 "Ga voor meer informatie naar https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications"
 
 #: ../data/ui/MenulibreWindow.ui.h:133
@@ -593,13 +593,13 @@ msgstr ""
 #: ../menulibre/Dialogs.py:214
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
-msgstr "'%s' is niet aangetroffen in PATH."
+msgstr "‘%s’ is niet aangetroffen in PATH."
 
 #. Translators: Save Error Dialog, primary text.
 #: ../menulibre/Dialogs.py:232
 #, python-format
 msgid "Failed to save \"%s\"."
-msgstr "'%s' kan niet worden opgeslagen."
+msgstr "‘%s’ kan niet worden opgeslagen."
 
 #. Translators: Save Error Dialog, secondary text.
 #: ../menulibre/Dialogs.py:235
@@ -611,7 +611,7 @@ msgstr "Heeft u schrijfrechten op het bestand en de map?"
 #: ../menulibre/Dialogs.py:254
 #, python-format
 msgid "Click on the main application window for '%s'."
-msgstr "Klik op het hoofdvenster van de toepassing voor '%s'."
+msgstr "Klik op het hoofdvenster van de toepassing ‘%s’."
 
 #. Translators: Separator menu item
 #: ../menulibre/MenuEditor.py:104 ../menulibre/MenulibreApplication.py:1268
@@ -937,7 +937,7 @@ msgstr "Kies een uitvoerbaar bestand…"
 #. selected file.
 #: ../menulibre/MenulibreApplication.py:1444
 msgid "You do not have permission to delete this file."
-msgstr "U heeft geen rechten om dit bestand te verwijderen."
+msgstr "U bent niet bevoegd om dit bestand te verwijderen."
 
 #. Translators: Placeholder text for a newly created launcher.
 #: ../menulibre/MenulibreApplication.py:1692
@@ -971,7 +971,7 @@ msgstr "Weet u zeker dat u deze scheidingslijn wilt verwijderen?"
 #: ../menulibre/MenulibreApplication.py:2177
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Weet u zeker dat u '%s' wilt verwijderen?"
+msgstr "Weet u zeker dat u ‘%s’ wilt verwijderen?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
 #: ../menulibre/MenulibreApplication.py:2289
@@ -1013,7 +1013,7 @@ msgstr ""
 #: ../menulibre/util.py:664
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
-msgstr "De startgroep is ongeldig. Huidig: '%s' - Vereist: '%s'"
+msgstr "De startgroep is ongeldig. Huidig: ‘%s’ - Vereist: ‘%s’"
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
@@ -1027,7 +1027,7 @@ msgstr "Geen %s-sleutel gevonden"
 #: ../menulibre/util.py:687
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
-msgstr "De %s-waarde is ongeldig. Huidig: '%s' - Vereist: '%s'"
+msgstr "De %s-waarde is ongeldig. Huidig: ‘%s’ - Vereist: ‘%s’"
 
 #: ../menulibre/util.py:716
 #, python-format
