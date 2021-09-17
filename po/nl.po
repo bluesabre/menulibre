@@ -280,7 +280,7 @@ msgid ""
 msgstr ""
 "De volgende .desktop-bestanden kunnen niet worden verwerkt door het "
 "onderliggende bibliotheekbestand en worden derhalve niet getoond in "
-"MenuLibre. Doe samen met de pakketbeheerder onderzoek naar deze problemen."
+"MenuLibre. Gebruik de pakketbeheerder om de problemen op te sporen."
 
 #. Translators: Tooltip for the "GenericName" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:85
