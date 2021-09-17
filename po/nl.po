@@ -173,8 +173,7 @@ msgstr "Kenmerken"
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
-"Stel in op \"True\" (\"Waar\") om de toepassing uit te voeren in een "
-"terminalvenster."
+"Stel in op ‘True’ om de toepassing uit te voeren in een terminalvenster."
 
 #. Translators: "Terminal" on/off switch. When enabled, the application is
 #. executed in a terminal window.
