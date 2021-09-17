@@ -673,7 +673,15 @@ def validate_desktop_file(desktop_file):  # noqa
         # missing in a failing desktop file.
         return _('%s key not found') % 'Type'
 
-    if type_key != GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION:
+    valid_type_keys = [
+        GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION,
+        GLib.KEY_FILE_DESKTOP_TYPE_LINK,
+        GLib.KEY_FILE_DESKTOP_TYPE_DIRECTORY,
+        # KDE-specific types
+        # https://specifications.freedesktop.org/desktop-entry-spec/latest/apb.html
+        "ServiceType", "Service", "FSDevice"
+    ]
+    if type_key not in valid_type_keys:
         # Translators: This error is displayed when a failing desktop file
         # has an invalid value for the provided key.
         return (_('%s value is invalid - currently \'%s\', should be \'%s\'')
@@ -711,6 +719,9 @@ def validate_desktop_file(desktop_file):  # noqa
         return (_('%s program \'%s\' is not a valid shell command '
                   'according to GLib.shell_parse_argv, error: %s')
                 % ('Exec', exec_key, e))
+    
+    if type_key == "Service":
+        return False # KDE services are not displayed in the menu
 
     # Translators: This error is displayed for a failing desktop file where
     # errors were detected but the file seems otherwise valid.

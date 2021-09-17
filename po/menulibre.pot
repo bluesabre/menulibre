@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-17 08:14-0400\n"
+"POT-Creation-Date: 2021-09-17 08:34-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -962,25 +962,26 @@ msgstr ""
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
-#: ../menulibre/util.py:679
+#: ../menulibre/util.py:687
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:708
+#: ../menulibre/util.py:716
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
 msgstr ""
 
-#: ../menulibre/util.py:711
+#: ../menulibre/util.py:719
 #, python-format
 msgid ""
 "%s program '%s' is not a valid shell command according to GLib."
 "shell_parse_argv, error: %s"
 msgstr ""
 
+#. KDE services are not displayed in the menu
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
-#: ../menulibre/util.py:717
+#: ../menulibre/util.py:728
 msgid "Unknown error. Desktop file appears to be valid."
 msgstr ""
