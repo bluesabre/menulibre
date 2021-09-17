@@ -38,7 +38,7 @@ class AboutDialog(Gtk.AboutDialog):
         self.set_title(_("About MenuLibre"))
         self.set_program_name("MenuLibre")
         self.set_logo_icon_name("menulibre")
-        self.set_copyright("Copyright © 2012-2020 Sean Davis")
+        self.set_copyright("Copyright © 2012-2021 Sean Davis")
         self.set_authors(authors)
         self.set_documenters(documenters)
         self.set_website("https://github.com/bluesabre/menulibre")
