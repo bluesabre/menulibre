@@ -202,8 +202,8 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
-"Stel in op \"True\" om dit item niet te tonen in menu's, maar wel "
-"beschikbaar te maken voor bestandssoorttoewijzingen (MIME)."
+"Stel in op ‘True’ om dit item niet te tonen in menu's, maar wel beschikbaar "
+"te maken voor bestandstypetoewijzingen (MIME)."
 
 #. Translators: "NoDisplay" on/off switch. When enabled, the application will
 #. not be shown in menus, but will be available for MIME type associations
