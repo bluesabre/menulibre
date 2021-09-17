@@ -285,7 +285,7 @@ msgstr ""
 #. Translators: Tooltip for the "GenericName" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:85
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr "Algemene naam van de toepassing, bijvoorbeeld 'Webbrowser'."
+msgstr "De algemene naam van de toepassing, bijvoorbeeld ‘Webbrowser’."
 
 #. Translators: "GenericName" text entry. Generic name of the application, for
 #. example "Web Browser".
