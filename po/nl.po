@@ -353,14 +353,13 @@ msgstr "Uitvoerbaar bestand"
 #. Translators: Tooltip for the "Mimetypes" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:103
 msgid "The MIME type(s) supported by this application."
-msgstr ""
-"De bestandssoorten (MIME) die door deze toepassing worden ondersteund."
+msgstr "De bestandstypen (MIME) die door deze toepassing worden ondersteund."
 
 #. Translators: "Mimetype" text entry. The MIME type(s) supported by this
 #. application.
 #: ../data/ui/MenulibreWindow.ui.h:105
 msgid "Mimetypes"
-msgstr "Bestandssoorten (MIME)"
+msgstr "Bestandstypen (MIME)"
 
 #. Translators: Tooltip for the "Keywords" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:107
