@@ -303,7 +303,7 @@ msgid ""
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
 "Een lijst met werkomgevingen waarin dit item niet moet worden getoond. U "
-"kunt deze sleutel alleen gebruiken als \"OnlyShowIn\" niet is ingesteld. "
+"kunt deze sleutel alleen gebruiken als ‘OnlyShowIn’ niet is ingesteld. "
 "Mogelijke waarden zijn: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE,"
 " Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
