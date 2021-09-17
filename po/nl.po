@@ -1033,7 +1033,7 @@ msgstr "De %s-waarde is ongeldig. Huidig: ‘%s’ - Vereist: ‘%s’"
 #: ../menulibre/util.py:716
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
-msgstr "%s - De toepassing '%s' is niet aangetroffen in PATH"
+msgstr "%s - De toepassing ‘%s’ is niet aangetroffen in PATH"
 
 #: ../menulibre/util.py:719
 #, python-format
@@ -1041,7 +1041,7 @@ msgid ""
 "%s program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
-"%s - De toepassing '%s' is geen geldige shell-opdracht volgens "
+"%s - De toepassing ‘%s’ is geen geldige shell-opdracht volgens "
 "GLib.shell_parse_argv. Foutmelding: %s"
 
 #. KDE services are not displayed in the menu
