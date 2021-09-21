@@ -1090,4 +1090,4 @@ msgstr ""
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:7
 msgid "Easily rearrange menu items to suit your needs."
-msgstr "Susun semula item menu dengan mudah mengikut keperluan anda."
+msgstr "Susun semula butir menu dengan mudah mengikut keperluan anda."
