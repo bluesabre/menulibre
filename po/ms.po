@@ -722,7 +722,7 @@ msgstr "Butir menu Xfce"
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:96
 msgid "Xfce toplevel menu item"
-msgstr "Item menu aras tertinggi Xfce"
+msgstr "Butir menu aras tertinggi Xfce"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:98
