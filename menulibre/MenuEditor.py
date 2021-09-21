@@ -44,6 +44,18 @@ icon_theme = Gtk.IconTheme.get_default()
 menu_name = ""
 
 
+COL_NAME = 0
+COL_COMMENT = 1
+COL_EXEC = 2
+COL_CATEGORIES = 3
+COL_TYPE = 4
+COL_G_ICON = 5
+COL_ICON_NAME = 6
+COL_FILENAME = 7
+COL_EXPAND = 8
+COL_SHOW = 9
+
+
 def get_default_menu():
     """Return the filename of the default application menu."""
     prefixes = [
@@ -99,6 +111,7 @@ def menu_to_treestore(treestore, parent, menu_items):
     for item in menu_items:
         item_type = item[0]
         if item_type == MenuItemTypes.SEPARATOR:
+            executable = ""
             displayed_name = "<s>                    </s>"
             # Translators: Separator menu item
             tooltip = _("Separator")
@@ -108,6 +121,7 @@ def menu_to_treestore(treestore, parent, menu_items):
             icon_name = ""
             show = True
         else:
+            executable = item[2]['executable']
             displayed_name = escape(item[2]['display_name'])
             show = item[2]['show']
             tooltip = escapeText(item[2]['comment'])
@@ -117,8 +131,8 @@ def menu_to_treestore(treestore, parent, menu_items):
             icon_name = item[2]['icon_name']
 
         treeiter = treestore.append(
-            parent, [displayed_name, tooltip, categories, item_type,
-                     icon, icon_name, filename, False, show])
+            parent, [displayed_name, tooltip, executable, categories,
+                     item_type, icon, icon_name, filename, False, show])
 
         if item_type == MenuItemTypes.DIRECTORY:
             treestore = menu_to_treestore(treestore, treeiter, item[3])
@@ -128,10 +142,18 @@ def menu_to_treestore(treestore, parent, menu_items):
 
 def get_treestore():
     """Get the TreeStore implementation of the current menu."""
-    # Name, Comment, Categories, MenuItemType, GIcon (TreeView), icon-name,
-    # Filename, exp, show
-    treestore = Gtk.TreeStore(str, str, str, int, Gio.Icon, str, str, bool,
-                              bool)
+    treestore = Gtk.TreeStore(
+        str, # Name
+        str, # Comment
+        str, # Executable
+        str, # Categories
+        int, # MenuItemType
+        Gio.Icon, # GIcon
+        str, # icon-name
+        str, # Filename
+        bool, # Expand
+        bool  # Show
+    )
     menus = get_menus()
     if not menus:
         return None

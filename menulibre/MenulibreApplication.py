@@ -33,6 +33,7 @@ from gi.repository import Gio, GLib, GObject, Gtk, Gdk, GdkPixbuf
 from . import MenulibreStackSwitcher, MenulibreIconSelection
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, MenulibreLog
+from . import MenuEditor
 from .util import MenuItemTypes, check_keypress, getBasename, getRelatedKeys
 from .util import escapeText, getCurrentDesktop, find_program
 import menulibre_lib
@@ -966,7 +967,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 rows.append(row_data)
 
         if sort:
-            rows = sorted(rows, key=lambda row_data: row_data[key_columns[0]])
+            rows = sorted(rows, key=lambda row_data: row_data[key_columns[MenuEditor.COL_NAME]])
 
         model.clear()
         for row in rows:
@@ -1264,7 +1265,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.set_value('Icon', None, store=True)
 
         model, row_data = self.treeview.get_selected_row_data()
-        item_type = row_data[3]
+        item_type = row_data[MenuEditor.COL_TYPE]
 
         # If the selected row is a separator, hide the editor.
         if item_type == MenuItemTypes.SEPARATOR:
@@ -1286,15 +1287,15 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 basename = getBasename(filename)
                 filename = util.getSystemLauncherPath(basename)
                 if filename is not None:
-                    row_data[6] = filename
+                    row_data[MenuEditor.COL_FILENAME] = filename
                     self.treeview.update_launcher_instances(filename, row_data)
 
             if new_launcher or (filename is not None):
                 self.editor.show()
-                displayed_name = row_data[0]
-                comment = row_data[1]
+                displayed_name = row_data[MenuEditor.COL_NAME]
+                comment = row_data[MenuEditor.COL_COMMENT]
 
-                self.set_value('Icon', row_data[5], store=True)
+                self.set_value('Icon', row_data[MenuEditor.COL_ICON_NAME], store=True)
                 self.set_value('Name', displayed_name, store=True)
                 self.set_value('Comment', comment, store=True)
                 self.set_value('Filename', filename, store=True)
@@ -1703,8 +1704,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon_name = "applications-other"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
-        new_row_data = [name, comment, categories, item_type, icon, icon_name,
-                        filename, True]
+        executable = ""
+        new_row_data = [name, comment, executable, categories, item_type, icon,
+                        icon_name, filename, True]
 
         model, parent_data = self.treeview.get_parent_row_data()
         model, row_data = self.treeview.get_selected_row_data()
@@ -1715,7 +1717,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Add to the treeview on the current level or as a child of a selected
         # directory
-        dir_selected = row_data[3] == MenuItemTypes.DIRECTORY
+        dir_selected = row_data[MenuEditor.COL_TYPE] == MenuItemTypes.DIRECTORY
         if dir_selected:
             self.treeview.add_child(new_row_data)
         else:
@@ -1725,14 +1727,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # directory, so the resulting item will be placed at the current level
         # fetch the parent's categories
         if parent_data is not None and not dir_selected:
-            categories = util.getRequiredCategories(parent_data[6])
+            categories = util.getRequiredCategories(parent_data[MenuEditor.COL_FILENAME])
 
         elif parent_data is not None and dir_selected:
 
             # A directory lower than the top-level has been selected - the
             # launcher will be added into it (e.g. as the first item),
             # therefore it essentially has a parent of the current selection
-            categories = util.getRequiredCategories(row_data[6])
+            categories = util.getRequiredCategories(row_data[MenuEditor.COL_FILENAME])
 
         else:
 
@@ -1756,8 +1758,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon_name = "folder"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
-        row_data = [name, comment, categories, item_type, icon, icon_name,
-                    filename, True, True]
+        executable = ""
+        row_data = [name, comment, executable, categories, item_type, icon,
+                    icon_name, filename, True, True]
 
         self.treeview.append(row_data)
 
@@ -1775,8 +1778,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon_name = ""
         item_type = MenuItemTypes.SEPARATOR
         filename = None
-        row_data = [name, tooltip, categories, item_type, icon, icon_name,
-                    filename, False, True]
+        executable = ""
+        row_data = [name, tooltip, executable, categories, item_type, icon,
+                    icon_name, filename, False, True]
 
         self.treeview.append(row_data)
 
@@ -1853,7 +1857,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         if not temp:
             model, row_data = self.treeview.get_selected_row_data()
-            item_type = row_data[3]
+            item_type = row_data[MenuEditor.COL_TYPE]
 
             model, parent_data = self.treeview.get_parent_row_data()
 
@@ -1865,7 +1869,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             if parent_data is not None:
                 # Parent was found, take its categories.
                 required_categories = util.getRequiredCategories(
-                    parent_data[6])
+                    parent_data[MenuEditor.COL_FILENAME])
             else:
                 # Parent was not found, this is a toplevel category
                 required_categories = util.getRequiredCategories(None)
@@ -1902,11 +1906,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Update the selected iter with the new details.
         name = self.get_value('Name')
         comment = self.get_value('Comment')
+        executable = self.get_value('Exec')
         categories = self.get_value('Categories')
         icon_name = self.get_value('Icon')
         hidden = self.get_value('Hidden') or self.get_value('NoDisplay')
-        self.treeview.update_selected(name, comment, categories, item_type,
-                                      icon_name, filename, not hidden)
+        self.treeview.update_selected(name, comment, executable, categories,
+                                      item_type, icon_name, filename, not hidden)
         self.history.clear()
 
         # Update all instances
@@ -1971,8 +1976,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Update all instances
         model, row_data = self.treeview.get_selected_row_data()
-        row_data[2] = ';'.join(categories)
-        row_data[6] = save_filename
+        row_data[MenuEditor.COL_CATEGORIES] = ';'.join(categories)
+        row_data[MenuEditor.COL_FILENAME] = save_filename
         self.treeview.update_launcher_instances(original_filename, row_data)
 
     def update_launcher_category_dirs(self):  # noqa
@@ -1992,11 +1997,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # user has explicitly deleted) will be added, so this shouldn't be a
         # problem
         model, row_data = self.treeview.get_selected_row_data()
-        if row_data[2]:
-            categories = row_data[2].split(';')[:-1]
+        if row_data[MenuEditor.COL_CATEGORIES]:
+            categories = row_data[MenuEditor.COL_CATEGORIES].split(';')[:-1]
         else:
             categories = []
-        filename = row_data[6]
+        filename = row_data[MenuEditor.COL_FILENAME]
 
         required_category_directories = set()
 
@@ -2011,21 +2016,21 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # regardless...
             _, parent = self.treeview.get_parent(model, instance)
             if (parent is not None and
-                    model[parent][3] == MenuItemTypes.DIRECTORY):
+                    model[parent][MenuEditor.COL_TYPE] == MenuItemTypes.DIRECTORY):
 
                 # Any direct parents are required directories.
-                required_category_directories.add(model[parent][0])
+                required_category_directories.add(model[parent][MenuEditor.COL_NAME])
 
                 # Adding if the directory returned is top level
                 _, parent_parent = self.treeview.get_parent(model, parent)
                 if parent_parent is None:
-                    launchers_in_top_level_dirs[model[parent][0]] = instance
+                    launchers_in_top_level_dirs[model[parent][MenuEditor.COL_NAME]] = instance
 
         # Obtaining a lookup of top-level directories -> iters
         top_level_dirs = {}
         for row in model:
-            if row[3] == MenuItemTypes.DIRECTORY:
-                top_level_dirs[row[0]] = model.get_iter(row.path)
+            if row[MenuEditor.COL_TYPE] == MenuItemTypes.DIRECTORY:
+                top_level_dirs[row[MenuEditor.COL_NAME]] = model.get_iter(row.path)
 
         # Looping through all set categories - category specified is at maximum
         # detail level, this needs to be converted to the parent group name,
@@ -2059,7 +2064,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             # Removing selected launcher from the UI if it is in the current
             # directory, otherwise just from the model
-            if parent_data is not None and directory_name == parent_data[0]:
+            if parent_data is not None and directory_name == parent_data[MenuEditor.COL_NAME]:
                 self.treeview.remove_selected(True)
 
             else:
@@ -2168,8 +2173,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_delete_cb(self, widget):
         """Delete callback function."""
         model, row_data = self.treeview.get_selected_row_data()
-        name = row_data[0]
-        item_type = row_data[3]
+        name = row_data[MenuEditor.COL_NAME]
+        item_type = row_data[MenuEditor.COL_TYPE]
 
         # Prepare the strings
         if item_type == MenuItemTypes.SEPARATOR:

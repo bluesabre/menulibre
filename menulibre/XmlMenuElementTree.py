@@ -203,7 +203,7 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
         treeiter = model.iter_nth_child(model_parent, n_child)
 
         # Extract the menu item details.
-        name, comment, categories, item_type, gicon, icon, desktop, expanded, \
+        name, comment, executable, categories, item_type, gicon, icon, desktop, expanded, \
             show = model[treeiter][:]
 
         if item_type == MenuItemTypes.DIRECTORY:
@@ -250,7 +250,7 @@ def model_to_xml_includes(model, model_parent=None, menu_parent=None):
         treeiter = model.iter_nth_child(model_parent, n_child)
 
         # Extract the menu item details.
-        name, comment, categories, item_type, gicon, icon, desktop, expanded, \
+        name, comment, executable, categories, item_type, gicon, icon, desktop, expanded, \
             show = model[treeiter][:]
 
         if desktop is None:
@@ -288,7 +288,7 @@ def model_to_xml_layout(model, model_parent=None, menu_parent=None,  # noqa
         treeiter = model.iter_nth_child(model_parent, n_child)
 
         # Extract the menu item details.
-        name, comment, categories, item_type, gicon, icon, desktop, expanded, \
+        name, comment, executable, categories, item_type, gicon, icon, desktop, expanded, \
             show = model[treeiter][:]
 
         if item_type == MenuItemTypes.DIRECTORY:
