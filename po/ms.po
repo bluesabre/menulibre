@@ -717,7 +717,7 @@ msgstr "Tatarajah sistem GNOME"
 #: ../menulibre/MenulibreApplication.py:92
 #: ../menulibre/MenulibreApplication.py:94
 msgid "Xfce menu item"
-msgstr "Item menu Xfce"
+msgstr "Butir menu Xfce"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:96
