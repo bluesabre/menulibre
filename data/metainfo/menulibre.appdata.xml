@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>menulibre.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>MenuLibre</name>
+  <summary>An advanced FreeDesktop.org compliant menu editor</summary>
+
+  <description>
+    <p>All fields specified in the FreeDesktop.org Desktop Entry and Menu specifications are available to quickly update. Additionally, MenuLibre provides an editor for the launcher actions used by applications such as Unity and Plank.</p>
+    <p>
+      <em>Features:</em>
+    </p>
+    <ul>
+      <li>A beautiful interface powered by the latest version of GTK+.</li>
+      <li>Create new launchers, or modify existing ones with complete control over common settings and access to advanced settings.</li>
+      <li>Add, remove, and adjust desktop actions: powerful shortcuts available used by Unity, Xfce, and Pantheon.</li>
+      <li>Easily rearrange menu items to suit your needs.</li>
+    </ul>
+  </description>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://bluesabre.org/content/images/size/w2000/2019/12/menulibre-1.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://bluesabre.org/content/images/2019/12/menulibre_2014_01.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://bluesabre.org/content/images/2019/12/menulibre_2014_02.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://bluesabre.org/content/images/2019/12/menulibre_2014_03.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://bluesabre.org/content/images/2019/12/menulibre_2014_04.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://bluesabre.org/content/images/2019/12/menulibre_2014_05.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://bluesabre.org/content/images/2019/12/menulibre_2014_06.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://bluesabre.org/content/images/2019/12/menulibre_2014_07.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://bluesabre.org/content/images/2019/12/menulibre_2014_08.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://bluesabre.org/content/images/2019/12/menulibre_2014_09.png</image>
+    </screenshot>
+  </screenshots>
+
+  <url type="homepage">https://github.com/bluesabre/menulibre</url>
+  <url type="bugtracker">https://github.com/bluesabre/menulibre/issues</url>
+  <url type="help">https://github.com/bluesabre/menulibre/wiki</url>
+  <url type="translate">https://www.transifex.com/bluesabreorg/menulibre</url>
+  <url type="donation">https://github.com/sponsors/bluesabre</url>
+
+  <update_contact>sean@bluesabre.org</update_contact>
+
+  <translation type="gettext">menulibre</translation>
+
+  <provides>
+    <binary>menulibre</binary>
+  </provides>
+
+  <releases>
+  </releases>
+
+</component>

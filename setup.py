@@ -149,6 +149,17 @@ def generate_changelog():
         pass
 
 
+def write_appdata_file(filename_in):
+    filename_out = filename_in.rstrip('.in')
+    cmd = ["intltool-merge", "-x", "-d", "po", filename_in, filename_out]
+    print(" ".join(cmd))
+    subprocess.call(cmd, shell=False)
+
+
+# Update AppData with latest translations first.
+write_appdata_file("data/metainfo/menulibre.appdata.xml.in")
+
+
 class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
     """Command Class to install and update the directory."""
     def run(self):
@@ -219,6 +230,7 @@ DistUtilsExtra.auto.setup(
                      'desktop environments.',
     url='https://github.com/bluesabre/menulibre',
     data_files=[('share/man/man1', ['menulibre.1',
-                                    'menulibre-menu-validate.1'])],
+                                    'menulibre-menu-validate.1']),
+                ('share/metainfo/', ['data/metainfo/menulibre.appdata.xml'])],
     cmdclass={'install': InstallAndUpdateDataDirectory}
     )

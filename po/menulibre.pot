@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-17 08:34-0400\n"
+"POT-Creation-Date: 2021-09-21 06:00-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -984,4 +984,40 @@ msgstr ""
 #. errors were detected but the file seems otherwise valid.
 #: ../menulibre/util.py:728
 msgid "Unknown error. Desktop file appears to be valid."
+msgstr ""
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:1
+msgid "An advanced FreeDesktop.org compliant menu editor"
+msgstr ""
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:2
+msgid ""
+"All fields specified in the FreeDesktop.org Desktop Entry and Menu "
+"specifications are available to quickly update. Additionally, MenuLibre "
+"provides an editor for the launcher actions used by applications such as "
+"Unity and Plank."
+msgstr ""
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:3
+msgid "Features:"
+msgstr ""
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:4
+msgid "A beautiful interface powered by the latest version of GTK+."
+msgstr ""
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:5
+msgid ""
+"Create new launchers, or modify existing ones with complete control over "
+"common settings and access to advanced settings."
+msgstr ""
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:6
+msgid ""
+"Add, remove, and adjust desktop actions: powerful shortcuts available used "
+"by Unity, Xfce, and Pantheon."
+msgstr ""
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:7
+msgid "Easily rearrange menu items to suit your needs."
 msgstr ""
