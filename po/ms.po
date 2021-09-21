@@ -584,7 +584,7 @@ msgid ""
 "Selecting the next available item."
 msgstr ""
 "Pelancar ini telah dibuang daripada sistem.\n"
-"Memilih item berikutnya yang wujud."
+"Memilih butir berikutnya yang wujud."
 
 #. Translators: Not Found In PATH Dialog, primary text. Indicates
 #. that the provided script was not found in any PATH directory.
