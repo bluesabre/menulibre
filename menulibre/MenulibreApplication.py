@@ -168,11 +168,16 @@ category_groups = {
     )
 }
 
-# Add support for X-Xfce-Toplevel items for XFCE environments.
+# DE-specific categories
 if util.getDefaultMenuPrefix() == 'xfce-':
     category_groups['Xfce'] = (
         'X-XFCE', 'X-Xfce-Toplevel', 'X-XFCE-PersonalSettings', 'X-XFCE-HardwareSettings',
         'X-XFCE-SettingsDialog', 'X-XFCE-SystemSettings'
+    )
+elif util.getDefaultMenuPrefix() == 'gnome-':
+    category_groups['GNOME'] = (
+        'X-GNOME-NetworkSettings', 'X-GNOME-PersonalSettings', 'X-GNOME-Settings-Panel',
+        'X-GNOME-Utilities'
     )
 
 # Create a reverse-lookup
