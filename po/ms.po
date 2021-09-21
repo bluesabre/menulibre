@@ -995,7 +995,7 @@ msgstr "Hasil Gelintar"
 #. Translators: Placeholder text for a new menu item name.
 #: ../menulibre/MenulibreXdg.py:46
 msgid "New Menu Item"
-msgstr "Item Menu Baharu"
+msgstr "Butir Menu Baharu"
 
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
