@@ -1074,8 +1074,8 @@ msgid ""
 "Create new launchers, or modify existing ones with complete control over "
 "common settings and access to advanced settings."
 msgstr ""
-"Creeu llançadors nous o modifiqueu els existents amb un control complet "
-"sobre els paràmetres comuns i un accés als paràmetres avançats."
+"Creeu llançadors nous o modifiqueu els existents amb un control total sobre "
+"els paràmetres comuns i un accés als paràmetres avançats."
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:6
 msgid ""
