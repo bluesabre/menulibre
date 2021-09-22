@@ -1087,8 +1087,8 @@ msgid ""
 "Add, remove, and adjust desktop actions: powerful shortcuts available used "
 "by Unity, Xfce, and Pantheon."
 msgstr ""
-"Añadir, eliminar y ajustar acciones de escritorio: potentes accesos directos"
-" usados por Unity, Xfce y Pantheon."
+"Añada, elimine y configure las acciones del escritorio: potentes accesos "
+"directos usados por Unity, Xfce y Pantheon."
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:7
 msgid "Easily rearrange menu items to suit your needs."
