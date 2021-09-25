@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
-#   Copyright (C) 2012-2020 Sean Davis <sean@bluesabre.org>
+#   Copyright (C) 2012-2021 Sean Davis <sean@bluesabre.org>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published
@@ -25,7 +25,7 @@ __all__ = [
 # files). By default, this is ../data, relative your trunk layout
 __menulibre_data_directory__ = '../data/'
 __license__ = 'GPL-3'
-__version__ = '2.2.1'
+__version__ = '2.2.2'
 
 import os
 

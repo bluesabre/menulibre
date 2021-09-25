@@ -1,5 +1,34 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+25 September 2021, MenuLibre 2.2.2
+
+- New Features:
+  . Added diagnostics for failed menu loading
+  . Added support for GNOME-specific categories (#56)
+  . Added support for PrefersNonDefaultGPU (Fixes #50)
+  . Added support for unprefixed applications.menu (#67)
+  . Added support for X-GNOME-UsesNotifications (#79)
+  . Added support for XFCE specific categories (#54)
+  . Enabled opening a root editor for root-owned files with pkexec (#62)
+  . Enabled searching for Exec key and desktop entry (#52)
+- General:
+  . Added AppData file (#61)
+  . Documented intltool build requirement (#59)
+  . Switched to the MenuLibre wiki for key descriptions (Fixes #48)
+- Bug Fixes:
+  . Added valid types to validator, reducing false positives (#66)
+  . Fixed builds with newer versions of GTK (#77)
+  . Fixed history state when editing Name and Comment (#57)
+  . Fixed msgfmt errors
+  . Fixed running with newer versions of GTK (#82)
+  . Fixed selection leaving screen while moving items (Fixes #25)
+  . Fixed typo in desktop file processing error
+- Updated Translations:
+  . Arabic, Catalan, Chinese (China), Danish, Dutch, English (United Kingdom),
+    French, German, Japanese, Lithuanian, Malay, Malay (Arabic), Polish,
+    Russian, Spanish, Turkish, Ukrainian
+
+
 31 May 2019, MenuLibre 2.2.1
 
 - General:
