@@ -844,7 +844,7 @@ msgstr "_Wykonaj"
 #. Translators: Execute action tooltip
 #: ../menulibre/MenulibreApplication.py:511
 msgid "Execute Launcher"
-msgstr "Wykonaj wyzwalacz"
+msgstr "Wykonaj aktywator"
 
 #. Translators: Delete action label
 #: ../menulibre/MenulibreApplication.py:518
