@@ -1,5 +1,11 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+26 September 2021, MenuLibre 2.2.3
+
+- Bug Fixes:
+  - Fixed making diagnostic text selectable on KDE
+  - Fixed loading from non-existent directories
+
 25 September 2021, MenuLibre 2.2.2
 
 - New Features:

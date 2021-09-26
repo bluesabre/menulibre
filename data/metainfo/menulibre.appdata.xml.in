@@ -73,6 +73,11 @@
   </provides>
 
   <releases>
+    <release version="2.2.3" date="2021-09-26">
+      <description>
+        <_p>This release fixes a crash when menus fail to load on KDE.</_p>
+      </description>
+    </release>
   </releases>
 
 </component>
