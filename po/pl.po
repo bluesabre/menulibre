@@ -84,7 +84,7 @@ msgstr "Przywraca aktywator"
 #. Translators: Toolbar button to test the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Test Launcher"
-msgstr "Testowy wyzwalacz"
+msgstr "Testowy aktywator"
 
 #. Translators: Toolbar button to delete the currently selected item.
 #. Translators: Delete action tooltip
