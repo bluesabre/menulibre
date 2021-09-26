@@ -225,9 +225,12 @@ def getMenuDiagnostics():
         menu_dirs.append(os.path.join(path, 'menus'))
     menus = []
     for menu_dir in menu_dirs:
-        for filename in os.listdir(menu_dir):
-            if filename.endswith(".menu"):
-                menus.append(os.path.join(menu_dir, filename))
+        try:
+            for filename in os.listdir(menu_dir):
+                if filename.endswith(".menu"):
+                    menus.append(os.path.join(menu_dir, filename))
+        except FileNotFoundError:
+            pass
     menus.sort()
 
     diagnostics["MENUS"] = ", ".join(menus)

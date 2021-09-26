@@ -308,17 +308,29 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                     Gtk.ButtonsType.CLOSE, primary)
         dialog.format_secondary_markup(secondary)
 
-        try:
-            box = dialog.get_children()[0]
-            box = box.get_children()[0]
-            box = box.get_children()[1]
-            label = box.get_children()[1]
+        label = self.find_secondary_label(dialog)
+        if label is not None:
             label.set_selectable(True)
-        except AttributeError:
-            pass
 
         dialog.run()
         sys.exit(1)
+
+    def find_secondary_label(self, container = None):
+        try:
+            children = container.get_children()
+            if len(children) == 0:
+                return None
+            if isinstance(children[0], Gtk.Label):
+                return children[1]
+            for child in children:
+                label = self.find_secondary_label(child)
+                if label is not None:
+                    return label
+        except AttributeError:
+            pass
+        except IndexError:
+            pass
+        return None
 
     def configure_application_window(self, builder, app):
         """Glade is currently unable to create a GtkApplicationWindow.  This
