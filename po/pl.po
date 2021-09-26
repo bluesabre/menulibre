@@ -769,7 +769,7 @@ msgstr ""
 
 #: ../menulibre/MenulibreApplication.py:291
 msgid "MenuLibre failed to load."
-msgstr "Nie udało się wczytać MenuLibre."
+msgstr "Nie udało się załadować MenuLibre."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
