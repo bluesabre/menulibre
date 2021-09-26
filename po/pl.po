@@ -779,8 +779,8 @@ msgid ""
 "The default menu could not be found. Please see the <a href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
-"Nie można znaleźć domyślnego menu. Więcej informacji można znaleźć w <a "
-"href='%s'>dokumentacji online</a>."
+"Nie można znaleźć domyślnego menu. Prosimy zobaczyć <a "
+"href='%s'>dokumentację online</a> celem dalszych informacji."
 
 #: ../menulibre/MenulibreApplication.py:301
 msgid "Diagnostics"
