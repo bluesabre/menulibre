@@ -6,6 +6,7 @@
   <project_license>GPL-3.0+</project_license>
   <name>MenuLibre</name>
   <_summary>An advanced FreeDesktop.org compliant menu editor</_summary>
+  <content_rating type="oars-1.0"/>
 
   <description>
     <_p>
