@@ -267,7 +267,7 @@ msgstr "Applica"
 #. Translators: Window title for the parsing error log dialog.
 #: ../data/ui/MenulibreWindow.ui.h:80
 msgid "Parsing Errors"
-msgstr "Analisi di errori"
+msgstr "Errori di analisi"
 
 #. Translators: This text is displayed in the Parsing Errors dialog and
 #. provides a basic summary of the errors reported.
