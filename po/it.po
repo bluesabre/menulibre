@@ -1,19 +1,18 @@
-# SOME DESCRIPTIVE TITLE.
+# ITALIAN TRANSLATION FOR MENULIBRE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# ALBANO BATTISTELLA <ALBANO_BATTISTELLA@HOTMAIL.COM>, 2021.
 # 
 # Translators:
 # Sean Davis <sean@bluesabre.org>, 2020
 # albanobattistella <albano_battistella@hotmail.com>, 2021
 # 
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-09-26 11:40-0400\n"
-"PO-Revision-Date: 2020-06-10 02:27+0000\n"
+"PO-Revision-Date: 2021-12-07 02:27+0100\n"
 "Last-Translator: albanobattistella <albano_battistella@hotmail.com>, 2021\n"
 "Language-Team: Italian (https://www.transifex.com/bluesabreorg/teams/99550/it/)\n"
 "MIME-Version: 1.0\n"
@@ -38,22 +37,22 @@ msgstr "Aggiungi _Lanciatore"
 #. Translators: This option adds a new directory entry to the menu.
 #: ../data/ui/MenulibreWindow.ui.h:4
 msgid "Add _Directory"
-msgstr "Aggiungi _Cartella"
+msgstr "Aggiungi _Directory"
 
 #. Translators: This option adds a new separator entry to the menu.
 #: ../data/ui/MenulibreWindow.ui.h:6
 msgid "Add _Separator"
-msgstr "Aggiungi separatore"
+msgstr "Aggiungi _Separatore"
 
 #. Translators: Icon popup menu item to browse available icons.
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Browse Icons…"
-msgstr "Sfoglia icone..."
+msgstr "Sfoglia icone…"
 
 #. Translators: Icon popup menu item to browse files for an icon file.
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "Browse Files…"
-msgstr "Sfoglia file..."
+msgstr "Sfoglia File…"
 
 #. Translators: Toolbar button to save the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:12
@@ -113,13 +112,13 @@ msgstr "Rilevati file desktop non validi! Si prega di vedere i dettagli."
 #. up.
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Move Up"
-msgstr "Sposta su"
+msgstr "Sposta Su"
 
 #. Translators: Treeview toolbar button to move the currently selected item
 #. down.
 #: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Move Down"
-msgstr "Sposta giù"
+msgstr "Sposta Giù"
 
 #. Translators: Treeview toolbar button to sort the currently open submenu
 #. alphabetically.
@@ -144,7 +143,7 @@ msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."
 msgstr ""
-"Programma da eseguire con argomenti. Questa chiave è necessaria se DBusActivatable non è impostato su \"True\" o se è necessaria la compatibilità con implementazioni che non comprendono l'attivazione D-Bus.\n"
+"Programma da eseguire con argomenti. Questa chiave è necessaria se DBus attivabile non è impostato su \"True\" o se è necessaria la compatibilità con implementazioni che non comprendono l'attivazione D-Bus.\n"
 "Vedi https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec per un elenco di argomenti supportati."
 
 #. Translators: Treeview column for an action item
@@ -155,7 +154,7 @@ msgstr "Comando"
 #. Translators: Tooltip for the "Path" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:44
 msgid "The working directory."
-msgstr "Cartella di lavoro."
+msgstr "La directory di lavoro."
 
 #. Translators: "Path" text entry. The working directory of the application.
 #: ../data/ui/MenulibreWindow.ui.h:46
@@ -170,7 +169,7 @@ msgstr "Dettagli dell'applicazione"
 #. Translators: Tooltip for the "Terminal" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "If set to \"True\", the program will be ran in a terminal window."
-msgstr "Se impostato a \"True\", il programma sarà eseguito in un terminale."
+msgstr "Se impostato su \"True\", il programma sarà eseguito in un terminale."
 
 #. Translators: "Terminal" on/off switch. When enabled, the application is
 #. executed in a terminal window.
@@ -184,7 +183,7 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
-"Se impostato a \"True\", viene inviata una notifica di avvio. Ciò significa "
+"Se impostato su \"True\", viene inviata una notifica di avvio. Ciò significa "
 "di solito che è mostrato il cursore di \"occupato\" mentre l'applicazione si"
 " avvia."
 
@@ -200,7 +199,7 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
-"Se impostato a \"True\", questa voce non verrà mostrata nei menu, ma sarà "
+"Se impostato su \"True\", questa voce non verrà mostrata nei menu, ma sarà "
 "disponibile per le associazioni dei tipi MIME etc."
 
 #. Translators: "NoDisplay" on/off switch. When enabled, the application will
@@ -208,7 +207,7 @@ msgstr ""
 #. etc.
 #: ../data/ui/MenulibreWindow.ui.h:60
 msgid "Hide from menus"
-msgstr "Nascondi dal menu"
+msgstr "Nascondi dai menu"
 
 #. Translators: Header for the less common application and directory fields.
 #: ../data/ui/MenulibreWindow.ui.h:62
@@ -306,7 +305,7 @@ msgstr ""
 #. display this entry.
 #: ../data/ui/MenulibreWindow.ui.h:92
 msgid "Not Shown In"
-msgstr "Non mostra in"
+msgstr "Non mostrato in"
 
 #. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values
 #. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
@@ -317,7 +316,7 @@ msgid ""
 "A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if \"NotShowIn\" is not set.\n"
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
-"La lista di ambienti che dovrebbero mostrare questa voce. Gli altri ambienti non la mostreranno. Si può usare questa opzione solo se \"NotShowIn\" non è impostato.\n"
+"La lista di ambienti che dovrebbero mostrare questa voce. Gli altri ambienti non la mostreranno. Si può usare questa opzione solo se \"Non mostrato in\" non è impostato.\n"
 "I possibili valori includono: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #. Translators: "OnlyShowIn" text entry. A list of environments that should
@@ -363,7 +362,7 @@ msgid ""
 msgstr ""
 "Una lista di parole chiave per descrivere questa voce, che aiutano anche "
 "nella ricerca. Queste parole non verranno mostrate e non dovrebbero "
-"corrispondere ai valori di Name e GenericName"
+"corrispondere ai valori di Nome e Nome Generico"
 
 #. Translators: "Keywords" text entry. A list of keywords to describe this
 #. entry.
@@ -377,14 +376,14 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
-"Se specificato, all'applicazione sarà richiesto di usare una stringa come WM"
-" class o WM name hint almeno in una finestra."
+"Se specificato, all'applicazione sarà richiesto di usare una stringa come classe WM"
+"o Suggerimento per il nome WM almeno in una finestra."
 
 #. Translators: "StartupWMClass" text entry. A window manager hint for the
 #. application
 #: ../data/ui/MenulibreWindow.ui.h:113
 msgid "Startup WM Class"
-msgstr "Startup WM Class"
+msgstr "Classe WM di avvio"
 
 #. Translators: Identify Window Dialog, primary text.
 #: ../data/ui/MenulibreWindow.ui.h:114 ../menulibre/Dialogs.py:251
@@ -397,7 +396,7 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
-"Se impostato a \"True\", il risultato per l'utente è equivalente ad un file "
+"Se impostato su \"True\", il risultato per l'utente è equivalente ad un file "
 ".desktop non esistente."
 
 #. Translators: "Hidden" on/off switch. When enabled, the application is
@@ -480,7 +479,7 @@ msgstr "Usa layout barra degli strumenti (decorazioni lato server)"
 #. Translators: About Dialog, window title.
 #: ../menulibre/Dialogs.py:38
 msgid "About MenuLibre"
-msgstr "A proposito di MenuLibre"
+msgstr "Informazioni su MenuLibre"
 
 #. Translators: Help Dialog, window title.
 #: ../menulibre/Dialogs.py:58
@@ -621,7 +620,7 @@ msgstr "Multimedia"
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:54
 msgid "Development"
-msgstr "Sviluppo"
+msgstr "Programmazione"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:56
@@ -666,7 +665,7 @@ msgstr "Accessori"
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:72
 msgid "WINE"
-msgstr "Wine"
+msgstr "WINE"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:74
@@ -686,7 +685,7 @@ msgstr "Configurazione hardware"
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:80
 msgid "GNOME application"
-msgstr "GNOME applicazione"
+msgstr "Applicazione GNOME"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:82
@@ -782,32 +781,32 @@ msgstr "Diagnostica"
 #. Translators: Add Launcher action label
 #: ../menulibre/MenulibreApplication.py:446
 msgid "Add _Launcher…"
-msgstr "Aggiungi _avviatore..."
+msgstr "Aggiungi _Lanciatore…"
 
 #. Translators: Add Launcher action tooltip
 #: ../menulibre/MenulibreApplication.py:448
 msgid "Add Launcher…"
-msgstr "Aggiungi avviatore..."
+msgstr "Aggiungi Lanciatore…."
 
 #. Translators: Add Directory action label
 #: ../menulibre/MenulibreApplication.py:455
 msgid "Add _Directory…"
-msgstr "Aggiungi _Directory..."
+msgstr "Aggiungi _Directory…"
 
 #. Translators: Add Directory action tooltip
 #: ../menulibre/MenulibreApplication.py:457
 msgid "Add Directory…"
-msgstr "Aggiungi Directory..."
+msgstr "Aggiungi Directory…"
 
 #. Translators: Add Separator action label
 #: ../menulibre/MenulibreApplication.py:464
 msgid "_Add Separator…"
-msgstr "_Aggiungi separatore..."
+msgstr "_Aggiungi Separatore…"
 
 #. Translators: Add Separator action tooltip
 #: ../menulibre/MenulibreApplication.py:466
 msgid "Add Separator…"
-msgstr "Aggiungi separatore..."
+msgstr "Aggiungi Separatore…"
 
 #. Translators: Save Launcher action label
 #: ../menulibre/MenulibreApplication.py:473
@@ -817,7 +816,7 @@ msgstr "_Salva"
 #. Translators: Undo action label
 #: ../menulibre/MenulibreApplication.py:482
 msgid "_Undo"
-msgstr "Ann_ulla"
+msgstr "_Annulla"
 
 #. Translators: Redo action label
 #: ../menulibre/MenulibreApplication.py:491
@@ -911,12 +910,12 @@ msgstr "Nome Categoria"
 #. Translators: "This Entry" launcher-specific category group
 #: ../menulibre/MenulibreApplication.py:1000
 msgid "This Entry"
-msgstr "Questo elemento"
+msgstr "Questo Elemento"
 
 #. Translators: Placeholder text for a newly created action
 #: ../menulibre/MenulibreApplication.py:1061
 msgid "New Shortcut"
-msgstr "Nuova scorciatoia"
+msgstr "Nuova Scorciatoia"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1211
@@ -926,7 +925,7 @@ msgstr "Seleziona una directory di lavoro..."
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1215
 msgid "Select an executable…"
-msgstr "Seleziona un eseguibile"
+msgstr "Seleziona un eseguibile…"
 
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
@@ -938,7 +937,7 @@ msgstr "Non hai i permessi per cancellare questo file."
 #. Translators: Placeholder text for a newly created launcher.
 #: ../menulibre/MenulibreApplication.py:1710
 msgid "New Launcher"
-msgstr "Nuovo lanciatore"
+msgstr "Nuovo Lanciatore"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
@@ -977,7 +976,7 @@ msgstr "Registro errori di analisi"
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
 msgid "Select an image…"
-msgstr "Seleziona un'immagine..."
+msgstr "Seleziona un'immagine…"
 
 #. Translators: "Images" file chooser dialog filter
 #: ../menulibre/MenulibreIconSelection.py:87
@@ -992,7 +991,7 @@ msgstr "Risultati della ricerca"
 #. Translators: Placeholder text for a new menu item name.
 #: ../menulibre/MenulibreXdg.py:46
 msgid "New Menu Item"
-msgstr "Nuovo elemento di menu"
+msgstr "Nuovo Elemento di Menu"
 
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
