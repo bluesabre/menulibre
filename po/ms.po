@@ -5,16 +5,16 @@
 # 
 # Translators:
 # Sean Davis <sean@bluesabre.org>, 2020
-# Yaya - Nurul Azeera Hidayah @ Muhammad Nur Hidayat Yasuyoshi (MNH48) <admin@mnh48.moe>, 2021
+# Yaya - Nurul Azeera Hidayah @ Muhammad Nur Hidayat Yasuyoshi (MNH48) <admin@mnh48.moe>, 2022
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-09-21 07:22-0400\n"
+"POT-Creation-Date: 2022-05-13 22:43-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
-"Last-Translator: Yaya - Nurul Azeera Hidayah @ Muhammad Nur Hidayat Yasuyoshi (MNH48) <admin@mnh48.moe>, 2021\n"
+"Last-Translator: Yaya - Nurul Azeera Hidayah @ Muhammad Nur Hidayat Yasuyoshi (MNH48) <admin@mnh48.moe>, 2022\n"
 "Language-Team: Malay (https://www.transifex.com/bluesabreorg/teams/99550/ms/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,20 +62,20 @@ msgstr "Simpan Pelancar"
 
 #. Translators: Toolbar button to undo last change to currently selected item.
 #. Translators: Undo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:14 ../menulibre/MenulibreApplication.py:472
+#: ../data/ui/MenulibreWindow.ui.h:14 ../menulibre/MenulibreApplication.py:484
 msgid "Undo"
 msgstr "Buat Asal"
 
 #. Translators: Toolbar button to redo the last undone change to currently
 #. selected item.
 #. Translators: Redo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:16 ../menulibre/MenulibreApplication.py:481
+#: ../data/ui/MenulibreWindow.ui.h:16 ../menulibre/MenulibreApplication.py:493
 msgid "Redo"
 msgstr "Buat Semula"
 
 #. Translators: Toolbar button to revery the currently selected item to it
 #. Translators: Revert action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:490
+#: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:502
 msgid "Revert"
 msgstr "Undur"
 
@@ -86,7 +86,7 @@ msgstr "Cuba Pelancar"
 
 #. Translators: Toolbar button to delete the currently selected item.
 #. Translators: Delete action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:508
+#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:520
 msgid "Delete"
 msgstr "Padam"
 
@@ -94,7 +94,7 @@ msgstr "Padam"
 #. Translators: Save On Leave Dialog, do save, then leave.
 #. Translators: Save Launcher action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/Dialogs.py:103
-#: ../menulibre/Dialogs.py:132 ../menulibre/MenulibreApplication.py:463
+#: ../menulibre/Dialogs.py:132 ../menulibre/MenulibreApplication.py:475
 msgid "Save"
 msgstr "Simpan"
 
@@ -134,7 +134,7 @@ msgstr "Nama Aplikasi"
 
 #. Translators: Placeholder text/hint for the application comment entry.
 #. Translators: "Description" tree column header
-#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:892
+#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:904
 msgid "Description"
 msgstr "Keterangan"
 
@@ -612,8 +612,8 @@ msgid "Click on the main application window for '%s'."
 msgstr "Klik pada tetingkap aplikasi utama untuk '%s'."
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:117 ../menulibre/MenulibreApplication.py:1274
-#: ../menulibre/MenulibreApplication.py:1774
+#: ../menulibre/MenuEditor.py:117 ../menulibre/MenulibreApplication.py:1286
+#: ../menulibre/MenulibreApplication.py:1844
 msgid "Separator"
 msgstr "Pemisah"
 
@@ -783,197 +783,197 @@ msgid "Diagnostics"
 msgstr "Diagnosis"
 
 #. Translators: Add Launcher action label
-#: ../menulibre/MenulibreApplication.py:434
+#: ../menulibre/MenulibreApplication.py:446
 msgid "Add _Launcher…"
 msgstr "Tambah Pe_lancar..."
 
 #. Translators: Add Launcher action tooltip
-#: ../menulibre/MenulibreApplication.py:436
+#: ../menulibre/MenulibreApplication.py:448
 msgid "Add Launcher…"
 msgstr "Tambah Pelancar..."
 
 #. Translators: Add Directory action label
-#: ../menulibre/MenulibreApplication.py:443
+#: ../menulibre/MenulibreApplication.py:455
 msgid "Add _Directory…"
 msgstr "Tambah _Direktori..."
 
 #. Translators: Add Directory action tooltip
-#: ../menulibre/MenulibreApplication.py:445
+#: ../menulibre/MenulibreApplication.py:457
 msgid "Add Directory…"
 msgstr "Tambah Direktori..."
 
 #. Translators: Add Separator action label
-#: ../menulibre/MenulibreApplication.py:452
+#: ../menulibre/MenulibreApplication.py:464
 msgid "_Add Separator…"
 msgstr "T_ambah Pemisah..."
 
 #. Translators: Add Separator action tooltip
-#: ../menulibre/MenulibreApplication.py:454
+#: ../menulibre/MenulibreApplication.py:466
 msgid "Add Separator…"
 msgstr "Tambah Pemisah..."
 
 #. Translators: Save Launcher action label
-#: ../menulibre/MenulibreApplication.py:461
+#: ../menulibre/MenulibreApplication.py:473
 msgid "_Save"
 msgstr "_Simpan"
 
 #. Translators: Undo action label
-#: ../menulibre/MenulibreApplication.py:470
+#: ../menulibre/MenulibreApplication.py:482
 msgid "_Undo"
 msgstr "B_uat Asal"
 
 #. Translators: Redo action label
-#: ../menulibre/MenulibreApplication.py:479
+#: ../menulibre/MenulibreApplication.py:491
 msgid "_Redo"
 msgstr "Buat _Semula"
 
 #. Translators: Revert action label
-#: ../menulibre/MenulibreApplication.py:488
+#: ../menulibre/MenulibreApplication.py:500
 msgid "_Revert"
 msgstr "_Kembali Semula"
 
 #. Translators: Execute action label
-#: ../menulibre/MenulibreApplication.py:497
+#: ../menulibre/MenulibreApplication.py:509
 msgid "_Execute"
 msgstr "_Lakukan"
 
 #. Translators: Execute action tooltip
-#: ../menulibre/MenulibreApplication.py:499
+#: ../menulibre/MenulibreApplication.py:511
 msgid "Execute Launcher"
 msgstr "Lakukan Pelancar"
 
 #. Translators: Delete action label
-#: ../menulibre/MenulibreApplication.py:506
+#: ../menulibre/MenulibreApplication.py:518
 msgid "_Delete"
 msgstr "Pa_dam"
 
 #. Translators: Quit action label
-#: ../menulibre/MenulibreApplication.py:515
+#: ../menulibre/MenulibreApplication.py:527
 msgid "_Quit"
 msgstr "_Keluar"
 
 #. Translators: Quit action tooltip
-#: ../menulibre/MenulibreApplication.py:517
-#: ../menulibre/MenulibreApplication.py:2306
+#: ../menulibre/MenulibreApplication.py:529
+#: ../menulibre/MenulibreApplication.py:2376
 msgid "Quit"
 msgstr "Keluar"
 
 #. Translators: Help action label
-#: ../menulibre/MenulibreApplication.py:524
+#: ../menulibre/MenulibreApplication.py:536
 msgid "_Contents"
 msgstr "_Kandungan"
 
 #. Translators: Help action tooltip
-#: ../menulibre/MenulibreApplication.py:526
-#: ../menulibre/MenulibreApplication.py:2304
+#: ../menulibre/MenulibreApplication.py:538
+#: ../menulibre/MenulibreApplication.py:2374
 msgid "Help"
 msgstr "Bantuan"
 
 #. Translators: About action label
-#: ../menulibre/MenulibreApplication.py:533
+#: ../menulibre/MenulibreApplication.py:545
 msgid "_About"
 msgstr "Perih_al"
 
 #. Translators: About action tooltip
-#: ../menulibre/MenulibreApplication.py:535
-#: ../menulibre/MenulibreApplication.py:2305
+#: ../menulibre/MenulibreApplication.py:547
+#: ../menulibre/MenulibreApplication.py:2375
 msgid "About"
 msgstr "Perihal"
 
 #. Translators: "Categories" launcher section
-#: ../menulibre/MenulibreApplication.py:680
+#: ../menulibre/MenulibreApplication.py:692
 msgid "Categories"
 msgstr "Kategori"
 
 #. Translators: "Actions" launcher section
-#: ../menulibre/MenulibreApplication.py:683
+#: ../menulibre/MenulibreApplication.py:695
 msgid "Actions"
 msgstr "Tindakan"
 
 #. Translators: "Advanced" launcher section
-#: ../menulibre/MenulibreApplication.py:686
+#: ../menulibre/MenulibreApplication.py:698
 msgid "Advanced"
 msgstr "Lanjutan"
 
 #. Translators: Launcher-specific categories, camelcase "This Entry"
-#: ../menulibre/MenulibreApplication.py:860
+#: ../menulibre/MenulibreApplication.py:872
 msgid "ThisEntry"
 msgstr "MasukanIni"
 
 #. Translators: Placeholder text for the launcher-specific category
 #. selection.
-#: ../menulibre/MenulibreApplication.py:881
+#: ../menulibre/MenulibreApplication.py:893
 msgid "Select a category"
 msgstr "Pilih satu kategori"
 
 #. Translators: "Category Name" tree column header
-#: ../menulibre/MenulibreApplication.py:885
+#: ../menulibre/MenulibreApplication.py:897
 msgid "Category Name"
 msgstr "Nama Kategori"
 
 #. Translators: "This Entry" launcher-specific category group
-#: ../menulibre/MenulibreApplication.py:988
+#: ../menulibre/MenulibreApplication.py:1000
 msgid "This Entry"
 msgstr "Masukan Ini"
 
 #. Translators: Placeholder text for a newly created action
-#: ../menulibre/MenulibreApplication.py:1049
+#: ../menulibre/MenulibreApplication.py:1061
 msgid "New Shortcut"
 msgstr "Pintasan Baharu"
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1199
+#: ../menulibre/MenulibreApplication.py:1211
 msgid "Select a working directory…"
 msgstr "Pilih satu direktori kerja..."
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1203
+#: ../menulibre/MenulibreApplication.py:1215
 msgid "Select an executable…"
 msgstr "Pilih satu boleh laku..."
 
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:1450
+#: ../menulibre/MenulibreApplication.py:1462
 msgid "You do not have permission to delete this file."
 msgstr "Anda tidak mempunyai keizinan memadam fail ini."
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1698
+#: ../menulibre/MenulibreApplication.py:1768
 msgid "New Launcher"
 msgstr "Pelancar Baharu"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1701 ../menulibre/MenulibreXdg.py:49
+#: ../menulibre/MenulibreApplication.py:1771 ../menulibre/MenulibreXdg.py:49
 msgid "A small descriptive blurb about this application."
 msgstr "Blurb keterangan kecil mengenai aplikasi ini."
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1752
+#: ../menulibre/MenulibreApplication.py:1822
 msgid "New Directory"
 msgstr "Direktori Baharu"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1755
+#: ../menulibre/MenulibreApplication.py:1825
 msgid "A small descriptive blurb about this directory."
 msgstr "Blurb keterangan kecil mengenai direktori ini."
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:2183
+#: ../menulibre/MenulibreApplication.py:2253
 msgid "Are you sure you want to delete this separator?"
 msgstr "Adakah anda ingin memadam pemisah ini?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:2187
+#: ../menulibre/MenulibreApplication.py:2257
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Adakah anda ingin memadam \"%s\"?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:2299
+#: ../menulibre/MenulibreApplication.py:2369
 msgid "Parsing Error Log"
 msgstr "Log Ralat Penghuraian"
 
@@ -1000,7 +1000,7 @@ msgstr "Butir Menu Baharu"
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
 #. code is displayed.
-#: ../menulibre/util.py:649
+#: ../menulibre/util.py:652
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr "Tidak mampu memuatkan fail atas meja disebabkan ralat berikut: %s"
@@ -1008,31 +1008,31 @@ msgstr "Tidak mampu memuatkan fail atas meja disebabkan ralat berikut: %s"
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
 #. translated.
-#: ../menulibre/util.py:664
+#: ../menulibre/util.py:667
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr "Kumpulan pemula tidak sah - ketika ini nilainya '%s', sepatutnya '%s'"
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:674
+#: ../menulibre/util.py:677
 #, python-format
 msgid "%s key not found"
 msgstr "Kekunci %s tidak dijumpai"
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
-#: ../menulibre/util.py:687
+#: ../menulibre/util.py:690
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr "Nilai %s tidak sah - ketika ini nilainya '%s', sepatutnya '%s'"
 
-#: ../menulibre/util.py:716
+#: ../menulibre/util.py:719
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
 msgstr "Atur cara %s '%s' tidak dijumpai dalam pemboleh ubah PATH"
 
-#: ../menulibre/util.py:719
+#: ../menulibre/util.py:722
 #, python-format
 msgid ""
 "%s program '%s' is not a valid shell command according to "
@@ -1044,7 +1044,7 @@ msgstr ""
 #. KDE services are not displayed in the menu
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
-#: ../menulibre/util.py:728
+#: ../menulibre/util.py:731
 msgid "Unknown error. Desktop file appears to be valid."
 msgstr "Ralat tidak diketahui. Fail atas meja kelihatan seperti sah."
 
@@ -1091,3 +1091,9 @@ msgstr ""
 #: ../data/metainfo/menulibre.appdata.xml.in.h:7
 msgid "Easily rearrange menu items to suit your needs."
 msgstr "Susun semula butir menu dengan mudah mengikut keperluan anda."
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:8
+msgid "This release fixes a crash when menus fail to load on KDE."
+msgstr ""
+"Terbitan ini membaiki suatu ranap yang berlaku apabila menu gagal dimuatkan "
+"di KDE."
