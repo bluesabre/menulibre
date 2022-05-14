@@ -1601,6 +1601,56 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Set the value stored for key."""
         self.values[key] = value
 
+    """
+    Quoting must be done by enclosing the argument between double quotes and escaping
+    the double quote character, backtick character ("`"), dollar sign ("$") and
+    backslash character ("\") by preceding it with an additional backslash character.
+    Implementations must undo quoting before expanding field codes and before passing
+    the argument to the executable program. Reserved characters are space (" "),
+    tab, newline, double quote, single quote ("'"), backslash character ("\"),
+    greater-than sign (">"), less-than sign ("<"), tilde ("~"), vertical bar ("|"),
+    ampersand ("&"), semicolon (";"), dollar sign ("$"), asterisk ("*"),
+    question mark ("?"), hash mark ("#"), parenthesis ("(") and (")") and backtick
+    character ("`").
+
+    Note that the general escape rule for values of type string states that the backslash
+    character can be escaped as ("\\") as well and that this escape rule is applied before
+    the quoting rule. As such, to unambiguously represent a literal backslash character in
+    a quoted argument in a desktop entry file requires the use of four successive backslash
+    characters ("\\\\"). Likewise, a literal dollar sign in a quoted argument in a desktop
+    entry file is unambiguously represented with ("\\$").
+
+    A number of special field codes have been defined which will be expanded by the file
+    manager or program launcher when encountered in the command line. Field codes consist
+    of the percentage character ("%") followed by an alpha character. Literal percentage
+    characters must be escaped as %%. Deprecated field codes should be removed from the
+    command line and ignored. Field codes are expanded only once, the string that is used
+    to replace the field code should not be checked for field codes itself.
+
+    Field codes must not be used inside a quoted argument, the result of field code expansion
+    inside a quoted argument is undefined. The %F and %U field codes may only be used as an
+    argument on their own.
+    """
+
+    def escape_exec(self, value):
+        value = str(value)
+        args = []
+        for arg in shlex.split(value, posix=False):
+            if arg.startswith("\""):
+                arg = arg.replace("%%", "%")  # Make it consistent for the pros
+                arg = arg.replace("%", "%%")
+            args.append(arg)
+        return " ".join(args)
+
+    def unescape_exec(self, value):
+        value = str(value)
+        args = []
+        for arg in shlex.split(value, posix=False):
+            if arg.startswith("\""):
+                arg = arg.replace("%%", "%")
+            args.append(arg)
+        return " ".join(args)
+
     def set_value(self, key, value, adjust_widget=True, store=False):  # noqa
         """Set the DesktopSpec key, value pair in the editor."""
         if store:
@@ -1643,6 +1693,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # No associated widget for Version
         elif key == 'Version':
             pass
+
+        elif key == 'Exec':
+            widget = self.widgets[key]
+            widget.set_text(self.unescape_exec(value))
 
         # Everything else is set by its widget type.
         elif key in self.widgets.keys():
@@ -1689,6 +1743,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         elif key == 'Filename':
             if 'filename' in list(self.values.keys()):
                 return self.values['filename']
+        elif key == 'Exec':
+            widget = self.widgets[key]
+            value = widget.get_text()
+            return self.escape_exec(value)
         else:
             widget = self.widgets[key]
             if isinstance(widget, Gtk.Button):
