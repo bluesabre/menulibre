@@ -100,6 +100,14 @@ def move_icon_file(root, target_data, prefix):
     return icon_file
 
 
+def remove_appdata_in_file(root, target_data):
+    metainfo = os.path.normpath(
+        os.path.join(root, target_data, 'share', 'menulibre', 'metainfo'))
+    appdata_in = os.path.join(metainfo, 'menulibre.appdata.xml.in')
+    os.remove(appdata_in)
+    os.rmdir(metainfo)
+
+
 def get_desktop_file(root, target_data, prefix):
     """Move the desktop file to its installation prefix."""
     desktop_path = os.path.realpath(
@@ -215,6 +223,7 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
         desktop_file = get_desktop_file(self.root, target_data, self.prefix)
         print(("Desktop File: %s\n" % desktop_file))
         move_icon_file(self.root, target_data, self.prefix)
+        remove_appdata_in_file(self.root, target_data)
         update_desktop_file(desktop_file, script_path)
 
 
