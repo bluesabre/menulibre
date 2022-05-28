@@ -309,7 +309,7 @@ class MenuEditor(object):
         if not self.tree.load_sync():
             raise ValueError("can not load menu tree %r" %
                              (self.tree.props.menu_basename,))
-    
+
     def hasContents(self):
         for child in self.getMenus(None):
             submenus = self.getContents(child[0])
