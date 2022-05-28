@@ -24,6 +24,10 @@ from gi.repository import Gdk, Gio, Gtk
 import menulibre_lib
 from . util import find_program
 
+import logging
+
+logger = logging.getLogger('menulibre')
+
 
 class LogDialog:
     """The MenuLibre LogWindow."""
@@ -84,8 +88,27 @@ class LogDialog:
             appid = appid[:-8]
             execs[appid] = executable
         return execs
+    
+    def get_display_server(self):
+        wayland = os.getenv("WAYLAND_DISPLAY")
+        if wayland is not None:
+            return "wayland"
+        x11 = os.getenv("DISPLAY")
+        if x11 is not None:
+            return "x11"
+        logging.warning(
+            "Could not determine display server. Assuming x11")
+        return "x11"
 
     def get_root_editor_executable(self):
+        if not find_program("pkexec"):
+            logging.warning(
+                "Could not find pkexec to for executing root editors")
+            return None
+        if self.get_display_server() == "wayland":
+            logging.warning(
+                "pkexec is not supported under Wayland")
+            return None
         pkexecs = self.get_pkexecs()
         default = self.get_editor_executable()
         preferred = None
@@ -98,6 +121,9 @@ class LogDialog:
                         preferred = executable
         if preferred is not None:
             return preferred
+        if default is None:
+            logging.warning(
+                "Could not find a text editor supporting pkexec")
         return default
 
     def file_is_writable(self, path):
@@ -107,6 +133,21 @@ class LogDialog:
             return info.get_attribute_boolean(Gio.FILE_ATTRIBUTE_ACCESS_CAN_WRITE)
         except:
             return False
+    
+    def editor_supports_admin_protocol(self, binary):
+        return binary in [
+            "gedit",
+            "pluma"
+        ]
+    
+    def get_preferred_admin_editor(self):
+        default = self.get_editor_executable()
+        if self.editor_supports_admin_protocol(default):
+            return default
+        for editor in self.get_editor_executables():
+            if self.editor_supports_admin_protocol(editor):
+                return editor
+        return None
 
     def view_path(self, path):
         if os.path.isdir(path):
@@ -115,16 +156,35 @@ class LogDialog:
                 Gtk.show_uri_on_window(None, uri, 0)
             else:
                 Gtk.show_uri(None, uri, 0)
+            return True
         else:
-            if not find_program("pkexec"):
-                binary = self.get_editor_executable()
+            binary = self.get_editor_executable()
+
+            if not self.file_is_writable(path):
+                admin = self.get_preferred_admin_editor()
+                if admin is not None:
+                    subprocess.Popen([admin, "admin://%s" % path])
+                    return True
+
+                logging.warning(
+                    "Could not find a text editor supporting admin://")
+                
+                root = self.get_root_editor_executable()
+                if root is not None:
+                    subprocess.Popen(["pkexec", root, path])
+                    return True
+
+                logging.warning(
+                    "Could not find a text editor supporting pkexec")
+            
+            if binary is not None:
                 subprocess.Popen([binary, path])
-            elif self.file_is_writable(path):
-                binary = self.get_editor_executable()
-                subprocess.Popen([binary, path])
-            else:
-                binary = self.get_root_editor_executable()
-                subprocess.Popen(["pkexec", binary, path])
+                return True
+
+            logging.warning(
+                "Could not find a supported text editor")
+
+            return False
 
     def get_path_details_at_pos(self, x, y):
         pos = self._log_treeview.get_path_at_pos(x, y)
