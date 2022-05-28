@@ -293,7 +293,7 @@ class MenuEditor(object):
         logger.debug("Using menu: %s" % self.path)
         self.loadDOM()
 
-        self.loaded = True
+        self.loaded = self.hasContents()
 
     def loadDOM(self):
         """loadDOM"""
@@ -309,6 +309,13 @@ class MenuEditor(object):
         if not self.tree.load_sync():
             raise ValueError("can not load menu tree %r" %
                              (self.tree.props.menu_basename,))
+    
+    def hasContents(self):
+        for child in self.getMenus(None):
+            submenus = self.getContents(child[0])
+            if len(submenus) > 0:
+                return True
+        return False
 
     def getMenus(self, parent):
         """getMenus"""
