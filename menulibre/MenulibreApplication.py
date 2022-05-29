@@ -34,7 +34,7 @@ from . import MenulibreStackSwitcher, MenulibreIconSelection
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, MenulibreLog
 from . import MenuEditor
-from .util import MenuItemTypes, check_keypress, getBasename, getRelatedKeys
+from .util import MenuItemTypes, check_keypress, getBasename, getRelativeName, getRelatedKeys
 from .util import escapeText, getCurrentDesktop, find_program
 import menulibre_lib
 
@@ -1296,7 +1296,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # Check if this file still exists
             if (not new_launcher) and (not os.path.isfile(filename)):
                 # If it does not, try to fallback...
-                basename = getBasename(filename)
+                basename = getRelativeName(filename)
                 filename = util.getSystemLauncherPath(basename)
                 if filename is not None:
                     row_data[MenuEditor.COL_FILENAME] = filename

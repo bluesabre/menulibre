@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-29 07:12-0400\n"
+"POT-Creation-Date: 2022-05-29 11:26-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -940,7 +940,7 @@ msgstr ""
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
 #. code is displayed.
-#: ../menulibre/util.py:722
+#: ../menulibre/util.py:778
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr ""
@@ -948,31 +948,31 @@ msgstr ""
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
 #. translated.
-#: ../menulibre/util.py:737
+#: ../menulibre/util.py:793
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:747
+#: ../menulibre/util.py:803
 #, python-format
 msgid "%s key not found"
 msgstr ""
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
-#: ../menulibre/util.py:760
+#: ../menulibre/util.py:816
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:789
+#: ../menulibre/util.py:845
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
 msgstr ""
 
-#: ../menulibre/util.py:792
+#: ../menulibre/util.py:848
 #, python-format
 msgid ""
 "%s program '%s' is not a valid shell command according to GLib."
@@ -982,7 +982,7 @@ msgstr ""
 #. KDE services are not displayed in the menu
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
-#: ../menulibre/util.py:801
+#: ../menulibre/util.py:857
 msgid "Unknown error. Desktop file appears to be valid."
 msgstr ""
 

@@ -154,11 +154,21 @@ def getProcessList():
     return processes
 
 
+def getRelativeName(filename):
+    if filename.endswith('.desktop'):
+        basename = filename.split('/applications/', 1)[1]
+    elif filename.endswith('.directory'):
+        basename = filename.split('/desktop-directories/', 1)[1]
+    return basename
+
+
 def getBasename(filename):
     if filename.endswith('.desktop'):
         basename = filename.split('/applications/', 1)[1]
     elif filename.endswith('.directory'):
         basename = filename.split('/desktop-directories/', 1)[1]
+        if basename.startswith("%s/" % getDefaultMenuName()):
+            basename = filename.split("%s/" % getDefaultMenuName(), 1)[1]
     return basename
 
 
@@ -325,16 +335,62 @@ def mapDesktopEnvironmentDirectories():
     for filename, basedir in de_paths.items():
         if filename in file_ids:
             continue
-        target = os.path.join(user_dir, filename)
-        if os.path.exists(target):
-            continue
-        src = os.path.join(basedir, filename)
-        logger.debug("copy %s to %s" % (src, target))
-        try:
-            shutil.copy2(src, target)
-        except:
-            logger.warning("Failed to copy %s to %s" % (src, target))
 
+        target_dir = os.path.join(user_dir, menu)
+        try:
+            os.makedirs(target_dir)
+        except:
+            pass
+        target = os.path.join(target_dir, filename)
+        if not os.path.exists(target):
+            src = os.path.join(basedir, filename)
+            try:
+                logger.debug("copy %s to %s" % (src, target))
+                shutil.copy2(src, target)
+            except:
+                logger.warning("Failed to copy %s to %s" % (src, target))
+                continue
+
+        try:
+            symlink = os.path.join(user_dir, filename)
+            if os.path.exists(symlink):
+                continue
+            os.symlink(target, symlink)
+        except:
+            logger.warning("Failed to symlink %s to %s" % (src, target))
+
+
+def unmapDesktopEnvironmentDirectories():
+    """
+    This feels wrong, but to make GMenu correctly handle desktop directories
+    in subdirectories, we need to bring them up to the top level.
+    """
+    menu = getDefaultMenuName()
+    if len(menu) == 0:
+        return
+
+    user_dir = getUserDirectoriesDirectory()
+
+    de_dir = os.path.join(user_dir, menu)
+    if not os.path.exists(de_dir):
+        return
+
+    for filename in os.listdir(user_dir):
+        filename = os.path.join(user_dir, filename)
+
+        if not filename.endswith(".directory"):
+            continue
+        if not os.path.islink(filename):
+            continue
+
+        realpath = os.path.realpath(filename)
+        if not realpath.startswith(de_dir):
+            continue
+
+        try:
+            os.remove(filename)
+        except:
+            logger.warning("Failed to remove symlink %s" % filename)
 
 def getUserDirectoriesDirectory():
     """Return the path to the user desktop-directories directory."""
@@ -563,7 +619,7 @@ def getSaveFilename(name, filename, item_type, force_update=False):  # noqa
 
         # Use the current filename as a base.
         else:
-            basename = getBasename(filename)
+            basename = getRelativeName(filename)
 
         # Split the basename into filename and extension.
         name, ext = os.path.splitext(basename)

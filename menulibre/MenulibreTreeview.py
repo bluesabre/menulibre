@@ -24,7 +24,7 @@ from locale import gettext as _
 from gi.repository import Gio, GObject, Gtk, Pango, GLib
 
 from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
-from .util import MenuItemTypes, check_keypress, getBasename, escapeText
+from .util import MenuItemTypes, check_keypress, getBasename, getRelativeName, escapeText
 
 import logging
 logger = logging.getLogger('menulibre')
@@ -186,7 +186,7 @@ class Treeview(GObject.GObject):
             filename = model[treeiter][MenuEditor.COL_FILENAME]
             item_type = model[treeiter][MenuEditor.COL_TYPE]
             if filename is not None:
-                basename = getBasename(filename)
+                basename = getRelativeName(filename)
                 original = util.getSystemLauncherPath(basename)
             else:
                 original = None
@@ -487,7 +487,7 @@ class Treeview(GObject.GObject):
         block_run = False
 
         if filename is not None:
-            basename = getBasename(filename)
+            basename = getRelativeName(filename)
             original = util.getSystemLauncherPath(basename)
             item_type = model[treeiter][MenuEditor.COL_TYPE]
             if original is None and item_type == MenuItemTypes.DIRECTORY:

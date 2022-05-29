@@ -83,7 +83,11 @@ class XmlMenuElement(Element):
         SubElement(menu, "Name").text = menu_name
         if filename:
             SubElement(menu, "Directory").text = os.path.basename(filename)
-            if filename.startswith(directories):
+            realpath = os.path.realpath(filename)
+            realdir = os.path.dirname(realpath)
+            if realdir.startswith(directories):
+                SubElement(menu, "DirectoryDir").text = realdir
+            elif filename.startswith(directories):
                 SubElement(menu, "DirectoryDir").text = directories
         return menu
 
