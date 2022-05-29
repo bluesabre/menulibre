@@ -35,7 +35,7 @@ gi.require_version('GMenu', '3.0')  # noqa
 from gi.repository import GdkPixbuf, Gio, GLib, GMenu, Gtk
 
 from . import util
-from .util import MenuItemTypes, escapeText
+from .util import MenuItemTypes, escapeText, mapDesktopEnvironmentDirectories
 
 locale.textdomain('menulibre')
 
@@ -62,7 +62,7 @@ def get_default_menu():
         util.getDefaultMenuPrefix(),
         ''
     ]
-    user_basedir = util.getUserMenuPath()
+    user_basedir = util.getUserMenusDirectory()
     for prefix in prefixes:
         filename = '%s%s' % (prefix, 'applications.menu')
         user_dir = os.path.join(user_basedir, filename)
@@ -280,6 +280,11 @@ class MenuEditor(object):
         if basename is None:
             return
 
+        # For systems where desktop directories are installed in subdirectories,
+        # we need to first bring them to the toplevel for GMenu to see them
+        # correctly.
+        mapDesktopEnvironmentDirectories()
+
         self.tree = GMenu.Tree.new(basename,
                                    GMenu.TreeFlags.SHOW_EMPTY |
                                    GMenu.TreeFlags.INCLUDE_EXCLUDED |
@@ -289,7 +294,7 @@ class MenuEditor(object):
         self.load()
 
         self.path = os.path.join(
-            util.getUserMenuPath(), self.tree.props.menu_basename)
+            util.getUserMenusDirectory(), self.tree.props.menu_basename)
         logger.debug("Using menu: %s" % self.path)
         self.loadDOM()
 
