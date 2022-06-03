@@ -655,6 +655,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.treeview.connect("add-directory-enabled",
                               self.on_apps_browser_add_directory_enabled,
                               builder)
+        self.treeview.connect("requires-menu-reload",
+                              self.on_apps_browser_requires_menu_reload,
+                              builder)
         treeview.set_cursor(Gtk.TreePath.new_from_string("1"))
         treeview.set_cursor(Gtk.TreePath.new_from_string("0"))
 
@@ -1238,6 +1241,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
 
 # Applications Treeview
+    def on_apps_browser_requires_menu_reload(self, widget, required, builder):
+        print("Requires menu reload")
+        pass
+
     def on_apps_browser_add_directory_enabled(self, widget, enabled, builder):
         """Update the Add Directory menu item when the selected row is
         changed."""

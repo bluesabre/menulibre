@@ -206,7 +206,7 @@ def desktop_menu_install(directory_files, desktop_files):
     for path in GLib.get_system_config_dirs():
         for filename in directory_files:
             if filename.startswith(path):
-                return False
+                return True
 
     # xdg-desktop-menu doesn't behave nicely with vendor- directories
     # without vendor- applications.

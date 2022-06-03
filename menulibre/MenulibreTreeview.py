@@ -38,6 +38,9 @@ class Treeview(GObject.GObject):
         'add-directory-enabled': (GObject.SIGNAL_RUN_LAST,
                                   GObject.TYPE_BOOLEAN,
                                   (GObject.TYPE_BOOLEAN,)),
+        'requires-menu-reload': (GObject.SIGNAL_RUN_LAST,
+                                  GObject.TYPE_BOOLEAN,
+                                  (GObject.TYPE_BOOLEAN,)),
     }
 
     loaded = False
@@ -708,7 +711,9 @@ class Treeview(GObject.GObject):
                 parent = model.iter_parent(parent)
             parents.reverse()
             if menu_install:
-                MenulibreXdg.desktop_menu_install(parents, [filename])
+                installed = MenulibreXdg.desktop_menu_install(parents, [filename])
+                if not installed:
+                    self.emit("requires-menu-reload", True)
 
     def xdg_menu_uninstall(self, model, treeiter, filename):
         """Uninstall the specified filename from the menu structure."""
