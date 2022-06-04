@@ -2061,6 +2061,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # deleting the launcher but removing it from various places in the UI
         self.update_launcher_category_dirs()
 
+        if filename.endswith(".directory"):
+            processes = getProcessList()
+            if "mate-panel" in processes:
+                self.menu_restart_infobar.show()
+
+
     def update_launcher_categories(self, remove, add):  # noqa
         original_filename = self.get_value('Filename')
         if original_filename is None or not os.path.isfile(original_filename):
