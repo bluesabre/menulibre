@@ -35,7 +35,7 @@ from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, MenulibreLog
 from . import MenuEditor
 from .util import MenuItemTypes, check_keypress, getBasename, getRelativeName, getRelatedKeys
-from .util import escapeText, getCurrentDesktop, find_program
+from .util import escapeText, getCurrentDesktop, find_program, getProcessList
 import menulibre_lib
 
 import logging
@@ -259,6 +259,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Set up the application browser
         self.configure_application_treeview(builder)
+
+        self.configure_menu_restart_infobar(builder)
 
         # Determining paths of bad desktop files GMenu can't load - if some are
         # detected, alerting user via InfoBar
@@ -585,6 +587,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.infobar.set_default_response(Gtk.ResponseType.CLOSE)
         self.infobar.connect('response',
                              self.on_bad_desktop_files_infobar_response)
+
+    def configure_menu_restart_infobar(self, builder):
+        self.menu_restart_infobar = builder.get_object('menu_restart_required')
+        self.menu_restart_infobar.set_default_response(Gtk.ResponseType.CLOSE)
+
+        button = builder.get_object('menu_restart_button')
+        button.connect('clicked', self.on_menu_restart_button_activate)
+
+        self.menu_restart_infobar.connect('response',
+                             self.on_bad_desktop_files_infobar_response)
+
+    def on_menu_restart_infobar_response(self, infobar, response_id):
+        infobar.hide()
 
     def configure_application_menubar(self, builder):
         """Configure the application GlobalMenu (in Unity) and AppMenu."""
@@ -1244,6 +1259,51 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_apps_browser_requires_menu_reload(self, widget, required, builder):
         print("Requires menu reload")
         pass
+
+
+    def on_menu_restart_button_activate(self, widget):
+        processes = getProcessList()
+        if "mate-panel" in processes:
+            cmd = ["mate-panel", "--restart"]
+        elif "xfce4-panel" in processes:
+            cmd = ["xfce4-panel", "--restart"]
+        else:
+            self.menu_unable_to_restart_dialog()
+            return
+
+        self.menu_restart_dialog(cmd)
+
+
+    def menu_restart_dialog(self, cmd):
+        user_cmd = " ".join(cmd)
+
+        primary = _("Menu restart required")
+        secondary = _("MenuLibre can do this automatically. "
+                      "Do you want to run the following command?\n\n%s") % user_cmd
+
+        dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
+                                    Gtk.ButtonsType.YES_NO, primary)
+        dialog.format_secondary_markup(secondary)
+        response = dialog.run()
+        if response == Gtk.ResponseType.YES:
+            subprocess.Popen(cmd)
+        self.menu_restart_infobar.hide()
+        dialog.destroy()
+
+
+    def menu_unable_to_restart_dialog(self):
+        primary = _("Menu restart required")
+        secondary = _("However, MenuLibre cannot determine how to do this "
+                      "automatically on your system. "
+                      "Please log out for you menu to update completely.")
+
+        dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
+                                    Gtk.ButtonsType.CLOSE, primary)
+        dialog.format_secondary_markup(secondary)
+        dialog.run()
+        self.menu_restart_infobar.hide()
+        dialog.destroy()
+
 
     def on_apps_browser_add_directory_enabled(self, widget, enabled, builder):
         """Update the Add Directory menu item when the selected row is

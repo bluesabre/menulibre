@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-02 23:09-0400\n"
+"POT-Creation-Date: 2022-06-03 21:43-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,19 +57,19 @@ msgstr ""
 
 #. Translators: Toolbar button to undo last change to currently selected item.
 #. Translators: Undo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:14 ../menulibre/MenulibreApplication.py:484
+#: ../data/ui/MenulibreWindow.ui.h:14 ../menulibre/MenulibreApplication.py:486
 msgid "Undo"
 msgstr ""
 
 #. Translators: Toolbar button to redo the last undone change to currently selected item.
 #. Translators: Redo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:16 ../menulibre/MenulibreApplication.py:493
+#: ../data/ui/MenulibreWindow.ui.h:16 ../menulibre/MenulibreApplication.py:495
 msgid "Redo"
 msgstr ""
 
 #. Translators: Toolbar button to revery the currently selected item to it
 #. Translators: Revert action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:502
+#: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:504
 msgid "Revert"
 msgstr ""
 
@@ -80,7 +80,7 @@ msgstr ""
 
 #. Translators: Toolbar button to delete the currently selected item.
 #. Translators: Delete action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:520
+#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:522
 msgid "Delete"
 msgstr ""
 
@@ -88,7 +88,7 @@ msgstr ""
 #. Translators: Save On Leave Dialog, do save, then leave.
 #. Translators: Save Launcher action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/Dialogs.py:103
-#: ../menulibre/Dialogs.py:132 ../menulibre/MenulibreApplication.py:475
+#: ../menulibre/Dialogs.py:132 ../menulibre/MenulibreApplication.py:477
 msgid "Save"
 msgstr ""
 
@@ -102,34 +102,42 @@ msgstr ""
 msgid "Invalid desktop files detected! Please see details."
 msgstr ""
 
-#. Translators: Treeview toolbar button to move the currently selected item up.
+#: ../data/ui/MenulibreWindow.ui.h:28
+msgid "Restart menu..."
+msgstr ""
+
 #: ../data/ui/MenulibreWindow.ui.h:29
+msgid "Your applications menu may need to be restarted."
+msgstr ""
+
+#. Translators: Treeview toolbar button to move the currently selected item up.
+#: ../data/ui/MenulibreWindow.ui.h:31
 msgid "Move Up"
 msgstr ""
 
 #. Translators: Treeview toolbar button to move the currently selected item down.
-#: ../data/ui/MenulibreWindow.ui.h:31
+#: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Move Down"
 msgstr ""
 
 #. Translators: Treeview toolbar button to sort the currently open submenu alphabetically.
-#: ../data/ui/MenulibreWindow.ui.h:33
+#: ../data/ui/MenulibreWindow.ui.h:35
 msgid "Sort Alphabetically"
 msgstr ""
 
 #. Translators: Placeholder text/hint for the application name entry.
-#: ../data/ui/MenulibreWindow.ui.h:35
+#: ../data/ui/MenulibreWindow.ui.h:37
 msgid "Application Name"
 msgstr ""
 
 #. Translators: Placeholder text/hint for the application comment entry.
 #. Translators: "Description" tree column header
-#: ../data/ui/MenulibreWindow.ui.h:37 ../menulibre/MenulibreApplication.py:907
+#: ../data/ui/MenulibreWindow.ui.h:39 ../menulibre/MenulibreApplication.py:922
 msgid "Description"
 msgstr ""
 
 #. Translators: Tooltip for the "Exec" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:39
+#: ../data/ui/MenulibreWindow.ui.h:41
 msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable "
 "is not set to \"True\" or if you need compatibility with implementations "
@@ -139,91 +147,91 @@ msgid ""
 msgstr ""
 
 #. Translators: Treeview column for an action item
-#: ../data/ui/MenulibreWindow.ui.h:42
+#: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Command"
 msgstr ""
 
 #. Translators: Tooltip for the "Path" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:44
+#: ../data/ui/MenulibreWindow.ui.h:46
 msgid "The working directory."
 msgstr ""
 
 #. Translators: "Path" text entry. The working directory of the application.
-#: ../data/ui/MenulibreWindow.ui.h:46
+#: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Working Directory"
 msgstr ""
 
 #. Translators: Header for the commonly used application fields.
-#: ../data/ui/MenulibreWindow.ui.h:48
+#: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Application Details"
 msgstr ""
 
 #. Translators: Tooltip for the "Terminal" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:50
+#: ../data/ui/MenulibreWindow.ui.h:52
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
 
 #. Translators: "Terminal" on/off switch. When enabled, the application is executed in a terminal window.
-#: ../data/ui/MenulibreWindow.ui.h:52
+#: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Run in terminal"
 msgstr ""
 
 #. Translators: Tooltip for the "StartupNotify" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:54
+#: ../data/ui/MenulibreWindow.ui.h:56
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
 
 #. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is shown while the application launches.
-#: ../data/ui/MenulibreWindow.ui.h:56
+#: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Use startup notification"
 msgstr ""
 
 #. Translators: Tooltip for the "NoDisplay" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:58
+#: ../data/ui/MenulibreWindow.ui.h:60
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
 
 #. Translators: "NoDisplay" on/off switch. When enabled, the application will not be shown in menus, but will be available for MIME type associations etc.
-#: ../data/ui/MenulibreWindow.ui.h:60
+#: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Hide from menus"
 msgstr ""
 
 #. Translators: Header for the less common application and directory fields.
-#: ../data/ui/MenulibreWindow.ui.h:62
+#: ../data/ui/MenulibreWindow.ui.h:64
 msgid "Options"
 msgstr ""
 
 #. Translators: Button to add item to list.
-#: ../data/ui/MenulibreWindow.ui.h:64
+#: ../data/ui/MenulibreWindow.ui.h:66
 msgid "Add"
 msgstr ""
 
 #. Translators: Button to remove item from list.
-#: ../data/ui/MenulibreWindow.ui.h:66
+#: ../data/ui/MenulibreWindow.ui.h:68
 msgid "Remove"
 msgstr ""
 
 #. Translators: Button to remove all items from list.
-#: ../data/ui/MenulibreWindow.ui.h:68
+#: ../data/ui/MenulibreWindow.ui.h:70
 msgid "Clear"
 msgstr ""
 
 #. Translators: Treeview column for whether an action item is displayed (boolean).
-#: ../data/ui/MenulibreWindow.ui.h:70
+#: ../data/ui/MenulibreWindow.ui.h:72
 msgid "Show"
 msgstr ""
 
 #. Translators: Treeview column for the name of the displayed action item.
-#: ../data/ui/MenulibreWindow.ui.h:72
+#: ../data/ui/MenulibreWindow.ui.h:74
 msgid "Name"
 msgstr ""
 
 #. Translators: Window title for the Select Icon dialog
-#: ../data/ui/MenulibreWindow.ui.h:74
+#: ../data/ui/MenulibreWindow.ui.h:76
 msgid "Select an icon…"
 msgstr ""
 
@@ -233,7 +241,7 @@ msgstr ""
 #. Translators: Save On Leave Dialog, don't save, cancel leave.
 #. Translators: Revert Dialog, cancel button.
 #. Translators: File Chooser Dialog, cancel button.
-#: ../data/ui/MenulibreWindow.ui.h:76 ../menulibre/Dialogs.py:66
+#: ../data/ui/MenulibreWindow.ui.h:78 ../menulibre/Dialogs.py:66
 #: ../menulibre/Dialogs.py:101 ../menulibre/Dialogs.py:130
 #: ../menulibre/Dialogs.py:169 ../menulibre/Dialogs.py:189
 #: ../menulibre/MenulibreIconSelection.py:81
@@ -241,17 +249,17 @@ msgid "Cancel"
 msgstr ""
 
 #. Translators: Button to accept and apply changes in a dialog.
-#: ../data/ui/MenulibreWindow.ui.h:78
+#: ../data/ui/MenulibreWindow.ui.h:80
 msgid "Apply"
 msgstr ""
 
 #. Translators: Window title for the parsing error log dialog.
-#: ../data/ui/MenulibreWindow.ui.h:80
+#: ../data/ui/MenulibreWindow.ui.h:82
 msgid "Parsing Errors"
 msgstr ""
 
 #. Translators: This text is displayed in the Parsing Errors dialog and provides a basic summary of the errors reported.
-#: ../data/ui/MenulibreWindow.ui.h:82
+#: ../data/ui/MenulibreWindow.ui.h:84
 msgid ""
 "The following desktop files have failed parsing by the underlying library, "
 "and will therefore not show up in MenuLibre.\n"
@@ -259,17 +267,17 @@ msgid ""
 msgstr ""
 
 #. Translators: Tooltip for the "GenericName" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:85
+#: ../data/ui/MenulibreWindow.ui.h:87
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr ""
 
 #. Translators: "GenericName" text entry. Generic name of the application, for example "Web Browser".
-#: ../data/ui/MenulibreWindow.ui.h:87
+#: ../data/ui/MenulibreWindow.ui.h:89
 msgid "Generic Name"
 msgstr ""
 
 #. Translators: Tooltip for the "NotShowIn" text entry. Possible values "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
-#: ../data/ui/MenulibreWindow.ui.h:89
+#: ../data/ui/MenulibreWindow.ui.h:91
 msgid ""
 "A list of environments that should not display this entry. You can only use "
 "this key if \"OnlyShowIn\" is not set.\n"
@@ -278,12 +286,12 @@ msgid ""
 msgstr ""
 
 #. Translators: "NotShowIn" text entry. A list of environments that should not display this entry.
-#: ../data/ui/MenulibreWindow.ui.h:92
+#: ../data/ui/MenulibreWindow.ui.h:94
 msgid "Not Shown In"
 msgstr ""
 
 #. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE", "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be translated.
-#: ../data/ui/MenulibreWindow.ui.h:94
+#: ../data/ui/MenulibreWindow.ui.h:96
 msgid ""
 "A list of environments that should display this entry. Other environments "
 "will not display this entry. You can only use this key if \"NotShowIn\" is "
@@ -293,12 +301,12 @@ msgid ""
 msgstr ""
 
 #. Translators: "OnlyShowIn" text entry. A list of environments that should display this entry.
-#: ../data/ui/MenulibreWindow.ui.h:97
+#: ../data/ui/MenulibreWindow.ui.h:99
 msgid "Only Shown In"
 msgstr ""
 
 #. Translators: Tooltip for the "TryExec" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:99
+#: ../data/ui/MenulibreWindow.ui.h:101
 msgid ""
 "Path to an executable file to determine if the program is installed. If the "
 "file is not present or is not executable, this entry may not be shown in a "
@@ -306,22 +314,22 @@ msgid ""
 msgstr ""
 
 #. Translators: "TryExec" text entry. Path to an executable file to determine if the program is installed.
-#: ../data/ui/MenulibreWindow.ui.h:101
+#: ../data/ui/MenulibreWindow.ui.h:103
 msgid "Try Exec"
 msgstr ""
 
 #. Translators: Tooltip for the "Mimetypes" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:103
+#: ../data/ui/MenulibreWindow.ui.h:105
 msgid "The MIME type(s) supported by this application."
 msgstr ""
 
 #. Translators: "Mimetype" text entry. The MIME type(s) supported by this application.
-#: ../data/ui/MenulibreWindow.ui.h:105
+#: ../data/ui/MenulibreWindow.ui.h:107
 msgid "Mimetypes"
 msgstr ""
 
 #. Translators: Tooltip for the "Keywords" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:107
+#: ../data/ui/MenulibreWindow.ui.h:109
 msgid ""
 "A list of keywords to describe this entry. You can use these to help "
 "searching entries. These are not meant for display, and should not be "
@@ -329,41 +337,41 @@ msgid ""
 msgstr ""
 
 #. Translators: "Keywords" text entry. A list of keywords to describe this entry.
-#: ../data/ui/MenulibreWindow.ui.h:109
+#: ../data/ui/MenulibreWindow.ui.h:111
 msgid "Keywords"
 msgstr ""
 
 #. Translators: Tooltip for the "StartupWMClass" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:111
+#: ../data/ui/MenulibreWindow.ui.h:113
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
 
 #. Translators: "StartupWMClass" text entry. A window manager hint for the application
-#: ../data/ui/MenulibreWindow.ui.h:113
+#: ../data/ui/MenulibreWindow.ui.h:115
 msgid "Startup WM Class"
 msgstr ""
 
 #. Translators: Identify Window Dialog, primary text.
-#: ../data/ui/MenulibreWindow.ui.h:114 ../menulibre/Dialogs.py:251
+#: ../data/ui/MenulibreWindow.ui.h:116 ../menulibre/Dialogs.py:251
 msgid "Identify Window"
 msgstr ""
 
 #. Translators: Tooltip for the "Hidden" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:116
+#: ../data/ui/MenulibreWindow.ui.h:118
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
 
 #. Translators: "Hidden" on/off switch. When enabled, the application is hidden from the menu.
-#: ../data/ui/MenulibreWindow.ui.h:118
+#: ../data/ui/MenulibreWindow.ui.h:120
 msgid "Hidden"
 msgstr ""
 
 #. Translators: Tooltip for the "DBusActivatable" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:120
+#: ../data/ui/MenulibreWindow.ui.h:122
 msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this "
 "application and you want to use it.\n"
@@ -372,21 +380,21 @@ msgid ""
 msgstr ""
 
 #. Translators: "DBusActivatable" on/off switch. When enabled, the application is said to be activated via DBUS.
-#: ../data/ui/MenulibreWindow.ui.h:123
+#: ../data/ui/MenulibreWindow.ui.h:125
 msgid "DBUS Activatable"
 msgstr ""
 
 #. Translators: Tooltip for the "Implements" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:125
+#: ../data/ui/MenulibreWindow.ui.h:127
 msgid "A list of interfaces that this application implements."
 msgstr ""
 
 #. Translators: "Implements" text entry. A list of interfaces that this application implements.
-#: ../data/ui/MenulibreWindow.ui.h:127
+#: ../data/ui/MenulibreWindow.ui.h:129
 msgid "Implements"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:128
+#: ../data/ui/MenulibreWindow.ui.h:130
 msgctxt ""
 "If true, the application prefers to be run on a more powerful GPU (graphics "
 "processing unit, graphics card) if available."
@@ -397,21 +405,21 @@ msgid ""
 "Keys#prefersnondefaultgpu for more information."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:130
+#: ../data/ui/MenulibreWindow.ui.h:132
 msgctxt ""
 "If true, the application prefers to be run on a more powerful GPU (graphics "
 "processing unit, graphics card) if available."
 msgid "Prefers Non-Default GPU"
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:131
+#: ../data/ui/MenulibreWindow.ui.h:133
 msgid ""
 "Set this key to \"True\" if this application uses notifications.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
 "Keys#x-gnome-usesnotifications for more information."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:133
+#: ../data/ui/MenulibreWindow.ui.h:135
 msgid "Uses Notifications"
 msgstr ""
 
@@ -555,8 +563,8 @@ msgid "Click on the main application window for '%s'."
 msgstr ""
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:117 ../menulibre/MenulibreApplication.py:1293
-#: ../menulibre/MenulibreApplication.py:1851
+#: ../menulibre/MenuEditor.py:117 ../menulibre/MenulibreApplication.py:1353
+#: ../menulibre/MenulibreApplication.py:1911
 msgid "Separator"
 msgstr ""
 
@@ -693,227 +701,247 @@ msgstr ""
 #. Translators: This error is displayed when the application is run
 #. as a root user. The application exits once the dialog is
 #. dismissed.
-#: ../menulibre/MenulibreApplication.py:274
+#: ../menulibre/MenulibreApplication.py:276
 msgid "MenuLibre cannot be run as root."
 msgstr ""
 
 #. Translators: This link goes to the online documentation with more
 #. information.
-#: ../menulibre/MenulibreApplication.py:280
+#: ../menulibre/MenulibreApplication.py:282
 #, python-format
 msgid ""
 "Please see the <a href='%s'>online documentation</a> for more information."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:291
+#: ../menulibre/MenulibreApplication.py:293
 msgid "MenuLibre failed to load."
 msgstr ""
 
 #. Translators: This link goes to the online documentation with more
 #. information.
-#: ../menulibre/MenulibreApplication.py:297
+#: ../menulibre/MenulibreApplication.py:299
 #, python-format
 msgid ""
 "The default menu could not be found. Please see the <a href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:301
+#: ../menulibre/MenulibreApplication.py:303
 msgid "Diagnostics"
 msgstr ""
 
 #. Translators: Add Launcher action label
-#: ../menulibre/MenulibreApplication.py:446
+#: ../menulibre/MenulibreApplication.py:448
 msgid "Add _Launcher…"
 msgstr ""
 
 #. Translators: Add Launcher action tooltip
-#: ../menulibre/MenulibreApplication.py:448
+#: ../menulibre/MenulibreApplication.py:450
 msgid "Add Launcher…"
 msgstr ""
 
 #. Translators: Add Directory action label
-#: ../menulibre/MenulibreApplication.py:455
+#: ../menulibre/MenulibreApplication.py:457
 msgid "Add _Directory…"
 msgstr ""
 
 #. Translators: Add Directory action tooltip
-#: ../menulibre/MenulibreApplication.py:457
+#: ../menulibre/MenulibreApplication.py:459
 msgid "Add Directory…"
 msgstr ""
 
 #. Translators: Add Separator action label
-#: ../menulibre/MenulibreApplication.py:464
+#: ../menulibre/MenulibreApplication.py:466
 msgid "_Add Separator…"
 msgstr ""
 
 #. Translators: Add Separator action tooltip
-#: ../menulibre/MenulibreApplication.py:466
+#: ../menulibre/MenulibreApplication.py:468
 msgid "Add Separator…"
 msgstr ""
 
 #. Translators: Save Launcher action label
-#: ../menulibre/MenulibreApplication.py:473
+#: ../menulibre/MenulibreApplication.py:475
 msgid "_Save"
 msgstr ""
 
 #. Translators: Undo action label
-#: ../menulibre/MenulibreApplication.py:482
+#: ../menulibre/MenulibreApplication.py:484
 msgid "_Undo"
 msgstr ""
 
 #. Translators: Redo action label
-#: ../menulibre/MenulibreApplication.py:491
+#: ../menulibre/MenulibreApplication.py:493
 msgid "_Redo"
 msgstr ""
 
 #. Translators: Revert action label
-#: ../menulibre/MenulibreApplication.py:500
+#: ../menulibre/MenulibreApplication.py:502
 msgid "_Revert"
 msgstr ""
 
 #. Translators: Execute action label
-#: ../menulibre/MenulibreApplication.py:509
+#: ../menulibre/MenulibreApplication.py:511
 msgid "_Execute"
 msgstr ""
 
 #. Translators: Execute action tooltip
-#: ../menulibre/MenulibreApplication.py:511
+#: ../menulibre/MenulibreApplication.py:513
 msgid "Execute Launcher"
 msgstr ""
 
 #. Translators: Delete action label
-#: ../menulibre/MenulibreApplication.py:518
+#: ../menulibre/MenulibreApplication.py:520
 msgid "_Delete"
 msgstr ""
 
 #. Translators: Quit action label
-#: ../menulibre/MenulibreApplication.py:527
+#: ../menulibre/MenulibreApplication.py:529
 msgid "_Quit"
 msgstr ""
 
 #. Translators: Quit action tooltip
-#: ../menulibre/MenulibreApplication.py:529
-#: ../menulibre/MenulibreApplication.py:2383
+#: ../menulibre/MenulibreApplication.py:531
+#: ../menulibre/MenulibreApplication.py:2443
 msgid "Quit"
 msgstr ""
 
 #. Translators: Help action label
-#: ../menulibre/MenulibreApplication.py:536
+#: ../menulibre/MenulibreApplication.py:538
 msgid "_Contents"
 msgstr ""
 
 #. Translators: Help action tooltip
-#: ../menulibre/MenulibreApplication.py:538
-#: ../menulibre/MenulibreApplication.py:2381
+#: ../menulibre/MenulibreApplication.py:540
+#: ../menulibre/MenulibreApplication.py:2441
 msgid "Help"
 msgstr ""
 
 #. Translators: About action label
-#: ../menulibre/MenulibreApplication.py:545
+#: ../menulibre/MenulibreApplication.py:547
 msgid "_About"
 msgstr ""
 
 #. Translators: About action tooltip
-#: ../menulibre/MenulibreApplication.py:547
-#: ../menulibre/MenulibreApplication.py:2382
+#: ../menulibre/MenulibreApplication.py:549
+#: ../menulibre/MenulibreApplication.py:2442
 msgid "About"
 msgstr ""
 
 #. Translators: "Categories" launcher section
-#: ../menulibre/MenulibreApplication.py:695
+#: ../menulibre/MenulibreApplication.py:710
 msgid "Categories"
 msgstr ""
 
 #. Translators: "Actions" launcher section
-#: ../menulibre/MenulibreApplication.py:698
+#: ../menulibre/MenulibreApplication.py:713
 msgid "Actions"
 msgstr ""
 
 #. Translators: "Advanced" launcher section
-#: ../menulibre/MenulibreApplication.py:701
+#: ../menulibre/MenulibreApplication.py:716
 msgid "Advanced"
 msgstr ""
 
 #. Translators: Launcher-specific categories, camelcase "This Entry"
-#: ../menulibre/MenulibreApplication.py:875
+#: ../menulibre/MenulibreApplication.py:890
 msgid "ThisEntry"
 msgstr ""
 
 #. Translators: Placeholder text for the launcher-specific category
 #. selection.
-#: ../menulibre/MenulibreApplication.py:896
+#: ../menulibre/MenulibreApplication.py:911
 msgid "Select a category"
 msgstr ""
 
 #. Translators: "Category Name" tree column header
-#: ../menulibre/MenulibreApplication.py:900
+#: ../menulibre/MenulibreApplication.py:915
 msgid "Category Name"
 msgstr ""
 
 #. Translators: "This Entry" launcher-specific category group
-#: ../menulibre/MenulibreApplication.py:1003
+#: ../menulibre/MenulibreApplication.py:1018
 msgid "This Entry"
 msgstr ""
 
 #. Translators: Placeholder text for a newly created action
-#: ../menulibre/MenulibreApplication.py:1064
+#: ../menulibre/MenulibreApplication.py:1079
 msgid "New Shortcut"
 msgstr ""
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1214
+#: ../menulibre/MenulibreApplication.py:1229
 msgid "Select a working directory…"
 msgstr ""
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1218
+#: ../menulibre/MenulibreApplication.py:1233
 msgid "Select an executable…"
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:1280
+#: ../menulibre/MenulibreApplication.py:1295
+msgid "Menu restart required"
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:1281
+#, python-format
+msgid ""
+"MenuLibre can do this automatically. Do you want to run the following "
+"command?\n"
+"\n"
+"%s"
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:1296
+msgid ""
+"However, MenuLibre cannot determine how to do this automatically on your "
+"system. Please log out for you menu to update completely."
 msgstr ""
 
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:1469
+#: ../menulibre/MenulibreApplication.py:1529
 msgid "You do not have permission to delete this file."
 msgstr ""
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1775
+#: ../menulibre/MenulibreApplication.py:1835
 msgid "New Launcher"
 msgstr ""
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1778 ../menulibre/MenulibreXdg.py:49
+#: ../menulibre/MenulibreApplication.py:1838 ../menulibre/MenulibreXdg.py:49
 msgid "A small descriptive blurb about this application."
 msgstr ""
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1829
+#: ../menulibre/MenulibreApplication.py:1889
 msgid "New Directory"
 msgstr ""
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1832
+#: ../menulibre/MenulibreApplication.py:1892
 msgid "A small descriptive blurb about this directory."
 msgstr ""
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:2260
+#: ../menulibre/MenulibreApplication.py:2320
 msgid "Are you sure you want to delete this separator?"
 msgstr ""
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:2264
+#: ../menulibre/MenulibreApplication.py:2324
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr ""
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:2376
+#: ../menulibre/MenulibreApplication.py:2436
 msgid "Parsing Error Log"
 msgstr ""
 
