@@ -222,7 +222,7 @@ def desktop_menu_install(directory_files, desktop_files):
         if len(vendor_path) == 0:
             continue
         vendor_prefix = vendor_path.replace("/", "-") + "-"
-        if basename.startswith(vendor_path):
+        if basename.startswith(vendor_prefix):
             return False
 
     cmd_list = ["xdg-desktop-menu", "install", "--novendor"]

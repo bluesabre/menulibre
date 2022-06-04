@@ -1243,6 +1243,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             cmd = ["mate-panel", "--replace"]
         elif "xfce4-panel" in processes:
             cmd = ["xfce4-panel", "--restart"]
+        elif "unity" in processes:
+            cmd = ["unity", "--replace"]
         else:
             self.menu_unable_to_restart_dialog()
             return
