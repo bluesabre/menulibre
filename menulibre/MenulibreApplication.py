@@ -1257,8 +1257,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
 # Applications Treeview
     def on_apps_browser_requires_menu_reload(self, widget, required, builder):
-        print("Requires menu reload")
-        pass
+        self.menu_restart_infobar.show()
 
 
     def on_menu_restart_button_activate(self, widget):
