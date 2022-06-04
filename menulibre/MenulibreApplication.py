@@ -243,9 +243,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.values = dict()
 
-        # Set up the actions, menubar, and toolbar
+        # Set up the actions and toolbar
         self.configure_application_actions(builder)
-        self.configure_application_menubar(builder)
 
         if headerbar_pref:
             self.configure_headerbar(builder)
@@ -400,9 +399,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         for action_name in ['add_launcher', 'add_directory', 'add_separator']:
             self.action_items[action_name] = []
-            widget = builder.get_object('menubar_%s' % action_name)
-            widget.connect('activate', self.activate_action_cb, action_name)
-            self.action_items[action_name].append(widget)
             widget = builder.get_object('popup_%s' % action_name)
             widget.connect('activate', self.activate_action_cb, action_name)
             self.action_items[action_name].append(widget)
@@ -601,22 +597,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_menu_restart_infobar_response(self, infobar, response_id):
         infobar.hide()
 
-    def configure_application_menubar(self, builder):
-        """Configure the application GlobalMenu (in Unity) and AppMenu."""
-        self.app_menu_button = None
-        builder.get_object('app_menu_holder')
-
-        # Show the menubar if using a Unity session.
-        if session in ['ubuntu', 'ubuntu-2d']:
-            builder.get_object('menubar').set_visible(True)
-
-            # Connect the menubar events.
-            for action_name in ['add_launcher', 'save_launcher', 'undo',
-                                'redo', 'revert', 'quit', 'help', 'about']:
-                widget = builder.get_object("menubar_%s" % action_name)
-                widget.set_related_action(self.actions[action_name])
-                widget.set_use_action_appearance(True)
-
     def configure_application_toolbar(self, builder):
         """Configure the application toolbar."""
         # Configure the Add, Save, Undo, Redo, Revert, Delete widgets.
@@ -630,9 +610,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         for action_name in ['add_launcher', 'add_directory', 'add_separator']:
             self.action_items[action_name] = []
-            widget = builder.get_object('menubar_%s' % action_name)
-            widget.connect('activate', self.activate_action_cb, action_name)
-            self.action_items[action_name].append(widget)
             widget = builder.get_object('popup_%s' % action_name)
             widget.connect('activate', self.activate_action_cb, action_name)
             self.action_items[action_name].append(widget)

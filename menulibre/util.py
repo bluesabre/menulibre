@@ -203,6 +203,9 @@ def getDefaultMenuPrefix(): # noqa
             prefix = 'cinnamon-'
         elif 'mate' in os.environ.get('DESKTOP_SESSION', ''):
             prefix = 'mate-'
+        # Somehow the XDG_MENU_PREFIX isn't exposed in Ubuntu Unity
+        elif 'unity' in os.environ.get('DESKTOP_SESSION', ''):
+            prefix = 'gnome-'
 
     if prefix == "":
         desktop = getCurrentDesktop()
