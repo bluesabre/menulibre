@@ -35,7 +35,7 @@ gi.require_version('GMenu', '3.0')  # noqa
 from gi.repository import GdkPixbuf, Gio, GLib, GMenu, Gtk
 
 from . import util
-from .util import MenuItemTypes, escapeText
+from .util import MenuItemTypes, escapeText, mapDesktopEnvironmentDirectories, unmapDesktopEnvironmentDirectories
 
 locale.textdomain('menulibre')
 
@@ -62,7 +62,7 @@ def get_default_menu():
         util.getDefaultMenuPrefix(),
         ''
     ]
-    user_basedir = util.getUserMenuPath()
+    user_basedir = util.getUserMenusDirectory()
     for prefix in prefixes:
         filename = '%s%s' % (prefix, 'applications.menu')
         user_dir = os.path.join(user_basedir, filename)
@@ -206,6 +206,8 @@ def get_submenus(menu, tree_dir):
                 icon_name = icon.get_names()[0]
             elif isinstance(icon, Gio.FileIcon):
                 icon_name = icon.get_file().get_path()
+            
+            filename = os.path.realpath(filename)
 
             details = {'display_name': display_name,
                        'generic_name': generic_name,
@@ -236,6 +238,7 @@ def get_menus():
         toplevels.append(child)
     for top in toplevels:
         structure.append(get_submenus(menu, top[0]))
+    menu.unmap()
     return structure
 
 
@@ -280,6 +283,11 @@ class MenuEditor(object):
         if basename is None:
             return
 
+        # For systems where desktop directories are installed in subdirectories,
+        # we need to first bring them to the toplevel for GMenu to see them
+        # correctly.
+        mapDesktopEnvironmentDirectories()
+
         self.tree = GMenu.Tree.new(basename,
                                    GMenu.TreeFlags.SHOW_EMPTY |
                                    GMenu.TreeFlags.INCLUDE_EXCLUDED |
@@ -289,11 +297,11 @@ class MenuEditor(object):
         self.load()
 
         self.path = os.path.join(
-            util.getUserMenuPath(), self.tree.props.menu_basename)
+            util.getUserMenusDirectory(), self.tree.props.menu_basename)
         logger.debug("Using menu: %s" % self.path)
         self.loadDOM()
 
-        self.loaded = True
+        self.loaded = self.hasContents()
 
     def loadDOM(self):
         """loadDOM"""
@@ -309,6 +317,16 @@ class MenuEditor(object):
         if not self.tree.load_sync():
             raise ValueError("can not load menu tree %r" %
                              (self.tree.props.menu_basename,))
+    
+    def unmap(self):
+        unmapDesktopEnvironmentDirectories()
+
+    def hasContents(self):
+        for child in self.getMenus(None):
+            submenus = self.getContents(child[0])
+            if len(submenus) > 0:
+                return True
+        return False
 
     def getMenus(self, parent):
         """getMenus"""
@@ -337,6 +355,8 @@ class MenuEditor(object):
             if item_type == GMenu.TreeItemType.DIRECTORY:
                 item = item_iter.get_directory()
                 desktop = item.get_desktop_file_path()
+                if desktop is not None:
+                    desktop = os.path.realpath(desktop)
                 if desktop is None or desktop in found_directories:
                     # Do not include directories without filenames.
                     # Do not include duplicate directories.

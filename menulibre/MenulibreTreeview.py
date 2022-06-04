@@ -24,7 +24,7 @@ from locale import gettext as _
 from gi.repository import Gio, GObject, Gtk, Pango, GLib
 
 from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
-from .util import MenuItemTypes, check_keypress, getBasename, escapeText
+from .util import MenuItemTypes, check_keypress, getBasename, getRelativeName, escapeText
 
 import logging
 logger = logging.getLogger('menulibre')
@@ -36,6 +36,9 @@ class Treeview(GObject.GObject):
         'cursor-changed': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_BOOLEAN,
                            (GObject.TYPE_BOOLEAN,)),
         'add-directory-enabled': (GObject.SIGNAL_RUN_LAST,
+                                  GObject.TYPE_BOOLEAN,
+                                  (GObject.TYPE_BOOLEAN,)),
+        'requires-menu-reload': (GObject.SIGNAL_RUN_LAST,
                                   GObject.TYPE_BOOLEAN,
                                   (GObject.TYPE_BOOLEAN,)),
     }
@@ -186,7 +189,7 @@ class Treeview(GObject.GObject):
             filename = model[treeiter][MenuEditor.COL_FILENAME]
             item_type = model[treeiter][MenuEditor.COL_TYPE]
             if filename is not None:
-                basename = getBasename(filename)
+                basename = getRelativeName(filename)
                 original = util.getSystemLauncherPath(basename)
             else:
                 original = None
@@ -487,7 +490,7 @@ class Treeview(GObject.GObject):
         block_run = False
 
         if filename is not None:
-            basename = getBasename(filename)
+            basename = getRelativeName(filename)
             original = util.getSystemLauncherPath(basename)
             item_type = model[treeiter][MenuEditor.COL_TYPE]
             if original is None and item_type == MenuItemTypes.DIRECTORY:
@@ -708,7 +711,9 @@ class Treeview(GObject.GObject):
                 parent = model.iter_parent(parent)
             parents.reverse()
             if menu_install:
-                MenulibreXdg.desktop_menu_install(parents, [filename])
+                installed = MenulibreXdg.desktop_menu_install(parents, [filename])
+                if not installed:
+                    self.emit("requires-menu-reload", True)
 
     def xdg_menu_uninstall(self, model, treeiter, filename):
         """Uninstall the specified filename from the menu structure."""

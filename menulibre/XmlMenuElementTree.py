@@ -33,7 +33,7 @@ from .util import MenuItemTypes
 from . import MenuEditor
 
 # Store user desktop directory location
-directories = util.getUserDirectoryPath()
+directories = util.getUserDirectoriesDirectory()
 
 
 # Prevent gnome-menus crash
@@ -83,7 +83,11 @@ class XmlMenuElement(Element):
         SubElement(menu, "Name").text = menu_name
         if filename:
             SubElement(menu, "Directory").text = os.path.basename(filename)
-            if filename.startswith(directories):
+            realpath = os.path.realpath(filename)
+            realdir = os.path.dirname(realpath)
+            if realdir.startswith(directories):
+                SubElement(menu, "DirectoryDir").text = realdir
+            elif filename.startswith(directories):
                 SubElement(menu, "DirectoryDir").text = directories
         return menu
 
@@ -365,7 +369,7 @@ def treeview_to_xml(treeview):
     menu_name = MenuEditor.menu_name
     menu_file = MenuEditor.get_default_menu()
     merge_file = util.getSystemMenuPath(menu_file)
-    filename = os.path.join(util.getUserMenuPath(), menu_file)
+    filename = os.path.join(util.getUserMenusDirectory(), menu_file)
 
     # Create the menu XML
     menu = XmlMenuElementTree(menu_name, merge_file)
