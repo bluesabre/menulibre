@@ -1264,7 +1264,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_menu_restart_button_activate(self, widget):
         processes = getProcessList()
         if "mate-panel" in processes:
-            cmd = ["mate-panel", "--restart"]
+            cmd = ["mate-panel", "--replace"]
         elif "xfce4-panel" in processes:
             cmd = ["xfce4-panel", "--restart"]
         else:
