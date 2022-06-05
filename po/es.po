@@ -115,7 +115,7 @@ msgstr "Reiniciar el menú..."
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Your applications menu may need to be restarted."
-msgstr "Es posible que haya que reiniciar el menú de aplicaciones."
+msgstr "Es posible que se tenga que reiniciar el menú de aplicaciones."
 
 #. Translators: Treeview toolbar button to move the currently selected item
 #. up.
