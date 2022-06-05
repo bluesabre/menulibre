@@ -962,7 +962,7 @@ msgid ""
 "system. Please log out for you menu to update completely."
 msgstr ""
 "Sin embargo, MenuLibre no puede determinar cómo hacer esto automáticamente "
-"en su sistema. Cierre la sesión para que su menú se actualice completamente."
+"en su sistema. Cierre la sesión para que el menú se actualice completamente."
 
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
