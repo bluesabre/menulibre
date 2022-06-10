@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-04 09:43-0400\n"
+"POT-Creation-Date: 2022-06-10 11:53-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -563,8 +563,8 @@ msgid "Click on the main application window for '%s'."
 msgstr ""
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:117 ../menulibre/MenulibreApplication.py:1329
-#: ../menulibre/MenulibreApplication.py:1887
+#: ../menulibre/MenuEditor.py:117 ../menulibre/MenulibreApplication.py:1331
+#: ../menulibre/MenulibreApplication.py:1889
 msgid "Separator"
 msgstr ""
 
@@ -802,7 +802,7 @@ msgstr ""
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:527
-#: ../menulibre/MenulibreApplication.py:2425
+#: ../menulibre/MenulibreApplication.py:2427
 msgid "Quit"
 msgstr ""
 
@@ -813,7 +813,7 @@ msgstr ""
 
 #. Translators: Help action tooltip
 #: ../menulibre/MenulibreApplication.py:536
-#: ../menulibre/MenulibreApplication.py:2423
+#: ../menulibre/MenulibreApplication.py:2425
 msgid "Help"
 msgstr ""
 
@@ -824,7 +824,7 @@ msgstr ""
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:545
-#: ../menulibre/MenulibreApplication.py:2424
+#: ../menulibre/MenulibreApplication.py:2426
 msgid "About"
 msgstr ""
 
@@ -879,12 +879,12 @@ msgstr ""
 msgid "Select an executable…"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1256
-#: ../menulibre/MenulibreApplication.py:1271
+#: ../menulibre/MenulibreApplication.py:1258
+#: ../menulibre/MenulibreApplication.py:1273
 msgid "Menu restart required"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1257
+#: ../menulibre/MenulibreApplication.py:1259
 #, python-format
 msgid ""
 "MenuLibre can do this automatically. Do you want to run the following "
@@ -893,7 +893,7 @@ msgid ""
 "%s"
 msgstr ""
 
-#: ../menulibre/MenulibreApplication.py:1272
+#: ../menulibre/MenulibreApplication.py:1274
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
 "system. Please log out for you menu to update completely."
@@ -902,46 +902,46 @@ msgstr ""
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:1505
+#: ../menulibre/MenulibreApplication.py:1507
 msgid "You do not have permission to delete this file."
 msgstr ""
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1811
+#: ../menulibre/MenulibreApplication.py:1813
 msgid "New Launcher"
 msgstr ""
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1814 ../menulibre/MenulibreXdg.py:49
+#: ../menulibre/MenulibreApplication.py:1816 ../menulibre/MenulibreXdg.py:49
 msgid "A small descriptive blurb about this application."
 msgstr ""
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1865
+#: ../menulibre/MenulibreApplication.py:1867
 msgid "New Directory"
 msgstr ""
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1868
+#: ../menulibre/MenulibreApplication.py:1870
 msgid "A small descriptive blurb about this directory."
 msgstr ""
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:2302
+#: ../menulibre/MenulibreApplication.py:2304
 msgid "Are you sure you want to delete this separator?"
 msgstr ""
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:2306
+#: ../menulibre/MenulibreApplication.py:2308
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr ""
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:2418
+#: ../menulibre/MenulibreApplication.py:2420
 msgid "Parsing Error Log"
 msgstr ""
 
