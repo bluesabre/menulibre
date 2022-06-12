@@ -1,10 +1,32 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+12 June 2022, MenuLibre 2.3.0
+
+- Bug Fixes:
+  . AppStream: Do not install appdata.xml.in (#85)
+  . AppStream: Fix screenshot URLs
+  . Desktop Environments: Add support for admin:// protocol (#62)
+  . Desktop Environments: Add support for MATE (#40)
+  . Desktop Environments: Add support for Unity
+  . Desktop Environments: Remove empty menubar on Ubuntu's GNOME
+  . Desktop Environments: Suggest restarting menu when edits cannot be applied
+  . Editor: Escape quoted percentage arguments (#93)
+  . Editor: Fixed copying filename with Ctrl+C
+  . Setup: Add an uninstall script (#80)
+  . Startup: Assume menu failed to load when empty
+- General:
+  . AppStream: Add OARS rating
+  . AppStream: Add developer name
+- Updated Translations:
+  . Catalan, Dutch, Finnish, French, Italian, Lithuanian, Malay,
+    Malay (Arabic), Polish, Spanish
+
 26 September 2021, MenuLibre 2.2.3
 
 - Bug Fixes:
   - Fixed making diagnostic text selectable on KDE
   - Fixed loading from non-existent directories
+
 
 25 September 2021, MenuLibre 2.2.2
 

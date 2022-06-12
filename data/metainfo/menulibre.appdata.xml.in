@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2021 Sean Davis <sean@bluesabre.org> -->
+<!-- Copyright 2021-2022 Sean Davis <sean@bluesabre.org> -->
 <component type="desktop">
   <id>menulibre.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
@@ -7,7 +7,7 @@
   <name>MenuLibre</name>
   <_summary>An advanced FreeDesktop.org compliant menu editor</_summary>
   <content_rating type="oars-1.0"/>
-  <developer_name>Bluesabre</developer_name>
+  <developer_name>Sean Davis</developer_name>
 
   <description>
     <_p>
@@ -72,6 +72,12 @@
   </provides>
 
   <releases>
+    <release version="2.3.0" date="2022-06-12">
+      <description>
+        <_p>This release adds support for MATE and Unity and improves integration
+        with the desktop environment.</_p>
+      </description>
+    </release>
     <release version="2.2.3" date="2021-09-26">
       <description>
         <_p>This release fixes a crash when menus fail to load on KDE.</_p>
