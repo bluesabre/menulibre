@@ -317,7 +317,7 @@ msgstr ""
 #. display this entry.
 #: ../data/ui/MenulibreWindow.ui.h:94
 msgid "Not Shown In"
-msgstr "Nie pokazywany w"
+msgstr "Niewyświetlanie tylko w"
 
 #. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values
 #. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
@@ -352,7 +352,7 @@ msgstr ""
 #. if the program is installed.
 #: ../data/ui/MenulibreWindow.ui.h:103
 msgid "Try Exec"
-msgstr "Spróbuj wykonać"
+msgstr "Spróbuj plik wykonywalny"
 
 #. Translators: Tooltip for the "Mimetypes" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:105
@@ -395,7 +395,7 @@ msgstr ""
 #. application
 #: ../data/ui/MenulibreWindow.ui.h:115
 msgid "Startup WM Class"
-msgstr "Początkowa klasa menedżera okien"
+msgstr "Startowa klasa WM"
 
 #. Translators: Identify Window Dialog, primary text.
 #: ../data/ui/MenulibreWindow.ui.h:116 ../menulibre/Dialogs.py:251
@@ -415,7 +415,7 @@ msgstr ""
 #. hidden from the menu.
 #: ../data/ui/MenulibreWindow.ui.h:120
 msgid "Hidden"
-msgstr "Ukryte"
+msgstr "Ukryty"
 
 #. Translators: Tooltip for the "DBusActivatable" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:122
@@ -844,12 +844,12 @@ msgstr "P_rzywróć"
 #. Translators: Execute action label
 #: ../menulibre/MenulibreApplication.py:507
 msgid "_Execute"
-msgstr "_Wykonaj"
+msgstr "Uruc_hom"
 
 #. Translators: Execute action tooltip
 #: ../menulibre/MenulibreApplication.py:509
 msgid "Execute Launcher"
-msgstr "Wykonaj aktywator"
+msgstr "Uruchom aktywator"
 
 #. Translators: Delete action label
 #: ../menulibre/MenulibreApplication.py:516
@@ -881,7 +881,7 @@ msgstr "Pomoc"
 #. Translators: About action label
 #: ../menulibre/MenulibreApplication.py:543
 msgid "_About"
-msgstr "_O programie"
+msgstr "O progra_mie"
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:545
