@@ -181,8 +181,7 @@ msgstr "Szczegóły programu"
 #: ../data/ui/MenulibreWindow.ui.h:52
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
-"Jeśli ustawiono na \"True\", to program będzie uruchamiany w oknie "
-"terminala."
+"Jeśli ustawiono na „True”, to program będzie uruchamiany w oknie terminala."
 
 #. Translators: "Terminal" on/off switch. When enabled, the application is
 #. executed in a terminal window.
@@ -196,8 +195,9 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
-"Jeśli aktywne, powiadomienie o uruchomieniu jest wysyłane. Zwykle oznacza "
-"to, że kursor \"Zajęty\" jest wyświetlany podczas uruchamiania aplikacji."
+"Jeśli ustawiono na „True”, powiadomienie o uruchomieniu jest wysyłane. "
+"Zwykle oznacza to, że podczas uruchamiania aplikacji wyświetlany jest zajęty"
+" kursor."
 
 #. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is
 #. shown while the application launches.
