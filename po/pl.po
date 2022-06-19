@@ -6,7 +6,6 @@
 # Translators:
 # Sean Davis <sean@bluesabre.org>, 2020
 # Waldemar Stoczkowski, 2020
-# Pawel Cwiek <prc.altodato@gmail.com>, 2021
 # Marek Adamski, 2022
 # 
 #, fuzzy
@@ -423,7 +422,7 @@ msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information."
 msgstr ""
-"Ustaw ten klucz na „True”, jeśli aktywacja D-Bus jest obsługiwana dla tej aplikacji i chcesz jej użyć.\n"
+"Ustaw ten klucz na „True”, jeśli aktywacja magistrali D-Bus jest obsługiwana przez ten program i ma być używana.\n"
 "Więcej informacji można znaleźć pod adresem https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable."
 
 #. Translators: "DBusActivatable" on/off switch. When enabled, the application
@@ -435,7 +434,7 @@ msgstr "Aktywowany przez D-Bus"
 #. Translators: Tooltip for the "Implements" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:127
 msgid "A list of interfaces that this application implements."
-msgstr "Lista interfejsów używanych przez tą aplikację."
+msgstr "Lista interfejsów implementowanych przez ten program."
 
 #. Translators: "Implements" text entry. A list of interfaces that this
 #. application implements.
@@ -451,7 +450,7 @@ msgid ""
 "Set this key to \"True\" if this application prefers to be run on a more powerful GPU if available.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information."
 msgstr ""
-"Ustaw ten klucz na „True”, jeśli ta aplikacja woli działać na wydajniejszym GPU, jeśli jest dostępny.\n"
+"Ustaw ten klucz na „True”, jeśli ten program woli działać na wydajniejszym GPU, jeśli jest dostępny.\n"
 "Więcej informacji można znaleźć pod adresem https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu."
 
 #: ../data/ui/MenulibreWindow.ui.h:132
@@ -466,7 +465,7 @@ msgid ""
 "Set this key to \"True\" if this application uses notifications.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information."
 msgstr ""
-"Ustaw ten klucz na „True”, jeśli ta aplikacja używa powiadomień.\n"
+"Ustaw ten klucz na „True”, jeśli ten program używa powiadomień.\n"
 "Więcej informacji można znaleźć pod adresem https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications."
 
 #: ../data/ui/MenulibreWindow.ui.h:135
