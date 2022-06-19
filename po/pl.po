@@ -802,27 +802,27 @@ msgstr "Dodaj _aktywator…"
 #. Translators: Add Launcher action tooltip
 #: ../menulibre/MenulibreApplication.py:446
 msgid "Add Launcher…"
-msgstr "Dodaj aktywator..."
+msgstr "Dodaj aktywator…"
 
 #. Translators: Add Directory action label
 #: ../menulibre/MenulibreApplication.py:453
 msgid "Add _Directory…"
-msgstr "Dodaj _katalog..."
+msgstr "Dodaj _katalog…"
 
 #. Translators: Add Directory action tooltip
 #: ../menulibre/MenulibreApplication.py:455
 msgid "Add Directory…"
-msgstr "Dodaj katalog..."
+msgstr "Dodaj katalog…"
 
 #. Translators: Add Separator action label
 #: ../menulibre/MenulibreApplication.py:462
 msgid "_Add Separator…"
-msgstr "Dodaj _separator..."
+msgstr "Dodaj _separator…"
 
 #. Translators: Add Separator action tooltip
 #: ../menulibre/MenulibreApplication.py:464
 msgid "Add Separator…"
-msgstr "Dodaj separator..."
+msgstr "Dodaj separator…"
 
 #. Translators: Save Launcher action label
 #: ../menulibre/MenulibreApplication.py:471
@@ -936,12 +936,12 @@ msgstr "Nowy skrót"
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1206
 msgid "Select a working directory…"
-msgstr "Wybór katalogu roboczego..."
+msgstr "Wybór katalogu roboczego…"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1210
 msgid "Select an executable…"
-msgstr "Wybór pliku wykonalnego..."
+msgstr "Wybór pliku wykonalnego…"
 
 #: ../menulibre/MenulibreApplication.py:1258
 #: ../menulibre/MenulibreApplication.py:1273
@@ -1017,7 +1017,7 @@ msgstr "Logi błędów parsowania"
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
 msgid "Select an image…"
-msgstr "Wybierz obraz…"
+msgstr "Wybiór obrazu…"
 
 #. Translators: "Images" file chooser dialog filter
 #: ../menulibre/MenulibreIconSelection.py:87
