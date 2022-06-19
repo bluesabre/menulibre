@@ -344,9 +344,9 @@ msgid ""
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
-"Ścieżka do pliku wykonywalnego aby sprawdzić czy program jest zainstalowany."
-" Jeżeli plik nie znajduje się, lub nie jest wykonywalny, ten element może "
-"nie być widoczny w menu."
+"Ścieżka do pliku wykonywalnego, aby określić, czy program jest "
+"zainstalowany. Jeśli plik nie istnieje lub nie jest wykonywalny, element ten"
+" może nie być wyświetlany w menu."
 
 #. Translators: "TryExec" text entry. Path to an executable file to determine
 #. if the program is installed.
