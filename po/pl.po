@@ -310,7 +310,7 @@ msgid ""
 "A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
-"Lista środowisk, które zapewne nie będą wyświetlały tego elementu. Możesz użyć tego klucza tylko wtedy, gdy nie ustawiono „OnlyShowIn”\n"
+"Lista środowisk, które zapewne nie będą wyświetlały tego elementu. Możesz użyć tego klucza tylko wtedy, gdy nie ustawiono „OnlyShowIn”.\n"
 "Możliwe wartości zawierają:  Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #. Translators: "NotShowIn" text entry. A list of environments that should not
