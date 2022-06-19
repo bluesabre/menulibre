@@ -50,7 +50,7 @@ msgstr "Dodaj _separator"
 #. Translators: Icon popup menu item to browse available icons.
 #: ../data/ui/MenulibreWindow.ui.h:8
 msgid "Browse Icons…"
-msgstr "Przeglądaj ikony..."
+msgstr "Przeglądaj ikony…"
 
 #. Translators: Icon popup menu item to browse files for an icon file.
 #: ../data/ui/MenulibreWindow.ui.h:10
