@@ -768,7 +768,7 @@ msgstr "MenuLibre nie może być uruchamiany jako root."
 msgid ""
 "Please see the <a href='%s'>online documentation</a> for more information."
 msgstr ""
-"Prosimy zobaczyć <a href='%s'>dokumentację online</a> celem dalszych "
+"Zapoznaj się z <a href='%s'>dokumentacją online</a>, aby uzyskać więcej "
 "informacji."
 
 #: ../menulibre/MenulibreApplication.py:292
@@ -783,8 +783,8 @@ msgid ""
 "The default menu could not be found. Please see the <a href='%s'>online "
 "documentation</a> for more information."
 msgstr ""
-"Nie można znaleźć domyślnego menu. Prosimy zobaczyć <a "
-"href='%s'>dokumentację online</a> celem dalszych informacji."
+"Nie można znaleźć menu domyślnego. Zapoznaj się z <a href='%s'>dokumentacją "
+"online</a>, aby uzyskać więcej informacji."
 
 #: ../menulibre/MenulibreApplication.py:302
 msgid "Diagnostics"
@@ -1064,7 +1064,7 @@ msgstr "Wartość %s jest nieprawidłowa – obecnie '%s', prawidłowa to '%s'"
 #: ../menulibre/util.py:848
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
-msgstr "%s nie znaleziono programu '%s' w PATH"
+msgstr "%s program '%s' nie został znaleziony w ŚCIEŻCE"
 
 #: ../menulibre/util.py:851
 #, python-format
