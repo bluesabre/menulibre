@@ -154,8 +154,7 @@ msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."
 msgstr ""
-" \n"
-"Program do wykonania z argumentami. Ten klucz jest wymagany, jeśli DBusActivatable nie jest ustawiony na „True” lub jeśli potrzebujesz zgodności z implementacjami, które nie rozumieją aktywacji D-Bus.\n"
+"Program do uruchomienia z argumentami. Ten klucz jest wymagany, jeśli DBusActivatable nie jest ustawione na „True” lub gdy potrzebujesz zgodności z implementacjami, które nie rozumieją aktywacji D-Bus.\n"
 "Zobacz https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec, aby uzyskać listę obsługiwanych argumentów."
 
 #. Translators: Treeview column for an action item
@@ -212,8 +211,8 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
-"Jeśli aktywne, ten element nie będzie wyświetlany w menu, ale będzie "
-"dostępny dla skojarzeń typu MIME itp."
+"Jeśli ustawiono na „True”, ten element nie będzie wyświetlany w menu, ale "
+"będzie dostępny dla skojarzeń typu MIME itp."
 
 #. Translators: "NoDisplay" on/off switch. When enabled, the application will
 #. not be shown in menus, but will be available for MIME type associations
@@ -294,7 +293,7 @@ msgstr ""
 #. Translators: Tooltip for the "GenericName" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:87
 msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr "Ogólna nazwa programu, na przykład \"Przeglądarka internetowa\"."
+msgstr "Ogólna nazwa programu, na przykład „Przeglądarka internetowa”."
 
 #. Translators: "GenericName" text entry. Generic name of the application, for
 #. example "Web Browser".
@@ -311,8 +310,8 @@ msgid ""
 "A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
-"Lista środowisk, które zapewne nie będą wyświetlały tego elementu. Możesz użyć tego tylko jeśli \"OnlyShowIn\" nie jest ustawione.\n"
-"Możliwe wartości zawierają:  Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE i Old."
+"Lista środowisk, które zapewne nie będą wyświetlały tego elementu. Możesz użyć tego klucza tylko wtedy, gdy nie ustawiono „OnlyShowIn”\n"
+"Możliwe wartości zawierają:  Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #. Translators: "NotShowIn" text entry. A list of environments that should not
 #. display this entry.
@@ -329,10 +328,8 @@ msgid ""
 "A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if \"NotShowIn\" is not set.\n"
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
-"Lista środowisk, które powinny wyświetlić ten wpis. Inne środowiska nie będą"
-" go używały. Możesz użyć tej tylko jeśli \"OnlyShowIn\" nie jest ustawione. "
-"Możliwe wartości zawierają:  Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, "
-"MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE i Old."
+"Lista środowisk, które powinny wyświetlić ten element. Inne środowiska nie będą go wyświetlały. Możesz użyć tego klucza tylko wtedy, gdy nie ustawiono „OnlyShowIn”.\n"
+"Możliwe wartości zawierają: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
 #. Translators: "OnlyShowIn" text entry. A list of environments that should
 #. display this entry.
@@ -411,8 +408,8 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
-"Jeśli włączone, wynik dla użytkownika będzie równy plikowi .desktop który "
-"nie istnieje."
+"Jeśli ustawiono na „True”, wynik dla użytkownika jest odpowiednikiem pliku "
+".desktop, który w ogóle nie istnieje."
 
 #. Translators: "Hidden" on/off switch. When enabled, the application is
 #. hidden from the menu.
@@ -602,13 +599,13 @@ msgstr ""
 #: ../menulibre/Dialogs.py:214
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
-msgstr "Nie można odnaleźć \"%s\" w Twojej ŚCIEŻCE."
+msgstr "Nie można odnaleźć „%s” w Twojej ŚCIEŻCE."
 
 #. Translators: Save Error Dialog, primary text.
 #: ../menulibre/Dialogs.py:232
 #, python-format
 msgid "Failed to save \"%s\"."
-msgstr "Nie udało się zapisać \"%s\"."
+msgstr "Nie udało się zapisać „%s”."
 
 #. Translators: Save Error Dialog, secondary text.
 #: ../menulibre/Dialogs.py:235
