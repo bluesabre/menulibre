@@ -66,7 +66,7 @@ msgstr "Zapisz aktywator"
 #. Translators: Undo action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:14 ../menulibre/MenulibreApplication.py:482
 msgid "Undo"
-msgstr "Cofnij zmiany"
+msgstr "Cofnij"
 
 #. Translators: Toolbar button to redo the last undone change to currently
 #. selected item.
@@ -79,7 +79,7 @@ msgstr "Ponów"
 #. Translators: Revert action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:500
 msgid "Revert"
-msgstr "Cofnij"
+msgstr "Przywróć"
 
 #. Translators: Toolbar button to test the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:20
