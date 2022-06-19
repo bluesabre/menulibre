@@ -1017,7 +1017,7 @@ msgstr "Logi błędów parsowania"
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
 msgid "Select an image…"
-msgstr "Wybiór obrazu…"
+msgstr "Wybór obrazu…"
 
 #. Translators: "Images" file chooser dialog filter
 #: ../menulibre/MenulibreIconSelection.py:87
