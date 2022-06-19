@@ -195,9 +195,9 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
-"Jeśli ustawiono na „True”, powiadomienie o uruchomieniu jest wysyłane. "
-"Zwykle oznacza to, że podczas uruchamiania aplikacji wyświetlany jest zajęty"
-" kursor."
+"Jeśli ustawiono na „True”, wysyłane jest powiadomienie o uruchomieniu. "
+"Zwykle oznacza to, że podczas uruchamiania programu wyświetlany jest zajęty "
+"kursor."
 
 #. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is
 #. shown while the application launches.
