@@ -55,7 +55,7 @@ msgstr "Przeglądaj ikony…"
 #. Translators: Icon popup menu item to browse files for an icon file.
 #: ../data/ui/MenulibreWindow.ui.h:10
 msgid "Browse Files…"
-msgstr "Przeglądaj pliki..."
+msgstr "Przeglądaj pliki…"
 
 #. Translators: Toolbar button to save the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:12
@@ -256,7 +256,7 @@ msgstr "Nazwa"
 #. Translators: Window title for the Select Icon dialog
 #: ../data/ui/MenulibreWindow.ui.h:76
 msgid "Select an icon…"
-msgstr "Wybór ikony..."
+msgstr "Wybór ikony…"
 
 #. Translators: Button to cancel and leave a dialog.
 #. Translators: Help Dialog, cancel button.
@@ -797,7 +797,7 @@ msgstr "Diagnostyka"
 #. Translators: Add Launcher action label
 #: ../menulibre/MenulibreApplication.py:444
 msgid "Add _Launcher…"
-msgstr "Dodaj _aktywato…"
+msgstr "Dodaj _aktywator…"
 
 #. Translators: Add Launcher action tooltip
 #: ../menulibre/MenulibreApplication.py:446
