@@ -598,7 +598,7 @@ msgstr ""
 #: ../menulibre/Dialogs.py:214
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
-msgstr "Nie można odnaleźć „%s” w Twojej zmiennej PATH."
+msgstr "Nie można odnaleźć „%s” w ŚCIEŻCE."
 
 #. Translators: Save Error Dialog, primary text.
 #: ../menulibre/Dialogs.py:232
