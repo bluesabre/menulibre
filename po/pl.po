@@ -60,31 +60,31 @@ msgstr "Przeglądaj pliki…"
 #. Translators: Toolbar button to save the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:12
 msgid "Save Launcher"
-msgstr "Zapisuje aktywator"
+msgstr "Zapisz aktywator"
 
 #. Translators: Toolbar button to undo last change to currently selected item.
 #. Translators: Undo action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:14 ../menulibre/MenulibreApplication.py:482
 msgid "Undo"
-msgstr "Cofa zmiany"
+msgstr "Cofnij zmiany"
 
 #. Translators: Toolbar button to redo the last undone change to currently
 #. selected item.
 #. Translators: Redo action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:16 ../menulibre/MenulibreApplication.py:491
 msgid "Redo"
-msgstr "Ponawia wprowadzone zmiany"
+msgstr "Ponów"
 
 #. Translators: Toolbar button to revery the currently selected item to it
 #. Translators: Revert action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:500
 msgid "Revert"
-msgstr "Przywraca aktywator"
+msgstr "Cofnij"
 
 #. Translators: Toolbar button to test the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Test Launcher"
-msgstr "Testowy aktywator"
+msgstr "Testuj aktywator"
 
 #. Translators: Toolbar button to delete the currently selected item.
 #. Translators: Delete action tooltip
@@ -113,7 +113,7 @@ msgstr "Wykryto nieprawidłowe pliki wpisów! Spójrz w szczegóły."
 
 #: ../data/ui/MenulibreWindow.ui.h:28
 msgid "Restart menu..."
-msgstr "Ponowne uruchomienie menu..."
+msgstr "Ponownie uruchom menu…"
 
 #: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Your applications menu may need to be restarted."
@@ -203,7 +203,7 @@ msgstr ""
 #. shown while the application launches.
 #: ../data/ui/MenulibreWindow.ui.h:58
 msgid "Use startup notification"
-msgstr "Powiadamianie o uruchamianiu"
+msgstr "Użyj powiadomienia o uruchomieniu"
 
 #. Translators: Tooltip for the "NoDisplay" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:60
@@ -219,7 +219,7 @@ msgstr ""
 #. etc.
 #: ../data/ui/MenulibreWindow.ui.h:62
 msgid "Hide from menus"
-msgstr "Ukrycie w menu"
+msgstr "Ukryj w menu"
 
 #. Translators: Header for the less common application and directory fields.
 #: ../data/ui/MenulibreWindow.ui.h:64
@@ -1009,7 +1009,7 @@ msgstr "Czy na pewno usunąć „%s”?"
 #. Translators: Menu item to open the Parsing Errors dialog.
 #: ../menulibre/MenulibreApplication.py:2420
 msgid "Parsing Error Log"
-msgstr "Logi błędów parsowania"
+msgstr "Dziennik błędów parsowania"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
