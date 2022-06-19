@@ -494,7 +494,7 @@ msgstr "Użyj układu paska zadań (dekoracje po stronie serwera)"
 #. Translators: About Dialog, window title.
 #: ../menulibre/Dialogs.py:38
 msgid "About MenuLibre"
-msgstr "O MenuLibre"
+msgstr "O programie MenuLibre"
 
 #. Translators: Help Dialog, window title.
 #: ../menulibre/Dialogs.py:58
