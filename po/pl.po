@@ -357,7 +357,7 @@ msgstr "Wypróbuj plik wykonywalny"
 #. Translators: Tooltip for the "Mimetypes" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:105
 msgid "The MIME type(s) supported by this application."
-msgstr "Rodzaj(e) MIME obsługiwane przez ten program."
+msgstr "Rodzaj(e) MIME obsługiwany(-e) przez ten program."
 
 #. Translators: "Mimetype" text entry. The MIME type(s) supported by this
 #. application.
