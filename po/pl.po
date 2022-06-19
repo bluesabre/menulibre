@@ -279,7 +279,7 @@ msgstr "Zastosuj"
 #. Translators: Window title for the parsing error log dialog.
 #: ../data/ui/MenulibreWindow.ui.h:82
 msgid "Parsing Errors"
-msgstr "Parsowanie błędów"
+msgstr "Błędy parsowania"
 
 #. Translators: This text is displayed in the Parsing Errors dialog and
 #. provides a basic summary of the errors reported.
