@@ -797,7 +797,7 @@ msgstr "Diagnostyka"
 #. Translators: Add Launcher action label
 #: ../menulibre/MenulibreApplication.py:444
 msgid "Add _Launcher…"
-msgstr "Dodaj _aktywator..."
+msgstr "Dodaj _aktywato…"
 
 #. Translators: Add Launcher action tooltip
 #: ../menulibre/MenulibreApplication.py:446
