@@ -586,7 +586,7 @@ msgstr "OK"
 #. the selected application is no longer installed.
 #: ../menulibre/Dialogs.py:198
 msgid "No Longer Installed"
-msgstr "Nie zainstalowany"
+msgstr "Nie jest już zainstalowany"
 
 #. Translators: Launcher Removed Dialog, secondary text.
 #: ../menulibre/Dialogs.py:200
