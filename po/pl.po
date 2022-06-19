@@ -388,7 +388,7 @@ msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
-"Jeśli określone, program będzie próbował użyć ciągu znaków jako klasy WM lub"
+"Jeśli określono, program będzie próbował użyć ciągu znaków jako klasy WM lub"
 " wskazówki nazwy WM w przynajmniej jednym oknie."
 
 #. Translators: "StartupWMClass" text entry. A window manager hint for the
