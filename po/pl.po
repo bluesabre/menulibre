@@ -352,7 +352,7 @@ msgstr ""
 #. if the program is installed.
 #: ../data/ui/MenulibreWindow.ui.h:103
 msgid "Try Exec"
-msgstr "Spróbuj plik wykonywalny"
+msgstr "Wypróbuj plik wykonywalny"
 
 #. Translators: Tooltip for the "Mimetypes" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:105
