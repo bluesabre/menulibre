@@ -372,9 +372,9 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
-"Lista słów kluczowych do opisu tego elementu. Możesz użyć ich aby szybciej "
-"szukać aplikacji. Nie są one wyświetlane i nie powinny być identyczne z "
-"nazwą i nazwą ogólną."
+"Lista słów kluczowych opisujących ten element. Możesz ich użyć, aby pomóc w "
+"wyszukiwaniu elementów. Nie są one przeznaczone do wyświetlania i nie "
+"powinny być identyczne z nazwą i nazwą ogólną."
 
 #. Translators: "Keywords" text entry. A list of keywords to describe this
 #. entry.
