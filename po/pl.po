@@ -759,7 +759,7 @@ msgstr "Inne"
 #. dismissed.
 #: ../menulibre/MenulibreApplication.py:275
 msgid "MenuLibre cannot be run as root."
-msgstr "MenuLibre nie może być uruchamiane w trybie administratora."
+msgstr "MenuLibre nie może być uruchamiany jako root."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
