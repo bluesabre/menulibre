@@ -1007,7 +1007,7 @@ msgstr "Usunąć ten separator?"
 #: ../menulibre/MenulibreApplication.py:2308
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
-msgstr "Usunąć „%s”?"
+msgstr "Czy na pewno usunąć „%s”?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
 #: ../menulibre/MenulibreApplication.py:2420
