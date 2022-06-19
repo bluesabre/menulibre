@@ -1001,7 +1001,7 @@ msgstr "Krótki opis tego katalogu."
 #. separator.
 #: ../menulibre/MenulibreApplication.py:2304
 msgid "Are you sure you want to delete this separator?"
-msgstr "Usunąć ten separator?"
+msgstr "Czy ma pewno usunąć ten separator?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
 #: ../menulibre/MenulibreApplication.py:2308
