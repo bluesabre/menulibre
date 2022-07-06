@@ -1154,7 +1154,8 @@ msgstr ""
 #: ../data/metainfo/menulibre.appdata.xml.in.h:7
 msgid "Easily rearrange menu items to suit your needs."
 msgstr ""
-"Лёгкое изменение порядка пунктов меню в соответствии с вашими потребностями."
+"Лёгкое изменение порядка расположения пунктов меню в соответствии с вашими "
+"потребностями."
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:8
 msgid "This release fixes a crash when menus fail to load on KDE."
