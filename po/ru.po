@@ -1140,8 +1140,8 @@ msgid ""
 "Create new launchers, or modify existing ones with complete control over "
 "common settings and access to advanced settings."
 msgstr ""
-"Создание новых ярлыков запуска или изменение существующих с полным контролем"
-" над общими настройками и доступом к расширенным."
+"Создание новых кнопок запуска или изменение существующих с полным контролем "
+"над общими настройками и доступом к расширенным."
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:6
 msgid ""
