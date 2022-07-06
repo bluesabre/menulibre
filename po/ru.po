@@ -530,7 +530,7 @@ msgstr "О MenuLibre"
 #. Translators: Help Dialog, window title.
 #: ../menulibre/Dialogs.py:58
 msgid "Online Documentation"
-msgstr "Онлайн-справка"
+msgstr "Онлайн-документация"
 
 #. Translators: Help Dialog, primary text.
 #: ../menulibre/Dialogs.py:60
