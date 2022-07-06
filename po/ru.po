@@ -450,10 +450,11 @@ msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information."
 msgstr ""
-"Установите для этого ключа значение «True», если активация D-Bus совместима "
-"с этим приложением и вы хотите её использовать. Для получения дополнительной"
-" информации смотрите https://github.com/bluesabre/menulibre/wiki/Recognized-"
-"Desktop-Entry-Keys#dbusactivatable."
+"Установите для этого ключа значение «True», если активация через D-Bus "
+"совместима с этим приложением и вы хотите её использовать. Для получения "
+"дополнительной информации смотрите "
+"https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
+"Keys#dbusactivatable."
 
 #. Translators: "DBusActivatable" on/off switch. When enabled, the application
 #. is said to be activated via DBUS.
