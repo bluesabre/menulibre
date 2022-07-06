@@ -535,7 +535,7 @@ msgstr "Онлайн-документация"
 #. Translators: Help Dialog, primary text.
 #: ../menulibre/Dialogs.py:60
 msgid "Do you want to read the MenuLibre manual online?"
-msgstr "Открыть онлайн-справку MenuLibre?"
+msgstr "Открыть онлайн-руководство MenuLibre?"
 
 #. Translators: Help Dialog, secondary text.
 #: ../menulibre/Dialogs.py:62
