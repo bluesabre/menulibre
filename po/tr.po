@@ -1010,7 +1010,7 @@ msgstr "Ayrıştırma Hata Kaydı"
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
 msgid "Select an image…"
-msgstr "Görsel seçin..."
+msgstr "Görsel Seç"
 
 #. Translators: "Images" file chooser dialog filter
 #: ../menulibre/MenulibreIconSelection.py:87
