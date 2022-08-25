@@ -253,7 +253,7 @@ msgstr "İsim"
 #. Translators: Window title for the Select Icon dialog
 #: ../data/ui/MenulibreWindow.ui.h:76
 msgid "Select an icon…"
-msgstr "Simge Seç..."
+msgstr "Simge Seç"
 
 #. Translators: Button to cancel and leave a dialog.
 #. Translators: Help Dialog, cancel button.
