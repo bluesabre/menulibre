@@ -83,7 +83,7 @@ msgstr "Eski Haline Döndür"
 #. Translators: Toolbar button to test the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Test Launcher"
-msgstr "Örnek Başlatıcı"
+msgstr "Başlatıcıyı Test Et"
 
 #. Translators: Toolbar button to delete the currently selected item.
 #. Translators: Delete action tooltip
