@@ -811,7 +811,7 @@ msgstr "Dizin Ekle..."
 #. Translators: Add Separator action label
 #: ../menulibre/MenulibreApplication.py:462
 msgid "_Add Separator…"
-msgstr "_Ayraç Ekle..."
+msgstr "_Ayraç Ekle"
 
 #. Translators: Add Separator action tooltip
 #: ../menulibre/MenulibreApplication.py:464
