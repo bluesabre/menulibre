@@ -174,7 +174,7 @@ msgstr "Çalışma Dizini"
 #. Translators: Header for the commonly used application fields.
 #: ../data/ui/MenulibreWindow.ui.h:50
 msgid "Application Details"
-msgstr "Uygulama Detayları"
+msgstr "Uygulama Ayrıntıları"
 
 #. Translators: Tooltip for the "Terminal" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:52
