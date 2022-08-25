@@ -801,7 +801,7 @@ msgstr "Başlatıcı Ekle..."
 #. Translators: Add Directory action label
 #: ../menulibre/MenulibreApplication.py:453
 msgid "Add _Directory…"
-msgstr "_Dizin Ekle..."
+msgstr "_Dizin Ekle"
 
 #. Translators: Add Directory action tooltip
 #: ../menulibre/MenulibreApplication.py:455
