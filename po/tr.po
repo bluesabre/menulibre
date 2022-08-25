@@ -78,7 +78,7 @@ msgstr "Yinele"
 #. Translators: Revert action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:500
 msgid "Revert"
-msgstr "Eski Haline Çevir"
+msgstr "Eski Haline Döndür"
 
 #. Translators: Toolbar button to test the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:20
