@@ -806,7 +806,7 @@ msgstr "_Dizin Ekle..."
 #. Translators: Add Directory action tooltip
 #: ../menulibre/MenulibreApplication.py:455
 msgid "Add Directory…"
-msgstr "Dizin Ekle..."
+msgstr "Dizin Ekle"
 
 #. Translators: Add Separator action label
 #: ../menulibre/MenulibreApplication.py:462
