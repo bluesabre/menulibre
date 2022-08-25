@@ -935,7 +935,7 @@ msgstr "Çalışma Dizini Seç"
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1210
 msgid "Select an executable…"
-msgstr "Çalıştırılabilir seçin..."
+msgstr "Çalıştırılabilir Seç"
 
 #: ../menulibre/MenulibreApplication.py:1258
 #: ../menulibre/MenulibreApplication.py:1273
