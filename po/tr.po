@@ -796,7 +796,7 @@ msgstr "_Başlatıcı Ekle..."
 #. Translators: Add Launcher action tooltip
 #: ../menulibre/MenulibreApplication.py:446
 msgid "Add Launcher…"
-msgstr "Başlatıcı Ekle..."
+msgstr "Başlatıcı Ekle"
 
 #. Translators: Add Directory action label
 #: ../menulibre/MenulibreApplication.py:453
