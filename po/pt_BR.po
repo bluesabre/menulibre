@@ -2,21 +2,26 @@
 # Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
 # This file is distributed under the same license as the menulibre package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# Lucca Amodio <lucca.amodio@gmail.com>, 2022.
+# Vítor Paziam <vitorpaziam@gmail.com>, 2022.
+# Matheus Henrique de Sousa Silva <m239995@dac.unicamp.br>, 2022.
+# Rafael Gregori de Souza <rafaelgregori1337@gmail.com>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: menulibre\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-15 07:19-0400\n"
-"PO-Revision-Date: 2016-05-13 13:30+0000\n"
-"Last-Translator: Felippe H D de Castro <fhd.castro@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
+"PO-Revision-Date: 2022-09-10 15:05-0300\n"
+"Last-Translator: Rafael Gregori de Souza <rafaelgregori1337@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <rafaelgregori1337@gmail.com>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2020-06-09 10:56+0000\n"
-"X-Generator: Launchpad (build ef9fc486e875d54078fa61cf91e898b895125d89)\n"
+"X-Generator: Gtranslator 3.36.0\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 #: ../menulibre.desktop.in.h:1
 msgid "Menu Editor"
@@ -77,7 +82,7 @@ msgstr "Reverter"
 #. Translators: Toolbar button to test the currently selected item.
 #: ../data/ui/MenulibreWindow.ui.h:20
 msgid "Test Launcher"
-msgstr ""
+msgstr "Launcher de teste"
 
 #. Translators: Toolbar button to delete the currently selected item.
 #. Translators: Delete action tooltip
@@ -96,12 +101,13 @@ msgstr "Salvar"
 #. Translators: Placeholder text for the search text entry.
 #: ../data/ui/MenulibreWindow.ui.h:25
 msgid "Search"
-msgstr ""
+msgstr "Procurar"
 
 #. Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.
 #: ../data/ui/MenulibreWindow.ui.h:27
 msgid "Invalid desktop files detected! Please see details."
 msgstr ""
+"Arquivos inválidos detectados na área de trabalho. Por favor veja detalhes."
 
 #. Translators: Treeview toolbar button to move the currently selected item up.
 #: ../data/ui/MenulibreWindow.ui.h:29
@@ -116,7 +122,7 @@ msgstr "Mover para baixo"
 #. Translators: Treeview toolbar button to sort the currently open submenu alphabetically.
 #: ../data/ui/MenulibreWindow.ui.h:33
 msgid "Sort Alphabetically"
-msgstr ""
+msgstr "Ordenar alfabeticamente"
 
 #. Translators: Placeholder text/hint for the application name entry.
 #: ../data/ui/MenulibreWindow.ui.h:35
@@ -176,6 +182,9 @@ msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
+"Se definido como \"True\", uma notificação de inicialização é enviada. "
+"Geralmente significa que um cursor de espera é mostrado enquanto a aplicação "
+"é inicializada."
 
 #. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is shown while the application launches.
 #: ../data/ui/MenulibreWindow.ui.h:56
@@ -188,6 +197,8 @@ msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
+"Se definido como \"True\", essa entrada não vai ser mostrada nos menus, mas "
+"estará disponível para associações do tipo MIME, etc."
 
 #. Translators: "NoDisplay" on/off switch. When enabled, the application will not be shown in menus, but will be available for MIME type associations etc.
 #: ../data/ui/MenulibreWindow.ui.h:60
@@ -322,7 +333,7 @@ msgstr ""
 #. Translators: "TryExec" text entry. Path to an executable file to determine if the program is installed.
 #: ../data/ui/MenulibreWindow.ui.h:101
 msgid "Try Exec"
-msgstr ""
+msgstr "Tentar Exec"
 
 #. Translators: Tooltip for the "Mimetypes" text entry.
 #: ../data/ui/MenulibreWindow.ui.h:103
@@ -341,6 +352,9 @@ msgid ""
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
+"Uma lista de palavras-chave para descrever esta entrada. Você pode usar elas "
+"para ajudar a procurar entradas. Elas não são para visualização, e não devem "
+"ser redundantes com os valores de Name ou GenericName"
 
 #. Translators: "Keywords" text entry. A list of keywords to describe this entry.
 #: ../data/ui/MenulibreWindow.ui.h:109
@@ -362,7 +376,7 @@ msgstr ""
 #. Translators: Identify Window Dialog, primary text.
 #: ../data/ui/MenulibreWindow.ui.h:114 ../menulibre/Dialogs.py:251
 msgid "Identify Window"
-msgstr ""
+msgstr "Identifcar Janela"
 
 #. Translators: Tooltip for the "Hidden" on/off switch.
 #: ../data/ui/MenulibreWindow.ui.h:116
@@ -421,7 +435,7 @@ msgstr ""
 #. Translators: Command line option to display debug messages on stdout
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages"
-msgstr ""
+msgstr "Mostrar mensagens de depuração"
 
 #. Translators: Command line option to switch layout
 #: ../menulibre/__init__.py:38
@@ -525,7 +539,7 @@ msgstr "OK"
 #. the selected application is no longer installed.
 #: ../menulibre/Dialogs.py:198
 msgid "No Longer Installed"
-msgstr ""
+msgstr "Não está mais instalado"
 
 #. Translators: Launcher Removed Dialog, secondary text.
 #: ../menulibre/Dialogs.py:200
@@ -533,31 +547,33 @@ msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
 msgstr ""
+"Esse launcher foi removido do sistema.\n"
+"Selecione o próximo item disponível."
 
 #. Translators: Not Found In PATH Dialog, primary text. Indicates
 #. that the provided script was not found in any PATH directory.
 #: ../menulibre/Dialogs.py:214
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
-msgstr ""
+msgstr "Não foi possível encontrar \"%s\" no seu PATH."
 
 #. Translators: Save Error Dialog, primary text.
 #: ../menulibre/Dialogs.py:232
 #, python-format
 msgid "Failed to save \"%s\"."
-msgstr ""
+msgstr "Falha em salvar \"%s\"."
 
 #. Translators: Save Error Dialog, secondary text.
 #: ../menulibre/Dialogs.py:235
 msgid "Do you have write permission to the file and directory?"
-msgstr ""
+msgstr "Você tem permissão de edição para arquivo e diretório?"
 
 #. Translators: Identify Window Dialog, secondary text. The selected
 #. application is displayed in the placeholder text.
 #: ../menulibre/Dialogs.py:254
 #, python-format
 msgid "Click on the main application window for '%s'."
-msgstr ""
+msgstr "Clique na janela principal da aplicação para '%s'."
 
 #. Translators: Separator menu item
 #: ../menulibre/MenuEditor.py:91 ../menulibre/MenulibreApplication.py:1213
@@ -623,22 +639,22 @@ msgstr "WINE"
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:71
 msgid "Desktop configuration"
-msgstr ""
+msgstr "Configuração da área de trabalho"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:73
 msgid "User configuration"
-msgstr ""
+msgstr "Configuração do usuário"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:75
 msgid "Hardware configuration"
-msgstr ""
+msgstr "Configuração de hardware"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:77
 msgid "GNOME application"
-msgstr ""
+msgstr "Aplicação GNOME"
 
 #. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:79
@@ -728,7 +744,7 @@ msgstr ""
 #. Translators: Add Directory action tooltip
 #: ../menulibre/MenulibreApplication.py:401
 msgid "Add Directory…"
-msgstr ""
+msgstr "Adicionar diretório"
 
 #. Translators: Add Separator action label
 #: ../menulibre/MenulibreApplication.py:408
@@ -738,7 +754,7 @@ msgstr ""
 #. Translators: Add Separator action tooltip
 #: ../menulibre/MenulibreApplication.py:410
 msgid "Add Separator…"
-msgstr ""
+msgstr "Adicionar separador"
 
 #. Translators: Save Launcher action label
 #: ../menulibre/MenulibreApplication.py:417
@@ -806,7 +822,7 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:491
 #: ../menulibre/MenulibreApplication.py:2240
 msgid "About"
-msgstr ""
+msgstr "Sobre"
 
 #. Translators: "Categories" launcher section
 #: ../menulibre/MenulibreApplication.py:634
@@ -821,7 +837,7 @@ msgstr "Ações"
 #. Translators: "Advanced" launcher section
 #: ../menulibre/MenulibreApplication.py:640
 msgid "Advanced"
-msgstr ""
+msgstr "Avançado"
 
 #. Translators: Launcher-specific categories, camelcase "This Entry"
 #: ../menulibre/MenulibreApplication.py:800
@@ -832,17 +848,17 @@ msgstr ""
 #. selection.
 #: ../menulibre/MenulibreApplication.py:821
 msgid "Select a category"
-msgstr ""
+msgstr "Selecione uma categoria"
 
 #. Translators: "Category Name" tree column header
 #: ../menulibre/MenulibreApplication.py:825
 msgid "Category Name"
-msgstr ""
+msgstr "Nome da categoria"
 
 #. Translators: "This Entry" launcher-specific category group
 #: ../menulibre/MenulibreApplication.py:928
 msgid "This Entry"
-msgstr ""
+msgstr "Esta entrada"
 
 #. Translators: Placeholder text for a newly created action
 #: ../menulibre/MenulibreApplication.py:989
@@ -852,35 +868,35 @@ msgstr "Novo Atalho"
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1139
 msgid "Select a working directory…"
-msgstr ""
+msgstr "Selecione um diretório de trabalho"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1143
 msgid "Select an executable…"
-msgstr ""
+msgstr "Selecione um executável..."
 
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
 #: ../menulibre/MenulibreApplication.py:1389
 msgid "You do not have permission to delete this file."
-msgstr ""
+msgstr "Você não tem permissão para deletar este arquivo."
 
 #. Translators: Placeholder text for a newly created launcher.
 #: ../menulibre/MenulibreApplication.py:1637
 msgid "New Launcher"
-msgstr ""
+msgstr "Novo Launcher"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
 #: ../menulibre/MenulibreApplication.py:1640 ../menulibre/MenulibreXdg.py:49
 msgid "A small descriptive blurb about this application."
-msgstr ""
+msgstr "Um pequeno sumário descritivo sobre essa aplicação"
 
 #. Translators: Placeholder text for a newly created directory.
 #: ../menulibre/MenulibreApplication.py:1690
 msgid "New Directory"
-msgstr ""
+msgstr "Novo diretório"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
@@ -892,7 +908,7 @@ msgstr ""
 #. separator.
 #: ../menulibre/MenulibreApplication.py:2118
 msgid "Are you sure you want to delete this separator?"
-msgstr ""
+msgstr "Você tem certeza que quer deletar este separador?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
 #: ../menulibre/MenulibreApplication.py:2122
@@ -908,12 +924,12 @@ msgstr ""
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
 msgid "Select an image…"
-msgstr ""
+msgstr "Escolha uma imagem..."
 
 #. Translators: "Images" file chooser dialog filter
 #: ../menulibre/MenulibreIconSelection.py:87
 msgid "Images"
-msgstr ""
+msgstr "Imagens"
 
 #. Translators: "Search Results" treeview column header
 #: ../menulibre/MenulibreTreeview.py:64
