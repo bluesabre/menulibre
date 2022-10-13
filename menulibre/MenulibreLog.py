@@ -157,7 +157,7 @@ class LogDialog:
                 Gtk.show_uri_on_window(None, uri, Gdk.CURRENT_TIME)
             else:
                 Gtk.show_uri(None, uri, Gdk.CURRENT_TIME)
-                return True
+            return True
         else:
             binary = self.get_editor_executable()
 
