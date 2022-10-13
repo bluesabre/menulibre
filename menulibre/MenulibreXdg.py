@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
-#   Copyright (C) 2012-2020 Sean Davis <sean@bluesabre.org>
+#   Copyright (C) 2012-2022 Sean Davis <sean@bluesabre.org>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published
@@ -200,18 +200,36 @@ def desktop_menu_install(directory_files, desktop_files):
     the last submenu. """
     # Check for the minimum required arguments
     if len(directory_files) == 0 or len(desktop_files) == 0:
-        return
+        return True
 
     # Do not install to system paths.
     for path in GLib.get_system_config_dirs():
         for filename in directory_files:
             if filename.startswith(path):
-                return
+                return True
+
+    # xdg-desktop-menu doesn't behave nicely with vendor- directories
+    # without vendor- applications.
+    directory_dir = os.path.join(GLib.get_user_data_dir(), "desktop-directories")
+    for filename in directory_files:
+        if not filename.startswith(directory_dir):
+            continue
+        if not "/" in filename:
+            continue
+        basename = os.path.basename(filename)
+        relative = filename.split("desktop-directories/")[1]
+        vendor_path = relative.replace("/%s" % basename, "")
+        if len(vendor_path) == 0:
+            continue
+        vendor_prefix = vendor_path.replace("/", "-") + "-"
+        if basename.startswith(vendor_prefix):
+            return False
 
     cmd_list = ["xdg-desktop-menu", "install", "--novendor"]
     cmd_list = cmd_list + directory_files + desktop_files
     subprocess.call(cmd_list)
 
+    return True
 
 def desktop_menu_uninstall(directory_files, desktop_files):  # noqa
     """Remove applications or submenus from the desktop menu system

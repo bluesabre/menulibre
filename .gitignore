@@ -5,4 +5,5 @@ build/
 dist/
 menulibre/__pycache__/
 menulibre_lib/__pycache__/
+data/metainfo/menulibre.appdata.xml
 *~

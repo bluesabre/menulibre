@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
-#   Copyright (C) 2012-2020 Sean Davis <sean@bluesabre.org>
+#   Copyright (C) 2012-2022 Sean Davis <sean@bluesabre.org>
 #   Copyright (C) 2016-2018 OmegaPhil <OmegaPhil@startmail.com>
 #
 #   Portions of this file are adapted from Alacarte Menu Editor,
@@ -35,7 +35,7 @@ gi.require_version('GMenu', '3.0')  # noqa
 from gi.repository import GdkPixbuf, Gio, GLib, GMenu, Gtk
 
 from . import util
-from .util import MenuItemTypes, escapeText
+from .util import MenuItemTypes, escapeText, mapDesktopEnvironmentDirectories, unmapDesktopEnvironmentDirectories
 
 locale.textdomain('menulibre')
 
@@ -44,9 +44,34 @@ icon_theme = Gtk.IconTheme.get_default()
 menu_name = ""
 
 
+COL_NAME = 0
+COL_COMMENT = 1
+COL_EXEC = 2
+COL_CATEGORIES = 3
+COL_TYPE = 4
+COL_G_ICON = 5
+COL_ICON_NAME = 6
+COL_FILENAME = 7
+COL_EXPAND = 8
+COL_SHOW = 9
+
+
 def get_default_menu():
     """Return the filename of the default application menu."""
-    return '%s%s' % (util.getDefaultMenuPrefix(), 'applications.menu')
+    prefixes = [
+        util.getDefaultMenuPrefix(),
+        ''
+    ]
+    user_basedir = util.getUserMenusDirectory()
+    for prefix in prefixes:
+        filename = '%s%s' % (prefix, 'applications.menu')
+        user_dir = os.path.join(user_basedir, filename)
+        if os.path.exists(user_dir):
+            return filename
+        system_dir = util.getSystemMenuPath(filename)
+        if system_dir:
+            return filename
+    return None
 
 
 def load_fallback_icon(icon_size):
@@ -86,6 +111,7 @@ def menu_to_treestore(treestore, parent, menu_items):
     for item in menu_items:
         item_type = item[0]
         if item_type == MenuItemTypes.SEPARATOR:
+            executable = ""
             displayed_name = "<s>                    </s>"
             # Translators: Separator menu item
             tooltip = _("Separator")
@@ -95,6 +121,7 @@ def menu_to_treestore(treestore, parent, menu_items):
             icon_name = ""
             show = True
         else:
+            executable = item[2]['executable']
             displayed_name = escape(item[2]['display_name'])
             show = item[2]['show']
             tooltip = escapeText(item[2]['comment'])
@@ -104,8 +131,8 @@ def menu_to_treestore(treestore, parent, menu_items):
             icon_name = item[2]['icon_name']
 
         treeiter = treestore.append(
-            parent, [displayed_name, tooltip, categories, item_type,
-                     icon, icon_name, filename, False, show])
+            parent, [displayed_name, tooltip, executable, categories,
+                     item_type, icon, icon_name, filename, False, show])
 
         if item_type == MenuItemTypes.DIRECTORY:
             treestore = menu_to_treestore(treestore, treeiter, item[3])
@@ -115,12 +142,22 @@ def menu_to_treestore(treestore, parent, menu_items):
 
 def get_treestore():
     """Get the TreeStore implementation of the current menu."""
-    # Name, Comment, Categories, MenuItemType, GIcon (TreeView), icon-name,
-    # Filename, exp, show
-    treestore = Gtk.TreeStore(str, str, str, int, Gio.Icon, str, str, bool,
-                              bool)
-    menu = get_menus()[0]
-    return menu_to_treestore(treestore, None, menu)
+    treestore = Gtk.TreeStore(
+        str, # Name
+        str, # Comment
+        str, # Executable
+        str, # Categories
+        int, # MenuItemType
+        Gio.Icon, # GIcon
+        str, # icon-name
+        str, # Filename
+        bool, # Expand
+        bool  # Show
+    )
+    menus = get_menus()
+    if not menus:
+        return None
+    return menu_to_treestore(treestore, None, menus[0])
 
 
 def get_submenus(menu, tree_dir):
@@ -169,6 +206,8 @@ def get_submenus(menu, tree_dir):
                 icon_name = icon.get_names()[0]
             elif isinstance(icon, Gio.FileIcon):
                 icon_name = icon.get_file().get_path()
+            
+            filename = os.path.realpath(filename)
 
             details = {'display_name': display_name,
                        'generic_name': generic_name,
@@ -189,6 +228,8 @@ def get_submenus(menu, tree_dir):
 def get_menus():
     """Get the menus from the MenuEditor"""
     menu = MenuEditor()
+    if not menu.loaded:
+        return None
     structure = []
     toplevels = []
     global menu_name
@@ -197,6 +238,7 @@ def get_menus():
         toplevels.append(child)
     for top in toplevels:
         structure.append(get_submenus(menu, top[0]))
+    menu.unmap()
     return structure
 
 
@@ -230,12 +272,21 @@ def getUserMenuXml(tree):
 class MenuEditor(object):
     """MenuEditor class, adapted and minimized from Alacarte Menu Editor."""
 
+    loaded = False
+
     def __init__(self, basename=None):
         """init"""
 
         # Remember to keep menulibre-menu-validate's GMenu object creation
         # in-sync with this code
         basename = basename or get_default_menu()
+        if basename is None:
+            return
+
+        # For systems where desktop directories are installed in subdirectories,
+        # we need to first bring them to the toplevel for GMenu to see them
+        # correctly.
+        mapDesktopEnvironmentDirectories()
 
         self.tree = GMenu.Tree.new(basename,
                                    GMenu.TreeFlags.SHOW_EMPTY |
@@ -246,9 +297,11 @@ class MenuEditor(object):
         self.load()
 
         self.path = os.path.join(
-            util.getUserMenuPath(), self.tree.props.menu_basename)
+            util.getUserMenusDirectory(), self.tree.props.menu_basename)
         logger.debug("Using menu: %s" % self.path)
         self.loadDOM()
+
+        self.loaded = self.hasContents()
 
     def loadDOM(self):
         """loadDOM"""
@@ -264,6 +317,16 @@ class MenuEditor(object):
         if not self.tree.load_sync():
             raise ValueError("can not load menu tree %r" %
                              (self.tree.props.menu_basename,))
+    
+    def unmap(self):
+        unmapDesktopEnvironmentDirectories()
+
+    def hasContents(self):
+        for child in self.getMenus(None):
+            submenus = self.getContents(child[0])
+            if len(submenus) > 0:
+                return True
+        return False
 
     def getMenus(self, parent):
         """getMenus"""
@@ -292,6 +355,8 @@ class MenuEditor(object):
             if item_type == GMenu.TreeItemType.DIRECTORY:
                 item = item_iter.get_directory()
                 desktop = item.get_desktop_file_path()
+                if desktop is not None:
+                    desktop = os.path.realpath(desktop)
                 if desktop is None or desktop in found_directories:
                     # Do not include directories without filenames.
                     # Do not include duplicate directories.

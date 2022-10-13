@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
-#   Copyright (C) 2012-2020 Sean Davis <sean@bluesabre.org>
+#   Copyright (C) 2012-2022 Sean Davis <sean@bluesabre.org>
 #   Copyright (C) 2016 OmegaPhil <OmegaPhil@startmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
@@ -24,7 +24,7 @@ from locale import gettext as _
 from gi.repository import Gio, GObject, Gtk, Pango, GLib
 
 from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
-from .util import MenuItemTypes, check_keypress, getBasename, escapeText
+from .util import MenuItemTypes, check_keypress, getBasename, getRelativeName, escapeText
 
 import logging
 logger = logging.getLogger('menulibre')
@@ -38,14 +38,22 @@ class Treeview(GObject.GObject):
         'add-directory-enabled': (GObject.SIGNAL_RUN_LAST,
                                   GObject.TYPE_BOOLEAN,
                                   (GObject.TYPE_BOOLEAN,)),
+        'requires-menu-reload': (GObject.SIGNAL_RUN_LAST,
+                                  GObject.TYPE_BOOLEAN,
+                                  (GObject.TYPE_BOOLEAN,)),
     }
+
+    loaded = False
 
     def __init__(self, parent, builder):
         GObject.GObject.__init__(self)
         self.parent = parent
 
         # Configure Widgets
-        self._configure_treeview(builder)
+        if self._configure_treeview(builder):
+            self.loaded = True
+        else:
+            return
         self._configure_toolbar(builder)
 
         # Defaults
@@ -57,6 +65,8 @@ class Treeview(GObject.GObject):
         """Configure the TreeView widget."""
         # Get the menu treestore.
         treestore = MenuEditor.get_treestore()
+        if not treestore:
+            return False
 
         self._treeview = builder.get_object('classic_view_treeview')
 
@@ -104,6 +114,8 @@ class Treeview(GObject.GObject):
         self._treeview.grab_focus()
 
         self.menu_timeout_id = 0
+
+        return True
 
     def _configure_toolbar(self, builder):
         """Configure the toolbar widget."""
@@ -174,10 +186,10 @@ class Treeview(GObject.GObject):
 
         if not ui_only:
 
-            filename = model[treeiter][6]
-            item_type = model[treeiter][3]
+            filename = model[treeiter][MenuEditor.COL_FILENAME]
+            item_type = model[treeiter][MenuEditor.COL_TYPE]
             if filename is not None:
-                basename = getBasename(filename)
+                basename = getRelativeName(filename)
                 original = util.getSystemLauncherPath(basename)
             else:
                 original = None
@@ -209,7 +221,7 @@ class Treeview(GObject.GObject):
                 # Update the required categories.
                 model, parent_data = self.get_parent_row_data()
                 if parent_data is not None:
-                    categories = util.getRequiredCategories(parent_data[6])
+                    categories = util.getRequiredCategories(parent_data[MenuEditor.COL_FILENAME])
                 else:
                     categories = util.getRequiredCategories(None)
                 self.parent.update_launcher_categories(categories, [])
@@ -222,10 +234,11 @@ class Treeview(GObject.GObject):
                 name = entry['Name']
                 comment = entry['Comment']
                 categories = entry['Categories']
+                executable = entry['Exec']
                 icon_name = entry['Icon']
                 hidden = entry['Hidden'] or entry['NoDisplay']
-                self.update_selected(name, comment, categories, item_type,
-                                     icon_name, original, not hidden)
+                self.update_selected(name, comment, executable, categories,
+                                     item_type, icon_name, original, not hidden)
                 model, row_data = self.get_selected_row_data()
                 self.update_launcher_instances(filename, row_data)
                 treeiter = None
@@ -302,7 +315,7 @@ class Treeview(GObject.GObject):
         model, parent = self.get_parent()
         if parent is None:
             return None
-        return model[parent][6]
+        return model[parent][MenuEditor.COL_FILENAME]
 
     def get_parent_row_data(self):
         """Get the row data of the parent iter."""
@@ -315,7 +328,7 @@ class Treeview(GObject.GObject):
         """Return the filename of the current selected treeiter."""
         model, row_data = self.get_selected_row_data()
         if row_data is not None:
-            return row_data[6]
+            return row_data[MenuEditor.COL_FILENAME]
         return None
 
     def get_selected_row_data(self):
@@ -340,23 +353,24 @@ class Treeview(GObject.GObject):
             for i in range(len(row_data)):
                 model[instance][i] = row_data[i]
 
-    def update_selected(self, name, comment, categories, item_type, icon_name,
-                        filename, show=True):
+    def update_selected(self, name, comment, executable, categories, item_type,
+                        icon_name, filename, show=True):
         """Update the application treeview selected row data."""
         model, treeiter = self._get_selected_iter()
-        model[treeiter][0] = name
-        model[treeiter][1] = escapeText(comment)
-        model[treeiter][2] = categories
-        model[treeiter][3] = item_type
+        model[treeiter][MenuEditor.COL_NAME] = name
+        model[treeiter][MenuEditor.COL_COMMENT] = escapeText(comment)
+        model[treeiter][MenuEditor.COL_EXEC] = executable
+        model[treeiter][MenuEditor.COL_CATEGORIES] = categories
+        model[treeiter][MenuEditor.COL_TYPE] = item_type
         if os.path.isfile(icon_name):
             gfile = Gio.File.parse_name(icon_name)
             icon = Gio.FileIcon.new(gfile)
         else:
             icon = Gio.ThemedIcon.new(icon_name)
-        model[treeiter][4] = icon
-        model[treeiter][5] = icon_name
-        model[treeiter][6] = filename
-        model[treeiter][8] = show
+        model[treeiter][MenuEditor.COL_G_ICON] = icon
+        model[treeiter][MenuEditor.COL_ICON_NAME] = icon_name
+        model[treeiter][MenuEditor.COL_FILENAME] = filename
+        model[treeiter][MenuEditor.COL_SHOW] = show
 
         # Refresh the displayed launcher
         self._last_selected_path = -1
@@ -406,7 +420,7 @@ class Treeview(GObject.GObject):
         if self._toolbar.get_sensitive():
             model = treeview.get_model()
             row = model[treeiter]
-            row[7] = expanded
+            row[MenuEditor.COL_EXPAND] = expanded
 
     def _on_treeview_selection(self, sel, store, path, is_selected,
                                can_select_func):
@@ -434,7 +448,7 @@ class Treeview(GObject.GObject):
     def _text_display_func(self, col, renderer, treestore, treeiter,
                            user_data):
         """CellRenderer function to set the gicon for each row."""
-        show = treestore[treeiter][8]
+        show = treestore[treeiter][MenuEditor.COL_SHOW]
         if show:
             renderer.set_property("style", Pango.Style.NORMAL)
         else:
@@ -443,7 +457,7 @@ class Treeview(GObject.GObject):
 
     def _icon_name_func(self, col, renderer, treestore, treeiter, user_data):
         """CellRenderer function to set the gicon for each row."""
-        renderer.set_property("gicon", treestore[treeiter][4])
+        renderer.set_property("gicon", treestore[treeiter][MenuEditor.COL_G_ICON])
 
     def _get_selected_iter(self):
         """Return the current treeview model and selected iter."""
@@ -472,13 +486,13 @@ class Treeview(GObject.GObject):
         directories = []
         applications = []
 
-        filename = model[treeiter][6]
+        filename = model[treeiter][MenuEditor.COL_FILENAME]
         block_run = False
 
         if filename is not None:
-            basename = getBasename(filename)
+            basename = getRelativeName(filename)
             original = util.getSystemLauncherPath(basename)
-            item_type = model[treeiter][3]
+            item_type = model[treeiter][MenuEditor.COL_TYPE]
             if original is None and item_type == MenuItemTypes.DIRECTORY:
                 pass
             else:
@@ -487,7 +501,7 @@ class Treeview(GObject.GObject):
         if model.iter_has_child(treeiter) and not block_run:
             for i in range(model.iter_n_children(treeiter)):
                 child_iter = model.iter_nth_child(treeiter, i)
-                filename = model[child_iter][6]
+                filename = model[child_iter][MenuEditor.COL_FILENAME]
                 if filename is not None:
                     if filename.endswith('.directory'):
                         d, a = self._get_delete_filenames(model, child_iter)
@@ -498,7 +512,7 @@ class Treeview(GObject.GObject):
                         if self._get_deletable_launcher(filename):
                             applications.append(filename)
 
-        filename = model[treeiter][6]
+        filename = model[treeiter][MenuEditor.COL_FILENAME]
         if filename is not None:
             if filename.endswith('.directory'):
                 directories.append(filename)
@@ -521,7 +535,7 @@ class Treeview(GObject.GObject):
         treeiters = []
         for n_child in range(model.iter_n_children(parent)):
             treeiter = model.iter_nth_child(parent, n_child)
-            iter_filename = model[treeiter][6]
+            iter_filename = model[treeiter][MenuEditor.COL_FILENAME]
             if iter_filename == filename:
                 treeiters.append(treeiter)
             if model.iter_has_child(treeiter):
@@ -548,7 +562,7 @@ class Treeview(GObject.GObject):
         treestore, treeiter = self._get_selected_iter()
         model, parent_iter = self.get_parent()
         while parent_iter is not None:
-            filename = treestore[parent_iter][6]
+            filename = treestore[parent_iter][MenuEditor.COL_FILENAME]
             if getBasename(filename).startswith(prefix):
                 add_enabled = False
             model, parent_iter = self.get_parent(treestore, parent_iter)
@@ -600,7 +614,7 @@ class Treeview(GObject.GObject):
                 for n_child in range(model.iter_n_children(None)):
                     treeiter = model.iter_nth_child(None, n_child)
                     row = model[treeiter]
-                    if row[6]:
+                    if row[MenuEditor.COL_FILENAME]:
                         self._treeview.expand_row(row.path, False)
 
                 # Try to get the row that was selected previously.
@@ -619,7 +633,7 @@ class Treeview(GObject.GObject):
 
     def _treeview_match(self, model, treeiter, query):
         """Match subfunction for filtering search results."""
-        name, comment, categories, item_type, icon, pixbuf, desktop, \
+        name, comment, executable, categories, item_type, icon, pixbuf, desktop, \
             expanded, show = model[treeiter][:]
 
         # Hide separators in the search results.
@@ -631,6 +645,8 @@ class Treeview(GObject.GObject):
             name = ""
         if not comment:
             comment = ""
+        if not executable:
+            executable = ""
 
         # Expand all the rows.
         self._treeview.expand_all()
@@ -641,6 +657,15 @@ class Treeview(GObject.GObject):
 
         # Match against the comment.
         if query in comment.lower():
+            return True
+
+        if query in executable.lower():
+                return True
+
+        # Match against the desktop file.
+        desktop = desktop.replace("menulibre-", "")
+        desktop = desktop.replace("alacarte-", "")
+        if query in desktop.lower():
             return True
 
         # Show the directory if any child items match.
@@ -679,14 +704,16 @@ class Treeview(GObject.GObject):
             if parent is None:
                 parent = model.iter_parent(treeiter)
             while parent is not None:
-                parent_filename = model[parent][6]
+                parent_filename = model[parent][MenuEditor.COL_FILENAME]
 
                 # Do not do this method if this is a known system directory.
                 parents.append(parent_filename)
                 parent = model.iter_parent(parent)
             parents.reverse()
             if menu_install:
-                MenulibreXdg.desktop_menu_install(parents, [filename])
+                installed = MenulibreXdg.desktop_menu_install(parents, [filename])
+                if not installed:
+                    self.emit("requires-menu-reload", True)
 
     def xdg_menu_uninstall(self, model, treeiter, filename):
         """Uninstall the specified filename from the menu structure."""
@@ -698,7 +725,7 @@ class Treeview(GObject.GObject):
             parents = []
             parent = model.iter_parent(treeiter)
             while parent is not None:
-                parent_filename = model[parent][6]
+                parent_filename = model[parent][MenuEditor.COL_FILENAME]
                 # Do not do this method if this is a known system directory.
                 if getBasename(parent_filename).startswith(menu_prefix):
                     menu_install = False
@@ -795,12 +822,12 @@ class Treeview(GObject.GObject):
         sel = treeview.get_selection().get_selected()
         if sel:
             model, selected_iter = sel
-            selected_type = model[selected_iter][3]
+            selected_type = model[selected_iter][MenuEditor.COL_TYPE]
 
             # Get current required categories
             model, parent = self.get_parent(model, selected_iter)
             if parent:
-                categories = util.getRequiredCategories(model[parent][6])
+                categories = util.getRequiredCategories(model[parent][MenuEditor.COL_FILENAME])
             else:
                 categories = util.getRequiredCategories(None)
 
@@ -817,7 +844,7 @@ class Treeview(GObject.GObject):
                 move_down = False
 
                 # What is the neighboring item?
-                sibling_type = model[sibling_iter][3]
+                sibling_type = model[sibling_iter][MenuEditor.COL_TYPE]
 
                 # Sibling Directory
                 if sibling_type == MenuItemTypes.DIRECTORY:
@@ -854,7 +881,7 @@ class Treeview(GObject.GObject):
             # Get new required categories
             model, parent = self.get_parent(model, selected_iter)
             if parent:
-                new_categories = util.getRequiredCategories(model[parent][6])
+                new_categories = util.getRequiredCategories(model[parent][MenuEditor.COL_FILENAME])
             else:
                 new_categories = util.getRequiredCategories(None)
 
@@ -911,7 +938,7 @@ class Treeview(GObject.GObject):
                                               row_data)
 
             # Install/Uninstall items from directories.
-            filename = row_data[6]
+            filename = row_data[MenuEditor.COL_FILENAME]
             self.xdg_menu_install(filename)
             self.xdg_menu_uninstall(model, treeiter, filename)
 
@@ -937,7 +964,7 @@ class Treeview(GObject.GObject):
             new_iter = model.insert(parent_iter, 0, row_data)
 
         # Install/Uninstall items from directories.
-        filename = row_data[6]
+        filename = row_data[MenuEditor.COL_FILENAME]
         self.xdg_menu_install(filename, parent_iter)
         self.xdg_menu_uninstall(model, treeiter, filename)
 
@@ -963,7 +990,7 @@ class Treeview(GObject.GObject):
                 # Deteriming list of item names
                 for i in range(model.iter_n_children(parent_iter)):
                     child_iter = model.iter_nth_child(parent_iter, i)
-                    item_names.append(model[child_iter][0])
+                    item_names.append(model[child_iter][MenuEditor.COL_NAME])
 
                 # Applying unstable (?) case-insensitive alphabetical sort
                 item_names = sorted(item_names, key=str.lower)
@@ -973,12 +1000,12 @@ class Treeview(GObject.GObject):
 
                     # Ignore if item is already sorted or at least has an
                     # identical title to that expected
-                    if item_names[i] != model[child_iter][0]:
+                    if item_names[i] != model[child_iter][MenuEditor.COL_NAME]:
 
                         # Locating desired item in the remaining unsorted items
                         for r in range(i, len(item_names)):
                             search_iter = model.iter_nth_child(parent_iter, r)
-                            if item_names[i] == model[search_iter][0]:
+                            if item_names[i] == model[search_iter][MenuEditor.COL_NAME]:
                                 break
 
                         # Moving the found item into place

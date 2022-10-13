@@ -54,3 +54,4 @@ os.environ["MENU_VERBOSE"] = "1"
 # Create a GMenu object in the same way the real script does - menulibre will
 # then hook into this script's stderr to pick up on the bad desktop files
 menu_editor = MenuEditor()
+menu_editor.unmap()

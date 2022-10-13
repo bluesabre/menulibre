@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2021-2022 Sean Davis <sean@bluesabre.org> -->
+<component type="desktop">
+  <id>menulibre.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>MenuLibre</name>
+  <_summary>An advanced FreeDesktop.org compliant menu editor</_summary>
+  <content_rating type="oars-1.0"/>
+  <developer_name>Sean Davis</developer_name>
+
+  <description>
+    <_p>
+      All fields specified in the FreeDesktop.org Desktop Entry and Menu
+      specifications are available to quickly update. Additionally,
+      MenuLibre provides an editor for the launcher actions used by
+      applications such as Unity and Plank.
+    </_p>
+    <p>
+      <_em>Features:</_em>
+    </p>
+    <ul>
+      <_li>A beautiful interface powered by the latest version of GTK+.</_li>
+      <_li>Create new launchers, or modify existing ones with complete control over common settings and access to advanced settings.</_li>
+      <_li>Add, remove, and adjust desktop actions: powerful shortcuts available used by Unity, Xfce, and Pantheon.</_li>
+      <_li>Easily rearrange menu items to suit your needs.</_li>
+    </ul>
+  </description>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://images.squarespace-cdn.com/content/v1/61ff1e1701ec5b7bb883b7d5/6407d9c5-dec0-4e71-922d-05af9a1c3066/menulibre_2014_01.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://images.squarespace-cdn.com/content/v1/61ff1e1701ec5b7bb883b7d5/39158f9d-5bfc-4704-b012-c745eaa4b60f/menulibre_2014_02.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://images.squarespace-cdn.com/content/v1/61ff1e1701ec5b7bb883b7d5/efa15783-d3d5-4561-a6af-1c2a30c86b30/menulibre_2014_03.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://images.squarespace-cdn.com/content/v1/61ff1e1701ec5b7bb883b7d5/889d63ee-87f7-4eaa-97f5-e804743d65f9/menulibre_2014_04.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://images.squarespace-cdn.com/content/v1/61ff1e1701ec5b7bb883b7d5/b73645db-7b28-4f1a-a848-e11fc36e5f29/menulibre_2014_05.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://images.squarespace-cdn.com/content/v1/61ff1e1701ec5b7bb883b7d5/996c2349-d8ad-461d-9901-3393972fdd36/menulibre_2014_06.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://images.squarespace-cdn.com/content/v1/61ff1e1701ec5b7bb883b7d5/e0c293c6-7b95-481b-9fc0-0a44bdc6ab0b/menulibre_2014_07.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://images.squarespace-cdn.com/content/v1/61ff1e1701ec5b7bb883b7d5/2f2bb9a4-18e0-4b34-9cc3-3bb5079c5494/menulibre_2014_08.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://images.squarespace-cdn.com/content/v1/61ff1e1701ec5b7bb883b7d5/c1e0a874-430f-433e-8e56-35b71fa19fcf/menulibre_2014_09.png</image>
+    </screenshot>
+  </screenshots>
+
+  <url type="homepage">https://github.com/bluesabre/menulibre</url>
+  <url type="bugtracker">https://github.com/bluesabre/menulibre/issues</url>
+  <url type="help">https://github.com/bluesabre/menulibre/wiki</url>
+  <url type="translate">https://www.transifex.com/bluesabreorg/menulibre</url>
+  <url type="donation">https://github.com/sponsors/bluesabre</url>
+
+  <update_contact>sean@bluesabre.org</update_contact>
+
+  <translation type="gettext">menulibre</translation>
+
+  <provides>
+    <binary>menulibre</binary>
+  </provides>
+
+  <releases>
+    <release version="2.3.0" date="2022-06-12">
+      <description>
+        <_p>This release adds support for MATE and Unity and improves integration
+        with the desktop environment.</_p>
+      </description>
+    </release>
+    <release version="2.2.3" date="2021-09-26">
+      <description>
+        <_p>This release fixes a crash when menus fail to load on KDE.</_p>
+      </description>
+    </release>
+  </releases>
+
+</component>

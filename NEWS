@@ -1,5 +1,62 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+12 June 2022, MenuLibre 2.3.0
+
+- Bug Fixes:
+  . AppStream: Do not install appdata.xml.in (#85)
+  . AppStream: Fix screenshot URLs
+  . Desktop Environments: Add support for admin:// protocol (#62)
+  . Desktop Environments: Add support for MATE (#40)
+  . Desktop Environments: Add support for Unity
+  . Desktop Environments: Remove empty menubar on Ubuntu's GNOME
+  . Desktop Environments: Suggest restarting menu when edits cannot be applied
+  . Editor: Escape quoted percentage arguments (#93)
+  . Editor: Fixed copying filename with Ctrl+C
+  . Setup: Add an uninstall script (#80)
+  . Startup: Assume menu failed to load when empty
+- General:
+  . AppStream: Add OARS rating
+  . AppStream: Add developer name
+- Updated Translations:
+  . Catalan, Dutch, Finnish, French, Italian, Lithuanian, Malay,
+    Malay (Arabic), Polish, Spanish
+
+26 September 2021, MenuLibre 2.2.3
+
+- Bug Fixes:
+  - Fixed making diagnostic text selectable on KDE
+  - Fixed loading from non-existent directories
+
+
+25 September 2021, MenuLibre 2.2.2
+
+- New Features:
+  . Added diagnostics for failed menu loading
+  . Added support for GNOME-specific categories (#56)
+  . Added support for PrefersNonDefaultGPU (Fixes #50)
+  . Added support for unprefixed applications.menu (#67)
+  . Added support for X-GNOME-UsesNotifications (#79)
+  . Added support for XFCE specific categories (#54)
+  . Enabled opening a root editor for root-owned files with pkexec (#62)
+  . Enabled searching for Exec key and desktop entry (#52)
+- General:
+  . Added AppData file (#61)
+  . Documented intltool build requirement (#59)
+  . Switched to the MenuLibre wiki for key descriptions (Fixes #48)
+- Bug Fixes:
+  . Added valid types to validator, reducing false positives (#66)
+  . Fixed builds with newer versions of GTK (#77)
+  . Fixed history state when editing Name and Comment (#57)
+  . Fixed msgfmt errors
+  . Fixed running with newer versions of GTK (#82)
+  . Fixed selection leaving screen while moving items (Fixes #25)
+  . Fixed typo in desktop file processing error
+- Updated Translations:
+  . Arabic, Catalan, Chinese (China), Danish, Dutch, English (United Kingdom),
+    French, German, Japanese, Lithuanian, Malay, Malay (Arabic), Polish,
+    Russian, Spanish, Turkish, Ukrainian
+
+
 31 May 2019, MenuLibre 2.2.1
 
 - General:

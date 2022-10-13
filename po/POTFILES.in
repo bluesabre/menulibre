@@ -31,3 +31,6 @@ menulibre/MenulibreTreeview.py
 menulibre/MenulibreXdg.py
 menulibre/util.py
 menulibre/XmlMenuElementTree.py
+
+# XML Files
+[type: gettext/xml]data/metainfo/menulibre.appdata.xml.in

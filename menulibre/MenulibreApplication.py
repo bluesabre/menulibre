@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
-#   Copyright (C) 2012-2020 Sean Davis <sean@bluesabre.org>
+#   Copyright (C) 2012-2022 Sean Davis <sean@bluesabre.org>
 #   Copyright (C) 2016-2018 OmegaPhil <OmegaPhil@startmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
@@ -26,13 +26,16 @@ import tempfile
 
 from locale import gettext as _
 
+from gi import require_version
+require_version('Gtk', '3.0')
 from gi.repository import Gio, GLib, GObject, Gtk, Gdk, GdkPixbuf
 
 from . import MenulibreStackSwitcher, MenulibreIconSelection
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, MenulibreLog
-from .util import MenuItemTypes, check_keypress, getBasename, getRelatedKeys
-from .util import escapeText, getCurrentDesktop, find_program, unsandbox
+from . import MenuEditor
+from .util import MenuItemTypes, check_keypress, getBasename, getRelativeName, getRelatedKeys
+from .util import escapeText, getCurrentDesktop, find_program, getProcessList, unsandbox
 import menulibre_lib
 
 import logging
@@ -166,9 +169,17 @@ category_groups = {
     )
 }
 
-# Add support for X-Xfce-Toplevel items for XFCE environments.
+# DE-specific categories
 if util.getDefaultMenuPrefix() == 'xfce-':
-    category_groups['Xfce'] = ('X-Xfce-Toplevel',)
+    category_groups['Xfce'] = (
+        'X-XFCE', 'X-Xfce-Toplevel', 'X-XFCE-PersonalSettings', 'X-XFCE-HardwareSettings',
+        'X-XFCE-SettingsDialog', 'X-XFCE-SystemSettings'
+    )
+elif util.getDefaultMenuPrefix() == 'gnome-':
+    category_groups['GNOME'] = (
+        'X-GNOME-NetworkSettings', 'X-GNOME-PersonalSettings', 'X-GNOME-Settings-Panel',
+        'X-GNOME-Utilities'
+    )
 
 # Create a reverse-lookup
 category_lookup = dict()
@@ -232,9 +243,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.values = dict()
 
-        # Set up the actions, menubar, and toolbar
+        # Set up the actions and toolbar
         self.configure_application_actions(builder)
-        self.configure_application_menubar(builder)
 
         if headerbar_pref:
             self.configure_headerbar(builder)
@@ -246,8 +256,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Set up the application editor
         self.configure_application_editor(builder)
 
-        # Set up the applicaton browser
+        # Set up the application browser
         self.configure_application_treeview(builder)
+
+        self.configure_menu_restart_infobar(builder)
 
         # Determining paths of bad desktop files GMenu can't load - if some are
         # detected, alerting user via InfoBar
@@ -275,6 +287,51 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             dialog.format_secondary_markup(secondary)
             dialog.run()
             sys.exit(1)
+
+    def menu_load_failure(self):
+        primary = _("MenuLibre failed to load.")
+
+        docs_url = "https://github.com/bluesabre/menulibre/wiki/Frequently-Asked-Questions"
+
+        # Translators: This link goes to the online documentation with more
+        # information.
+        secondary = _("The default menu could not be found. Please see the "
+                        "<a href='%s'>online documentation</a> "
+                        "for more information.") % docs_url
+
+        secondary += "\n\n<big><b>%s</b></big>" % _("Diagnostics")
+
+        diagnostics = util.getMenuDiagnostics()
+        for k, v in diagnostics.items():
+            secondary += "\n<b>%s</b>: %s" % (k, v)
+
+        dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
+                                    Gtk.ButtonsType.CLOSE, primary)
+        dialog.format_secondary_markup(secondary)
+
+        label = self.find_secondary_label(dialog)
+        if label is not None:
+            label.set_selectable(True)
+
+        dialog.run()
+        sys.exit(1)
+
+    def find_secondary_label(self, container = None):
+        try:
+            children = container.get_children()
+            if len(children) == 0:
+                return None
+            if isinstance(children[0], Gtk.Label):
+                return children[1]
+            for child in children:
+                label = self.find_secondary_label(child)
+                if label is not None:
+                    return label
+        except AttributeError:
+            pass
+        except IndexError:
+            pass
+        return None
 
     def configure_application_window(self, builder, app):
         """Glade is currently unable to create a GtkApplicationWindow.  This
@@ -342,9 +399,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         for action_name in ['add_launcher', 'add_directory', 'add_separator']:
             self.action_items[action_name] = []
-            widget = builder.get_object('menubar_%s' % action_name)
-            widget.connect('activate', self.activate_action_cb, action_name)
-            self.action_items[action_name].append(widget)
             widget = builder.get_object('popup_%s' % action_name)
             widget.connect('activate', self.activate_action_cb, action_name)
             self.action_items[action_name].append(widget)
@@ -530,21 +584,18 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.infobar.connect('response',
                              self.on_bad_desktop_files_infobar_response)
 
-    def configure_application_menubar(self, builder):
-        """Configure the application GlobalMenu (in Unity) and AppMenu."""
-        self.app_menu_button = None
-        builder.get_object('app_menu_holder')
+    def configure_menu_restart_infobar(self, builder):
+        self.menu_restart_infobar = builder.get_object('menu_restart_required')
+        self.menu_restart_infobar.set_default_response(Gtk.ResponseType.CLOSE)
 
-        # Show the menubar if using a Unity session.
-        if session in ['ubuntu', 'ubuntu-2d']:
-            builder.get_object('menubar').set_visible(True)
+        button = builder.get_object('menu_restart_button')
+        button.connect('clicked', self.on_menu_restart_button_activate)
 
-            # Connect the menubar events.
-            for action_name in ['add_launcher', 'save_launcher', 'undo',
-                                'redo', 'revert', 'quit', 'help', 'about']:
-                widget = builder.get_object("menubar_%s" % action_name)
-                widget.set_related_action(self.actions[action_name])
-                widget.set_use_action_appearance(True)
+        self.menu_restart_infobar.connect('response',
+                             self.on_bad_desktop_files_infobar_response)
+
+    def on_menu_restart_infobar_response(self, infobar, response_id):
+        infobar.hide()
 
     def configure_application_toolbar(self, builder):
         """Configure the application toolbar."""
@@ -559,9 +610,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         for action_name in ['add_launcher', 'add_directory', 'add_separator']:
             self.action_items[action_name] = []
-            widget = builder.get_object('menubar_%s' % action_name)
-            widget.connect('activate', self.activate_action_cb, action_name)
-            self.action_items[action_name].append(widget)
             widget = builder.get_object('popup_%s' % action_name)
             widget.connect('activate', self.activate_action_cb, action_name)
             self.action_items[action_name].append(widget)
@@ -587,6 +635,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def configure_application_treeview(self, builder):
         """Configure the menu-browsing GtkTreeView."""
         self.treeview = MenulibreTreeview.Treeview(self, builder)
+        if not self.treeview.loaded:
+            self.menu_load_failure()
         treeview = self.treeview.get_treeview()
         treeview.set_search_entry(self.search_box)
         self.search_box.connect('changed', self.on_app_search_changed,
@@ -596,6 +646,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                               self.on_apps_browser_cursor_changed, builder)
         self.treeview.connect("add-directory-enabled",
                               self.on_apps_browser_add_directory_enabled,
+                              builder)
+        self.treeview.connect("requires-menu-reload",
+                              self.on_apps_browser_requires_menu_reload,
                               builder)
         treeview.set_cursor(Gtk.TreePath.new_from_string("1"))
         treeview.set_cursor(Gtk.TreePath.new_from_string("0"))
@@ -713,6 +766,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                            self.on_NameCommentIcon_focus_in_event)
             button.connect('focus-out-event',
                            self.on_NameCommentIcon_focus_out_event)
+
+        for widget_name in ['Name', 'Comment']:
+            entry = builder.get_object('entry_%s' % widget_name)
+
+            # Commit changes to entries when focusing out.
+            entry.connect('focus-out-event',
+                          self.on_entry_focus_out_event,
+                          widget_name)
+
+            # Enable saving on any edit with an Entry.
+            entry.connect("changed",
+                          self.on_entry_changed,
+                          widget_name)
 
         for widget_name in ['Exec', 'Path', 'GenericName', 'TryExec',
                             'OnlyShowIn', 'NotShowIn', 'MimeType', 'Keywords',
@@ -908,7 +974,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 rows.append(row_data)
 
         if sort:
-            rows = sorted(rows, key=lambda row_data: row_data[key_columns[0]])
+            rows = sorted(rows, key=lambda row_data: row_data[key_columns[MenuEditor.COL_NAME]])
 
         model.clear()
         for row in rows:
@@ -1167,6 +1233,56 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
 
 # Applications Treeview
+    def on_apps_browser_requires_menu_reload(self, widget, required, builder):
+        self.menu_restart_infobar.show()
+
+
+    def on_menu_restart_button_activate(self, widget):
+        processes = getProcessList()
+        if "mate-panel" in processes:
+            cmd = ["mate-panel", "--replace"]
+        elif "xfce4-panel" in processes:
+            cmd = ["xfce4-panel", "--restart"]
+        elif "unity" in processes:
+            cmd = ["unity", "--replace"]
+        else:
+            self.menu_unable_to_restart_dialog()
+            return
+
+        self.menu_restart_dialog(cmd)
+
+
+    def menu_restart_dialog(self, cmd):
+        user_cmd = " ".join(cmd)
+
+        primary = _("Menu restart required")
+        secondary = _("MenuLibre can do this automatically. "
+                      "Do you want to run the following command?\n\n%s") % user_cmd
+
+        dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
+                                    Gtk.ButtonsType.YES_NO, primary)
+        dialog.format_secondary_markup(secondary)
+        response = dialog.run()
+        if response == Gtk.ResponseType.YES:
+            subprocess.Popen(cmd)
+        self.menu_restart_infobar.hide()
+        dialog.destroy()
+
+
+    def menu_unable_to_restart_dialog(self):
+        primary = _("Menu restart required")
+        secondary = _("However, MenuLibre cannot determine how to do this "
+                      "automatically on your system. "
+                      "Please log out for you menu to update completely.")
+
+        dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
+                                    Gtk.ButtonsType.CLOSE, primary)
+        dialog.format_secondary_markup(secondary)
+        dialog.run()
+        self.menu_restart_infobar.hide()
+        dialog.destroy()
+
+
     def on_apps_browser_add_directory_enabled(self, widget, enabled, builder):
         """Update the Add Directory menu item when the selected row is
         changed."""
@@ -1206,7 +1322,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.set_value('Icon', None, store=True)
 
         model, row_data = self.treeview.get_selected_row_data()
-        item_type = row_data[3]
+        item_type = row_data[MenuEditor.COL_TYPE]
 
         # If the selected row is a separator, hide the editor.
         if item_type == MenuItemTypes.SEPARATOR:
@@ -1225,18 +1341,18 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # Check if this file still exists
             if (not new_launcher) and (not os.path.isfile(filename)):
                 # If it does not, try to fallback...
-                basename = getBasename(filename)
+                basename = getRelativeName(filename)
                 filename = util.getSystemLauncherPath(basename)
                 if filename is not None:
-                    row_data[6] = filename
+                    row_data[MenuEditor.COL_FILENAME] = filename
                     self.treeview.update_launcher_instances(filename, row_data)
 
             if new_launcher or (filename is not None):
                 self.editor.show()
-                displayed_name = row_data[0]
-                comment = row_data[1]
+                displayed_name = row_data[MenuEditor.COL_NAME]
+                comment = row_data[MenuEditor.COL_COMMENT]
 
-                self.set_value('Icon', row_data[5], store=True)
+                self.set_value('Icon', row_data[MenuEditor.COL_ICON_NAME], store=True)
                 self.set_value('Name', displayed_name, store=True)
                 self.set_value('Comment', comment, store=True)
                 self.set_value('Filename', filename, store=True)
@@ -1531,6 +1647,56 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Set the value stored for key."""
         self.values[key] = value
 
+    """
+    Quoting must be done by enclosing the argument between double quotes and escaping
+    the double quote character, backtick character ("`"), dollar sign ("$") and
+    backslash character ("\") by preceding it with an additional backslash character.
+    Implementations must undo quoting before expanding field codes and before passing
+    the argument to the executable program. Reserved characters are space (" "),
+    tab, newline, double quote, single quote ("'"), backslash character ("\"),
+    greater-than sign (">"), less-than sign ("<"), tilde ("~"), vertical bar ("|"),
+    ampersand ("&"), semicolon (";"), dollar sign ("$"), asterisk ("*"),
+    question mark ("?"), hash mark ("#"), parenthesis ("(") and (")") and backtick
+    character ("`").
+
+    Note that the general escape rule for values of type string states that the backslash
+    character can be escaped as ("\\") as well and that this escape rule is applied before
+    the quoting rule. As such, to unambiguously represent a literal backslash character in
+    a quoted argument in a desktop entry file requires the use of four successive backslash
+    characters ("\\\\"). Likewise, a literal dollar sign in a quoted argument in a desktop
+    entry file is unambiguously represented with ("\\$").
+
+    A number of special field codes have been defined which will be expanded by the file
+    manager or program launcher when encountered in the command line. Field codes consist
+    of the percentage character ("%") followed by an alpha character. Literal percentage
+    characters must be escaped as %%. Deprecated field codes should be removed from the
+    command line and ignored. Field codes are expanded only once, the string that is used
+    to replace the field code should not be checked for field codes itself.
+
+    Field codes must not be used inside a quoted argument, the result of field code expansion
+    inside a quoted argument is undefined. The %F and %U field codes may only be used as an
+    argument on their own.
+    """
+
+    def escape_exec(self, value):
+        value = str(value)
+        args = []
+        for arg in shlex.split(value, posix=False):
+            if arg.startswith("\""):
+                arg = arg.replace("%%", "%")  # Make it consistent for the pros
+                arg = arg.replace("%", "%%")
+            args.append(arg)
+        return " ".join(args)
+
+    def unescape_exec(self, value):
+        value = str(value)
+        args = []
+        for arg in shlex.split(value, posix=False):
+            if arg.startswith("\""):
+                arg = arg.replace("%%", "%")
+            args.append(arg)
+        return " ".join(args)
+
     def set_value(self, key, value, adjust_widget=True, store=False):  # noqa
         """Set the DesktopSpec key, value pair in the editor."""
         if store:
@@ -1573,6 +1739,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # No associated widget for Version
         elif key == 'Version':
             pass
+
+        elif key == 'Exec':
+            widget = self.widgets[key]
+            widget.set_text(self.unescape_exec(value))
 
         # Everything else is set by its widget type.
         elif key in self.widgets.keys():
@@ -1619,6 +1789,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         elif key == 'Filename':
             if 'filename' in list(self.values.keys()):
                 return self.values['filename']
+        elif key == 'Exec':
+            widget = self.widgets[key]
+            value = widget.get_text()
+            return self.escape_exec(value)
         else:
             widget = self.widgets[key]
             if isinstance(widget, Gtk.Button):
@@ -1646,8 +1820,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon_name = "applications-other"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
-        new_row_data = [name, comment, categories, item_type, icon, icon_name,
-                        filename, True]
+        executable = ""
+        new_row_data = [name, comment, executable, categories, item_type, icon,
+                        icon_name, filename, True]
 
         model, parent_data = self.treeview.get_parent_row_data()
         model, row_data = self.treeview.get_selected_row_data()
@@ -1658,7 +1833,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Add to the treeview on the current level or as a child of a selected
         # directory
-        dir_selected = row_data[3] == MenuItemTypes.DIRECTORY
+        dir_selected = row_data[MenuEditor.COL_TYPE] == MenuItemTypes.DIRECTORY
         if dir_selected:
             self.treeview.add_child(new_row_data)
         else:
@@ -1668,14 +1843,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # directory, so the resulting item will be placed at the current level
         # fetch the parent's categories
         if parent_data is not None and not dir_selected:
-            categories = util.getRequiredCategories(parent_data[6])
+            categories = util.getRequiredCategories(parent_data[MenuEditor.COL_FILENAME])
 
         elif parent_data is not None and dir_selected:
 
             # A directory lower than the top-level has been selected - the
             # launcher will be added into it (e.g. as the first item),
             # therefore it essentially has a parent of the current selection
-            categories = util.getRequiredCategories(row_data[6])
+            categories = util.getRequiredCategories(row_data[MenuEditor.COL_FILENAME])
 
         else:
 
@@ -1699,8 +1874,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon_name = "folder"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
-        row_data = [name, comment, categories, item_type, icon, icon_name,
-                    filename, True, True]
+        executable = ""
+        row_data = [name, comment, executable, categories, item_type, icon,
+                    icon_name, filename, True, True]
 
         self.treeview.append(row_data)
 
@@ -1718,8 +1894,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon_name = ""
         item_type = MenuItemTypes.SEPARATOR
         filename = None
-        row_data = [name, tooltip, categories, item_type, icon, icon_name,
-                    filename, False, True]
+        executable = ""
+        row_data = [name, tooltip, executable, categories, item_type, icon,
+                    icon_name, filename, False, True]
 
         self.treeview.append(row_data)
 
@@ -1796,7 +1973,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         if not temp:
             model, row_data = self.treeview.get_selected_row_data()
-            item_type = row_data[3]
+            item_type = row_data[MenuEditor.COL_TYPE]
 
             model, parent_data = self.treeview.get_parent_row_data()
 
@@ -1808,7 +1985,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             if parent_data is not None:
                 # Parent was found, take its categories.
                 required_categories = util.getRequiredCategories(
-                    parent_data[6])
+                    parent_data[MenuEditor.COL_FILENAME])
             else:
                 # Parent was not found, this is a toplevel category
                 required_categories = util.getRequiredCategories(None)
@@ -1845,11 +2022,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Update the selected iter with the new details.
         name = self.get_value('Name')
         comment = self.get_value('Comment')
+        executable = self.get_value('Exec')
         categories = self.get_value('Categories')
         icon_name = self.get_value('Icon')
         hidden = self.get_value('Hidden') or self.get_value('NoDisplay')
-        self.treeview.update_selected(name, comment, categories, item_type,
-                                      icon_name, filename, not hidden)
+        self.treeview.update_selected(name, comment, executable, categories,
+                                      item_type, icon_name, filename, not hidden)
         self.history.clear()
 
         # Update all instances
@@ -1862,6 +2040,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # directories that its category configuration dictates - this is not
         # deleting the launcher but removing it from various places in the UI
         self.update_launcher_category_dirs()
+
+        if filename.endswith(".directory"):
+            processes = getProcessList()
+            if "mate-panel" in processes:
+                self.menu_restart_infobar.show()
+
 
     def update_launcher_categories(self, remove, add):  # noqa
         original_filename = self.get_value('Filename')
@@ -1914,8 +2098,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Update all instances
         model, row_data = self.treeview.get_selected_row_data()
-        row_data[2] = ';'.join(categories)
-        row_data[6] = save_filename
+        row_data[MenuEditor.COL_CATEGORIES] = ';'.join(categories)
+        row_data[MenuEditor.COL_FILENAME] = save_filename
         self.treeview.update_launcher_instances(original_filename, row_data)
 
     def update_launcher_category_dirs(self):  # noqa
@@ -1935,11 +2119,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # user has explicitly deleted) will be added, so this shouldn't be a
         # problem
         model, row_data = self.treeview.get_selected_row_data()
-        if row_data[2]:
-            categories = row_data[2].split(';')[:-1]
+        if row_data[MenuEditor.COL_CATEGORIES]:
+            categories = row_data[MenuEditor.COL_CATEGORIES].split(';')[:-1]
         else:
             categories = []
-        filename = row_data[6]
+        filename = row_data[MenuEditor.COL_FILENAME]
 
         required_category_directories = set()
 
@@ -1954,21 +2138,21 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # regardless...
             _, parent = self.treeview.get_parent(model, instance)
             if (parent is not None and
-                    model[parent][3] == MenuItemTypes.DIRECTORY):
+                    model[parent][MenuEditor.COL_TYPE] == MenuItemTypes.DIRECTORY):
 
                 # Any direct parents are required directories.
-                required_category_directories.add(model[parent][0])
+                required_category_directories.add(model[parent][MenuEditor.COL_NAME])
 
                 # Adding if the directory returned is top level
                 _, parent_parent = self.treeview.get_parent(model, parent)
                 if parent_parent is None:
-                    launchers_in_top_level_dirs[model[parent][0]] = instance
+                    launchers_in_top_level_dirs[model[parent][MenuEditor.COL_NAME]] = instance
 
         # Obtaining a lookup of top-level directories -> iters
         top_level_dirs = {}
         for row in model:
-            if row[3] == MenuItemTypes.DIRECTORY:
-                top_level_dirs[row[0]] = model.get_iter(row.path)
+            if row[MenuEditor.COL_TYPE] == MenuItemTypes.DIRECTORY:
+                top_level_dirs[row[MenuEditor.COL_NAME]] = model.get_iter(row.path)
 
         # Looping through all set categories - category specified is at maximum
         # detail level, this needs to be converted to the parent group name,
@@ -2002,7 +2186,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             # Removing selected launcher from the UI if it is in the current
             # directory, otherwise just from the model
-            if parent_data is not None and directory_name == parent_data[0]:
+            if parent_data is not None and directory_name == parent_data[MenuEditor.COL_NAME]:
                 self.treeview.remove_selected(True)
 
             else:
@@ -2111,8 +2295,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_delete_cb(self, widget):
         """Delete callback function."""
         model, row_data = self.treeview.get_selected_row_data()
-        name = row_data[0]
-        item_type = row_data[3]
+        name = row_data[MenuEditor.COL_NAME]
+        item_type = row_data[MenuEditor.COL_TYPE]
 
         # Prepare the strings
         if item_type == MenuItemTypes.SEPARATOR:

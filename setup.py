@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
-#   Copyright (C) 2012-2020 Sean Davis <sean@bluesabre.org>
+#   Copyright (C) 2012-2022 Sean Davis <sean@bluesabre.org>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published
@@ -100,6 +100,14 @@ def move_icon_file(root, target_data, prefix):
     return icon_file
 
 
+def remove_appdata_in_file(root, target_data):
+    metainfo = os.path.normpath(
+        os.path.join(root, target_data, 'share', 'menulibre', 'metainfo'))
+    appdata_in = os.path.join(metainfo, 'menulibre.appdata.xml.in')
+    os.remove(appdata_in)
+    os.rmdir(metainfo)
+
+
 def get_desktop_file(root, target_data, prefix):
     """Move the desktop file to its installation prefix."""
     desktop_path = os.path.realpath(
@@ -147,6 +155,17 @@ def generate_changelog():
                         outfile.write("%s\n" % line[1:-1])
     except:
         pass
+
+
+def write_appdata_file(filename_in):
+    filename_out = filename_in.rstrip('.in')
+    cmd = ["intltool-merge", "-x", "-d", "po", filename_in, filename_out]
+    print(" ".join(cmd))
+    subprocess.call(cmd, shell=False)
+
+
+# Update AppData with latest translations first.
+write_appdata_file("data/metainfo/menulibre.appdata.xml.in")
 
 
 class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
@@ -204,12 +223,13 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
         desktop_file = get_desktop_file(self.root, target_data, self.prefix)
         print(("Desktop File: %s\n" % desktop_file))
         move_icon_file(self.root, target_data, self.prefix)
+        remove_appdata_in_file(self.root, target_data)
         update_desktop_file(desktop_file, script_path)
 
 
 DistUtilsExtra.auto.setup(
     name='menulibre',
-    version='2.2.1',
+    version='2.3.0',
     license='GPL-3',
     author='Sean Davis',
     author_email='sean@bluesabre.org',
@@ -219,6 +239,7 @@ DistUtilsExtra.auto.setup(
                      'desktop environments.',
     url='https://github.com/bluesabre/menulibre',
     data_files=[('share/man/man1', ['menulibre.1',
-                                    'menulibre-menu-validate.1'])],
+                                    'menulibre-menu-validate.1']),
+                ('share/metainfo/', ['data/metainfo/menulibre.appdata.xml'])],
     cmdclass={'install': InstallAndUpdateDataDirectory}
     )

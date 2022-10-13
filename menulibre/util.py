@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
-#   Copyright (C) 2012-2020 Sean Davis <sean@bluesabre.org>
+#   Copyright (C) 2012-2022 Sean Davis <sean@bluesabre.org>
 #   Copyright (C) 2017-2018 OmegaPhil <OmegaPhil@startmail.com>
 #
 #   This program is free software: you can redistribute it and/or modify it
@@ -22,6 +22,7 @@ import subprocess
 
 import getpass
 import psutil
+import shutil
 
 from locale import gettext as _
 
@@ -154,11 +155,21 @@ def getProcessList():
     return processes
 
 
+def getRelativeName(filename):
+    if filename.endswith('.desktop'):
+        basename = filename.split('/applications/', 1)[1]
+    elif filename.endswith('.directory'):
+        basename = filename.split('/desktop-directories/', 1)[1]
+    return basename
+
+
 def getBasename(filename):
     if filename.endswith('.desktop'):
         basename = filename.split('/applications/', 1)[1]
     elif filename.endswith('.directory'):
         basename = filename.split('/desktop-directories/', 1)[1]
+        if basename.startswith("%s/" % getDefaultMenuName()):
+            basename = filename.split("%s/" % getDefaultMenuName(), 1)[1]
     return basename
 
 
@@ -176,6 +187,13 @@ def getCurrentDesktop():
     return current_desktop
 
 
+def getDefaultMenuName():
+    prefix = getDefaultMenuPrefix()
+    if prefix.endswith("-"):
+        return prefix[:-1]
+    return prefix
+
+
 def getDefaultMenuPrefix(): # noqa
     """Return the default menu prefix."""
     prefix = os.environ.get('XDG_MENU_PREFIX', '')
@@ -186,6 +204,9 @@ def getDefaultMenuPrefix(): # noqa
             prefix = 'cinnamon-'
         elif 'mate' in os.environ.get('DESKTOP_SESSION', ''):
             prefix = 'mate-'
+        # Somehow the XDG_MENU_PREFIX isn't exposed in Ubuntu Unity
+        elif 'unity' in os.environ.get('DESKTOP_SESSION', ''):
+            prefix = 'gnome-'
 
     if prefix == "":
         desktop = getCurrentDesktop()
@@ -208,16 +229,54 @@ def getDefaultMenuPrefix(): # noqa
     return prefix
 
 
+def getMenuDiagnostics():
+    diagnostics = {}
+    keys = [
+        "XDG_CURRENT_DESKTOP",
+        "XDG_MENU_PREFIX",
+        "DESKTOP_SESSION",
+        "KDE_SESSION_VERSION"
+    ]
+    for k in keys:
+        diagnostics[k] = os.environ.get(k, "None")
+
+    menu_dirs = [
+        getUserMenusDirectory()
+    ]
+    for path in GLib.get_system_config_dirs():
+        menu_dirs.append(os.path.join(path, 'menus'))
+    menus = []
+    for menu_dir in menu_dirs:
+        try:
+            for filename in os.listdir(menu_dir):
+                if filename.endswith(".menu"):
+                    menus.append(os.path.join(menu_dir, filename))
+        except FileNotFoundError:
+            pass
+    menus.sort()
+
+    diagnostics["MENUS"] = ", ".join(menus)
+
+    return diagnostics
+
+
+def getItemSearchPaths():
+    search_paths = []
+    for path in GLib.get_system_data_dirs():
+        search_paths.append(os.path.join(path, 'applications'))
+    return search_paths
+
+
 def getItemPath(file_id):
     """Return the path to the system-installed .desktop file."""
-    for path in GLib.get_system_data_dirs():
-        file_path = os.path.join(path, 'applications', file_id)
+    for path in getItemSearchPaths():
+        file_path = os.path.join(path, file_id)
         if os.path.isfile(file_path):
             return file_path
     return None
 
 
-def getUserItemPath():
+def getUserApplicationsDirectory():
     """Return the path to the user applications directory."""
     item_dir = os.path.join(GLib.get_user_data_dir(), 'applications')
     if not os.path.isdir(item_dir):
@@ -225,16 +284,119 @@ def getUserItemPath():
     return item_dir
 
 
+def getUserItemPath(file_id):
+    """Return the path to the system-installed .desktop file."""
+    path = getUserApplicationsDirectory()
+    file_path = os.path.join(path, file_id)
+    if os.path.isfile(file_path):
+        return file_path
+    return None
+
+
+def getDirectorySearchPaths():
+    search_paths = []
+    for path in GLib.get_system_data_dirs():
+        search_paths.append(os.path.join(path, 'desktop-directories'))
+    return search_paths
+
+
 def getDirectoryPath(file_id):
     """Return the path to the system-installed .directory file."""
-    for path in GLib.get_system_data_dirs():
-        file_path = os.path.join(path, 'desktop-directories', file_id)
+    for path in getDirectorySearchPaths():
+        file_path = os.path.join(path, file_id)
         if os.path.isfile(file_path):
             return file_path
     return None
 
 
-def getUserDirectoryPath():
+def mapDesktopEnvironmentDirectories():
+    """
+    This feels wrong, but to make GMenu correctly handle desktop directories
+    in subdirectories, we need to bring them up to the top level.
+    """
+    menu = getDefaultMenuName()
+    if len(menu) == 0:
+        return
+
+    file_ids = []
+    for path in getDirectorySearchPaths():
+        if not os.path.exists(path):
+            continue
+        for filename in os.listdir(path):
+            if filename.endswith(".desktop"):
+                file_ids.append(filename)
+
+    de_paths = {}
+    for path in GLib.get_system_data_dirs():
+        de_path = os.path.join(path, menu, 'desktop-directories')
+        if not os.path.exists(de_path):
+            continue
+        for filename in os.listdir(de_path):
+            if filename not in file_ids:
+                de_paths[filename] = de_path
+
+    user_dir = getUserDirectoriesDirectory()
+    for filename, basedir in de_paths.items():
+        if filename in file_ids:
+            continue
+
+        target_dir = os.path.join(user_dir, menu)
+        try:
+            os.makedirs(target_dir)
+        except:
+            pass
+        target = os.path.join(target_dir, filename)
+        if not os.path.exists(target):
+            src = os.path.join(basedir, filename)
+            try:
+                logger.debug("copy %s to %s" % (src, target))
+                shutil.copy2(src, target)
+            except:
+                logger.warning("Failed to copy %s to %s" % (src, target))
+                continue
+
+        try:
+            symlink = os.path.join(user_dir, filename)
+            if os.path.exists(symlink):
+                continue
+            os.symlink(target, symlink)
+        except:
+            logger.warning("Failed to symlink %s to %s" % (src, target))
+
+
+def unmapDesktopEnvironmentDirectories():
+    """
+    This feels wrong, but to make GMenu correctly handle desktop directories
+    in subdirectories, we need to bring them up to the top level.
+    """
+    menu = getDefaultMenuName()
+    if len(menu) == 0:
+        return
+
+    user_dir = getUserDirectoriesDirectory()
+
+    de_dir = os.path.join(user_dir, menu)
+    if not os.path.exists(de_dir):
+        return
+
+    for filename in os.listdir(user_dir):
+        filename = os.path.join(user_dir, filename)
+
+        if not filename.endswith(".directory"):
+            continue
+        if not os.path.islink(filename):
+            continue
+
+        realpath = os.path.realpath(filename)
+        if not realpath.startswith(de_dir):
+            continue
+
+        try:
+            os.remove(filename)
+        except:
+            logger.warning("Failed to remove symlink %s" % filename)
+
+def getUserDirectoriesDirectory():
     """Return the path to the user desktop-directories directory."""
     menu_dir = os.path.join(GLib.get_user_data_dir(), 'desktop-directories')
     if not os.path.isdir(menu_dir):
@@ -242,7 +404,16 @@ def getUserDirectoryPath():
     return menu_dir
 
 
-def getUserMenuPath():
+def getUserDirectoryPath(file_id):
+    """Return the path to the system-installed .directory file."""
+    path = getUserDirectoriesDirectory()
+    file_path = os.path.join(path, file_id)
+    if os.path.isfile(file_path):
+        return file_path
+    return None
+
+
+def getUserMenusDirectory():
     """Return the path to the user menus directory."""
     menu_dir = os.path.join(GLib.get_user_config_dir(), 'menus')
     if not os.path.isdir(menu_dir):
@@ -253,14 +424,9 @@ def getUserMenuPath():
 def getUserLauncherPath(basename):
     """Return the user-installed path to a .desktop or .directory file."""
     if basename.endswith('.desktop'):
-        check_dir = "applications"
+        return getUserItemPath(basename)
     else:
-        check_dir = "desktop-directories"
-    path = os.path.join(GLib.get_user_data_dir(), check_dir)
-    filename = os.path.join(path, basename)
-    if os.path.isfile(filename):
-        return filename
-    return None
+        return getUserDirectoryPath(basename)
 
 
 def getSystemMenuPath(file_id):
@@ -275,15 +441,9 @@ def getSystemMenuPath(file_id):
 def getSystemLauncherPath(basename):
     """Return the system-installed path to a .desktop or .directory file."""
     if basename.endswith('.desktop'):
-        check_dir = "applications"
+        return getItemPath(basename)
     else:
-        check_dir = "desktop-directories"
-    for path in GLib.get_system_data_dirs():
-        path = os.path.join(path, check_dir)
-        filename = os.path.join(path, basename)
-        if os.path.isfile(filename):
-            return filename
-    return None
+        return getDirectoryPath(basename)
 
 
 def getDirectoryName(directory_str):  # noqa
@@ -463,17 +623,17 @@ def getSaveFilename(name, filename, item_type, force_update=False):  # noqa
 
         # Use the current filename as a base.
         else:
-            basename = getBasename(filename)
+            basename = getRelativeName(filename)
 
         # Split the basename into filename and extension.
         name, ext = os.path.splitext(basename)
 
         # Get the save location of the launcher base on type.
         if item_type == 'Application':
-            path = getUserItemPath()
+            path = getUserApplicationsDirectory()
             ext = '.desktop'
         elif item_type == 'Directory':
-            path = getUserDirectoryPath()
+            path = getUserDirectoriesDirectory()
             ext = '.directory'
 
         basedir = os.path.dirname(os.path.join(path, basename))
@@ -653,7 +813,15 @@ def validate_desktop_file(desktop_file):  # noqa
         # missing in a failing desktop file.
         return _('%s key not found') % 'Type'
 
-    if type_key != GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION:
+    valid_type_keys = [
+        GLib.KEY_FILE_DESKTOP_TYPE_APPLICATION,
+        GLib.KEY_FILE_DESKTOP_TYPE_LINK,
+        GLib.KEY_FILE_DESKTOP_TYPE_DIRECTORY,
+        # KDE-specific types
+        # https://specifications.freedesktop.org/desktop-entry-spec/latest/apb.html
+        "ServiceType", "Service", "FSDevice"
+    ]
+    if type_key not in valid_type_keys:
         # Translators: This error is displayed when a failing desktop file
         # has an invalid value for the provided key.
         return (_('%s value is invalid - currently \'%s\', should be \'%s\'')
@@ -694,6 +862,9 @@ def validate_desktop_file(desktop_file):  # noqa
 
     if sandboxed:
         return False
+
+    if type_key == "Service":
+        return False # KDE services are not displayed in the menu
 
     # Translators: This error is displayed for a failing desktop file where
     # errors were detected but the file seems otherwise valid.
