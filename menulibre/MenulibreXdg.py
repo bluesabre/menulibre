@@ -22,6 +22,7 @@ from locale import gettext as _
 import subprocess
 
 from gi.repository import GLib
+from menulibre.util import find_program
 
 locale.textdomain('menulibre')
 
@@ -189,7 +190,9 @@ class MenulibreDesktopEntry:
 
 
 def desktop_menu_update():
-    subprocess.call(["xdg-desktop-menu", "forceupdate"])
+    xdg_desktop_menu = find_program("xdg-desktop-menu")
+    if xdg_desktop_menu is not None:
+        subprocess.call([xdg_desktop_menu, "forceupdate"])
 
 
 def desktop_menu_install(directory_files, desktop_files):
@@ -225,7 +228,11 @@ def desktop_menu_install(directory_files, desktop_files):
         if basename.startswith(vendor_prefix):
             return False
 
-    cmd_list = ["xdg-desktop-menu", "install", "--novendor"]
+    xdg_desktop_menu = find_program("xdg-desktop-menu")
+    if xdg_desktop_menu is None:
+        return False
+
+    cmd_list = [xdg_desktop_menu, "install", "--novendor"]
     cmd_list = cmd_list + directory_files + desktop_files
     subprocess.call(cmd_list)
 

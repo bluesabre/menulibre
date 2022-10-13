@@ -740,6 +740,40 @@ def determine_bad_desktop_files():
     return bad_desktop_files
 
 
+def find_program_in_path(command):
+    if os.path.exists(os.path.abspath(command)):
+        return os.path.abspath(command)
+
+    path = GLib.find_program_in_path(command)
+    if path is not None:
+        return path
+
+    for path in os.environ["PATH"].split(os.pathsep):
+        if os.path.exists(os.path.join(path, command)):
+            return os.path.join(path, command)
+
+    return None
+
+
+def find_program_in_sandbox(command):
+    if not sandboxed:
+        return None
+
+    for path in ["bin", "sbin", "games"]:
+        usr_path = "/usr/%s/" % path
+        host_path = "/run/host/%s/" % path
+
+        if os.path.exists(os.path.join(host_path, command)):
+            return os.path.join(host_path, command)
+
+        if (command.startswith(usr_path)):
+            cmd = command.replace(usr_path, host_path)
+            if os.path.lexists(cmd):
+                return cmd
+
+    return None
+
+
 def find_program(program):
     program = program.strip()
     if len(program) == 0:
@@ -749,17 +783,19 @@ def find_program(program):
     executable = params[0]
 
     if os.path.exists(executable):
+        abspath = os.path.abspath(executable)
+        if os.path.exists(abspath):
+            return abspath
+
         return executable
 
-    path = GLib.find_program_in_path(executable)
+    path = find_program_in_path(executable)
     if path is not None:
         return path
 
-    if sandboxed and executable.startswith("/"):
-        if not executable.startswith("/run/host"):
-            sandbox = os.path.join("/run/host", executable[1:])
-            if os.path.lexists(sandbox):
-                return sandbox
+    path = find_program_in_sandbox(executable)
+    if path is not None:
+        return path
 
     return None
 
