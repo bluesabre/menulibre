@@ -914,3 +914,9 @@ def unsandbox(filename):
         basepath = filename.split("/.var/app/org.bluesabre.MenuLibre/data/")[1]
         filename = os.path.join(os.path.expanduser("~/.local/share"), basepath)
     return filename
+
+
+def unsandbox_list(filenames):
+    for i in range(len(filenames)):
+        filenames[i] = unsandbox(filenames[i])
+    return filenames

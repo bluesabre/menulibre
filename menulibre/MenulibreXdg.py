@@ -22,7 +22,7 @@ from locale import gettext as _
 import subprocess
 
 from gi.repository import GLib
-from menulibre.util import find_program
+from menulibre.util import find_program, sandboxed, unsandbox_list
 
 locale.textdomain('menulibre')
 
@@ -190,9 +190,15 @@ class MenulibreDesktopEntry:
 
 
 def desktop_menu_update():
-    xdg_desktop_menu = find_program("xdg-desktop-menu")
-    if xdg_desktop_menu is not None:
-        subprocess.call([xdg_desktop_menu, "forceupdate"])
+    if sandboxed:
+        cmd = ["flatpak-spawn", "--host", "xdg-desktop-menu"]
+    else:
+        xdg_desktop_menu = find_program("xdg-desktop-menu")
+        if xdg_desktop_menu is None:
+            return
+        cmd = [xdg_desktop_menu]
+    cmd.append("forceupdate")
+    subprocess.call(cmd)
 
 
 def desktop_menu_install(directory_files, desktop_files):
@@ -228,12 +234,18 @@ def desktop_menu_install(directory_files, desktop_files):
         if basename.startswith(vendor_prefix):
             return False
 
-    xdg_desktop_menu = find_program("xdg-desktop-menu")
-    if xdg_desktop_menu is None:
-        return False
+    if sandboxed:
+        cmd_list = ["flatpak-spawn", "--host", "xdg-desktop-menu"]
+        directory_files = unsandbox_list(directory_files)
+        desktop_files = unsandbox_list(desktop_files)
+    else:
+        xdg_desktop_menu = find_program("xdg-desktop-menu")
+        if xdg_desktop_menu is None:
+            return False
+        cmd_list = [xdg_desktop_menu]
 
-    cmd_list = [xdg_desktop_menu, "install", "--novendor"]
-    cmd_list = cmd_list + directory_files + desktop_files
+    cmd_list = cmd_list + ["install", "--novendor"] + directory_files + desktop_files
+
     subprocess.call(cmd_list)
 
     return True
