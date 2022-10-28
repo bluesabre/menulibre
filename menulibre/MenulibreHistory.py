@@ -35,7 +35,7 @@ class History(GObject.GObject):
     }
 
     def __init__(self):
-        """Intialize the MenulibreHistory object."""
+        """Initialize the MenulibreHistory object."""
         GObject.GObject.__init__(self)
         self._undo = []
         self._redo = []
