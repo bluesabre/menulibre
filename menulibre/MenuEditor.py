@@ -206,6 +206,8 @@ def get_submenus(menu, tree_dir):
                 icon_name = icon.get_names()[0]
             elif isinstance(icon, Gio.FileIcon):
                 icon_name = icon.get_file().get_path()
+            elif icon is None:
+                icon = Gio.ThemedIcon.new(icon_name)
             
             filename = os.path.realpath(filename)
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-10 11:53-0400\n"
+"POT-Creation-Date: 2022-11-09 21:59-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1051,5 +1051,11 @@ msgid "Easily rearrange menu items to suit your needs."
 msgstr ""
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:8
+msgid ""
+"This release adds support for MATE and Unity and improves integration with "
+"the desktop environment."
+msgstr ""
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:9
 msgid "This release fixes a crash when menus fail to load on KDE."
 msgstr ""
