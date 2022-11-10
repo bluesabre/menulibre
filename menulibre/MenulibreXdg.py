@@ -204,7 +204,7 @@ def desktop_menu_update():
 def desktop_menu_install(directory_files, desktop_files):
     """Install one or more applications in a submenu of the desktop menu
     system.  If multiple directory files are provided each file will represent
-    a submenu within the menu that preceeds it, creating a nested menu
+    a submenu within the menu that precedes it, creating a nested menu
     hierarchy (sub-sub-menus). The menu entries themselves will be added to
     the last submenu. """
     # Check for the minimum required arguments
