@@ -1133,8 +1133,8 @@ msgid ""
 "This release adds support for MATE and Unity and improves integration with "
 "the desktop environment."
 msgstr ""
-"Esta versión añade soporte para MATE y Unity y mejora la integración con el "
-"entorno de escritorio."
+"Esta versión añade compatibilidad con MATE y Unity y mejora la integración "
+"con el entorno de escritorio."
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:9
 msgid "This release fixes a crash when menus fail to load on KDE."
