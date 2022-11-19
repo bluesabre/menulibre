@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-04 09:43-0400\n"
+"POT-Creation-Date: 2022-11-09 21:59-0500\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Toni Estévez <toni.estevez@gmail.com>, 2022\n"
 "Language-Team: Catalan (https://www.transifex.com/bluesabreorg/teams/99550/ca/)\n"
@@ -616,8 +616,8 @@ msgid "Click on the main application window for '%s'."
 msgstr "Feu clic a la finestra principal de l'aplicació per «%s»."
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:117 ../menulibre/MenulibreApplication.py:1329
-#: ../menulibre/MenulibreApplication.py:1887
+#: ../menulibre/MenuEditor.py:117 ../menulibre/MenulibreApplication.py:1331
+#: ../menulibre/MenulibreApplication.py:1889
 msgid "Separator"
 msgstr "Separador"
 
@@ -859,7 +859,7 @@ msgstr "_Surt"
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:527
-#: ../menulibre/MenulibreApplication.py:2425
+#: ../menulibre/MenulibreApplication.py:2427
 msgid "Quit"
 msgstr "Surt"
 
@@ -870,7 +870,7 @@ msgstr "_Contingut"
 
 #. Translators: Help action tooltip
 #: ../menulibre/MenulibreApplication.py:536
-#: ../menulibre/MenulibreApplication.py:2423
+#: ../menulibre/MenulibreApplication.py:2425
 msgid "Help"
 msgstr "Ajuda"
 
@@ -881,7 +881,7 @@ msgstr "_Quant a"
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:545
-#: ../menulibre/MenulibreApplication.py:2424
+#: ../menulibre/MenulibreApplication.py:2426
 msgid "About"
 msgstr "Quant a"
 
@@ -936,12 +936,12 @@ msgstr "Selecciona una carpeta de treball…"
 msgid "Select an executable…"
 msgstr "Selecciona un executable…"
 
-#: ../menulibre/MenulibreApplication.py:1256
-#: ../menulibre/MenulibreApplication.py:1271
+#: ../menulibre/MenulibreApplication.py:1258
+#: ../menulibre/MenulibreApplication.py:1273
 msgid "Menu restart required"
 msgstr "Cal reiniciar el menú"
 
-#: ../menulibre/MenulibreApplication.py:1257
+#: ../menulibre/MenulibreApplication.py:1259
 #, python-format
 msgid ""
 "MenuLibre can do this automatically. Do you want to run the following command?\n"
@@ -952,7 +952,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../menulibre/MenulibreApplication.py:1272
+#: ../menulibre/MenulibreApplication.py:1274
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
 "system. Please log out for you menu to update completely."
@@ -963,46 +963,46 @@ msgstr ""
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:1505
+#: ../menulibre/MenulibreApplication.py:1507
 msgid "You do not have permission to delete this file."
 msgstr "No teniu permís per suprimir aquest fitxer."
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1811
+#: ../menulibre/MenulibreApplication.py:1813
 msgid "New Launcher"
 msgstr "Llançador nou"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1814 ../menulibre/MenulibreXdg.py:49
+#: ../menulibre/MenulibreApplication.py:1816 ../menulibre/MenulibreXdg.py:49
 msgid "A small descriptive blurb about this application."
 msgstr "Una descripció curta d'aquesta aplicació."
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1865
+#: ../menulibre/MenulibreApplication.py:1867
 msgid "New Directory"
 msgstr "Carpeta nova"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1868
+#: ../menulibre/MenulibreApplication.py:1870
 msgid "A small descriptive blurb about this directory."
 msgstr "Una descripció curta sobre aquesta carpeta."
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:2302
+#: ../menulibre/MenulibreApplication.py:2304
 msgid "Are you sure you want to delete this separator?"
 msgstr "Segur que voleu suprimir aquest separador?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:2306
+#: ../menulibre/MenulibreApplication.py:2308
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Segur que voleu suprimir «%s»?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:2418
+#: ../menulibre/MenulibreApplication.py:2420
 msgid "Parsing Error Log"
 msgstr "Registre d'errors d'anàlisi"
 
@@ -1122,6 +1122,14 @@ msgid "Easily rearrange menu items to suit your needs."
 msgstr "Reorganitzeu fàcilment els elements del menú segons les necessitats."
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:8
+msgid ""
+"This release adds support for MATE and Unity and improves integration with "
+"the desktop environment."
+msgstr ""
+"Aquesta versió afegeix suport per a MATE i Unity i millora la integració amb"
+" l'entorn d'escriptori."
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:9
 msgid "This release fixes a crash when menus fail to load on KDE."
 msgstr ""
 "Aquesta versió corregeix un error que es produeix quan no es carreguen els "
