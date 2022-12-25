@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-10 11:53-0400\n"
+"POT-Creation-Date: 2022-11-09 21:59-0500\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Sabri Ünal <libreajans@gmail.com>, 2022\n"
 "Language-Team: Turkish (https://www.transifex.com/bluesabreorg/teams/99550/tr/)\n"
@@ -1123,6 +1123,14 @@ msgid "Easily rearrange menu items to suit your needs."
 msgstr "Menü öğelerini ihtiyaçlarınıza göre kolayca yeniden düzenleyin."
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:8
+msgid ""
+"This release adds support for MATE and Unity and improves integration with "
+"the desktop environment."
+msgstr ""
+"Bu sürüm, MATE ve Unity desteği ekler ve masaüstü ortamıyla bütünleşmeyi "
+"geliştirir."
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:9
 msgid "This release fixes a crash when menus fail to load on KDE."
 msgstr ""
 "Bu sürüm, menüler KDE'de yüklenemediğinde oluşan bir kilitlenmeyi düzeltir."
