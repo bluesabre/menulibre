@@ -637,7 +637,6 @@
                           <object class="GtkMenuButton" id="exec_env_vars">
                             <property name="visible">True</property>
                             <property name="can-focus">True</property>
-                            <property name="focus-on-click">False</property>
                             <property name="receives-default">True</property>
                             <property name="popover">popover_env</property>
                             <child>
@@ -658,9 +657,7 @@
                           <object class="GtkMenuButton" id="exec_command">
                             <property name="visible">True</property>
                             <property name="can-focus">True</property>
-                            <property name="focus-on-click">False</property>
                             <property name="receives-default">True</property>
-                            <property name="double-buffered">False</property>
                             <property name="popover">popover_command</property>
                             <child>
                               <object class="GtkLabel" id="exec_command_label">
@@ -680,7 +677,6 @@
                           <object class="GtkMenuButton" id="exec_file">
                             <property name="visible">True</property>
                             <property name="can-focus">True</property>
-                            <property name="focus-on-click">False</property>
                             <property name="receives-default">True</property>
                             <property name="popover">popover_file</property>
                             <child>
@@ -701,7 +697,6 @@
                           <object class="GtkMenuButton" id="exec_url">
                             <property name="visible">True</property>
                             <property name="can-focus">True</property>
-                            <property name="focus-on-click">False</property>
                             <property name="receives-default">True</property>
                             <property name="popover">popover_url</property>
                             <child>
@@ -722,7 +717,6 @@
                           <object class="GtkMenuButton" id="exec_extra">
                             <property name="visible">True</property>
                             <property name="can-focus">True</property>
-                            <property name="focus-on-click">False</property>
                             <property name="receives-default">True</property>
                             <property name="popover">popover_extra</property>
                             <child>
