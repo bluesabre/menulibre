@@ -44,21 +44,22 @@
       </row>
     </data>
   </object>
-  <object class="GtkPopover" id="popover2">
+  <object class="GtkPopover" id="popover_command">
     <property name="can-focus">False</property>
     <child>
       <!-- n-columns=2 n-rows=2 -->
-      <object class="GtkGrid">
+      <object class="GtkGrid" id="command_grid">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <property name="border-width">6</property>
         <property name="row-spacing">6</property>
         <property name="column-spacing">6</property>
         <child>
-          <object class="GtkLabel">
+          <object class="GtkLabel" id="command_label">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="label" translatable="yes">Command</property>
+            <property name="xalign">0</property>
             <attributes>
               <attribute name="weight" value="bold"/>
             </attributes>
@@ -69,7 +70,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkEntry">
+          <object class="GtkEntry" id="command_entry">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
           </object>
@@ -79,7 +80,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButtonBox">
+          <object class="GtkButtonBox" id="command_buttons">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="spacing">6</property>
@@ -2263,18 +2264,243 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-
       </object>
     </child>
   </object>
-  <object class="GtkPopover" id="popover1">
+  <object class="GtkPopover" id="popover4">
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkListBox">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <child>
+          <object class="GtkListBoxRow">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="border-width">3</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkLabel" id="field_code_single_url">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label">%u</property>
+                    <attributes>
+                      <attribute name="style" value="italic"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">A single URL.</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkListBoxRow">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="border-width">3</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkLabel" id="field_code_multi_url">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label">%U</property>
+                    <attributes>
+                      <attribute name="style" value="italic"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">A list of URLs.</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkPopover" id="popover5">
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkListBox">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <child>
+          <object class="GtkListBoxRow">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="border-width">3</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkLabel" id="field_code_icon">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label">%i</property>
+                    <attributes>
+                      <attribute name="style" value="italic"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">The &lt;tt&gt;Icon&lt;/tt&gt; key of this launcher.</property>
+                    <property name="use-markup">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkListBoxRow">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="border-width">3</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkLabel" id="field_code_name">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label">%c</property>
+                    <attributes>
+                      <attribute name="style" value="italic"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">The translated &lt;tt&gt;Name&lt;/tt&gt; key of this launcher.</property>
+                    <property name="use-markup">True</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkListBoxRow">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <child>
+              <object class="GtkBox">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="border-width">3</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkLabel" id="field_code_path">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">%k</property>
+                    <attributes>
+                      <attribute name="style" value="italic"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">The file path of this launcher.</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkPopover" id="popover_env_vars">
     <property name="can-focus">False</property>
     <child>
       <!-- n-columns=2 n-rows=2 -->
-      <object class="GtkGrid">
+      <object class="GtkGrid" id="env_grid">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
         <property name="border-width">6</property>
         <property name="row-spacing">6</property>
         <property name="column-spacing">6</property>
         <child>
-          <object class="GtkLabel">
+          <object class="GtkLabel" id="env_var_label">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="label" translatable="yes">Variable</property>
@@ -2289,7 +2515,7 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-
           </packing>
         </child>
         <child>
-          <object class="GtkEntry">
+          <object class="GtkEntry" id="env_var_entry">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
           </object>
@@ -2299,7 +2525,7 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-
           </packing>
         </child>
         <child>
-          <object class="GtkLabel">
+          <object class="GtkLabel" id="env_val_label">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <property name="label" translatable="yes">Value</property>
@@ -2314,7 +2540,7 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-
           </packing>
         </child>
         <child>
-          <object class="GtkEntry">
+          <object class="GtkEntry" id="env_val_entry">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
           </object>
@@ -2322,6 +2548,97 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-
             <property name="left-attach">1</property>
             <property name="top-attach">1</property>
           </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkPopover" id="popover_file">
+    <property name="can-focus">False</property>
+    <child>
+      <object class="GtkListBox" id="popover_file_list">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <child>
+          <object class="GtkListBoxRow" id="popover_single_file">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <child>
+              <object class="GtkBox" id="popover_single_file_box">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="border-width">3</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkLabel" id="field_code_single_file">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label">%f</property>
+                    <attributes>
+                      <attribute name="style" value="italic"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="field_msg_single_file">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">A single file or directory.</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkListBoxRow" id="popover_multi_file">
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <child>
+              <object class="GtkBox" id="popover_multi_file_box">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="border-width">3</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkLabel" id="field_code_multi_file">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label">%F</property>
+                    <attributes>
+                      <attribute name="style" value="italic"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="field_msg_multi_file">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="label" translatable="yes">A list of files or directories.</property>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+          </object>
         </child>
       </object>
     </child>
@@ -2381,13 +2698,11 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-
             <property name="orientation">vertical</property>
             <property name="spacing">18</property>
             <child>
-              <placeholder/>
-            </child>
-            <child>
               <object class="GtkBox">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
                 <property name="orientation">vertical</property>
+                <property name="spacing">6</property>
                 <child>
                   <object class="GtkBox" id="exec_editor">
                     <property name="visible">True</property>
@@ -2456,6 +2771,7 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-
                   <object class="GtkBox" id="exec_parameters">
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
+                    <property name="spacing">6</property>
                     <child>
                       <object class="GtkLabel" id="exec_params_label">
                         <property name="visible">True</property>
@@ -2482,7 +2798,7 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-
                             <property name="can-focus">True</property>
                             <property name="focus-on-click">False</property>
                             <property name="receives-default">True</property>
-                            <property name="popover">popover1</property>
+                            <property name="popover">popover_env_vars</property>
                             <child>
                               <object class="GtkLabel" id="exec_env_vars_label">
                                 <property name="visible">True</property>
@@ -2504,7 +2820,7 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-
                             <property name="focus-on-click">False</property>
                             <property name="receives-default">True</property>
                             <property name="double-buffered">False</property>
-                            <property name="popover">popover2</property>
+                            <property name="popover">popover_command</property>
                             <child>
                               <object class="GtkLabel" id="exec_command_label">
                                 <property name="visible">True</property>
@@ -2525,6 +2841,7 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-
                             <property name="can-focus">True</property>
                             <property name="focus-on-click">False</property>
                             <property name="receives-default">True</property>
+                            <property name="popover">popover_file</property>
                             <child>
                               <object class="GtkLabel" id="exec_file_label">
                                 <property name="visible">True</property>
@@ -2545,6 +2862,7 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-
                             <property name="can-focus">True</property>
                             <property name="focus-on-click">False</property>
                             <property name="receives-default">True</property>
+                            <property name="popover">popover4</property>
                             <child>
                               <object class="GtkLabel" id="exec_url_label">
                                 <property name="visible">True</property>
@@ -2565,6 +2883,7 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-
                             <property name="can-focus">True</property>
                             <property name="focus-on-click">False</property>
                             <property name="receives-default">True</property>
+                            <property name="popover">popover5</property>
                             <child>
                               <object class="GtkLabel" id="exec_extra_label">
                                 <property name="visible">True</property>
@@ -2695,5 +3014,16 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-
         </child>
       </object>
     </child>
+  </object>
+  <object class="GtkSizeGroup" id="field_codes">
+    <widgets>
+      <widget name="field_code_icon"/>
+      <widget name="field_code_name"/>
+      <widget name="field_code_path"/>
+      <widget name="field_code_single_url"/>
+      <widget name="field_code_multi_url"/>
+      <widget name="field_code_single_file"/>
+      <widget name="field_code_multi_file"/>
+    </widgets>
   </object>
 </interface>
