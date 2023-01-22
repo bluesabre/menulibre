@@ -98,3 +98,34 @@ def alias(alternative_function_name):
         function.aliases.append(alternative_function_name)
         return function
     return decorator
+
+import shlex
+
+def parse_exec(commandline):
+    result = { "env" : None, "command" : None, "args" : None }
+    parts = shlex.split(commandline, comments=False, posix=True)
+
+    env_search = False
+
+    if parts[0] == "env":
+        parts = parts[1:]
+        env_search = True
+
+    env = []
+    args = []
+
+    for part in parts:
+        if result["command"] is not None:
+            args.append(part)
+        elif env_search:
+            if "=" in part:
+                env.append(part)
+            else:
+                result["command"] = part
+                env_search = False
+    
+    result["env"] = shlex.join(env)
+    result["args"] = shlex.join(args)
+
+    return result
+
