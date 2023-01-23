@@ -137,6 +137,8 @@
           <object class="GtkEntry" id="env_var_entry">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
+            <property name="caps-lock-warning">False</property>
+            <property name="input-hints">GTK_INPUT_HINT_UPPERCASE_CHARS | GTK_INPUT_HINT_NO_EMOJI | GTK_INPUT_HINT_NONE</property>
           </object>
           <packing>
             <property name="left-attach">1</property>

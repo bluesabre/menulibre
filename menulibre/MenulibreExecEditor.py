@@ -17,7 +17,7 @@
 
 from gi.repository import Gtk, Gio
 from locale import gettext as _
-from operator import itemgetter
+import shlex
 
 import menulibre_lib
 
@@ -40,7 +40,6 @@ class ExecEditor:
 
     def edit(self, commandline):
         """Open a selection dialog to choose an icon."""
-        icon_name = None
         dialog = self._get_dialog()
         if dialog.run() == Gtk.ResponseType.APPLY:
             print("Apply")
@@ -71,105 +70,99 @@ class ExecEditor:
             icon = info.get_icon()
             name = info.get_name()
             app_list.append([name, executable, icon])
-        
-        app_list = sorted(app_list, key=itemgetter(0))
+
+        app_list = sorted(app_list, key = lambda x: x[0].lower())
 
         for app in app_list:
             applications_store.append(app)
-        
+
+        var_entry = builder.get_object('env_var_entry')
+        val_entry = builder.get_object('env_val_entry')
+        popover = builder.get_object('popover_env')
+
+        var_entry.connect('changed', self.on_env_var_entry_changed, val_entry)
+        val_entry.connect('changed', self.on_env_val_entry_changed)
+
+        var_entry.connect('activate', self.on_env_var_activate, var_entry, val_entry, popover)
+        val_entry.connect('activate', self.on_env_var_activate, var_entry, val_entry, popover)
+
         return self._dialog
 
-        # Load the dialog
-        if self._icon_sel_dialog is None:
 
-            self._icon_sel_dialog = \
-                builder.get_object('icon_selection_dialog')
-            self._icon_sel_dialog.set_transient_for(self._parent)
+    def on_env_var_activate(self, widget, var_entry, val_entry, popover):
+        if var_entry.get_icon_name(Gtk.EntryIconPosition.SECONDARY) != "gtk-apply":
+            return
+        if val_entry.get_icon_name(Gtk.EntryIconPosition.SECONDARY) != "gtk-apply":
+            return
 
-        # Load the icons list
-        if self._icons_list is None:
-            icon_theme = Gtk.IconTheme.get_default()
-            self.icons_list = icon_theme.list_icons(None)
-            self.icons_list.sort()
+        var = var_entry.get_text().strip()
+        val = val_entry.get_text().strip()
 
-        # Load the Icon Selection Treeview.
-        if self._icon_sel_treeview is None:
-            self._icon_sel_treeview = \
-                builder.get_object('icon_selection_treeview')
+        if " " in val:
+            val = shlex.quote(val)
 
-            button = builder.get_object('icon_selection_apply')
+        varval = "%s=%s" % (var, val)
 
-            # Create the searchable model.
-            model = self._icon_sel_treeview.get_model()
-            model_filter = model.filter_new()
-            model_filter.set_visible_func(self._icon_sel_match_func, entry)
-            self._icon_sel_treeview.set_model(model_filter)
+        current = shlex.split(self._entry.get_text())
 
-            # Attach signals.
-            entry.connect("changed", self._on_search_changed, model_filter)
-            entry.connect('icon-press', self._on_search_cleared)
-            self._icon_sel_treeview.connect("row-activated",
-                                            self._on_row_activated,
-                                            button)
-            self._icon_sel_treeview.connect("cursor-changed",
-                                            self._on_cursor_changed,
-                                            None, button)
-
-            model = self._get_icon_sel_tree_model()
-            for icon_name in self.icons_list:
-                model.append([icon_name])
-
-        self._icon_sel_select_icon_name(self._icon_name)
-
-        return self._icon_sel_dialog, self._icon_sel_treeview
-
-    def _icon_sel_select_icon_name(self, icon_name=None):
-        if icon_name is not None:
-            model = self._get_icon_sel_tree_model()
-            for i in range(len(model)):
-                if model[i][0] == icon_name:
-                    self._icon_sel_treeview.set_cursor(i, None, False)
-                    return
-
-        self._icon_sel_treeview.set_cursor(0, None, False)
-
-    def _get_icon_sel_tree_model(self):
-        return self._icon_sel_treeview.get_model().get_model()
-
-    def _icon_sel_match_func(self, model, treeiter, entry):
-        """Match function for filtering IconSelection search results."""
-        # Make the query case-insensitive.
-        query = str(entry.get_text().lower())
-
-        if query == "":
-            return True
-
-        return query in model[treeiter][0].lower()
-
-    def _on_row_activated(self, widget, path, column, button):
-        """Allow row activation to select the icon and close the dialog."""
-        button.activate()
-
-    def _on_cursor_changed(self, widget, selection, button):
-        """When the cursor selects a row, make the Apply button sensitive."""
-        button.set_sensitive(True)
-
-    def _on_search_changed(self, widget, treefilter, expand=False):
-        """Generic search entry changed callback function."""
-        query = widget.get_text()
-
-        if len(query) == 0:
-            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
-                                           None)
+        if "env" not in current:
+            new = ["env", varval] + current
 
         else:
-            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
-                                           'edit-clear-symbolic')
-            if expand:
-                self.treeview.expand_all()
+            added = False
+            new = []
+            for item in current:
+                if item == "env" or "=" in item or added:
+                    new.append(item)
+                elif not added:
+                    new.append(varval)
+                    new.append(item)
+                    added = True
+            if not added:
+                new.append(varval)
+        
+        command = shlex.join(new)
+        position = command.find(varval) + len(varval)
 
-        treefilter.refilter()
+        self._entry.set_text(shlex.join(new))
+        self._entry.set_position(position)
+        popover.popdown()
 
-    def _on_search_cleared(self, widget, event, user_data=None):
-        """Generic search cleared callback function."""
-        widget.set_text("")
+        var_entry.set_text("")
+        val_entry.set_text("")
+
+
+    def on_env_var_entry_changed(self, widget, val_entry):
+        text = widget.get_text()
+        text = text.lstrip()
+
+        if "=" in text:
+            parts = text.split("=", 2)
+            if len(parts[1]) > 0:
+                val_entry.set_text(parts[1].rstrip())
+            text = parts[0].strip()
+
+        text = text.upper()
+        widget.set_text(text)
+
+        if len(text) == 0:
+            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, None)
+            widget.set_icon_tooltip_text(Gtk.EntryIconPosition.SECONDARY, None)
+        elif " " in text:
+            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, "dialog-error")
+            widget.set_icon_tooltip_text(Gtk.EntryIconPosition.SECONDARY, _("Spaces not permitted in environment variables"))
+        else:
+            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, "gtk-apply")
+            widget.set_icon_tooltip_text(Gtk.EntryIconPosition.SECONDARY, None)
+
+
+    def on_env_val_entry_changed(self, widget):
+        text = widget.get_text()
+        text = text.strip()
+
+        if len(text) == 0:
+            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, None)
+            widget.set_icon_tooltip_text(Gtk.EntryIconPosition.SECONDARY, None)
+        else:
+            widget.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, "gtk-apply")
+            widget.set_icon_tooltip_text(Gtk.EntryIconPosition.SECONDARY, None)
