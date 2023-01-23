@@ -4,15 +4,18 @@
   <requires lib="gtk+" version="3.16"/>
   <object class="GtkListStore" id="application_list">
     <columns>
-      <!-- column-name icon-name -->
+      <!-- column-name name -->
       <column type="gchararray"/>
-      <!-- column-name app-name -->
+      <!-- column-name executable -->
       <column type="gchararray"/>
+      <!-- column-name icon -->
+      <column type="GObject"/>
     </columns>
     <data>
       <row>
-        <col id="0" translatable="yes"/>
-        <col id="1" translatable="yes">Select Application</col>
+        <col id="0" translatable="yes">Select Application</col>
+        <col id="1" translatable="yes"/>
+        <col id="2"/>
       </row>
     </data>
   </object>
@@ -79,13 +82,13 @@
                 <child>
                   <object class="GtkCellRendererText" id="app_label"/>
                   <attributes>
-                    <attribute name="text">1</attribute>
+                    <attribute name="text">0</attribute>
                   </attributes>
                 </child>
                 <child>
                   <object class="GtkCellRendererPixbuf" id="app_icon"/>
                   <attributes>
-                    <attribute name="pixbuf">0</attribute>
+                    <attribute name="gicon">2</attribute>
                   </attributes>
                 </child>
               </object>

@@ -30,7 +30,7 @@ from gi import require_version
 require_version('Gtk', '3.0')
 from gi.repository import Gio, GLib, GObject, Gtk, Gdk, GdkPixbuf
 
-from . import MenulibreStackSwitcher, MenulibreIconSelection
+from . import MenulibreStackSwitcher, MenulibreIconSelection, MenulibreExecEditor
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, MenulibreLog
 from . import MenuEditor
@@ -810,6 +810,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Icon Selector
         self.icon_selector = MenulibreIconSelection.IconSelector(parent=self)
+
+        self.exec_editor = MenulibreExecEditor.ExecEditor(parent=self)
+        self.exec_editor.edit("test")
 
         # Connect the Icon menu.
         select_icon_name = builder.get_object("icon_select_by_icon_name")
