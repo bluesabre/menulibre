@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.38.2 -->
+<!-- Generated with glade 3.40.0 -->
 <interface>
   <requires lib="gtk+" version="3.16"/>
   <object class="GtkMenu" id="add_popup_menu">
@@ -939,7 +939,7 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#ex
                                                     <property name="can-focus">True</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="invisible-char">•</property>
-                                                    <property name="secondary-icon-name">folder-open</property>
+                                                    <property name="secondary-icon-name">gtk-edit</property>
                                                   </object>
                                                   <packing>
                                                     <property name="left-attach">1</property>

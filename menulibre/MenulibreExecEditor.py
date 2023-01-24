@@ -40,10 +40,13 @@ class ExecEditor:
 
     def edit(self, commandline):
         """Open a selection dialog to choose an icon."""
+        response = commandline
         dialog = self._get_dialog()
+        self._entry.set_text(commandline)
         if dialog.run() == Gtk.ResponseType.APPLY:
-            print("Apply")
+            response = self._entry.get_text()
         dialog.hide()
+        return response
 
     def _get_dialog(self):
         """Get the icon selection dialog."""
