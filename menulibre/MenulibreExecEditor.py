@@ -18,6 +18,7 @@
 from gi.repository import Gtk, Gio
 from locale import gettext as _
 import shlex
+from collections import OrderedDict
 
 import menulibre_lib
 
@@ -89,7 +90,48 @@ class ExecEditor:
         var_entry.connect('activate', self.on_env_var_activate, var_entry, val_entry, popover)
         val_entry.connect('activate', self.on_env_var_activate, var_entry, val_entry, popover)
 
+        popover = builder.get_object('popover_command')
+
+        entry = builder.get_object('command_entry')
+        entry.connect('activate', self.on_command_entry_activate, popover)
+
+        file_chooser = builder.get_object('command_file_chooser')
+        file_chooser.connect('file-set', self.on_file_chooser_set, entry)
+
         return self._dialog
+    
+
+    def insert_at_command(self, value):
+        current = self._entry.get_text()
+        pos = self._entry.get_position()
+        before = current[0:pos]
+        after = current[pos:]
+
+        value = value.strip()
+
+        if before[-1] != "=":
+            value = " " + value
+
+        if len(after) > 0 and after[0] != " ":
+            value += " "
+
+        self._entry.set_text(before + value + after)
+        self._entry.set_position(pos + len(value))
+    
+
+    def on_command_entry_activate(self, widget, popover):
+        value = widget.get_text().strip()
+        self.insert_at_command(value)
+        popover.popdown()
+
+
+    def on_file_chooser_set(self, widget, entry):
+        filename = widget.get_filename()
+        entry.set_text(filename)
+        entry.grab_focus()
+        entry.set_position(len(filename))
+        widget.set_filename("")
+
 
 
     def on_env_var_activate(self, widget, var_entry, val_entry, popover):
