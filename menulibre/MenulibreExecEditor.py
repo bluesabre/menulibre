@@ -104,7 +104,23 @@ class ExecEditor:
         file_chooser = builder.get_object('command_file_chooser')
         file_chooser.connect('file-set', self.on_file_chooser_set, entry)
 
+        select = builder.get_object('command_app_chooser')
+        select.connect('changed', self.on_app_chooser_changed, entry)
+
         return self._dialog
+
+
+    def on_app_chooser_changed(self, widget, entry):
+        treeiter = widget.get_active_iter()
+        if treeiter is None:
+            return
+        treemodel = widget.get_model()
+        row = treemodel[treeiter][:]
+        binary = row[1]
+        entry.set_text(binary)
+        entry.grab_focus()
+        entry.set_position(len(binary))
+        widget.set_active_iter(None)
 
 
     def on_dialog_show(self, widget):
