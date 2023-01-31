@@ -44,6 +44,7 @@ class ExecEditor:
         response = commandline
         dialog = self._get_dialog()
         self._entry.set_text(commandline)
+        self._before = commandline
         if dialog.run() == Gtk.ResponseType.APPLY:
             response = self._entry.get_text()
         dialog.hide()
@@ -119,9 +120,26 @@ class ExecEditor:
         listbox = builder.get_object('extra_list')
         listbox.connect('row-activated', self.on_field_listbox_row_activated, popover)
 
+        button = builder.get_object('exec_editor_revert')
+        button.connect('clicked', self.on_revert_clicked)
+
+        button = builder.get_object('exec_editor_clear')
+        button.connect('clicked', self.on_clear_clicked)
+
         return self._dialog
 
-    
+
+    def on_revert_clicked(self, widget):
+        self._entry.set_text(self._before)
+        self._entry.set_position(len(self._before))
+        self._entry.grab_focus()
+
+
+    def on_clear_clicked(self, widget):
+        self._entry.set_text('')
+        self._entry.grab_focus()
+
+
     def on_field_listbox_row_activated(self, listbox, listrow, popover):
         field_value = listrow.get_children()[0].get_children()[0].get_text()
         self.insert_at_command(field_value)
