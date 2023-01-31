@@ -47,14 +47,16 @@ class ExecEditor:
         if dialog.run() == Gtk.ResponseType.APPLY:
             response = self._entry.get_text()
         dialog.hide()
+        dialog.destroy()
+        self._dialog = None
         return response
 
     def _get_dialog(self):
         """Get the icon selection dialog."""
-        builder = menulibre_lib.get_builder('ExecEditor')
-
         if self._dialog is not None:
             return self._dialog
+
+        builder = menulibre_lib.get_builder('ExecEditor')
 
         self._dialog = builder.get_object('ExecEditorDialog')
         self._entry = builder.get_object('exec_editor_entry')
@@ -80,9 +82,13 @@ class ExecEditor:
         for app in app_list:
             applications_store.append(app)
 
+        self._dialog.connect('show', self.on_dialog_show)
+
         var_entry = builder.get_object('env_var_entry')
         val_entry = builder.get_object('env_val_entry')
         popover = builder.get_object('popover_env')
+
+        popover.connect('show', self.on_env_popover_show, var_entry, val_entry)
 
         var_entry.connect('changed', self.on_env_var_entry_changed, val_entry)
         val_entry.connect('changed', self.on_env_val_entry_changed)
@@ -99,7 +105,20 @@ class ExecEditor:
         file_chooser.connect('file-set', self.on_file_chooser_set, entry)
 
         return self._dialog
-    
+
+
+    def on_dialog_show(self, widget):
+        text = self._entry.get_text()
+        self._entry.set_position(len(text))
+        self._entry.grab_focus()
+        self._entry.select_region(-1,-1)
+
+
+    def on_env_popover_show(self, widget, var_entry, val_entry):
+        var_entry.set_text('')
+        val_entry.set_text('')
+        var_entry.grab_focus()
+
 
     def insert_at_command(self, value):
         current = self._entry.get_text()
@@ -109,7 +128,7 @@ class ExecEditor:
 
         value = value.strip()
 
-        if before[-1] != "=":
+        if len(before) > 0 and before[-1] != "=":
             value = " " + value
 
         if len(after) > 0 and after[0] != " ":
@@ -117,7 +136,7 @@ class ExecEditor:
 
         self._entry.set_text(before + value + after)
         self._entry.set_position(pos + len(value))
-    
+
 
     def on_command_entry_activate(self, widget, popover):
         value = widget.get_text().strip()
@@ -165,7 +184,7 @@ class ExecEditor:
                     added = True
             if not added:
                 new.append(varval)
-        
+
         command = shlex.join(new)
         position = command.find(varval) + len(varval)
 
