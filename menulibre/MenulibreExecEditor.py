@@ -85,6 +85,8 @@ class ExecEditor:
 
         self._dialog.connect('show', self.on_dialog_show)
 
+        self._entry.connect('changed', self.on_entry_changed)
+
         var_entry = builder.get_object('env_var_entry')
         val_entry = builder.get_object('env_val_entry')
         popover = builder.get_object('popover_env')
@@ -127,6 +129,48 @@ class ExecEditor:
         button.connect('clicked', self.on_clear_clicked)
 
         return self._dialog
+
+
+    def is_env_var(self, text):
+        if "=" not in text:
+            return False
+        k = text.split("=")[0]
+        return k == k.upper()
+
+
+    def validate_env(self, text):
+        parts = shlex.split(text)
+
+        env_found = parts[0] == "env"
+        non_env_found = False
+
+        for part in parts:
+            if part == "env":
+                continue
+
+            if self.is_env_var(part):
+                if not env_found:
+                    return _("Environment variables should be preceded by env")
+                if non_env_found:
+                    return _("Environment variables should precede the command")
+
+            if "=" not in part:
+                non_env_found = True
+                continue
+
+        return False
+
+
+    def on_entry_changed(self, widget):
+        text = self._entry.get_text()
+
+        env_err = self.validate_env(text)
+        if env_err:
+            self._hint_env_img.set_from_icon_name('gtk-cancel', Gtk.IconSize.BUTTON)
+            self._hint_env_label.set_text(env_err)
+        else:
+            self._hint_env_img.set_from_icon_name('gtk-apply', Gtk.IconSize.BUTTON)
+            self._hint_env_label.set_text(_('No environment variable errors'))
 
 
     def on_revert_clicked(self, widget):
