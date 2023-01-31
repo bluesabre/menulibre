@@ -107,7 +107,25 @@ class ExecEditor:
         select = builder.get_object('command_app_chooser')
         select.connect('changed', self.on_app_chooser_changed, entry)
 
+        popover = builder.get_object('popover_file')
+        listbox = builder.get_object('file_list')
+        listbox.connect('row-activated', self.on_field_listbox_row_activated, popover)
+
+        popover = builder.get_object('popover_url')
+        listbox = builder.get_object('url_list')
+        listbox.connect('row-activated', self.on_field_listbox_row_activated, popover)
+
+        popover = builder.get_object('popover_extra')
+        listbox = builder.get_object('extra_list')
+        listbox.connect('row-activated', self.on_field_listbox_row_activated, popover)
+
         return self._dialog
+
+    
+    def on_field_listbox_row_activated(self, listbox, listrow, popover):
+        field_value = listrow.get_children()[0].get_children()[0].get_text()
+        self.insert_at_command(field_value)
+        popover.popdown()
 
 
     def on_app_chooser_changed(self, widget, entry):
