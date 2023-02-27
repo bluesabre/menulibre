@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-26 22:35-0500\n"
+"POT-Creation-Date: 2023-02-26 22:46-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,7 +147,7 @@ msgid ""
 msgstr ""
 
 #. Translators: Treeview column for an action item
-#: ../data/ui/MenulibreWindow.ui.h:44
+#: ../data/ui/MenulibreWindow.ui.h:44 ../data/ui/ExecEditor.ui.h:2
 msgid "Command"
 msgstr ""
 
@@ -206,7 +206,7 @@ msgid "Options"
 msgstr ""
 
 #. Translators: Button to add item to list.
-#: ../data/ui/MenulibreWindow.ui.h:66
+#: ../data/ui/MenulibreWindow.ui.h:66 ../data/ui/ExecEditor.ui.h:17
 msgid "Add"
 msgstr ""
 
@@ -241,15 +241,15 @@ msgstr ""
 #. Translators: Save On Leave Dialog, don't save, cancel leave.
 #. Translators: Revert Dialog, cancel button.
 #. Translators: File Chooser Dialog, cancel button.
-#: ../data/ui/MenulibreWindow.ui.h:78 ../menulibre/Dialogs.py:66
-#: ../menulibre/Dialogs.py:101 ../menulibre/Dialogs.py:130
-#: ../menulibre/Dialogs.py:169 ../menulibre/Dialogs.py:189
-#: ../menulibre/MenulibreIconSelection.py:81
+#: ../data/ui/MenulibreWindow.ui.h:78 ../data/ui/ExecEditor.ui.h:15
+#: ../menulibre/Dialogs.py:66 ../menulibre/Dialogs.py:101
+#: ../menulibre/Dialogs.py:130 ../menulibre/Dialogs.py:169
+#: ../menulibre/Dialogs.py:189 ../menulibre/MenulibreIconSelection.py:81
 msgid "Cancel"
 msgstr ""
 
 #. Translators: Button to accept and apply changes in a dialog.
-#: ../data/ui/MenulibreWindow.ui.h:80
+#: ../data/ui/MenulibreWindow.ui.h:80 ../data/ui/ExecEditor.ui.h:16
 msgid "Apply"
 msgstr ""
 
@@ -421,6 +421,83 @@ msgstr ""
 
 #: ../data/ui/MenulibreWindow.ui.h:135
 msgid "Uses Notifications"
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:1
+msgid "Select Application"
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:3
+msgid "Variable"
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:4
+msgid "Value"
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:5
+msgid "The <tt>Icon</tt> key of this launcher."
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:6
+msgid "The translated <tt>Name</tt> key of this launcher."
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:8
+#, no-c-format
+msgid "%k"
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:9
+msgid "The file path of this launcher."
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:10
+msgid "A single file or directory."
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:11
+msgid "A list of files or directories."
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:12
+msgid "A single URL."
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:13
+msgid "A list of URLs."
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:14
+msgid "Command Editor"
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:18
+msgid "Environment variable"
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:19
+msgid "File"
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:20
+msgid "URL"
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:21
+msgid "Extra"
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:22 ../menulibre/MenulibreExecEditor.py:264
+msgid "No environment variable errors"
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:23
+msgid "No command"
+msgstr ""
+
+#: ../data/ui/ExecEditor.ui.h:24 ../menulibre/MenulibreExecEditor.py:278
+msgid "No invalid field codes"
 msgstr ""
 
 #. Translators: Command line option to display debug messages on stdout
@@ -943,6 +1020,52 @@ msgstr ""
 #. Translators: Menu item to open the Parsing Errors dialog.
 #: ../menulibre/MenulibreApplication.py:2429
 msgid "Parsing Error Log"
+msgstr ""
+
+#: ../menulibre/MenulibreExecEditor.py:49
+#: ../menulibre/MenulibreExecEditor.py:202
+#: ../menulibre/MenulibreExecEditor.py:239
+msgid "No command found"
+msgstr ""
+
+#: ../menulibre/MenulibreExecEditor.py:182
+msgid "A single command line may only contain one of %f, %u, %F, or %U"
+msgstr ""
+
+#: ../menulibre/MenulibreExecEditor.py:186
+#, python-format
+msgid "Field code '%s' can not be used inside a quoted argument"
+msgstr ""
+
+#: ../menulibre/MenulibreExecEditor.py:190
+#, python-format
+msgid "Field code '%s' has been deprecated"
+msgstr ""
+
+#: ../menulibre/MenulibreExecEditor.py:224
+msgid "Environment variables should be preceded by env"
+msgstr ""
+
+#: ../menulibre/MenulibreExecEditor.py:226
+msgid "Environment variables should precede the command"
+msgstr ""
+
+#: ../menulibre/MenulibreExecEditor.py:241
+#, python-format
+msgid "File '%s' not found"
+msgstr ""
+
+#: ../menulibre/MenulibreExecEditor.py:243
+#, python-format
+msgid "Command '%s' not found"
+msgstr ""
+
+#: ../menulibre/MenulibreExecEditor.py:271
+msgid "No command errors"
+msgstr ""
+
+#: ../menulibre/MenulibreExecEditor.py:417
+msgid "Spaces not permitted in environment variables"
 msgstr ""
 
 #. Translators: File Chooser Dialog, window title.
