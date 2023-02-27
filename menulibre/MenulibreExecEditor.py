@@ -20,6 +20,7 @@ from locale import gettext as _
 import shlex
 from collections import OrderedDict
 import os
+import re
 
 import menulibre_lib
 
@@ -39,6 +40,16 @@ class ExecEditor:
         self._hint_field_img = None
         self._hint_field_label = None
         self._before = ""
+        self._last_results = {
+            "env": [],
+            "cmd": None,
+            "args": [],
+            "errors": {
+                "env": None,
+                "cmd": _("No command found"),
+                "fields": None
+            }
+        }
 
     def edit(self, commandline):
         """Open a selection dialog to choose an icon."""
@@ -139,30 +150,44 @@ class ExecEditor:
         return k == k.upper()
 
 
-    def validate_env(self, text):
-        parts = shlex.split(text)
+    def validate_field_codes(self, text):
+        deprecated = ["%d", "%D", "%n", "%N", "%v", "%m"]
+        singleton = ["%f", "%u", "%F", "%U"]
+        desktop = ["%i", "%c", "%k"]
+        keys = deprecated + singleton + desktop
 
-        if len(parts) == 0:
-            return False
+        found = {}
+        quoted = {}
 
-        env_found = parts[0] == "env"
-        non_env_found = False
+        for key in keys:
+            found[key] = 0
+            quoted[key] = 0
 
-        for part in parts:
-            if part == "env":
-                continue
+            q = re.compile(key)
+            found[key] = len(re.findall(q, text))
 
-            if self.is_env_var(part):
-                if not env_found:
-                    return _("Environment variables should be preceded by env")
-                if non_env_found:
-                    return _("Environment variables should precede the command")
+            q = re.compile('\"%s\"' % key)
+            quoted[key] = len(re.findall(q, text))
 
-            if "=" not in part:
-                non_env_found = True
-                continue
+            q = re.compile('\'%s\'' % key)
+            quoted[key] += len(re.findall(q, text))
 
-        return False
+        single = 0
+        for key in singleton:
+            single += found[key]
+
+        if single > 1:
+            return _("A single command line may only contain one of %f, %u, %F, or %U")
+
+        for key in keys:
+            if quoted[key] > 0:
+                return _("Field code '%s' can not be used inside a quoted argument") % key
+
+        for key in deprecated:
+            if found[key] > 0:
+                return _("Field code '%s' has been deprecated") % key
+
+        return None
 
 
     def validate_cmd(self, text):
@@ -176,7 +201,11 @@ class ExecEditor:
                 "fields": None
             }
         }
-        parts = shlex.split(text)
+
+        try:
+            parts = shlex.split(text)
+        except ValueError:
+            return self._last_results
 
         if len(parts) == 0:
             return results
@@ -213,6 +242,10 @@ class ExecEditor:
         else:
             results["errors"]["cmd"] = None
 
+        results["errors"]["fields"] = self.validate_field_codes(text)
+
+        self._last_results = results
+
         return results
 
 
@@ -227,13 +260,20 @@ class ExecEditor:
         else:
             self._hint_env_img.set_from_icon_name('gtk-apply', Gtk.IconSize.BUTTON)
             self._hint_env_label.set_text(_('No environment variable errors'))
-    
+
         if context["errors"]["cmd"] is not None:
             self._hint_cmd_img.set_from_icon_name('gtk-cancel', Gtk.IconSize.BUTTON)
             self._hint_cmd_label.set_text(context["errors"]["cmd"])
         else:
             self._hint_cmd_img.set_from_icon_name('gtk-apply', Gtk.IconSize.BUTTON)
             self._hint_cmd_label.set_text(_('No command errors'))
+
+        if context["errors"]["fields"] is not None:
+            self._hint_field_img.set_from_icon_name('gtk-cancel', Gtk.IconSize.BUTTON)
+            self._hint_field_label.set_text(context["errors"]["fields"])
+        else:
+            self._hint_field_img.set_from_icon_name('gtk-apply', Gtk.IconSize.BUTTON)
+            self._hint_field_label.set_text(_('No invalid field codes'))
 
 
     def on_revert_clicked(self, widget):
