@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
-#   Copyright (C) 2012-2022 Sean Davis <sean@bluesabre.org>
+#   Copyright (C) 2012-2023 Sean Davis <sean@bluesabre.org>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published
@@ -51,6 +51,7 @@ class ExecEditor:
             }
         }
 
+
     def edit(self, commandline):
         """Open a selection dialog to choose an icon."""
         response = commandline
@@ -63,6 +64,7 @@ class ExecEditor:
         dialog.destroy()
         self._dialog = None
         return response
+
 
     def _get_dialog(self):
         """Get the icon selection dialog."""
@@ -77,8 +79,8 @@ class ExecEditor:
         self._hint_env_label = builder.get_object('hint_env_label')
         self._hint_cmd_img = builder.get_object('hint_cmd_img')
         self._hint_cmd_label = builder.get_object('hint_cmd_label')
-        self._hint_field_img = builder.get_object('hint_cmd_img')
-        self._hint_field_label = builder.get_object('hint_cmd_label')
+        self._hint_field_img = builder.get_object('hint_field_img')
+        self._hint_field_label = builder.get_object('hint_field_label')
 
         applications_store = builder.get_object('application_list')
 
@@ -349,7 +351,6 @@ class ExecEditor:
         entry.grab_focus()
         entry.set_position(len(filename))
         widget.set_filename("")
-
 
 
     def on_env_var_activate(self, widget, var_entry, val_entry, popover):
