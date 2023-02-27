@@ -15,10 +15,11 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from gi.repository import Gtk, Gio
+from gi.repository import Gtk, Gio, GLib
 from locale import gettext as _
 import shlex
 from collections import OrderedDict
+import os
 
 import menulibre_lib
 
@@ -141,6 +142,9 @@ class ExecEditor:
     def validate_env(self, text):
         parts = shlex.split(text)
 
+        if len(parts) == 0:
+            return False
+
         env_found = parts[0] == "env"
         non_env_found = False
 
@@ -161,16 +165,75 @@ class ExecEditor:
         return False
 
 
+    def validate_cmd(self, text):
+        results = {
+            "env": [],
+            "cmd": None,
+            "args": [],
+            "errors": {
+                "env": None,
+                "cmd": _("No command found"),
+                "fields": None
+            }
+        }
+        parts = shlex.split(text)
+
+        if len(parts) == 0:
+            return results
+
+        env_found = parts[0] == "env"
+        non_env_found = False
+
+        for part in parts:
+            if part == "env":
+                continue
+
+            if self.is_env_var(part):
+                if not env_found:
+                    results["errors"]["env"] = _("Environment variables should be preceded by env")
+                elif non_env_found:
+                    results["errors"]["env"] = _("Environment variables should precede the command")
+                else:
+                    results["env"].append(part)
+                    continue
+            else:
+                non_env_found = True
+
+            if results["cmd"] is None:
+                results["cmd"] = part
+            else:
+                results["args"].append(part)
+
+        if results["cmd"] is None:
+            results["errors"]["cmd"] = _("No command found")
+        elif results["cmd"].startswith("/") and not os.path.isfile(results["cmd"]):
+            results["errors"]["cmd"] = _("File '%s' not found") % results["cmd"]
+        elif GLib.find_program_in_path(results["cmd"]) is None:
+            results["errors"]["cmd"] = _("Command '%s' not found") % results["cmd"]
+        else:
+            results["errors"]["cmd"] = None
+
+        return results
+
+
     def on_entry_changed(self, widget):
         text = self._entry.get_text()
 
-        env_err = self.validate_env(text)
-        if env_err:
+        context = self.validate_cmd(text)
+
+        if context["errors"]["env"] is not None:
             self._hint_env_img.set_from_icon_name('gtk-cancel', Gtk.IconSize.BUTTON)
-            self._hint_env_label.set_text(env_err)
+            self._hint_env_label.set_text(context["errors"]["env"])
         else:
             self._hint_env_img.set_from_icon_name('gtk-apply', Gtk.IconSize.BUTTON)
             self._hint_env_label.set_text(_('No environment variable errors'))
+    
+        if context["errors"]["cmd"] is not None:
+            self._hint_cmd_img.set_from_icon_name('gtk-cancel', Gtk.IconSize.BUTTON)
+            self._hint_cmd_label.set_text(context["errors"]["cmd"])
+        else:
+            self._hint_cmd_img.set_from_icon_name('gtk-apply', Gtk.IconSize.BUTTON)
+            self._hint_cmd_label.set_text(_('No command errors'))
 
 
     def on_revert_clicked(self, widget):
