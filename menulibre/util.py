@@ -32,6 +32,7 @@ import logging
 logger = logging.getLogger('menulibre')
 
 old_psutil_format = isinstance(psutil.Process.username, property)
+sandboxed = os.path.exists("/run/host")
 
 
 def enum(**enums):
@@ -739,6 +740,40 @@ def determine_bad_desktop_files():
     return bad_desktop_files
 
 
+def find_program_in_path(command):
+    if os.path.exists(os.path.abspath(command)):
+        return os.path.abspath(command)
+
+    path = GLib.find_program_in_path(command)
+    if path is not None:
+        return path
+
+    for path in os.environ["PATH"].split(os.pathsep):
+        if os.path.exists(os.path.join(path, command)):
+            return os.path.join(path, command)
+
+    return None
+
+
+def find_program_in_sandbox(command):
+    if not sandboxed:
+        return None
+
+    for path in ["bin", "sbin", "games"]:
+        usr_path = "/usr/%s/" % path
+        host_path = "/run/host/%s/" % path
+
+        if os.path.exists(os.path.join(host_path, command)):
+            return os.path.join(host_path, command)
+
+        if (command.startswith(usr_path)):
+            cmd = command.replace(usr_path, host_path)
+            if os.path.lexists(cmd):
+                return cmd
+
+    return None
+
+
 def find_program(program):
     program = program.strip()
     if len(program) == 0:
@@ -748,13 +783,22 @@ def find_program(program):
     executable = params[0]
 
     if os.path.exists(executable):
+        abspath = os.path.abspath(executable)
+        if os.path.exists(abspath):
+            return abspath
+
         return executable
 
-    path = GLib.find_program_in_path(executable)
+    path = find_program_in_path(executable)
+    if path is not None:
+        return path
+
+    path = find_program_in_sandbox(executable)
     if path is not None:
         return path
 
     return None
+
 
 def validate_desktop_file(desktop_file):  # noqa
     """Validate a known-bad desktop file in the same way GMenu/glib does, to
@@ -852,9 +896,27 @@ def validate_desktop_file(desktop_file):  # noqa
                   'according to GLib.shell_parse_argv, error: %s')
                 % ('Exec', exec_key, e))
 
+    if sandboxed:
+        return False
+
     if type_key == "Service":
         return False # KDE services are not displayed in the menu
 
     # Translators: This error is displayed for a failing desktop file where
     # errors were detected but the file seems otherwise valid.
     return _('Unknown error. Desktop file appears to be valid.')
+
+
+def unsandbox(filename):
+    if filename.startswith("/run/host"):
+        filename = filename[9:]
+    if "/.var/app/org.bluesabre.MenuLibre/data" in filename:
+        basepath = filename.split("/.var/app/org.bluesabre.MenuLibre/data/")[1]
+        filename = os.path.join(os.path.expanduser("~/.local/share"), basepath)
+    return filename
+
+
+def unsandbox_list(filenames):
+    for i in range(len(filenames)):
+        filenames[i] = unsandbox(filenames[i])
+    return filenames

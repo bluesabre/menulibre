@@ -35,7 +35,7 @@ from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, MenulibreLog
 from . import MenuEditor
 from .util import MenuItemTypes, check_keypress, getBasename, getRelativeName, getRelatedKeys
-from .util import escapeText, getCurrentDesktop, find_program, getProcessList
+from .util import escapeText, getCurrentDesktop, find_program, getProcessList, unsandbox
 import menulibre_lib
 
 import logging
@@ -1519,8 +1519,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         widget = self.widgets['Filename']
 
         # Set the label and tooltip.
-        widget.set_label(filename)
-        widget.set_tooltip_text(filename)
+        show_filename = unsandbox(filename)
+        widget.set_label(show_filename)
+        widget.set_tooltip_text(show_filename)
 
         # Store the filename value.
         self.values['filename'] = filename
@@ -2257,18 +2258,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.restore_launcher()
         dialog.destroy()
 
-    def find_in_path(self, command):
-        if os.path.exists(os.path.abspath(command)):
-            return os.path.abspath(command)
-        for path in os.environ["PATH"].split(os.pathsep):
-            if os.path.exists(os.path.join(path, command)):
-                return os.path.join(path, command)
-        return False
-
     def find_command_in_string(self, command):
-        for piece in shlex.split(command):
-            if "=" not in piece:
-                return piece
+        executable = find_program(command)
+        if executable:
+            return executable
         return False
 
     def on_execute_cb(self, widget, builder):
@@ -2280,7 +2273,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         entry = MenulibreXdg.MenulibreDesktopEntry(filename)
         command = self.find_command_in_string(entry["Exec"])
 
-        if self.find_in_path(command):
+        if find_program(command) is not None:
             subprocess.Popen(["xdg-open", filename])
             GObject.timeout_add(2000, self.on_execute_timeout, filename)
         else:

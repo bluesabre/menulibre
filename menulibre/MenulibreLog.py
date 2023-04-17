@@ -22,6 +22,7 @@ import subprocess
 from gi.repository import Gdk, Gio, Gtk
 
 import menulibre_lib
+from .util import unsandbox
 from . util import find_program
 
 import logging
@@ -60,7 +61,7 @@ class LogDialog:
 
     def add_item(self, filename, error):
         model = self._log_treeview.get_model()
-        model.append(["<b>%s</b>\n%s" % (filename, error),
+        model.append(["<b>%s</b>\n%s" % (unsandbox(filename), error),
                       filename])
 
     def get_editor_executable(self):
@@ -153,9 +154,9 @@ class LogDialog:
         if os.path.isdir(path):
             uri = "file://%s" % path
             if "show_uri_on_window" in dir(Gtk):
-                Gtk.show_uri_on_window(None, uri, 0)
+                Gtk.show_uri_on_window(None, uri, Gdk.CURRENT_TIME)
             else:
-                Gtk.show_uri(None, uri, 0)
+                Gtk.show_uri(None, uri, Gdk.CURRENT_TIME)
             return True
         else:
             binary = self.get_editor_executable()
@@ -219,7 +220,7 @@ class LogDialog:
 
     def set_clipboard(self, text):
         clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
-        clipboard.set_text(text, -1)
+        clipboard.set_text(unsandbox(text), -1)
 
     def motion_notify_event_cb(self, widget, event):
         details = self.get_path_details_at_pos(event.x, event.y)
