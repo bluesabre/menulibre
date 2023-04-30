@@ -845,8 +845,8 @@ msgstr "MenuLibre nie może być uruchamiany jako root."
 msgid ""
 "Please see the <a href='%s'>online documentation</a> for more information."
 msgstr ""
-"Zapoznaj się z <a href='%s'>dokumentacją online</a>, aby uzyskać więcej "
-"informacji."
+"Zapoznaj się z <a href='%s'>dokumentacją internetową</a>, aby uzyskać więcej"
+" informacji."
 
 #: ../menulibre/MenulibreApplication.py:292
 msgid "MenuLibre failed to load."
