@@ -572,7 +572,7 @@ msgstr "O programie MenuLibre"
 #. Translators: Help Dialog, window title.
 #: ../menulibre/Dialogs.py:58
 msgid "Online Documentation"
-msgstr "Dokumentacja sieciowa"
+msgstr "Dokumentacja internetowa"
 
 #. Translators: Help Dialog, primary text.
 #: ../menulibre/Dialogs.py:60
