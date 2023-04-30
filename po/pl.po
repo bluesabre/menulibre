@@ -693,7 +693,7 @@ msgstr "Czy masz uprawnienia do zapisu dla tego pliku i katalogu?"
 #: ../menulibre/Dialogs.py:254
 #, python-format
 msgid "Click on the main application window for '%s'."
-msgstr "Kliknij główne okno programu dla \"%s\"."
+msgstr "Kliknij główne okno programu dla '%s'."
 
 #. Translators: Separator menu item
 #: ../menulibre/MenuEditor.py:126 ../menulibre/MenulibreApplication.py:1346
