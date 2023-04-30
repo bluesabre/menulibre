@@ -490,7 +490,7 @@ msgstr "Klucz <tt>Ikona</tt> tego aktywatora."
 
 #: ../data/ui/ExecEditor.ui.h:6
 msgid "The translated <tt>Name</tt> key of this launcher."
-msgstr "Przetłumaczony klucz <tt>Nazwa</tt>tego aktywatora."
+msgstr "Przetłumaczony klucz <tt>Nazwa</tt> tego aktywatora."
 
 #: ../data/ui/ExecEditor.ui.h:8
 #, no-c-format
