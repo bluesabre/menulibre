@@ -1201,7 +1201,7 @@ msgid ""
 "%s program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
-"\"%s\" programu %s nie jest prawidłowym poleceniem powłoki zgodnie z "
+"'%s' programu %s nie jest prawidłowym poleceniem powłoki zgodnie z "
 "GLib.shell_parse_argv, błąd: %s"
 
 #. KDE services are not displayed in the menu
