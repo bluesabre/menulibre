@@ -41,6 +41,25 @@ locale.textdomain('menulibre')
 
 icon_theme = Gtk.IconTheme.get_default()
 
+
+def get_icon_theme_name():
+    try:
+        lookup = icon_theme.lookup_icon("folder", 16, 0)
+        if lookup is not None:
+            filename = os.path.realpath(lookup.get_filename())
+            path = filename.split('/')
+            for i in range(len(path)-1):
+                index = os.path.join('/'.join(path[0:-i]), 'index.theme')
+                if os.path.exists(index):
+                    return path[-i-1]
+    except:
+        pass
+    return "Adwaita"
+
+
+icon_theme_name = get_icon_theme_name()
+
+
 menu_name = ""
 
 
@@ -72,38 +91,6 @@ def get_default_menu():
         if system_dir:
             return filename
     return None
-
-
-def load_fallback_icon(icon_size):
-    """If icon loading fails, load a fallback icon instead."""
-    info = icon_theme.lookup_icon(
-        "image-missing", icon_size,
-        Gtk.IconLookupFlags.GENERIC_FALLBACK | Gtk.IconLookupFlags.USE_BUILTIN)
-    return info.load_icon()
-
-
-def load_icon(gicon, icon_size):
-    """Load an icon, either from the icon theme or from a filename."""
-    pixbuf = None
-
-    if gicon is None:
-        return None
-
-    else:
-        info = icon_theme.lookup_by_gicon(gicon, icon_size, 0)
-
-        if info is None:
-            pixbuf = load_fallback_icon(icon_size)
-        else:
-            try:
-                pixbuf = info.load_icon()
-            except GLib.GError:
-                pixbuf = load_fallback_icon(icon_size)
-
-    if pixbuf.get_width() != icon_size or pixbuf.get_height() != icon_size:
-        pixbuf = pixbuf.scale_simple(
-            icon_size, icon_size, GdkPixbuf.InterpType.HYPER)
-    return pixbuf
 
 
 def menu_to_treestore(treestore, parent, menu_items):
@@ -160,6 +147,25 @@ def get_treestore():
     return menu_to_treestore(treestore, None, menus[0])
 
 
+def get_extended_icons(icon_names, extended_names):
+    results = []
+    prefer_symbolic = icon_theme_name in ["Adwaita"] and "folder" in extended_names
+    for name in icon_names:
+        if icon_theme.has_icon(name):
+            return results
+    if prefer_symbolic:
+        for name in extended_names:
+            name = name + "-symbolic"
+            if icon_theme.has_icon(name):
+                results.append(name)
+        if len(results) > 0:
+            return results
+    for name in extended_names:
+        if icon_theme.has_icon(name):
+            results.append(name)
+    return results
+
+
 def get_submenus(menu, tree_dir):
     """Get the submenus for a tree directory."""
     structure = []
@@ -173,6 +179,7 @@ def get_submenus(menu, tree_dir):
                 app_info = child.get_app_info()
                 icon = app_info.get_icon()
                 icon_name = "applications-other"
+                icon_names = ["applications-other", "application-x-executable"]
                 display_name = app_info.get_display_name()
                 generic_name = app_info.get_generic_name()
                 comment = app_info.get_description()
@@ -192,6 +199,7 @@ def get_submenus(menu, tree_dir):
                 entry_id = child.get_menu_id()
                 icon = child.get_icon()
                 icon_name = "folder"
+                icon_names = ["folder"]
                 display_name = child.get_name()
                 generic_name = child.get_generic_name()
                 comment = child.get_comment()
@@ -201,8 +209,13 @@ def get_submenus(menu, tree_dir):
                 filename = child.get_desktop_file_path()
                 hidden = child.get_is_nodisplay()
                 submenus = get_submenus(menu, child)
+            
+            else:
+                icon_names = []
 
             if isinstance(icon, Gio.ThemedIcon):
+                for extended_icon_name in get_extended_icons(icon.get_names(), icon_names):
+                    icon.append_name(extended_icon_name)
                 icon_name = icon.get_names()[0]
             elif isinstance(icon, Gio.FileIcon):
                 icon_name = icon.get_file().get_path()

@@ -1470,14 +1470,22 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Set the editor Icon button image."""
         button, image = self.widgets['Icon']
 
-        if icon_name is not None:
-            # Load the Icon Theme.
-            icon_theme = Gtk.IconTheme.get_default()
+        # Load the Icon Theme.
+        icon_theme = Gtk.IconTheme.get_default()
 
+        if icon_name is not None:
             # If the Icon Theme has the icon, set the image to that icon.
             if icon_theme.has_icon(icon_name):
                 image.set_from_icon_name(icon_name, 48)
+                image.set_tooltip_text(icon_name)
                 self.icon_selector.set_icon_name(icon_name)
+                return
+
+            # If the Icon Theme has a symbolic version of the icon, set the image to that icon.
+            if icon_theme.has_icon(icon_name + "-symbolic"):
+                image.set_from_icon_name(icon_name + "-symbolic", 48)
+                image.set_tooltip_text(icon_name)
+                self.icon_selector.set_icon_name(icon_name + "-symbolic")
                 return
 
             # If the icon name is actually a file, render it to the Image.
@@ -1487,10 +1495,25 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 scaled = pixbuf.scale_simple(size, size,
                                              GdkPixbuf.InterpType.HYPER)
                 image.set_from_pixbuf(scaled)
+                image.set_tooltip_text(icon_name)
+                self.icon_selector.set_filename(icon_name)
+                return
+            
+            else:
+                image.set_tooltip_markup(_("<i>Missing icon:</i> %s") % icon_name)
+
+                if icon_name.startswith("applications-"):
+                    icon_name = "image-missing"
+                else:
+                    icon_name = "application-x-executable"
                 self.icon_selector.set_filename(icon_name)
                 return
 
-        image.set_from_icon_name("applications-other", 48)
+        if icon_theme.has_icon("applications-other"):
+            image.set_from_icon_name("applications-other", 48)
+            return
+
+        image.set_from_icon_name("application-x-executable", 48)
 
     def set_editor_filename(self, filename):
         """Set the editor filename."""
