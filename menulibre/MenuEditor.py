@@ -178,8 +178,8 @@ def get_submenus(menu, tree_dir):
                 entry_id = child.get_desktop_file_id()
                 app_info = child.get_app_info()
                 icon = app_info.get_icon()
-                icon_name = "applications-other"
-                icon_names = ["applications-other", "application-x-executable"]
+                icon_name = app_info.get_string("Icon")
+                extended_icon_names = ["applications-other", "application-x-executable"]
                 display_name = app_info.get_display_name()
                 generic_name = app_info.get_generic_name()
                 comment = app_info.get_description()
@@ -198,8 +198,8 @@ def get_submenus(menu, tree_dir):
                 item_type = MenuItemTypes.DIRECTORY
                 entry_id = child.get_menu_id()
                 icon = child.get_icon()
-                icon_name = "folder"
-                icon_names = ["folder"]
+                icon_name = None
+                extended_icon_names = ["folder"]
                 display_name = child.get_name()
                 generic_name = child.get_generic_name()
                 comment = child.get_comment()
@@ -209,19 +209,30 @@ def get_submenus(menu, tree_dir):
                 filename = child.get_desktop_file_path()
                 hidden = child.get_is_nodisplay()
                 submenus = get_submenus(menu, child)
-            
-            else:
-                icon_names = []
 
+            else:
+                extended_icon_names = []
+
+            icon_names = []
             if isinstance(icon, Gio.ThemedIcon):
-                for extended_icon_name in get_extended_icons(icon.get_names(), icon_names):
-                    icon.append_name(extended_icon_name)
-                icon_name = icon.get_names()[0]
+                icon_names = icon.get_names()
             elif isinstance(icon, Gio.FileIcon):
-                icon_name = icon.get_file().get_path()
+                icon_names = [icon.get_file().get_path()]
+
+            if icon_name is not None:
+                icon_names = [icon_name] + icon_names
+
+            for extended_icon_name in get_extended_icons(icon_names, extended_icon_names):
+                if isinstance(icon, Gio.ThemedIcon):
+                    icon.append_name(extended_icon_name)
+                icon_names.append(extended_icon_name)
+
+            if icon_name is None:
+                icon_name = icon_names[0]
+
             elif icon is None:
                 icon = Gio.ThemedIcon.new(icon_name)
-            
+
             filename = os.path.realpath(filename)
 
             details = {'display_name': display_name,
@@ -332,7 +343,7 @@ class MenuEditor(object):
         if not self.tree.load_sync():
             raise ValueError("can not load menu tree %r" %
                              (self.tree.props.menu_basename,))
-    
+
     def unmap(self):
         unmapDesktopEnvironmentDirectories()
 
