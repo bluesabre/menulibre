@@ -819,6 +819,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         select_icon_file = builder.get_object("icon_select_by_filename")
         select_icon_file.connect("activate",
                                  self.on_IconSelectFromFilename_clicked)
+        
+        # Connect the Icon overlay.
+        overlay = builder.get_object("icon_overlay")
+        self.overlay_icon = builder.get_object("overlay_icon")
+        overlay.add_overlay(self.overlay_icon)
+        overlay.set_overlay_pass_through(self.overlay_icon, True)
 
         # Categories Treeview and Inline Toolbar
         self.categories_treeview = builder.get_object('categories_treeview')
@@ -1466,6 +1472,18 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         widget.set_text("")
 
 # Setters and Getters
+    def set_editor_image_success(self, button, image, text):
+        button.set_tooltip_text(text)
+        image.set_opacity(1.0)
+        self.overlay_icon.hide()
+
+
+    def set_editor_image_error(self, button, image, markup):
+        button.set_tooltip_markup(markup)
+        image.set_opacity(0.7)
+        self.overlay_icon.show()
+
+
     def set_editor_image(self, icon_name):
         """Set the editor Icon button image."""
         button, image = self.widgets['Icon']
@@ -1477,15 +1495,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # If the Icon Theme has the icon, set the image to that icon.
             if icon_theme.has_icon(icon_name):
                 image.set_from_icon_name(icon_name, 48)
-                image.set_tooltip_text(icon_name)
+                self.set_editor_image_success(button, image, icon_name)
                 self.icon_selector.set_icon_name(icon_name)
                 return
 
             # If the Icon Theme has a symbolic version of the icon, set the image to that icon.
             if icon_theme.has_icon(icon_name + "-symbolic"):
-                image.set_from_icon_name(icon_name + "-symbolic", 48)
-                image.set_tooltip_text(icon_name)
-                self.icon_selector.set_icon_name(icon_name + "-symbolic")
+                icon_name = icon_name + "-symbolic"
+                image.set_from_icon_name(icon_name, 48)
+                self.set_editor_image_success(button, image, icon_name)
+                self.icon_selector.set_icon_name(icon_name)
                 return
 
             # If the icon name is actually a file, render it to the Image.
@@ -1495,17 +1514,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 scaled = pixbuf.scale_simple(size, size,
                                              GdkPixbuf.InterpType.HYPER)
                 image.set_from_pixbuf(scaled)
-                image.set_tooltip_text(icon_name)
+                self.set_editor_image_success(button, image, icon_name)
                 self.icon_selector.set_filename(icon_name)
                 return
             
             else:
-                image.set_tooltip_markup(_("<i>Missing icon:</i> %s") % icon_name)
+                self.set_editor_image_error(button, image, _("<i>Missing icon:</i> %s") % icon_name)
 
                 if icon_name.startswith("applications-"):
-                    icon_name = "image-missing"
+                    icon_name = "folder"
                 else:
                     icon_name = "application-x-executable"
+
+                image.set_from_icon_name(icon_name, 48)
                 self.icon_selector.set_filename(icon_name)
                 return
 
@@ -1839,7 +1860,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         comment = _("A small descriptive blurb about this application.")
         categories = ""
         item_type = MenuItemTypes.APPLICATION
-        icon_name = "applications-other"
+        icon_name = "application-x-executable"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
         executable = ""
