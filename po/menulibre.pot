@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-30 18:03-0400\n"
+"POT-Creation-Date: 2023-04-30 18:15-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -563,7 +563,7 @@ msgid "Click on the main application window for '%s'."
 msgstr ""
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:104 ../menulibre/MenulibreApplication.py:1337
+#: ../menulibre/MenuEditor.py:126 ../menulibre/MenulibreApplication.py:1337
 #: ../menulibre/MenulibreApplication.py:1933
 msgid "Separator"
 msgstr ""

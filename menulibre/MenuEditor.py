@@ -42,7 +42,17 @@ locale.textdomain('menulibre')
 icon_theme = Gtk.IconTheme.get_default()
 
 
-def get_icon_theme_name():
+def get_icon_theme_name_from_settings():
+    try:
+        theme_name = Gtk.Settings.get_default().get_property("gtk-icon-theme-name")
+        if theme_name is not None and len(theme_name) > 0:
+            return theme_name
+    except:
+        pass
+    return None
+
+
+def get_icon_theme_name_from_icons():
     try:
         lookup = icon_theme.lookup_icon("folder", 16, 0)
         if lookup is not None:
@@ -54,6 +64,18 @@ def get_icon_theme_name():
                     return path[-i-1]
     except:
         pass
+    return None
+
+
+def get_icon_theme_name():
+    icon_theme = get_icon_theme_name_from_settings()
+    if icon_theme is not None:
+        return icon_theme
+
+    icon_theme = get_icon_theme_name_from_icons()
+    if icon_theme is not None:
+        return icon_theme
+
     return "Adwaita"
 
 
