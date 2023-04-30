@@ -68,13 +68,13 @@ def get_icon_theme_name_from_icons():
 
 
 def get_icon_theme_name():
-    icon_theme = get_icon_theme_name_from_settings()
-    if icon_theme is not None:
-        return icon_theme
+    theme_name = get_icon_theme_name_from_settings()
+    if theme_name is not None:
+        return theme_name
 
-    icon_theme = get_icon_theme_name_from_icons()
-    if icon_theme is not None:
-        return icon_theme
+    theme_name = get_icon_theme_name_from_icons()
+    if theme_name is not None:
+        return theme_name
 
     return "Adwaita"
 
