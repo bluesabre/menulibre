@@ -2,6 +2,8 @@ MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 Unreleased, MenuLibre 2.3.1
 
+- New Features:
+  . Add new Exec Editor dialog
 - Bug Fixes:
   . Better handling for missing icons (#145)
 

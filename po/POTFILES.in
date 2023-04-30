@@ -18,6 +18,7 @@ menulibre.desktop.in
 
 # Glade Files
 [type: gettext/glade]data/ui/MenulibreWindow.ui
+[type: gettext/glade]data/ui/ExecEditor.ui
 
 # Python Files
 menulibre/__init__.py
@@ -25,6 +26,7 @@ menulibre/Dialogs.py
 menulibre/MenuEditor.py
 menulibre/MenulibreApplication.py
 menulibre/MenulibreHistory.py
+menulibre/MenulibreExecEditor.py
 menulibre/MenulibreIconSelection.py
 menulibre/MenulibreStackSwitcher.py
 menulibre/MenulibreTreeview.py

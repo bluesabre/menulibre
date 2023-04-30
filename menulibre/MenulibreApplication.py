@@ -30,7 +30,7 @@ from gi import require_version
 require_version('Gtk', '3.0')
 from gi.repository import Gio, GLib, GObject, Gtk, Gdk, GdkPixbuf
 
-from . import MenulibreStackSwitcher, MenulibreIconSelection
+from . import MenulibreStackSwitcher, MenulibreIconSelection, MenulibreExecEditor
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, MenulibreLog
 from . import MenuEditor
@@ -795,10 +795,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                               widget_name)
 
         # Configure the Exec/Path widgets.
-        for widget_name in ['Exec', 'Path']:
+        for widget_name in ['Path']:
             button = builder.get_object('entry_%s' % widget_name)
-            button.connect('icon-press', self.on_ExecPath_clicked, widget_name,
+            button.connect('icon-press', self.on_Path_clicked, widget_name,
                            builder)
+        
+        button = builder.get_object('entry_Exec')
+        button.connect('icon-press', self.on_Exec_clicked)
 
         xprop = find_program('xprop')
         if xprop is None:
@@ -810,6 +813,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Icon Selector
         self.icon_selector = MenulibreIconSelection.IconSelector(parent=self)
+
+        self.exec_editor = MenulibreExecEditor.ExecEditor(parent=self)
 
         # Connect the Icon menu.
         select_icon_name = builder.get_object("icon_select_by_icon_name")
@@ -1204,8 +1209,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.actions['save_launcher'].set_sensitive(True)
             self.save_button.set_sensitive(True)
 
+    def on_Exec_clicked(self, entry, icon, event):
+        """Show the file selection dialog when Exec/Path Browse is clicked."""
+        entry.set_text(self.exec_editor.edit(entry.get_text()))
+
 # Browse button functionality for Exec and Path widgets.
-    def on_ExecPath_clicked(self, entry, icon, event, widget_name, builder):
+    def on_Path_clicked(self, entry, icon, event, widget_name, builder):
         """Show the file selection dialog when Exec/Path Browse is clicked."""
         if widget_name == 'Path':
             # Translators: File Chooser Dialog, window title.
