@@ -1115,7 +1115,7 @@ msgstr "Kod pola '%s' został wycofany"
 
 #: ../menulibre/MenulibreExecEditor.py:224
 msgid "Environment variables should be preceded by env"
-msgstr "Zmienne środowiskowe powinny być poprzedzone env"
+msgstr "Zmienne środowiskowe powinny być poprzedzone przez env"
 
 #: ../menulibre/MenulibreExecEditor.py:226
 msgid "Environment variables should precede the command"
