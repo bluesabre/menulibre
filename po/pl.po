@@ -286,7 +286,7 @@ msgid ""
 "The following desktop files have failed parsing by the underlying library, and will therefore not show up in MenuLibre.\n"
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
-"Parsowanie następujących plików z wpisami przez bibliotekę nie powiodło się, więc nie będą one widoczne w MenuLibre.\n"
+"Analizowanie następujących plików z wpisami przez bibliotekę nie powiodło się, więc nie będą one widoczne w MenuLibre.\n"
 "Poinformuj opiekuna tych pakietów o problemach."
 
 #. Translators: Tooltip for the "GenericName" text entry.
