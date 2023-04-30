@@ -950,7 +950,7 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#ex
                                                     <property name="can-focus">True</property>
                                                     <property name="hexpand">True</property>
                                                     <property name="invisible-char">•</property>
-                                                    <property name="secondary-icon-name">gtk-edit</property>
+                                                    <property name="secondary-icon-name">document-edit-symbolic</property>
                                                   </object>
                                                   <packing>
                                                     <property name="left-attach">1</property>
