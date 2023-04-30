@@ -861,7 +861,7 @@ msgid ""
 "documentation</a> for more information."
 msgstr ""
 "Nie można znaleźć menu domyślnego. Zapoznaj się z <a href='%s'>dokumentacją "
-"online</a>, aby uzyskać więcej informacji."
+"internetową</a>, aby uzyskać więcej informacji."
 
 #: ../menulibre/MenulibreApplication.py:302
 msgid "Diagnostics"
