@@ -1,6 +1,21 @@
-name: Check for typos
-on: [push, pull_request]
+name: Codespell
+on:
+  push:
+  pull_request:
+    branches:
+    - master
 
 jobs:
   codespell:
-    uses: codespell-project/actions-codespell@v1
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 1
+    - name: Check code spell
+      uses: codespell-project/actions-codespell@v1
+      with:
+        check_filenames: true
+        ignore_words_file: .codespellignore
+        skip: "*/**.yaml,*/**.yml"
