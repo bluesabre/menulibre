@@ -1,6 +1,8 @@
 name: Codespell
 on:
   push:
+    branches:
+    - master
   pull_request:
     branches:
     - master
@@ -18,4 +20,4 @@ jobs:
       with:
         check_filenames: true
         ignore_words_file: .codespellignore
-        skip: "*/**.yaml,*/**.yml"
+        skip: "*/**.yaml,*/**.yml,po/**.po"
