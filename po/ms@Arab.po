@@ -935,7 +935,7 @@ msgstr "کلوار"
 #. Translators: Help action label
 #: ../menulibre/MenulibreApplication.py:534
 msgid "_Contents"
-msgstr "کندوڠن (_C)"
+msgstr "کاندوڠن (_C)"
 
 #. Translators: Help action tooltip
 #: ../menulibre/MenulibreApplication.py:536
