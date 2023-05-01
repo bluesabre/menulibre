@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-30 18:32-0400\n"
+"POT-Creation-Date: 2023-04-30 21:49-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Marek Adamski, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/bluesabreorg/teams/99550/pl/)\n"
@@ -1231,28 +1231,28 @@ msgid "Features:"
 msgstr "Cechy:"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:4
-msgid "A beautiful interface powered by the latest version of GTK+."
-msgstr "Piękny interfejs oparty na najnowszej wersji GTK+."
+msgid "A beautiful interface powered by the latest version of GTK+"
+msgstr "Piękny interfejs oparty na najnowszej wersji GTK+"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:5
 msgid ""
 "Create new launchers, or modify existing ones with complete control over "
-"common settings and access to advanced settings."
+"common settings and access to advanced settings"
 msgstr ""
 "Twórz nowe aktywatory lub modyfikuj istniejące, mając pełną kontrolę nad "
-"typowymi ustawieniami oraz dostęp do ustawień zaawansowanych."
+"typowymi ustawieniami oraz dostęp do ustawień zaawansowanych"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:6
 msgid ""
 "Add, remove, and adjust desktop actions: powerful shortcuts available used "
-"by Unity, Xfce, and Pantheon."
+"by Unity, Xfce, and Pantheon"
 msgstr ""
 "Dodawaj, usuwaj i dostosowuj działania pulpitu: potężne skróty dostępne w "
-"Unity, Xfce i Pantheon."
+"Unity, Xfce i Pantheon"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:7
-msgid "Easily rearrange menu items to suit your needs."
-msgstr "Łatwo zmieniaj pozycje menu zgodnie z własnymi potrzebami."
+msgid "Easily rearrange menu items to suit your needs"
+msgstr "Łatwo zmieniaj pozycje menu zgodnie z własnymi potrzebami"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:8
 msgid ""
