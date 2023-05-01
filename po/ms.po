@@ -1233,7 +1233,7 @@ msgstr "Ciri-ciri:"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:4
 msgid "A beautiful interface powered by the latest version of GTK+"
-msgstr "Antara muka yang indah dikuasakan oleh GTK+ versi terbaharu."
+msgstr "Antara muka yang indah dikuasakan oleh GTK+ versi terbaharu"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:5
 msgid ""
