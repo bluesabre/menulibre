@@ -1,0 +1,6 @@
+name: Check for typos
+on: [push, pull_request]
+
+jobs:
+  codespell:
+    uses: codespell-project/actions-codespell@v1
