@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-04-30 21:39-0400\n"
+"POT-Creation-Date: 2023-04-30 21:49-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1159,23 +1159,23 @@ msgid "Features:"
 msgstr ""
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:4
-msgid "A beautiful interface powered by the latest version of GTK+."
+msgid "A beautiful interface powered by the latest version of GTK+"
 msgstr ""
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:5
 msgid ""
 "Create new launchers, or modify existing ones with complete control over "
-"common settings and access to advanced settings."
+"common settings and access to advanced settings"
 msgstr ""
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:6
 msgid ""
 "Add, remove, and adjust desktop actions: powerful shortcuts available used "
-"by Unity, Xfce, and Pantheon."
+"by Unity, Xfce, and Pantheon"
 msgstr ""
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:7
-msgid "Easily rearrange menu items to suit your needs."
+msgid "Easily rearrange menu items to suit your needs"
 msgstr ""
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:8
