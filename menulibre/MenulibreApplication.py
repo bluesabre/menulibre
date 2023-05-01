@@ -1403,7 +1403,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 # Mark this item as missing to delete it later.
                 missing = True
 
-        # Renable updates to history.
+        # Re-enable updates to history.
         self.history.unblock()
 
         if self.treeview.get_parent()[1] is None:
