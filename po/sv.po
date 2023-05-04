@@ -12,10 +12,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-09 21:59-0500\n"
+"POT-Creation-Date: 2023-04-30 21:49-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>, 2023\n"
-"Language-Team: Swedish (https://www.transifex.com/bluesabreorg/teams/99550/sv/)\n"
+"Language-Team: Swedish (https://app.transifex.com/bluesabreorg/teams/99550/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -142,7 +142,7 @@ msgstr "Programnamn"
 
 #. Translators: Placeholder text/hint for the application comment entry.
 #. Translators: "Description" tree column header
-#: ../data/ui/MenulibreWindow.ui.h:39 ../menulibre/MenulibreApplication.py:899
+#: ../data/ui/MenulibreWindow.ui.h:39 ../menulibre/MenulibreApplication.py:910
 msgid "Description"
 msgstr "Beskrivning"
 
@@ -156,7 +156,7 @@ msgstr ""
 "Se https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec för en lista på argument som stöds."
 
 #. Translators: Treeview column for an action item
-#: ../data/ui/MenulibreWindow.ui.h:44
+#: ../data/ui/MenulibreWindow.ui.h:44 ../data/ui/ExecEditor.ui.h:2
 msgid "Command"
 msgstr "Kommando"
 
@@ -223,7 +223,7 @@ msgid "Options"
 msgstr "Alternativ"
 
 #. Translators: Button to add item to list.
-#: ../data/ui/MenulibreWindow.ui.h:66
+#: ../data/ui/MenulibreWindow.ui.h:66 ../data/ui/ExecEditor.ui.h:17
 msgid "Add"
 msgstr "Lägg till"
 
@@ -259,15 +259,15 @@ msgstr "Välj en ikon…"
 #. Translators: Save On Leave Dialog, don't save, cancel leave.
 #. Translators: Revert Dialog, cancel button.
 #. Translators: File Chooser Dialog, cancel button.
-#: ../data/ui/MenulibreWindow.ui.h:78 ../menulibre/Dialogs.py:66
-#: ../menulibre/Dialogs.py:101 ../menulibre/Dialogs.py:130
-#: ../menulibre/Dialogs.py:169 ../menulibre/Dialogs.py:189
-#: ../menulibre/MenulibreIconSelection.py:81
+#: ../data/ui/MenulibreWindow.ui.h:78 ../data/ui/ExecEditor.ui.h:15
+#: ../menulibre/Dialogs.py:66 ../menulibre/Dialogs.py:101
+#: ../menulibre/Dialogs.py:130 ../menulibre/Dialogs.py:169
+#: ../menulibre/Dialogs.py:189 ../menulibre/MenulibreIconSelection.py:81
 msgid "Cancel"
 msgstr "Avbryt"
 
 #. Translators: Button to accept and apply changes in a dialog.
-#: ../data/ui/MenulibreWindow.ui.h:80
+#: ../data/ui/MenulibreWindow.ui.h:80 ../data/ui/ExecEditor.ui.h:16
 msgid "Apply"
 msgstr "Tillämpa"
 
@@ -470,6 +470,83 @@ msgstr ""
 msgid "Uses Notifications"
 msgstr "Använder notifieringar"
 
+#: ../data/ui/ExecEditor.ui.h:1
+msgid "Select Application"
+msgstr "Välj program"
+
+#: ../data/ui/ExecEditor.ui.h:3
+msgid "Variable"
+msgstr "Variabel"
+
+#: ../data/ui/ExecEditor.ui.h:4
+msgid "Value"
+msgstr "Värde"
+
+#: ../data/ui/ExecEditor.ui.h:5
+msgid "The <tt>Icon</tt> key of this launcher."
+msgstr "<tt>Ikon</tt>nyckel av denna programstartare"
+
+#: ../data/ui/ExecEditor.ui.h:6
+msgid "The translated <tt>Name</tt> key of this launcher."
+msgstr "Den översatta <tt>Namn</tt> nyckeln av denna programstartare."
+
+#: ../data/ui/ExecEditor.ui.h:8
+#, no-c-format
+msgid "%k"
+msgstr "%k"
+
+#: ../data/ui/ExecEditor.ui.h:9
+msgid "The file path of this launcher."
+msgstr "Filsökvägen av denna programstartare."
+
+#: ../data/ui/ExecEditor.ui.h:10
+msgid "A single file or directory."
+msgstr "En enda fil eller katalog."
+
+#: ../data/ui/ExecEditor.ui.h:11
+msgid "A list of files or directories."
+msgstr "En lista av filer eller kataloger."
+
+#: ../data/ui/ExecEditor.ui.h:12
+msgid "A single URL."
+msgstr "En enda webbadress."
+
+#: ../data/ui/ExecEditor.ui.h:13
+msgid "A list of URLs."
+msgstr "En lista med webbadresser."
+
+#: ../data/ui/ExecEditor.ui.h:14
+msgid "Command Editor"
+msgstr "Kommandoredigerare"
+
+#: ../data/ui/ExecEditor.ui.h:18
+msgid "Environment variable"
+msgstr "Miljövariabel"
+
+#: ../data/ui/ExecEditor.ui.h:19
+msgid "File"
+msgstr "Fil"
+
+#: ../data/ui/ExecEditor.ui.h:20
+msgid "URL"
+msgstr "URL"
+
+#: ../data/ui/ExecEditor.ui.h:21
+msgid "Extra"
+msgstr "Extra"
+
+#: ../data/ui/ExecEditor.ui.h:22 ../menulibre/MenulibreExecEditor.py:264
+msgid "No environment variable errors"
+msgstr "Inga miljövariabelfel"
+
+#: ../data/ui/ExecEditor.ui.h:23
+msgid "No command"
+msgstr "Inget kommando"
+
+#: ../data/ui/ExecEditor.ui.h:24 ../menulibre/MenulibreExecEditor.py:278
+msgid "No invalid field codes"
+msgstr "Inga ogiltiga fältkoder"
+
 #. Translators: Command line option to display debug messages on stdout
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages"
@@ -617,8 +694,8 @@ msgid "Click on the main application window for '%s'."
 msgstr "Klicka på huvudprogramfönstret för '%s'."
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:117 ../menulibre/MenulibreApplication.py:1331
-#: ../menulibre/MenulibreApplication.py:1889
+#: ../menulibre/MenuEditor.py:126 ../menulibre/MenulibreApplication.py:1346
+#: ../menulibre/MenulibreApplication.py:1942
 msgid "Separator"
 msgstr "Avskiljare"
 
@@ -858,7 +935,7 @@ msgstr "A_vsluta"
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:527
-#: ../menulibre/MenulibreApplication.py:2427
+#: ../menulibre/MenulibreApplication.py:2480
 msgid "Quit"
 msgstr "Avsluta"
 
@@ -869,7 +946,7 @@ msgstr "_Innehåll"
 
 #. Translators: Help action tooltip
 #: ../menulibre/MenulibreApplication.py:536
-#: ../menulibre/MenulibreApplication.py:2425
+#: ../menulibre/MenulibreApplication.py:2478
 msgid "Help"
 msgstr "Hjälp"
 
@@ -880,7 +957,7 @@ msgstr "_Om"
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:545
-#: ../menulibre/MenulibreApplication.py:2426
+#: ../menulibre/MenulibreApplication.py:2479
 msgid "About"
 msgstr "Om"
 
@@ -900,47 +977,47 @@ msgid "Advanced"
 msgstr "Avancerat"
 
 #. Translators: Launcher-specific categories, camelcase "This Entry"
-#: ../menulibre/MenulibreApplication.py:867
+#: ../menulibre/MenulibreApplication.py:878
 msgid "ThisEntry"
 msgstr "DennaPost"
 
 #. Translators: Placeholder text for the launcher-specific category
 #. selection.
-#: ../menulibre/MenulibreApplication.py:888
+#: ../menulibre/MenulibreApplication.py:899
 msgid "Select a category"
 msgstr "Välj en kategori"
 
 #. Translators: "Category Name" tree column header
-#: ../menulibre/MenulibreApplication.py:892
+#: ../menulibre/MenulibreApplication.py:903
 msgid "Category Name"
 msgstr "Kategorinamn"
 
 #. Translators: "This Entry" launcher-specific category group
-#: ../menulibre/MenulibreApplication.py:995
+#: ../menulibre/MenulibreApplication.py:1006
 msgid "This Entry"
 msgstr "Denna post"
 
 #. Translators: Placeholder text for a newly created action
-#: ../menulibre/MenulibreApplication.py:1056
+#: ../menulibre/MenulibreApplication.py:1067
 msgid "New Shortcut"
 msgstr "Ny genväg"
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1206
+#: ../menulibre/MenulibreApplication.py:1221
 msgid "Select a working directory…"
 msgstr "Välj en arbetskatalog…"
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1210
+#: ../menulibre/MenulibreApplication.py:1225
 msgid "Select an executable…"
 msgstr "Välj en körbar fil…"
 
-#: ../menulibre/MenulibreApplication.py:1258
 #: ../menulibre/MenulibreApplication.py:1273
+#: ../menulibre/MenulibreApplication.py:1288
 msgid "Menu restart required"
 msgstr "Meny omstart krävs"
 
-#: ../menulibre/MenulibreApplication.py:1259
+#: ../menulibre/MenulibreApplication.py:1274
 #, python-format
 msgid ""
 "MenuLibre can do this automatically. Do you want to run the following command?\n"
@@ -951,7 +1028,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../menulibre/MenulibreApplication.py:1274
+#: ../menulibre/MenulibreApplication.py:1289
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
 "system. Please log out for you menu to update completely."
@@ -959,51 +1036,102 @@ msgstr ""
 "Men MenuLibre kan inte bestämma hur detta ska göras automatiskt på ditt "
 "system. Logga ut för att din meny ska uppdateras helt."
 
+#: ../menulibre/MenulibreApplication.py:1531
+#, python-format
+msgid "<i>Missing icon:</i> %s"
+msgstr "<i>Saknar ikon:</i> %s"
+
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:1507
+#: ../menulibre/MenulibreApplication.py:1560
 msgid "You do not have permission to delete this file."
 msgstr "Du har inte tillåtelse att ta bort denna fil."
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1813
+#: ../menulibre/MenulibreApplication.py:1866
 msgid "New Launcher"
 msgstr "Ny programstartare"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1816 ../menulibre/MenulibreXdg.py:49
+#: ../menulibre/MenulibreApplication.py:1869 ../menulibre/MenulibreXdg.py:49
 msgid "A small descriptive blurb about this application."
 msgstr "En kort beskrivning om detta program."
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1867
+#: ../menulibre/MenulibreApplication.py:1920
 msgid "New Directory"
 msgstr "Ny katalog"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1870
+#: ../menulibre/MenulibreApplication.py:1923
 msgid "A small descriptive blurb about this directory."
 msgstr "En kort beskrivning om denna katalog"
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:2304
+#: ../menulibre/MenulibreApplication.py:2357
 msgid "Are you sure you want to delete this separator?"
 msgstr "Är du säker på att du vill ta bort denna avskiljare?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:2308
+#: ../menulibre/MenulibreApplication.py:2361
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Är du säker på att du vill ta bort  \"%s\"?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:2420
+#: ../menulibre/MenulibreApplication.py:2473
 msgid "Parsing Error Log"
 msgstr "Tolkningsfel då fellogg skulle analyseras"
+
+#: ../menulibre/MenulibreExecEditor.py:49
+#: ../menulibre/MenulibreExecEditor.py:202
+#: ../menulibre/MenulibreExecEditor.py:239
+msgid "No command found"
+msgstr "Inget kommando hittades"
+
+#: ../menulibre/MenulibreExecEditor.py:182
+msgid "A single command line may only contain one of %f, %u, %F, or %U"
+msgstr "En enda kommandorad kan bara innehålla en av %f,%u,%F, eller %U"
+
+#: ../menulibre/MenulibreExecEditor.py:186
+#, python-format
+msgid "Field code '%s' can not be used inside a quoted argument"
+msgstr "Fältkod '%s' kan inte användas i ett citerat argument"
+
+#: ../menulibre/MenulibreExecEditor.py:190
+#, python-format
+msgid "Field code '%s' has been deprecated"
+msgstr "Fältkod '%s' har deprecierats"
+
+#: ../menulibre/MenulibreExecEditor.py:224
+msgid "Environment variables should be preceded by env"
+msgstr "Miljövariabler bör föregås av env"
+
+#: ../menulibre/MenulibreExecEditor.py:226
+msgid "Environment variables should precede the command"
+msgstr "Miljövariabler bör föregå kommando"
+
+#: ../menulibre/MenulibreExecEditor.py:241
+#, python-format
+msgid "File '%s' not found"
+msgstr "Fil '%s' hittades inte"
+
+#: ../menulibre/MenulibreExecEditor.py:243
+#, python-format
+msgid "Command '%s' not found"
+msgstr "Kommando '%s' hittades inte"
+
+#: ../menulibre/MenulibreExecEditor.py:271
+msgid "No command errors"
+msgstr "Inga kommandofel"
+
+#: ../menulibre/MenulibreExecEditor.py:417
+msgid "Spaces not permitted in environment variables"
+msgstr "Mellanslag är inte tillåtna i miljövariabler"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreIconSelection.py:78
@@ -1097,13 +1225,13 @@ msgid "Features:"
 msgstr "Funktioner:"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:4
-msgid "A beautiful interface powered by the latest version of GTK+."
-msgstr "Ett vackert gränssnitt som drivs av den senaste versionen av GTK+."
+msgid "A beautiful interface powered by the latest version of GTK+"
+msgstr "Ett vackert gränssnitt som drivs av den senaste versionen av GTK+"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:5
 msgid ""
 "Create new launchers, or modify existing ones with complete control over "
-"common settings and access to advanced settings."
+"common settings and access to advanced settings"
 msgstr ""
 "Skapa nya startprogram, eller ändra befintliga med fullständig kontroll över"
 " vanliga inställningar och tillgång till avancerade inställningar."
@@ -1111,14 +1239,14 @@ msgstr ""
 #: ../data/metainfo/menulibre.appdata.xml.in.h:6
 msgid ""
 "Add, remove, and adjust desktop actions: powerful shortcuts available used "
-"by Unity, Xfce, and Pantheon."
+"by Unity, Xfce, and Pantheon"
 msgstr ""
 "Lägg till, ta bort och justera skrivbordsåtgärder: kraftfulla genvägar "
-"tillgängliga som används av Unity, Xfce och Pantheon."
+"tillgängliga som används av Unity, Xfce och Pantheon"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:7
-msgid "Easily rearrange menu items to suit your needs."
-msgstr "Ordna enkelt menyalternativ för att passa dina behov."
+msgid "Easily rearrange menu items to suit your needs"
+msgstr "Ordna enkelt menyalternativ för att passa dina behov"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:8
 msgid ""
