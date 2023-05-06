@@ -610,7 +610,7 @@ msgstr "Wybór pliku wykonalnego"
 
 #: ../menulibre/CommandEditor.py:694
 msgid "Select an application"
-msgstr "Wybór programu…"
+msgstr "Wybór programu"
 
 #. Translators: About Dialog, window title.
 #: ../menulibre/Dialogs.py:38
@@ -1254,7 +1254,7 @@ msgid ""
 "This release adds a new command editor and improves support for icon themes "
 "with missing icons."
 msgstr ""
-"Ta wersja dodaje nowy edytor poleceń i poprawia obsługę motywów ikon z "
+"To wydanie dodaje nowy edytor poleceń i poprawia obsługę motywów ikon z "
 "brakującymi ikonami."
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:9
