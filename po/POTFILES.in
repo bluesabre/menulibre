@@ -1,5 +1,5 @@
 ### BEGIN LICENSE
-# Copyright (C) 2013-2019 Sean Davis <sean@bluesabre.org>
+# Copyright (C) 2013-2023 Sean Davis <sean@bluesabre.org>
 # This program is free software: you can redistribute it and/or modify it
 # under the terms of the GNU General Public License version 3, as published
 # by the Free Software Foundation.
@@ -18,15 +18,14 @@ menulibre.desktop.in
 
 # Glade Files
 [type: gettext/glade]data/ui/MenulibreWindow.ui
-[type: gettext/glade]data/ui/ExecEditor.ui
 
 # Python Files
 menulibre/__init__.py
+menulibre/CommandEditor.py
 menulibre/Dialogs.py
 menulibre/MenuEditor.py
 menulibre/MenulibreApplication.py
 menulibre/MenulibreHistory.py
-menulibre/MenulibreExecEditor.py
 menulibre/MenulibreIconSelection.py
 menulibre/MenulibreStackSwitcher.py
 menulibre/MenulibreTreeview.py

@@ -1,13 +1,28 @@
+#!/usr/bin/python3
+# -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
+#   MenuLibre - Advanced fd.o Compliant Menu Editor
+#   Copyright (C) 2012-2023 Sean Davis <sean@bluesabre.org>
+#
+#   This program is free software: you can redistribute it and/or modify it
+#   under the terms of the GNU General Public License version 3, as published
+#   by the Free Software Foundation.
+#
+#   This program is distributed in the hope that it will be useful, but
+#   WITHOUT ANY WARRANTY; without even the implied warranties of
+#   MERCHANTABILITY, SATISFACTORY QUALITY, or FITNESS FOR A PARTICULAR
+#   PURPOSE.  See the GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License along
+#   with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import os
+import re
+import shlex
+from locale import gettext as _
+from gi.repository import Gtk, Gio, GObject, GLib, Pango, Gdk
 import gi
 
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, Gio, GObject, GLib, Pango, Gdk
-
-from locale import gettext as _
-
-import shlex
-import re
-import os
 
 
 class CommandEditorDialog(Gtk.Dialog):
@@ -16,9 +31,11 @@ class CommandEditorDialog(Gtk.Dialog):
     }
 
     def __init__(self, parent, initial_text, use_header_bar):
-        super().__init__(title=_("Command Editor"), transient_for=parent, use_header_bar=use_header_bar, flags=0)
+        super().__init__(title=_("Command Editor"), transient_for=parent,
+                         use_header_bar=use_header_bar, flags=0)
         self.add_buttons(
-            _('Cancel'), Gtk.ResponseType.CANCEL, _('Apply'), Gtk.ResponseType.OK
+            _('Cancel'), Gtk.ResponseType.CANCEL, 
+                _('Apply'), Gtk.ResponseType.OK
         )
 
         self.set_default_size(400, 200)
@@ -30,7 +47,8 @@ class CommandEditorDialog(Gtk.Dialog):
         box.set_margin_start(12)
         box.set_margin_end(12)
 
-        command_box = Gtk.Box.new(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+        command_box = Gtk.Box.new(
+            orientation=Gtk.Orientation.VERTICAL, spacing=6)
         box.pack_start(command_box, False, False, 0)
 
         entry = CommandEditorEntry(initial_text)
@@ -62,9 +80,12 @@ class CommandEditorDialog(Gtk.Dialog):
         fields_hint = CommandEditorHint(grid, 2)
         fields_hint.set_state(self.state['field'])
 
-        entry.connect('env-state-changed', self.on_state_changed, 'env', env_hint)
-        entry.connect('cmd-state-changed', self.on_state_changed, 'cmd', cmd_hint)
-        entry.connect('field-state-changed', self.on_state_changed, 'field', fields_hint)
+        entry.connect('env-state-changed',
+                      self.on_state_changed, 'env', env_hint)
+        entry.connect('cmd-state-changed',
+                      self.on_state_changed, 'cmd', cmd_hint)
+        entry.connect('field-state-changed',
+                      self.on_state_changed, 'field', fields_hint)
 
         help = HelpButton(
             "https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec",
@@ -96,7 +117,7 @@ class CommandEditorDialog(Gtk.Dialog):
             if not self.state[key][0]:
                 self.set_response_sensitive(Gtk.ResponseType.OK, False)
                 return
-            
+
         self.set_response_sensitive(Gtk.ResponseType.OK, True)
 
     def on_response(self, dialog, response_id, entry):
@@ -116,7 +137,8 @@ class HelpButton(Gtk.LinkButton):
         screen = Gdk.Screen.get_default()
         provider = Gtk.CssProvider()
         style_context = Gtk.StyleContext()
-        style_context.add_provider_for_screen(screen, provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+        style_context.add_provider_for_screen(
+            screen, provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
         provider.load_from_data("#helpbutton {padding: 0;}".encode())
 
         self.set_name('helpbutton')
@@ -126,9 +148,9 @@ class HelpButton(Gtk.LinkButton):
 
 class CommandEditorEntry(Gtk.Box):
     __gsignals__ = {
-        'env-state-changed': (GObject.SignalFlags.RUN_FIRST, None, (bool,str)),
-        'cmd-state-changed': (GObject.SignalFlags.RUN_FIRST, None, (bool,str)),
-        'field-state-changed': (GObject.SignalFlags.RUN_FIRST, None, (bool,str)),
+        'env-state-changed': (GObject.SignalFlags.RUN_FIRST, None, (bool, str)),
+        'cmd-state-changed': (GObject.SignalFlags.RUN_FIRST, None, (bool, str)),
+        'field-state-changed': (GObject.SignalFlags.RUN_FIRST, None, (bool, str)),
     }
 
     def __init__(self, initial_text):
@@ -141,17 +163,20 @@ class CommandEditorEntry(Gtk.Box):
         self.entry.set_text("delete.me")
         self.pack_start(self.entry, True, True, 0)
 
-        revert_button = Gtk.Button.new_from_icon_name("document-revert", Gtk.IconSize.BUTTON)
+        revert_button = Gtk.Button.new_from_icon_name(
+            "document-revert", Gtk.IconSize.BUTTON)
         revert_button.set_tooltip_text(_("Revert"))
         revert_button.connect("clicked", self.on_revert_button_clicked)
         self.pack_start(revert_button, False, False, 0)
 
-        clear_button = Gtk.Button.new_from_icon_name("edit-clear", Gtk.IconSize.BUTTON)
+        clear_button = Gtk.Button.new_from_icon_name(
+            "edit-clear", Gtk.IconSize.BUTTON)
         clear_button.set_tooltip_text(_("Clear"))
         clear_button.connect("clicked", self.on_clear_button_clicked)
         self.pack_start(clear_button, False, False, 0)
 
-        self.entry.connect("changed", self.on_entry_changed, revert_button, clear_button)
+        self.entry.connect("changed", self.on_entry_changed,
+                           revert_button, clear_button)
 
         self.state = {
             'env': (True, ""),
@@ -293,13 +318,11 @@ class CommandEditorEntry(Gtk.Box):
 
         return None
 
-
     def is_env_var(self, text):
         if "=" not in text:
             return False
         k = text.split("=")[0]
         return k == k.upper()
-
 
     def validate_cmd(self, text):
         results = {
@@ -330,9 +353,11 @@ class CommandEditorEntry(Gtk.Box):
 
             if self.is_env_var(part):
                 if not env_found:
-                    results["errors"]["env"] = _("Environment variables should be preceded by env")
+                    results["errors"]["env"] = \
+                        _("Environment variables should be preceded by env")
                 elif non_env_found:
-                    results["errors"]["env"] = _("Environment variables should precede the command")
+                    results["errors"]["env"] = \
+                        _("Environment variables should precede the command")
                 else:
                     results["env"].append(part)
                     continue
@@ -347,9 +372,11 @@ class CommandEditorEntry(Gtk.Box):
         if results["cmd"] is None:
             results["errors"]["cmd"] = _("No command found")
         elif results["cmd"].startswith("/") and not os.path.isfile(results["cmd"]):
-            results["errors"]["cmd"] = _("File '%s' not found") % results["cmd"]
+            results["errors"]["cmd"] = \
+                _("File '%s' not found") % results["cmd"]
         elif GLib.find_program_in_path(results["cmd"]) is None:
-            results["errors"]["cmd"] = _("Command '%s' not found") % results["cmd"]
+            results["errors"]["cmd"] = \
+                _("Command '%s' not found") % results["cmd"]
         else:
             results["errors"]["cmd"] = None
 
@@ -397,7 +424,7 @@ class CommandEditorEntry(Gtk.Box):
 
 class CommandToolBox(Gtk.Box):
     __gsignals__ = {
-        'env-var-activated': (GObject.SignalFlags.RUN_FIRST, None, (str,str)),
+        'env-var-activated': (GObject.SignalFlags.RUN_FIRST, None, (str, str)),
         'command-activated': (GObject.SignalFlags.RUN_FIRST, None, (str,)),
         'code-activated': (GObject.SignalFlags.RUN_FIRST, None, (str,)),
     }
@@ -426,7 +453,8 @@ class CommandToolBox(Gtk.Box):
 
         popover = FieldCodeMenu(_("File"))
         popover.add_option("%f", _("A single file or directory."), size_group)
-        popover.add_option("%F", _("A list of files or directories."), size_group)
+        popover.add_option(
+            "%F", _("A list of files or directories."), size_group)
         popover.connect("row-activated", self.on_field_code_activated)
         box.pack_start(popover, False, False, 0)
 
@@ -437,9 +465,12 @@ class CommandToolBox(Gtk.Box):
         box.pack_start(popover, False, False, 0)
 
         popover = FieldCodeMenu(_("Extra"))
-        popover.add_option("%i", _("The <tt>Icon</tt> key of this launcher."), size_group)
-        popover.add_option("%c", _("The translated <tt>Name</tt> key of this launcher."), size_group)
-        popover.add_option("%k", _("The file path of this launcher."), size_group)
+        popover.add_option(
+            "%i", _("The <tt>Icon</tt> key of this launcher."), size_group)
+        popover.add_option(
+            "%c", _("The translated <tt>Name</tt> key of this launcher."), size_group)
+        popover.add_option(
+            "%k", _("The file path of this launcher."), size_group)
         popover.connect("row-activated", self.on_field_code_activated)
         box.pack_start(popover, False, False, 0)
 
@@ -459,7 +490,7 @@ class CommandToolBox(Gtk.Box):
 
 class CommandEditorEnvEditor(Gtk.MenuButton):
     __gsignals__ = {
-        'activated': (GObject.SignalFlags.RUN_FIRST, None, (str,str,)),
+        'activated': (GObject.SignalFlags.RUN_FIRST, None, (str, str,)),
     }
 
     def __init__(self):
@@ -483,6 +514,7 @@ class CommandEditorEnvEditor(Gtk.MenuButton):
 
         grid.attach(label, 0, 0, 1, 1)
         grid.attach(var_entry, 1, 0, 1, 1)
+        var_entry.grab_focus()
 
         label = Gtk.Label.new("")
         label.set_markup("<b>%s</b>" % _("Value"))
@@ -492,8 +524,10 @@ class CommandEditorEnvEditor(Gtk.MenuButton):
         var_entry.connect("changed", self.on_var_entry_changed, val_entry)
         val_entry.connect("changed", self.on_val_entry_changed)
 
-        var_entry.connect('activate', self.on_activate, var_entry, val_entry, popover)
-        val_entry.connect('activate', self.on_activate, var_entry, val_entry, popover)
+        var_entry.connect('activate', self.on_activate,
+                          var_entry, val_entry, popover)
+        val_entry.connect('activate', self.on_activate,
+                          var_entry, val_entry, popover)
 
         popover.connect('closed', self.on_closed, var_entry, val_entry)
 
@@ -521,25 +555,35 @@ class CommandEditorEnvEditor(Gtk.MenuButton):
         var_entry.set_text(text)
 
         if len(text) == 0:
-            var_entry.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, None)
-            var_entry.set_icon_tooltip_text(Gtk.EntryIconPosition.SECONDARY, None)
+            var_entry.set_icon_from_icon_name(
+                Gtk.EntryIconPosition.SECONDARY, None)
+            var_entry.set_icon_tooltip_text(
+                Gtk.EntryIconPosition.SECONDARY, None)
         elif " " in text:
-            var_entry.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, "dialog-error")
-            var_entry.set_icon_tooltip_text(Gtk.EntryIconPosition.SECONDARY, _("Spaces not permitted in environment variables"))
+            var_entry.set_icon_from_icon_name(
+                Gtk.EntryIconPosition.SECONDARY, "dialog-error")
+            var_entry.set_icon_tooltip_text(Gtk.EntryIconPosition.SECONDARY, 
+                _("Spaces not permitted in environment variables"))
         else:
-            var_entry.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, "gtk-apply")
-            var_entry.set_icon_tooltip_text(Gtk.EntryIconPosition.SECONDARY, None)
+            var_entry.set_icon_from_icon_name(
+                Gtk.EntryIconPosition.SECONDARY, "gtk-apply")
+            var_entry.set_icon_tooltip_text(
+                Gtk.EntryIconPosition.SECONDARY, None)
 
     def on_val_entry_changed(self, val_entry):
         text = val_entry.get_text()
         text = text.strip()
 
         if len(text) == 0:
-            val_entry.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, None)
-            val_entry.set_icon_tooltip_text(Gtk.EntryIconPosition.SECONDARY, None)
+            val_entry.set_icon_from_icon_name(
+                Gtk.EntryIconPosition.SECONDARY, None)
+            val_entry.set_icon_tooltip_text(
+                Gtk.EntryIconPosition.SECONDARY, None)
         else:
-            val_entry.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, "gtk-apply")
-            val_entry.set_icon_tooltip_text(Gtk.EntryIconPosition.SECONDARY, None)
+            val_entry.set_icon_from_icon_name(
+                Gtk.EntryIconPosition.SECONDARY, "gtk-apply")
+            val_entry.set_icon_tooltip_text(
+                Gtk.EntryIconPosition.SECONDARY, None)
 
     def on_activate(self, widget, var_entry, val_entry, popover):
         if var_entry.get_icon_name(Gtk.EntryIconPosition.SECONDARY) != "gtk-apply":
@@ -592,7 +636,8 @@ class CommandEditorCommandEntry(Gtk.MenuButton):
         bbox.set_homogeneous(True)
         grid.attach(bbox, 0, 1, 2, 1)
 
-        file_chooser = Gtk.FileChooserButton.new(_("Select an executable"), Gtk.FileChooserAction.OPEN)
+        file_chooser = Gtk.FileChooserButton.new(
+            _("Select an executable"), Gtk.FileChooserAction.OPEN)
         file_chooser.connect('file-set', self.on_file_chooser_set, entry)
         filter = Gtk.FileFilter.new()
         filter.add_custom(Gtk.FileFilterFlags.FILENAME, self.exec_filter)
@@ -656,7 +701,7 @@ class AppChooserMenu(Gtk.ComboBox):
             name = info.get_name()
             app_list.append([name, executable, icon])
 
-        app_list = sorted(app_list, key = lambda x: x[0].lower())
+        app_list = sorted(app_list, key=lambda x: x[0].lower())
 
         for app in app_list:
             store.append(app)
@@ -695,7 +740,7 @@ class AppChooserMenu(Gtk.ComboBox):
 class FieldCodeMenu(Gtk.MenuButton):
     __gsignals__ = {
         'row-activated': (GObject.SignalFlags.RUN_FIRST, None,
-                      (str,))
+                          (str,))
     }
 
     def __init__(self, label):
@@ -754,7 +799,8 @@ class FieldCodeOption(Gtk.ListBoxRow):
 
 class CommandEditorHint():
     def __init__(self, grid, row):
-        self.image = Gtk.Image.new_from_icon_name("gtk-apply", Gtk.IconSize.BUTTON)
+        self.image = Gtk.Image.new_from_icon_name(
+            "gtk-apply", Gtk.IconSize.BUTTON)
         self.label = Gtk.Label.new("")
         self.label.set_xalign(0.00)
         self.label.set_ellipsize(Pango.EllipsizeMode.MIDDLE)
@@ -802,7 +848,8 @@ class CommandEditorDemoWindow(Gtk.Window):
         self.destroy()
 
 
-win = CommandEditorDemoWindow()
-win.connect("destroy", Gtk.main_quit)
-win.show_all()
-Gtk.main()
+if __name__ == "__main__":
+    win = CommandEditorDemoWindow()
+    win.connect("destroy", Gtk.main_quit)
+    win.show_all()
+    Gtk.main()
