@@ -30,7 +30,7 @@ from gi import require_version
 require_version('Gtk', '3.0')
 from gi.repository import Gio, GLib, GObject, Gtk, Gdk, GdkPixbuf
 
-from . import MenulibreStackSwitcher, MenulibreIconSelection, MenulibreExecEditor
+from . import MenulibreStackSwitcher, MenulibreIconSelection, CommandEditor
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, MenulibreLog
 from . import MenuEditor
@@ -246,6 +246,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Set up the actions and toolbar
         self.configure_application_actions(builder)
 
+        self.use_headerbar = headerbar_pref
         if headerbar_pref:
             self.configure_headerbar(builder)
         else:
@@ -814,8 +815,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Icon Selector
         self.icon_selector = MenulibreIconSelection.IconSelector(parent=self)
 
-        self.exec_editor = MenulibreExecEditor.ExecEditor(parent=self)
-
         # Connect the Icon menu.
         select_icon_name = builder.get_object("icon_select_by_icon_name")
         select_icon_name.connect("activate",
@@ -1211,7 +1210,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_Exec_clicked(self, entry, icon, event):
         """Show the file selection dialog when Exec/Path Browse is clicked."""
-        entry.set_text(self.exec_editor.edit(entry.get_text()))
+        editor = CommandEditor.CommandEditorDialog(parent=self, initial_text=entry.get_text(), use_header_bar=self.use_headerbar)
+        response = editor.run()
+
+        if response == Gtk.ResponseType.OK:
+            entry.set_text(editor.get_text())
+
+        editor.destroy()
 
 # Browse button functionality for Exec and Path widgets.
     def on_Path_clicked(self, entry, icon, event, widget_name, builder):
