@@ -30,7 +30,8 @@ from gi import require_version
 require_version('Gtk', '3.0')
 from gi.repository import Gio, GLib, GObject, Gtk, Gdk, GdkPixbuf
 
-from . import MenulibreStackSwitcher, MenulibreIconSelection, CommandEditor
+from . import MenulibreStackSwitcher, CommandEditor
+from . import IconSelectionDialog, IconFileSelectionDialog
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, MenulibreLog
 from . import MenuEditor
@@ -812,9 +813,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.widgets['StartupWMClass'].connect(
                 'icon-press', self.on_StartupWmClass_clicked)
 
-        # Icon Selector
-        self.icon_selector = MenulibreIconSelection.IconSelector(parent=self)
-
         # Connect the Icon menu.
         select_icon_name = builder.get_object("icon_select_by_icon_name")
         select_icon_name.connect("activate",
@@ -1143,14 +1141,26 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
 # Icon Selection
     def on_IconSelectFromIcons_clicked(self, widget, builder):
-        icon_name = self.icon_selector.select_by_icon_name()
-        if icon_name is not None:
+        current_icon_name = self.get_value("Icon")
+        dialog = IconSelectionDialog.IconSelectionDialog(
+            parent=self, 
+            initial_icon=current_icon_name, 
+            use_header_bar=self.use_headerbar)
+        if dialog.run() == Gtk.ResponseType.OK:
+            icon_name = dialog.get_icon()
             self.set_value('Icon', icon_name)
+        dialog.destroy()
 
     def on_IconSelectFromFilename_clicked(self, widget):
-        filename = self.icon_selector.select_by_filename()
-        if filename is not None:
+        current_icon_name = self.get_value("Icon")
+        dialog = IconFileSelectionDialog.IconFileSelectionDialog(
+            parent=self,
+            initial_file=current_icon_name,
+            use_header_bar=self.use_headerbar)
+        if dialog.run() == Gtk.ResponseType.OK:
+            filename = dialog.get_filename()
             self.set_value('Icon', filename)
+        dialog.destroy()
 
 # Name and Comment Widgets
     def on_NameComment_key_press_event(self, widget, ev, widget_name, builder):
@@ -1510,7 +1520,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             if icon_theme.has_icon(icon_name):
                 image.set_from_icon_name(icon_name, 48)
                 self.set_editor_image_success(button, image, icon_name)
-                self.icon_selector.set_icon_name(icon_name)
                 return
 
             # If the Icon Theme has a symbolic version of the icon, set the image to that icon.
@@ -1518,7 +1527,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 icon_name = icon_name + "-symbolic"
                 image.set_from_icon_name(icon_name, 48)
                 self.set_editor_image_success(button, image, icon_name)
-                self.icon_selector.set_icon_name(icon_name)
                 return
 
             # If the icon name is actually a file, render it to the Image.
@@ -1529,7 +1537,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                                              GdkPixbuf.InterpType.HYPER)
                 image.set_from_pixbuf(scaled)
                 self.set_editor_image_success(button, image, icon_name)
-                self.icon_selector.set_filename(icon_name)
                 return
             
             else:
@@ -1541,7 +1548,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     icon_name = "application-x-executable"
 
                 image.set_from_icon_name(icon_name, 48)
-                self.icon_selector.set_filename(icon_name)
                 return
 
         if icon_theme.has_icon("applications-other"):
