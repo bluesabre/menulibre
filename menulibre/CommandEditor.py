@@ -19,16 +19,14 @@ import os
 import re
 import shlex
 from locale import gettext as _
-from gi.repository import Gtk, Gio, GObject, GLib, Pango, Gdk
-import gi
 
+import gi
 gi.require_version("Gtk", "3.0")
+
+from gi.repository import Gtk, Gio, GObject, GLib, Pango, Gdk
 
 
 class CommandEditorDialog(Gtk.Dialog):
-    __gsignals__ = {
-        'submitted': (GObject.SignalFlags.RUN_FIRST, None, (str,)),
-    }
 
     def __init__(self, parent, initial_text, use_header_bar):
         super().__init__(title=_("Command Editor"), transient_for=parent,

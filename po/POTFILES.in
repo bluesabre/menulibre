@@ -23,6 +23,7 @@ menulibre.desktop.in
 menulibre/__init__.py
 menulibre/CommandEditor.py
 menulibre/Dialogs.py
+menulibre/IconSelectionDialog.py
 menulibre/MenuEditor.py
 menulibre/MenulibreApplication.py
 menulibre/MenulibreHistory.py

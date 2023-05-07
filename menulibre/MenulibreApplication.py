@@ -813,7 +813,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 'icon-press', self.on_StartupWmClass_clicked)
 
         # Icon Selector
-        self.icon_selector = MenulibreIconSelection.IconSelector(parent=self)
+        self.icon_selector = MenulibreIconSelection.IconSelector(parent=self, use_header_bar=self.use_headerbar)
 
         # Connect the Icon menu.
         select_icon_name = builder.get_object("icon_select_by_icon_name")
@@ -1143,7 +1143,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
 # Icon Selection
     def on_IconSelectFromIcons_clicked(self, widget, builder):
-        icon_name = self.icon_selector.select_by_icon_name()
+        icon_name = self.icon_selector.select_by_icon_name(self.get_value("Icon"))
         if icon_name is not None:
             self.set_value('Icon', icon_name)
 
