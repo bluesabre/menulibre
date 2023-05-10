@@ -23,6 +23,7 @@ menulibre.desktop.in
 menulibre/__init__.py
 menulibre/CommandEditor.py
 menulibre/Dialogs.py
+menulibre/FileHandler.py
 menulibre/IconSelectionDialog.py
 menulibre/IconFileSelectionDialog.py
 menulibre/MenuEditor.py
@@ -31,6 +32,7 @@ menulibre/MenulibreHistory.py
 menulibre/MenulibreStackSwitcher.py
 menulibre/MenulibreTreeview.py
 menulibre/MenulibreXdg.py
+menulibre/ParsingErrorsDialog.py
 menulibre/util.py
 menulibre/XmlMenuElementTree.py
 

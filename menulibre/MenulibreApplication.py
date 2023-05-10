@@ -33,7 +33,7 @@ from gi.repository import Gio, GLib, GObject, Gtk, Gdk, GdkPixbuf
 from . import MenulibreStackSwitcher, CommandEditor
 from . import IconSelectionDialog, IconFileSelectionDialog
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
-from . import MenulibreXdg, util, MenulibreLog
+from . import MenulibreXdg, util, ParsingErrorsDialog
 from . import MenuEditor
 from .util import MenuItemTypes, check_keypress, getBasename, getRelativeName, getRelatedKeys
 from .util import escapeText, getCurrentDesktop, find_program, getProcessList
@@ -2410,7 +2410,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Generate and display details of bad desktop files, or report
         successful parsing."""
 
-        log_dialog = MenulibreLog.LogDialog(self)
+        log_dialog = ParsingErrorsDialog.ParsingErrorsDialog(
+            parent=self, use_header_bar=self.use_headerbar
+        )
 
         # Building up a list of all known failures associated with the bad
         # desktop files
@@ -2418,7 +2420,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             log_dialog.add_item(desktop_file,
                                 util.validate_desktop_file(desktop_file))
 
-        log_dialog.show()
+        log_dialog.run()
+        log_dialog.destroy()
 
 
 class Application(Gtk.Application):
