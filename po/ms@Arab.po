@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-07 09:49-0400\n"
+"POT-Creation-Date: 2023-05-13 08:13-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Yaya - Nurul Azeera Hidayah @ Muhammad Nur Hidayat Yasuyoshi (MNH48) <admin@mnh48.moe>, 2023\n"
 "Language-Team: Malay (Arabic) (https://app.transifex.com/bluesabreorg/teams/99550/ms@Arab/)\n"
@@ -249,29 +249,14 @@ msgstr "تونجوق"
 msgid "Name"
 msgstr "نام"
 
-#. Translators: Window title for the parsing error log dialog.
-#: ../data/ui/MenulibreWindow.ui.h:76
-msgid "Parsing Errors"
-msgstr "رالت ڤڠهوراين"
-
-#. Translators: This text is displayed in the Parsing Errors dialog and
-#. provides a basic summary of the errors reported.
-#: ../data/ui/MenulibreWindow.ui.h:78
-msgid ""
-"The following desktop files have failed parsing by the underlying library, and will therefore not show up in MenuLibre.\n"
-"Please investigate these problems with the associated package maintainer."
-msgstr ""
-"فاٴيل اتس ميجا دباوه تيدق داڤت دهورايکن اوليه ڤوستاک يڠ برکاٴيتن⹁ اوليه ايت اي تيدق اکن مونچول دالم MenuLibre.\n"
-"سيلا سياست مسئله اين برسام ڤڽڠݢارا ڤاکيج يڠ برکاٴيتن."
-
 #. Translators: Tooltip for the "GenericName" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:81
+#: ../data/ui/MenulibreWindow.ui.h:76
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr "نام ݢينريک اڤليکاسي⹁ چونتوهڽ \"ڤلاير سساوڠ\""
 
 #. Translators: "GenericName" text entry. Generic name of the application, for
 #. example "Web Browser".
-#: ../data/ui/MenulibreWindow.ui.h:83
+#: ../data/ui/MenulibreWindow.ui.h:78
 msgid "Generic Name"
 msgstr "نام ݢينريک"
 
@@ -279,7 +264,7 @@ msgstr "نام ݢينريک"
 #. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
 #. "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be
 #. translated.
-#: ../data/ui/MenulibreWindow.ui.h:85
+#: ../data/ui/MenulibreWindow.ui.h:80
 msgid ""
 "A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
@@ -289,7 +274,7 @@ msgstr ""
 
 #. Translators: "NotShowIn" text entry. A list of environments that should not
 #. display this entry.
-#: ../data/ui/MenulibreWindow.ui.h:88
+#: ../data/ui/MenulibreWindow.ui.h:83
 msgid "Not Shown In"
 msgstr "تيدق دتونجوقکن دالم"
 
@@ -297,7 +282,7 @@ msgstr "تيدق دتونجوقکن دالم"
 #. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
 #. "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be
 #. translated.
-#: ../data/ui/MenulibreWindow.ui.h:90
+#: ../data/ui/MenulibreWindow.ui.h:85
 msgid ""
 "A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if \"NotShowIn\" is not set.\n"
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
@@ -307,12 +292,12 @@ msgstr ""
 
 #. Translators: "OnlyShowIn" text entry. A list of environments that should
 #. display this entry.
-#: ../data/ui/MenulibreWindow.ui.h:93
+#: ../data/ui/MenulibreWindow.ui.h:88
 msgid "Only Shown In"
 msgstr "هاڽ دتونجوقکن دالم"
 
 #. Translators: Tooltip for the "TryExec" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:95
+#: ../data/ui/MenulibreWindow.ui.h:90
 msgid ""
 "Path to an executable file to determine if the program is installed. If the "
 "file is not present or is not executable, this entry may not be shown in a "
@@ -323,23 +308,23 @@ msgstr ""
 
 #. Translators: "TryExec" text entry. Path to an executable file to determine
 #. if the program is installed.
-#: ../data/ui/MenulibreWindow.ui.h:97
+#: ../data/ui/MenulibreWindow.ui.h:92
 msgid "Try Exec"
 msgstr "چوبا لاکو"
 
 #. Translators: Tooltip for the "Mimetypes" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:99
+#: ../data/ui/MenulibreWindow.ui.h:94
 msgid "The MIME type(s) supported by this application."
 msgstr "جنيس MIME يڠ دسوکوڠ اڤليکاسي اين."
 
 #. Translators: "Mimetype" text entry. The MIME type(s) supported by this
 #. application.
-#: ../data/ui/MenulibreWindow.ui.h:101
+#: ../data/ui/MenulibreWindow.ui.h:96
 msgid "Mimetypes"
 msgstr "جنيس MIME"
 
 #. Translators: Tooltip for the "Keywords" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:103
+#: ../data/ui/MenulibreWindow.ui.h:98
 msgid ""
 "A list of keywords to describe this entry. You can use these to help "
 "searching entries. These are not meant for display, and should not be "
@@ -350,12 +335,12 @@ msgstr ""
 
 #. Translators: "Keywords" text entry. A list of keywords to describe this
 #. entry.
-#: ../data/ui/MenulibreWindow.ui.h:105
+#: ../data/ui/MenulibreWindow.ui.h:100
 msgid "Keywords"
 msgstr "کات کونچي"
 
 #. Translators: Tooltip for the "StartupWMClass" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:107
+#: ../data/ui/MenulibreWindow.ui.h:102
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
@@ -365,17 +350,17 @@ msgstr ""
 
 #. Translators: "StartupWMClass" text entry. A window manager hint for the
 #. application
-#: ../data/ui/MenulibreWindow.ui.h:109
+#: ../data/ui/MenulibreWindow.ui.h:104
 msgid "Startup WM Class"
 msgstr "کلس WM ڤرمولاٴن"
 
 #. Translators: Identify Window Dialog, primary text.
-#: ../data/ui/MenulibreWindow.ui.h:110 ../menulibre/Dialogs.py:251
+#: ../data/ui/MenulibreWindow.ui.h:105 ../menulibre/Dialogs.py:251
 msgid "Identify Window"
 msgstr "کنل ڤستي تتيڠکڤ"
 
 #. Translators: Tooltip for the "Hidden" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:112
+#: ../data/ui/MenulibreWindow.ui.h:107
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
@@ -385,12 +370,12 @@ msgstr ""
 
 #. Translators: "Hidden" on/off switch. When enabled, the application is
 #. hidden from the menu.
-#: ../data/ui/MenulibreWindow.ui.h:114
+#: ../data/ui/MenulibreWindow.ui.h:109
 msgid "Hidden"
 msgstr "ترسمبوڽي"
 
 #. Translators: Tooltip for the "DBusActivatable" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:116
+#: ../data/ui/MenulibreWindow.ui.h:111
 msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information."
@@ -400,22 +385,22 @@ msgstr ""
 
 #. Translators: "DBusActivatable" on/off switch. When enabled, the application
 #. is said to be activated via DBUS.
-#: ../data/ui/MenulibreWindow.ui.h:119
+#: ../data/ui/MenulibreWindow.ui.h:114
 msgid "DBUS Activatable"
 msgstr "DBUS بوليه اکتيف"
 
 #. Translators: Tooltip for the "Implements" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:121
+#: ../data/ui/MenulibreWindow.ui.h:116
 msgid "A list of interfaces that this application implements."
 msgstr "سناراي انتارا موک يڠ اڤليکاسي اين لقساناکن."
 
 #. Translators: "Implements" text entry. A list of interfaces that this
 #. application implements.
-#: ../data/ui/MenulibreWindow.ui.h:123
+#: ../data/ui/MenulibreWindow.ui.h:118
 msgid "Implements"
 msgstr "ملقساناکن"
 
-#: ../data/ui/MenulibreWindow.ui.h:124
+#: ../data/ui/MenulibreWindow.ui.h:119
 msgctxt ""
 "If true, the application prefers to be run on a more powerful GPU (graphics "
 "processing unit, graphics card) if available."
@@ -426,14 +411,14 @@ msgstr ""
 "تتڤکن ککونچي اين کڤد \"بنر\" جک اڤليکاسي اين ايڠين دجالنکن ڤد GPU يڠ لبيه برکواسا جک اد.\n"
 "سيلا ليهت https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu اونتوق معلومت لنجوت."
 
-#: ../data/ui/MenulibreWindow.ui.h:126
+#: ../data/ui/MenulibreWindow.ui.h:121
 msgctxt ""
 "If true, the application prefers to be run on a more powerful GPU (graphics "
 "processing unit, graphics card) if available."
 msgid "Prefers Non-Default GPU"
 msgstr "اوتاماکن GPU بوکن-لالاي"
 
-#: ../data/ui/MenulibreWindow.ui.h:127
+#: ../data/ui/MenulibreWindow.ui.h:122
 msgid ""
 "Set this key to \"True\" if this application uses notifications.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information."
@@ -441,7 +426,7 @@ msgstr ""
 "تتڤکن ککونچي اين کڤد \"بنر\" سکيراڽ اڤليکاسي اين مڠݢوناکن ڤمبريتاهوان.\n"
 "سيلا ليهت https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications اونتوق معلومت لنجوت."
 
-#: ../data/ui/MenulibreWindow.ui.h:129
+#: ../data/ui/MenulibreWindow.ui.h:124
 msgid "Uses Notifications"
 msgstr "ڤمبريتاهوان ڤڠݢونا"
 
@@ -484,7 +469,7 @@ msgstr "ݢونا"
 
 #. Translators: Help action tooltip
 #: ../menulibre/CommandEditor.py:90 ../menulibre/MenulibreApplication.py:538
-#: ../menulibre/MenulibreApplication.py:2489
+#: ../menulibre/MenulibreApplication.py:2494
 msgid "Help"
 msgstr "بنتوان"
 
@@ -984,7 +969,7 @@ msgstr "کلوار (_Q)"
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:529
-#: ../menulibre/MenulibreApplication.py:2491
+#: ../menulibre/MenulibreApplication.py:2496
 msgid "Quit"
 msgstr "کلوار"
 
@@ -1000,7 +985,7 @@ msgstr "ڤريهل (_A)"
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:547
-#: ../menulibre/MenulibreApplication.py:2490
+#: ../menulibre/MenulibreApplication.py:2495
 msgid "About"
 msgstr "ڤريهل"
 
@@ -1127,7 +1112,7 @@ msgid "Are you sure you want to delete \"%s\"?"
 msgstr "اداکه اندا ايڠين ممادم \"%s\"؟"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:2484
+#: ../menulibre/MenulibreApplication.py:2489
 msgid "Parsing Error Log"
 msgstr "لوݢ رالت ڤڠهوراين"
 
@@ -1140,6 +1125,34 @@ msgstr "حاصيل ݢلينتر"
 #: ../menulibre/MenulibreXdg.py:46
 msgid "New Menu Item"
 msgstr "بوتير مينو بهارو"
+
+#: ../menulibre/ParsingErrorsDialog.py:34
+msgid "Parsing Errors"
+msgstr "رالت ڤڠهوراين"
+
+#: ../menulibre/ParsingErrorsDialog.py:37
+msgid "Close"
+msgstr "توتوڤ"
+
+#: ../menulibre/ParsingErrorsDialog.py:56
+msgid ""
+"The following desktop files have failed parsing by the underlying library, and will therefore not show up in MenuLibre.\n"
+"Please investigate these problems with the associated package maintainer."
+msgstr ""
+"فاٴيل اتس ميجا دباوه تيدق داڤت دهورايکن اوليه ڤوستاک يڠ برکاٴيتن⹁ اوليه ايت اي تيدق اکن مونچول دالم MenuLibre.\n"
+"سيلا سياست مسئله اين برسام ڤڽڠݢارا ڤاکيج يڠ برکاٴيتن."
+
+#: ../menulibre/ParsingErrorsDialog.py:122
+msgid "Open containing folder"
+msgstr "بوک فولدر ترکاندوڠ"
+
+#: ../menulibre/ParsingErrorsDialog.py:127
+msgid "Open in text editor"
+msgstr "بوک دالم ڤڽونتيڠ تيک‌س"
+
+#: ../menulibre/ParsingErrorsDialog.py:132
+msgid "Copy file location"
+msgstr "سالين لوکاسي فاٴيل"
 
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
