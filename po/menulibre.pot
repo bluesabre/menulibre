@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-10 07:48-0400\n"
+"POT-Creation-Date: 2023-05-13 08:13-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -428,7 +428,7 @@ msgstr ""
 
 #. Translators: Help action tooltip
 #: ../menulibre/CommandEditor.py:90 ../menulibre/MenulibreApplication.py:538
-#: ../menulibre/MenulibreApplication.py:2492
+#: ../menulibre/MenulibreApplication.py:2494
 msgid "Help"
 msgstr ""
 
@@ -921,7 +921,7 @@ msgstr ""
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:529
-#: ../menulibre/MenulibreApplication.py:2494
+#: ../menulibre/MenulibreApplication.py:2496
 msgid "Quit"
 msgstr ""
 
@@ -937,7 +937,7 @@ msgstr ""
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:547
-#: ../menulibre/MenulibreApplication.py:2493
+#: ../menulibre/MenulibreApplication.py:2495
 msgid "About"
 msgstr ""
 
@@ -1059,7 +1059,7 @@ msgid "Are you sure you want to delete \"%s\"?"
 msgstr ""
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:2487
+#: ../menulibre/MenulibreApplication.py:2489
 msgid "Parsing Error Log"
 msgstr ""
 

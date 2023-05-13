@@ -20,12 +20,11 @@ import os
 import subprocess
 import shlex
 
-from . util import find_program
-
 import gi
 gi.require_version("Gtk", "3.0")
+gi.require_version("Gdk", "3.0")
 
-from gi.repository import Gdk, Gio, Gtk
+from gi.repository import Gdk, Gio, Gtk, GLib
 
 import logging
 
@@ -51,26 +50,26 @@ class FileHandler:
         if os.path.isdir(path):
             return self.open_folder(path)
 
-        if not self._file_is_writable(path):
+        file = self._get_file(path)
+
+        if not self._file_is_writable(file):
             admin = self._get_preferred_admin_editor()
             if admin is not None:
-                return admin.launch([self._get_file("admin://%s" % path)])
+                return admin.launch([self._get_file("admin://%s" % file.get_path())])
 
             logging.warning(
                 "Could not find a text editor supporting admin://")
 
             root = self._get_root_editor()
             if root is not None:
-                command = self._get_command(root, path, True)
-                subprocess.Popen(command)
-                return True
+                return root.launch([file])
 
             logging.warning(
                 "Could not find a text editor supporting pkexec")
 
         editor = self._get_editor()
         if editor is not None:
-            return editor.launch([self._get_file(path)])
+            return editor.launch([file])
 
         logging.warning(
             "Could not find a supported text editor")
@@ -87,59 +86,13 @@ class FileHandler:
         else:
             return Gio.File.new_for_path(path)
 
-    def _get_command(self, appinfo, path, pkexec=False):
-        commandline = appinfo.get_commandline()
-
-        supports_uri = "%u" in commandline or "%U" in commandline
-        supports_path = "%f" in commandline or "%F" in commandline
-
-        file = self._get_file(path)
-        uri = file.get_uri()
-        path = file.get_path()
-
-        find = replace = append = None
-
-        if supports_uri and "%u" in commandline:
-            find = "%u"
-            replace = uri
-        elif supports_uri and "%U" in commandline:
-            find = "%U"
-            replace = uri
-        elif supports_path and "%f" in commandline:
-            find = "%f"
-            replace = path
-        elif supports_path and "%F" in commandline:
-            find = "%F"
-            replace = path
-        else:
-            append = path
-
-        command = []
-
-        if find is not None:
-            for part in shlex.split(commandline):
-                if part == find:
-                    command.append(replace)
-                else:
-                    command.append(part)
-        else:
-            command = shlex.split(commandline)
-            command.append(append)
-
-        if pkexec:
-            command = ["pkexec"] + command
-
-        return command
-
-
-    def _file_is_writable(self, path):
+    def _file_is_writable(self, file: Gio.File):
         try:
-            gfile = Gio.File.new_for_path(path)
-            info = gfile.query_info(Gio.FILE_ATTRIBUTE_ACCESS_CAN_WRITE, Gio.FileQueryInfoFlags.NONE, None)
+            info = file.query_info(Gio.FILE_ATTRIBUTE_ACCESS_CAN_WRITE, Gio.FileQueryInfoFlags.NONE, None)
             return info.get_attribute_boolean(Gio.FILE_ATTRIBUTE_ACCESS_CAN_WRITE)
         except:
             return False
-        
+
     def _get_preferred_admin_editor(self):
         default = self._get_editor()
         if self._editor_supports_admin_protocol(default):
@@ -148,31 +101,65 @@ class FileHandler:
             if self._editor_supports_admin_protocol(editor):
                 return editor
         return None
-    
+
     def _get_editor(self):
         info = Gio.AppInfo.get_default_for_type("text/plain", False)
         if info is not None:
             return info
         return None
-    
+
     def _get_editors(self):
         execs = {}
         infos = Gio.AppInfo.get_all_for_type("text/plain")
         for info in infos:
-            executable = info.get_commandline()
             appid = info.get_id()
             appid = appid[:-8]
             execs[appid] = info
         return execs
-    
+
     def _editor_supports_admin_protocol(self, editor):
         return editor.get_executable() in [
             "gedit",
             "pluma"
         ]
-    
+
+    def _get_keyfile(self, editor: Gio.AppInfo):
+        app_id = editor.get_id()
+        fname = app_id
+
+        keyfile = GLib.KeyFile.new()
+
+        data_dirs = [GLib.get_user_data_dir()] + GLib.get_system_data_dirs()
+        for data_dir in data_dirs:
+            for path, directories, files in os.walk(data_dir):
+                if fname in files:
+                    filename = os.path.join(data_dir, path, fname)
+                    if keyfile.load_from_file(filename, GLib.KeyFileFlags.NONE):
+                        return keyfile
+
+        return None
+
+    def _get_pkexec_editor(self, editor: Gio.AppInfo, pkexec: str):
+        keyfile = self._get_keyfile(editor)
+        if keyfile is None:
+            return None
+
+        try:
+            commandline = keyfile.get_string("Desktop Entry", "Exec")
+            command = shlex.join([pkexec] + shlex.split(commandline))
+            keyfile.set_string("Desktop Entry", "Exec", command)
+        except GLib.Error:
+            return None
+
+        desktop = Gio.DesktopAppInfo.new_from_keyfile(keyfile)
+        if desktop is None:
+            return None
+
+        return desktop
+
     def _get_root_editor(self):
-        if not find_program("pkexec"):
+        pkexec_bin = GLib.find_program_in_path("pkexec")
+        if pkexec_bin is None:
             logging.warning(
                 "Could not find pkexec to for executing root editors")
             return None
@@ -187,16 +174,17 @@ class FileHandler:
             for pkexec in pkexecs:
                 if pkexec == appid or pkexec == "org.freedesktop.policykit.pkexec.%s" % appid:
                     if editor.get_id() == default.get_id():
-                        return editor
+                        return self._get_pkexec_editor(editor, pkexec_bin)
                     if preferred is None:
                         preferred = editor
         if preferred is not None:
-            return preferred
-        if default is None:
-            logging.warning(
-                "Could not find a text editor supporting pkexec")
-        return default
-    
+            return self._get_pkexec_editor(preferred, pkexec_bin)
+        if default is not None:
+            return self._get_pkexec_editor(default, pkexec_bin)
+        logging.warning(
+            "Could not find a text editor supporting pkexec")
+        return None
+
     def _get_display_server(self):
         wayland = os.getenv("WAYLAND_DISPLAY")
         if wayland is not None:
@@ -207,7 +195,7 @@ class FileHandler:
         logging.warning(
             "Could not determine display server. Assuming x11")
         return "x11"
-    
+
     def _get_pkexecs(self):
         try:
             output = subprocess.check_output(["pkaction"], stderr=subprocess.STDOUT)
