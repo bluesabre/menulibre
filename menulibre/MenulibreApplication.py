@@ -36,6 +36,7 @@ from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, ParsingErrorsDialog
 from . import MenuEditor
 from . import CategoryEditor
+from . import AdvancedPage
 from .util import MenuItemTypes, check_keypress, getBasename, getRelativeName, getRelatedKeys
 from .util import escapeText, getCurrentDesktop, find_program, getProcessList, getDefaultMenuPrefix
 import menulibre_lib
@@ -689,6 +690,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Store the editor.
         self.editor = builder.get_object('application_editor')
 
+        self.advanced_page = AdvancedPage.AdvancedPage()
+        self.advanced_page.connect("value-changed", self.on_smart_widget_changed)
+
         # Keep a dictionary of the widgets for easy lookup and updates.
         # The keys are the DesktopSpec keys.
         self.widgets = {
@@ -708,24 +712,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             'Path': builder.get_object('entry_Path'),
             'Terminal': builder.get_object('switch_Terminal'),
             'StartupNotify': builder.get_object('switch_StartupNotify'),
-            'NoDisplay': builder.get_object('switch_NoDisplay'),
-            'GenericName': builder.get_object('entry_GenericName'),
-            'TryExec': builder.get_object('entry_TryExec'),
-            'OnlyShowIn': builder.get_object('entry_OnlyShowIn'),
-            'NotShowIn': builder.get_object('entry_NotShowIn'),
-            'MimeType': builder.get_object('entry_Mimetype'),
-            'Keywords': builder.get_object('entry_Keywords'),
-            'StartupWMClass': builder.get_object('entry_StartupWMClass'),
-            'Implements': builder.get_object('entry_Implements'),
-            'Hidden': builder.get_object('switch_Hidden'),
-            'DBusActivatable': builder.get_object('switch_DBusActivatable'),
-            'PrefersNonDefaultGPU': builder.get_object('switch_PrefersNonDefaultGPU'),
-            'X-GNOME-UsesNotifications': builder.get_object('switch_UsesNotifications')
+            'NoDisplay': builder.get_object('switch_NoDisplay')
         }
 
         # Configure the switches
-        for widget_name in ['Terminal', 'StartupNotify', 'NoDisplay', 'Hidden',
-                            'DBusActivatable', 'PrefersNonDefaultGPU']:
+        for widget_name in ['Terminal', 'StartupNotify', 'NoDisplay']:
             widget = self.widgets[widget_name]
             widget.connect('notify::active', self.on_switch_toggle,
                            widget_name)
@@ -774,9 +765,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                           self.on_entry_changed,
                           widget_name)
 
-        for widget_name in ['Exec', 'Path', 'GenericName', 'TryExec',
-                            'OnlyShowIn', 'NotShowIn', 'MimeType', 'Keywords',
-                            'StartupWMClass', 'Implements']:
+        for widget_name in ['Exec', 'Path']:
 
             # Commit changes to entries when focusing out.
             self.widgets[widget_name].connect('focus-out-event',
@@ -793,17 +782,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             button = builder.get_object('entry_%s' % widget_name)
             button.connect('icon-press', self.on_Path_clicked, widget_name,
                            builder)
-        
+
         button = builder.get_object('entry_Exec')
         button.connect('icon-press', self.on_Exec_clicked)
-
-        xprop = find_program('xprop')
-        if xprop is None:
-            self.widgets['StartupWMClass'].set_icon_from_icon_name(
-                Gtk.EntryIconPosition.SECONDARY, None)
-        else:
-            self.widgets['StartupWMClass'].connect(
-                'icon-press', self.on_StartupWmClass_clicked)
 
         # Connect the Icon menu.
         select_icon_name = builder.get_object("icon_select_by_icon_name")
@@ -813,7 +794,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         select_icon_file = builder.get_object("icon_select_by_filename")
         select_icon_file.connect("activate",
                                  self.on_IconSelectFromFilename_clicked)
-        
+
         # Connect the Icon overlay.
         overlay = builder.get_object("icon_overlay")
         self.overlay_icon = builder.get_object("overlay_icon")
@@ -823,7 +804,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Categories Treeview and Inline Toolbar
         self.category_editor = CategoryEditor.CategoryEditor()
         self.category_editor.set_prefix(getDefaultMenuPrefix())
-        self.category_editor.connect("value-changed", self.on_categories_changed)
+        self.category_editor.connect("value-changed", self.on_smart_widget_changed)
 
         # Actions Treeview and Inline Toolbar
         self.actions_treeview = builder.get_object('actions_treeview')
@@ -853,7 +834,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.switcher.add_child(builder.get_object('page_actions'),
                                 # Translators: "Actions" launcher section
                                 'actions', _('Actions'))
-        self.switcher.add_child(builder.get_object('page_advanced'),
+        self.switcher.add_child(self.advanced_page,
                                 # Translators: "Advanced" launcher section
                                 'advanced', _('Advanced'))
 
@@ -942,8 +923,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if row[0] == _('This Entry'):
             return model.iter_n_children(treeiter) != 0
         return True
-    
-    def on_categories_changed(self, widget, key, value):
+
+    def on_smart_widget_changed(self, widget, key, value):
         self.set_value(key, value, False)
 
     def cleanup_actions(self):
@@ -1057,8 +1038,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_IconSelectFromIcons_clicked(self, widget, builder):
         current_icon_name = self.get_value("Icon")
         dialog = IconSelectionDialog.IconSelectionDialog(
-            parent=self, 
-            initial_icon=current_icon_name, 
+            parent=self,
+            initial_icon=current_icon_name,
             use_header_bar=self.use_headerbar)
         if dialog.run() == Gtk.ResponseType.OK:
             icon_name = dialog.get_icon()
@@ -1165,15 +1146,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     filename = '\"%s\"' % filename
             self.set_value(widget_name, filename)
         entry.grab_focus()
-
-    def on_StartupWmClass_clicked(self, entry, icon, event):
-        dialog = Dialogs.XpropWindowDialog(self, self.get_value('Name'))
-        wm_classes = dialog.run_xprop()
-        current = entry.get_text()
-        for wm_class in wm_classes:
-            if wm_class != current:
-                self.set_value("StartupWMClass", wm_class)
-                return
 
 
 # Applications Treeview
@@ -1452,7 +1424,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 image.set_from_pixbuf(scaled)
                 self.set_editor_image_success(button, image, icon_name)
                 return
-            
+
             else:
                 self.set_editor_image_error(button, image, _("<i>Missing icon:</i> %s") % icon_name)
 
@@ -1635,8 +1607,15 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.set_inner_value(key, value)
         if not adjust_widget:
             return
+
+        if self.advanced_page.has_value(key):
+            self.advanced_page.set_value(key, value)
+
+        elif key == 'Categories':
+            self.category_editor.set_value(value)
+
         # Name and Comment must formatted correctly for their buttons.
-        if key in ['Name', 'Comment']:
+        elif key in ['Name', 'Comment']:
             if not value:
                 value = ""
             button, label, entry = self.widgets[key]
@@ -1655,8 +1634,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.set_editor_filename(value)
         elif key == 'Actions':
             self.set_editor_actions(value)
-        elif key == 'Categories':
-            self.category_editor.set_value(value)
         elif key == 'Icon':
             self.set_editor_image(value)
 
@@ -1705,7 +1682,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def get_value(self, key):  # noqa
         """Return the value stored for the specified key."""
-        if key in ['Name', 'Comment']:
+        if self.advanced_page.has_value(key):
+            return self.advanced_page.get_value(key)
+        elif key in ['Name', 'Comment']:
             button, label, entry = self.widgets[key]
             return entry.get_text()
         elif key == 'Icon':
@@ -1915,7 +1894,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             else:
                 # Parent was not found, this is a toplevel category
                 parent_directory = None
-            
+
             self.category_editor.insert_required_categories(parent_directory)
 
             # Cleanup invalid entries and reorder the Categories and Actions

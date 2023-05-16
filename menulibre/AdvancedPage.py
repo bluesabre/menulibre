@@ -26,12 +26,17 @@ from gi.repository import Gtk, Gdk, Pango, GObject, GLib
 
 
 class AdvancedPage(Gtk.ScrolledWindow):
+    __gsignals__ = {
+        'value-changed': (GObject.SignalFlags.RUN_FIRST, None, (str, str,)),
+    }
 
     def __init__(self):
         super().__init__(hadjustment=None, vadjustment=None)
 
         self._row_index = 0
         self._widgets = {}
+
+        self.set_shadow_type(Gtk.ShadowType.IN)
         self.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC)
 
         self._grid = Gtk.Grid()
@@ -63,6 +68,11 @@ class AdvancedPage(Gtk.ScrolledWindow):
                       _('A list of environments that should not display this entry. You can only use this key if "OnlyShowIn" is not set.\n'
                         'Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old'),
                       TextEntry('NotShowIn'))
+
+        self._add_row('MimeType',
+                      _("Mimetypes"), 
+                      _('The MIME type(s) supported by this application.'),
+                      TextEntry('MimeType'))
         
         self._add_row('Keywords',
                       _("Keywords"), 
@@ -117,7 +127,21 @@ class AdvancedPage(Gtk.ScrolledWindow):
         self._row_index += 1
 
     def _on_widget_value_changed(self, widget, property_name, value):
-        print(property_name, value)
+        self.emit('value-changed', property_name, value)
+
+    def has_value(self, property_name):
+        return property_name in list(self._widgets.keys())
+
+    def set_value(self, property_name, value):
+        if self.has_value(property_name):
+            self._widgets[property_name].set_value(value)
+            return True
+        return False
+
+    def get_value(self, property_name):
+        if self.has_value(property_name):
+            self._widgets[property_name].get_value()
+        return None
 
 
 class TextEntry(Gtk.Entry):
@@ -134,6 +158,8 @@ class TextEntry(Gtk.Entry):
         self.connect('changed', self._on_changed)
 
     def set_value(self, value):
+        if value is None:
+            value = ""
         self.set_text(value)
 
     def get_value(self):
