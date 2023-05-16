@@ -21,6 +21,7 @@ menulibre.desktop.in
 
 # Python Files
 menulibre/__init__.py
+menulibre/CategoryEditor.py
 menulibre/CommandEditor.py
 menulibre/Dialogs.py
 menulibre/FileHandler.py

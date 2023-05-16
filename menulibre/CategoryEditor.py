@@ -15,6 +15,7 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
 from locale import gettext as _
 
 import gi
@@ -32,6 +33,7 @@ class CategoryEditor(Gtk.Box):
         super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=0)
 
         scrolled = Gtk.ScrolledWindow.new(hadjustment=None, vadjustment=None)
+        scrolled.set_shadow_type(Gtk.ShadowType.IN)
         self.pack_start(scrolled, True, True, 0)
 
         self._options = Gtk.TreeStore.new([str])
@@ -94,37 +96,85 @@ class CategoryEditor(Gtk.Box):
         clear_button.connect("clicked", self._on_clear_clicked)
         toolbar.add(clear_button)
 
+        self._row_change_inhibit = False
         self._row_change_singleton = False
         self._treestore.connect("row-changed", self._on_row_changed)
         self._treestore.connect("row-inserted", self._on_row_inserted, treeview, remove_button, clear_button)
         self._treestore.connect("row-deleted", self._on_row_deleted, remove_button, clear_button)
 
+        self._prefix = ""
+        self._removals = []
+
         self.show_all()
 
+    def set_prefix(self, value):
+        self._prefix = value
+
     def set_value(self, value):
+        self._row_change_inhibit = True
+
         self._clear()
 
         categories = []
-        for cat in value.split(";"):
-            cat = cat.strip()
-            if len(cat) > 0 and cat not in categories:
-                categories.append(cat)
-        categories.sort()
+        if value is not None:
+            for cat in value.split(";"):
+                cat = cat.strip()
+                if len(cat) > 0 and cat not in categories:
+                    categories.append(cat)
+            categories.sort()
 
         for category in categories:
             self._append(category)
 
-    def get_value(self):
+        self._row_change_inhibit = False
+
+    def _get_categories(self):
         model = self._treestore
         categories = []
         for row in model:
             if row[0] not in categories:
                 categories.append(row[0])
+        categories.sort()
+        return categories
+
+    def get_value(self):
+        categories = self._get_categories()
         if len(categories) > 0:
             categories.sort()
             return "%s;" % ";".join(categories)
         return ""
-    
+
+    def _get_required_categories(self, parent_directory):
+        if parent_directory is None:
+            if self._prefix == "xfce-":
+                return ['X-XFCE', 'X-Xfce-Toplevel']
+            return []
+
+        basename = os.path.basename(parent_directory)
+        name, ext = os.path.splitext(basename)
+
+        # Handle directories like xfce-development
+        if name.startswith(self._prefix):
+            name = name[len(self._prefix):]
+            name = name.title()
+
+        if name == 'Accessories':
+            return ['Utility']
+
+        if name == 'Games':
+            return ['Game']
+
+        if name == 'Multimedia':
+            return ['AudioVideo']
+
+        return [name]
+
+    def insert_required_categories(self, parent_directory):
+        current_categories = self._get_categories()
+        for category in self._get_required_categories(parent_directory):
+            if category not in current_categories:
+                self._append(category)
+
     def _on_row_changed(self, model, path, treeiter):
         if self._row_change_singleton:
             self._row_change_singleton = False
@@ -133,7 +183,8 @@ class CategoryEditor(Gtk.Box):
         self.emit('value-changed', 'Categories', self.get_value())
 
     def _on_row_inserted(self, model, path, treeiter, treeview, remove_button, clear_button):
-        treeview.set_cursor(path, treeview.get_column(0), True)
+        if not self._row_change_inhibit:
+            treeview.set_cursor(path, treeview.get_column(0), True)
         remove_button.set_sensitive(True)
         clear_button.set_sensitive(True)
 
@@ -144,6 +195,7 @@ class CategoryEditor(Gtk.Box):
 
     def _clear(self):
         self._treestore.clear()
+        self._removals = []
 
     def _append(self, category):
         section = self._add_category(category)
@@ -155,6 +207,7 @@ class CategoryEditor(Gtk.Box):
     def _on_remove_clicked(self, widget, treeview):
         model, treeiter = treeview.get_selection().get_selected()
         if model is not None and treeiter is not None:
+            self._removals.append(model[treeiter][0])
             model.remove(treeiter)
             self.emit('value-changed', 'Categories', self.get_value())
 
