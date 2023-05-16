@@ -35,8 +35,9 @@ from . import IconSelectionDialog, IconFileSelectionDialog
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, ParsingErrorsDialog
 from . import MenuEditor
+from . import CategoryEditor
 from .util import MenuItemTypes, check_keypress, getBasename, getRelativeName, getRelatedKeys
-from .util import escapeText, getCurrentDesktop, find_program, getProcessList
+from .util import escapeText, getCurrentDesktop, find_program, getProcessList, getDefaultMenuPrefix
 import menulibre_lib
 
 import logging
@@ -684,15 +685,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         placeholder = builder.get_object('settings_placeholder')
         self.switcher = MenulibreStackSwitcher.StackSwitcherBox()
         placeholder.add(self.switcher)
-        self.switcher.add_child(builder.get_object('page_categories'),
-                                # Translators: "Categories" launcher section
-                                'categories', _('Categories'))
-        self.switcher.add_child(builder.get_object('page_actions'),
-                                # Translators: "Actions" launcher section
-                                'actions', _('Actions'))
-        self.switcher.add_child(builder.get_object('page_advanced'),
-                                # Translators: "Advanced" launcher section
-                                'advanced', _('Advanced'))
 
         # Store the editor.
         self.editor = builder.get_object('application_editor')
@@ -829,14 +821,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         overlay.set_overlay_pass_through(self.overlay_icon, True)
 
         # Categories Treeview and Inline Toolbar
-        self.categories_treeview = builder.get_object('categories_treeview')
-        add_button = builder.get_object('categories_add')
-        add_button.connect("clicked", self.on_categories_add)
-        remove_button = builder.get_object('categories_remove')
-        remove_button.connect("clicked", self.on_categories_remove)
-        clear_button = builder.get_object('categories_clear')
-        clear_button.connect("clicked", self.on_categories_clear)
-        self.configure_categories_treeview(builder)
+        self.category_editor = CategoryEditor.CategoryEditor()
+        self.category_editor.set_prefix(getDefaultMenuPrefix())
+        self.category_editor.connect("value-changed", self.on_categories_changed)
 
         # Actions Treeview and Inline Toolbar
         self.actions_treeview = builder.get_object('actions_treeview')
@@ -860,59 +847,15 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         renderer = builder.get_object('actions_command_renderer')
         renderer.connect('edited', self.on_actions_text_edited, model, 3)
 
-    def configure_categories_treeview(self, builder):
-        """Set the up combobox in the categories treeview editor."""
-        # Populate the ListStore.
-        self.categories_treestore = Gtk.TreeStore(str)
-        self.categories_treefilter = self.categories_treestore.filter_new()
-        self.categories_treefilter.set_visible_func(
-                self.categories_treefilter_func)
-
-        keys = list(category_groups.keys())
-        keys.sort()
-
-        # Translators: Launcher-specific categories, camelcase "This Entry"
-        keys.append(_('ThisEntry'))
-
-        for key in keys:
-            parent = self.categories_treestore.append(None, [key])
-            try:
-                for category in category_groups[key]:
-                    self.categories_treestore.append(parent, [category])
-            except KeyError:
-                pass
-
-        # Create the TreeView...
-        treeview = builder.get_object('categories_treeview')
-
-        renderer_combo = Gtk.CellRendererCombo()
-        renderer_combo.set_property("editable", True)
-        renderer_combo.set_property("model", self.categories_treefilter)
-        renderer_combo.set_property("text-column", 0)
-        renderer_combo.set_property("has-entry", False)
-
-        # Translators: Placeholder text for the launcher-specific category
-        # selection.
-        renderer_combo.set_property("placeholder-text", _("Select a category"))
-        renderer_combo.connect("edited", self.on_category_combo_changed)
-
-        # Translators: "Category Name" tree column header
-        column_combo = Gtk.TreeViewColumn(_("Category Name"),
-                                          renderer_combo, text=0)
-        treeview.append_column(column_combo)
-
-        renderer_text = Gtk.CellRendererText()
-
-        # Translators: "Description" tree column header
-        column_text = Gtk.TreeViewColumn(_("Description"),
-                                         renderer_text, text=1)
-        treeview.append_column(column_text)
-
-        self.categories_treefilter.refilter()
-
-        # Allow to keep track of categories a user has explicitly removed for a
-        # desktop file
-        self.categories_removed = set()
+        self.switcher.add_child(self.category_editor,
+                                # Translators: "Categories" launcher section
+                                'categories', _('Categories'))
+        self.switcher.add_child(builder.get_object('page_actions'),
+                                # Translators: "Actions" launcher section
+                                'actions', _('Actions'))
+        self.switcher.add_child(builder.get_object('page_advanced'),
+                                # Translators: "Advanced" launcher section
+                                'advanced', _('Advanced'))
 
     def activate_action_cb(self, widget, action_name):
         """Activate the specified GtkAction."""
@@ -989,10 +932,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             model.append(row)
 
 # Categories
-    def cleanup_categories(self):
-        """Cleanup the Categories treeview. Remove any rows where category
-        has not been set and sort alphabetically."""
-        self.cleanup_treeview(self.categories_treeview, [0], sort=True)
 
     def categories_treefilter_func(self, model, treeiter, data=None):
         """Only show ThisEntry when there are child items."""
@@ -1003,34 +942,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if row[0] == _('This Entry'):
             return model.iter_n_children(treeiter) != 0
         return True
-
-    def on_category_combo_changed(self, widget, path, text):
-        """Set the active iter to the new text."""
-        model = self.categories_treeview.get_model()
-        model[path][0] = text
-        description = lookup_category_description(text)
-        model[path][1] = description
-        self.set_value('Categories', self.get_editor_categories(), False)
-
-    def on_categories_add(self, widget):
-        """Add a new row to the Categories TreeView."""
-        self.treeview_add(self.categories_treeview, ['', ''])
-        self.set_value('Categories', self.get_editor_categories(), False)
-
-    def on_categories_remove(self, widget):
-        """Remove the currently selected row from the Categories TreeView."""
-
-        # Keep track of category names user has explicitly removed
-        name = self.treeview_get_selected_text(self.categories_treeview, 0)
-        self.categories_removed.add(name)
-
-        self.treeview_remove(self.categories_treeview)
-        self.set_value('Categories', self.get_editor_categories(), False)
-
-    def on_categories_clear(self, widget):
-        """Clear all rows from the Categories TreeView."""
-        self.treeview_clear(self.categories_treeview)
-        self.set_value('Categories', self.get_editor_categories(), False)
+    
+    def on_categories_changed(self, widget, key, value):
+        self.set_value(key, value, False)
 
     def cleanup_actions(self):
         """Cleanup the Actions treeview. Remove any rows where name or command
@@ -1589,55 +1503,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Store the filename value.
         self.values['filename'] = filename
 
-    def get_editor_categories(self):
-        """Get the editor categories.
-
-        Return the categories as a semicolon-delimited string."""
-        model = self.categories_treeview.get_model()
-        categories = ""
-        for row in model:
-            categories = "%s%s;" % (categories, row[0])
-        return categories
-
-    def set_editor_categories(self, entries_string):
-        """Populate the Categories treeview with the Categories string."""
-        if not entries_string:
-            entries_string = ""
-
-        # Split the entries into a list.
-        entries = entries_string.split(';')
-        entries.sort()
-
-        # Clear the model.
-        model = self.categories_treeview.get_model()
-        model.clear()
-
-        # Clear tracked categories user explicitly deleted
-        self.categories_removed = set()
-
-        # Clear the ThisEntry category list.
-        this_index = self.categories_treestore.iter_n_children(None) - 1
-        this_entry = self.categories_treestore.iter_nth_child(None, this_index)
-        for i in range(self.categories_treestore.iter_n_children(this_entry)):
-            child_iter = self.categories_treestore.iter_nth_child(this_entry,
-                                                                  0)
-            self.categories_treestore.remove(child_iter)
-
-        # Cleanup the entry text and generate a description.
-        for entry in entries:
-            entry = entry.strip()
-            if len(entry) > 0:
-                description = lookup_category_description(entry)
-                model.append([entry, description])
-
-                # Add unknown entries to the category list...
-                category_keys = list(category_groups.keys()) + \
-                    list(category_lookup.keys())
-                if entry not in category_keys:
-                    self.categories_treestore.append(this_entry, [entry])
-
-        self.categories_treefilter.refilter()
-
     def get_editor_actions_string(self):
         """Return the .desktop formatted actions."""
         # Get the model.
@@ -1791,7 +1656,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         elif key == 'Actions':
             self.set_editor_actions(value)
         elif key == 'Categories':
-            self.set_editor_categories(value)
+            self.category_editor.set_value(value)
         elif key == 'Icon':
             self.set_editor_image(value)
 
@@ -1848,7 +1713,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         elif key == 'Type':
             return self.values[key]
         elif key == 'Categories':
-            return self.get_editor_categories()
+            return self.category_editor.get_value()
         elif key == 'Filename':
             if 'filename' in list(self.values.keys()):
                 return self.values['filename']
@@ -1902,25 +1767,24 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         else:
             self.treeview.append(new_row_data)
 
-        # A parent item has been found, and the current selection is not a
-        # directory, so the resulting item will be placed at the current level
-        # fetch the parent's categories
         if parent_data is not None and not dir_selected:
-            categories = util.getRequiredCategories(parent_data[MenuEditor.COL_FILENAME])
+            # A parent item has been found, and the current selection is not a
+            # directory, so the resulting item will be placed at the current level
+            # fetch the parent's categories
+            parent_directory = parent_data[MenuEditor.COL_FILENAME]
 
         elif parent_data is not None and dir_selected:
-
             # A directory lower than the top-level has been selected - the
             # launcher will be added into it (e.g. as the first item),
             # therefore it essentially has a parent of the current selection
-            categories = util.getRequiredCategories(row_data[MenuEditor.COL_FILENAME])
+            parent_directory = row_data[MenuEditor.COL_FILENAME]
 
         else:
-
             # Parent was not found, this is a toplevel category
-            categories = util.getRequiredCategories(None)
+            parent_directory = None
 
-        self.set_editor_categories(';'.join(categories))
+        self.category_editor.set_value("")
+        self.category_editor.insert_required_categories(parent_directory)
 
         self.actions['save_launcher'].set_sensitive(True)
         self.save_button.set_sensitive(True)
@@ -2047,25 +1911,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # otherwise show
             if parent_data is not None:
                 # Parent was found, take its categories.
-                required_categories = util.getRequiredCategories(
-                    parent_data[MenuEditor.COL_FILENAME])
+                parent_directory = parent_data[MenuEditor.COL_FILENAME]
             else:
                 # Parent was not found, this is a toplevel category
-                required_categories = util.getRequiredCategories(None)
-            current_categories = self.get_value('Categories').split(';')
-            all_categories = current_categories
-            for category in required_categories:
-
-                # Only add the 'required category' if the user has not
-                # explicitly removed it
-                if (category not in all_categories and
-                        category not in self.categories_removed):
-                    all_categories.append(category)
-
-            self.set_editor_categories(';'.join(all_categories))
+                parent_directory = None
+            
+            self.category_editor.insert_required_categories(parent_directory)
 
             # Cleanup invalid entries and reorder the Categories and Actions
-            self.cleanup_categories()
             self.cleanup_actions()
 
         if not self.write_launcher(filename):
