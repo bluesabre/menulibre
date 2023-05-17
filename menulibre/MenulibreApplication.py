@@ -37,8 +37,8 @@ from . import MenulibreXdg, util, ParsingErrorsDialog
 from . import MenuEditor
 from . import CategoryEditor
 from . import AdvancedPage
-from .util import MenuItemTypes, check_keypress, getBasename, getRelativeName, getRelatedKeys
-from .util import escapeText, getCurrentDesktop, find_program, getProcessList, getDefaultMenuPrefix
+from .util import MenuItemTypes, check_keypress, getRelativeName, getRelatedKeys
+from .util import escapeText, getCurrentDesktop, getProcessList, getDefaultMenuPrefix
 import menulibre_lib
 
 import logging
@@ -49,63 +49,6 @@ session = os.getenv("DESKTOP_SESSION", "")
 root = os.getuid() == 0
 
 current_desktop = getCurrentDesktop()
-
-category_descriptions = {
-    # Translators: Launcher category description
-    'AudioVideo': _('Multimedia'),
-    # Translators: Launcher category description
-    'Development': _('Development'),
-    # Translators: Launcher category description
-    'Education': _('Education'),
-    # Translators: Launcher category description
-    'Game': _('Games'),
-    # Translators: Launcher category description
-    'Graphics': _('Graphics'),
-    # Translators: Launcher category description
-    'Network': _('Internet'),
-    # Translators: Launcher category description
-    'Office': _('Office'),
-    # Translators: Launcher category description
-    'Settings': _('Settings'),
-    # Translators: Launcher category description
-    'System': _('System'),
-    # Translators: Launcher category description
-    'Utility': _('Accessories'),
-    # Translators: Launcher category description
-    'WINE': _('WINE'),
-    # Translators: Launcher category description
-    'DesktopSettings': _('Desktop configuration'),
-    # Translators: Launcher category description
-    'PersonalSettings': _('User configuration'),
-    # Translators: Launcher category description
-    'HardwareSettings': _('Hardware configuration'),
-    # Translators: Launcher category description
-    'GNOME': _('GNOME application'),
-    # Translators: Launcher category description
-    'GTK': _('GTK+ application'),
-    # Translators: Launcher category description
-    'X-GNOME-PersonalSettings': _('GNOME user configuration'),
-    # Translators: Launcher category description
-    'X-GNOME-HardwareSettings': _('GNOME hardware configuration'),
-    # Translators: Launcher category description
-    'X-GNOME-SystemSettings': _('GNOME system configuration'),
-    # Translators: Launcher category description
-    'X-GNOME-Settings-Panel': _('GNOME system configuration'),
-    # Translators: Launcher category description
-    'XFCE': _('Xfce menu item'),
-    # Translators: Launcher category description
-    'X-XFCE': _('Xfce menu item'),
-    # Translators: Launcher category description
-    'X-Xfce-Toplevel': _('Xfce toplevel menu item'),
-    # Translators: Launcher category description
-    'X-XFCE-PersonalSettings': _('Xfce user configuration'),
-    # Translators: Launcher category description
-    'X-XFCE-HardwareSettings': _('Xfce hardware configuration'),
-    # Translators: Launcher category description
-    'X-XFCE-SettingsDialog': _('Xfce system configuration'),
-    # Translators: Launcher category description
-    'X-XFCE-SystemSettings': _('Xfce system configuration'),
-}
 
 # Sourced from https://specifications.freedesktop.org/menu-spec/latest/apa.html
 # and https://specifications.freedesktop.org/menu-spec/latest/apas02.html ,
@@ -189,31 +132,6 @@ category_lookup = dict()
 for key in list(category_groups.keys()):
     for item in category_groups[key]:
         category_lookup[item] = key
-
-
-def lookup_category_description(spec_name):
-    """Return a valid description string for a spec entry."""
-    # if spec_name.startswith("menulibre-"):
-    #    return _("User Category")
-    try:
-        return category_descriptions[spec_name]
-    except KeyError:
-        pass
-
-    try:
-        group = category_lookup[spec_name]
-        return lookup_category_description(group)
-    except KeyError:
-        pass
-
-    # Regex <3 Split CamelCase into separate words.
-    try:
-        description = re.sub('(?!^)([A-Z]+)', r' \1', spec_name)
-    except TypeError:
-        # Translators: "Other" category group. This item is only displayed for
-        # unknown or non-standard categories.
-        description = _("Other")
-    return description
 
 
 class MenulibreWindow(Gtk.ApplicationWindow):

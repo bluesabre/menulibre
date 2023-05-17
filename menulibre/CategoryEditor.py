@@ -16,12 +16,430 @@
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
+import re
 from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
 
 from gi.repository import Gtk, GObject
+
+
+category_groups = {
+    'Utility': (
+        'Accessibility', 'Archiving', 'Calculator', 'Clock',
+        'Compression', 'FileTools', 'TextEditor', 'TextTools', 'Utility'
+    ),
+    'Development': (
+        'Building', 'Debugger', 'Development', 'IDE', 'GUIDesigner',
+        'Profiling', 'RevisionControl', 'Translation', 'WebDevelopment'
+    ),
+    'Education': (
+        'Art', 'ArtificialIntelligence', 'Astronomy', 'Biology', 'Chemistry',
+        'ComputerScience', 'Construction', 'DataVisualization', 'Economy',
+        'Education', 'Electricity', 'Geography', 'Geology', 'Geoscience',
+        'History', 'Humanities', 'ImageProcessing', 'Languages', 'Literature',
+        'Maps', 'Math', 'MedicalSoftware', 'Music', 'NumericalAnalysis',
+        'ParallelComputing', 'Physics', 'Robotics', 'Spirituality', 'Sports'
+    ),
+    'Game': (
+        'ActionGame', 'AdventureGame', 'ArcadeGame', 'BoardGame',
+        'BlocksGame', 'CardGame', 'Emulator', 'Game', 'KidsGame', 'LogicGame',
+        'RolePlaying', 'Shooter', 'Simulation', 'SportsGame',
+        'StrategyGame'
+    ),
+    'Graphics': (
+        '2DGraphics', '3DGraphics', 'Graphics', 'OCR', 'Photography',
+        'Publishing', 'RasterGraphics', 'Scanning', 'VectorGraphics', 'Viewer'
+    ),
+    'Network': (
+        'Chat', 'Dialup', 'Feed', 'FileTransfer', 'HamRadio',
+        'InstantMessaging', 'IRCClient', 'Monitor', 'News', 'Network', 'P2P',
+        'RemoteAccess', 'Telephony', 'TelephonyTools', 'WebBrowser',
+        'WebDevelopment'
+    ),
+    'AudioVideo': (
+        'Audio', 'AudioVideoEditing', 'DiscBurning', 'Midi', 'Mixer', 'Player',
+        'Recorder', 'Sequencer', 'Tuner', 'TV', 'Video'
+    ),
+    'Office': (
+        'Calendar', 'ContactManagement', 'Database', 'Dictionary',
+        'Chart', 'Email', 'Finance', 'FlowChart', 'Office', 'PDA',
+        'Photography', 'ProjectManagement', 'Presentation', 'Publishing',
+        'Spreadsheet', 'WordProcessor'
+    ),
+    'Settings': (
+        'Accessibility', 'DesktopSettings', 'HardwareSettings',
+        'PackageManager', 'Printing', 'Security', 'Settings'
+    ),
+    'System': (
+        'Emulator', 'FileManager', 'Filesystem', 'FileTools', 'Monitor',
+        'Security', 'System', 'TerminalEmulator'
+    ),
+    'Xfce': (
+        'X-XFCE', 'X-Xfce-Toplevel', 'X-XFCE-PersonalSettings', 'X-XFCE-HardwareSettings',
+        'X-XFCE-SettingsDialog', 'X-XFCE-SystemSettings', 'Xfce'
+    ),
+    'GNOME': (
+        'X-GNOME-NetworkSettings', 'X-GNOME-PersonalSettings', 'X-GNOME-Settings-Panel',
+        'X-GNOME-Utilities', 'GNOME', 'GTK'
+    )
+}
+
+
+category_descriptions = {
+    # Translators: Launcher section description
+    'AudioVideo': _('Multimedia'),
+    # Translators: Launcher section description
+    'Development': _('Development'),
+    # Translators: Launcher section description
+    'Education': _('Education'),
+    # Translators: Launcher section description
+    'Game': _('Games'),
+    # Translators: Launcher section description
+    'Graphics': _('Graphics'),
+    # Translators: Launcher section description
+    'Network': _('Internet'),
+    # Translators: Launcher section description
+    'Office': _('Office'),
+    # Translators: Launcher section description
+    'Settings': _('Settings'),
+    # Translators: Launcher section description
+    'System': _('System'),
+    # Translators: Launcher section description
+    'Utility': _('Accessories'),
+    # Translators: Launcher section description
+    'WINE': _('WINE'),
+    # Translators: Launcher section description
+    'Other': _('Other'),
+
+    # Translators: Launcher category in the Utility section
+    'Accessibility': _('Accessibility'),
+    # Translators: Launcher category in the Utility section
+    'Archiving': _('Archiving'),
+    # Translators: Launcher category in the Utility section
+    'Calculator': _('Calculator'),
+    # Translators: Launcher category in the Utility section
+    'Clock': _('Clock'),
+    # Translators: Launcher category in the Utility section
+    'Compression': _('Compression'),
+    # Translators: Launcher category in the Utility section
+    'FileTools': _('File Tools'),
+    # Translators: Launcher category in the Utility section
+    'TextEditor': _('Text Editor'),
+    # Translators: Launcher category in the Utility section
+    'TextTools': _('Text Tools'),
+
+    # Translators: Launcher category in the Development section
+    'Building': _('Building'),
+    # Translators: Launcher category in the Development section
+    'Debugger': _('Debugger'),
+    # Translators: Launcher category in the Development section
+    'IDE': _('IDE'),
+    # Translators: Launcher category in the Development section
+    'GUIDesigner': _('GUI Designer'),
+    # Translators: Launcher category in the Development section
+    'Profiling': _('Profiling'),
+    # Translators: Launcher category in the Development section
+    'RevisionControl': _('Revision Control'),
+    # Translators: Launcher category in the Development section
+    'Translation': _('Translation'),
+    # Translators: Launcher category in the Development section
+    'WebDevelopment': _('Web Development'),
+
+    # Translators: Launcher category in the Education section
+    'Art': _('Art'),
+    # Translators: Launcher category in the Education section
+    'ArtificialIntelligence': _('Artificial Intelligence'),
+    # Translators: Launcher category in the Education section
+    'Astronomy': _('Astronomy'),
+    # Translators: Launcher category in the Education section
+    'Biology': _('Biology'),
+    # Translators: Launcher category in the Education section
+    'Chemistry': _('Chemistry'),
+    # Translators: Launcher category in the Education section
+    'ComputerScience': _('Computer Science'),
+    # Translators: Launcher category in the Education section
+    'Construction': _('Construction'),
+    # Translators: Launcher category in the Education section
+    'DataVisualization': _('Data Visualization'),
+    # Translators: Launcher category in the Education section
+    'Economy': _('Economy'),
+    # Translators: Launcher category in the Education section
+    'Electricity': _('Electricity'),
+    # Translators: Launcher category in the Education section
+    'Geography': _('Geography'),
+    # Translators: Launcher category in the Education section
+    'Geology': _('Geology'),
+    # Translators: Launcher category in the Education section
+    'Geoscience': _('Geoscience'),
+    # Translators: Launcher category in the Education section
+    'History': _('History'),
+    # Translators: Launcher category in the Education section
+    'Humanities': _('Humanities'),
+    # Translators: Launcher category in the Education section
+    'ImageProcessing': _('Image Processing'),
+    # Translators: Launcher category in the Education section
+    'Languages': _('Languages'),
+    # Translators: Launcher category in the Education section
+    'Literature': _('Literature'),
+    # Translators: Launcher category in the Education section
+    'Maps': _('Maps'),
+    # Translators: Launcher category in the Education section
+    'Math': _('Math'),
+    # Translators: Launcher category in the Education section
+    'MedicalSoftware': _('Medical Software'),
+    # Translators: Launcher category in the Education section
+    'Music': _('Music'),
+    # Translators: Launcher category in the Education section
+    'NumericalAnalysis': _('Numerical Analysis'),
+    # Translators: Launcher category in the Education section
+    'ParallelComputing': _('Parallel Computing'),
+    # Translators: Launcher category in the Education section
+    'Physics': _('Physics'),
+    # Translators: Launcher category in the Education section
+    'Robotics': _('Robotics'),
+    # Translators: Launcher category in the Education section
+    'Spirituality': _('Spirituality'),
+    # Translators: Launcher category in the Education section
+    'Sports': _('Sports'),
+
+    # Translators: Launcher category in the Game section
+    'ActionGame': _('Action Game'),
+    # Translators: Launcher category in the Game section
+    'AdventureGame': _('Adventure Game'),
+    # Translators: Launcher category in the Game section
+    'ArcadeGame': _('Arcade Game'),
+    # Translators: Launcher category in the Game section
+    'BoardGame': _('Board Game'),
+    # Translators: Launcher category in the Game section
+    'BlocksGame': _('Blocks Game'),
+    # Translators: Launcher category in the Game section
+    'CardGame': _('Card Game'),
+    # Translators: Launcher category in the Game section
+    'Emulator': _('Emulator'),
+    # Translators: Launcher category in the Game section
+    'KidsGame': _('Kids Game'),
+    # Translators: Launcher category in the Game section
+    'LogicGame': _('Logic Game'),
+    # Translators: Launcher category in the Game section
+    'RolePlaying': _('Role Playing'),
+    # Translators: Launcher category in the Game section
+    'Shooter': _('Shooter'),
+    # Translators: Launcher category in the Game section
+    'Simulation': _('Simulation'),
+    # Translators: Launcher category in the Game section
+    'SportsGame': _('Sports Game'),
+    # Translators: Launcher category in the Game section
+    'StrategyGame': _('Strategy Game'),
+
+    # Translators: Launcher category in the Graphics section
+    '2DGraphics': _('2D Graphics'),
+    # Translators: Launcher category in the Graphics section
+    '3DGraphics': _('3D Graphics'),
+    # Translators: Launcher category in the Graphics section
+    'OCR': _('OCR'),
+    # Translators: Launcher category in the Graphics section
+    'Photography': _('Photography'),
+    # Translators: Launcher category in the Graphics section
+    'Publishing': _('Publishing'),
+    # Translators: Launcher category in the Graphics section
+    'RasterGraphics': _('Raster Graphics'),
+    # Translators: Launcher category in the Graphics section
+    'Scanning': _('Scanning'),
+    # Translators: Launcher category in the Graphics section
+    'VectorGraphics': _('Vector Graphics'),
+    # Translators: Launcher category in the Graphics section
+    'Viewer': _('Viewer'),
+
+    # Translators: Launcher category in the Network section
+    'Chat': _('Chat'),
+    # Translators: Launcher category in the Network section
+    'Dialup': _('Dialup'),
+    # Translators: Launcher category in the Network section
+    'Feed': _('Feed'),
+    # Translators: Launcher category in the Network section
+    'FileTransfer': _('File Transfer'),
+    # Translators: Launcher category in the Network section
+    'HamRadio': _('Ham Radio'),
+    # Translators: Launcher category in the Network section
+    'InstantMessaging': _('Instant Messaging'),
+    # Translators: Launcher category in the Network section
+    'IRCClient': _('IRC Client'),
+    # Translators: Launcher category in the Network section
+    'Monitor': _('Monitor'),
+    # Translators: Launcher category in the Network section
+    'News': _('News'),
+    # Translators: Launcher category in the Network section
+    'P2P': _('P2P'),
+    # Translators: Launcher category in the Network section
+    'RemoteAccess': _('Remote Access'),
+    # Translators: Launcher category in the Network section
+    'Telephony': _('Telephony'),
+    # Translators: Launcher category in the Network section
+    'TelephonyTools': _('Telephony Tools'),
+    # Translators: Launcher category in the Network section
+    'WebBrowser': _('Web Browser'),
+    # Translators: Launcher category in the Network section
+    'WebDevelopment': _('Web Development'),
+
+    # Translators: Launcher category in the AudioVideo section
+    'Audio': _('Audio'),
+    # Translators: Launcher category in the AudioVideo section
+    'AudioVideoEditing': _('Audio Video Editing'),
+    # Translators: Launcher category in the AudioVideo section
+    'DiscBurning': _('Disc Burning'),
+    # Translators: Launcher category in the AudioVideo section
+    'Midi': _('Midi'),
+    # Translators: Launcher category in the AudioVideo section
+    'Mixer': _('Mixer'),
+    # Translators: Launcher category in the AudioVideo section
+    'Player': _('Player'),
+    # Translators: Launcher category in the AudioVideo section
+    'Recorder': _('Recorder'),
+    # Translators: Launcher category in the AudioVideo section
+    'Sequencer': _('Sequencer'),
+    # Translators: Launcher category in the AudioVideo section
+    'Tuner': _('Tuner'),
+    # Translators: Launcher category in the AudioVideo section
+    'TV': _('TV'),
+    # Translators: Launcher category in the AudioVideo section
+    'Video': _('Video'),
+
+    # Translators: Launcher category in the Office section
+    'Calendar': _('Calendar'),
+    # Translators: Launcher category in the Office section
+    'ContactManagement': _('Contact Management'),
+    # Translators: Launcher category in the Office section
+    'Database': _('Database'),
+    # Translators: Launcher category in the Office section
+    'Dictionary': _('Dictionary'),
+    # Translators: Launcher category in the Office section
+    'Chart': _('Chart'),
+    # Translators: Launcher category in the Office section
+    'Email': _('Email'),
+    # Translators: Launcher category in the Office section
+    'Finance': _('Finance'),
+    # Translators: Launcher category in the Office section
+    'FlowChart': _('Flow chart'),
+    # Translators: Launcher category in the Office section
+    'PDA': _('PDA'),
+    # Translators: Launcher category in the Office section
+    'Photography': _('Photography'),
+    # Translators: Launcher category in the Office section
+    'ProjectManagement': _('Project Management'),
+    # Translators: Launcher category in the Office section
+    'Presentation': _('Presentation'),
+    # Translators: Launcher category in the Office section
+    'Publishing': _('Publishing'),
+    # Translators: Launcher category in the Office section
+    'Spreadsheet': _('Spreadsheet'),
+    # Translators: Launcher category in the Office section
+    'WordProcessor': _('Word Processor'),
+
+    # Translators: Launcher category in the Settings section
+    'Accessibility': _('Accessibility'),
+    # Translators: Launcher category in the Settings section
+    'DesktopSettings': _('Desktop Settings'),
+    # Translators: Launcher category in the Settings section
+    'HardwareSettings': _('Hardware Settings'),
+    # Translators: Launcher category in the Settings section
+    'PackageManager': _('Package Manager'),
+    # Translators: Launcher category in the Settings section
+    'Printing': _('Printing'),
+    # Translators: Launcher category in the Settings section
+    'Security': _('Security'),
+
+    # Translators: Launcher category in the System section
+    'Emulator': _('Emulator'),
+    # Translators: Launcher category in the System section
+    'FileManager': _('File Manager'),
+    # Translators: Launcher category in the System section
+    'Filesystem': _('Filesystem'),
+    # Translators: Launcher category in the System section
+    'FileTools': _('File Tools'),
+    # Translators: Launcher category in the System section
+    'Monitor': _('Monitor'),
+    # Translators: Launcher category in the System section
+    'Security': _('Security'),
+    # Translators: Launcher category in the System section
+    'TerminalEmulator': _('Terminal Emulator'),
+    
+    # Translators: Vendor-neutral launcher category
+    'NetworkSettings': _('Network Settings'),
+    # Translators: Vendor-neutral launcher category
+    'PersonalSettings': _('Personal Settings'),
+    # Translators: Vendor-neutral launcher category
+    'Settings-Panel': _('Panel Settings'),
+    # Translators: Vendor-neutral launcher category
+    'SettingsDialog': _('Settings Dialog'),
+    # Translators: Vendor-neutral launcher category
+    'SystemSettings': _('System Settings'),
+    # Translators: Vendor-neutral launcher category
+    'Toplevel': _('Toplevel'),
+    # Translators: Vendor-neutral launcher category
+    'Utilities': _('Utilities'),
+
+    # Translators: Launcher category specific to a desktop environment
+    'GNOME': _('GNOME'),
+    # Translators: Launcher category specific to a desktop environment
+    'GTK': _('GTK'),
+    # Translators: Launcher category specific to a desktop environment
+    'XFCE': _('Xfce'),
+}
+
+
+def lookup_vendor_category_description(spec_name):
+    if spec_name.lower().startswith("x-red-hat-"):
+        unvendored = spec_name[10:]
+    elif spec_name.startswith("X-"):
+        unvendored = "-".join(spec_name.split("-")[2:])
+
+    try:
+        description = category_descriptions[unvendored]
+        return _("%s (%s)") % (description, spec_name)
+    except KeyError:
+        pass
+
+    return spec_name
+
+
+def lookup_category_description(spec_name):
+    """Return a valid description string for a spec entry."""
+    try:
+        return category_descriptions[spec_name]
+    except KeyError:
+        pass
+
+    if spec_name.startswith("X-"):
+        return lookup_vendor_category_description(spec_name)
+
+    try:
+        return category_descriptions[spec_name]
+    except KeyError:
+        pass
+
+    # Regex <3 Split CamelCase into separate words.
+    try:
+        description = re.sub('(?!^)([A-Z]+)', r' \1', spec_name)
+        description = description.replace("X- ", "")
+        description = description.replace("-", "")
+    except TypeError:
+        # Translators: "Other" category group. This item is only displayed for
+        # unknown or non-standard categories.
+        description = _("Other")
+    return description
+
+
+def lookup_section_description(spec_name):
+    if spec_name in ['GNOME', 'GTK', 'XFCE', 'Xfce']:
+        return spec_name
+    return lookup_category_description(spec_name)
+
+
+COL_CATEGORY = 0
+COL_SECTION = 1
+COL_DESC = 2
 
 
 class CategoryEditor(Gtk.Box):
@@ -37,7 +455,7 @@ class CategoryEditor(Gtk.Box):
         self.pack_start(scrolled, True, True, 0)
 
         self._options = Gtk.TreeStore.new([str])
-        self._treestore = Gtk.TreeStore.new([str, str])
+        self._treestore = Gtk.TreeStore.new([str, str, str])
 
         self._section_lookup = {}
         self._category_lookup = {}
@@ -61,7 +479,7 @@ class CategoryEditor(Gtk.Box):
 
         # Translators: "Category Name" tree column header
         column_combo = Gtk.TreeViewColumn(_("Category Name"),
-                                          renderer_combo, text=0)
+                                          renderer_combo, text=2)
         treeview.append_column(column_combo)
 
         renderer_text = Gtk.CellRendererText()
@@ -198,11 +616,11 @@ class CategoryEditor(Gtk.Box):
         self._removals = []
 
     def _append(self, category):
-        section = self._add_category(category)
-        self._treestore.append(None, [category, section])
+        section_desc, category_desc = self._add_category(category)
+        self._treestore.append(None, [category, section_desc, category_desc])
 
     def _on_add_clicked(self, widget):
-        self._treestore.append(None, ["", ""])
+        self._treestore.append(None, ["", "", ""])
 
     def _on_remove_clicked(self, widget, treeview):
         model, treeiter = treeview.get_selection().get_selected()
@@ -224,16 +642,18 @@ class CategoryEditor(Gtk.Box):
             elif "x-xfce-" in category.lower():
                 section = "Xfce"
             else:
-                section = _("Other")
+                section = "Other"
         elif section is None:
-            section = _("Other")
+            section = "Other"
+        section_desc = lookup_section_description(section)
         if section is not None and section not in list(self._section_lookup.keys()):
-            self._options.append(None, [section])
+            self._options.append(None, [section_desc])
             self._section_lookup[section] = str(len(list(self._section_lookup.keys())))
         parent = self._options.get_iter(self._section_lookup[section])
         self._options.append(parent, [category])
-        self._category_lookup[category] = section
-        return section
+        category_desc = lookup_category_description(category)
+        self._category_lookup[category] = (section_desc, category_desc)
+        return self._category_lookup[category]
 
     def _initialize_categories(self):
         # Sourced from https://specifications.freedesktop.org/menu-spec/latest/apa.html
@@ -241,69 +661,9 @@ class CategoryEditor(Gtk.Box):
         # in addition category group names have been added to the list where launchers
         # typically use them (e.g. plain 'Utility' to add to Accessories), to allow the
         # user to restore default categories that have been manually removed
-        category_groups = {
-            'Utility': (
-                'Accessibility', 'Archiving', 'Calculator', 'Clock',
-                'Compression', 'FileTools', 'TextEditor', 'TextTools', 'Utility'
-            ),
-            'Development': (
-                'Building', 'Debugger', 'Development', 'IDE', 'GUIDesigner',
-                'Profiling', 'RevisionControl', 'Translation', 'WebDevelopment'
-            ),
-            'Education': (
-                'Art', 'ArtificialIntelligence', 'Astronomy', 'Biology', 'Chemistry',
-                'ComputerScience', 'Construction', 'DataVisualization', 'Economy',
-                'Education', 'Electricity', 'Geography', 'Geology', 'Geoscience',
-                'History', 'Humanities', 'ImageProcessing', 'Languages', 'Literature',
-                'Maps', 'Math', 'MedicalSoftware', 'Music', 'NumericalAnalysis',
-                'ParallelComputing', 'Physics', 'Robotics', 'Spirituality', 'Sports'
-            ),
-            'Game': (
-                'ActionGame', 'AdventureGame', 'ArcadeGame', 'BoardGame',
-                'BlocksGame', 'CardGame', 'Emulator', 'Game', 'KidsGame', 'LogicGame',
-                'RolePlaying', 'Shooter', 'Simulation', 'SportsGame',
-                'StrategyGame'
-            ),
-            'Graphics': (
-                '2DGraphics', '3DGraphics', 'Graphics', 'OCR', 'Photography',
-                'Publishing', 'RasterGraphics', 'Scanning', 'VectorGraphics', 'Viewer'
-            ),
-            'Network': (
-                'Chat', 'Dialup', 'Feed', 'FileTransfer', 'HamRadio',
-                'InstantMessaging', 'IRCClient', 'Monitor', 'News', 'Network', 'P2P',
-                'RemoteAccess', 'Telephony', 'TelephonyTools', 'WebBrowser',
-                'WebDevelopment'
-            ),
-            'AudioVideo': (
-                'Audio', 'AudioVideoEditing', 'DiscBurning', 'Midi', 'Mixer', 'Player',
-                'Recorder', 'Sequencer', 'Tuner', 'TV', 'Video'
-            ),
-            'Office': (
-                'Calendar', 'ContactManagement', 'Database', 'Dictionary',
-                'Chart', 'Email', 'Finance', 'FlowChart', 'Office', 'PDA',
-                'Photography', 'ProjectManagement', 'Presentation', 'Publishing',
-                'Spreadsheet', 'WordProcessor'
-            ),
-            'Settings': (
-                'Accessibility', 'DesktopSettings', 'HardwareSettings',
-                'PackageManager', 'Printing', 'Security', 'Settings'
-            ),
-            'System': (
-                'Emulator', 'FileManager', 'Filesystem', 'FileTools', 'Monitor',
-                'Security', 'System', 'TerminalEmulator'
-            ),
-            'Xfce': (
-                'X-XFCE', 'X-Xfce-Toplevel', 'X-XFCE-PersonalSettings', 'X-XFCE-HardwareSettings',
-                'X-XFCE-SettingsDialog', 'X-XFCE-SystemSettings'
-            ),
-            'GNOME': (
-                'X-GNOME-NetworkSettings', 'X-GNOME-PersonalSettings', 'X-GNOME-Settings-Panel',
-                'X-GNOME-Utilities'
-            )
-        }
 
         keys = list(category_groups.keys())
-        keys.sort()
+        keys = sorted(keys, key=lambda group: lookup_section_description(group))
 
         for key in keys:
             try:
@@ -315,9 +675,10 @@ class CategoryEditor(Gtk.Box):
                 pass
 
     def _on_combo_changed(self, widget, path, text):
-        section = self._category_lookup[text]
-        self._treestore[path][0] = text
-        self._treestore[path][1] = section
+        section_desc, category_desc = self._category_lookup[text]
+        self._treestore[path][COL_CATEGORY] = text
+        self._treestore[path][COL_SECTION] = section_desc
+        self._treestore[path][COL_DESC] = category_desc
 
 
 class CategoryEditorDemoWindow(Gtk.Window):
