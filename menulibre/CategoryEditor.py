@@ -25,6 +25,11 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, GObject
 
 
+# Sourced from https://specifications.freedesktop.org/menu-spec/latest/apa.html
+# and https://specifications.freedesktop.org/menu-spec/latest/apas02.html ,
+# in addition category group names have been added to the list where launchers
+# typically use them (e.g. plain 'Utility' to add to Accessories), to allow the
+# user to restore default categories that have been manually removed
 category_groups = {
     'Utility': (
         'Accessibility', 'Archiving', 'Calculator', 'Clock',
@@ -364,7 +369,7 @@ category_descriptions = {
     'Security': _('Security'),
     # Translators: Launcher category in the System section
     'TerminalEmulator': _('Terminal Emulator'),
-    
+
     # Translators: Vendor-neutral launcher category
     'NetworkSettings': _('Network Settings'),
     # Translators: Vendor-neutral launcher category
@@ -390,6 +395,7 @@ category_descriptions = {
 
 
 def lookup_vendor_category_description(spec_name):
+    # Handling two-word vendor name
     if spec_name.lower().startswith("x-red-hat-"):
         unvendored = spec_name[10:]
     elif spec_name.startswith("X-"):
@@ -397,6 +403,7 @@ def lookup_vendor_category_description(spec_name):
 
     try:
         description = category_descriptions[unvendored]
+        # Translators: Translated key (original key)
         return _("%s (%s)") % (description, spec_name)
     except KeyError:
         pass
@@ -414,16 +421,12 @@ def lookup_category_description(spec_name):
     if spec_name.startswith("X-"):
         return lookup_vendor_category_description(spec_name)
 
-    try:
-        return category_descriptions[spec_name]
-    except KeyError:
-        pass
-
-    # Regex <3 Split CamelCase into separate words.
+    # Split CamelCase into separate words.
     try:
         description = re.sub('(?!^)([A-Z]+)', r' \1', spec_name)
         description = description.replace("X- ", "")
         description = description.replace("-", "")
+        description = description.replace("K DE", "KDE")
     except TypeError:
         # Translators: "Other" category group. This item is only displayed for
         # unknown or non-standard categories.
@@ -617,7 +620,7 @@ class CategoryEditor(Gtk.Box):
         self._removals = []
 
     def _append(self, category):
-        self._treestore.append(None, self._add_category(category)[:-1])
+        self._treestore.append(None, self._add_category(category))
 
     def _on_add_clicked(self, widget):
         self._treestore.append(None, ["", "", ""])
@@ -633,50 +636,47 @@ class CategoryEditor(Gtk.Box):
         self._clear()
         self.emit('value-changed', 'Categories', self.get_value())
 
+    def _get_section(self, section):
+        section_desc = lookup_section_description(section)
+        if section not in list(self._section_lookup.keys()):
+            section_path = str(len(list(self._section_lookup.keys())))
+            section_sort = section_path.zfill(3)
+            section_iter = self._options.append(None, [section, "", section_desc, section_sort])
+            self._section_lookup[section] = section_path
+        else:
+            section_path = self._section_lookup[section]
+            section_sort = section_path.zfill(3)
+            section_iter = self._options.get_iter(section_path)
+        return (section_desc, section_sort, section_iter)
+
+    def _get_category_section(self, category):
+        if category.startswith("X-"):
+            if "x-gnome-" in category.lower():
+                return "GNOME"
+            elif "x-xfce-" in category.lower():
+                return "Xfce"
+        return "Other"
+
     def _add_category(self, category, section=None):
         if category in list(self._category_lookup.keys()):
             return self._category_lookup[category]
-        if section is None and category.startswith("X-"):
-            if "x-gnome-" in category.lower():
-                section = "GNOME"
-            elif "x-xfce-" in category.lower():
-                section = "Xfce"
-            else:
-                section = "Other"
-        elif section is None:
-            section = "Other"
-        section_desc = lookup_section_description(section)
-        if section is not None and section not in list(self._section_lookup.keys()):
-            section_path = str(len(list(self._section_lookup.keys())))
-            section_sort = section_path.zfill(3)
-            self._options.append(None, [section, "", section_desc, section_sort])
-            self._section_lookup[section] = str(len(list(self._section_lookup.keys())))
-        section_path = self._section_lookup[section]
-        section_sort = section_path.zfill(3)
-        parent = self._options.get_iter(self._section_lookup[section])
+        if section is None:
+            section = self._get_category_section(category)
+        section_desc, section_sort, section_iter = self._get_section(section)
         category_desc = lookup_category_description(category)
         category_sort = "%s-%s" % (section_sort, category_desc)
-        self._category_lookup[category] = [category, section_desc, category_desc, category_sort]
-        self._options.append(parent, self._category_lookup[category])
+        self._category_lookup[category] = [category, section_desc, category_desc]
+        self._options.append(section_iter, self._category_lookup[category] + [category_sort])
         return self._category_lookup[category]
 
     def _initialize_categories(self):
-        # Sourced from https://specifications.freedesktop.org/menu-spec/latest/apa.html
-        # and https://specifications.freedesktop.org/menu-spec/latest/apas02.html ,
-        # in addition category group names have been added to the list where launchers
-        # typically use them (e.g. plain 'Utility' to add to Accessories), to allow the
-        # user to restore default categories that have been manually removed
+        sections = list(category_groups.keys())
+        sections = sorted(sections, key=lambda section: lookup_section_description(section))
 
-        keys = list(category_groups.keys())
-        keys = sorted(keys, key=lambda group: lookup_section_description(group).lower())
-
-        for key in keys:
+        for section in sections:
             try:
-                categories = list(category_groups[key])
-                categories.sort()
-                categories = sorted(categories, key=lambda category: lookup_category_description(category).lower())
-                for category in categories:
-                    self._add_category(category, key)
+                for category in list(category_groups[section]):
+                    self._add_category(category, section)
             except KeyError:
                 pass
 
