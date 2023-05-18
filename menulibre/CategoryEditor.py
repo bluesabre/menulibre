@@ -454,7 +454,8 @@ class CategoryEditor(Gtk.Box):
         scrolled.set_shadow_type(Gtk.ShadowType.IN)
         self.pack_start(scrolled, True, True, 0)
 
-        self._options = Gtk.TreeStore.new([str, str, str])
+        self._options = Gtk.TreeStore.new([str, str, str, str])
+        self._options.set_sort_column_id(3, Gtk.SortType.ASCENDING)
         self._treestore = Gtk.TreeStore.new([str, str, str])
 
         self._section_lookup = {}
@@ -616,7 +617,7 @@ class CategoryEditor(Gtk.Box):
         self._removals = []
 
     def _append(self, category):
-        self._treestore.append(None, self._add_category(category))
+        self._treestore.append(None, self._add_category(category)[:-1])
 
     def _on_add_clicked(self, widget):
         self._treestore.append(None, ["", "", ""])
@@ -646,11 +647,16 @@ class CategoryEditor(Gtk.Box):
             section = "Other"
         section_desc = lookup_section_description(section)
         if section is not None and section not in list(self._section_lookup.keys()):
-            self._options.append(None, [section, "", section_desc])
+            section_path = str(len(list(self._section_lookup.keys())))
+            section_sort = section_path.zfill(3)
+            self._options.append(None, [section, "", section_desc, section_sort])
             self._section_lookup[section] = str(len(list(self._section_lookup.keys())))
+        section_path = self._section_lookup[section]
+        section_sort = section_path.zfill(3)
         parent = self._options.get_iter(self._section_lookup[section])
         category_desc = lookup_category_description(category)
-        self._category_lookup[category] = [category, section_desc, category_desc]
+        category_sort = "%s-%s" % (section_sort, category_desc)
+        self._category_lookup[category] = [category, section_desc, category_desc, category_sort]
         self._options.append(parent, self._category_lookup[category])
         return self._category_lookup[category]
 

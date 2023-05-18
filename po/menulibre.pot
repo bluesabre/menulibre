@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-18 06:54-0400\n"
+"POT-Creation-Date: 2023-05-18 07:12-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -217,18 +217,18 @@ msgid "Name"
 msgstr ""
 
 #. Translators: Button to add item to list.
-#: ../data/ui/MenulibreWindow.ui.h:70 ../menulibre/CategoryEditor.py:499
+#: ../data/ui/MenulibreWindow.ui.h:70 ../menulibre/CategoryEditor.py:500
 #: ../menulibre/CommandEditor.py:434
 msgid "Add"
 msgstr ""
 
 #. Translators: Button to remove item from list.
-#: ../data/ui/MenulibreWindow.ui.h:72 ../menulibre/CategoryEditor.py:505
+#: ../data/ui/MenulibreWindow.ui.h:72 ../menulibre/CategoryEditor.py:506
 msgid "Remove"
 msgstr ""
 
 #. Translators: Button to remove all items from list.
-#: ../data/ui/MenulibreWindow.ui.h:74 ../menulibre/CategoryEditor.py:512
+#: ../data/ui/MenulibreWindow.ui.h:74 ../menulibre/CategoryEditor.py:513
 #: ../menulibre/CommandEditor.py:172
 msgid "Clear"
 msgstr ""
@@ -1078,17 +1078,17 @@ msgstr ""
 
 #. Translators: Placeholder text for the launcher-specific category
 #. selection.
-#: ../menulibre/CategoryEditor.py:477
+#: ../menulibre/CategoryEditor.py:478
 msgid "Select a category"
 msgstr ""
 
 #. Translators: "Category Name" tree column header
-#: ../menulibre/CategoryEditor.py:481
+#: ../menulibre/CategoryEditor.py:482
 msgid "Category Name"
 msgstr ""
 
 #. Translators: "Section" tree column header
-#: ../menulibre/CategoryEditor.py:488
+#: ../menulibre/CategoryEditor.py:489
 msgid "Section"
 msgstr ""
 
