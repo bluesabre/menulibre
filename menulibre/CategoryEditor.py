@@ -454,7 +454,7 @@ class CategoryEditor(Gtk.Box):
         scrolled.set_shadow_type(Gtk.ShadowType.IN)
         self.pack_start(scrolled, True, True, 0)
 
-        self._options = Gtk.TreeStore.new([str])
+        self._options = Gtk.TreeStore.new([str, str, str])
         self._treestore = Gtk.TreeStore.new([str, str, str])
 
         self._section_lookup = {}
@@ -469,13 +469,13 @@ class CategoryEditor(Gtk.Box):
         renderer_combo = Gtk.CellRendererCombo()
         renderer_combo.set_property("editable", True)
         renderer_combo.set_property("model", self._options)
-        renderer_combo.set_property("text-column", 0)
+        renderer_combo.set_property("text-column", 2)
         renderer_combo.set_property("has-entry", False)
 
         # Translators: Placeholder text for the launcher-specific category
         # selection.
         renderer_combo.set_property("placeholder-text", _("Select a category"))
-        renderer_combo.connect("edited", self._on_combo_changed)
+        renderer_combo.connect("changed", self._on_combo_changed)
 
         # Translators: "Category Name" tree column header
         column_combo = Gtk.TreeViewColumn(_("Category Name"),
@@ -616,8 +616,7 @@ class CategoryEditor(Gtk.Box):
         self._removals = []
 
     def _append(self, category):
-        section_desc, category_desc = self._add_category(category)
-        self._treestore.append(None, [category, section_desc, category_desc])
+        self._treestore.append(None, self._add_category(category))
 
     def _on_add_clicked(self, widget):
         self._treestore.append(None, ["", "", ""])
@@ -647,12 +646,12 @@ class CategoryEditor(Gtk.Box):
             section = "Other"
         section_desc = lookup_section_description(section)
         if section is not None and section not in list(self._section_lookup.keys()):
-            self._options.append(None, [section_desc])
+            self._options.append(None, [section, "", section_desc])
             self._section_lookup[section] = str(len(list(self._section_lookup.keys())))
         parent = self._options.get_iter(self._section_lookup[section])
-        self._options.append(parent, [category])
         category_desc = lookup_category_description(category)
-        self._category_lookup[category] = (section_desc, category_desc)
+        self._category_lookup[category] = [category, section_desc, category_desc]
+        self._options.append(parent, self._category_lookup[category])
         return self._category_lookup[category]
 
     def _initialize_categories(self):
@@ -663,22 +662,23 @@ class CategoryEditor(Gtk.Box):
         # user to restore default categories that have been manually removed
 
         keys = list(category_groups.keys())
-        keys = sorted(keys, key=lambda group: lookup_section_description(group))
+        keys = sorted(keys, key=lambda group: lookup_section_description(group).lower())
 
         for key in keys:
             try:
                 categories = list(category_groups[key])
                 categories.sort()
+                categories = sorted(categories, key=lambda category: lookup_category_description(category).lower())
                 for category in categories:
                     self._add_category(category, key)
             except KeyError:
                 pass
 
-    def _on_combo_changed(self, widget, path, text):
-        section_desc, category_desc = self._category_lookup[text]
-        self._treestore[path][COL_CATEGORY] = text
-        self._treestore[path][COL_SECTION] = section_desc
-        self._treestore[path][COL_DESC] = category_desc
+    def _on_combo_changed(self, widget, cell_path, combo_iter):
+        row = self._options[combo_iter]
+        self._treestore[cell_path][COL_CATEGORY] = row[COL_CATEGORY]
+        self._treestore[cell_path][COL_SECTION] = row[COL_SECTION]
+        self._treestore[cell_path][COL_DESC] = row[COL_DESC]
 
 
 class CategoryEditorDemoWindow(Gtk.Window):
