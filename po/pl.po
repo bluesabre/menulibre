@@ -304,7 +304,7 @@ msgstr ""
 
 #: ../menulibre/AdvancedPage.py:67
 msgid "Not Shown In"
-msgstr "Niewyświetlanie tylko w"
+msgstr "Nie wyświetlaj tylko w"
 
 #: ../menulibre/AdvancedPage.py:68
 msgid ""
