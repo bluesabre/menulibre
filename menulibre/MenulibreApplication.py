@@ -17,7 +17,6 @@
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os
-import re
 import shlex
 import sys
 
@@ -36,6 +35,7 @@ from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, ParsingErrorsDialog
 from . import MenuEditor
 from . import CategoryEditor
+from . import ActionEditor
 from . import AdvancedPage
 from .util import MenuItemTypes, check_keypress, getRelativeName, getRelatedKeys
 from .util import escapeText, getCurrentDesktop, getProcessList, getDefaultMenuPrefix
@@ -725,31 +725,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.category_editor.connect("value-changed", self.on_smart_widget_changed)
 
         # Actions Treeview and Inline Toolbar
-        self.actions_treeview = builder.get_object('actions_treeview')
-        model = self.actions_treeview.get_model()
-        add_button = builder.get_object('actions_add')
-        add_button.connect("clicked", self.on_actions_add)
-        remove_button = builder.get_object('actions_remove')
-        remove_button.connect("clicked", self.on_actions_remove)
-        clear_button = builder.get_object('actions_clear')
-        clear_button.connect("clicked", self.on_actions_clear)
-        move_up = builder.get_object('actions_move_up')
-        move_up.connect('clicked', self.move_action, (self.actions_treeview,
-                                                      - 1))
-        move_down = builder.get_object('actions_move_down')
-        move_down.connect('clicked', self.move_action, (self.actions_treeview,
-                                                        1))
-        renderer = builder.get_object('actions_show_renderer')
-        renderer.connect('toggled', self.on_actions_show_toggled, model)
-        renderer = builder.get_object('actions_name_renderer')
-        renderer.connect('edited', self.on_actions_text_edited, model, 2)
-        renderer = builder.get_object('actions_command_renderer')
-        renderer.connect('edited', self.on_actions_text_edited, model, 3)
+        self.action_editor = ActionEditor.ActionEditor()
+        self.action_editor.connect("value-changed", self.on_smart_widget_changed)
 
         self.switcher.add_child(self.category_editor,
                                 # Translators: "Categories" launcher section
                                 'categories', _('Categories'))
-        self.switcher.add_child(builder.get_object('page_actions'),
+        self.switcher.add_child(self.action_editor,
                                 # Translators: "Actions" launcher section
                                 'actions', _('Actions'))
         self.switcher.add_child(self.advanced_page,
@@ -808,28 +790,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         else:
             return ''
 
-    def cleanup_treeview(self, treeview, key_columns, sort=False):
-        """Cleanup a treeview"""
-        rows = []
-
-        model = treeview.get_model()
-        for row in model:
-            row_data = row[:]
-            append_row = True
-            for key_column in key_columns:
-                text = row_data[key_column].lower()
-                if len(text) == 0:
-                    append_row = False
-            if append_row:
-                rows.append(row_data)
-
-        if sort:
-            rows = sorted(rows, key=lambda row_data: row_data[key_columns[MenuEditor.COL_NAME]])
-
-        model.clear()
-        for row in rows:
-            model.append(row)
-
 # Categories
 
     def categories_treefilter_func(self, model, treeiter, data=None):
@@ -848,64 +808,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def cleanup_actions(self):
         """Cleanup the Actions treeview. Remove any rows where name or command
         have not been set."""
-        self.cleanup_treeview(self.actions_treeview, [2, 3])
-
-# Actions
-    def on_actions_text_edited(self, w, row, new_text, model, col):
-        """Edited callback function to enable modifications to a cell."""
-        model[row][col] = new_text
-        self.set_value('Actions', self.get_editor_actions(), False)
-
-    def on_actions_show_toggled(self, cell, path, model=None):
-        """Toggled callback function to enable modifications to a cell."""
-        treeiter = model.get_iter(path)
-        model.set_value(treeiter, 0, not cell.get_active())
-        self.set_value('Actions', self.get_editor_actions(), False)
-
-    def on_actions_add(self, widget):
-        """Add a new row to the Actions TreeView."""
-        model = self.actions_treeview.get_model()
-        existing = list()
-        for row in model:
-            existing.append(row[1])
-        name = 'NewShortcut'
-        n = 1
-        while name in existing:
-            name = 'NewShortcut%i' % n
-            n += 1
-        # Translators: Placeholder text for a newly created action
-        displayed = _("New Shortcut")
-        self.treeview_add(self.actions_treeview, [True, name, displayed, ''])
-        self.set_value('Actions', self.get_editor_actions(), False)
-
-    def on_actions_remove(self, widget):
-        """Remove the currently selected row from the Actions TreeView."""
-        self.treeview_remove(self.actions_treeview)
-        self.set_value('Actions', self.get_editor_actions(), False)
-
-    def on_actions_clear(self, widget):
-        """Clear all rows from the Actions TreeView."""
-        self.treeview_clear(self.actions_treeview)
-        self.set_value('Actions', self.get_editor_actions(), False)
-
-    def move_action(self, widget, user_data):
-        """Move row in Actions treeview."""
-        # Unpack the user data
-        treeview, relative_position = user_data
-
-        sel = treeview.get_selection().get_selected()
-        if sel:
-            model, selected_iter = sel
-
-            # Move the row up if relative_position < 0
-            if relative_position < 0:
-                sibling = model.iter_previous(selected_iter)
-                model.move_before(selected_iter, sibling)
-            else:
-                sibling = model.iter_next(selected_iter)
-                model.move_after(selected_iter, sibling)
-
-            self.set_value('Actions', self.get_editor_actions(), False)
+        self.action_editor.remove_incomplete_actions()
 
 # Window events
     def on_window_keypress_event(self, widget, event, user_data=None):
@@ -1393,67 +1296,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Store the filename value.
         self.values['filename'] = filename
 
-    def get_editor_actions_string(self):
-        """Return the .desktop formatted actions."""
-        # Get the model.
-        model = self.actions_treeview.get_model()
-
-        # Start the output string.
-        actions = "\nActions="
-        groups = "\n"
-
-        # Return None if there are no actions.
-        if len(model) == 0:
-            return None
-
-        # For each row...
-        for row in model:
-            # Extract the details.
-            show, name, displayed, executable = row[:]
-
-            # Append it to the actions list if it is selected to be shown.
-            if show:
-                actions = "%s%s;" % (actions, name)
-
-            # Populate the group text.
-            group = "[Desktop Action %s]\n" \
-                    "Name=%s\n" \
-                    "Exec=%s\n" \
-                    "OnlyShowIn=Unity\n" % (name, displayed, executable)
-
-            # Append the new group text to the groups string.
-            groups = "%s\n%s" % (groups, group)
-
-        # Return the .desktop formatted actions.
-        return actions + groups
-
-    def get_editor_actions(self):
-        """Get the list of action groups."""
-        model = self.actions_treeview.get_model()
-
-        action_groups = []
-
-        # Return [] if there are no actions.
-        if len(model) == 0:
-            return []
-
-        # For each row...
-        for row in model:
-            # Extract the details.
-            show, name, displayed, command = row[:]
-            action_groups.append([name, displayed, command, show])
-
-        return action_groups
-
-    def set_editor_actions(self, action_groups):
-        """Set the editor Actions from the list action_groups."""
-        model = self.actions_treeview.get_model()
-        model.clear()
-        if not action_groups:
-            return
-        for name, displayed, command, show in action_groups:
-            model.append([show, name, displayed, command])
-
     def get_inner_value(self, key):
         """Get the value stored for key."""
         try:
@@ -1529,9 +1371,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if self.advanced_page.has_value(key):
             self.advanced_page.set_value(key, value)
 
-        elif key == 'Categories':
-            self.category_editor.set_value(value)
-
         # Name and Comment must formatted correctly for their buttons.
         elif key in ['Name', 'Comment']:
             if not value:
@@ -1550,10 +1389,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Filename, Actions, Categories, and Icon have their own functions.
         elif key == 'Filename':
             self.set_editor_filename(value)
-        elif key == 'Actions':
-            self.set_editor_actions(value)
         elif key == 'Icon':
             self.set_editor_image(value)
+        elif key == 'Categories':
+            self.category_editor.set_value(value)
+        elif key == 'Actions':
+            self.action_editor.set_value(value)
 
         # Type is just stored.
         elif key == 'Type':
@@ -1611,6 +1452,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             return self.values[key]
         elif key == 'Categories':
             return self.category_editor.get_value()
+        elif key == 'Actions':
+            return self.action_editor.get_value()
         elif key == 'Filename':
             if 'filename' in list(self.values.keys()):
                 return self.values['filename']
@@ -1748,8 +1591,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             if key == "Actions":
                 action_list = []
-                for name, displayed, command, show in \
-                        self.get_editor_actions():
+                for show, name, displayed, command in \
+                        self.action_editor.get_actions():
                     group_name = "Desktop Action %s" % name
                     keyfile.set_string(group_name, "Name", displayed)
                     keyfile.set_string(group_name, "Exec", command)

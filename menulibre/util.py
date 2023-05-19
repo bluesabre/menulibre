@@ -66,7 +66,7 @@ MenuItemKeys = (
     ("Exec", str, True, (0,)),
     ("Path", str, False, (0,)),
     ("Terminal", bool, False, (0,)),
-    ("Actions", list, False, (0,)),
+    ("Actions", str, False, (0,)),
     ("MimeType", list, False, (0,)),
     ("Categories", list, False, (0,)),
     ("Implements", list, False, (0,)),

@@ -140,7 +140,7 @@ class AdvancedPage(Gtk.ScrolledWindow):
 
     def get_value(self, property_name):
         if self.has_value(property_name):
-            self._widgets[property_name].get_value()
+            return self._widgets[property_name].get_value()
         return None
 
 

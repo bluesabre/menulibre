@@ -17,6 +17,7 @@
 
 import locale
 import os
+import json
 from locale import gettext as _
 
 import subprocess
@@ -100,7 +101,7 @@ class MenulibreDesktopEntry:
         elif "X-Ayatana-Desktop-Shortcuts" in self._get_keys("Desktop Entry"):
             action_key = "X-Ayatana-Desktop-Shortcuts"
         else:
-            return []
+            return json.dumps([])
 
         enabled_quicklists = self._get_string_list("Desktop Entry", action_key)
 
@@ -113,9 +114,9 @@ class MenulibreDesktopEntry:
             displayed_name = self.get_property(group, "Name")
             command = self.get_property(group, "Exec")
             enabled = name in enabled_quicklists
-            quicklists.append((name, displayed_name, command, enabled))
+            quicklists.append([enabled, name, displayed_name, command])
 
-        return quicklists
+        return json.dumps(quicklists)
 
     def _get_action_group_name(self, group):
         if group.startswith("Desktop Action "):
