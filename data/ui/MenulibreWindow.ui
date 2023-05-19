@@ -30,18 +30,6 @@
       </object>
     </child>
   </object>
-  <object class="GtkListStore" id="categories_liststore">
-    <columns>
-      <!-- column-name category_text -->
-      <column type="gchararray"/>
-    </columns>
-  </object>
-  <object class="GtkTreeStore" id="categories_treestore">
-    <columns>
-      <!-- column-name category_name -->
-      <column type="gchararray"/>
-    </columns>
-  </object>
   <object class="GtkMenu" id="icon_select_menu">
     <property name="visible">True</property>
     <property name="can-focus">False</property>
@@ -1171,8 +1159,6 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#ex
       </object>
     </child>
   </object>
-  <object class="GtkListStore" id="liststore2"/>
-  <object class="GtkListStore" id="liststore3"/>
   <object class="GtkListStore" id="liststore5">
     <columns>
       <!-- column-name quicklist_show_col -->
