@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-13 08:13-0400\n"
+"POT-Creation-Date: 2023-05-19 07:46-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Yaya - Nurul Azeera Hidayah @ Muhammad Nur Hidayat Yasuyoshi (MNH48) <admin@mnh48.moe>, 2023\n"
 "Language-Team: Malay (https://app.transifex.com/bluesabreorg/teams/99550/ms/)\n"
@@ -62,21 +62,21 @@ msgstr "Simpan Pelancar"
 
 #. Translators: Toolbar button to undo last change to currently selected item.
 #. Translators: Undo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:14 ../menulibre/MenulibreApplication.py:484
+#: ../data/ui/MenulibreWindow.ui.h:14 ../menulibre/MenulibreApplication.py:404
 msgid "Undo"
 msgstr "Buat Asal"
 
 #. Translators: Toolbar button to redo the last undone change to currently
 #. selected item.
 #. Translators: Redo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:16 ../menulibre/MenulibreApplication.py:493
+#: ../data/ui/MenulibreWindow.ui.h:16 ../menulibre/MenulibreApplication.py:413
 msgid "Redo"
 msgstr "Buat Semula"
 
 #. Translators: Toolbar button to revery the currently selected item to it
 #. Translators: Revert action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/CommandEditor.py:166
-#: ../menulibre/MenulibreApplication.py:502
+#: ../menulibre/MenulibreApplication.py:422
 msgid "Revert"
 msgstr "Undur"
 
@@ -87,15 +87,15 @@ msgstr "Cuba Pelancar"
 
 #. Translators: Toolbar button to delete the currently selected item.
 #. Translators: Delete action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:520
+#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:440
 msgid "Delete"
 msgstr "Padam"
 
 #. Translators: Save On Close Dialog, do save, then close.
 #. Translators: Save On Leave Dialog, do save, then leave.
 #. Translators: Save Launcher action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/Dialogs.py:103
-#: ../menulibre/Dialogs.py:132 ../menulibre/MenulibreApplication.py:475
+#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/Dialogs.py:102
+#: ../menulibre/Dialogs.py:131 ../menulibre/MenulibreApplication.py:395
 msgid "Save"
 msgstr "Simpan"
 
@@ -120,13 +120,13 @@ msgstr "Menu aplikasi anda mungkin perlu dimulakan semula."
 
 #. Translators: Treeview toolbar button to move the currently selected item
 #. up.
-#: ../data/ui/MenulibreWindow.ui.h:31
+#: ../data/ui/MenulibreWindow.ui.h:31 ../menulibre/ActionEditor.py:93
 msgid "Move Up"
 msgstr "Alih ke Atas"
 
 #. Translators: Treeview toolbar button to move the currently selected item
 #. down.
-#: ../data/ui/MenulibreWindow.ui.h:33
+#: ../data/ui/MenulibreWindow.ui.h:33 ../menulibre/ActionEditor.py:97
 msgid "Move Down"
 msgstr "Alih ke Bawah"
 
@@ -142,8 +142,7 @@ msgid "Application Name"
 msgstr "Nama Aplikasi"
 
 #. Translators: Placeholder text/hint for the application comment entry.
-#. Translators: "Description" tree column header
-#: ../data/ui/MenulibreWindow.ui.h:39 ../menulibre/MenulibreApplication.py:907
+#: ../data/ui/MenulibreWindow.ui.h:39
 msgid "Description"
 msgstr "Keterangan"
 
@@ -156,9 +155,10 @@ msgstr ""
 "Atur cara untuk dijalankan dengan argumennya. Kekunci ini diperlukan sekiranya pemboleh ubah DBusActivatable tidak ditetapkan kepada \"Benar\" atau sekiranya anda memerlukan keserasian dengan pelaksanaan yang tidak memahami pengaktifan D-Bus.\n"
 "Sila lihat https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec untuk senarai argumen yang disokong."
 
-#. Translators: Treeview column for an action item
-#: ../data/ui/MenulibreWindow.ui.h:44 ../menulibre/CommandEditor.py:612
-#: ../menulibre/CommandEditor.py:624
+#. Translators: "Exec" text entry. Program to execute with arguments.
+#. Translators: "Command" tree column header
+#: ../data/ui/MenulibreWindow.ui.h:44 ../menulibre/ActionEditor.py:73
+#: ../menulibre/CommandEditor.py:612 ../menulibre/CommandEditor.py:624
 msgid "Command"
 msgstr "Perintah"
 
@@ -226,215 +226,6 @@ msgstr "Sembunyi dari menu"
 msgid "Options"
 msgstr "Pilihan"
 
-#. Translators: Button to add item to list.
-#: ../data/ui/MenulibreWindow.ui.h:66 ../menulibre/CommandEditor.py:434
-msgid "Add"
-msgstr "Tambah"
-
-#. Translators: Button to remove item from list.
-#: ../data/ui/MenulibreWindow.ui.h:68
-msgid "Remove"
-msgstr "Buang"
-
-#. Translators: Button to remove all items from list.
-#: ../data/ui/MenulibreWindow.ui.h:70 ../menulibre/CommandEditor.py:172
-msgid "Clear"
-msgstr "Kosongkan"
-
-#. Translators: Treeview column for whether an action item is displayed
-#. (boolean).
-#: ../data/ui/MenulibreWindow.ui.h:72
-msgid "Show"
-msgstr "Tunjuk"
-
-#. Translators: Treeview column for the name of the displayed action item.
-#: ../data/ui/MenulibreWindow.ui.h:74
-msgid "Name"
-msgstr "Nama"
-
-#. Translators: Tooltip for the "GenericName" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:76
-msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr "Nama generik aplikasi, contohnya \"Pelayar Sesawang\"."
-
-#. Translators: "GenericName" text entry. Generic name of the application, for
-#. example "Web Browser".
-#: ../data/ui/MenulibreWindow.ui.h:78
-msgid "Generic Name"
-msgstr "Nama Generik"
-
-#. Translators: Tooltip for the "NotShowIn" text entry. Possible values
-#. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
-#. "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be
-#. translated.
-#: ../data/ui/MenulibreWindow.ui.h:80
-msgid ""
-"A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
-"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
-msgstr ""
-"Senarai persekitaran yang tidak patut paparkan masukan ini. Anda hanya boleh guna kekunci ini jika pemboleh ubah \"OnlyShowIn\" tidak ditetapkan.\n"
-"Nilai yang mungkin termasuklah: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
-
-#. Translators: "NotShowIn" text entry. A list of environments that should not
-#. display this entry.
-#: ../data/ui/MenulibreWindow.ui.h:83
-msgid "Not Shown In"
-msgstr "Tidak Ditunjukkan Dalam"
-
-#. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values
-#. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
-#. "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be
-#. translated.
-#: ../data/ui/MenulibreWindow.ui.h:85
-msgid ""
-"A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if \"NotShowIn\" is not set.\n"
-"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
-msgstr ""
-"Senarai persekitaran yang patut paparkan masukan ini. Persekitaran yang lain tidak akan paparkan masukan ini. Anda hanya boleh guna kekunci ini jika pemboleh ubah \"NotShowIn\" tidak ditetapkan.\n"
-"Nilai yang mungkin termasuklah: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
-
-#. Translators: "OnlyShowIn" text entry. A list of environments that should
-#. display this entry.
-#: ../data/ui/MenulibreWindow.ui.h:88
-msgid "Only Shown In"
-msgstr "Hanya Ditunjukkan Dalam"
-
-#. Translators: Tooltip for the "TryExec" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:90
-msgid ""
-"Path to an executable file to determine if the program is installed. If the "
-"file is not present or is not executable, this entry may not be shown in a "
-"menu."
-msgstr ""
-"Laluan ke fail boleh laku untuk tentukan jika atur cara telah dipasang. Jika"
-" fail tidak wujud atau tidak boleh laku, masukan ini tidak ditunjukkan dalam"
-" menu."
-
-#. Translators: "TryExec" text entry. Path to an executable file to determine
-#. if the program is installed.
-#: ../data/ui/MenulibreWindow.ui.h:92
-msgid "Try Exec"
-msgstr "Cuba Laku"
-
-#. Translators: Tooltip for the "Mimetypes" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:94
-msgid "The MIME type(s) supported by this application."
-msgstr "Jenis MIME yang disokong oleh aplikasi ini."
-
-#. Translators: "Mimetype" text entry. The MIME type(s) supported by this
-#. application.
-#: ../data/ui/MenulibreWindow.ui.h:96
-msgid "Mimetypes"
-msgstr "Jenis MIME"
-
-#. Translators: Tooltip for the "Keywords" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:98
-msgid ""
-"A list of keywords to describe this entry. You can use these to help "
-"searching entries. These are not meant for display, and should not be "
-"redundant with the values of Name or GenericName."
-msgstr ""
-"Senarai kata kunci untuk jelaskan masukan ini. Anda boleh guna kata kunci "
-"ini untuk bantu menggelintar masukan. Ia bukan untuk dipaparkan, dan tidak "
-"patut digandakan dengan nilai Name atau GenericName."
-
-#. Translators: "Keywords" text entry. A list of keywords to describe this
-#. entry.
-#: ../data/ui/MenulibreWindow.ui.h:100
-msgid "Keywords"
-msgstr "Kata Kunci"
-
-#. Translators: Tooltip for the "StartupWMClass" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:102
-msgid ""
-"If specified, the application will be requested to use the string as a WM "
-"class or a WM name hint at least in one window."
-msgstr ""
-"Jika dinyatakan, aplikasi akan diminta untuk gunakan rentetan sebagai kelas "
-"WM atau pembayang nama WM sekurang-kurangnya dalam satu tetingkap."
-
-#. Translators: "StartupWMClass" text entry. A window manager hint for the
-#. application
-#: ../data/ui/MenulibreWindow.ui.h:104
-msgid "Startup WM Class"
-msgstr "Kelas WM Permulaan"
-
-#. Translators: Identify Window Dialog, primary text.
-#: ../data/ui/MenulibreWindow.ui.h:105 ../menulibre/Dialogs.py:251
-msgid "Identify Window"
-msgstr "Kenal Pasti Tetingkap"
-
-#. Translators: Tooltip for the "Hidden" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:107
-msgid ""
-"If set to \"True\", the result for the user is equivalent to the .desktop "
-"file not existing at all."
-msgstr ""
-"Jika ditetapkan pada \"Benar\", keputusan untuk pengguna adalah sama dengan "
-"fail .desktop tidak wujud langsung."
-
-#. Translators: "Hidden" on/off switch. When enabled, the application is
-#. hidden from the menu.
-#: ../data/ui/MenulibreWindow.ui.h:109
-msgid "Hidden"
-msgstr "Tersembunyi"
-
-#. Translators: Tooltip for the "DBusActivatable" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:111
-msgid ""
-"Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information."
-msgstr ""
-"Tetapkan kekunci ini kepada \"Benar\" sekiranya pengaktifan D-Bus disokong untuk aplikasi ini dan anda ingin menggunakannya.\n"
-"Sila lihat https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable untuk maklumat lanjut."
-
-#. Translators: "DBusActivatable" on/off switch. When enabled, the application
-#. is said to be activated via DBUS.
-#: ../data/ui/MenulibreWindow.ui.h:114
-msgid "DBUS Activatable"
-msgstr "DBUS Boleh Aktif"
-
-#. Translators: Tooltip for the "Implements" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:116
-msgid "A list of interfaces that this application implements."
-msgstr "Senarai antara muka yang aplikasi ini laksanakan."
-
-#. Translators: "Implements" text entry. A list of interfaces that this
-#. application implements.
-#: ../data/ui/MenulibreWindow.ui.h:118
-msgid "Implements"
-msgstr "Melaksanakan"
-
-#: ../data/ui/MenulibreWindow.ui.h:119
-msgctxt ""
-"If true, the application prefers to be run on a more powerful GPU (graphics "
-"processing unit, graphics card) if available."
-msgid ""
-"Set this key to \"True\" if this application prefers to be run on a more powerful GPU if available.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information."
-msgstr ""
-"Tetapkan kekunci ini kepada \"Benar\" jika aplikasi ini ingin dijalankan pada GPU yang lebih berkuasa jika ada.\n"
-"Sila lihat https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu untuk maklumat lanjut."
-
-#: ../data/ui/MenulibreWindow.ui.h:121
-msgctxt ""
-"If true, the application prefers to be run on a more powerful GPU (graphics "
-"processing unit, graphics card) if available."
-msgid "Prefers Non-Default GPU"
-msgstr "Utamakan GPU Bukan-Lalai"
-
-#: ../data/ui/MenulibreWindow.ui.h:122
-msgid ""
-"Set this key to \"True\" if this application uses notifications.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information."
-msgstr ""
-"Tetapkan kekunci ini kepada \"Benar\" jika aplikasi ini menggunakan pemberitahuan.\n"
-"Lihat https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications untuk maklumat lanjut."
-
-#: ../data/ui/MenulibreWindow.ui.h:124
-msgid "Uses Notifications"
-msgstr "Pemberitahuan Pengguna"
-
 #. Translators: Command line option to display debug messages on stdout
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages"
@@ -450,6 +241,890 @@ msgstr "Gunakan tataletak bar pengepala (hiasan sisi klien)"
 msgid "Use toolbar layout (server side decorations)"
 msgstr "Gunakan tataletak bar alatan (hiasan sisi pelayan)"
 
+#. Translators: "Show" tree column header
+#: ../menulibre/ActionEditor.py:57
+msgid "Show"
+msgstr "Tunjuk"
+
+#. Translators: "Name" tree column header
+#: ../menulibre/ActionEditor.py:65
+msgid "Name"
+msgstr "Nama"
+
+#: ../menulibre/ActionEditor.py:81 ../menulibre/CategoryEditor.py:499
+#: ../menulibre/CommandEditor.py:434
+msgid "Add"
+msgstr "Tambah"
+
+#: ../menulibre/ActionEditor.py:85 ../menulibre/CategoryEditor.py:503
+msgid "Remove"
+msgstr "Buang"
+
+#: ../menulibre/ActionEditor.py:89 ../menulibre/CategoryEditor.py:507
+#: ../menulibre/CommandEditor.py:172
+msgid "Clear"
+msgstr "Kosongkan"
+
+#. Translators: Placeholder text for a newly created action
+#: ../menulibre/ActionEditor.py:245
+msgid "New Shortcut"
+msgstr "Pintasan Baharu"
+
+#: ../menulibre/AdvancedPage.py:51
+msgid "Generic Name"
+msgstr "Nama Generik"
+
+#: ../menulibre/AdvancedPage.py:52
+msgid "Generic name of the application, for example \"Web Browser\"."
+msgstr "Nama generik aplikasi, contohnya \"Pelayar Sesawang\"."
+
+#: ../menulibre/AdvancedPage.py:56
+msgid "Try Exec"
+msgstr "Cuba Laku"
+
+#: ../menulibre/AdvancedPage.py:57
+msgid ""
+"Path to an executable file to determine if the program is installed. If the "
+"file is not present or is not executable, this entry may not be shown in a "
+"menu."
+msgstr ""
+"Laluan ke fail boleh laku untuk tentukan jika atur cara telah dipasang. Jika"
+" fail tidak wujud atau tidak boleh laku, masukan ini tidak ditunjukkan dalam"
+" menu."
+
+#: ../menulibre/AdvancedPage.py:61
+msgid "Only Show In"
+msgstr "Hanya Tunjukkan Dalam"
+
+#: ../menulibre/AdvancedPage.py:62
+msgid ""
+"A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if \"NotShowIn\" is not set.\n"
+"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+msgstr ""
+"Senarai persekitaran yang patut paparkan masukan ini. Persekitaran yang lain tidak akan paparkan masukan ini. Anda hanya boleh guna kekunci ini jika pemboleh ubah \"NotShowIn\" tidak ditetapkan.\n"
+"Nilai yang mungkin termasuklah: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+
+#: ../menulibre/AdvancedPage.py:67
+msgid "Not Shown In"
+msgstr "Tidak Ditunjukkan Dalam"
+
+#: ../menulibre/AdvancedPage.py:68
+msgid ""
+"A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
+"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+msgstr ""
+"Senarai persekitaran yang tidak patut paparkan masukan ini. Anda hanya boleh guna kekunci ini jika pemboleh ubah \"OnlyShowIn\" tidak ditetapkan.\n"
+"Nilai yang mungkin termasuklah: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+
+#: ../menulibre/AdvancedPage.py:73
+msgid "Mimetypes"
+msgstr "Jenis MIME"
+
+#: ../menulibre/AdvancedPage.py:74
+msgid "The MIME type(s) supported by this application."
+msgstr "Jenis MIME yang disokong oleh aplikasi ini."
+
+#: ../menulibre/AdvancedPage.py:78
+msgid "Keywords"
+msgstr "Kata Kunci"
+
+#: ../menulibre/AdvancedPage.py:79
+msgid ""
+"A list of keywords to describe this entry. You can use these to help "
+"searching entries. These are not meant for display, and should not be "
+"redundant with the values of Name or GenericName."
+msgstr ""
+"Senarai kata kunci untuk jelaskan masukan ini. Anda boleh guna kata kunci "
+"ini untuk bantu menggelintar masukan. Ia bukan untuk dipaparkan, dan tidak "
+"patut digandakan dengan nilai Name atau GenericName."
+
+#: ../menulibre/AdvancedPage.py:83
+msgid "Startup WM Class"
+msgstr "Kelas WM Permulaan"
+
+#: ../menulibre/AdvancedPage.py:84
+msgid ""
+"If specified, the application will be requested to use the string as a WM "
+"class or a WM name hint at least in one window."
+msgstr ""
+"Jika dinyatakan, aplikasi akan diminta untuk gunakan rentetan sebagai kelas "
+"WM atau pembayang nama WM sekurang-kurangnya dalam satu tetingkap."
+
+#: ../menulibre/AdvancedPage.py:88
+msgid "Implements"
+msgstr "Melaksanakan"
+
+#: ../menulibre/AdvancedPage.py:89
+msgid "A list of interfaces that this application implements."
+msgstr "Senarai antara muka yang aplikasi ini laksanakan."
+
+#: ../menulibre/AdvancedPage.py:93
+msgid "Hidden"
+msgstr "Tersembunyi"
+
+#: ../menulibre/AdvancedPage.py:94
+msgid ""
+"If set to \"True\", the result for the user is equivalent to the .desktop "
+"file not existing at all."
+msgstr ""
+"Jika ditetapkan pada \"Benar\", keputusan untuk pengguna adalah sama dengan "
+"fail .desktop tidak wujud langsung."
+
+#: ../menulibre/AdvancedPage.py:98
+msgid "DBUS Activatable"
+msgstr "DBUS Boleh Aktif"
+
+#: ../menulibre/AdvancedPage.py:99
+msgid ""
+"Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information."
+msgstr ""
+"Tetapkan kekunci ini kepada \"Benar\" sekiranya pengaktifan D-Bus disokong untuk aplikasi ini dan anda ingin menggunakannya.\n"
+"Sila lihat https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable untuk maklumat lanjut."
+
+#: ../menulibre/AdvancedPage.py:104
+msgid "Prefers Non-Default GPU"
+msgstr "Utamakan GPU Bukan-Lalai"
+
+#: ../menulibre/AdvancedPage.py:105
+msgid ""
+"Set this key to \"True\" if this application prefers to be run on a more powerful GPU if available.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information."
+msgstr ""
+"Tetapkan kekunci ini kepada \"Benar\" jika aplikasi ini ingin dijalankan pada GPU yang lebih berkuasa jika ada.\n"
+"Sila lihat https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu untuk maklumat lanjut."
+
+#: ../menulibre/AdvancedPage.py:110
+msgid "Uses Notifications"
+msgstr "Pemberitahuan Pengguna"
+
+#: ../menulibre/AdvancedPage.py:111
+msgid ""
+"Set this key to \"True\" if this application uses notifications.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information."
+msgstr ""
+"Tetapkan kekunci ini kepada \"Benar\" jika aplikasi ini menggunakan pemberitahuan.\n"
+"Lihat https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications untuk maklumat lanjut."
+
+#. Translators: Identify Window Dialog, primary text.
+#: ../menulibre/AdvancedPage.py:182 ../menulibre/AdvancedPage.py:199
+msgid "Identify Window"
+msgstr "Kenal Pasti Tetingkap"
+
+#. Translators: Identify Window Dialog, secondary text. The selected
+#. application is displayed in the placeholder text.
+#: ../menulibre/AdvancedPage.py:202
+msgid "Click on the main application window for this launcher."
+msgstr "Klik pada tetingkap aplikasi utama untuk pelancar ini."
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:97
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:99
+msgid "Development"
+msgstr "Pembangunan"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:101
+msgid "Education"
+msgstr "Pendidikan"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:103
+msgid "Games"
+msgstr "Permainan"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:105
+msgid "Graphics"
+msgstr "Grafik"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:107
+msgid "Internet"
+msgstr "Internet"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:109
+msgid "Office"
+msgstr "Pejabat"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:111
+msgid "Settings"
+msgstr "Tetapan"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:113
+msgid "System"
+msgstr "Sistem"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:115
+msgid "Accessories"
+msgstr "Aksesori"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:117
+msgid "WINE"
+msgstr "WINE"
+
+#. Translators: Launcher section description
+#. Translators: "Other" category group. This item is only displayed for
+#. unknown or non-standard categories.
+#: ../menulibre/CategoryEditor.py:119 ../menulibre/CategoryEditor.py:433
+#: ../menulibre/MenulibreApplication.py:103
+msgid "Other"
+msgstr "Lain-lain"
+
+#. Translators: Launcher category in the Utility section
+#. Translators: Launcher category in the Settings section
+#: ../menulibre/CategoryEditor.py:122 ../menulibre/CategoryEditor.py:346
+msgid "Accessibility"
+msgstr "Kebolehcapaian"
+
+#. Translators: Launcher category in the Utility section
+#: ../menulibre/CategoryEditor.py:124
+msgid "Archiving"
+msgstr "Pengarkiban"
+
+#. Translators: Launcher category in the Utility section
+#: ../menulibre/CategoryEditor.py:126
+msgid "Calculator"
+msgstr "Kalkulator"
+
+#. Translators: Launcher category in the Utility section
+#: ../menulibre/CategoryEditor.py:128
+msgid "Clock"
+msgstr "Jam"
+
+#. Translators: Launcher category in the Utility section
+#: ../menulibre/CategoryEditor.py:130
+msgid "Compression"
+msgstr "Pemampatan"
+
+#. Translators: Launcher category in the Utility section
+#. Translators: Launcher category in the System section
+#: ../menulibre/CategoryEditor.py:132 ../menulibre/CategoryEditor.py:365
+msgid "File Tools"
+msgstr "Alatan Fail"
+
+#. Translators: Launcher category in the Utility section
+#: ../menulibre/CategoryEditor.py:134
+msgid "Text Editor"
+msgstr "Penyunting Teks"
+
+#. Translators: Launcher category in the Utility section
+#: ../menulibre/CategoryEditor.py:136
+msgid "Text Tools"
+msgstr "Alatan Teks"
+
+#. Translators: Launcher category in the Development section
+#: ../menulibre/CategoryEditor.py:139
+msgid "Building"
+msgstr "Binaan"
+
+#. Translators: Launcher category in the Development section
+#: ../menulibre/CategoryEditor.py:141
+msgid "Debugger"
+msgstr "Penyahpepijat"
+
+#. Translators: Launcher category in the Development section
+#: ../menulibre/CategoryEditor.py:143
+msgid "IDE"
+msgstr "IDE"
+
+#. Translators: Launcher category in the Development section
+#: ../menulibre/CategoryEditor.py:145
+msgid "GUI Designer"
+msgstr "Pereka GUI"
+
+#. Translators: Launcher category in the Development section
+#: ../menulibre/CategoryEditor.py:147
+msgid "Profiling"
+msgstr "Pemprofilan"
+
+#. Translators: Launcher category in the Development section
+#: ../menulibre/CategoryEditor.py:149
+msgid "Revision Control"
+msgstr "Kawalan Semakan"
+
+#. Translators: Launcher category in the Development section
+#: ../menulibre/CategoryEditor.py:151
+msgid "Translation"
+msgstr "Terjemahan"
+
+#. Translators: Launcher category in the Development section
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:153 ../menulibre/CategoryEditor.py:289
+msgid "Web Development"
+msgstr "Pembangunan Sesawang"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:156
+msgid "Art"
+msgstr "Seni"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:158
+msgid "Artificial Intelligence"
+msgstr "Kecerdasan Buatan"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:160
+msgid "Astronomy"
+msgstr "Astronomi"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:162
+msgid "Biology"
+msgstr "Biologi"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:164
+msgid "Chemistry"
+msgstr "Kimia"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:166
+msgid "Computer Science"
+msgstr "Sains Komputer"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:168
+msgid "Construction"
+msgstr "Pembinaan"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:170
+msgid "Data Visualization"
+msgstr "Pembayangan Data"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:172
+msgid "Economy"
+msgstr "Ekonomi"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:174
+msgid "Electricity"
+msgstr "Elektrik"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:176
+msgid "Geography"
+msgstr "Geografi"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:178
+msgid "Geology"
+msgstr "Geologi"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:180
+msgid "Geoscience"
+msgstr "Geosains"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:182
+msgid "History"
+msgstr "Sejarah"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:184
+msgid "Humanities"
+msgstr "Kemanusiaan"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:186
+msgid "Image Processing"
+msgstr "Pemprosesan Imej"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:188
+msgid "Languages"
+msgstr "Bahasa"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:190
+msgid "Literature"
+msgstr "Sastera"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:192
+msgid "Maps"
+msgstr "Peta"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:194
+msgid "Math"
+msgstr "Matematik"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:196
+msgid "Medical Software"
+msgstr "Perisian Perubatan"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:198
+msgid "Music"
+msgstr "Muzik"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:200
+msgid "Numerical Analysis"
+msgstr "Analisis Berangka"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:202
+msgid "Parallel Computing"
+msgstr "Pengkomputeran Selari"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:204
+msgid "Physics"
+msgstr "Fizik"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:206
+msgid "Robotics"
+msgstr "Robotik"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:208
+msgid "Spirituality"
+msgstr "Kerohanian"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:210
+msgid "Sports"
+msgstr "Sukan"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:213
+msgid "Action Game"
+msgstr "Permainan Aksi"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:215
+msgid "Adventure Game"
+msgstr "Permainan Pengembaraan"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:217
+msgid "Arcade Game"
+msgstr "Permainan Arked"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:219
+msgid "Board Game"
+msgstr "Permainan Berpapan"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:221
+msgid "Blocks Game"
+msgstr "Permainan Blok"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:223
+msgid "Card Game"
+msgstr "Permainan Kad"
+
+#. Translators: Launcher category in the Game section
+#. Translators: Launcher category in the System section
+#: ../menulibre/CategoryEditor.py:225 ../menulibre/CategoryEditor.py:359
+msgid "Emulator"
+msgstr "Pelagak"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:227
+msgid "Kids Game"
+msgstr "Permainan Kanak-kanak"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:229
+msgid "Logic Game"
+msgstr "Permainan Logik"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:231
+msgid "Role Playing"
+msgstr "Permainan Peranan"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:233
+msgid "Shooter"
+msgstr "Penembak"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:235
+msgid "Simulation"
+msgstr "Penyelakuan"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:237
+msgid "Sports Game"
+msgstr "Permainan Sukan"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:239
+msgid "Strategy Game"
+msgstr "Permainan Strategi"
+
+#. Translators: Launcher category in the Graphics section
+#: ../menulibre/CategoryEditor.py:242
+msgid "2D Graphics"
+msgstr "Grafik 2D"
+
+#. Translators: Launcher category in the Graphics section
+#: ../menulibre/CategoryEditor.py:244
+msgid "3D Graphics"
+msgstr "Grafik 3D"
+
+#. Translators: Launcher category in the Graphics section
+#: ../menulibre/CategoryEditor.py:246
+msgid "OCR"
+msgstr "OCR"
+
+#. Translators: Launcher category in the Graphics section
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:248 ../menulibre/CategoryEditor.py:333
+msgid "Photography"
+msgstr "Fotografi"
+
+#. Translators: Launcher category in the Graphics section
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:250 ../menulibre/CategoryEditor.py:339
+msgid "Publishing"
+msgstr "Penerbitan"
+
+#. Translators: Launcher category in the Graphics section
+#: ../menulibre/CategoryEditor.py:252
+msgid "Raster Graphics"
+msgstr "Grafik Raster"
+
+#. Translators: Launcher category in the Graphics section
+#: ../menulibre/CategoryEditor.py:254
+msgid "Scanning"
+msgstr "Pengimbasan"
+
+#. Translators: Launcher category in the Graphics section
+#: ../menulibre/CategoryEditor.py:256
+msgid "Vector Graphics"
+msgstr "Grafik Vektor"
+
+#. Translators: Launcher category in the Graphics section
+#: ../menulibre/CategoryEditor.py:258
+msgid "Viewer"
+msgstr "Pemidang"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:261
+msgid "Chat"
+msgstr "Sembang"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:263
+msgid "Dialup"
+msgstr "Dailan"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:265
+msgid "Feed"
+msgstr "Suapan"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:267
+msgid "File Transfer"
+msgstr "Pindahan Fail"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:269
+msgid "Ham Radio"
+msgstr "Radio Amatur"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:271
+msgid "Instant Messaging"
+msgstr "Pemesejan Segera"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:273
+msgid "IRC Client"
+msgstr "Klien IRC"
+
+#. Translators: Launcher category in the Network section
+#. Translators: Launcher category in the System section
+#: ../menulibre/CategoryEditor.py:275 ../menulibre/CategoryEditor.py:367
+msgid "Monitor"
+msgstr "Monitor"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:277
+msgid "News"
+msgstr "Berita"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:279
+msgid "P2P"
+msgstr "P2P"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:281
+msgid "Remote Access"
+msgstr "Capaian Jauh"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:283
+msgid "Telephony"
+msgstr "Telefoni"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:285
+msgid "Telephony Tools"
+msgstr "Alatan Telefoni"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:287
+msgid "Web Browser"
+msgstr "Pelayar Sesawang"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:292
+msgid "Audio"
+msgstr "Audio"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:294
+msgid "Audio Video Editing"
+msgstr "Suntingan Audio Video"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:296
+msgid "Disc Burning"
+msgstr "Peleburan Cakera"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:298
+msgid "Midi"
+msgstr "MIDI"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:300
+msgid "Mixer"
+msgstr "Pencampur"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:302
+msgid "Player"
+msgstr "Pemain"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:304
+msgid "Recorder"
+msgstr "Perakam"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:306
+msgid "Sequencer"
+msgstr "Penjujuk"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:308
+msgid "Tuner"
+msgstr "Penala"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:310
+msgid "TV"
+msgstr "TV"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:312
+msgid "Video"
+msgstr "Video"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:315
+msgid "Calendar"
+msgstr "Kalendar"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:317
+msgid "Contact Management"
+msgstr "Pengurusan Kenalan"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:319
+msgid "Database"
+msgstr "Pangkalan Data"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:321
+msgid "Dictionary"
+msgstr "Kamus"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:323
+msgid "Chart"
+msgstr "Carta"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:325
+msgid "Email"
+msgstr "E-mel"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:327
+msgid "Finance"
+msgstr "Kewangan"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:329
+msgid "Flow Chart"
+msgstr "Carta Alir"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:331
+msgid "PDA"
+msgstr "PDA"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:335
+msgid "Project Management"
+msgstr "Pengurusan Projek"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:337
+msgid "Presentation"
+msgstr "Persembahan"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:341
+msgid "Spreadsheet"
+msgstr "Lembaran Hamparan"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:343
+msgid "Word Processor"
+msgstr "Pemproses Kata"
+
+#. Translators: Launcher category in the Settings section
+#: ../menulibre/CategoryEditor.py:348
+msgid "Desktop Settings"
+msgstr "Tetapan Atas Meja"
+
+#. Translators: Launcher category in the Settings section
+#: ../menulibre/CategoryEditor.py:350
+msgid "Hardware Settings"
+msgstr "Tetapan Perkakasan"
+
+#. Translators: Launcher category in the Settings section
+#: ../menulibre/CategoryEditor.py:352
+msgid "Package Manager"
+msgstr "Pengurus Pakej"
+
+#. Translators: Launcher category in the Settings section
+#: ../menulibre/CategoryEditor.py:354
+msgid "Printing"
+msgstr "Pencetakan"
+
+#. Translators: Launcher category in the Settings section
+#. Translators: Launcher category in the System section
+#: ../menulibre/CategoryEditor.py:356 ../menulibre/CategoryEditor.py:369
+msgid "Security"
+msgstr "Keselamatan"
+
+#. Translators: Launcher category in the System section
+#: ../menulibre/CategoryEditor.py:361
+msgid "File Manager"
+msgstr "Pengurus Fail"
+
+#. Translators: Launcher category in the System section
+#: ../menulibre/CategoryEditor.py:363
+msgid "Filesystem"
+msgstr "Sistem Fail"
+
+#. Translators: Launcher category in the System section
+#: ../menulibre/CategoryEditor.py:371
+msgid "Terminal Emulator"
+msgstr "Pelagak Terminal"
+
+#. Translators: Vendor-neutral launcher category
+#: ../menulibre/CategoryEditor.py:374
+msgid "Network Settings"
+msgstr "Tetapan Rangkaian"
+
+#. Translators: Vendor-neutral launcher category
+#: ../menulibre/CategoryEditor.py:376
+msgid "Personal Settings"
+msgstr "Tetapan Peribadi"
+
+#. Translators: Vendor-neutral launcher category
+#: ../menulibre/CategoryEditor.py:378
+msgid "Panel Settings"
+msgstr "Tetapan Panel"
+
+#. Translators: Vendor-neutral launcher category
+#: ../menulibre/CategoryEditor.py:380
+msgid "Settings Dialog"
+msgstr "Dialog Tetapan"
+
+#. Translators: Vendor-neutral launcher category
+#: ../menulibre/CategoryEditor.py:382
+msgid "System Settings"
+msgstr "Tetapan Sistem"
+
+#. Translators: Vendor-neutral launcher category
+#: ../menulibre/CategoryEditor.py:384
+msgid "Toplevel"
+msgstr "Paras Tertinggi"
+
+#. Translators: Vendor-neutral launcher category
+#: ../menulibre/CategoryEditor.py:386
+msgid "Utilities"
+msgstr "Utiliti"
+
+#. Translators: Launcher category specific to a desktop environment
+#: ../menulibre/CategoryEditor.py:389
+msgid "GNOME"
+msgstr "GNOME"
+
+#. Translators: Launcher category specific to a desktop environment
+#: ../menulibre/CategoryEditor.py:391
+msgid "GTK"
+msgstr "GTK"
+
+#. Translators: Launcher category specific to a desktop environment
+#: ../menulibre/CategoryEditor.py:393
+msgid "Xfce"
+msgstr "Xfce"
+
+#. Translators: Translated key (original key)
+#: ../menulibre/CategoryEditor.py:407
+#, python-format
+msgid "%s (%s)"
+msgstr "%s (%s)"
+
+#. Translators: Placeholder text for the launcher-specific category
+#. selection.
+#: ../menulibre/CategoryEditor.py:481
+msgid "Select a category"
+msgstr "Pilih satu kategori"
+
+#. Translators: "Category Name" tree column header
+#: ../menulibre/CategoryEditor.py:485
+msgid "Category Name"
+msgstr "Nama Kategori"
+
+#. Translators: "Section" tree column header
+#: ../menulibre/CategoryEditor.py:491
+msgid "Section"
+msgstr "Bahagian"
+
 #: ../menulibre/CommandEditor.py:32
 msgid "Command Editor"
 msgstr "Penyunting Perintah"
@@ -459,9 +1134,9 @@ msgstr "Penyunting Perintah"
 #. Translators: Save On Leave Dialog, don't save, cancel leave.
 #. Translators: Revert Dialog, cancel button.
 #. Translators: File Chooser Dialog, cancel button.
-#: ../menulibre/CommandEditor.py:35 ../menulibre/Dialogs.py:66
-#: ../menulibre/Dialogs.py:101 ../menulibre/Dialogs.py:130
-#: ../menulibre/Dialogs.py:169 ../menulibre/Dialogs.py:189
+#: ../menulibre/CommandEditor.py:35 ../menulibre/Dialogs.py:65
+#: ../menulibre/Dialogs.py:100 ../menulibre/Dialogs.py:129
+#: ../menulibre/Dialogs.py:168 ../menulibre/Dialogs.py:188
 #: ../menulibre/IconSelectionDialog.py:32
 #: ../menulibre/IconFileSelectionDialog.py:33
 msgid "Cancel"
@@ -473,8 +1148,8 @@ msgid "Apply"
 msgstr "Guna"
 
 #. Translators: Help action tooltip
-#: ../menulibre/CommandEditor.py:90 ../menulibre/MenulibreApplication.py:538
-#: ../menulibre/MenulibreApplication.py:2494
+#: ../menulibre/CommandEditor.py:90 ../menulibre/MenulibreApplication.py:458
+#: ../menulibre/MenulibreApplication.py:2085
 msgid "Help"
 msgstr "Bantuan"
 
@@ -593,22 +1268,22 @@ msgid "Select an application"
 msgstr "Pilih satu aplikasi"
 
 #. Translators: About Dialog, window title.
-#: ../menulibre/Dialogs.py:38
+#: ../menulibre/Dialogs.py:37
 msgid "About MenuLibre"
 msgstr "Perihal MenuLibre"
 
 #. Translators: Help Dialog, window title.
-#: ../menulibre/Dialogs.py:58
+#: ../menulibre/Dialogs.py:57
 msgid "Online Documentation"
 msgstr "Pendokumenan Dalam Talian"
 
 #. Translators: Help Dialog, primary text.
-#: ../menulibre/Dialogs.py:60
+#: ../menulibre/Dialogs.py:59
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr "Adakah anda ingin baca manual MenuLibre atas talian?"
 
 #. Translators: Help Dialog, secondary text.
-#: ../menulibre/Dialogs.py:62
+#: ../menulibre/Dialogs.py:61
 msgid ""
 "You will be redirected to the documentation website where the help pages are"
 " maintained."
@@ -618,36 +1293,36 @@ msgstr ""
 
 #. Translators: Help Dialog, confirmation button. Navigates to
 #. online documentation.
-#: ../menulibre/Dialogs.py:69
+#: ../menulibre/Dialogs.py:68
 msgid "Read Online"
 msgstr "Baca Atas Talian"
 
 #. Translators: Save On Close Dialog, window title.
 #. Translators: Save On Leave Dialog, window title.
-#: ../menulibre/Dialogs.py:91 ../menulibre/Dialogs.py:119
+#: ../menulibre/Dialogs.py:90 ../menulibre/Dialogs.py:118
 msgid "Save Changes"
 msgstr "Simpan Perubahan"
 
 #. Translators: Save On Close Dialog, primary text.
-#: ../menulibre/Dialogs.py:93
+#: ../menulibre/Dialogs.py:92
 msgid "Do you want to save the changes before closing?"
 msgstr "Adakah anda ingin simpan perubahan yang dibuat sebelum menutup?"
 
 #. Translators: Save On Close Dialog, secondary text.
 #. Translators: Save On Leave Dialog, primary text.
-#: ../menulibre/Dialogs.py:95 ../menulibre/Dialogs.py:124
+#: ../menulibre/Dialogs.py:94 ../menulibre/Dialogs.py:123
 msgid "If you don't save the launcher, all the changes will be lost."
 msgstr ""
 "Jika anda tidak simpan pelancar, semua perubahan yang dibuat akan hilang."
 
 #. Translators: Save On Close Dialog, don't save, then close.
 #. Translators: Save On Leave Dialog, don't save, then leave.
-#: ../menulibre/Dialogs.py:99 ../menulibre/Dialogs.py:128
+#: ../menulibre/Dialogs.py:98 ../menulibre/Dialogs.py:127
 msgid "Don't Save"
 msgstr "Jangan Simpan"
 
 #. Translators: Save On Leave Dialog, primary text.
-#: ../menulibre/Dialogs.py:121
+#: ../menulibre/Dialogs.py:120
 msgid "Do you want to save the changes before leaving this launcher?"
 msgstr ""
 "Adakah anda ingin simpan perubahan yang dibuat sebelum meninggalkan pelancar"
@@ -655,24 +1330,24 @@ msgstr ""
 
 #. Translations: Delete Dialog, secondary text. Notifies user that
 #. the file cannot be restored once deleted.
-#: ../menulibre/Dialogs.py:149
+#: ../menulibre/Dialogs.py:148
 msgid "This cannot be undone."
 msgstr "Perbuatan ini tidak boleh diundurkan."
 
 #. Translators: Revert Dialog, window title.
 #. Translators: Revert Dialog, confirmation button.
-#: ../menulibre/Dialogs.py:160 ../menulibre/Dialogs.py:171
+#: ../menulibre/Dialogs.py:159 ../menulibre/Dialogs.py:170
 msgid "Restore Launcher"
 msgstr "Pulih Pelancar"
 
 #. Translators: Revert Dialog, primary text. Confirmation to revert
 #. all changes since the last file save.
-#: ../menulibre/Dialogs.py:163
+#: ../menulibre/Dialogs.py:162
 msgid "Are you sure you want to restore this launcher?"
 msgstr "Adakah anda ingin pulihkan pelancar ini?"
 
 #. Translators: Revert Dialog, secondary text.
-#: ../menulibre/Dialogs.py:165
+#: ../menulibre/Dialogs.py:164
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
@@ -681,18 +1356,18 @@ msgstr ""
 " dipulihkan secara automatik."
 
 #. Translators: File Chooser Dialog, confirmation button.
-#: ../menulibre/Dialogs.py:191
+#: ../menulibre/Dialogs.py:190
 msgid "OK"
 msgstr "OK"
 
 #. Translators: Launcher Removed Dialog, primary text. Indicates that
 #. the selected application is no longer installed.
-#: ../menulibre/Dialogs.py:198
+#: ../menulibre/Dialogs.py:197
 msgid "No Longer Installed"
 msgstr "Sudah Tidak Terpasang"
 
 #. Translators: Launcher Removed Dialog, secondary text.
-#: ../menulibre/Dialogs.py:200
+#: ../menulibre/Dialogs.py:199
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -702,28 +1377,21 @@ msgstr ""
 
 #. Translators: Not Found In PATH Dialog, primary text. Indicates
 #. that the provided script was not found in any PATH directory.
-#: ../menulibre/Dialogs.py:214
+#: ../menulibre/Dialogs.py:213
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr "Tidak jumpa \"%s\" dalam pemboleh ubah PATH anda."
 
 #. Translators: Save Error Dialog, primary text.
-#: ../menulibre/Dialogs.py:232
+#: ../menulibre/Dialogs.py:231
 #, python-format
 msgid "Failed to save \"%s\"."
 msgstr "Gagal menyimpan \"%s\"."
 
 #. Translators: Save Error Dialog, secondary text.
-#: ../menulibre/Dialogs.py:235
+#: ../menulibre/Dialogs.py:234
 msgid "Do you have write permission to the file and directory?"
 msgstr "Adakah anda mempunyai keizinan menulis ke fail dan direktori?"
-
-#. Translators: Identify Window Dialog, secondary text. The selected
-#. application is displayed in the placeholder text.
-#: ../menulibre/Dialogs.py:254
-#, python-format
-msgid "Click on the main application window for '%s'."
-msgstr "Klik pada tetingkap aplikasi utama untuk '%s'."
 
 #: ../menulibre/IconSelectionDialog.py:29
 msgid "Select an icon"
@@ -739,164 +1407,34 @@ msgid "Images"
 msgstr "Imej"
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:126 ../menulibre/MenulibreApplication.py:1361
-#: ../menulibre/MenulibreApplication.py:1953
+#: ../menulibre/MenuEditor.py:126 ../menulibre/MenulibreApplication.py:1068
+#: ../menulibre/MenulibreApplication.py:1557
 msgid "Separator"
 msgstr "Pemisah"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:53
-msgid "Multimedia"
-msgstr "Multimedia"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:55
-msgid "Development"
-msgstr "Pembangunan"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:57
-msgid "Education"
-msgstr "Pendidikan"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:59
-msgid "Games"
-msgstr "Permainan"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:61
-msgid "Graphics"
-msgstr "Grafik"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:63
-msgid "Internet"
-msgstr "Internet"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:65
-msgid "Office"
-msgstr "Pejabat"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:67
-msgid "Settings"
-msgstr "Tetapan"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:69
-msgid "System"
-msgstr "Sistem"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:71
-msgid "Accessories"
-msgstr "Aksesori"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:73
-msgid "WINE"
-msgstr "WINE"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:75
-msgid "Desktop configuration"
-msgstr "Tatarajah atas meja"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:77
-msgid "User configuration"
-msgstr "Tatarajah pengguna"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:79
-msgid "Hardware configuration"
-msgstr "Tatarajah perkakasan"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:81
-msgid "GNOME application"
-msgstr "Aplikasi GNOME"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:83
-msgid "GTK+ application"
-msgstr "Aplikasi GTK+"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:85
-msgid "GNOME user configuration"
-msgstr "Tatarajah pengguna GNOME"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:87
-msgid "GNOME hardware configuration"
-msgstr "Tatarajah perkakasan GNOME"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:89
-#: ../menulibre/MenulibreApplication.py:91
-msgid "GNOME system configuration"
-msgstr "Tatarajah sistem GNOME"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:93
-#: ../menulibre/MenulibreApplication.py:95
-msgid "Xfce menu item"
-msgstr "Butir menu Xfce"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:97
-msgid "Xfce toplevel menu item"
-msgstr "Butir menu aras tertinggi Xfce"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:99
-msgid "Xfce user configuration"
-msgstr "Tatarajah pengguna Xfce"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:101
-msgid "Xfce hardware configuration"
-msgstr "Tatarajah perkakasan Xfce"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:103
-#: ../menulibre/MenulibreApplication.py:105
-msgid "Xfce system configuration"
-msgstr "Tatarajah sistem Xfce"
-
-#. Translators: "Other" category group. This item is only displayed for
-#. unknown or non-standard categories.
-#: ../menulibre/MenulibreApplication.py:158
-#: ../menulibre/MenulibreApplication.py:213
-msgid "Other"
-msgstr "Lain-lain"
 
 #. Translators: This error is displayed when the application is run
 #. as a root user. The application exits once the dialog is
 #. dismissed.
-#: ../menulibre/MenulibreApplication.py:277
+#: ../menulibre/MenulibreApplication.py:197
 msgid "MenuLibre cannot be run as root."
 msgstr "MenuLibre tidak boleh dijalankan sebagai pengguna akar."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
-#: ../menulibre/MenulibreApplication.py:283
+#: ../menulibre/MenulibreApplication.py:203
 #, python-format
 msgid ""
 "Please see the <a href='%s'>online documentation</a> for more information."
 msgstr ""
 "Sila lihat <a href='%s'>pendokumenan atas talian</a> untuk maklumat lanjut."
 
-#: ../menulibre/MenulibreApplication.py:294
+#: ../menulibre/MenulibreApplication.py:214
 msgid "MenuLibre failed to load."
 msgstr "MenuLibre gagal dimuatkan."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
-#: ../menulibre/MenulibreApplication.py:300
+#: ../menulibre/MenulibreApplication.py:220
 #, python-format
 msgid ""
 "The default menu could not be found. Please see the <a href='%s'>online "
@@ -905,159 +1443,138 @@ msgstr ""
 "Menu lalai tidak dijumpai. Sila lihat <a href='%s'>pendokumenan dalam "
 "talian</a> untuk maklumat lanjut."
 
-#: ../menulibre/MenulibreApplication.py:304
+#: ../menulibre/MenulibreApplication.py:224
 msgid "Diagnostics"
 msgstr "Diagnosis"
 
 #. Translators: Add Launcher action label
-#: ../menulibre/MenulibreApplication.py:446
+#: ../menulibre/MenulibreApplication.py:366
 msgid "Add _Launcher…"
 msgstr "Tambah Pe_lancar..."
 
 #. Translators: Add Launcher action tooltip
-#: ../menulibre/MenulibreApplication.py:448
+#: ../menulibre/MenulibreApplication.py:368
 msgid "Add Launcher…"
 msgstr "Tambah Pelancar..."
 
 #. Translators: Add Directory action label
-#: ../menulibre/MenulibreApplication.py:455
+#: ../menulibre/MenulibreApplication.py:375
 msgid "Add _Directory…"
 msgstr "Tambah _Direktori..."
 
 #. Translators: Add Directory action tooltip
-#: ../menulibre/MenulibreApplication.py:457
+#: ../menulibre/MenulibreApplication.py:377
 msgid "Add Directory…"
 msgstr "Tambah Direktori..."
 
 #. Translators: Add Separator action label
-#: ../menulibre/MenulibreApplication.py:464
+#: ../menulibre/MenulibreApplication.py:384
 msgid "_Add Separator…"
 msgstr "T_ambah Pemisah..."
 
 #. Translators: Add Separator action tooltip
-#: ../menulibre/MenulibreApplication.py:466
+#: ../menulibre/MenulibreApplication.py:386
 msgid "Add Separator…"
 msgstr "Tambah Pemisah..."
 
 #. Translators: Save Launcher action label
-#: ../menulibre/MenulibreApplication.py:473
+#: ../menulibre/MenulibreApplication.py:393
 msgid "_Save"
 msgstr "_Simpan"
 
 #. Translators: Undo action label
-#: ../menulibre/MenulibreApplication.py:482
+#: ../menulibre/MenulibreApplication.py:402
 msgid "_Undo"
 msgstr "B_uat Asal"
 
 #. Translators: Redo action label
-#: ../menulibre/MenulibreApplication.py:491
+#: ../menulibre/MenulibreApplication.py:411
 msgid "_Redo"
 msgstr "Buat _Semula"
 
 #. Translators: Revert action label
-#: ../menulibre/MenulibreApplication.py:500
+#: ../menulibre/MenulibreApplication.py:420
 msgid "_Revert"
 msgstr "_Kembali Semula"
 
 #. Translators: Execute action label
-#: ../menulibre/MenulibreApplication.py:509
+#: ../menulibre/MenulibreApplication.py:429
 msgid "_Execute"
 msgstr "_Lakukan"
 
 #. Translators: Execute action tooltip
-#: ../menulibre/MenulibreApplication.py:511
+#: ../menulibre/MenulibreApplication.py:431
 msgid "Execute Launcher"
 msgstr "Lakukan Pelancar"
 
 #. Translators: Delete action label
-#: ../menulibre/MenulibreApplication.py:518
+#: ../menulibre/MenulibreApplication.py:438
 msgid "_Delete"
 msgstr "Pa_dam"
 
 #. Translators: Quit action label
-#: ../menulibre/MenulibreApplication.py:527
+#: ../menulibre/MenulibreApplication.py:447
 msgid "_Quit"
 msgstr "_Keluar"
 
 #. Translators: Quit action tooltip
-#: ../menulibre/MenulibreApplication.py:529
-#: ../menulibre/MenulibreApplication.py:2496
+#: ../menulibre/MenulibreApplication.py:449
+#: ../menulibre/MenulibreApplication.py:2087
 msgid "Quit"
 msgstr "Keluar"
 
 #. Translators: Help action label
-#: ../menulibre/MenulibreApplication.py:536
+#: ../menulibre/MenulibreApplication.py:456
 msgid "_Contents"
 msgstr "_Kandungan"
 
 #. Translators: About action label
-#: ../menulibre/MenulibreApplication.py:545
+#: ../menulibre/MenulibreApplication.py:465
 msgid "_About"
 msgstr "Perih_al"
 
 #. Translators: About action tooltip
-#: ../menulibre/MenulibreApplication.py:547
-#: ../menulibre/MenulibreApplication.py:2495
+#: ../menulibre/MenulibreApplication.py:467
+#: ../menulibre/MenulibreApplication.py:2086
 msgid "About"
 msgstr "Perihal"
 
 #. Translators: "Categories" launcher section
-#: ../menulibre/MenulibreApplication.py:689
+#: ../menulibre/MenulibreApplication.py:733
 msgid "Categories"
 msgstr "Kategori"
 
 #. Translators: "Actions" launcher section
-#: ../menulibre/MenulibreApplication.py:692
+#: ../menulibre/MenulibreApplication.py:736
 msgid "Actions"
 msgstr "Tindakan"
 
 #. Translators: "Advanced" launcher section
-#: ../menulibre/MenulibreApplication.py:695
+#: ../menulibre/MenulibreApplication.py:739
 msgid "Advanced"
 msgstr "Lanjutan"
 
-#. Translators: Launcher-specific categories, camelcase "This Entry"
-#: ../menulibre/MenulibreApplication.py:875
-msgid "ThisEntry"
-msgstr "MasukanIni"
-
-#. Translators: Placeholder text for the launcher-specific category
-#. selection.
-#: ../menulibre/MenulibreApplication.py:896
-msgid "Select a category"
-msgstr "Pilih satu kategori"
-
-#. Translators: "Category Name" tree column header
-#: ../menulibre/MenulibreApplication.py:900
-msgid "Category Name"
-msgstr "Nama Kategori"
-
 #. Translators: "This Entry" launcher-specific category group
-#: ../menulibre/MenulibreApplication.py:1003
+#: ../menulibre/MenulibreApplication.py:801
 msgid "This Entry"
 msgstr "Masukan Ini"
 
-#. Translators: Placeholder text for a newly created action
-#: ../menulibre/MenulibreApplication.py:1064
-msgid "New Shortcut"
-msgstr "Pintasan Baharu"
-
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1236
+#: ../menulibre/MenulibreApplication.py:952
 msgid "Select a working directory…"
 msgstr "Pilih satu direktori kerja..."
 
 #. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1240
+#: ../menulibre/MenulibreApplication.py:956
 msgid "Select an executable…"
 msgstr "Pilih satu boleh laku..."
 
-#: ../menulibre/MenulibreApplication.py:1288
-#: ../menulibre/MenulibreApplication.py:1303
+#: ../menulibre/MenulibreApplication.py:995
+#: ../menulibre/MenulibreApplication.py:1010
 msgid "Menu restart required"
 msgstr "Mula semula menu diperlukan"
 
-#: ../menulibre/MenulibreApplication.py:1289
+#: ../menulibre/MenulibreApplication.py:996
 #, python-format
 msgid ""
 "MenuLibre can do this automatically. Do you want to run the following command?\n"
@@ -1068,7 +1585,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../menulibre/MenulibreApplication.py:1304
+#: ../menulibre/MenulibreApplication.py:1011
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
 "system. Please log out for you menu to update completely."
@@ -1077,7 +1594,7 @@ msgstr ""
 "perkara ini secara automatik pada sistem anda. Sila log keluar agar menu "
 "anda boleh dikemas kini sepenuhnya."
 
-#: ../menulibre/MenulibreApplication.py:1543
+#: ../menulibre/MenulibreApplication.py:1250
 #, python-format
 msgid "<i>Missing icon:</i> %s"
 msgstr "<i>Ikon hilang:</i> %s"
@@ -1085,46 +1602,46 @@ msgstr "<i>Ikon hilang:</i> %s"
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:1571
+#: ../menulibre/MenulibreApplication.py:1278
 msgid "You do not have permission to delete this file."
 msgstr "Anda tidak mempunyai keizinan memadam fail ini."
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1877
+#: ../menulibre/MenulibreApplication.py:1482
 msgid "New Launcher"
 msgstr "Pelancar Baharu"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1880 ../menulibre/MenulibreXdg.py:49
+#: ../menulibre/MenulibreApplication.py:1485 ../menulibre/MenulibreXdg.py:50
 msgid "A small descriptive blurb about this application."
 msgstr "Blurb keterangan kecil mengenai aplikasi ini."
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1931
+#: ../menulibre/MenulibreApplication.py:1535
 msgid "New Directory"
 msgstr "Direktori Baharu"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1934
+#: ../menulibre/MenulibreApplication.py:1538
 msgid "A small descriptive blurb about this directory."
 msgstr "Blurb keterangan kecil mengenai direktori ini."
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:2368
+#: ../menulibre/MenulibreApplication.py:1961
 msgid "Are you sure you want to delete this separator?"
 msgstr "Adakah anda ingin memadam pemisah ini?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:2372
+#: ../menulibre/MenulibreApplication.py:1965
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Adakah anda ingin memadam \"%s\"?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:2489
+#: ../menulibre/MenulibreApplication.py:2080
 msgid "Parsing Error Log"
 msgstr "Log Ralat Penghuraian"
 
@@ -1134,7 +1651,7 @@ msgid "Search Results"
 msgstr "Hasil Gelintar"
 
 #. Translators: Placeholder text for a new menu item name.
-#: ../menulibre/MenulibreXdg.py:46
+#: ../menulibre/MenulibreXdg.py:47
 msgid "New Menu Item"
 msgstr "Butir Menu Baharu"
 
