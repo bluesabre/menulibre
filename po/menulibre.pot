@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-19 00:02-0400\n"
+"POT-Creation-Date: 2023-05-19 00:15-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -217,18 +217,18 @@ msgid "Name"
 msgstr ""
 
 #. Translators: Button to add item to list.
-#: ../data/ui/MenulibreWindow.ui.h:70 ../menulibre/CategoryEditor.py:503
+#: ../data/ui/MenulibreWindow.ui.h:70 ../menulibre/CategoryEditor.py:499
 #: ../menulibre/CommandEditor.py:434
 msgid "Add"
 msgstr ""
 
 #. Translators: Button to remove item from list.
-#: ../data/ui/MenulibreWindow.ui.h:72 ../menulibre/CategoryEditor.py:509
+#: ../data/ui/MenulibreWindow.ui.h:72 ../menulibre/CategoryEditor.py:503
 msgid "Remove"
 msgstr ""
 
 #. Translators: Button to remove all items from list.
-#: ../data/ui/MenulibreWindow.ui.h:74 ../menulibre/CategoryEditor.py:516
+#: ../data/ui/MenulibreWindow.ui.h:74 ../menulibre/CategoryEditor.py:507
 #: ../menulibre/CommandEditor.py:172
 msgid "Clear"
 msgstr ""
@@ -1089,7 +1089,7 @@ msgid "Category Name"
 msgstr ""
 
 #. Translators: "Section" tree column header
-#: ../menulibre/CategoryEditor.py:492
+#: ../menulibre/CategoryEditor.py:491
 msgid "Section"
 msgstr ""
 
