@@ -326,7 +326,7 @@ category_descriptions = {
     # Translators: Launcher category in the Office section
     'Finance': _('Finance'),
     # Translators: Launcher category in the Office section
-    'FlowChart': _('Flow chart'),
+    'FlowChart': _('Flow Chart'),
     # Translators: Launcher category in the Office section
     'PDA': _('PDA'),
     # Translators: Launcher category in the Office section
