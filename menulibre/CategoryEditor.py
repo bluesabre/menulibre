@@ -466,9 +466,9 @@ class CategoryEditor(Gtk.Box):
         self._initialize_categories()
 
         treeview = Gtk.TreeView.new_with_model(self._treestore)
-        scrolled.add(treeview)
-
         treeview.set_enable_search(False)
+        treeview.set_show_expanders(False)
+        scrolled.add(treeview)
 
         renderer_combo = Gtk.CellRendererCombo()
         renderer_combo.set_property("editable", True)
