@@ -470,51 +470,41 @@ class CategoryEditor(Gtk.Box):
         treeview.set_show_expanders(False)
         scrolled.add(treeview)
 
-        renderer_combo = Gtk.CellRendererCombo()
-        renderer_combo.set_property("editable", True)
-        renderer_combo.set_property("model", self._options)
-        renderer_combo.set_property("text-column", 2)
-        renderer_combo.set_property("has-entry", False)
+        renderer = Gtk.CellRendererCombo()
+        renderer.set_property("editable", True)
+        renderer.set_property("model", self._options)
+        renderer.set_property("text-column", COL_DESC)
+        renderer.set_property("has-entry", False)
 
         # Translators: Placeholder text for the launcher-specific category
         # selection.
-        renderer_combo.set_property("placeholder-text", _("Select a category"))
-        renderer_combo.connect("changed", self._on_combo_changed)
+        renderer.set_property("placeholder-text", _("Select a category"))
+        renderer.connect("changed", self._on_combo_changed)
 
         # Translators: "Category Name" tree column header
-        column_combo = Gtk.TreeViewColumn(_("Category Name"),
-                                          renderer_combo, text=2)
-        treeview.append_column(column_combo)
+        col = Gtk.TreeViewColumn(_("Category Name"), renderer, text=COL_DESC)
+        treeview.append_column(col)
 
-        renderer_text = Gtk.CellRendererText()
+        renderer = Gtk.CellRendererText()
 
         # Translators: "Section" tree column header
-        column_text = Gtk.TreeViewColumn(_("Section"),
-                                         renderer_text, text=1)
-        treeview.append_column(column_text)
+        col = Gtk.TreeViewColumn(_("Section"), renderer, text=COL_SECTION)
+        treeview.append_column(col)
 
         toolbar = Gtk.Toolbar.new()
         context = toolbar.get_style_context()
         context.add_class("inline-toolbar")
         self.add(toolbar)
 
-        image = Gtk.Image.new_from_icon_name("list-add-symbolic", Gtk.IconSize.MENU)
-        image.set_pixel_size(16)
-        button = Gtk.ToolButton.new(image, _("Add"))
-        button.connect("clicked", self._on_add_clicked)
-        toolbar.add(button)
+        add_button = self._make_button(_("Add"), "list-add-symbolic")
+        add_button.connect("clicked", self._on_add_clicked)
+        toolbar.add(add_button)
 
-        image = Gtk.Image.new_from_icon_name("list-remove-symbolic", Gtk.IconSize.MENU)
-        image.set_pixel_size(16)
-        remove_button = Gtk.ToolButton.new(image,  _("Remove"))
-        remove_button.set_sensitive(False)
+        remove_button = self._make_button(_("Remove"), "list-remove-symbolic", False)
         remove_button.connect("clicked", self._on_remove_clicked, treeview)
         toolbar.add(remove_button)
 
-        image = Gtk.Image.new_from_icon_name("list-remove-all-symbolic", Gtk.IconSize.MENU)
-        image.set_pixel_size(16)
-        clear_button = Gtk.ToolButton.new(image,  _("Clear"))
-        clear_button.set_sensitive(False)
+        clear_button = self._make_button(_("Clear"), "list-remove-all-symbolic", False)
         clear_button.connect("clicked", self._on_clear_clicked)
         toolbar.add(clear_button)
 
@@ -528,6 +518,13 @@ class CategoryEditor(Gtk.Box):
         self._removals = []
 
         self.show_all()
+
+    def _make_button(self, label, icon_name, sensitive=True):
+        image = Gtk.Image.new_from_icon_name(icon_name, Gtk.IconSize.MENU)
+        image.set_pixel_size(16)
+        button = Gtk.ToolButton.new(image, label)
+        button.set_sensitive(sensitive)
+        return button
 
     def set_prefix(self, value):
         self._prefix = value
