@@ -30,13 +30,14 @@ require_version('Gtk', '3.0')
 from gi.repository import Gio, GLib, GObject, Gtk, Gdk, GdkPixbuf
 
 from . import MenulibreStackSwitcher, CommandEditor
-from . import IconSelectionDialog, IconFileSelectionDialog
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, ParsingErrorsDialog
 from . import MenuEditor
 from . import CategoryEditor
 from . import ActionEditor
 from . import AdvancedPage
+from . import IconEntry
+
 from .util import MenuItemTypes, check_keypress, getRelativeName, getRelatedKeys
 from .util import escapeText, getCurrentDesktop, getProcessList, getDefaultMenuPrefix
 import menulibre_lib
@@ -622,9 +623,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 builder.get_object('button_Comment'),
                 builder.get_object('label_Comment'),
                 builder.get_object('entry_Comment')),
-            'Icon': (  # GtkButton, GtkImage
-                builder.get_object('button_Icon'),
-                builder.get_object('image_Icon')),
             'Filename': builder.get_object('label_Filename'),
             'Exec': builder.get_object('entry_Exec'),
             'Path': builder.get_object('entry_Path'),
@@ -663,12 +661,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                           widget_name, builder)
 
         # Button Focus events
-        for widget_name in ['Name', 'Comment', 'Icon']:
+        for widget_name in ['Name', 'Comment']:
             button = builder.get_object('button_%s' % widget_name)
             button.connect('focus-in-event',
-                           self.on_NameCommentIcon_focus_in_event)
+                           self.on_NameComment_focus_in_event)
             button.connect('focus-out-event',
-                           self.on_NameCommentIcon_focus_out_event)
+                           self.on_NameComment_focus_out_event)
 
         for widget_name in ['Name', 'Comment']:
             entry = builder.get_object('entry_%s' % widget_name)
@@ -704,21 +702,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         button = builder.get_object('entry_Exec')
         button.connect('icon-press', self.on_Exec_clicked)
 
-        # Connect the Icon menu.
-        select_icon_name = builder.get_object("icon_select_by_icon_name")
-        select_icon_name.connect("activate",
-                                 self.on_IconSelectFromIcons_clicked,
-                                 builder)
-        select_icon_file = builder.get_object("icon_select_by_filename")
-        select_icon_file.connect("activate",
-                                 self.on_IconSelectFromFilename_clicked)
-
-        # Connect the Icon overlay.
-        overlay = builder.get_object("icon_overlay")
-        self.overlay_icon = builder.get_object("overlay_icon")
-        overlay.add_overlay(self.overlay_icon)
-        overlay.set_overlay_pass_through(self.overlay_icon, True)
-
         # Categories Treeview and Inline Toolbar
         self.category_editor = CategoryEditor.CategoryEditor()
         self.category_editor.set_prefix(getDefaultMenuPrefix())
@@ -727,6 +710,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Actions Treeview and Inline Toolbar
         self.action_editor = ActionEditor.ActionEditor()
         self.action_editor.connect("value-changed", self.on_smart_widget_changed)
+
+        # Icon Entry
+        self.icon_entry = IconEntry.IconEntry()
+        self.icon_entry.connect("value-changed", self.on_smart_widget_changed)
+        placeholder = builder.get_object("icon_container")
+        placeholder.pack_start(self.icon_entry, True, True, 0)
+        placeholder.show_all()
 
         self.switcher.add_child(self.category_editor,
                                 # Translators: "Categories" launcher section
@@ -847,36 +837,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         return False
 
 # Improved navigation of the Name, Comment, and Icon widgets
-    def on_NameCommentIcon_focus_in_event(self, button, event):
+    def on_NameComment_focus_in_event(self, button, event):
         """Make the selected focused widget more noticeable."""
         button.set_relief(Gtk.ReliefStyle.NORMAL)
 
-    def on_NameCommentIcon_focus_out_event(self, button, event):
+    def on_NameComment_focus_out_event(self, button, event):
         """Make the selected focused widget less noticeable."""
         button.set_relief(Gtk.ReliefStyle.NONE)
-
-# Icon Selection
-    def on_IconSelectFromIcons_clicked(self, widget, builder):
-        current_icon_name = self.get_value("Icon")
-        dialog = IconSelectionDialog.IconSelectionDialog(
-            parent=self,
-            initial_icon=current_icon_name,
-            use_header_bar=self.use_headerbar)
-        if dialog.run() == Gtk.ResponseType.OK:
-            icon_name = dialog.get_icon()
-            self.set_value('Icon', icon_name)
-        dialog.destroy()
-
-    def on_IconSelectFromFilename_clicked(self, widget):
-        current_icon_name = self.get_value("Icon")
-        dialog = IconFileSelectionDialog.IconFileSelectionDialog(
-            parent=self,
-            initial_file=current_icon_name,
-            use_header_bar=self.use_headerbar)
-        if dialog.run() == Gtk.ResponseType.OK:
-            filename = dialog.get_filename()
-            self.set_value('Icon', filename)
-        dialog.destroy()
 
 # Name and Comment Widgets
     def on_NameComment_key_press_event(self, widget, ev, widget_name, builder):
@@ -1203,66 +1170,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         widget.set_text("")
 
 # Setters and Getters
-    def set_editor_image_success(self, button, image, text):
-        button.set_tooltip_text(text)
-        image.set_opacity(1.0)
-        self.overlay_icon.hide()
-
-
-    def set_editor_image_error(self, button, image, markup):
-        button.set_tooltip_markup(markup)
-        image.set_opacity(0.7)
-        self.overlay_icon.show()
-
-
-    def set_editor_image(self, icon_name):
-        """Set the editor Icon button image."""
-        button, image = self.widgets['Icon']
-
-        # Load the Icon Theme.
-        icon_theme = Gtk.IconTheme.get_default()
-
-        if icon_name is not None:
-            # If the Icon Theme has the icon, set the image to that icon.
-            if icon_theme.has_icon(icon_name):
-                image.set_from_icon_name(icon_name, 48)
-                self.set_editor_image_success(button, image, icon_name)
-                return
-
-            # If the Icon Theme has a symbolic version of the icon, set the image to that icon.
-            if icon_theme.has_icon(icon_name + "-symbolic"):
-                icon_name = icon_name + "-symbolic"
-                image.set_from_icon_name(icon_name, 48)
-                self.set_editor_image_success(button, image, icon_name)
-                return
-
-            # If the icon name is actually a file, render it to the Image.
-            elif os.path.isfile(icon_name):
-                pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon_name)
-                size = image.get_preferred_height()[1]
-                scaled = pixbuf.scale_simple(size, size,
-                                             GdkPixbuf.InterpType.HYPER)
-                image.set_from_pixbuf(scaled)
-                self.set_editor_image_success(button, image, icon_name)
-                return
-
-            else:
-                self.set_editor_image_error(button, image, _("<i>Missing icon:</i> %s") % icon_name)
-
-                if icon_name.startswith("applications-"):
-                    icon_name = "folder"
-                else:
-                    icon_name = "application-x-executable"
-
-                image.set_from_icon_name(icon_name, 48)
-                return
-
-        if icon_theme.has_icon("applications-other"):
-            image.set_from_icon_name("applications-other", 48)
-            return
-
-        image.set_from_icon_name("application-x-executable", 48)
-
     def set_editor_filename(self, filename):
         """Set the editor filename."""
         # Since the filename has changed, check if it is now writable...
@@ -1390,7 +1297,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         elif key == 'Filename':
             self.set_editor_filename(value)
         elif key == 'Icon':
-            self.set_editor_image(value)
+            self.icon_entry.set_value(value)
         elif key == 'Categories':
             self.category_editor.set_value(value)
         elif key == 'Actions':
@@ -1447,7 +1354,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             button, label, entry = self.widgets[key]
             return entry.get_text()
         elif key == 'Icon':
-            return self.values[key]
+            return self.icon_entry.get_value()
         elif key == 'Type':
             return self.values[key]
         elif key == 'Categories':

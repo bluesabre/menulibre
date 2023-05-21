@@ -30,26 +30,6 @@
       </object>
     </child>
   </object>
-  <object class="GtkMenu" id="icon_select_menu">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <child>
-      <object class="GtkMenuItem" id="icon_select_by_icon_name">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="label" translatable="yes" comments="Translators: Icon popup menu item to browse available icons.">Browse Icons…</property>
-        <property name="use-underline">True</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="icon_select_by_filename">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="label" translatable="yes" comments="Translators: Icon popup menu item to browse files for an icon file.">Browse Files…</property>
-        <property name="use-underline">True</property>
-      </object>
-    </child>
-  </object>
   <object class="GtkImage" id="image11">
     <property name="visible">True</property>
     <property name="can-focus">False</property>
@@ -731,32 +711,12 @@
                                         <property name="can-focus">False</property>
                                         <property name="spacing">6</property>
                                         <child>
-                                          <object class="GtkMenuButton" id="button_Icon">
-                                            <property name="width-request">48</property>
-                                            <property name="height-request">48</property>
+                                          <object class="GtkBox" id="icon_container">
                                             <property name="visible">True</property>
-                                            <property name="can-focus">True</property>
-                                            <property name="receives-default">True</property>
-                                            <property name="halign">start</property>
-                                            <property name="popup">icon_select_menu</property>
+                                            <property name="can-focus">False</property>
+                                            <property name="orientation">vertical</property>
                                             <child>
-                                              <object class="GtkOverlay" id="icon_overlay">
-                                                <property name="width-request">48</property>
-                                                <property name="height-request">48</property>
-                                                <property name="visible">True</property>
-                                                <property name="can-focus">False</property>
-                                                <child>
-                                                  <object class="GtkImage" id="image_Icon">
-                                                    <property name="visible">True</property>
-                                                    <property name="can-focus">False</property>
-                                                    <property name="pixel-size">48</property>
-                                                    <property name="icon-name">applications-other</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="index">-1</property>
-                                                  </packing>
-                                                </child>
-                                              </object>
+                                              <placeholder/>
                                             </child>
                                           </object>
                                           <packing>
@@ -1158,15 +1118,5 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#ex
         </child>
       </object>
     </child>
-  </object>
-  <object class="GtkImage" id="overlay_icon">
-    <property name="width-request">16</property>
-    <property name="height-request">16</property>
-    <property name="can-focus">False</property>
-    <property name="no-show-all">True</property>
-    <property name="xalign">1</property>
-    <property name="yalign">1</property>
-    <property name="icon-name">dialog-warning</property>
-    <property name="use-fallback">True</property>
   </object>
 </interface>
