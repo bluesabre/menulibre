@@ -136,12 +136,14 @@ class IconEntry(Gtk.MenuButton):
         self.set_tooltip_text(tooltip_text)
         self._image.set_opacity(1.0)
         self._overlay_image.hide()
+        self._value = icon_name
         self.emit('value-changed', 'Icon', icon_name)
 
     def _on_error_image(self, icon_name, tooltip_markup):
         self.set_tooltip_markup(tooltip_markup)
         self._image.set_opacity(0.7)
         self._overlay_image.show()
+        self._value = icon_name
         self.emit('value-changed', 'Icon', icon_name)
 
 

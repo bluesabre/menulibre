@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-21 07:50-0400\n"
+"POT-Creation-Date: 2023-05-21 07:55-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1098,12 +1098,12 @@ msgstr ""
 #: ../menulibre/CommandEditor.py:35 ../menulibre/Dialogs.py:65
 #: ../menulibre/Dialogs.py:100 ../menulibre/Dialogs.py:129
 #: ../menulibre/Dialogs.py:168 ../menulibre/Dialogs.py:188
-#: ../menulibre/IconEntry.py:155 ../menulibre/IconEntry.py:175
+#: ../menulibre/IconEntry.py:157 ../menulibre/IconEntry.py:177
 msgid "Cancel"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:36 ../menulibre/IconEntry.py:156
-#: ../menulibre/IconEntry.py:176
+#: ../menulibre/CommandEditor.py:36 ../menulibre/IconEntry.py:158
+#: ../menulibre/IconEntry.py:178
 msgid "Apply"
 msgstr ""
 
@@ -1355,16 +1355,16 @@ msgstr ""
 msgid "<i>Missing icon:</i> %s"
 msgstr ""
 
-#: ../menulibre/IconEntry.py:151
+#: ../menulibre/IconEntry.py:153
 msgid "Select an image"
 msgstr ""
 
 #. Translators: "Images" file chooser dialog filter
-#: ../menulibre/IconEntry.py:161
+#: ../menulibre/IconEntry.py:163
 msgid "Images"
 msgstr ""
 
-#: ../menulibre/IconEntry.py:172
+#: ../menulibre/IconEntry.py:174
 msgid "Select an icon"
 msgstr ""
 
