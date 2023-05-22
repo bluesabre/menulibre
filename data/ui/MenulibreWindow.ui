@@ -732,50 +732,12 @@
                                             <property name="valign">center</property>
                                             <property name="orientation">vertical</property>
                                             <child>
-                                              <object class="GtkBox" id="box2">
+                                              <object class="GtkBox" id="name_container">
                                                 <property name="visible">True</property>
                                                 <property name="can-focus">False</property>
                                                 <property name="orientation">vertical</property>
                                                 <child>
-                                                  <object class="GtkButton" id="button_Name">
-                                                    <property name="height-request">32</property>
-                                                    <property name="visible">True</property>
-                                                    <property name="can-focus">True</property>
-                                                    <property name="receives-default">True</property>
-                                                    <property name="relief">none</property>
-                                                    <child>
-                                                      <object class="GtkLabel" id="label_Name">
-                                                        <property name="visible">True</property>
-                                                        <property name="can-focus">False</property>
-                                                        <property name="label" context="Template only, no translation needed.">Application Name</property>
-                                                        <property name="ellipsize">end</property>
-                                                        <property name="xalign">0</property>
-                                                        <attributes>
-                                                          <attribute name="weight" value="bold"/>
-                                                          <attribute name="size" value="12000"/>
-                                                        </attributes>
-                                                      </object>
-                                                    </child>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">False</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">0</property>
-                                                  </packing>
-                                                </child>
-                                                <child>
-                                                  <object class="GtkEntry" id="entry_Name">
-                                                    <property name="can-focus">True</property>
-                                                    <property name="no-show-all">True</property>
-                                                    <property name="invisible-char">•</property>
-                                                    <property name="secondary-icon-name">gtk-apply</property>
-                                                    <property name="placeholder-text" translatable="yes" comments="Translators: Placeholder text/hint for the application name entry.">Application Name</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">False</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">1</property>
-                                                  </packing>
+                                                  <placeholder/>
                                                 </child>
                                               </object>
                                               <packing>
@@ -785,46 +747,12 @@
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkBox" id="box3">
+                                              <object class="GtkBox" id="comment_container">
                                                 <property name="visible">True</property>
                                                 <property name="can-focus">False</property>
                                                 <property name="orientation">vertical</property>
                                                 <child>
-                                                  <object class="GtkButton" id="button_Comment">
-                                                    <property name="height-request">28</property>
-                                                    <property name="visible">True</property>
-                                                    <property name="can-focus">True</property>
-                                                    <property name="receives-default">True</property>
-                                                    <property name="relief">none</property>
-                                                    <child>
-                                                      <object class="GtkLabel" id="label_Comment">
-                                                        <property name="visible">True</property>
-                                                        <property name="can-focus">False</property>
-                                                        <property name="label" context="Template only, no translation needed.">Application Comment</property>
-                                                        <property name="ellipsize">end</property>
-                                                        <property name="xalign">0</property>
-                                                      </object>
-                                                    </child>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">False</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">0</property>
-                                                  </packing>
-                                                </child>
-                                                <child>
-                                                  <object class="GtkEntry" id="entry_Comment">
-                                                    <property name="can-focus">True</property>
-                                                    <property name="no-show-all">True</property>
-                                                    <property name="invisible-char">•</property>
-                                                    <property name="secondary-icon-name">gtk-apply</property>
-                                                    <property name="placeholder-text" translatable="yes" comments="Translators: Placeholder text/hint for the application comment entry.">Description</property>
-                                                  </object>
-                                                  <packing>
-                                                    <property name="expand">False</property>
-                                                    <property name="fill">True</property>
-                                                    <property name="position">1</property>
-                                                  </packing>
+                                                  <placeholder/>
                                                 </child>
                                               </object>
                                               <packing>

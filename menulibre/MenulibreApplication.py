@@ -37,6 +37,7 @@ from . import CategoryEditor
 from . import ActionEditor
 from . import AdvancedPage
 from . import IconEntry
+from . import TextEntryButton
 
 from .util import MenuItemTypes, check_keypress, getRelativeName, getRelatedKeys
 from .util import escapeText, getCurrentDesktop, getProcessList, getDefaultMenuPrefix
@@ -615,14 +616,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Keep a dictionary of the widgets for easy lookup and updates.
         # The keys are the DesktopSpec keys.
         self.widgets = {
-            'Name': (  # GtkButton, GtkLabel, GtkEntry
-                builder.get_object('button_Name'),
-                builder.get_object('label_Name'),
-                builder.get_object('entry_Name')),
-            'Comment': (  # GtkButton, GtkLabel, GtkEntry
-                builder.get_object('button_Comment'),
-                builder.get_object('label_Comment'),
-                builder.get_object('entry_Comment')),
             'Filename': builder.get_object('label_Filename'),
             'Exec': builder.get_object('entry_Exec'),
             'Path': builder.get_object('entry_Path'),
@@ -644,43 +637,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             'notify_label', 'switch_StartupNotify']:
             self.directory_hide_widgets.append(builder.get_object(widget_name))
 
-        # Configure the Name/Comment widgets.
-        for widget_name in ['Name', 'Comment']:
-            button = builder.get_object('button_%s' % widget_name)
-            builder.get_object('cancel_%s' % widget_name)
-            builder.get_object('apply_%s' % widget_name)
-            entry = builder.get_object('entry_%s' % widget_name)
-            button.connect('clicked', self.on_NameComment_clicked,
-                           widget_name, builder)
-            entry.connect('key-press-event',
-                          self.on_NameComment_key_press_event,
-                          widget_name, builder)
-            entry.connect('activate', self.on_NameComment_activate,
-                          widget_name, builder)
-            entry.connect('icon-press', self.on_NameComment_apply,
-                          widget_name, builder)
-
-        # Button Focus events
-        for widget_name in ['Name', 'Comment']:
-            button = builder.get_object('button_%s' % widget_name)
-            button.connect('focus-in-event',
-                           self.on_NameComment_focus_in_event)
-            button.connect('focus-out-event',
-                           self.on_NameComment_focus_out_event)
-
-        for widget_name in ['Name', 'Comment']:
-            entry = builder.get_object('entry_%s' % widget_name)
-
-            # Commit changes to entries when focusing out.
-            entry.connect('focus-out-event',
-                          self.on_entry_focus_out_event,
-                          widget_name)
-
-            # Enable saving on any edit with an Entry.
-            entry.connect("changed",
-                          self.on_entry_changed,
-                          widget_name)
-
         for widget_name in ['Exec', 'Path']:
 
             # Commit changes to entries when focusing out.
@@ -701,6 +657,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         button = builder.get_object('entry_Exec')
         button.connect('icon-press', self.on_Exec_clicked)
+
+        # Entries
+        self.name_entry = TextEntryButton.TextEntryButton('Name', bold_font=True, required=True, placeholder_text=_('Add name'))
+        self.name_entry.connect("value-changed", self.on_smart_widget_changed)
+        placeholder = builder.get_object("name_container")
+        placeholder.pack_start(self.name_entry, True, True, 0)
+        placeholder.show_all()
+
+        self.comment_entry = TextEntryButton.TextEntryButton('Comment', placeholder_text=_('Add comment'))
+        self.comment_entry.connect("value-changed", self.on_smart_widget_changed)
+        placeholder = builder.get_object("comment_container")
+        placeholder.pack_start(self.comment_entry, True, True, 0)
+        placeholder.show_all()
 
         # Categories Treeview and Inline Toolbar
         self.category_editor = CategoryEditor.CategoryEditor()
@@ -836,57 +805,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 return False
         return False
 
-# Improved navigation of the Name, Comment, and Icon widgets
-    def on_NameComment_focus_in_event(self, button, event):
-        """Make the selected focused widget more noticeable."""
-        button.set_relief(Gtk.ReliefStyle.NORMAL)
-
-    def on_NameComment_focus_out_event(self, button, event):
-        """Make the selected focused widget less noticeable."""
-        button.set_relief(Gtk.ReliefStyle.NONE)
-
-# Name and Comment Widgets
-    def on_NameComment_key_press_event(self, widget, ev, widget_name, builder):
-        """Handle cancelling the Name/Comment dialogs with Escape."""
-        if check_keypress(ev, ['Escape']):
-            self.on_NameComment_cancel(widget, widget_name, builder)
-
-    def on_NameComment_activate(self, widget, widget_name, builder):
-        """Activate apply button on Enter press."""
-        self.on_NameComment_apply(widget, widget_name, builder)
-
-    def on_NameComment_clicked(self, widget, widget_name, builder):
-        """Show the Name/Comment editor widgets when the button is clicked."""
-        entry = builder.get_object('entry_%s' % widget_name)
-        self.values[widget_name] = entry.get_text()
-        widget.hide()
-        entry.show()
-        entry.grab_focus()
-
-    def on_NameComment_cancel(self, widget, widget_name, builder):
-        """Hide the Name/Comment editor widgets when canceled."""
-        button = builder.get_object('button_%s' % widget_name)
-        entry = builder.get_object('entry_%s' % widget_name)
-        entry.hide()
-        button.show()
-        self.history.block()
-        entry.set_text(self.values[widget_name])
-        self.history.unblock()
-        button.grab_focus()
-
-    def on_NameComment_apply(self, *args):
-        """Update the Name/Comment fields when the values are to be updated."""
-        if len(args) == 5:
-            entry, iconpos, void, widget_name, builder = args
-        else:
-            widget, widget_name, builder = args
-            entry = builder.get_object('entry_%s' % widget_name)
-        button = builder.get_object('button_%s' % widget_name)
-        entry.hide()
-        button.show()
-        new_value = entry.get_text()
-        self.set_value(widget_name, new_value)
-
 # Store entry values when they lose focus.
     def on_entry_focus_out_event(self, widget, event, widget_name):
         """Store the new value in the history when changing fields."""
@@ -1006,8 +924,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.history.clear()
 
         # Hide the Name and Comment editors
-        builder.get_object('entry_Name').hide()
-        builder.get_object('entry_Comment').hide()
+        self.name_entry.cancel()
+        self.comment_entry.cancel()
 
         # Prevent updates to history.
         self.history.block()
@@ -1278,26 +1196,15 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if self.advanced_page.has_value(key):
             self.advanced_page.set_value(key, value)
 
-        # Name and Comment must formatted correctly for their buttons.
-        elif key in ['Name', 'Comment']:
-            if not value:
-                value = ""
-            button, label, entry = self.widgets[key]
-            if key == 'Name':
-                markup = escapeText(value)
-            else:
-                markup = "%s" % (value)
-            tooltip = escapeText(value)
-
-            button.set_tooltip_markup(tooltip)
-            entry.set_text(value)
-            label.set_markup(markup)
-
         # Filename, Actions, Categories, and Icon have their own functions.
         elif key == 'Filename':
             self.set_editor_filename(value)
         elif key == 'Icon':
             self.icon_entry.set_value(value)
+        elif key == 'Name':
+            self.name_entry.set_value(value)
+        elif key == 'Comment':
+            self.comment_entry.set_value(value)
         elif key == 'Categories':
             self.category_editor.set_value(value)
         elif key == 'Actions':
@@ -1350,9 +1257,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Return the value stored for the specified key."""
         if self.advanced_page.has_value(key):
             return self.advanced_page.get_value(key)
-        elif key in ['Name', 'Comment']:
-            button, label, entry = self.widgets[key]
-            return entry.get_text()
+        elif key == 'Name':
+            return self.name_entry.get_value()
+        elif key == 'Comment':
+            return self.comment_entry.get_value()
         elif key == 'Icon':
             return self.icon_entry.get_value()
         elif key == 'Type':
@@ -1796,8 +1704,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_save_launcher_cb(self, widget, builder):
         """Save Launcher callback function."""
-        self.on_NameComment_apply(None, 'Name', builder)
-        self.on_NameComment_apply(None, 'Comment', builder)
+        self.name_entry.commit()
+        self.comment_entry.commit()
         self.save_launcher()
 
     def on_undo_cb(self, widget):
@@ -1837,8 +1745,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_execute_cb(self, widget, builder):
         """Execute callback function."""
-        self.on_NameComment_apply(None, 'Name', builder)
-        self.on_NameComment_apply(None, 'Comment', builder)
+        self.name_entry.commit()
+        self.comment_entry.commit()
         filename = self.save_launcher(True)
 
         entry = MenulibreXdg.MenulibreDesktopEntry(filename)
