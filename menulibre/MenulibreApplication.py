@@ -605,7 +605,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Configure the editor frame."""
         placeholder = builder.get_object('settings_placeholder')
         self.switcher = MenulibreStackSwitcher.StackSwitcherBox()
-        placeholder.add(self.switcher)
+        placeholder.pack_start(self.switcher, True, True, 0)
 
         # Store the editor.
         self.editor = builder.get_object('application_editor')

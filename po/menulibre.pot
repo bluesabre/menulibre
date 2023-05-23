@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-22 08:29-0400\n"
+"POT-Creation-Date: 2023-05-23 06:59-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,31 +93,23 @@ msgstr ""
 msgid "Invalid desktop files detected! Please see details."
 msgstr ""
 
-#: ../data/ui/MenulibreWindow.ui.h:24
-msgid "Restart menu..."
-msgstr ""
-
-#: ../data/ui/MenulibreWindow.ui.h:25
-msgid "Your applications menu may need to be restarted."
-msgstr ""
-
 #. Translators: Treeview toolbar button to move the currently selected item up.
-#: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/ActionEditor.py:93
+#: ../data/ui/MenulibreWindow.ui.h:25 ../menulibre/ActionEditor.py:93
 msgid "Move Up"
 msgstr ""
 
 #. Translators: Treeview toolbar button to move the currently selected item down.
-#: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/ActionEditor.py:97
+#: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/ActionEditor.py:97
 msgid "Move Down"
 msgstr ""
 
 #. Translators: Treeview toolbar button to sort the currently open submenu alphabetically.
-#: ../data/ui/MenulibreWindow.ui.h:31
+#: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Sort Alphabetically"
 msgstr ""
 
 #. Translators: Tooltip for the "Exec" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:33
+#: ../data/ui/MenulibreWindow.ui.h:31
 msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable "
 "is not set to \"True\" or if you need compatibility with implementations "
@@ -128,63 +120,71 @@ msgstr ""
 
 #. Translators: "Exec" text entry. Program to execute with arguments.
 #. Translators: "Command" tree column header
-#: ../data/ui/MenulibreWindow.ui.h:36 ../menulibre/ActionEditor.py:73
+#: ../data/ui/MenulibreWindow.ui.h:34 ../menulibre/ActionEditor.py:73
 #: ../menulibre/CommandEditor.py:612 ../menulibre/CommandEditor.py:624
 msgid "Command"
 msgstr ""
 
 #. Translators: Tooltip for the "Path" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:38
+#: ../data/ui/MenulibreWindow.ui.h:36
 msgid "The working directory."
 msgstr ""
 
 #. Translators: "Path" text entry. The working directory of the application.
-#: ../data/ui/MenulibreWindow.ui.h:40
+#: ../data/ui/MenulibreWindow.ui.h:38
 msgid "Working Directory"
 msgstr ""
 
 #. Translators: Header for the commonly used application fields.
-#: ../data/ui/MenulibreWindow.ui.h:42
+#: ../data/ui/MenulibreWindow.ui.h:40
 msgid "Application Details"
 msgstr ""
 
 #. Translators: Tooltip for the "Terminal" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:44
+#: ../data/ui/MenulibreWindow.ui.h:42
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
 
 #. Translators: "Terminal" on/off switch. When enabled, the application is executed in a terminal window.
-#: ../data/ui/MenulibreWindow.ui.h:46
+#: ../data/ui/MenulibreWindow.ui.h:44
 msgid "Run in terminal"
 msgstr ""
 
 #. Translators: Tooltip for the "StartupNotify" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:48
+#: ../data/ui/MenulibreWindow.ui.h:46
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
 
 #. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is shown while the application launches.
-#: ../data/ui/MenulibreWindow.ui.h:50
+#: ../data/ui/MenulibreWindow.ui.h:48
 msgid "Use startup notification"
 msgstr ""
 
 #. Translators: Tooltip for the "NoDisplay" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:52
+#: ../data/ui/MenulibreWindow.ui.h:50
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
 msgstr ""
 
 #. Translators: "NoDisplay" on/off switch. When enabled, the application will not be shown in menus, but will be available for MIME type associations etc.
-#: ../data/ui/MenulibreWindow.ui.h:54
+#: ../data/ui/MenulibreWindow.ui.h:52
 msgid "Hide from menus"
 msgstr ""
 
 #. Translators: Header for the less common application and directory fields.
-#: ../data/ui/MenulibreWindow.ui.h:56
+#: ../data/ui/MenulibreWindow.ui.h:54
 msgid "Options"
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:55
+msgid "Restart menu..."
+msgstr ""
+
+#: ../data/ui/MenulibreWindow.ui.h:56
+msgid "Your applications menu may need to be restarted."
 msgstr ""
 
 #. Translators: Command line option to display debug messages on stdout
