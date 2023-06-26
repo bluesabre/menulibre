@@ -617,7 +617,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # The keys are the DesktopSpec keys.
         self.widgets = {
             'Filename': builder.get_object('label_Filename'),
-            'Exec': builder.get_object('entry_Exec'),
             'Path': builder.get_object('entry_Path'),
             'Terminal': builder.get_object('switch_Terminal'),
             'StartupNotify': builder.get_object('switch_StartupNotify'),
@@ -637,26 +636,25 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             'notify_label', 'switch_StartupNotify']:
             self.directory_hide_widgets.append(builder.get_object(widget_name))
 
-        for widget_name in ['Exec', 'Path']:
+        # Commit changes to entries when focusing out.
+        self.widgets['Path'].connect('focus-out-event',
+                                            self.on_entry_focus_out_event,
+                                            'Path')
 
-            # Commit changes to entries when focusing out.
-            self.widgets[widget_name].connect('focus-out-event',
-                                              self.on_entry_focus_out_event,
-                                              widget_name)
+        # Enable saving on any edit with an Entry.
+        self.widgets['Path'].connect("changed",
+                                            self.on_entry_changed,
+                                            'Path')
 
-            # Enable saving on any edit with an Entry.
-            self.widgets[widget_name].connect("changed",
-                                              self.on_entry_changed,
-                                              widget_name)
+        button = builder.get_object('entry_Path')
+        button.connect('icon-press', self.on_Path_clicked, 'Path',
+                        builder)
 
-        # Configure the Exec/Path widgets.
-        for widget_name in ['Path']:
-            button = builder.get_object('entry_%s' % widget_name)
-            button.connect('icon-press', self.on_Path_clicked, widget_name,
-                           builder)
-
-        button = builder.get_object('entry_Exec')
-        button.connect('icon-press', self.on_Exec_clicked)
+        self.exec_entry = CommandEditor.CommandEntry()
+        self.exec_entry.connect("value-changed", self.on_smart_widget_changed)
+        placeholder = builder.get_object("exec_container")
+        placeholder.pack_start(self.exec_entry, True, True, 0)
+        placeholder.show_all()
 
         # Entries
         self.name_entry = TextEntryButton.TextEntryButton('Name', bold_font=True, required=True, placeholder_text=_('Add name'))
@@ -819,19 +817,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.actions['save_launcher'].set_sensitive(True)
             self.save_button.set_sensitive(True)
 
-    def on_Exec_clicked(self, entry, icon, event):
-        """Show the file selection dialog when Exec/Path Browse is clicked."""
-        editor = CommandEditor.CommandEditorDialog(parent=self, initial_text=entry.get_text(), use_header_bar=self.use_headerbar)
-        response = editor.run()
-
-        if response == Gtk.ResponseType.OK:
-            entry.set_text(editor.get_text())
-
-        editor.destroy()
-
-# Browse button functionality for Exec and Path widgets.
+# Browse button functionality for Path widget.
     def on_Path_clicked(self, entry, icon, event, widget_name, builder):
-        """Show the file selection dialog when Exec/Path Browse is clicked."""
+        """Show the file selection dialog when Path Browse is clicked."""
         if widget_name == 'Path':
             # Translators: File Chooser Dialog, window title.
             title = _("Select a working directory…")
@@ -846,10 +834,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         dialog.hide()
         if result == Gtk.ResponseType.OK:
             filename = dialog.get_filename()
-            if widget_name == 'Exec':
-                # Handle spaces to script filenames (lp 1214815)
-                if ' ' in filename:
-                    filename = '\"%s\"' % filename
             self.set_value(widget_name, filename)
         entry.grab_focus()
 
@@ -1163,25 +1147,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     argument on their own.
     """
 
-    def escape_exec(self, value):
-        value = str(value)
-        args = []
-        for arg in shlex.split(value, posix=False):
-            if arg.startswith("\""):
-                arg = arg.replace("%%", "%")  # Make it consistent for the pros
-                arg = arg.replace("%", "%%")
-            args.append(arg)
-        return " ".join(args)
-
-    def unescape_exec(self, value):
-        value = str(value)
-        args = []
-        for arg in shlex.split(value, posix=False):
-            if arg.startswith("\""):
-                arg = arg.replace("%%", "%")
-            args.append(arg)
-        return " ".join(args)
-
     def set_value(self, key, value, adjust_widget=True, store=False):  # noqa
         """Set the DesktopSpec key, value pair in the editor."""
         if store:
@@ -1219,8 +1184,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             pass
 
         elif key == 'Exec':
-            widget = self.widgets[key]
-            widget.set_text(self.unescape_exec(value))
+            self.exec_entry.set_value(value)
 
         # Everything else is set by its widget type.
         elif key in self.widgets.keys():
@@ -1273,9 +1237,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             if 'filename' in list(self.values.keys()):
                 return self.values['filename']
         elif key == 'Exec':
-            widget = self.widgets[key]
-            value = widget.get_text()
-            return self.escape_exec(value)
+            return self.exec_entry.get_value()
         else:
             widget = self.widgets[key]
             if isinstance(widget, Gtk.Button):
