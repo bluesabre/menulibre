@@ -515,6 +515,9 @@
                         <property name="enable-search">False</property>
                         <property name="level-indentation">24</property>
                         <property name="rubber-banding">True</property>
+                        <child internal-child="selection">
+                          <object class="GtkTreeSelection"/>
+                        </child>
                       </object>
                     </child>
                   </object>
@@ -743,19 +746,6 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#ex
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkEntry" id="entry_Exec">
-                                        <property name="visible">True</property>
-                                        <property name="can-focus">True</property>
-                                        <property name="hexpand">True</property>
-                                        <property name="invisible-char">•</property>
-                                        <property name="secondary-icon-name">document-edit-symbolic</property>
-                                      </object>
-                                      <packing>
-                                        <property name="left-attach">1</property>
-                                        <property name="top-attach">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
                                       <object class="GtkEntry" id="entry_Path">
                                         <property name="visible">True</property>
                                         <property name="can-focus">True</property>
@@ -766,6 +756,19 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#ex
                                       <packing>
                                         <property name="left-attach">1</property>
                                         <property name="top-attach">1</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkBox" id="exec_container">
+                                        <property name="visible">True</property>
+                                        <property name="can-focus">False</property>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                      </object>
+                                      <packing>
+                                        <property name="left-attach">1</property>
+                                        <property name="top-attach">0</property>
                                       </packing>
                                     </child>
                                   </object>

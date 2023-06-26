@@ -32,7 +32,7 @@ class CommandEditorDialog(Gtk.Dialog):
         super().__init__(title=_("Command Editor"), transient_for=parent,
                          use_header_bar=use_header_bar, flags=0)
         self.add_buttons(
-            _('Cancel'), Gtk.ResponseType.CANCEL, 
+            _('Cancel'), Gtk.ResponseType.CANCEL,
                 _('Apply'), Gtk.ResponseType.OK
         )
 
@@ -560,7 +560,7 @@ class CommandEditorEnvEditor(Gtk.MenuButton):
         elif " " in text:
             var_entry.set_icon_from_icon_name(
                 Gtk.EntryIconPosition.SECONDARY, "dialog-error")
-            var_entry.set_icon_tooltip_text(Gtk.EntryIconPosition.SECONDARY, 
+            var_entry.set_icon_tooltip_text(Gtk.EntryIconPosition.SECONDARY,
                 _("Spaces not permitted in environment variables"))
         else:
             var_entry.set_icon_from_icon_name(
@@ -820,30 +820,72 @@ class CommandEditorHint():
             self.set_error(state[1])
 
 
+class CommandEntry(Gtk.Entry):
+    __gsignals__ = {
+        'value-changed': (GObject.SignalFlags.RUN_FIRST, None, (str, str,)),
+    }
+
+    def __init__(self):
+        Gtk.Entry.__init__(self)
+
+        self.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, 'document-edit-symbolic')
+
+        self.connect("icon-release", self.on_icon_release)
+
+        self.connect('changed', self._on_changed)
+
+    def on_icon_release(self, entry, icon_pos, event):
+        if icon_pos != Gtk.EntryIconPosition.SECONDARY:
+            return
+
+        dialog = CommandEditorDialog(self.get_toplevel(), self.get_text(), True)
+        response = dialog.run()
+
+        if response == Gtk.ResponseType.OK:
+            self.set_text(dialog.get_text())
+
+        dialog.destroy()
+
+    def unescape_value(self, value):
+        value = str(value)
+        args = []
+        for arg in shlex.split(value, posix=False):
+            if arg.startswith("\""):
+                arg = arg.replace("%%", "%")
+            args.append(arg)
+        return " ".join(args)
+
+    def escape_value(self, value):
+        value = str(value)
+        args = []
+        for arg in shlex.split(value, posix=False):
+            if arg.startswith("\""):
+                arg = arg.replace("%%", "%")  # Make it consistent for the pros
+                arg = arg.replace("%", "%%")
+            args.append(arg)
+        return " ".join(args)
+
+    def set_value(self, value):
+        if value is None:
+            value = ""
+        self.set_text(self.unescape_value(value))
+
+    def get_value(self):
+        return self.escape_value(self.get_text())
+
+    def _on_changed(self, widget):
+        self.emit('value-changed', 'Exec', self.get_value())
+
+
 class CommandEditorDemoWindow(Gtk.Window):
     def __init__(self):
         Gtk.Window.__init__(self, title="Command Editor Dialog Example")
 
         self.set_border_width(6)
 
-        button = Gtk.Button(label="Open dialog")
-        button.connect("clicked", self.on_button_clicked)
+        entry = CommandEntry()
 
-        self.add(button)
-
-    def on_button_clicked(self, widget):
-        dialog = CommandEditorDialog(self, "", True)
-        response = dialog.run()
-
-        if response == Gtk.ResponseType.OK:
-            print("The OK button was clicked")
-            print("Command:", dialog.get_text())
-        elif response == Gtk.ResponseType.CANCEL:
-            print("The Cancel button was clicked")
-
-        dialog.destroy()
-
-        self.destroy()
+        self.add(entry)
 
 
 if __name__ == "__main__":
