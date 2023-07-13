@@ -36,6 +36,7 @@ menulibre/MenulibreTreeview.py
 menulibre/MenulibreXdg.py
 menulibre/ParsingErrorsDialog.py
 menulibre/PathEntry.py
+menulibre/SwitchEntry.py
 menulibre/TextEntryButton.py
 menulibre/util.py
 menulibre/XmlMenuElementTree.py
