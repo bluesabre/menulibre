@@ -180,16 +180,6 @@ class RevertDialog(Gtk.MessageDialog):
             self.add_button(button[0], button[1])
 
 
-class FileChooserDialog(Gtk.FileChooserDialog):
-    def __init__(self, parent, title, action):
-        Gtk.FileChooserDialog.__init__(self, title=title, transient_for=parent,
-                                       action=action)
-        # Translators: File Chooser Dialog, cancel button.
-        self.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
-        # Translators: File Chooser Dialog, confirmation button.
-        self.add_button(_("OK"), Gtk.ResponseType.OK)
-
-
 class LauncherRemovedDialog(Gtk.MessageDialog):
     def __init__(self, parent):
         # Translators: Launcher Removed Dialog, primary text. Indicates that
