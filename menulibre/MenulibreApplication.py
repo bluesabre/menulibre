@@ -38,6 +38,7 @@ from . import PathEntry
 from . import ActionEditor
 from . import AdvancedPage
 from . import IconEntry
+from . import SwitchEntry
 from . import TextEntryButton
 
 from .util import MenuItemTypes, check_keypress, getRelativeName, getRelatedKeys
@@ -618,22 +619,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # The keys are the DesktopSpec keys.
         self.widgets = {
             'Filename': builder.get_object('label_Filename'),
-            'Terminal': builder.get_object('switch_Terminal'),
-            'StartupNotify': builder.get_object('switch_StartupNotify'),
-            'NoDisplay': builder.get_object('switch_NoDisplay')
         }
-
-        # Configure the switches
-        for widget_name in ['Terminal', 'StartupNotify', 'NoDisplay']:
-            widget = self.widgets[widget_name]
-            widget.connect('notify::active', self.on_switch_toggle,
-                           widget_name)
 
         # These widgets are hidden when the selected item is a Directory.
         self.directory_hide_widgets = []
         for widget_name in ['details_frame', 'settings_placeholder',
-                            'terminal_label', 'switch_Terminal',
-                            'notify_label', 'switch_StartupNotify']:
+                            'terminal_label', 'terminal_container',
+                            'notify_label', 'startup_notify_container']:
             self.directory_hide_widgets.append(builder.get_object(widget_name))
 
         self.exec_entry = CommandEditor.CommandEntry()
@@ -659,6 +651,24 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.comment_entry.connect("value-changed", self.on_smart_widget_changed)
         placeholder = builder.get_object("comment_container")
         placeholder.pack_start(self.comment_entry, True, True, 0)
+        placeholder.show_all()
+
+        self.terminal_entry = SwitchEntry.SwitchEntry('Terminal')
+        self.terminal_entry.connect("value-changed", self.on_smart_widget_changed)
+        placeholder = builder.get_object("terminal_container")
+        placeholder.pack_start(self.terminal_entry, True, True, 0)
+        placeholder.show_all()
+
+        self.startup_notify_entry = SwitchEntry.SwitchEntry('StartupNotify')
+        self.startup_notify_entry.connect("value-changed", self.on_smart_widget_changed)
+        placeholder = builder.get_object("startup_notify_container")
+        placeholder.pack_start(self.startup_notify_entry, True, True, 0)
+        placeholder.show_all()
+
+        self.no_display_entry = SwitchEntry.SwitchEntry('NoDisplay')
+        self.no_display_entry.connect("value-changed", self.on_smart_widget_changed)
+        placeholder = builder.get_object("no_display_container")
+        placeholder.pack_start(self.no_display_entry, True, True, 0)
         placeholder.show_all()
 
         # Categories Treeview and Inline Toolbar
@@ -690,10 +700,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def activate_action_cb(self, widget, action_name):
         """Activate the specified GtkAction."""
         self.actions[action_name].activate()
-
-    def on_switch_toggle(self, widget, status, widget_name):
-        """Connect switch toggle event for storing in history."""
-        self.set_value(widget_name, widget.get_active())
 
 # History Signals
     def on_undo_changed(self, history, enabled):
@@ -1147,6 +1153,15 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         elif key == 'Path':
             self.path_entry.set_value(value)
 
+        elif key == 'Terminal':
+            self.terminal_entry.set_value(value)
+
+        elif key == 'StartupNotify':
+            self.startup_notify_entry.set_value(value)
+
+        elif key == 'NoDisplay':
+            self.no_display_entry.set_value(value)
+
         # Everything else is set by its widget type.
         elif key in self.widgets.keys():
             widget = self.widgets[key]
@@ -1201,6 +1216,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             return self.exec_entry.get_value()
         elif key == 'Path':
             return self.path_entry.get_value()
+        elif key == 'Terminal':
+            return self.terminal_entry.get_value()
+        elif key == 'StartupNotify':
+            return self.startup_notify_entry.get_value()
+        elif key == 'NoDisplay':
+            return self.no_display_entry.get_value()
         else:
             widget = self.widgets[key]
             if isinstance(widget, Gtk.Button):

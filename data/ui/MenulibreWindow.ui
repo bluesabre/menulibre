@@ -849,9 +849,12 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#ex
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkSwitch" id="switch_Terminal">
+                                      <object class="GtkBox" id="terminal_container">
                                         <property name="visible">True</property>
-                                        <property name="can-focus">True</property>
+                                        <property name="can-focus">False</property>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
                                       </object>
                                       <packing>
                                         <property name="left-attach">1</property>
@@ -859,9 +862,12 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#ex
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkSwitch" id="switch_StartupNotify">
+                                      <object class="GtkBox" id="startup_notify_container">
                                         <property name="visible">True</property>
-                                        <property name="can-focus">True</property>
+                                        <property name="can-focus">False</property>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
                                       </object>
                                       <packing>
                                         <property name="left-attach">1</property>
@@ -869,9 +875,12 @@ See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#ex
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkSwitch" id="switch_NoDisplay">
+                                      <object class="GtkBox" id="no_display_container">
                                         <property name="visible">True</property>
-                                        <property name="can-focus">True</property>
+                                        <property name="can-focus">False</property>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
                                       </object>
                                       <packing>
                                         <property name="left-attach">1</property>
