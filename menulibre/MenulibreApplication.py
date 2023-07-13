@@ -34,6 +34,7 @@ from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, ParsingErrorsDialog
 from . import MenuEditor
 from . import CategoryEditor
+from . import PathEntry
 from . import ActionEditor
 from . import AdvancedPage
 from . import IconEntry
@@ -617,7 +618,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # The keys are the DesktopSpec keys.
         self.widgets = {
             'Filename': builder.get_object('label_Filename'),
-            'Path': builder.get_object('entry_Path'),
             'Terminal': builder.get_object('switch_Terminal'),
             'StartupNotify': builder.get_object('switch_StartupNotify'),
             'NoDisplay': builder.get_object('switch_NoDisplay')
@@ -636,24 +636,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             'notify_label', 'switch_StartupNotify']:
             self.directory_hide_widgets.append(builder.get_object(widget_name))
 
-        # Commit changes to entries when focusing out.
-        self.widgets['Path'].connect('focus-out-event',
-                                            self.on_entry_focus_out_event,
-                                            'Path')
-
-        # Enable saving on any edit with an Entry.
-        self.widgets['Path'].connect("changed",
-                                            self.on_entry_changed,
-                                            'Path')
-
-        button = builder.get_object('entry_Path')
-        button.connect('icon-press', self.on_Path_clicked, 'Path',
-                        builder)
-
         self.exec_entry = CommandEditor.CommandEntry()
         self.exec_entry.connect("value-changed", self.on_smart_widget_changed)
         placeholder = builder.get_object("exec_container")
         placeholder.pack_start(self.exec_entry, True, True, 0)
+        placeholder.show_all()
+
+        self.path_entry = PathEntry.PathEntry()
+        self.path_entry.connect("value-changed", self.on_smart_widget_changed)
+        placeholder = builder.get_object("path_container")
+        placeholder.pack_start(self.path_entry, True, True, 0)
         placeholder.show_all()
 
         # Entries
@@ -802,40 +794,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 self.save_launcher()
                 return False
         return False
-
-# Store entry values when they lose focus.
-    def on_entry_focus_out_event(self, widget, event, widget_name):
-        """Store the new value in the history when changing fields."""
-        text = widget.get_text()
-        if "~" in text:
-            text = os.path.expanduser(text)
-        self.set_value(widget_name, text)
-
-    def on_entry_changed(self, widget, widget_name):
-        """Enable saving when an entry has been modified."""
-        if not self.history.is_blocked():
-            self.actions['save_launcher'].set_sensitive(True)
-            self.save_button.set_sensitive(True)
-
-# Browse button functionality for Path widget.
-    def on_Path_clicked(self, entry, icon, event, widget_name, builder):
-        """Show the file selection dialog when Path Browse is clicked."""
-        if widget_name == 'Path':
-            # Translators: File Chooser Dialog, window title.
-            title = _("Select a working directory…")
-            action = Gtk.FileChooserAction.SELECT_FOLDER
-        else:
-            # Translators: File Chooser Dialog, window title.
-            title = _("Select an executable…")
-            action = Gtk.FileChooserAction.OPEN
-
-        dialog = Dialogs.FileChooserDialog(self, title, action)
-        result = dialog.run()
-        dialog.hide()
-        if result == Gtk.ResponseType.OK:
-            filename = dialog.get_filename()
-            self.set_value(widget_name, filename)
-        entry.grab_focus()
 
 
 # Applications Treeview
@@ -1186,6 +1144,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         elif key == 'Exec':
             self.exec_entry.set_value(value)
 
+        elif key == 'Path':
+            self.path_entry.set_value(value)
+
         # Everything else is set by its widget type.
         elif key in self.widgets.keys():
             widget = self.widgets[key]
@@ -1238,6 +1199,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 return self.values['filename']
         elif key == 'Exec':
             return self.exec_entry.get_value()
+        elif key == 'Path':
+            return self.path_entry.get_value()
         else:
             widget = self.widgets[key]
             if isinstance(widget, Gtk.Button):
