@@ -34,6 +34,7 @@ from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, ParsingErrorsDialog
 from . import MenuEditor
 from . import CategoryEditor
+from . import FilenameLabel
 from . import PathEntry
 from . import ActionEditor
 from . import AdvancedPage
@@ -615,12 +616,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.advanced_page = AdvancedPage.AdvancedPage()
         self.advanced_page.connect("value-changed", self.on_smart_widget_changed)
 
-        # Keep a dictionary of the widgets for easy lookup and updates.
-        # The keys are the DesktopSpec keys.
-        self.widgets = {
-            'Filename': builder.get_object('label_Filename'),
-        }
-
         # These widgets are hidden when the selected item is a Directory.
         self.directory_hide_widgets = []
         for widget_name in ['details_frame', 'settings_placeholder',
@@ -685,6 +680,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.icon_entry.connect("value-changed", self.on_smart_widget_changed)
         placeholder = builder.get_object("icon_container")
         placeholder.pack_start(self.icon_entry, True, True, 0)
+        placeholder.show_all()
+
+        # Filename Label
+        self.filename_label = FilenameLabel.FilenameLabel()
+        self.filename_label.connect("value-changed", self.on_smart_widget_changed)
+        placeholder = builder.get_object("filename_container")
+        placeholder.pack_start(self.filename_label, True, True, 0)
         placeholder.show_all()
 
         self.switcher.add_child(self.category_editor,
@@ -759,6 +761,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_smart_widget_changed(self, widget, key, value):
         self.set_value(key, value, False)
+
+        if key == 'Filename':
+            self.set_editor_filename(value)
 
     def cleanup_actions(self):
         """Cleanup the Actions treeview. Remove any rows where name or command
@@ -1055,20 +1060,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.delete_button.set_sensitive(False)
             self.delete_button.set_tooltip_text("")
 
-        # If the filename is None, make it blank.
-        if filename is None:
-            filename = ""
-
-        # Get the filename widget.
-        widget = self.widgets['Filename']
-
-        # Set the label and tooltip.
-        widget.set_label(filename)
-        widget.set_tooltip_text(filename)
-
-        # Store the filename value.
-        self.values['filename'] = filename
-
     def get_inner_value(self, key):
         """Get the value stored for key."""
         try:
@@ -1127,7 +1118,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Filename, Actions, Categories, and Icon have their own functions.
         elif key == 'Filename':
-            self.set_editor_filename(value)
+            self.filename_label.set_value(value)
         elif key == 'Icon':
             self.icon_entry.set_value(value)
         elif key == 'Name':
@@ -1210,8 +1201,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         elif key == 'Actions':
             return self.action_editor.get_value()
         elif key == 'Filename':
-            if 'filename' in list(self.values.keys()):
-                return self.values['filename']
+            return self.filename_label.get_value()
         elif key == 'Exec':
             return self.exec_entry.get_value()
         elif key == 'Path':
@@ -1511,7 +1501,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         keyfile.save_to_file(save_filename)
 
         # Set the editor to the new filename.
-        self.set_editor_filename(save_filename)
+        self.set_value('Filename', save_filename)
 
         # Update all instances
         model, row_data = self.treeview.get_selected_row_data()
