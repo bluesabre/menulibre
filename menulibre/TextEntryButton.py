@@ -122,25 +122,3 @@ class TextEntryButton(Gtk.Stack):
     
     def _on_entry_icon_press(self, entry, icon_pos, event):
         self._on_entry_activate(entry)
-
-
-class TextEntryButtonDemoWindow(Gtk.Window):
-    def __init__(self):
-        Gtk.Window.__init__(self, title="Advanced Page Example")
-
-        #self.set_default_size(600, 300)
-
-        box = Gtk.Box.new(Gtk.Orientation.HORIZONTAL, 0)
-        box.set_border_width(6)
-        self.add(box)
-
-        page = TextEntryButton('Name', required=True)
-        page.set_value('Firefox')
-        box.pack_start(page, False, False, 0)
-
-
-if __name__ == "__main__":
-    win = TextEntryButtonDemoWindow()
-    win.connect("destroy", Gtk.main_quit)
-    win.show_all()
-    Gtk.main()
