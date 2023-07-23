@@ -29,18 +29,9 @@ from gi import require_version
 require_version('Gtk', '3.0')
 from gi.repository import Gio, GLib, GObject, Gtk, Gdk, GdkPixbuf
 
-from . import MenulibreStackSwitcher, CommandEditor
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, ParsingErrorsDialog
 from . import MenuEditor
-from . import CategoryEditor
-from . import FilenameLabel
-from . import PathEntry
-from . import ActionEditor
-from . import AdvancedPage
-from . import IconEntry
-from . import SwitchEntry
-from . import TextEntryButton
 from .ApplicationEditor import ApplicationEditor
 
 from .util import MenuItemTypes, check_keypress, getRelativeName, getRelatedKeys
@@ -663,16 +654,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             return ''
 
 # Categories
-
-    def categories_treefilter_func(self, model, treeiter, data=None):
-        """Only show ThisEntry when there are child items."""
-        row = model[treeiter]
-        if row.get_parent() is not None:
-            return True
-        # Translators: "This Entry" launcher-specific category group
-        if row[0] == _('This Entry'):
-            return model.iter_n_children(treeiter) != 0
-        return True
 
     def on_smart_widget_changed(self, widget, key, value):
         self.set_value(key, value, False)
