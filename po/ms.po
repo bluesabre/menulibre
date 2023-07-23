@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-22 08:29-0400\n"
+"POT-Creation-Date: 2023-07-23 03:15-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Yaya - Nurul Azeera Hidayah @ Muhammad Nur Hidayat Yasuyoshi (MNH48) <admin@mnh48.moe>, 2023\n"
 "Language-Team: Malay (https://app.transifex.com/bluesabreorg/teams/99550/ms/)\n"
@@ -52,21 +52,21 @@ msgstr "Simpan Pelancar"
 
 #. Translators: Toolbar button to undo last change to currently selected item.
 #. Translators: Undo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:10 ../menulibre/MenulibreApplication.py:406
+#: ../data/ui/MenulibreWindow.ui.h:10 ../menulibre/MenulibreApplication.py:401
 msgid "Undo"
 msgstr "Buat Asal"
 
 #. Translators: Toolbar button to redo the last undone change to currently
 #. selected item.
 #. Translators: Redo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:12 ../menulibre/MenulibreApplication.py:415
+#: ../data/ui/MenulibreWindow.ui.h:12 ../menulibre/MenulibreApplication.py:410
 msgid "Redo"
 msgstr "Buat Semula"
 
 #. Translators: Toolbar button to revery the currently selected item to it
 #. Translators: Revert action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:14 ../menulibre/CommandEditor.py:166
-#: ../menulibre/MenulibreApplication.py:424
+#: ../menulibre/MenulibreApplication.py:419
 msgid "Revert"
 msgstr "Undur"
 
@@ -77,7 +77,7 @@ msgstr "Cuba Pelancar"
 
 #. Translators: Toolbar button to delete the currently selected item.
 #. Translators: Delete action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:442
+#: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:437
 msgid "Delete"
 msgstr "Padam"
 
@@ -85,7 +85,7 @@ msgstr "Padam"
 #. Translators: Save On Leave Dialog, do save, then leave.
 #. Translators: Save Launcher action tooltip
 #: ../data/ui/MenulibreWindow.ui.h:19 ../menulibre/Dialogs.py:102
-#: ../menulibre/Dialogs.py:131 ../menulibre/MenulibreApplication.py:397
+#: ../menulibre/Dialogs.py:131 ../menulibre/MenulibreApplication.py:392
 msgid "Save"
 msgstr "Simpan"
 
@@ -100,111 +100,31 @@ msgstr "Gelintar"
 msgid "Invalid desktop files detected! Please see details."
 msgstr "Fail atas meja tidak sah dikesan! Sila lihat perincian."
 
-#: ../data/ui/MenulibreWindow.ui.h:24
-msgid "Restart menu..."
-msgstr "Mula semula menu..."
-
-#: ../data/ui/MenulibreWindow.ui.h:25
-msgid "Your applications menu may need to be restarted."
-msgstr "Menu aplikasi anda mungkin perlu dimulakan semula."
-
 #. Translators: Treeview toolbar button to move the currently selected item
 #. up.
-#: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/ActionEditor.py:93
+#: ../data/ui/MenulibreWindow.ui.h:25 ../menulibre/ActionEditor.py:93
 msgid "Move Up"
 msgstr "Alih ke Atas"
 
 #. Translators: Treeview toolbar button to move the currently selected item
 #. down.
-#: ../data/ui/MenulibreWindow.ui.h:29 ../menulibre/ActionEditor.py:97
+#: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/ActionEditor.py:97
 msgid "Move Down"
 msgstr "Alih ke Bawah"
 
 #. Translators: Treeview toolbar button to sort the currently open submenu
 #. alphabetically.
-#: ../data/ui/MenulibreWindow.ui.h:31
+#: ../data/ui/MenulibreWindow.ui.h:29
 msgid "Sort Alphabetically"
 msgstr "Isih ikut Abjad"
 
-#. Translators: Tooltip for the "Exec" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:33
-msgid ""
-"Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."
-msgstr ""
-"Atur cara untuk dijalankan dengan argumennya. Kekunci ini diperlukan sekiranya pemboleh ubah DBusActivatable tidak ditetapkan kepada \"Benar\" atau sekiranya anda memerlukan keserasian dengan pelaksanaan yang tidak memahami pengaktifan D-Bus.\n"
-"Sila lihat https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec untuk senarai argumen yang disokong."
+#: ../data/ui/MenulibreWindow.ui.h:30
+msgid "Restart menu..."
+msgstr "Mula semula menu..."
 
-#. Translators: "Exec" text entry. Program to execute with arguments.
-#. Translators: "Command" tree column header
-#: ../data/ui/MenulibreWindow.ui.h:36 ../menulibre/ActionEditor.py:73
-#: ../menulibre/CommandEditor.py:612 ../menulibre/CommandEditor.py:624
-msgid "Command"
-msgstr "Perintah"
-
-#. Translators: Tooltip for the "Path" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:38
-msgid "The working directory."
-msgstr "Direktori kerja."
-
-#. Translators: "Path" text entry. The working directory of the application.
-#: ../data/ui/MenulibreWindow.ui.h:40
-msgid "Working Directory"
-msgstr "Direktori Kerja"
-
-#. Translators: Header for the commonly used application fields.
-#: ../data/ui/MenulibreWindow.ui.h:42
-msgid "Application Details"
-msgstr "Perincian Aplikasi"
-
-#. Translators: Tooltip for the "Terminal" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:44
-msgid "If set to \"True\", the program will be ran in a terminal window."
-msgstr ""
-"Jika ditetapkan kepada \"Benar\", atur cara akan dijalankan dalam tetingkap "
-"terminal."
-
-#. Translators: "Terminal" on/off switch. When enabled, the application is
-#. executed in a terminal window.
-#: ../data/ui/MenulibreWindow.ui.h:46
-msgid "Run in terminal"
-msgstr "Jalan dalam terminal"
-
-#. Translators: Tooltip for the "StartupNotify" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:48
-msgid ""
-"If set to \"True\", a startup notification is sent. Usually means that a "
-"busy cursor is shown while the application launches."
-msgstr ""
-"Jika ditetapkan kepada \"Benar\", pemberitahuan permulaan akan dihantar. "
-"Biasanya bermaksud kursor sibuk ditunjukkan semasa aplikasi dilancarkan."
-
-#. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is
-#. shown while the application launches.
-#: ../data/ui/MenulibreWindow.ui.h:50
-msgid "Use startup notification"
-msgstr "Guna pemberitahuan permulaan"
-
-#. Translators: Tooltip for the "NoDisplay" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:52
-msgid ""
-"If set to \"True\", this entry will not be shown in menus, but will be "
-"available for MIME type associations etc."
-msgstr ""
-"Jika ditetapkan kepada \"Benar\", masukan ini tidak akan ditunjukkan dalam "
-"menu, tetapi tersedia untuk perkaitan jenis MIME dll."
-
-#. Translators: "NoDisplay" on/off switch. When enabled, the application will
-#. not be shown in menus, but will be available for MIME type associations
-#. etc.
-#: ../data/ui/MenulibreWindow.ui.h:54
-msgid "Hide from menus"
-msgstr "Sembunyi dari menu"
-
-#. Translators: Header for the less common application and directory fields.
-#: ../data/ui/MenulibreWindow.ui.h:56
-msgid "Options"
-msgstr "Pilihan"
+#: ../data/ui/MenulibreWindow.ui.h:31
+msgid "Your applications menu may need to be restarted."
+msgstr "Menu aplikasi anda mungkin perlu dimulakan semula."
 
 #. Translators: Command line option to display debug messages on stdout
 #: ../menulibre/__init__.py:34
@@ -231,6 +151,12 @@ msgstr "Tunjuk"
 msgid "Name"
 msgstr "Nama"
 
+#. Translators: "Command" tree column header
+#: ../menulibre/ActionEditor.py:73 ../menulibre/ApplicationEditor.py:94
+#: ../menulibre/CommandEditor.py:612 ../menulibre/CommandEditor.py:624
+msgid "Command"
+msgstr "Perintah"
+
 #: ../menulibre/ActionEditor.py:81 ../menulibre/CategoryEditor.py:499
 #: ../menulibre/CommandEditor.py:434
 msgid "Add"
@@ -250,19 +176,19 @@ msgstr "Kosongkan"
 msgid "New Shortcut"
 msgstr "Pintasan Baharu"
 
-#: ../menulibre/AdvancedPage.py:51
+#: ../menulibre/AdvancedPage.py:53
 msgid "Generic Name"
 msgstr "Nama Generik"
 
-#: ../menulibre/AdvancedPage.py:52
+#: ../menulibre/AdvancedPage.py:54
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr "Nama generik aplikasi, contohnya \"Pelayar Sesawang\"."
 
-#: ../menulibre/AdvancedPage.py:56
+#: ../menulibre/AdvancedPage.py:58
 msgid "Try Exec"
 msgstr "Cuba Laku"
 
-#: ../menulibre/AdvancedPage.py:57
+#: ../menulibre/AdvancedPage.py:59
 msgid ""
 "Path to an executable file to determine if the program is installed. If the "
 "file is not present or is not executable, this entry may not be shown in a "
@@ -272,11 +198,11 @@ msgstr ""
 " fail tidak wujud atau tidak boleh laku, masukan ini tidak ditunjukkan dalam"
 " menu."
 
-#: ../menulibre/AdvancedPage.py:61
+#: ../menulibre/AdvancedPage.py:63
 msgid "Only Show In"
 msgstr "Hanya Tunjukkan Dalam"
 
-#: ../menulibre/AdvancedPage.py:62
+#: ../menulibre/AdvancedPage.py:64
 msgid ""
 "A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if \"NotShowIn\" is not set.\n"
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
@@ -284,11 +210,11 @@ msgstr ""
 "Senarai persekitaran yang patut paparkan masukan ini. Persekitaran yang lain tidak akan paparkan masukan ini. Anda hanya boleh guna kekunci ini jika pemboleh ubah \"NotShowIn\" tidak ditetapkan.\n"
 "Nilai yang mungkin termasuklah: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#: ../menulibre/AdvancedPage.py:67
+#: ../menulibre/AdvancedPage.py:69
 msgid "Not Shown In"
 msgstr "Tidak Ditunjukkan Dalam"
 
-#: ../menulibre/AdvancedPage.py:68
+#: ../menulibre/AdvancedPage.py:70
 msgid ""
 "A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
@@ -296,19 +222,19 @@ msgstr ""
 "Senarai persekitaran yang tidak patut paparkan masukan ini. Anda hanya boleh guna kekunci ini jika pemboleh ubah \"OnlyShowIn\" tidak ditetapkan.\n"
 "Nilai yang mungkin termasuklah: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#: ../menulibre/AdvancedPage.py:73
+#: ../menulibre/AdvancedPage.py:75
 msgid "Mimetypes"
 msgstr "Jenis MIME"
 
-#: ../menulibre/AdvancedPage.py:74
+#: ../menulibre/AdvancedPage.py:76
 msgid "The MIME type(s) supported by this application."
 msgstr "Jenis MIME yang disokong oleh aplikasi ini."
 
-#: ../menulibre/AdvancedPage.py:78
+#: ../menulibre/AdvancedPage.py:80
 msgid "Keywords"
 msgstr "Kata Kunci"
 
-#: ../menulibre/AdvancedPage.py:79
+#: ../menulibre/AdvancedPage.py:81
 msgid ""
 "A list of keywords to describe this entry. You can use these to help "
 "searching entries. These are not meant for display, and should not be "
@@ -318,11 +244,11 @@ msgstr ""
 "ini untuk bantu menggelintar masukan. Ia bukan untuk dipaparkan, dan tidak "
 "patut digandakan dengan nilai Name atau GenericName."
 
-#: ../menulibre/AdvancedPage.py:83
+#: ../menulibre/AdvancedPage.py:85
 msgid "Startup WM Class"
 msgstr "Kelas WM Permulaan"
 
-#: ../menulibre/AdvancedPage.py:84
+#: ../menulibre/AdvancedPage.py:86
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
@@ -330,19 +256,19 @@ msgstr ""
 "Jika dinyatakan, aplikasi akan diminta untuk gunakan rentetan sebagai kelas "
 "WM atau pembayang nama WM sekurang-kurangnya dalam satu tetingkap."
 
-#: ../menulibre/AdvancedPage.py:88
+#: ../menulibre/AdvancedPage.py:90
 msgid "Implements"
 msgstr "Melaksanakan"
 
-#: ../menulibre/AdvancedPage.py:89
+#: ../menulibre/AdvancedPage.py:91
 msgid "A list of interfaces that this application implements."
 msgstr "Senarai antara muka yang aplikasi ini laksanakan."
 
-#: ../menulibre/AdvancedPage.py:93
+#: ../menulibre/AdvancedPage.py:95
 msgid "Hidden"
 msgstr "Tersembunyi"
 
-#: ../menulibre/AdvancedPage.py:94
+#: ../menulibre/AdvancedPage.py:96
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
@@ -350,11 +276,11 @@ msgstr ""
 "Jika ditetapkan pada \"Benar\", keputusan untuk pengguna adalah sama dengan "
 "fail .desktop tidak wujud langsung."
 
-#: ../menulibre/AdvancedPage.py:98
+#: ../menulibre/AdvancedPage.py:100
 msgid "DBUS Activatable"
 msgstr "DBUS Boleh Aktif"
 
-#: ../menulibre/AdvancedPage.py:99
+#: ../menulibre/AdvancedPage.py:101
 msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information."
@@ -362,11 +288,11 @@ msgstr ""
 "Tetapkan kekunci ini kepada \"Benar\" sekiranya pengaktifan D-Bus disokong untuk aplikasi ini dan anda ingin menggunakannya.\n"
 "Sila lihat https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable untuk maklumat lanjut."
 
-#: ../menulibre/AdvancedPage.py:104
+#: ../menulibre/AdvancedPage.py:106
 msgid "Prefers Non-Default GPU"
 msgstr "Utamakan GPU Bukan-Lalai"
 
-#: ../menulibre/AdvancedPage.py:105
+#: ../menulibre/AdvancedPage.py:107
 msgid ""
 "Set this key to \"True\" if this application prefers to be run on a more powerful GPU if available.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information."
@@ -374,11 +300,11 @@ msgstr ""
 "Tetapkan kekunci ini kepada \"Benar\" jika aplikasi ini ingin dijalankan pada GPU yang lebih berkuasa jika ada.\n"
 "Sila lihat https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu untuk maklumat lanjut."
 
-#: ../menulibre/AdvancedPage.py:110
+#: ../menulibre/AdvancedPage.py:112
 msgid "Uses Notifications"
 msgstr "Pemberitahuan Pengguna"
 
-#: ../menulibre/AdvancedPage.py:111
+#: ../menulibre/AdvancedPage.py:113
 msgid ""
 "Set this key to \"True\" if this application uses notifications.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information."
@@ -386,16 +312,88 @@ msgstr ""
 "Tetapkan kekunci ini kepada \"Benar\" jika aplikasi ini menggunakan pemberitahuan.\n"
 "Lihat https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications untuk maklumat lanjut."
 
-#. Translators: Identify Window Dialog, primary text.
-#: ../menulibre/AdvancedPage.py:182 ../menulibre/AdvancedPage.py:199
-msgid "Identify Window"
-msgstr "Kenal Pasti Tetingkap"
+#: ../menulibre/ApplicationEditor.py:75
+msgid "Add name"
+msgstr "Tambah nama"
 
-#. Translators: Identify Window Dialog, secondary text. The selected
-#. application is displayed in the placeholder text.
-#: ../menulibre/AdvancedPage.py:202
-msgid "Click on the main application window for this launcher."
-msgstr "Klik pada tetingkap aplikasi utama untuk pelancar ini."
+#: ../menulibre/ApplicationEditor.py:79
+msgid "Add comment"
+msgstr "Tambah ulasan"
+
+#. Application Details Frame
+#: ../menulibre/ApplicationEditor.py:84
+msgid "Application Details"
+msgstr "Perincian Aplikasi"
+
+#: ../menulibre/ApplicationEditor.py:96
+msgid ""
+"Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
+"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."
+msgstr ""
+"Atur cara untuk dijalankan dengan argumennya. Kekunci ini diperlukan sekiranya pemboleh ubah DBusActivatable tidak ditetapkan kepada \"Benar\" atau sekiranya anda memerlukan keserasian dengan pelaksanaan yang tidak memahami pengaktifan D-Bus.\n"
+"Sila lihat https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec untuk senarai argumen yang disokong."
+
+#: ../menulibre/ApplicationEditor.py:105
+msgid "Working Directory"
+msgstr "Direktori Kerja"
+
+#: ../menulibre/ApplicationEditor.py:107
+msgid "The working directory."
+msgstr "Direktori kerja."
+
+#. Options Frame
+#: ../menulibre/ApplicationEditor.py:116
+msgid "Options"
+msgstr "Pilihan"
+
+#: ../menulibre/ApplicationEditor.py:124
+msgid "Run in terminal"
+msgstr "Jalan dalam terminal"
+
+#: ../menulibre/ApplicationEditor.py:127
+msgid "If set to \"True\", the program will be ran in a terminal window."
+msgstr ""
+"Jika ditetapkan kepada \"Benar\", atur cara akan dijalankan dalam tetingkap "
+"terminal."
+
+#: ../menulibre/ApplicationEditor.py:137
+msgid "Use startup notification"
+msgstr "Guna pemberitahuan permulaan"
+
+#: ../menulibre/ApplicationEditor.py:140
+msgid ""
+"If set to \"True\", a startup notification is sent. Usually means that a "
+"busy cursor is shown while the application launches."
+msgstr ""
+"Jika ditetapkan kepada \"Benar\", pemberitahuan permulaan akan dihantar. "
+"Biasanya bermaksud kursor sibuk ditunjukkan semasa aplikasi dilancarkan."
+
+#: ../menulibre/ApplicationEditor.py:150
+msgid "Hide from menus"
+msgstr "Sembunyi dari menu"
+
+#: ../menulibre/ApplicationEditor.py:153
+msgid ""
+"If set to \"True\", this entry will not be shown in menus, but will be "
+"available for MIME type associations etc."
+msgstr ""
+"Jika ditetapkan kepada \"Benar\", masukan ini tidak akan ditunjukkan dalam "
+"menu, tetapi tersedia untuk perkaitan jenis MIME dll."
+
+#. Translators: "Categories" launcher section
+#: ../menulibre/ApplicationEditor.py:172
+msgid "Categories"
+msgstr "Kategori"
+
+#. Translators: "Actions" launcher section
+#: ../menulibre/ApplicationEditor.py:179
+msgid "Actions"
+msgstr "Tindakan"
+
+#. Translators: "Advanced" launcher section
+#: ../menulibre/ApplicationEditor.py:186
+msgid "Advanced"
+msgstr "Lanjutan"
 
 #. Translators: Launcher section description
 #: ../menulibre/CategoryEditor.py:97
@@ -456,7 +454,7 @@ msgstr "WINE"
 #. Translators: "Other" category group. This item is only displayed for
 #. unknown or non-standard categories.
 #: ../menulibre/CategoryEditor.py:119 ../menulibre/CategoryEditor.py:433
-#: ../menulibre/MenulibreApplication.py:105
+#: ../menulibre/MenulibreApplication.py:100
 msgid "Other"
 msgstr "Lain-lain"
 
@@ -1116,8 +1114,8 @@ msgstr "Penyunting Perintah"
 #. Translators: File Chooser Dialog, cancel button.
 #: ../menulibre/CommandEditor.py:35 ../menulibre/Dialogs.py:65
 #: ../menulibre/Dialogs.py:100 ../menulibre/Dialogs.py:129
-#: ../menulibre/Dialogs.py:168 ../menulibre/Dialogs.py:188
-#: ../menulibre/IconEntry.py:157 ../menulibre/IconEntry.py:177
+#: ../menulibre/Dialogs.py:168 ../menulibre/IconEntry.py:157
+#: ../menulibre/IconEntry.py:177 ../menulibre/PathEntry.py:73
 msgid "Cancel"
 msgstr "Batal"
 
@@ -1127,8 +1125,8 @@ msgid "Apply"
 msgstr "Guna"
 
 #. Translators: Help action tooltip
-#: ../menulibre/CommandEditor.py:90 ../menulibre/MenulibreApplication.py:460
-#: ../menulibre/MenulibreApplication.py:1900
+#: ../menulibre/CommandEditor.py:90 ../menulibre/MenulibreApplication.py:455
+#: ../menulibre/MenulibreApplication.py:1620
 msgid "Help"
 msgstr "Bantuan"
 
@@ -1334,19 +1332,14 @@ msgstr ""
 "Semua perubahan sejak keadaan tersimpan terakhir akan hilang dan tidak dapat"
 " dipulihkan secara automatik."
 
-#. Translators: File Chooser Dialog, confirmation button.
-#: ../menulibre/Dialogs.py:190
-msgid "OK"
-msgstr "OK"
-
 #. Translators: Launcher Removed Dialog, primary text. Indicates that
 #. the selected application is no longer installed.
-#: ../menulibre/Dialogs.py:197
+#: ../menulibre/Dialogs.py:187
 msgid "No Longer Installed"
 msgstr "Sudah Tidak Terpasang"
 
 #. Translators: Launcher Removed Dialog, secondary text.
-#: ../menulibre/Dialogs.py:199
+#: ../menulibre/Dialogs.py:189
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -1356,19 +1349,19 @@ msgstr ""
 
 #. Translators: Not Found In PATH Dialog, primary text. Indicates
 #. that the provided script was not found in any PATH directory.
-#: ../menulibre/Dialogs.py:213
+#: ../menulibre/Dialogs.py:203
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr "Tidak jumpa \"%s\" dalam pemboleh ubah PATH anda."
 
 #. Translators: Save Error Dialog, primary text.
-#: ../menulibre/Dialogs.py:231
+#: ../menulibre/Dialogs.py:221
 #, python-format
 msgid "Failed to save \"%s\"."
 msgstr "Gagal menyimpan \"%s\"."
 
 #. Translators: Save Error Dialog, secondary text.
-#: ../menulibre/Dialogs.py:234
+#: ../menulibre/Dialogs.py:224
 msgid "Do you have write permission to the file and directory?"
 msgstr "Adakah anda mempunyai keizinan menulis ke fail dan direktori?"
 
@@ -1399,34 +1392,34 @@ msgid "Select an icon"
 msgstr "Pilih satu ikon"
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:126 ../menulibre/MenulibreApplication.py:953
-#: ../menulibre/MenulibreApplication.py:1372
+#: ../menulibre/MenuEditor.py:126 ../menulibre/MenulibreApplication.py:801
+#: ../menulibre/MenulibreApplication.py:1094
 msgid "Separator"
 msgstr "Pemisah"
 
 #. Translators: This error is displayed when the application is run
 #. as a root user. The application exits once the dialog is
 #. dismissed.
-#: ../menulibre/MenulibreApplication.py:199
+#: ../menulibre/MenulibreApplication.py:194
 msgid "MenuLibre cannot be run as root."
 msgstr "MenuLibre tidak boleh dijalankan sebagai pengguna akar."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
-#: ../menulibre/MenulibreApplication.py:205
+#: ../menulibre/MenulibreApplication.py:200
 #, python-format
 msgid ""
 "Please see the <a href='%s'>online documentation</a> for more information."
 msgstr ""
 "Sila lihat <a href='%s'>pendokumenan atas talian</a> untuk maklumat lanjut."
 
-#: ../menulibre/MenulibreApplication.py:216
+#: ../menulibre/MenulibreApplication.py:211
 msgid "MenuLibre failed to load."
 msgstr "MenuLibre gagal dimuatkan."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
-#: ../menulibre/MenulibreApplication.py:222
+#: ../menulibre/MenulibreApplication.py:217
 #, python-format
 msgid ""
 "The default menu could not be found. Please see the <a href='%s'>online "
@@ -1435,147 +1428,108 @@ msgstr ""
 "Menu lalai tidak dijumpai. Sila lihat <a href='%s'>pendokumenan dalam "
 "talian</a> untuk maklumat lanjut."
 
-#: ../menulibre/MenulibreApplication.py:226
+#: ../menulibre/MenulibreApplication.py:221
 msgid "Diagnostics"
 msgstr "Diagnosis"
 
 #. Translators: Add Launcher action label
-#: ../menulibre/MenulibreApplication.py:368
+#: ../menulibre/MenulibreApplication.py:363
 msgid "Add _Launcher…"
 msgstr "Tambah Pe_lancar..."
 
 #. Translators: Add Launcher action tooltip
-#: ../menulibre/MenulibreApplication.py:370
+#: ../menulibre/MenulibreApplication.py:365
 msgid "Add Launcher…"
 msgstr "Tambah Pelancar..."
 
 #. Translators: Add Directory action label
-#: ../menulibre/MenulibreApplication.py:377
+#: ../menulibre/MenulibreApplication.py:372
 msgid "Add _Directory…"
 msgstr "Tambah _Direktori..."
 
 #. Translators: Add Directory action tooltip
-#: ../menulibre/MenulibreApplication.py:379
+#: ../menulibre/MenulibreApplication.py:374
 msgid "Add Directory…"
 msgstr "Tambah Direktori..."
 
 #. Translators: Add Separator action label
-#: ../menulibre/MenulibreApplication.py:386
+#: ../menulibre/MenulibreApplication.py:381
 msgid "_Add Separator…"
 msgstr "T_ambah Pemisah..."
 
 #. Translators: Add Separator action tooltip
-#: ../menulibre/MenulibreApplication.py:388
+#: ../menulibre/MenulibreApplication.py:383
 msgid "Add Separator…"
 msgstr "Tambah Pemisah..."
 
 #. Translators: Save Launcher action label
-#: ../menulibre/MenulibreApplication.py:395
+#: ../menulibre/MenulibreApplication.py:390
 msgid "_Save"
 msgstr "_Simpan"
 
 #. Translators: Undo action label
-#: ../menulibre/MenulibreApplication.py:404
+#: ../menulibre/MenulibreApplication.py:399
 msgid "_Undo"
 msgstr "B_uat Asal"
 
 #. Translators: Redo action label
-#: ../menulibre/MenulibreApplication.py:413
+#: ../menulibre/MenulibreApplication.py:408
 msgid "_Redo"
 msgstr "Buat _Semula"
 
 #. Translators: Revert action label
-#: ../menulibre/MenulibreApplication.py:422
+#: ../menulibre/MenulibreApplication.py:417
 msgid "_Revert"
 msgstr "_Kembali Semula"
 
 #. Translators: Execute action label
-#: ../menulibre/MenulibreApplication.py:431
+#: ../menulibre/MenulibreApplication.py:426
 msgid "_Execute"
 msgstr "_Lakukan"
 
 #. Translators: Execute action tooltip
-#: ../menulibre/MenulibreApplication.py:433
+#: ../menulibre/MenulibreApplication.py:428
 msgid "Execute Launcher"
 msgstr "Lakukan Pelancar"
 
 #. Translators: Delete action label
-#: ../menulibre/MenulibreApplication.py:440
+#: ../menulibre/MenulibreApplication.py:435
 msgid "_Delete"
 msgstr "Pa_dam"
 
 #. Translators: Quit action label
-#: ../menulibre/MenulibreApplication.py:449
+#: ../menulibre/MenulibreApplication.py:444
 msgid "_Quit"
 msgstr "_Keluar"
 
 #. Translators: Quit action tooltip
-#: ../menulibre/MenulibreApplication.py:451
-#: ../menulibre/MenulibreApplication.py:1902
+#: ../menulibre/MenulibreApplication.py:446
+#: ../menulibre/MenulibreApplication.py:1622
 msgid "Quit"
 msgstr "Keluar"
 
 #. Translators: Help action label
-#: ../menulibre/MenulibreApplication.py:458
+#: ../menulibre/MenulibreApplication.py:453
 msgid "_Contents"
 msgstr "_Kandungan"
 
 #. Translators: About action label
-#: ../menulibre/MenulibreApplication.py:467
+#: ../menulibre/MenulibreApplication.py:462
 msgid "_About"
 msgstr "Perih_al"
 
 #. Translators: About action tooltip
-#: ../menulibre/MenulibreApplication.py:469
-#: ../menulibre/MenulibreApplication.py:1901
+#: ../menulibre/MenulibreApplication.py:464
+#: ../menulibre/MenulibreApplication.py:1621
 msgid "About"
 msgstr "Perihal"
 
-#. Entries
-#: ../menulibre/MenulibreApplication.py:662
-msgid "Add name"
-msgstr "Tambah nama"
-
-#: ../menulibre/MenulibreApplication.py:668
-msgid "Add comment"
-msgstr "Tambah ulasan"
-
-#. Translators: "Categories" launcher section
-#: ../menulibre/MenulibreApplication.py:692
-msgid "Categories"
-msgstr "Kategori"
-
-#. Translators: "Actions" launcher section
-#: ../menulibre/MenulibreApplication.py:695
-msgid "Actions"
-msgstr "Tindakan"
-
-#. Translators: "Advanced" launcher section
-#: ../menulibre/MenulibreApplication.py:698
-msgid "Advanced"
-msgstr "Lanjutan"
-
-#. Translators: "This Entry" launcher-specific category group
-#: ../menulibre/MenulibreApplication.py:760
-msgid "This Entry"
-msgstr "Masukan Ini"
-
-#. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:837
-msgid "Select a working directory…"
-msgstr "Pilih satu direktori kerja..."
-
-#. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:841
-msgid "Select an executable…"
-msgstr "Pilih satu boleh laku..."
-
-#: ../menulibre/MenulibreApplication.py:880
-#: ../menulibre/MenulibreApplication.py:895
+#: ../menulibre/MenulibreApplication.py:729
+#: ../menulibre/MenulibreApplication.py:744
 msgid "Menu restart required"
 msgstr "Mula semula menu diperlukan"
 
-#: ../menulibre/MenulibreApplication.py:881
+#: ../menulibre/MenulibreApplication.py:730
 #, python-format
 msgid ""
 "MenuLibre can do this automatically. Do you want to run the following command?\n"
@@ -1586,7 +1540,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../menulibre/MenulibreApplication.py:896
+#: ../menulibre/MenulibreApplication.py:745
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
 "system. Please log out for you menu to update completely."
@@ -1598,46 +1552,46 @@ msgstr ""
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:1103
+#: ../menulibre/MenulibreApplication.py:949
 msgid "You do not have permission to delete this file."
 msgstr "Anda tidak mempunyai keizinan memadam fail ini."
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1297
+#: ../menulibre/MenulibreApplication.py:1019
 msgid "New Launcher"
 msgstr "Pelancar Baharu"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1300 ../menulibre/MenulibreXdg.py:50
+#: ../menulibre/MenulibreApplication.py:1022 ../menulibre/MenulibreXdg.py:50
 msgid "A small descriptive blurb about this application."
 msgstr "Blurb keterangan kecil mengenai aplikasi ini."
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1350
+#: ../menulibre/MenulibreApplication.py:1072
 msgid "New Directory"
 msgstr "Direktori Baharu"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1353
+#: ../menulibre/MenulibreApplication.py:1075
 msgid "A small descriptive blurb about this directory."
 msgstr "Blurb keterangan kecil mengenai direktori ini."
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:1776
+#: ../menulibre/MenulibreApplication.py:1496
 msgid "Are you sure you want to delete this separator?"
 msgstr "Adakah anda ingin memadam pemisah ini?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:1780
+#: ../menulibre/MenulibreApplication.py:1500
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Adakah anda ingin memadam \"%s\"?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:1895
+#: ../menulibre/MenulibreApplication.py:1615
 msgid "Parsing Error Log"
 msgstr "Log Ralat Penghuraian"
 
@@ -1678,6 +1632,28 @@ msgstr "Buka dalam penyunting teks"
 #: ../menulibre/ParsingErrorsDialog.py:132
 msgid "Copy file location"
 msgstr "Salin lokasi fail"
+
+#. Translators: File Chooser Dialog, window title.
+#: ../menulibre/PathEntry.py:55
+msgid "Select a working directory…"
+msgstr "Pilih satu direktori kerja..."
+
+#. Translators: File Chooser Dialog, confirmation button.
+#: ../menulibre/PathEntry.py:75
+msgid "OK"
+msgstr "OK"
+
+#. Translators: Identify Window Dialog, primary text.
+#: ../menulibre/StartupWmClassEntry.py:40
+#: ../menulibre/StartupWmClassEntry.py:57
+msgid "Identify Window"
+msgstr "Kenal Pasti Tetingkap"
+
+#. Translators: Identify Window Dialog, secondary text. The selected
+#. application is displayed in the placeholder text.
+#: ../menulibre/StartupWmClassEntry.py:60
+msgid "Click on the main application window for this launcher."
+msgstr "Klik pada tetingkap aplikasi utama untuk pelancar ini."
 
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
