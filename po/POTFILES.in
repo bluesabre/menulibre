@@ -23,6 +23,7 @@ menulibre.desktop.in
 menulibre/__init__.py
 menulibre/ActionEditor.py
 menulibre/AdvancedPage.py
+menulibre/ApplicationEditor.py
 menulibre/CategoryEditor.py
 menulibre/CommandEditor.py
 menulibre/Dialogs.py
@@ -36,6 +37,7 @@ menulibre/MenulibreTreeview.py
 menulibre/MenulibreXdg.py
 menulibre/ParsingErrorsDialog.py
 menulibre/PathEntry.py
+menulibre/Section.py
 menulibre/SwitchEntry.py
 menulibre/TextEntryButton.py
 menulibre/util.py

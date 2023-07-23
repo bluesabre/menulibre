@@ -41,6 +41,7 @@ from . import AdvancedPage
 from . import IconEntry
 from . import SwitchEntry
 from . import TextEntryButton
+from .ApplicationEditor import ApplicationEditor
 
 from .util import MenuItemTypes, check_keypress, getRelativeName, getRelatedKeys
 from .util import escapeText, getCurrentDesktop, getProcessList, getDefaultMenuPrefix
@@ -606,98 +607,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def configure_application_editor(self, builder):
         """Configure the editor frame."""
-        placeholder = builder.get_object('settings_placeholder')
-        self.switcher = MenulibreStackSwitcher.StackSwitcherBox()
-        placeholder.pack_start(self.switcher, True, True, 0)
+        container = builder.get_object('classic_view')
 
-        # Store the editor.
-        self.editor = builder.get_object('application_editor')
+        self.editor = ApplicationEditor()
+        container.add(self.editor)
 
-        self.advanced_page = AdvancedPage.AdvancedPage()
-        self.advanced_page.connect("value-changed", self.on_smart_widget_changed)
-
-        # These widgets are hidden when the selected item is a Directory.
-        self.directory_hide_widgets = []
-        for widget_name in ['details_frame', 'settings_placeholder',
-                            'terminal_label', 'terminal_container',
-                            'notify_label', 'startup_notify_container']:
-            self.directory_hide_widgets.append(builder.get_object(widget_name))
-
-        self.exec_entry = CommandEditor.CommandEntry()
-        self.exec_entry.connect("value-changed", self.on_smart_widget_changed)
-        placeholder = builder.get_object("exec_container")
-        placeholder.pack_start(self.exec_entry, True, True, 0)
-        placeholder.show_all()
-
-        self.path_entry = PathEntry.PathEntry()
-        self.path_entry.connect("value-changed", self.on_smart_widget_changed)
-        placeholder = builder.get_object("path_container")
-        placeholder.pack_start(self.path_entry, True, True, 0)
-        placeholder.show_all()
-
-        # Entries
-        self.name_entry = TextEntryButton.TextEntryButton('Name', bold_font=True, required=True, placeholder_text=_('Add name'))
-        self.name_entry.connect("value-changed", self.on_smart_widget_changed)
-        placeholder = builder.get_object("name_container")
-        placeholder.pack_start(self.name_entry, True, True, 0)
-        placeholder.show_all()
-
-        self.comment_entry = TextEntryButton.TextEntryButton('Comment', placeholder_text=_('Add comment'))
-        self.comment_entry.connect("value-changed", self.on_smart_widget_changed)
-        placeholder = builder.get_object("comment_container")
-        placeholder.pack_start(self.comment_entry, True, True, 0)
-        placeholder.show_all()
-
-        self.terminal_entry = SwitchEntry.SwitchEntry('Terminal')
-        self.terminal_entry.connect("value-changed", self.on_smart_widget_changed)
-        placeholder = builder.get_object("terminal_container")
-        placeholder.pack_start(self.terminal_entry, True, True, 0)
-        placeholder.show_all()
-
-        self.startup_notify_entry = SwitchEntry.SwitchEntry('StartupNotify')
-        self.startup_notify_entry.connect("value-changed", self.on_smart_widget_changed)
-        placeholder = builder.get_object("startup_notify_container")
-        placeholder.pack_start(self.startup_notify_entry, True, True, 0)
-        placeholder.show_all()
-
-        self.no_display_entry = SwitchEntry.SwitchEntry('NoDisplay')
-        self.no_display_entry.connect("value-changed", self.on_smart_widget_changed)
-        placeholder = builder.get_object("no_display_container")
-        placeholder.pack_start(self.no_display_entry, True, True, 0)
-        placeholder.show_all()
-
-        # Categories Treeview and Inline Toolbar
-        self.category_editor = CategoryEditor.CategoryEditor()
-        self.category_editor.set_prefix(getDefaultMenuPrefix())
-        self.category_editor.connect("value-changed", self.on_smart_widget_changed)
-
-        # Actions Treeview and Inline Toolbar
-        self.action_editor = ActionEditor.ActionEditor()
-        self.action_editor.connect("value-changed", self.on_smart_widget_changed)
-
-        # Icon Entry
-        self.icon_entry = IconEntry.IconEntry()
-        self.icon_entry.connect("value-changed", self.on_smart_widget_changed)
-        placeholder = builder.get_object("icon_container")
-        placeholder.pack_start(self.icon_entry, True, True, 0)
-        placeholder.show_all()
-
-        # Filename Label
-        self.filename_label = FilenameLabel.FilenameLabel()
-        self.filename_label.connect("value-changed", self.on_smart_widget_changed)
-        placeholder = builder.get_object("filename_container")
-        placeholder.pack_start(self.filename_label, True, True, 0)
-        placeholder.show_all()
-
-        self.switcher.add_child(self.category_editor,
-                                # Translators: "Categories" launcher section
-                                'categories', _('Categories'))
-        self.switcher.add_child(self.action_editor,
-                                # Translators: "Actions" launcher section
-                                'actions', _('Actions'))
-        self.switcher.add_child(self.advanced_page,
-                                # Translators: "Advanced" launcher section
-                                'advanced', _('Advanced'))
+        self.editor.connect("value-changed", self.on_smart_widget_changed)
 
     def activate_action_cb(self, widget, action_name):
         """Activate the specified GtkAction."""
@@ -768,7 +683,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def cleanup_actions(self):
         """Cleanup the Actions treeview. Remove any rows where name or command
         have not been set."""
-        self.action_editor.remove_incomplete_actions()
+        self.editor.remove_incomplete_actions()
 
 # Window events
     def on_window_keypress_event(self, widget, event, user_data=None):
@@ -877,8 +792,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.history.clear()
 
         # Hide the Name and Comment editors
-        self.name_entry.cancel()
-        self.comment_entry.cancel()
+        self.editor.cancel()
 
         # Prevent updates to history.
         self.history.block()
@@ -951,8 +865,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                             continue
                         self.set_value(key, entry[key], store=True)
                     self.set_value('Type', 'Directory')
-                    for widget in self.directory_hide_widgets:
-                        widget.hide()
                     self.execute_button.set_sensitive(False)
 
             else:
@@ -1112,119 +1024,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.set_inner_value(key, value)
         if not adjust_widget:
             return
-
-        if self.advanced_page.has_value(key):
-            self.advanced_page.set_value(key, value)
-
-        # Filename, Actions, Categories, and Icon have their own functions.
-        elif key == 'Filename':
-            self.filename_label.set_value(value)
-        elif key == 'Icon':
-            self.icon_entry.set_value(value)
-        elif key == 'Name':
-            self.name_entry.set_value(value)
-        elif key == 'Comment':
-            self.comment_entry.set_value(value)
-        elif key == 'Categories':
-            self.category_editor.set_value(value)
-        elif key == 'Actions':
-            self.action_editor.set_value(value)
-
-        # Type is just stored.
-        elif key == 'Type':
-            self.values['Type'] = value
-
-        # No associated widget for Version
-        elif key == 'Version':
-            pass
-
-        elif key == 'Exec':
-            self.exec_entry.set_value(value)
-
-        elif key == 'Path':
-            self.path_entry.set_value(value)
-
-        elif key == 'Terminal':
-            self.terminal_entry.set_value(value)
-
-        elif key == 'StartupNotify':
-            self.startup_notify_entry.set_value(value)
-
-        elif key == 'NoDisplay':
-            self.no_display_entry.set_value(value)
-
-        # Everything else is set by its widget type.
-        elif key in self.widgets.keys():
-            widget = self.widgets[key]
-            # GtkButton
-            if isinstance(widget, Gtk.Button):
-                if not value:
-                    value = ""
-                widget.set_label(value)
-            # GtkLabel
-            elif isinstance(widget, Gtk.Label):
-                if not value:
-                    value = ""
-                widget.set_label(str(value))
-            # GtkEntry
-            elif isinstance(widget, Gtk.Entry):
-                if not value:
-                    value = ""
-                widget.set_text(str(value))
-            # GtkSwitch
-            elif isinstance(widget, Gtk.Switch):
-                if not value:
-                    value = False
-                widget.set_active(value)
-                # If "Hide from menus", also clear Hidden setting.
-                if key == 'NoDisplay' and value is False:
-                    self.set_value('Hidden', False)
-            else:
-                logger.warning(("Unknown widget: %s" % key))
         else:
-            logger.warning(("Unimplemented widget: %s" % key))
+            self.editor.set_value(key, value)
 
     def get_value(self, key):  # noqa
         """Return the value stored for the specified key."""
-        if self.advanced_page.has_value(key):
-            return self.advanced_page.get_value(key)
-        elif key == 'Name':
-            return self.name_entry.get_value()
-        elif key == 'Comment':
-            return self.comment_entry.get_value()
-        elif key == 'Icon':
-            return self.icon_entry.get_value()
-        elif key == 'Type':
-            return self.values[key]
-        elif key == 'Categories':
-            return self.category_editor.get_value()
-        elif key == 'Actions':
-            return self.action_editor.get_value()
-        elif key == 'Filename':
-            return self.filename_label.get_value()
-        elif key == 'Exec':
-            return self.exec_entry.get_value()
-        elif key == 'Path':
-            return self.path_entry.get_value()
-        elif key == 'Terminal':
-            return self.terminal_entry.get_value()
-        elif key == 'StartupNotify':
-            return self.startup_notify_entry.get_value()
-        elif key == 'NoDisplay':
-            return self.no_display_entry.get_value()
-        else:
-            widget = self.widgets[key]
-            if isinstance(widget, Gtk.Button):
-                return widget.get_label()
-            elif isinstance(widget, Gtk.Label):
-                return widget.get_label()
-            elif isinstance(widget, Gtk.Entry):
-                return widget.get_text()
-            elif isinstance(widget, Gtk.Switch):
-                return widget.get_active()
-            else:
-                return None
-        return None
+        self.editor.get_value(key)
 
 # Action Functions
     def add_launcher(self):
@@ -1274,8 +1079,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # Parent was not found, this is a toplevel category
             parent_directory = None
 
-        self.category_editor.set_value("")
-        self.category_editor.insert_required_categories(parent_directory)
+        self.editor.clear_categories()
+        self.editor.insert_required_categories(parent_directory)
 
         self.actions['save_launcher'].set_sensitive(True)
         self.save_button.set_sensitive(True)
@@ -1343,7 +1148,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             if key == "Actions":
                 action_list = []
                 for show, name, displayed, command in \
-                        self.action_editor.get_actions():
+                        self.editor.get_actions():
                     group_name = "Desktop Action %s" % name
                     keyfile.set_string(group_name, "Name", displayed)
                     keyfile.set_string(group_name, "Exec", command)
@@ -1407,7 +1212,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 # Parent was not found, this is a toplevel category
                 parent_directory = None
 
-            self.category_editor.insert_required_categories(parent_directory)
+            self.editor.insert_required_categories(parent_directory)
 
             # Cleanup invalid entries and reorder the Categories and Actions
             self.cleanup_actions()
@@ -1640,8 +1445,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_save_launcher_cb(self, widget, builder):
         """Save Launcher callback function."""
-        self.name_entry.commit()
-        self.comment_entry.commit()
+        self.editor.commit()
         self.save_launcher()
 
     def on_undo_cb(self, widget):
@@ -1681,8 +1485,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_execute_cb(self, widget, builder):
         """Execute callback function."""
-        self.name_entry.commit()
-        self.comment_entry.commit()
+        self.editor.commit()
         filename = self.save_launcher(True)
 
         entry = MenulibreXdg.MenulibreDesktopEntry(filename)
