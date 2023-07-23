@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-23 02:51-0400\n"
+"POT-Creation-Date: 2023-07-23 03:05-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -166,30 +166,30 @@ msgstr ""
 msgid "New Shortcut"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:51
+#: ../menulibre/AdvancedPage.py:53
 msgid "Generic Name"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:52
+#: ../menulibre/AdvancedPage.py:54
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:56
+#: ../menulibre/AdvancedPage.py:58
 msgid "Try Exec"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:57
+#: ../menulibre/AdvancedPage.py:59
 msgid ""
 "Path to an executable file to determine if the program is installed. If the "
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:61
+#: ../menulibre/AdvancedPage.py:63
 msgid "Only Show In"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:62
+#: ../menulibre/AdvancedPage.py:64
 msgid ""
 "A list of environments that should display this entry. Other environments "
 "will not display this entry. You can only use this key if \"NotShowIn\" is "
@@ -198,11 +198,11 @@ msgid ""
 "MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:67
+#: ../menulibre/AdvancedPage.py:69
 msgid "Not Shown In"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:68
+#: ../menulibre/AdvancedPage.py:70
 msgid ""
 "A list of environments that should not display this entry. You can only use "
 "this key if \"OnlyShowIn\" is not set.\n"
@@ -210,58 +210,58 @@ msgid ""
 "MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:73
+#: ../menulibre/AdvancedPage.py:75
 msgid "Mimetypes"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:74
+#: ../menulibre/AdvancedPage.py:76
 msgid "The MIME type(s) supported by this application."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:78
+#: ../menulibre/AdvancedPage.py:80
 msgid "Keywords"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:79
+#: ../menulibre/AdvancedPage.py:81
 msgid ""
 "A list of keywords to describe this entry. You can use these to help "
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:83
+#: ../menulibre/AdvancedPage.py:85
 msgid "Startup WM Class"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:84
+#: ../menulibre/AdvancedPage.py:86
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:88
+#: ../menulibre/AdvancedPage.py:90
 msgid "Implements"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:89
+#: ../menulibre/AdvancedPage.py:91
 msgid "A list of interfaces that this application implements."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:93
+#: ../menulibre/AdvancedPage.py:95
 msgid "Hidden"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:94
+#: ../menulibre/AdvancedPage.py:96
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:98
+#: ../menulibre/AdvancedPage.py:100
 msgid "DBUS Activatable"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:99
+#: ../menulibre/AdvancedPage.py:101
 msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this "
 "application and you want to use it.\n"
@@ -269,11 +269,11 @@ msgid ""
 "Keys#dbusactivatable for more information."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:104
+#: ../menulibre/AdvancedPage.py:106
 msgid "Prefers Non-Default GPU"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:105
+#: ../menulibre/AdvancedPage.py:107
 msgid ""
 "Set this key to \"True\" if this application prefers to be run on a more "
 "powerful GPU if available.\n"
@@ -281,26 +281,15 @@ msgid ""
 "Keys#prefersnondefaultgpu for more information."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:110
+#: ../menulibre/AdvancedPage.py:112
 msgid "Uses Notifications"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:111
+#: ../menulibre/AdvancedPage.py:113
 msgid ""
 "Set this key to \"True\" if this application uses notifications.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
 "Keys#x-gnome-usesnotifications for more information."
-msgstr ""
-
-#. Translators: Identify Window Dialog, primary text.
-#: ../menulibre/AdvancedPage.py:182 ../menulibre/AdvancedPage.py:199
-msgid "Identify Window"
-msgstr ""
-
-#. Translators: Identify Window Dialog, secondary text. The selected
-#. application is displayed in the placeholder text.
-#: ../menulibre/AdvancedPage.py:202
-msgid "Click on the main application window for this launcher."
 msgstr ""
 
 #: ../menulibre/ApplicationEditor.py:75
@@ -1612,6 +1601,18 @@ msgstr ""
 #. Translators: File Chooser Dialog, confirmation button.
 #: ../menulibre/PathEntry.py:75
 msgid "OK"
+msgstr ""
+
+#. Translators: Identify Window Dialog, primary text.
+#: ../menulibre/StartupWmClassEntry.py:40
+#: ../menulibre/StartupWmClassEntry.py:57
+msgid "Identify Window"
+msgstr ""
+
+#. Translators: Identify Window Dialog, secondary text. The selected
+#. application is displayed in the placeholder text.
+#: ../menulibre/StartupWmClassEntry.py:60
+msgid "Click on the main application window for this launcher."
 msgstr ""
 
 #. Translators: This error is displayed when a desktop file cannot

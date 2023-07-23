@@ -15,14 +15,16 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import os
-import subprocess
 from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
 
-from gi.repository import Gtk, Gdk, Pango, GObject, GLib
+from gi.repository import Gtk, GObject
+
+from .SwitchEntry import SwitchEntry
+from .StartupWmClassEntry import StartupWmClassEntry
+from .TextEntry import TextEntry
 
 
 class AdvancedPage(Gtk.ScrolledWindow):
@@ -142,143 +144,3 @@ class AdvancedPage(Gtk.ScrolledWindow):
         if self.has_value(property_name):
             return self._widgets[property_name].get_value()
         return None
-
-
-class TextEntry(Gtk.Entry):
-    __gsignals__ = {
-        'value-changed': (GObject.SignalFlags.RUN_FIRST, None, (str, str,)),
-    }
-
-    def __init__(self, property_name):
-        super().__init__()
-        self._property_name = property_name
-
-        self.set_hexpand(True)
-
-        self.connect('changed', self._on_changed)
-
-    def set_value(self, value):
-        if value is None:
-            value = ""
-        self.set_text(value)
-
-    def get_value(self):
-        return self.get_text()
-
-    def _on_changed(self, widget):
-        self.emit('value-changed', self._property_name, self.get_value())
-
-
-class StartupWmClassEntry(TextEntry):
-    def __init__(self, property_name):
-        super().__init__(property_name=property_name)
-
-        xprop = GLib.find_program_in_path("xprop")
-        if xprop is not None:
-            self.set_icon_from_icon_name(
-                Gtk.EntryIconPosition.SECONDARY, 'edit-find-symbolic')
-            self.set_icon_tooltip_text(
-                Gtk.EntryIconPosition.SECONDARY,
-                _('Identify Window')
-            )
-            self.connect(
-                'icon-press', self._on_icon_press, xprop)
-            
-    def _on_icon_press(self, entry, icon, event, xprop):
-        dialog = XpropWindowDialog(self.get_toplevel(), xprop)
-        wm_classes = dialog.run_xprop()
-        current = entry.get_text()
-        for wm_class in wm_classes:
-            if wm_class != current:
-                self.set_value(wm_class)
-                return
-
-class XpropWindowDialog(Gtk.MessageDialog):
-    def __init__(self, parent, xprop_binary):
-        # Translators: Identify Window Dialog, primary text.
-        primary = _("Identify Window")
-        # Translators: Identify Window Dialog, secondary text. The selected
-        # application is displayed in the placeholder text.
-        secondary = _("Click on the main application window for this launcher.")
-
-        Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
-                                   message_type=Gtk.MessageType.INFO,
-                                   buttons=Gtk.ButtonsType.OK,
-                                   text=primary)
-        self.format_secondary_markup(secondary)
-
-        self.binary = xprop_binary
-        self.process = None
-        self.classes = []
-
-    def run_xprop(self):
-        GLib.timeout_add(500, self.start_xprop)
-        self.run()
-        self.classes.sort()
-        return self.classes
-
-    def start_xprop(self):
-        cmd = [self.binary, 'WM_CLASS']
-        self.classes = []
-        env = os.environ.copy()
-        self.process = subprocess.Popen(
-            cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=env
-        )
-        GLib.idle_add(self.check_xprop)
-        return False
-
-    def check_xprop(self):
-        if self.process.poll() is not None:
-            output = self.process.stdout.read().decode('UTF-8').strip()
-            if output.startswith("WM_CLASS"):
-                values = output.split("=", 1)[1].split(", ")
-                for value in values:
-                    value = value.strip()
-                    value = value[1:-1]
-                    if value not in self.classes:
-                        self.classes.append(value)
-            self.destroy()
-            return False
-        return True
-    
-
-class SwitchEntry(Gtk.Switch):
-    __gsignals__ = {
-        'value-changed': (GObject.SignalFlags.RUN_FIRST, None, (str, str,)),
-    }
-
-    def __init__(self, property_name):
-        super().__init__()
-        self._property_name = property_name
-
-        self.set_halign(Gtk.Align.END)
-        self.set_valign(Gtk.Align.CENTER)
-
-        self.connect('notify::active', self._on_changed)
-
-    def set_value(self, value):
-        self.set_active(value)
-
-    def get_value(self):
-        return self.get_active()
-
-    def _on_changed(self, status, widget):
-        self.emit('value-changed', self._property_name, self.get_value())
-
-
-
-class AdvancedPageDemoWindow(Gtk.Window):
-    def __init__(self):
-        Gtk.Window.__init__(self, title="Advanced Page Example")
-
-        self.set_default_size(600, 300)
-
-        page = AdvancedPage()
-        self.add(page)
-
-
-if __name__ == "__main__":
-    win = AdvancedPageDemoWindow()
-    win.connect("destroy", Gtk.main_quit)
-    win.show_all()
-    Gtk.main()
