@@ -39,6 +39,8 @@ class FilenameLabel(Gtk.Label):
         self.set_attributes(attributes)
 
     def set_value(self, value):
+        if value is None:
+            value = ""
         self.set_text(value)
         self.set_tooltip_text(value)
         self._value = value
