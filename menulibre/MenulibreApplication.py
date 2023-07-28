@@ -172,9 +172,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.configure_css()
 
-        # Set up the application editor
-        self.configure_application_editor(builder)
-
         # Set up the application browser
         self.configure_application_treeview(builder)
 
@@ -288,14 +285,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def configure_css(self):
         css = """
-        #MenulibreSidebar GtkToolbar.inline-toolbar,
-        #MenulibreSidebar GtkScrolledWindow.frame {
-            border-radius: 0px;
-            border-width: 0px;
-            border-right-width: 1px;
+        #MenulibreSidebarToolbar {
+            border-bottom-width: 0
         }
-        #MenulibreSidebar GtkScrolledWindow.frame {
-            border-bottom-width: 1px;
+        #MenulibreSidebarScroll.frame {
+            border-left-width: 0;
+            border-right-width: 0;
         }
         """
         style_provider = Gtk.CssProvider.new()
@@ -553,13 +548,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def configure_application_treeview(self, builder):
         """Configure the menu-browsing GtkTreeView."""
-        self.treeview = MenulibreTreeview.Treeview(self, builder)
+        container = builder.get_object('classic_view')
+
+        self.treeview = MenulibreTreeview.Treeview(self)
         if not self.treeview.loaded:
             self.menu_load_failure()
-        treeview = self.treeview.get_treeview()
-        treeview.set_search_entry(self.search_box)
-        self.search_box.connect('changed', self.on_app_search_changed,
-                                treeview, True)
+
+        container.add(self.treeview)
+
+        self.editor = ApplicationEditor()
+        container.add(self.editor)
+
+        self.treeview.set_search_entry(self.search_box)
+        self.search_box.connect('changed', self.on_app_search_changed, True)
         self.treeview.set_can_select_function(self.get_can_select)
         self.treeview.connect("cursor-changed",
                               self.on_apps_browser_cursor_changed, builder)
@@ -569,8 +570,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.treeview.connect("requires-menu-reload",
                               self.on_apps_browser_requires_menu_reload,
                               builder)
-        treeview.set_cursor(Gtk.TreePath.new_from_string("1"))
-        treeview.set_cursor(Gtk.TreePath.new_from_string("0"))
+        self.treeview.reset_cursor()
+
+        self.editor.connect("value-changed", self.on_smart_widget_changed)
 
     def get_can_select(self):
         if self.save_button.get_sensitive():
@@ -595,15 +597,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             return False
         else:
             return True
-
-    def configure_application_editor(self, builder):
-        """Configure the editor frame."""
-        container = builder.get_object('classic_view')
-
-        self.editor = ApplicationEditor()
-        container.add(self.editor)
-
-        self.editor.connect("value-changed", self.on_smart_widget_changed)
 
     def activate_action_cb(self, widget, action_name):
         """Activate the specified GtkAction."""
@@ -881,7 +874,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if missing:
             self.delete_launcher()
 
-    def on_app_search_changed(self, widget, treeview, expand=False):
+    def on_app_search_changed(self, widget, expand=False):
         """Update search results when query text is modified."""
         query = widget.get_text()
 

@@ -30,185 +30,6 @@
       </object>
     </child>
   </object>
-  <object class="GtkImage" id="image11">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <property name="pixel-size">16</property>
-    <property name="icon-name">media-playback-start-symbolic</property>
-    <property name="use-fallback">True</property>
-  </object>
-  <object class="GtkImage" id="image12">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <property name="pixel-size">16</property>
-    <property name="icon-name">edit-delete-symbolic</property>
-    <property name="use-fallback">True</property>
-  </object>
-  <object class="GtkImage" id="image2">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <property name="pixel-size">16</property>
-    <property name="icon-name">document-save-symbolic</property>
-    <property name="use-fallback">True</property>
-  </object>
-  <object class="GtkImage" id="image3">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <property name="pixel-size">16</property>
-    <property name="icon-name">edit-undo-symbolic</property>
-    <property name="use-fallback">True</property>
-  </object>
-  <object class="GtkImage" id="image5">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <property name="pixel-size">16</property>
-    <property name="icon-name">edit-redo-symbolic</property>
-    <property name="use-fallback">True</property>
-  </object>
-  <object class="GtkImage" id="image6">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <property name="pixel-size">16</property>
-    <property name="icon-name">document-revert-symbolic</property>
-    <property name="use-fallback">True</property>
-  </object>
-  <object class="GtkHeaderBar" id="headerbar">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <property name="show-close-button">True</property>
-    <child type="title">
-      <placeholder/>
-    </child>
-    <child>
-      <object class="GtkMenuButton" id="headerbar_add">
-        <property name="visible">True</property>
-        <property name="can-focus">True</property>
-        <property name="receives-default">True</property>
-        <property name="popup">add_popup_menu</property>
-        <child>
-          <object class="GtkImage">
-            <property name="visible">True</property>
-            <property name="can-focus">False</property>
-            <property name="icon-name">list-add-symbolic</property>
-            <property name="use-fallback">True</property>
-          </object>
-        </child>
-      </object>
-    </child>
-    <child>
-      <object class="GtkButton" id="headerbar_save_launcher">
-        <property name="visible">True</property>
-        <property name="sensitive">False</property>
-        <property name="can-focus">True</property>
-        <property name="receives-default">True</property>
-        <property name="tooltip-markup" translatable="yes" comments="Translators: Toolbar button to save the currently selected item.">Save Launcher</property>
-        <property name="tooltip-text" translatable="yes">Save Launcher</property>
-        <property name="image">image2</property>
-      </object>
-      <packing>
-        <property name="position">1</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkBox" id="hb_history_buttons">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="homogeneous">True</property>
-        <child>
-          <object class="GtkButton" id="headerbar_undo">
-            <property name="visible">True</property>
-            <property name="sensitive">False</property>
-            <property name="can-focus">True</property>
-            <property name="receives-default">True</property>
-            <property name="tooltip-text" translatable="yes" comments="Translators: Toolbar button to undo last change to currently selected item.">Undo</property>
-            <property name="image">image3</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="headerbar_redo">
-            <property name="visible">True</property>
-            <property name="sensitive">False</property>
-            <property name="can-focus">True</property>
-            <property name="receives-default">True</property>
-            <property name="tooltip-text" translatable="yes" comments="Translators: Toolbar button to redo the last undone change to currently selected item.">Redo</property>
-            <property name="image">image5</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">2</property>
-          </packing>
-        </child>
-        <style>
-          <class name="linked"/>
-        </style>
-      </object>
-      <packing>
-        <property name="position">2</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkButton" id="headerbar_revert">
-        <property name="visible">True</property>
-        <property name="sensitive">False</property>
-        <property name="can-focus">True</property>
-        <property name="receives-default">True</property>
-        <property name="tooltip-text" translatable="yes" comments="Translators: Toolbar button to revery the currently selected item to it's last saved state.">Revert</property>
-        <property name="image">image6</property>
-      </object>
-      <packing>
-        <property name="position">3</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkButton" id="headerbar_execute">
-        <property name="visible">True</property>
-        <property name="sensitive">False</property>
-        <property name="can-focus">True</property>
-        <property name="receives-default">True</property>
-        <property name="tooltip-text" translatable="yes" comments="Translators: Toolbar button to test the currently selected item.">Test Launcher</property>
-        <property name="image">image11</property>
-        <property name="always-show-image">True</property>
-      </object>
-      <packing>
-        <property name="position">4</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkButton" id="headerbar_delete">
-        <property name="label" translatable="yes" comments="Translators: Toolbar button to delete the currently selected item.">Delete</property>
-        <property name="visible">True</property>
-        <property name="can-focus">True</property>
-        <property name="receives-default">True</property>
-        <property name="image">image12</property>
-        <property name="always-show-image">True</property>
-      </object>
-      <packing>
-        <property name="position">5</property>
-      </packing>
-    </child>
-    <child>
-      <object class="GtkBox" id="headerbar_search">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="valign">center</property>
-        <property name="orientation">vertical</property>
-        <child>
-          <placeholder/>
-        </child>
-      </object>
-      <packing>
-        <property name="pack-type">end</property>
-        <property name="position">6</property>
-      </packing>
-    </child>
-  </object>
-  <object class="GtkListStore" id="liststore1"/>
   <object class="GtkApplicationWindow" id="menulibre_window">
     <property name="width-request">700</property>
     <property name="can-focus">False</property>
@@ -494,102 +315,7 @@
             <property name="visible">True</property>
             <property name="can-focus">True</property>
             <child>
-              <object class="GtkBox" id="box5">
-                <property name="name">MenulibreSidebar</property>
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkScrolledWindow" id="scrolledwindow1">
-                    <property name="width-request">220</property>
-                    <property name="visible">True</property>
-                    <property name="can-focus">True</property>
-                    <property name="shadow-type">in</property>
-                    <property name="min-content-width">185</property>
-                    <child>
-                      <object class="GtkTreeView" id="classic_view_treeview">
-                        <property name="visible">True</property>
-                        <property name="can-focus">True</property>
-                        <property name="model">liststore1</property>
-                        <property name="headers-visible">False</property>
-                        <property name="enable-search">False</property>
-                        <property name="level-indentation">24</property>
-                        <property name="rubber-banding">True</property>
-                        <child internal-child="selection">
-                          <object class="GtkTreeSelection"/>
-                        </child>
-                      </object>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkToolbar" id="browser_toolbar">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <property name="show-arrow">False</property>
-                    <property name="icon_size">1</property>
-                    <child>
-                      <object class="GtkToolButton" id="classic_view_move_up">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
-                        <property name="tooltip-text" translatable="yes">Move Up</property>
-                        <property name="label" translatable="yes" comments="Translators: Treeview toolbar button to move the currently selected item up.">Move Up</property>
-                        <property name="use-underline">True</property>
-                        <property name="icon-name">go-up-symbolic</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="homogeneous">True</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkToolButton" id="classic_view_move_down">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
-                        <property name="tooltip-text" translatable="yes">Move Down</property>
-                        <property name="label" translatable="yes" comments="Translators: Treeview toolbar button to move the currently selected item down.">Move Down</property>
-                        <property name="use-underline">True</property>
-                        <property name="icon-name">go-down-symbolic</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="homogeneous">True</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkToolButton" id="classic_view_sort">
-                        <property name="visible">True</property>
-                        <property name="can-focus">False</property>
-                        <property name="tooltip-text" translatable="yes">Sort Alphabetically</property>
-                        <property name="label" translatable="yes" comments="Translators: Treeview toolbar button to sort the currently open submenu alphabetically.">Sort Alphabetically</property>
-                        <property name="use-underline">True</property>
-                        <property name="icon-name">view-sort-ascending-symbolic</property>
-                      </object>
-                      <packing>
-                        <property name="expand">False</property>
-                        <property name="homogeneous">True</property>
-                      </packing>
-                    </child>
-                    <style>
-                      <class name="inline-toolbar"/>
-                    </style>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="resize">False</property>
-                <property name="shrink">False</property>
-              </packing>
+              <placeholder/>
             </child>
             <child>
               <placeholder/>
@@ -664,4 +390,183 @@
       </object>
     </child>
   </object>
+  <object class="GtkImage" id="image11">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="pixel-size">16</property>
+    <property name="icon-name">media-playback-start-symbolic</property>
+    <property name="use-fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image12">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="pixel-size">16</property>
+    <property name="icon-name">edit-delete-symbolic</property>
+    <property name="use-fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image2">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="pixel-size">16</property>
+    <property name="icon-name">document-save-symbolic</property>
+    <property name="use-fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image3">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="pixel-size">16</property>
+    <property name="icon-name">edit-undo-symbolic</property>
+    <property name="use-fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image5">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="pixel-size">16</property>
+    <property name="icon-name">edit-redo-symbolic</property>
+    <property name="use-fallback">True</property>
+  </object>
+  <object class="GtkImage" id="image6">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="pixel-size">16</property>
+    <property name="icon-name">document-revert-symbolic</property>
+    <property name="use-fallback">True</property>
+  </object>
+  <object class="GtkHeaderBar" id="headerbar">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="show-close-button">True</property>
+    <child type="title">
+      <placeholder/>
+    </child>
+    <child>
+      <object class="GtkMenuButton" id="headerbar_add">
+        <property name="visible">True</property>
+        <property name="can-focus">True</property>
+        <property name="receives-default">True</property>
+        <property name="popup">add_popup_menu</property>
+        <child>
+          <object class="GtkImage">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="icon-name">list-add-symbolic</property>
+            <property name="use-fallback">True</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkButton" id="headerbar_save_launcher">
+        <property name="visible">True</property>
+        <property name="sensitive">False</property>
+        <property name="can-focus">True</property>
+        <property name="receives-default">True</property>
+        <property name="tooltip-markup" translatable="yes" comments="Translators: Toolbar button to save the currently selected item.">Save Launcher</property>
+        <property name="tooltip-text" translatable="yes">Save Launcher</property>
+        <property name="image">image2</property>
+      </object>
+      <packing>
+        <property name="position">1</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkBox" id="hb_history_buttons">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="homogeneous">True</property>
+        <child>
+          <object class="GtkButton" id="headerbar_undo">
+            <property name="visible">True</property>
+            <property name="sensitive">False</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="tooltip-text" translatable="yes" comments="Translators: Toolbar button to undo last change to currently selected item.">Undo</property>
+            <property name="image">image3</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="headerbar_redo">
+            <property name="visible">True</property>
+            <property name="sensitive">False</property>
+            <property name="can-focus">True</property>
+            <property name="receives-default">True</property>
+            <property name="tooltip-text" translatable="yes" comments="Translators: Toolbar button to redo the last undone change to currently selected item.">Redo</property>
+            <property name="image">image5</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <style>
+          <class name="linked"/>
+        </style>
+      </object>
+      <packing>
+        <property name="position">2</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkButton" id="headerbar_revert">
+        <property name="visible">True</property>
+        <property name="sensitive">False</property>
+        <property name="can-focus">True</property>
+        <property name="receives-default">True</property>
+        <property name="tooltip-text" translatable="yes" comments="Translators: Toolbar button to revery the currently selected item to it's last saved state.">Revert</property>
+        <property name="image">image6</property>
+      </object>
+      <packing>
+        <property name="position">3</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkButton" id="headerbar_execute">
+        <property name="visible">True</property>
+        <property name="sensitive">False</property>
+        <property name="can-focus">True</property>
+        <property name="receives-default">True</property>
+        <property name="tooltip-text" translatable="yes" comments="Translators: Toolbar button to test the currently selected item.">Test Launcher</property>
+        <property name="image">image11</property>
+        <property name="always-show-image">True</property>
+      </object>
+      <packing>
+        <property name="position">4</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkButton" id="headerbar_delete">
+        <property name="label" translatable="yes" comments="Translators: Toolbar button to delete the currently selected item.">Delete</property>
+        <property name="visible">True</property>
+        <property name="can-focus">True</property>
+        <property name="receives-default">True</property>
+        <property name="image">image12</property>
+        <property name="always-show-image">True</property>
+      </object>
+      <packing>
+        <property name="position">5</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkBox" id="headerbar_search">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="valign">center</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+      <packing>
+        <property name="pack-type">end</property>
+        <property name="position">6</property>
+      </packing>
+    </child>
+  </object>
+  <object class="GtkListStore" id="liststore1"/>
 </interface>

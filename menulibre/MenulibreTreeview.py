@@ -30,7 +30,7 @@ import logging
 logger = logging.getLogger('menulibre')
 
 
-class Treeview(GObject.GObject):
+class Treeview(Gtk.Box):
 
     __gsignals__ = {
         'cursor-changed': (GObject.SIGNAL_RUN_LAST, GObject.TYPE_BOOLEAN,
@@ -45,40 +45,39 @@ class Treeview(GObject.GObject):
 
     loaded = False
 
-    def __init__(self, parent, builder):
-        GObject.GObject.__init__(self)
+    def __init__(self, parent):
+        super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=0)
         self.parent = parent
-
-        # Configure Widgets
-        if self._configure_treeview(builder):
-            self.loaded = True
-        else:
-            return
-        self._configure_toolbar(builder)
-
-        # Defaults
         self._last_selected_path = -1
         self._search_terms = None
         self._lock_menus = False
 
-    def _configure_treeview(self, builder):
-        """Configure the TreeView widget."""
-        # Get the menu treestore.
-        treestore = MenuEditor.get_treestore()
-        if not treestore:
-            return False
+        self.set_size_request(220, -1)
 
-        self._treeview = builder.get_object('classic_view_treeview')
+        treestore = MenuEditor.get_treestore()
+        if treestore:
+            self.loaded = True
+
+        scrolled = Gtk.ScrolledWindow.new(hadjustment=None, vadjustment=None)
+        scrolled.set_shadow_type(Gtk.ShadowType.IN)
+        scrolled.set_name("MenulibreSidebarScroll")
+        self.pack_start(scrolled, True, True, 0)
+
+        self._treeview = Gtk.TreeView.new_with_model(treestore)
+        self._treeview.set_show_expanders(True)
+        self._treeview.set_enable_search(False)
+        self._treeview.set_headers_visible(False)
+        scrolled.add(self._treeview)
 
         # Translators: "Search Results" treeview column header
         col = Gtk.TreeViewColumn(_("Search Results"))
 
-        # Create and pack the PixbufRenderer.
+        # Icon renderer
         col_cell_img = Gtk.CellRendererPixbuf()
         col_cell_img.set_property("stock-size", Gtk.IconSize.LARGE_TOOLBAR)
         col.pack_start(col_cell_img, False)
 
-        # Create and pack the TextRenderer.
+        # Text renderer
         col_cell_text = Gtk.CellRendererText()
         col_cell_text.set_property("ellipsize", Pango.EllipsizeMode.END)
         col.pack_start(col_cell_text, True)
@@ -97,11 +96,10 @@ class Treeview(GObject.GObject):
 
         # Append the column, set the model.
         self._treeview.append_column(col)
-        self._treeview.set_model(treestore)
 
         # Configure the treeview events.
         self._treeview.connect("cursor-changed",
-                               self._on_treeview_cursor_changed, None, builder)
+                               self._on_treeview_cursor_changed, None)
         self._treeview.connect("key-press-event",
                                self._on_treeview_key_press_event, None)
         self._treeview.connect("row-expanded",
@@ -109,26 +107,37 @@ class Treeview(GObject.GObject):
         self._treeview.connect("row-collapsed",
                                self._on_treeview_row_expansion, False)
 
-        # Show the treeview, grab focus.
-        self._treeview.show_all()
-        self._treeview.grab_focus()
-
         self.menu_timeout_id = 0
 
-        return True
+        self._toolbar = Gtk.Toolbar.new()
+        self._toolbar.set_icon_size(Gtk.IconSize.MENU)
+        self._toolbar.set_name("MenulibreSidebarToolbar")
+        self.add(self._toolbar)
 
-    def _configure_toolbar(self, builder):
-        """Configure the toolbar widget."""
-        self._toolbar = builder.get_object('browser_toolbar')
-        move_up = builder.get_object('classic_view_move_up')
-        move_up.connect('clicked', self._move_iter, (self._treeview, -1))
-        move_down = builder.get_object('classic_view_move_down')
-        move_down.connect('clicked', self._move_iter, (self._treeview, 1))
-        sort = builder.get_object('classic_view_sort')
-        sort.connect('clicked', self._sort_iter)
-        self._sort_button = sort
-        self._move_up_button = move_up
-        self._move_down_button = move_down
+        context = self._toolbar.get_style_context()
+        context.add_class("linked")
+
+        img = Gtk.Image.new_from_icon_name('go-up-symbolic', Gtk.IconSize.MENU)
+        self._move_up_button = Gtk.ToolButton.new(img, _("Move Up"))
+        self._move_up_button.set_tooltip_text(_("Move Up"))
+        self._move_up_button.connect('clicked', self._move_iter, (self._treeview, -1))
+        self._toolbar.add(self._move_up_button)
+
+        img = Gtk.Image.new_from_icon_name('go-down-symbolic', Gtk.IconSize.MENU)
+        self._move_down_button = Gtk.ToolButton.new(img, _("Move Down"))
+        self._move_down_button.set_tooltip_text(_("Move Down"))
+        self._move_down_button.connect('clicked', self._move_iter, (self._treeview, 1))
+        self._toolbar.add(self._move_down_button)
+
+        img = Gtk.Image.new_from_icon_name('view-sort-ascending-symbolic', Gtk.IconSize.MENU)
+        self._sort_button = Gtk.ToolButton.new(img, _("Sort Alphabetically"))
+        self._sort_button.set_tooltip_text(_("Sort Alphabetically"))
+        self._sort_button.connect('clicked', self._sort_iter)
+        self._toolbar.add(self._sort_button)
+
+        # Show the treeview, grab focus.
+        self.show_all()
+        self._treeview.grab_focus()
 
     def set_sortable(self, sortable):
         self._sort_button.set_sensitive(sortable)
@@ -377,7 +386,7 @@ class Treeview(GObject.GObject):
         self._on_treeview_cursor_changed(self._treeview, None, None)
 
 # Events
-    def _on_treeview_cursor_changed(self, widget, selection, builder):
+    def _on_treeview_cursor_changed(self, widget, selection):
         """Update the editor frame when the selected row is changed."""
         # Check if the selection is valid.
         sel = widget.get_selection()
@@ -549,10 +558,6 @@ class Treeview(GObject.GObject):
     def _is_menu_locked(self):
         """Return True if menu editing is currently locked."""
         return self._lock_menus
-
-    def get_treeview(self):
-        """Return the treeview widget."""
-        return self._treeview
 
     def _update_add_directory(self):
         """Prevent adding subdirectories to system menus."""
@@ -1020,3 +1025,10 @@ class Treeview(GObject.GObject):
         model, sel_iter = self._get_selected_iter()
         self._treeview.scroll_to_cell(model.get_path(sel_iter), None,
                                 False, 0.0, 0.0)
+
+    def set_search_entry(self, entry):
+        self._treeview.set_search_entry(entry)
+
+    def reset_cursor(self):
+        self._treeview.set_cursor(Gtk.TreePath.new_from_string("1"))
+        self._treeview.set_cursor(Gtk.TreePath.new_from_string("0"))
