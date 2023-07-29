@@ -115,7 +115,7 @@ class Treeview(Gtk.Box):
         self.add(self._toolbar)
 
         context = self._toolbar.get_style_context()
-        context.add_class("linked")
+        context.add_class("inline-toolbar")
 
         img = Gtk.Image.new_from_icon_name('go-up-symbolic', Gtk.IconSize.MENU)
         self._move_up_button = Gtk.ToolButton.new(img, _("Move Up"))

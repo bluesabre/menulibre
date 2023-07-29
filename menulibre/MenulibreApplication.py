@@ -286,7 +286,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def configure_css(self):
         css = """
         #MenulibreSidebarToolbar {
-            border-bottom-width: 0
+            border-left-width: 0;
+            border-right-width: 0;
+            border-bottom-width: 0;
+            border-radius: 0;
         }
         #MenulibreSidebarScroll.frame {
             border-left-width: 0;
