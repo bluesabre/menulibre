@@ -256,58 +256,120 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">1</property>
+            <property name="position">0</property>
           </packing>
         </child>
         <child>
-          <object class="GtkInfoBar" id="bad_desktop_files_infobar">
+          <object class="GtkBox" id="infobars">
+            <property name="visible">True</property>
             <property name="can-focus">False</property>
-            <property name="no-show-all">True</property>
-            <property name="message-type">warning</property>
-            <property name="show-close-button">True</property>
-            <child internal-child="action_area">
-              <object class="GtkButtonBox">
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkInfoBar" id="bad_desktop_files_infobar">
                 <property name="can-focus">False</property>
-                <property name="spacing">6</property>
-                <property name="layout-style">end</property>
-                <child>
-                  <placeholder/>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child internal-child="content_area">
-              <object class="GtkBox">
-                <property name="can-focus">False</property>
-                <property name="spacing">16</property>
-                <child>
-                  <object class="GtkLabel" id="bad_desktop_files_label">
-                    <property name="visible">True</property>
+                <property name="no-show-all">True</property>
+                <property name="message-type">warning</property>
+                <property name="show-close-button">True</property>
+                <child internal-child="action_area">
+                  <object class="GtkButtonBox">
                     <property name="can-focus">False</property>
-                    <property name="label" translatable="yes" comments="Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.">Invalid desktop files detected! Please see details.</property>
+                    <property name="spacing">6</property>
+                    <property name="layout-style">end</property>
+                    <child>
+                      <placeholder/>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
-                    <property name="fill">True</property>
+                    <property name="fill">False</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child internal-child="content_area">
+                  <object class="GtkBox">
+                    <property name="can-focus">False</property>
+                    <property name="spacing">16</property>
+                    <child>
+                      <object class="GtkLabel" id="bad_desktop_files_label">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="label" translatable="yes" comments="Translators: This error is displayed in a notice at the top of the application when one or more desktop files fails processing.">Invalid desktop files detected! Please see details.</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
                     <property name="position">0</property>
                   </packing>
                 </child>
               </object>
               <packing>
                 <property name="expand">False</property>
-                <property name="fill">False</property>
+                <property name="fill">True</property>
                 <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkInfoBar" id="menu_restart_required">
+                <property name="can-focus">False</property>
+                <property name="message-type">warning</property>
+                <property name="show-close-button">True</property>
+                <child internal-child="action_area">
+                  <object class="GtkButtonBox">
+                    <property name="can-focus">False</property>
+                    <property name="spacing">6</property>
+                    <property name="layout-style">end</property>
+                    <child>
+                      <object class="GtkButton" id="menu_restart_button">
+                        <property name="label" translatable="yes">Restart menu...</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">True</property>
+                        <property name="receives-default">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">True</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child internal-child="content_area">
+                  <object class="GtkBox">
+                    <property name="can-focus">False</property>
+                    <property name="spacing">16</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="label" translatable="yes">Your applications menu may need to be restarted.</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
               </packing>
             </child>
           </object>
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">2</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
@@ -324,67 +386,7 @@
           <packing>
             <property name="expand">True</property>
             <property name="fill">True</property>
-            <property name="position">3</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkInfoBar" id="menu_restart_required">
-            <property name="can-focus">False</property>
-            <property name="message-type">warning</property>
-            <property name="show-close-button">True</property>
-            <child internal-child="action_area">
-              <object class="GtkButtonBox">
-                <property name="can-focus">False</property>
-                <property name="spacing">6</property>
-                <property name="layout-style">end</property>
-                <child>
-                  <object class="GtkButton" id="menu_restart_button">
-                    <property name="label" translatable="yes">Restart menu...</property>
-                    <property name="visible">True</property>
-                    <property name="can-focus">True</property>
-                    <property name="receives-default">True</property>
-                  </object>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child internal-child="content_area">
-              <object class="GtkBox">
-                <property name="can-focus">False</property>
-                <property name="spacing">16</property>
-                <child>
-                  <object class="GtkLabel">
-                    <property name="visible">True</property>
-                    <property name="can-focus">False</property>
-                    <property name="label" translatable="yes">Your applications menu may need to be restarted.</property>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">3</property>
+            <property name="position">2</property>
           </packing>
         </child>
       </object>
