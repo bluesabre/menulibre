@@ -175,13 +175,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Set up the application browser
         self.configure_application_treeview(builder)
 
-        self.configure_menu_restart_infobar(builder)
-
         # Determining paths of bad desktop files GMenu can't load - if some are
         # detected, alerting user via InfoBar
         self.bad_desktop_files = util.determine_bad_desktop_files()
         if self.bad_desktop_files:
             self.configure_application_bad_desktop_files_infobar(builder)
+
+        self.configure_menu_restart_infobar(builder)
 
     def root_lockout(self):
         if root:
@@ -481,35 +481,55 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def configure_application_bad_desktop_files_infobar(self, builder):
         """Configure InfoBar to alert user to bad desktop files."""
+        container = builder.get_object('infobars')
 
-        # Fetching UI widgets
-        self.infobar = builder.get_object('bad_desktop_files_infobar')
+        self.infobar = Gtk.InfoBar.new()
+        self.infobar.set_message_type(Gtk.MessageType.WARNING)
+        container.add(self.infobar)
 
-        # Configuring buttons for the InfoBar - looks like you can't set a
-        # response ID via a button defined in glade?
-        # Can't get a stock button then change its icon, so leaving with no
-        # icon
-        self.infobar.add_button('Details', Gtk.ResponseType.YES)
+        content = self.infobar.get_content_area()
+
+        label = Gtk.Label.new(_("Invalid desktop files detected! Please see details."))
+        label.show()
+        content.add(label)
+
+        self.infobar.add_button(_('Details'), Gtk.ResponseType.YES)
 
         self.infobar.show()
 
         # Hook up events
+        self.infobar.set_show_close_button(True)
         self.infobar.set_default_response(Gtk.ResponseType.CLOSE)
+
         self.infobar.connect('response',
                              self.on_bad_desktop_files_infobar_response)
 
     def configure_menu_restart_infobar(self, builder):
-        self.menu_restart_infobar = builder.get_object('menu_restart_required')
+        container = builder.get_object('infobars')
+
+        self.menu_restart_infobar = Gtk.InfoBar.new()
+        self.menu_restart_infobar.set_message_type(Gtk.MessageType.WARNING)
+        container.add(self.menu_restart_infobar)
+
+        content = self.menu_restart_infobar.get_content_area()
+
+        label = Gtk.Label.new(_("Your applications menu may need to be restarted."))
+        label.show()
+        content.add(label)
+
+        self.menu_restart_infobar.add_button(_("Restart menu..."), Gtk.ResponseType.ACCEPT)
+
+        self.menu_restart_infobar.set_show_close_button(True)
         self.menu_restart_infobar.set_default_response(Gtk.ResponseType.CLOSE)
 
-        button = builder.get_object('menu_restart_button')
-        button.connect('clicked', self.on_menu_restart_button_activate)
-
         self.menu_restart_infobar.connect('response',
-                             self.on_bad_desktop_files_infobar_response)
+                             self.on_menu_restart_infobar_response)
 
     def on_menu_restart_infobar_response(self, infobar, response_id):
-        infobar.hide()
+        if response_id == Gtk.ResponseType.CLOSE:
+            infobar.hide()
+        elif response_id == Gtk.ResponseType.ACCEPT:
+            self.on_menu_restart_button_activate(infobar)
 
     def configure_application_toolbar(self, builder):
         """Configure the application toolbar."""
@@ -729,7 +749,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         response = dialog.run()
         if response == Gtk.ResponseType.YES:
             subprocess.Popen(cmd)
-        self.menu_restart_infobar.hide()
+            self.menu_restart_infobar.hide()
         dialog.destroy()
 
 
