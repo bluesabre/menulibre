@@ -339,19 +339,17 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
 
-    def configure_headerbar(self, builder):
+    def configure_headerbar(self, builder, add_menu):
         # Configure the Add, Save, Undo, Redo, Revert, Delete widgets.
+        add_button = builder.get_object('headerbar_add')
+        add_button.set_popup(add_menu)
+
         for action_name in ['save_launcher', 'undo', 'redo',
                             'revert', 'execute', 'delete']:
             widget = builder.get_object("headerbar_%s" % action_name)
             widget.connect("clicked", self.activate_action_cb, action_name)
 
-        self.insert_action_item('add_button', builder.get_object('headerbar_add'))
-
-        for action_name in ['add_launcher', 'add_directory', 'add_separator']:
-            widget = builder.get_object('popup_%s' % action_name)
-            widget.connect('activate', self.activate_action_cb, action_name)
-            self.insert_action_item(action_name, widget)
+        self.insert_action_item('add_button', add_button)
 
         # Save
         self.save_button = builder.get_object('headerbar_save_launcher')
@@ -367,13 +365,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Configure the Test Launcher widget.
         self.execute_button = builder.get_object('headerbar_execute')
 
-        self.search_box.reparent(builder.get_object('headerbar_search'))
+        search_container = builder.get_object('headerbar_search')
+        search_container.add(self.search_box)
 
         headerbar = builder.get_object('headerbar')
         headerbar.set_title("MenuLibre")
         headerbar.set_custom_title(Gtk.Label.new())
-
-        builder.get_object("toolbar").hide()
 
         self.set_titlebar(headerbar)
         headerbar.show_all()

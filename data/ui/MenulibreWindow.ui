@@ -2,34 +2,6 @@
 <!-- Generated with glade 3.40.0 -->
 <interface>
   <requires lib="gtk+" version="3.16"/>
-  <object class="GtkMenu" id="add_popup_menu">
-    <property name="visible">True</property>
-    <property name="can-focus">False</property>
-    <child>
-      <object class="GtkMenuItem" id="popup_add_launcher">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="label" translatable="yes" comments="Translators: This option adds a new application entry to the menu.">Add _Launcher</property>
-        <property name="use-underline">True</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="popup_add_directory">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="label" translatable="yes" comments="Translators: This option adds a new directory entry to the menu.">Add _Directory</property>
-        <property name="use-underline">True</property>
-      </object>
-    </child>
-    <child>
-      <object class="GtkMenuItem" id="popup_add_separator">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="label" translatable="yes" comments="Translators: This option adds a new separator entry to the menu.">Add _Separator</property>
-        <property name="use-underline">True</property>
-      </object>
-    </child>
-  </object>
   <object class="GtkImage" id="image11">
     <property name="visible">True</property>
     <property name="can-focus">False</property>
@@ -84,7 +56,6 @@
         <property name="visible">True</property>
         <property name="can-focus">True</property>
         <property name="receives-default">True</property>
-        <property name="popup">add_popup_menu</property>
         <child>
           <object class="GtkImage">
             <property name="visible">True</property>
