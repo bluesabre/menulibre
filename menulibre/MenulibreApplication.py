@@ -33,6 +33,7 @@ from . import MenulibreTreeview, MenulibreHistory, Dialogs
 from . import MenulibreXdg, util, ParsingErrorsDialog
 from . import MenuEditor
 from .ApplicationEditor import ApplicationEditor
+from .Toolbar import Toolbar
 
 from .util import MenuItemTypes, check_keypress, getRelativeName, getRelatedKeys
 from .util import escapeText, getCurrentDesktop, getProcessList, getDefaultMenuPrefix
@@ -150,6 +151,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Initialize the GtkBuilder to get our widgets from Glade.
         builder = menulibre_lib.get_builder('MenulibreWindow')
 
+        self.action_items = dict()
+
         # Set up History
         self.history = MenulibreHistory.History()
         self.history.connect('undo-changed', self.on_undo_changed)
@@ -164,11 +167,18 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Set up the actions and toolbar
         self.configure_application_actions(builder)
 
+        add_menu = self.get_add_menu()
+
+        self.search_box = Gtk.SearchEntry.new()
+        self.search_box.set_placeholder_text(_("Search"))
+        self.search_box.set_icon_from_icon_name(Gtk.EntryIconPosition.PRIMARY, "edit-find-symbolic")
+        self.search_box.connect('icon-press', self.on_search_cleared)
+
         self.use_headerbar = headerbar_pref
         if headerbar_pref:
-            self.configure_headerbar(builder)
+            self.configure_headerbar(builder, add_menu)
         else:
-            self.configure_application_toolbar(builder)
+            self.configure_application_toolbar(builder, add_menu)
 
         self.configure_css()
 
@@ -182,6 +192,31 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.configure_application_bad_desktop_files_infobar(builder)
 
         self.configure_menu_restart_infobar(builder)
+
+    def insert_action_item(self, key, widget):
+        if key not in self.action_items.keys():
+            self.action_items[key] = []
+        self.action_items[key].append(widget)
+
+    def get_add_menu(self):
+        menu = Gtk.Menu.new()
+
+        menu_items = {
+            'add_launcher': _("Add _Launcher"),
+            'add_directory': _("Add _Directory"),
+            'add_separator': _("Add _Separator")
+        }
+
+        for action_name, label in menu_items.items():
+            item = Gtk.MenuItem.new_with_label(label)
+            item.set_use_underline(True)
+            item.connect('activate', self.activate_action_cb, action_name)
+            self.insert_action_item(action_name, item)
+            menu.append(item)
+
+        menu.show_all()
+
+        return menu
 
     def root_lockout(self):
         if root:
@@ -311,14 +346,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             widget = builder.get_object("headerbar_%s" % action_name)
             widget.connect("clicked", self.activate_action_cb, action_name)
 
-        self.action_items = dict()
-        self.action_items['add_button'] = builder.get_object('headerbar_add')
+        self.insert_action_item('add_button', builder.get_object('headerbar_add'))
 
         for action_name in ['add_launcher', 'add_directory', 'add_separator']:
-            self.action_items[action_name] = []
             widget = builder.get_object('popup_%s' % action_name)
             widget.connect('activate', self.activate_action_cb, action_name)
-            self.action_items[action_name].append(widget)
+            self.insert_action_item(action_name, widget)
 
         # Save
         self.save_button = builder.get_object('headerbar_save_launcher')
@@ -333,10 +366,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Configure the Test Launcher widget.
         self.execute_button = builder.get_object('headerbar_execute')
-
-        # Configure the search widget.
-        self.search_box = builder.get_object('search')
-        self.search_box.connect('icon-press', self.on_search_cleared)
 
         self.search_box.reparent(builder.get_object('headerbar_search'))
 
@@ -534,40 +563,62 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         elif response_id == Gtk.ResponseType.ACCEPT:
             self.on_menu_restart_button_activate(infobar)
 
-    def configure_application_toolbar(self, builder):
+    def configure_application_toolbar(self, builder, add_menu):
         """Configure the application toolbar."""
-        # Configure the Add, Save, Undo, Redo, Revert, Delete widgets.
-        for action_name in ['save_launcher', 'undo', 'redo',
-                            'revert', 'execute', 'delete']:
-            widget = builder.get_object("toolbar_%s" % action_name)
-            widget.connect("clicked", self.activate_action_cb, action_name)
+        container = builder.get_object("toolbar_container")
 
-        self.action_items = dict()
-        self.action_items['add_button'] = builder.get_object('toolbar_add')
+        toolbar = Toolbar()
+        container.add(toolbar)
 
-        for action_name in ['add_launcher', 'add_directory', 'add_separator']:
-            self.action_items[action_name] = []
-            widget = builder.get_object('popup_%s' % action_name)
-            widget.connect('activate', self.activate_action_cb, action_name)
-            self.action_items[action_name].append(widget)
+        item = toolbar.add_menu_button("list-add", add_menu)
+        self.insert_action_item('add_button', item)
 
-        # Save
-        self.save_button = builder.get_object('toolbar_save_launcher')
+        toolbar.add_separator()
 
-        # Undo/Redo/Revert
-        self.undo_button = builder.get_object('toolbar_undo')
-        self.redo_button = builder.get_object('toolbar_redo')
-        self.revert_button = builder.get_object('toolbar_revert')
+        self.save_button = toolbar.add_button("document-save", _("Save"))
+        self.save_button.connect('clicked', self.activate_action_cb, 'save_launcher')
+        self.insert_action_item('save_launcher', self.save_button)
+        self.save_button.set_sensitive(False)
 
-        # Configure the Delete widget.
-        self.delete_button = builder.get_object('toolbar_delete')
+        toolbar.add_separator()
 
-        # Configure the Test Launcher widget.
-        self.execute_button = builder.get_object('toolbar_execute')
+        self.undo_button = toolbar.add_button("edit-undo", _("Undo"))
+        self.undo_button.connect('clicked', self.activate_action_cb, 'undo')
+        self.insert_action_item('undo', self.undo_button)
+        self.undo_button.set_sensitive(False)
 
-        # Configure the search widget.
-        self.search_box = builder.get_object('search')
-        self.search_box.connect('icon-press', self.on_search_cleared)
+        self.redo_button = toolbar.add_button("edit-redo", _("Redo"))
+        self.redo_button.connect('clicked', self.activate_action_cb, 'redo')
+        self.insert_action_item('redo', self.redo_button)
+        self.redo_button.set_sensitive(False)
+
+        toolbar.add_separator()
+
+        self.revert_button = toolbar.add_button("document-revert", _("Revert"))
+        self.revert_button.connect('clicked', self.activate_action_cb, 'revert')
+        self.insert_action_item('revert', self.revert_button)
+        self.revert_button.set_sensitive(False)
+
+        toolbar.add_separator()
+
+        self.execute_button = toolbar.add_button("system-run", _("Test Launcher"))
+        self.execute_button.connect('clicked', self.activate_action_cb, 'execute')
+        self.insert_action_item('execute', self.execute_button)
+
+        toolbar.add_separator()
+
+        self.delete_button = toolbar.add_button("edit-delete", _("Delete"))
+        self.delete_button.connect('clicked', self.activate_action_cb, 'delete')
+        self.insert_action_item('delete', self.delete_button)
+        self.delete_button.set_sensitive(False)
+
+        separator = toolbar.add_separator()
+        separator.set_draw(False)
+        separator.set_expand(True)
+
+        toolbar.add_search(self.search_box)
+
+        toolbar.show_all()
 
     def configure_application_treeview(self, builder):
         """Configure the menu-browsing GtkTreeView."""
