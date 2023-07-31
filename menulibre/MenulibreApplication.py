@@ -34,6 +34,7 @@ from . import MenulibreXdg, util, ParsingErrorsDialog
 from . import MenuEditor
 from .ApplicationEditor import ApplicationEditor
 from .Toolbar import Toolbar
+from .Headerbar import Headerbar
 
 from .util import MenuItemTypes, check_keypress, getRelativeName, getRelatedKeys
 from .util import escapeText, getCurrentDesktop, getProcessList, getDefaultMenuPrefix
@@ -176,9 +177,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.use_headerbar = headerbar_pref
         if headerbar_pref:
-            self.configure_headerbar(builder, add_menu)
+            self.configure_headerbar(add_menu)
         else:
             self.configure_application_toolbar(builder, add_menu)
+
+        # Configure events for the headerbar or toolbar (they have the same setup)
+        self.connect_toolbar()
 
         self.configure_css()
 
@@ -192,6 +196,32 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.configure_application_bad_desktop_files_infobar(builder)
 
         self.configure_menu_restart_infobar(builder)
+
+    def connect_toolbar(self):
+        self.insert_action_item('add_button', self.add_button)
+
+        self.save_button.connect("clicked", self.activate_action_cb, 'save_launcher')
+        self.save_button.set_sensitive(False)
+        self.insert_action_item('save_launcher', self.save_button)
+
+        self.undo_button.connect("clicked", self.activate_action_cb, 'undo')
+        self.undo_button.set_sensitive(False)
+        self.insert_action_item('undo', self.undo_button)
+
+        self.redo_button.connect("clicked", self.activate_action_cb, 'redo')
+        self.redo_button.set_sensitive(False)
+        self.insert_action_item('redo', self.redo_button)
+
+        self.revert_button.connect("clicked", self.activate_action_cb, 'revert')
+        self.revert_button.set_sensitive(False)
+        self.insert_action_item('revert', self.revert_button)
+
+        self.execute_button.connect("clicked", self.activate_action_cb, 'execute')
+        self.insert_action_item('execute', self.execute_button)
+
+        self.delete_button.connect("clicked", self.activate_action_cb, 'delete')
+        self.delete_button.set_sensitive(False)
+        self.insert_action_item('delete', self.delete_button)
 
     def insert_action_item(self, key, widget):
         if key not in self.action_items.keys():
@@ -339,38 +369,23 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
 
-    def configure_headerbar(self, builder, add_menu):
+    def configure_headerbar(self, add_menu):
         # Configure the Add, Save, Undo, Redo, Revert, Delete widgets.
-        add_button = builder.get_object('headerbar_add')
-        add_button.set_popup(add_menu)
+        headerbar = Headerbar()
 
-        for action_name in ['save_launcher', 'undo', 'redo',
-                            'revert', 'execute', 'delete']:
-            widget = builder.get_object("headerbar_%s" % action_name)
-            widget.connect("clicked", self.activate_action_cb, action_name)
+        self.add_button = headerbar.add_menu_button("list-add-symbolic", add_menu)
+        self.save_button = headerbar.add_button("document-save-symbolic", _("Save Launcher"))
 
-        self.insert_action_item('add_button', add_button)
+        self.undo_button, self.redo_button = headerbar.add_buttons([
+            ["edit-undo-symbolic", _("Undo")],
+            ["edit-redo-symbolic", _("Redo")],
+        ])
 
-        # Save
-        self.save_button = builder.get_object('headerbar_save_launcher')
+        self.revert_button = headerbar.add_button("document-revert-symbolic", _("Revert"))
+        self.execute_button = headerbar.add_button("media-playback-start-symbolic", _("Test Launcher"))
+        self.delete_button = headerbar.add_button("edit-delete-symbolic", _("Delete"))
 
-        # Undo/Redo/Revert
-        self.undo_button = builder.get_object('headerbar_undo')
-        self.redo_button = builder.get_object('headerbar_redo')
-        self.revert_button = builder.get_object('headerbar_revert')
-
-        # Configure the Delete widget.
-        self.delete_button = builder.get_object('headerbar_delete')
-
-        # Configure the Test Launcher widget.
-        self.execute_button = builder.get_object('headerbar_execute')
-
-        search_container = builder.get_object('headerbar_search')
-        search_container.add(self.search_box)
-
-        headerbar = builder.get_object('headerbar')
-        headerbar.set_title("MenuLibre")
-        headerbar.set_custom_title(Gtk.Label.new())
+        headerbar.add_search(self.search_box)
 
         self.set_titlebar(headerbar)
         headerbar.show_all()
@@ -567,47 +582,28 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         toolbar = Toolbar()
         container.add(toolbar)
 
-        item = toolbar.add_menu_button("list-add", add_menu)
-        self.insert_action_item('add_button', item)
+        self.add_button = toolbar.add_menu_button("list-add", add_menu)
 
         toolbar.add_separator()
 
         self.save_button = toolbar.add_button("document-save", _("Save"))
-        self.save_button.connect('clicked', self.activate_action_cb, 'save_launcher')
-        self.insert_action_item('save_launcher', self.save_button)
-        self.save_button.set_sensitive(False)
 
         toolbar.add_separator()
 
         self.undo_button = toolbar.add_button("edit-undo", _("Undo"))
-        self.undo_button.connect('clicked', self.activate_action_cb, 'undo')
-        self.insert_action_item('undo', self.undo_button)
-        self.undo_button.set_sensitive(False)
-
         self.redo_button = toolbar.add_button("edit-redo", _("Redo"))
-        self.redo_button.connect('clicked', self.activate_action_cb, 'redo')
-        self.insert_action_item('redo', self.redo_button)
-        self.redo_button.set_sensitive(False)
 
         toolbar.add_separator()
 
         self.revert_button = toolbar.add_button("document-revert", _("Revert"))
-        self.revert_button.connect('clicked', self.activate_action_cb, 'revert')
-        self.insert_action_item('revert', self.revert_button)
-        self.revert_button.set_sensitive(False)
 
         toolbar.add_separator()
 
         self.execute_button = toolbar.add_button("system-run", _("Test Launcher"))
-        self.execute_button.connect('clicked', self.activate_action_cb, 'execute')
-        self.insert_action_item('execute', self.execute_button)
 
         toolbar.add_separator()
 
         self.delete_button = toolbar.add_button("edit-delete", _("Delete"))
-        self.delete_button.connect('clicked', self.activate_action_cb, 'delete')
-        self.insert_action_item('delete', self.delete_button)
-        self.delete_button.set_sensitive(False)
 
         separator = toolbar.add_separator()
         separator.set_draw(False)
