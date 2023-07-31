@@ -149,9 +149,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Initialize the Menulibre application."""
         self.root_lockout()
 
-        # Initialize the GtkBuilder to get our widgets from Glade.
-        builder = menulibre_lib.get_builder('MenulibreWindow')
-
         self.action_items = dict()
 
         # Set up History
@@ -161,12 +158,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.history.connect('revert-changed', self.on_revert_changed)
 
         # Steal the window contents for the GtkApplication.
-        self.configure_application_window(builder, app)
+        self.configure_application_window(app)
 
         self.values = dict()
 
         # Set up the actions and toolbar
-        self.configure_application_actions(builder)
+        self.configure_application_actions()
 
         add_menu = self.get_add_menu()
 
@@ -179,7 +176,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if headerbar_pref:
             self.configure_headerbar(add_menu)
         else:
-            self.configure_application_toolbar(builder, add_menu)
+            self.configure_application_toolbar(add_menu)
 
         # Configure events for the headerbar or toolbar (they have the same setup)
         self.connect_toolbar()
@@ -187,15 +184,17 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.configure_css()
 
         # Set up the application browser
-        self.configure_application_treeview(builder)
+        self.configure_application_treeview()
 
         # Determining paths of bad desktop files GMenu can't load - if some are
         # detected, alerting user via InfoBar
         self.bad_desktop_files = util.determine_bad_desktop_files()
         if self.bad_desktop_files:
-            self.configure_application_bad_desktop_files_infobar(builder)
+            self.configure_application_bad_desktop_files_infobar()
 
-        self.configure_menu_restart_infobar(builder)
+        self.configure_menu_restart_infobar()
+
+        self.show_all()
 
     def connect_toolbar(self):
         self.insert_action_item('add_button', self.add_button)
@@ -314,35 +313,31 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             pass
         return None
 
-    def configure_application_window(self, builder, app):
-        """Glade is currently unable to create a GtkApplicationWindow.  This
-        function takes the GtkWindow from the UI file and reparents the
-        contents into the Menulibre GtkApplication window, preserving the
-        window's properties.'"""
-        # Get the GtkWindow.
-        window = builder.get_object('menulibre_window')
-
-        # Back up the window properties.
-        window_title = window.get_title()
-        window_icon = window.get_icon_name()
-        window_contents = window.get_children()[0]
-        size = window.get_default_size()
-        size_request = window.get_size_request()
-        position = window.get_property("window-position")
+    def configure_application_window(self, app):
+        window_title = "MenuLibre"
 
         # Initialize the GtkApplicationWindow.
         Gtk.Window.__init__(self, title=window_title, application=app)
-        self.set_wmclass("MenuLibre", "MenuLibre")
+        self.set_wmclass(window_title, "MenuLibre")
 
         # Restore the window properties.
-        self.set_title(window_title)
-        self.set_icon_name(window_icon)
-        self.set_default_size(size[0], size[1])
-        self.set_size_request(size_request[0], size_request[1])
-        self.set_position(position)
+        self.set_title("MenuLibre")
+        self.set_icon_name("menulibre")
+        self.set_default_size(-1, 500)
+        self.set_size_request(-1, 640)
 
         # Reparent the widgets.
-        window_contents.reparent(self)
+        box = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0)
+        self.add(box)
+
+        self.toolbar_container = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0)
+        box.pack_start(self.toolbar_container, False, False, 0)
+
+        self.infobar_container = Gtk.Box.new(Gtk.Orientation.VERTICAL, 0)
+        box.pack_start(self.infobar_container, False, False, 0)
+
+        self.panes = Gtk.Paned.new(Gtk.Orientation.HORIZONTAL)
+        box.pack_start(self.panes, True, True, 0)
 
         # Connect any window-specific events.
         self.connect('key-press-event', self.on_window_keypress_event)
@@ -390,7 +385,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.set_titlebar(headerbar)
         headerbar.show_all()
 
-    def configure_application_actions(self, builder):
+    def configure_application_actions(self):
         """Configure the GtkActions that are used in the Menulibre
         application."""
         self.actions = {}
@@ -511,25 +506,22 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.actions['add_separator'].connect('activate',
                                               self.on_add_separator_cb)
         self.actions['save_launcher'].connect('activate',
-                                              self.on_save_launcher_cb,
-                                              builder)
+                                              self.on_save_launcher_cb)
         self.actions['undo'].connect('activate', self.on_undo_cb)
         self.actions['redo'].connect('activate', self.on_redo_cb)
         self.actions['revert'].connect('activate', self.on_revert_cb)
-        self.actions['execute'].connect('activate', self.on_execute_cb,
-                                        builder)
+        self.actions['execute'].connect('activate', self.on_execute_cb)
         self.actions['delete'].connect('activate', self.on_delete_cb)
         self.actions['quit'].connect('activate', self.on_quit_cb)
         self.actions['help'].connect('activate', self.on_help_cb)
         self.actions['about'].connect('activate', self.on_about_cb)
 
-    def configure_application_bad_desktop_files_infobar(self, builder):
+    def configure_application_bad_desktop_files_infobar(self):
         """Configure InfoBar to alert user to bad desktop files."""
-        container = builder.get_object('infobars')
-
         self.infobar = Gtk.InfoBar.new()
         self.infobar.set_message_type(Gtk.MessageType.WARNING)
-        container.add(self.infobar)
+        self.infobar.set_no_show_all(True)
+        self.infobar_container.add(self.infobar)
 
         content = self.infobar.get_content_area()
 
@@ -548,12 +540,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.infobar.connect('response',
                              self.on_bad_desktop_files_infobar_response)
 
-    def configure_menu_restart_infobar(self, builder):
-        container = builder.get_object('infobars')
-
+    def configure_menu_restart_infobar(self):
         self.menu_restart_infobar = Gtk.InfoBar.new()
         self.menu_restart_infobar.set_message_type(Gtk.MessageType.WARNING)
-        container.add(self.menu_restart_infobar)
+        self.menu_restart_infobar.set_no_show_all(True)
+        self.infobar_container.add(self.menu_restart_infobar)
 
         content = self.menu_restart_infobar.get_content_area()
 
@@ -575,12 +566,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         elif response_id == Gtk.ResponseType.ACCEPT:
             self.on_menu_restart_button_activate(infobar)
 
-    def configure_application_toolbar(self, builder, add_menu):
+    def configure_application_toolbar(self, add_menu):
         """Configure the application toolbar."""
-        container = builder.get_object("toolbar_container")
-
         toolbar = Toolbar()
-        container.add(toolbar)
+        self.toolbar_container.add(toolbar)
 
         self.add_button = toolbar.add_menu_button("list-add", add_menu)
 
@@ -613,30 +602,26 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         toolbar.show_all()
 
-    def configure_application_treeview(self, builder):
+    def configure_application_treeview(self):
         """Configure the menu-browsing GtkTreeView."""
-        container = builder.get_object('classic_view')
-
         self.treeview = MenulibreTreeview.Treeview(self)
         if not self.treeview.loaded:
             self.menu_load_failure()
 
-        container.add(self.treeview)
+        self.panes.add(self.treeview)
 
         self.editor = ApplicationEditor()
-        container.add(self.editor)
+        self.panes.add(self.editor)
 
         self.treeview.set_search_entry(self.search_box)
         self.search_box.connect('changed', self.on_app_search_changed, True)
         self.treeview.set_can_select_function(self.get_can_select)
         self.treeview.connect("cursor-changed",
-                              self.on_apps_browser_cursor_changed, builder)
+                              self.on_apps_browser_cursor_changed)
         self.treeview.connect("add-directory-enabled",
-                              self.on_apps_browser_add_directory_enabled,
-                              builder)
+                              self.on_apps_browser_add_directory_enabled)
         self.treeview.connect("requires-menu-reload",
-                              self.on_apps_browser_requires_menu_reload,
-                              builder)
+                              self.on_apps_browser_requires_menu_reload)
         self.treeview.reset_cursor()
 
         self.editor.connect("value-changed", self.on_smart_widget_changed)
@@ -764,7 +749,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
 
 # Applications Treeview
-    def on_apps_browser_requires_menu_reload(self, widget, required, builder):
+    def on_apps_browser_requires_menu_reload(self, widget, required):
         self.menu_restart_infobar.show()
 
 
@@ -814,7 +799,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         dialog.destroy()
 
 
-    def on_apps_browser_add_directory_enabled(self, widget, enabled, builder):
+    def on_apps_browser_add_directory_enabled(self, widget, enabled):
         """Update the Add Directory menu item when the selected row is
         changed."""
         # Always allow creating sub directories
@@ -825,7 +810,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             widget.set_sensitive(enabled)
             widget.set_tooltip_text(None)
 
-    def on_apps_browser_cursor_changed(self, widget, value, builder):  # noqa
+    def on_apps_browser_cursor_changed(self, widget, value):  # noqa
         """Update the editor frame when the selected row is changed."""
         missing = False
 
@@ -1484,7 +1469,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Add Separator callback function."""
         self.add_separator()
 
-    def on_save_launcher_cb(self, widget, builder):
+    def on_save_launcher_cb(self, widget):
         """Save Launcher callback function."""
         self.editor.commit()
         self.save_launcher()
@@ -1524,7 +1509,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 return piece
         return False
 
-    def on_execute_cb(self, widget, builder):
+    def on_execute_cb(self, widget):
         """Execute callback function."""
         self.editor.commit()
         filename = self.save_launcher(True)

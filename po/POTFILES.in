@@ -16,9 +16,6 @@
 # Desktop File
 menulibre.desktop.in
 
-# Glade Files
-[type: gettext/glade]data/ui/MenulibreWindow.ui
-
 # Python Files
 menulibre/__init__.py
 menulibre/ActionEditor.py
