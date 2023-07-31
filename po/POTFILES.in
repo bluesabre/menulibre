@@ -17,6 +17,9 @@
 menulibre.desktop.in
 
 # Python Files
+menulibre_lib/__init__.py
+menulibre_lib/helpers.py
+menulibre_lib/menulibreconfig.py
 menulibre/__init__.py
 menulibre/ActionEditor.py
 menulibre/AdvancedPage.py
@@ -25,6 +28,7 @@ menulibre/CategoryEditor.py
 menulibre/CommandEditor.py
 menulibre/Dialogs.py
 menulibre/FileHandler.py
+menulibre/FilenameLabel.py
 menulibre/Headerbar.py
 menulibre/IconEntry.py
 menulibre/MenuEditor.py
@@ -43,6 +47,7 @@ menulibre/TextEntryButton.py
 menulibre/Toolbar.py
 menulibre/util.py
 menulibre/XmlMenuElementTree.py
+setup.py
 
 # XML Files
 [type: gettext/xml]data/metainfo/menulibre.appdata.xml.in
