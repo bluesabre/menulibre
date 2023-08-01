@@ -30,7 +30,7 @@ class Toolbar(Gtk.Toolbar):
         context = self.get_style_context()
         context.add_class("primary-toolbar")
 
-    def add_menu_button(self, icon_name, menu):
+    def add_menu_button(self, icon_name, label, menu):
         item = Gtk.ToolItem.new()
 
         image = Gtk.Image.new_from_icon_name(icon_name, Gtk.IconSize.LARGE_TOOLBAR)
@@ -39,6 +39,7 @@ class Toolbar(Gtk.Toolbar):
         button = Gtk.MenuButton.new()
         button.set_popup(menu)
         button.set_relief(Gtk.ReliefStyle.NONE)
+        button.set_tooltip_text(label)
         button.add(image)
 
         context = button.get_style_context()
@@ -59,6 +60,7 @@ class Toolbar(Gtk.Toolbar):
         image.set_pixel_size(24)
 
         item = Gtk.ToolButton.new(image, label)
+        item.set_tooltip_text(label)
 
         self.add(item)
 
