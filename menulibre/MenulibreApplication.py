@@ -1055,7 +1055,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def get_value(self, key):  # noqa
         """Return the value stored for the specified key."""
-        self.editor.get_value(key)
+        return self.editor.get_value(key)
 
 # Action Functions
     def add_launcher(self):

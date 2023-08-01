@@ -383,7 +383,7 @@ class Treeview(Gtk.Box):
 
         # Refresh the displayed launcher
         self._last_selected_path = -1
-        self._on_treeview_cursor_changed(self._treeview, None, None)
+        self._on_treeview_cursor_changed(self._treeview, None)
 
 # Events
     def _on_treeview_cursor_changed(self, widget, selection):
