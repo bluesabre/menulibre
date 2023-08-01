@@ -30,13 +30,14 @@ class Headerbar(Gtk.HeaderBar):
         self.set_custom_title(Gtk.Label.new())
         self.set_show_close_button(True)
 
-    def add_menu_button(self, icon_name, menu):
+    def add_menu_button(self, icon_name, label, menu):
         image = Gtk.Image.new_from_icon_name(icon_name, Gtk.IconSize.BUTTON)
         image.set_pixel_size(16)
         image.set_property('use-fallback', True)
 
         button = Gtk.MenuButton.new()
         button.set_popup(menu)
+        button.set_tooltip_text(label)
         button.add(image)
 
         self.add(button)

@@ -368,7 +368,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Configure the Add, Save, Undo, Redo, Revert, Delete widgets.
         headerbar = Headerbar()
 
-        self.add_button = headerbar.add_menu_button("list-add-symbolic", add_menu)
+        self.add_button = headerbar.add_menu_button("list-add-symbolic", _("Add..."), add_menu)
         self.save_button = headerbar.add_button("document-save-symbolic", _("Save Launcher"))
 
         self.undo_button, self.redo_button = headerbar.add_buttons([
@@ -571,7 +571,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         toolbar = Toolbar()
         self.toolbar_container.add(toolbar)
 
-        self.add_button = toolbar.add_menu_button("list-add", add_menu)
+        self.add_button = toolbar.add_menu_button("list-add", _("Add..."), add_menu)
 
         toolbar.add_separator()
 
