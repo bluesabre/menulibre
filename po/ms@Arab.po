@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-29 07:08-0400\n"
+"POT-Creation-Date: 2023-08-01 07:00-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Yaya - Nurul Azeera Hidayah @ Muhammad Nur Hidayat Yasuyoshi (MNH48) <admin@mnh48.moe>, 2023\n"
 "Language-Team: Malay (Arabic) (https://app.transifex.com/bluesabreorg/teams/99550/ms@Arab/)\n"
@@ -28,70 +28,6 @@ msgstr "ڤڽونتيڠ مينو"
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
 msgstr "تمبه اتاو بواڠ اڤليکاسي دري مينو"
-
-#. Translators: This option adds a new application entry to the menu.
-#: ../data/ui/MenulibreWindow.ui.h:2
-msgid "Add _Launcher"
-msgstr "تمبه ڤلنچر (_L)"
-
-#. Translators: This option adds a new directory entry to the menu.
-#: ../data/ui/MenulibreWindow.ui.h:4
-msgid "Add _Directory"
-msgstr "تمبه ديريکتوري (_D)"
-
-#. Translators: This option adds a new separator entry to the menu.
-#: ../data/ui/MenulibreWindow.ui.h:6
-msgid "Add _Separator"
-msgstr "تمبه ڤميسه (_S)"
-
-#. Translators: Toolbar button to save the currently selected item.
-#: ../data/ui/MenulibreWindow.ui.h:8
-msgid "Save Launcher"
-msgstr "سيمڤن ڤلنچر"
-
-#. Translators: Save On Close Dialog, do save, then close.
-#. Translators: Save On Leave Dialog, do save, then leave.
-#. Translators: Save Launcher action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:9 ../menulibre/Dialogs.py:102
-#: ../menulibre/Dialogs.py:131 ../menulibre/MenulibreApplication.py:390
-msgid "Save"
-msgstr "سيمڤن"
-
-#. Translators: Toolbar button to undo last change to currently selected item.
-#. Translators: Undo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:11 ../menulibre/MenulibreApplication.py:399
-msgid "Undo"
-msgstr "بوات اصل"
-
-#. Translators: Toolbar button to redo the last undone change to currently
-#. selected item.
-#. Translators: Redo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:13 ../menulibre/MenulibreApplication.py:408
-msgid "Redo"
-msgstr "بوات سمولا"
-
-#. Translators: Toolbar button to revery the currently selected item to it
-#. Translators: Revert action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:15 ../menulibre/CommandEditor.py:166
-#: ../menulibre/MenulibreApplication.py:417
-msgid "Revert"
-msgstr "اوندور"
-
-#. Translators: Toolbar button to test the currently selected item.
-#: ../data/ui/MenulibreWindow.ui.h:17
-msgid "Test Launcher"
-msgstr "چوبا ڤلنچر"
-
-#. Translators: Toolbar button to delete the currently selected item.
-#. Translators: Delete action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:19 ../menulibre/MenulibreApplication.py:435
-msgid "Delete"
-msgstr "ڤادم"
-
-#. Translators: Placeholder text for the search text entry.
-#: ../data/ui/MenulibreWindow.ui.h:21
-msgid "Search"
-msgstr "ݢلينتر"
 
 #. Translators: Command line option to display debug messages on stdout
 #: ../menulibre/__init__.py:34
@@ -427,7 +363,7 @@ msgstr "WINE"
 #. Translators: "Other" category group. This item is only displayed for
 #. unknown or non-standard categories.
 #: ../menulibre/CategoryEditor.py:119 ../menulibre/CategoryEditor.py:433
-#: ../menulibre/MenulibreApplication.py:100
+#: ../menulibre/MenulibreApplication.py:102
 msgid "Other"
 msgstr "لاٴين٢"
 
@@ -1098,10 +1034,17 @@ msgid "Apply"
 msgstr "ݢونا"
 
 #. Translators: Help action tooltip
-#: ../menulibre/CommandEditor.py:90 ../menulibre/MenulibreApplication.py:453
-#: ../menulibre/MenulibreApplication.py:1636
+#: ../menulibre/CommandEditor.py:90 ../menulibre/MenulibreApplication.py:489
+#: ../menulibre/MenulibreApplication.py:1665
 msgid "Help"
 msgstr "بنتوان"
+
+#. Translators: Revert action tooltip
+#: ../menulibre/CommandEditor.py:166 ../menulibre/MenulibreApplication.py:379
+#: ../menulibre/MenulibreApplication.py:453
+#: ../menulibre/MenulibreApplication.py:587
+msgid "Revert"
+msgstr "اوندور"
 
 #: ../menulibre/CommandEditor.py:307
 msgid "A single command line may only contain one of %f, %u, %F, or %U"
@@ -1267,6 +1210,15 @@ msgstr "جک اندا تيدق سيمڤن ڤلنچر⹁ سموا ڤروبهن ي
 msgid "Don't Save"
 msgstr "جاڠن سيمڤن"
 
+#. Translators: Save On Close Dialog, do save, then close.
+#. Translators: Save On Leave Dialog, do save, then leave.
+#. Translators: Save Launcher action tooltip
+#: ../menulibre/Dialogs.py:102 ../menulibre/Dialogs.py:131
+#: ../menulibre/MenulibreApplication.py:426
+#: ../menulibre/MenulibreApplication.py:578
+msgid "Save"
+msgstr "سيمڤن"
+
 #. Translators: Save On Leave Dialog, primary text.
 #: ../menulibre/Dialogs.py:120
 msgid "Do you want to save the changes before leaving this launcher?"
@@ -1359,33 +1311,49 @@ msgid "Select an icon"
 msgstr "ڤيليه ساتو ايکون"
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:126 ../menulibre/MenulibreApplication.py:817
-#: ../menulibre/MenulibreApplication.py:1110
+#: ../menulibre/MenuEditor.py:126 ../menulibre/MenulibreApplication.py:846
+#: ../menulibre/MenulibreApplication.py:1139
 msgid "Separator"
 msgstr "ڤميسه"
+
+#: ../menulibre/MenulibreApplication.py:171
+msgid "Search"
+msgstr "ݢلينتر"
+
+#: ../menulibre/MenulibreApplication.py:234
+msgid "Add _Launcher"
+msgstr "تمبه ڤلنچر (_L)"
+
+#: ../menulibre/MenulibreApplication.py:235
+msgid "Add _Directory"
+msgstr "تمبه ديريکتوري (_D)"
+
+#: ../menulibre/MenulibreApplication.py:236
+msgid "Add _Separator"
+msgstr "تمبه ڤميسه (_S)"
 
 #. Translators: This error is displayed when the application is run
 #. as a root user. The application exits once the dialog is
 #. dismissed.
-#: ../menulibre/MenulibreApplication.py:191
+#: ../menulibre/MenulibreApplication.py:255
 msgid "MenuLibre cannot be run as root."
 msgstr "MenuLibre تيدق بوليه دجالنکن سباݢاي ڤڠݢونا اکر."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
-#: ../menulibre/MenulibreApplication.py:197
+#: ../menulibre/MenulibreApplication.py:261
 #, python-format
 msgid ""
 "Please see the <a href='%s'>online documentation</a> for more information."
 msgstr "سيلا ليهت <a href='%s'>ڤندوکومنن اتس تالين</a> اونتوق معلومت لنجوت."
 
-#: ../menulibre/MenulibreApplication.py:208
+#: ../menulibre/MenulibreApplication.py:272
 msgid "MenuLibre failed to load."
 msgstr "MenuLibre ݢاݢل دمواتکن."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
-#: ../menulibre/MenulibreApplication.py:214
+#: ../menulibre/MenulibreApplication.py:278
 #, python-format
 msgid ""
 "The default menu could not be found. Please see the <a href='%s'>online "
@@ -1394,124 +1362,164 @@ msgstr ""
 "مينو لالاي تيدق دجومڤاٴي. سيلا ليهت <a href='%s'>ڤندوکومنن دالم تالين</a> "
 "اونتوق معلومت لنجوت. "
 
-#: ../menulibre/MenulibreApplication.py:218
+#: ../menulibre/MenulibreApplication.py:282
 msgid "Diagnostics"
 msgstr "دياݢنوسيس"
 
+#: ../menulibre/MenulibreApplication.py:371
+#: ../menulibre/MenulibreApplication.py:574
+msgid "Add..."
+msgstr "تمبه..."
+
+#: ../menulibre/MenulibreApplication.py:372
+msgid "Save Launcher"
+msgstr "سيمڤن ڤلنچر"
+
+#. Translators: Undo action tooltip
+#: ../menulibre/MenulibreApplication.py:375
+#: ../menulibre/MenulibreApplication.py:435
+#: ../menulibre/MenulibreApplication.py:582
+msgid "Undo"
+msgstr "بوات اصل"
+
+#. Translators: Redo action tooltip
+#: ../menulibre/MenulibreApplication.py:376
+#: ../menulibre/MenulibreApplication.py:444
+#: ../menulibre/MenulibreApplication.py:583
+msgid "Redo"
+msgstr "بوات سمولا"
+
+#: ../menulibre/MenulibreApplication.py:380
+#: ../menulibre/MenulibreApplication.py:591
+msgid "Test Launcher"
+msgstr "چوبا ڤلنچر"
+
+#: ../menulibre/MenulibreApplication.py:381
+#: ../menulibre/MenulibreApplication.py:595
+#: ../menulibre/MenulibreApplication.py:975
+#: ../menulibre/MenulibreApplication.py:987
+msgid "Delete..."
+msgstr "ڤادم..."
+
 #. Translators: Add Launcher action label
-#: ../menulibre/MenulibreApplication.py:361
+#: ../menulibre/MenulibreApplication.py:397
 msgid "Add _Launcher…"
 msgstr "تمبه ڤلنچر… (_L)"
 
 #. Translators: Add Launcher action tooltip
-#: ../menulibre/MenulibreApplication.py:363
+#: ../menulibre/MenulibreApplication.py:399
 msgid "Add Launcher…"
 msgstr "تمبه ڤلنچر…"
 
 #. Translators: Add Directory action label
-#: ../menulibre/MenulibreApplication.py:370
+#: ../menulibre/MenulibreApplication.py:406
 msgid "Add _Directory…"
 msgstr "تمبه ديريکتوري… (_D)"
 
 #. Translators: Add Directory action tooltip
-#: ../menulibre/MenulibreApplication.py:372
+#: ../menulibre/MenulibreApplication.py:408
 msgid "Add Directory…"
 msgstr "تمبه ديريکتوري…"
 
 #. Translators: Add Separator action label
-#: ../menulibre/MenulibreApplication.py:379
+#: ../menulibre/MenulibreApplication.py:415
 msgid "_Add Separator…"
 msgstr "تمبه ڤميسه… (_A)"
 
 #. Translators: Add Separator action tooltip
-#: ../menulibre/MenulibreApplication.py:381
+#: ../menulibre/MenulibreApplication.py:417
 msgid "Add Separator…"
 msgstr "تمبه ڤميسه…"
 
 #. Translators: Save Launcher action label
-#: ../menulibre/MenulibreApplication.py:388
+#: ../menulibre/MenulibreApplication.py:424
 msgid "_Save"
 msgstr "سيمڤن (_S)"
 
 #. Translators: Undo action label
-#: ../menulibre/MenulibreApplication.py:397
+#: ../menulibre/MenulibreApplication.py:433
 msgid "_Undo"
 msgstr "بوات اصل (_U)"
 
 #. Translators: Redo action label
-#: ../menulibre/MenulibreApplication.py:406
+#: ../menulibre/MenulibreApplication.py:442
 msgid "_Redo"
 msgstr "بوات سمولا (_R)"
 
 #. Translators: Revert action label
-#: ../menulibre/MenulibreApplication.py:415
+#: ../menulibre/MenulibreApplication.py:451
 msgid "_Revert"
 msgstr "کمبالي سمولا (_R)"
 
 #. Translators: Execute action label
-#: ../menulibre/MenulibreApplication.py:424
+#: ../menulibre/MenulibreApplication.py:460
 msgid "_Execute"
 msgstr "لاکوکن (_E)"
 
 #. Translators: Execute action tooltip
-#: ../menulibre/MenulibreApplication.py:426
+#: ../menulibre/MenulibreApplication.py:462
 msgid "Execute Launcher"
 msgstr "لاکوکن ڤلنچر"
 
 #. Translators: Delete action label
-#: ../menulibre/MenulibreApplication.py:433
+#: ../menulibre/MenulibreApplication.py:469
 msgid "_Delete"
 msgstr "ڤادم (_D)"
 
+#. Translators: Delete action tooltip
+#: ../menulibre/MenulibreApplication.py:471
+msgid "Delete"
+msgstr "ڤادم"
+
 #. Translators: Quit action label
-#: ../menulibre/MenulibreApplication.py:442
+#: ../menulibre/MenulibreApplication.py:478
 msgid "_Quit"
 msgstr "کلوار (_Q)"
 
 #. Translators: Quit action tooltip
-#: ../menulibre/MenulibreApplication.py:444
-#: ../menulibre/MenulibreApplication.py:1638
+#: ../menulibre/MenulibreApplication.py:480
+#: ../menulibre/MenulibreApplication.py:1667
 msgid "Quit"
 msgstr "کلوار"
 
 #. Translators: Help action label
-#: ../menulibre/MenulibreApplication.py:451
+#: ../menulibre/MenulibreApplication.py:487
 msgid "_Contents"
 msgstr "کاندوڠن (_C)"
 
 #. Translators: About action label
-#: ../menulibre/MenulibreApplication.py:460
+#: ../menulibre/MenulibreApplication.py:496
 msgid "_About"
 msgstr "ڤريهل (_A)"
 
 #. Translators: About action tooltip
-#: ../menulibre/MenulibreApplication.py:462
-#: ../menulibre/MenulibreApplication.py:1637
+#: ../menulibre/MenulibreApplication.py:498
+#: ../menulibre/MenulibreApplication.py:1666
 msgid "About"
 msgstr "ڤريهل"
 
-#: ../menulibre/MenulibreApplication.py:495
+#: ../menulibre/MenulibreApplication.py:528
 msgid "Invalid desktop files detected! Please see details."
 msgstr "فاٴيل اتس ميجا تيدق صح دکسن! سيلا ليهت ڤرينچين."
 
-#: ../menulibre/MenulibreApplication.py:499
+#: ../menulibre/MenulibreApplication.py:532
 msgid "Details"
 msgstr "ڤرينچين"
 
-#: ../menulibre/MenulibreApplication.py:519
+#: ../menulibre/MenulibreApplication.py:551
 msgid "Your applications menu may need to be restarted."
 msgstr "مينو اڤليکاسي اندا موڠکين ڤرلو دمولاکن سمولا."
 
-#: ../menulibre/MenulibreApplication.py:523
+#: ../menulibre/MenulibreApplication.py:555
 msgid "Restart menu..."
 msgstr "مولا سمولا مينو..."
 
-#: ../menulibre/MenulibreApplication.py:745
-#: ../menulibre/MenulibreApplication.py:760
+#: ../menulibre/MenulibreApplication.py:774
+#: ../menulibre/MenulibreApplication.py:789
 msgid "Menu restart required"
 msgstr "مولا سمولا مينو دڤرلوکن"
 
-#: ../menulibre/MenulibreApplication.py:746
+#: ../menulibre/MenulibreApplication.py:775
 #, python-format
 msgid ""
 "MenuLibre can do this automatically. Do you want to run the following command?\n"
@@ -1522,7 +1530,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../menulibre/MenulibreApplication.py:761
+#: ../menulibre/MenulibreApplication.py:790
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
 "system. Please log out for you menu to update completely."
@@ -1534,46 +1542,50 @@ msgstr ""
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:965
+#: ../menulibre/MenulibreApplication.py:994
 msgid "You do not have permission to delete this file."
 msgstr "اندا تيدق ممڤوڽاٴي کأيذينن ممادم فاٴيل اين."
 
+#: ../menulibre/MenulibreApplication.py:999
+msgid "You cannot delete this file while a search is active."
+msgstr "اندا تيدق بوليه ڤادم فاٴيل اين کتيک ݢلينترن ماسيه اکتيف."
+
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1035
+#: ../menulibre/MenulibreApplication.py:1064
 msgid "New Launcher"
 msgstr "ڤلنچر بهارو"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1038 ../menulibre/MenulibreXdg.py:50
+#: ../menulibre/MenulibreApplication.py:1067 ../menulibre/MenulibreXdg.py:50
 msgid "A small descriptive blurb about this application."
 msgstr "بلورب کترڠن کچيل مڠناٴي اڤليکاسي اين."
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1088
+#: ../menulibre/MenulibreApplication.py:1117
 msgid "New Directory"
 msgstr "ديريکتوري بهارو"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1091
+#: ../menulibre/MenulibreApplication.py:1120
 msgid "A small descriptive blurb about this directory."
 msgstr "بلورب کترڠن کچيل مڠناٴي ديريکتوري اين."
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:1512
+#: ../menulibre/MenulibreApplication.py:1541
 msgid "Are you sure you want to delete this separator?"
 msgstr "اداکه اندا ايڠين ممادم ڤميسه اين؟"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:1516
+#: ../menulibre/MenulibreApplication.py:1545
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "اداکه اندا ايڠين ممادم \"%s\"؟"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:1631
+#: ../menulibre/MenulibreApplication.py:1660
 msgid "Parsing Error Log"
 msgstr "لوݢ رالت ڤڠهوراين"
 
