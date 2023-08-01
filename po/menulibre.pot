@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-01 06:32-0400\n"
+"POT-Creation-Date: 2023-08-01 06:48-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1372,11 +1372,11 @@ msgstr ""
 msgid "Test Launcher"
 msgstr ""
 
-#. Translators: Delete action tooltip
 #: ../menulibre/MenulibreApplication.py:381
-#: ../menulibre/MenulibreApplication.py:471
 #: ../menulibre/MenulibreApplication.py:595
-msgid "Delete"
+#: ../menulibre/MenulibreApplication.py:975
+#: ../menulibre/MenulibreApplication.py:987
+msgid "Delete..."
 msgstr ""
 
 #. Translators: Add Launcher action label
@@ -1442,6 +1442,11 @@ msgstr ""
 #. Translators: Delete action label
 #: ../menulibre/MenulibreApplication.py:469
 msgid "_Delete"
+msgstr ""
+
+#. Translators: Delete action tooltip
+#: ../menulibre/MenulibreApplication.py:471
+msgid "Delete"
 msgstr ""
 
 #. Translators: Quit action label
@@ -1512,6 +1517,10 @@ msgstr ""
 #. selected file.
 #: ../menulibre/MenulibreApplication.py:994
 msgid "You do not have permission to delete this file."
+msgstr ""
+
+#: ../menulibre/MenulibreApplication.py:999
+msgid "You cannot delete this file while a search is active."
 msgstr ""
 
 #. Translators: Placeholder text for a newly created launcher.
