@@ -28,7 +28,7 @@ class FilenameLabel(Gtk.Label):
 
     def __init__(self):
         super().__init__()
-        self._value = ""
+        self._value = None
 
         self.set_ellipsize(Pango.EllipsizeMode.MIDDLE)
         self.set_xalign(0.0)
@@ -39,10 +39,13 @@ class FilenameLabel(Gtk.Label):
         self.set_attributes(attributes)
 
     def set_value(self, value):
-        if value is None:
-            value = ""
-        self.set_text(value)
-        self.set_tooltip_text(value)
+        if value is None or value == "":
+            value = None
+            text = ""
+        else:
+            text = value
+        self.set_text(text)
+        self.set_tooltip_text(text)
         self._value = value
         self.emit('value-changed', 'Filename', self._value)
 
