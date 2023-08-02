@@ -280,5 +280,8 @@ class ApplicationEditor(Gtk.Box):
         self._name_entry.commit()
         self._comment_entry.commit()
 
+    def take_focus(self):
+        self._icon_entry.grab_focus()
+
     def _on_changed(self, widget, key, value):
         self.emit('value-changed', key, value)

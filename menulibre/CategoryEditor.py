@@ -589,10 +589,12 @@ class CategoryEditor(Gtk.Box):
         return [name]
 
     def insert_required_categories(self, parent_directory):
+        self._row_change_inhibit = True
         current_categories = self._get_categories()
         for category in self._get_required_categories(parent_directory):
             if category not in current_categories:
                 self._append(category)
+        self._row_change_inhibit = False
 
     def _on_row_changed(self, model, path, treeiter):
         if self._row_change_singleton:

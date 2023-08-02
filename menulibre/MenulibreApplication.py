@@ -1111,6 +1111,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.actions['save_launcher'].set_sensitive(True)
         self.save_button.set_sensitive(True)
 
+        self.editor.take_focus()
+
     def add_directory(self):
         """Add Directory callback function."""
         # Translators: Placeholder text for a newly created directory.
@@ -1131,6 +1133,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.actions['save_launcher'].set_sensitive(True)
         self.save_button.set_sensitive(True)
+
+        self.editor.take_focus()
 
     def add_separator(self):
         """Add Separator callback function."""
