@@ -36,7 +36,8 @@ class Headerbar(Gtk.HeaderBar):
         image.set_property('use-fallback', True)
 
         button = Gtk.MenuButton.new()
-        button.set_popup(menu)
+        button.set_menu_model(menu)
+        button.set_use_popover(True)
         button.set_tooltip_text(label)
         button.add(image)
 

@@ -37,7 +37,8 @@ class Toolbar(Gtk.Toolbar):
         image.set_pixel_size(24)
 
         button = Gtk.MenuButton.new()
-        button.set_popup(menu)
+        button.set_menu_model(menu)
+        button.set_use_popover(False)
         button.set_relief(Gtk.ReliefStyle.NONE)
         button.set_tooltip_text(label)
         button.add(image)

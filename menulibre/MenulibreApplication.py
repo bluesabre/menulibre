@@ -142,7 +142,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         'help': (GObject.SIGNAL_RUN_FIRST, GObject.TYPE_NONE,
                  (GObject.TYPE_BOOLEAN,)),
         'quit': (GObject.SIGNAL_RUN_FIRST, GObject.TYPE_NONE,
-                 (GObject.TYPE_BOOLEAN,))
+                 (GObject.TYPE_BOOLEAN,)),
+        'action-enabled': (GObject.SignalFlags.RUN_FIRST, GObject.TYPE_NONE,
+                 (GObject.TYPE_STRING, GObject.TYPE_BOOLEAN,)),
     }
 
     def __init__(self, app, headerbar_pref=True):
@@ -228,22 +230,16 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.action_items[key].append(widget)
 
     def get_add_menu(self):
-        menu = Gtk.Menu.new()
+        menu = Gio.Menu.new()
 
         menu_items = {
-            'add_launcher': _("Add _Launcher"),
-            'add_directory': _("Add _Directory"),
-            'add_separator': _("Add _Separator")
+            'app.add_launcher': _("Add _Launcher"),
+            'app.add_directory': _("Add _Directory"),
+            'app.add_separator': _("Add _Separator")
         }
 
         for action_name, label in menu_items.items():
-            item = Gtk.MenuItem.new_with_label(label)
-            item.set_use_underline(True)
-            item.connect('activate', self.activate_action_cb, action_name)
-            self.insert_action_item(action_name, item)
-            menu.append(item)
-
-        menu.show_all()
+            menu.append(label, action_name)
 
         return menu
 
@@ -668,6 +664,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.revert_button.set_sensitive(enabled)
         self.save_button.set_sensitive(enabled)
         self.actions['save_launcher'].set_sensitive(enabled)
+        self.emit('action-enabled', 'save_launcher', enabled)
 
 # Generic Treeview functions
     def treeview_add(self, treeview, row_data):
@@ -806,9 +803,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         enabled = True
 
         self.actions['add_directory'].set_sensitive(enabled)
-        for widget in self.action_items['add_directory']:
-            widget.set_sensitive(enabled)
-            widget.set_tooltip_text(None)
+        self.emit('action-enabled', 'add_directory', enabled)
 
     def on_apps_browser_cursor_changed(self, widget, value):  # noqa
         """Update the editor frame when the selected row is changed."""
@@ -943,10 +938,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # Enable add functionality
             for name in ['add_launcher', 'add_directory', 'add_separator',
                          'add_button']:
-                for widget in self.action_items[name]:
-                    widget.set_sensitive(True)
+                if name in self.action_items:
+                    for widget in self.action_items[name]:
+                        widget.set_sensitive(True)
                 if name in self.actions:
                     self.actions[name].set_sensitive(True)
+                    self.emit('action-enabled', name, True)
 
             # Enable deletion (LP: #1751616)
             #self.delete_button.set_sensitive(True)
@@ -963,10 +960,12 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # Disable add functionality
             for name in ['add_launcher', 'add_directory', 'add_separator',
                          'add_button']:
-                for widget in self.action_items[name]:
-                    widget.set_sensitive(False)
+                if name in self.action_items:
+                    for widget in self.action_items[name]:
+                        widget.set_sensitive(False)
                 if name in self.actions:
                     self.actions[name].set_sensitive(False)
+                    self.emit('action-enabled', name, False)
 
             # Rerun the filter.
             self.treeview.search(self.search_box.get_text())
@@ -1110,6 +1109,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.editor.insert_required_categories(parent_directory)
 
         self.actions['save_launcher'].set_sensitive(True)
+        self.emit('action-enabled', 'save_launcher', True)
         self.save_button.set_sensitive(True)
 
         self.editor.take_focus()
@@ -1133,6 +1133,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.treeview.append(row_data)
 
         self.actions['save_launcher'].set_sensitive(True)
+        self.emit('action-enabled', 'save_launcher', True)
         self.save_button.set_sensitive(True)
 
         self.editor.take_focus()
@@ -1691,6 +1692,18 @@ class Application(Gtk.Application):
         quit_action.connect("activate", self.quit_cb)
         self.add_action(quit_action)
 
+        add_launcher_action = Gio.SimpleAction.new("add_launcher", None)
+        add_launcher_action.connect("activate", self.action_cb, "add_launcher")
+        self.add_action(add_launcher_action)
+
+        add_directory_action = Gio.SimpleAction.new("add_directory", None)
+        add_directory_action.connect("activate", self.action_cb, "add_directory")
+        self.add_action(add_directory_action)
+
+        add_separator_action = Gio.SimpleAction.new("add_separator", None)
+        add_separator_action.connect("activate", self.action_cb, "add_separator")
+        self.add_action(add_separator_action)
+
     def bad_files_cb(self, widget, data=None):
         """Bad desktop files detection callback function."""
 
@@ -1713,3 +1726,6 @@ class Application(Gtk.Application):
     def quit_cb(self, widget, data=None):
         """Signal handler for closing the MenulibreWindow."""
         self.quit()
+
+    def action_cb(self, widget, data=None, action_name=None):
+        self.win.activate_action_cb(None, action_name)
