@@ -847,6 +847,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.set_value('Comment', "", store=True)
             self.set_value('Filename', None, store=True)
             self.set_value('Type', 'Separator', store=True)
+            self.execute_button.set_sensitive(False)
 
         # Otherwise, show the editor and update the values.
         else:
