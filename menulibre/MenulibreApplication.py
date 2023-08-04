@@ -1720,7 +1720,7 @@ class Application(Gtk.Application):
 
     def about_cb(self, widget, data=None):
         """About callback function.  Display the AboutDialog."""
-        dialog = Dialogs.AboutDialog(self.win)
+        dialog = Dialogs.AboutDialog(self.win, self.win.use_headerbar)
         dialog.show()
 
     def quit_cb(self, widget, data=None):
