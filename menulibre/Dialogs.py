@@ -184,7 +184,7 @@ class RevertDialog(Gtk.MessageDialog):
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.QUESTION,
                                    buttons=Gtk.ButtonsType.NONE,
-                                   text=primary, use_header_bar=use_headerbar)
+                                   text=primary, use_header_bar=False)
         self.set_title(title)
         self.format_secondary_markup(secondary)
         for button in buttons:
@@ -192,7 +192,7 @@ class RevertDialog(Gtk.MessageDialog):
 
 
 class LauncherRemovedDialog(Gtk.MessageDialog):
-    def __init__(self, parent):
+    def __init__(self, parent, use_headerbar):
         # Translators: Launcher Removed Dialog, primary text. Indicates that
         # the selected application is no longer installed.
         primary = _("No Longer Installed")
@@ -203,7 +203,7 @@ class LauncherRemovedDialog(Gtk.MessageDialog):
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.INFO,
                                    buttons=Gtk.ButtonsType.OK,
-                                   text=primary)
+                                   text=primary, use_header_bar=False)
         self.format_secondary_markup(secondary)
 
 

@@ -891,7 +891,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             else:
                 # Display a dialog saying this item is missing
-                dialog = Dialogs.LauncherRemovedDialog(self)
+                dialog = Dialogs.LauncherRemovedDialog(self, self.use_headerbar)
                 dialog.run()
                 dialog.destroy()
                 # Mark this item as missing to delete it later.
