@@ -165,7 +165,7 @@ class DeleteDialog(Gtk.MessageDialog):
 
 
 class RevertDialog(Gtk.MessageDialog):
-    def __init__(self, parent):
+    def __init__(self, parent, use_headerbar):
         # Translators: Revert Dialog, window title.
         title = _("Restore Launcher")
         # Translators: Revert Dialog, primary text. Confirmation to revert
@@ -184,7 +184,7 @@ class RevertDialog(Gtk.MessageDialog):
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.QUESTION,
                                    buttons=Gtk.ButtonsType.NONE,
-                                   text=primary)
+                                   text=primary, use_header_bar=use_headerbar)
         self.set_title(title)
         self.format_secondary_markup(secondary)
         for button in buttons:
