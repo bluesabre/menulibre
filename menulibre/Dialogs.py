@@ -227,7 +227,7 @@ class NotFoundInPathDialog(Gtk.MessageDialog):
 
 
 class SaveErrorDialog(Gtk.MessageDialog):
-    def __init__(self, parent, filename):
+    def __init__(self, parent, filename, use_headerbar):
         # Translators: Save Error Dialog, primary text.
         primary = _("Failed to save \"%s\".") % filename
         # Translators: Save Error Dialog, secondary text.
@@ -237,7 +237,7 @@ class SaveErrorDialog(Gtk.MessageDialog):
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.ERROR,
                                    buttons=Gtk.ButtonsType.OK,
-                                   text=primary)
+                                   text=primary, use_header_bar=False)
         self.format_secondary_markup(secondary)
         self.connect("response", self.response_cb)
 
