@@ -28,7 +28,7 @@ from .TextEntry import TextEntry
 
 
 class StartupWmClassEntry(TextEntry):
-    def __init__(self, property_name):
+    def __init__(self, property_name, use_headerbar):
         super().__init__(property_name=property_name)
 
         xprop = GLib.find_program_in_path("xprop")
@@ -40,10 +40,10 @@ class StartupWmClassEntry(TextEntry):
                 _('Identify Window')
             )
             self.connect(
-                'icon-press', self._on_icon_press, xprop)
+                'icon-press', self._on_icon_press, xprop, use_headerbar)
             
-    def _on_icon_press(self, entry, icon, event, xprop):
-        dialog = XpropWindowDialog(self.get_toplevel(), xprop)
+    def _on_icon_press(self, entry, icon, event, xprop, use_headerbar):
+        dialog = XpropWindowDialog(self.get_toplevel(), xprop, use_headerbar)
         wm_classes = dialog.run_xprop()
         current = entry.get_text()
         for wm_class in wm_classes:
@@ -52,7 +52,7 @@ class StartupWmClassEntry(TextEntry):
                 return
 
 class XpropWindowDialog(Gtk.MessageDialog):
-    def __init__(self, parent, xprop_binary):
+    def __init__(self, parent, xprop_binary, use_headerbar):
         # Translators: Identify Window Dialog, primary text.
         primary = _("Identify Window")
         # Translators: Identify Window Dialog, secondary text. The selected
@@ -62,7 +62,7 @@ class XpropWindowDialog(Gtk.MessageDialog):
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.INFO,
                                    buttons=Gtk.ButtonsType.OK,
-                                   text=primary)
+                                   text=primary, use_header_bar=False)
         self.format_secondary_markup(secondary)
 
         self.binary = xprop_binary
