@@ -59,36 +59,40 @@ class AboutDialog(Gtk.AboutDialog):
         widget.destroy()
 
 
-def HelpDialog(parent):
-    # Translators: Help Dialog, window title.
-    title = _("Online Documentation")
-    # Translators: Help Dialog, primary text.
-    primary = _("Do you want to read the MenuLibre manual online?")
-    # Translators: Help Dialog, secondary text.
-    secondary = _("You will be redirected to the documentation website "
-                  "where the help pages are maintained.")
-    buttons = [
-        # Translators: Help Dialog, cancel button.
-        (_("Cancel"), Gtk.ResponseType.CANCEL),
-        # Translators: Help Dialog, confirmation button. Navigates to
-        # online documentation.
-        (_("Read Online"), Gtk.ResponseType.OK)
-    ]
-    url = "https://github.com/bluesabre/menulibre/wiki"
+class HelpDialog(Gtk.MessageDialog):
+    def __init__(self, parent, use_headerbar):
+        # Translators: Help Dialog, window title.
+        title = _("Online Documentation")
+        # Translators: Help Dialog, primary text.
+        primary = _("Do you want to read the MenuLibre manual online?")
+        # Translators: Help Dialog, secondary text.
+        secondary = _("You will be redirected to the documentation website "
+                    "where the help pages are maintained.")
+        buttons = [
+            # Translators: Help Dialog, cancel button.
+            (_("Cancel"), Gtk.ResponseType.CANCEL),
+            # Translators: Help Dialog, confirmation button. Navigates to
+            # online documentation.
+            (_("Read Online"), Gtk.ResponseType.OK)
+        ]
 
-    dialog = Gtk.MessageDialog(transient_for=parent, modal=True,
-                               message_type=Gtk.MessageType.QUESTION,
-                               buttons=Gtk.ButtonsType.NONE,
-                               text=primary)
-    dialog.set_title(title)
-    dialog.format_secondary_markup(secondary)
-    for button in buttons:
-        dialog.add_button(button[0], button[1])
+        Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
+                                   message_type=Gtk.MessageType.QUESTION,
+                                   buttons=Gtk.ButtonsType.NONE,
+                                   text=primary, use_header_bar=False)
+        self.set_title(title)
+        self.format_secondary_markup(secondary)
+        for button in buttons:
+            self.add_button(button[0], button[1])
 
-    if dialog.run() == Gtk.ResponseType.OK:
-        logger.debug("Navigating to help page, %s" % url)
-        menulibre_lib.show_uri(parent, url)
-    dialog.destroy()
+        self.connect("response", self.response_cb)
+
+    def response_cb(self, widget, response):
+        if response == Gtk.ResponseType.OK:
+            url = "https://github.com/bluesabre/menulibre/wiki"
+            logger.debug("Navigating to help page, %s" % url)
+            menulibre_lib.show_uri(self.get_transient_for(), url)
+        widget.destroy()
 
 
 class SaveOnCloseDialog(Gtk.MessageDialog):
