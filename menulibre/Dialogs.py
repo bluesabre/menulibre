@@ -28,8 +28,8 @@ logger = logging.getLogger('menulibre')
 
 
 class AboutDialog(Gtk.AboutDialog):
-    def __init__(self, parent):
-        Gtk.AboutDialog.__init__(self)
+    def __init__(self, parent, use_headerbar):
+        Gtk.AboutDialog.__init__(self, use_header_bar=use_headerbar)
         authors = ["Sean Davis"]
         documenters = ["Sean Davis"]
 
@@ -46,6 +46,13 @@ class AboutDialog(Gtk.AboutDialog):
         # Connect the signal to destroy the AboutDialog when Close is clicked.
         self.connect("response", self.about_close_cb)
         self.set_transient_for(parent)
+
+        # Fix weird bug with duplicate buttons
+        if use_headerbar:
+            headerbar = self.get_header_bar()
+            for child in headerbar.get_children():
+                if isinstance(child, Gtk.Button):
+                    child.destroy()
 
     def about_close_cb(self, widget, response):
         """Destroy the AboutDialog when it is closed."""

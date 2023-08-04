@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-03 07:23-0400\n"
+"POT-Creation-Date: 2023-08-04 05:50-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1006,9 +1006,9 @@ msgstr ""
 #. Translators: Save On Leave Dialog, don't save, cancel leave.
 #. Translators: Revert Dialog, cancel button.
 #. Translators: File Chooser Dialog, cancel button.
-#: ../menulibre/CommandEditor.py:35 ../menulibre/Dialogs.py:65
-#: ../menulibre/Dialogs.py:100 ../menulibre/Dialogs.py:129
-#: ../menulibre/Dialogs.py:168 ../menulibre/IconEntry.py:157
+#: ../menulibre/CommandEditor.py:35 ../menulibre/Dialogs.py:72
+#: ../menulibre/Dialogs.py:107 ../menulibre/Dialogs.py:136
+#: ../menulibre/Dialogs.py:175 ../menulibre/IconEntry.py:157
 #: ../menulibre/IconEntry.py:177 ../menulibre/PathEntry.py:73
 msgid "Cancel"
 msgstr ""
@@ -1149,17 +1149,17 @@ msgid "About MenuLibre"
 msgstr ""
 
 #. Translators: Help Dialog, window title.
-#: ../menulibre/Dialogs.py:57
+#: ../menulibre/Dialogs.py:64
 msgid "Online Documentation"
 msgstr ""
 
 #. Translators: Help Dialog, primary text.
-#: ../menulibre/Dialogs.py:59
+#: ../menulibre/Dialogs.py:66
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr ""
 
 #. Translators: Help Dialog, secondary text.
-#: ../menulibre/Dialogs.py:61
+#: ../menulibre/Dialogs.py:68
 msgid ""
 "You will be redirected to the documentation website where the help pages are "
 "maintained."
@@ -1167,67 +1167,67 @@ msgstr ""
 
 #. Translators: Help Dialog, confirmation button. Navigates to
 #. online documentation.
-#: ../menulibre/Dialogs.py:68
+#: ../menulibre/Dialogs.py:75
 msgid "Read Online"
 msgstr ""
 
 #. Translators: Save On Close Dialog, window title.
 #. Translators: Save On Leave Dialog, window title.
-#: ../menulibre/Dialogs.py:90 ../menulibre/Dialogs.py:118
+#: ../menulibre/Dialogs.py:97 ../menulibre/Dialogs.py:125
 msgid "Save Changes"
 msgstr ""
 
 #. Translators: Save On Close Dialog, primary text.
-#: ../menulibre/Dialogs.py:92
+#: ../menulibre/Dialogs.py:99
 msgid "Do you want to save the changes before closing?"
 msgstr ""
 
 #. Translators: Save On Close Dialog, secondary text.
 #. Translators: Save On Leave Dialog, primary text.
-#: ../menulibre/Dialogs.py:94 ../menulibre/Dialogs.py:123
+#: ../menulibre/Dialogs.py:101 ../menulibre/Dialogs.py:130
 msgid "If you don't save the launcher, all the changes will be lost."
 msgstr ""
 
 #. Translators: Save On Close Dialog, don't save, then close.
 #. Translators: Save On Leave Dialog, don't save, then leave.
-#: ../menulibre/Dialogs.py:98 ../menulibre/Dialogs.py:127
+#: ../menulibre/Dialogs.py:105 ../menulibre/Dialogs.py:134
 msgid "Don't Save"
 msgstr ""
 
 #. Translators: Save On Close Dialog, do save, then close.
 #. Translators: Save On Leave Dialog, do save, then leave.
 #. Translators: Save Launcher action tooltip
-#: ../menulibre/Dialogs.py:102 ../menulibre/Dialogs.py:131
+#: ../menulibre/Dialogs.py:109 ../menulibre/Dialogs.py:138
 #: ../menulibre/MenulibreApplication.py:422
 #: ../menulibre/MenulibreApplication.py:574
 msgid "Save"
 msgstr ""
 
 #. Translators: Save On Leave Dialog, primary text.
-#: ../menulibre/Dialogs.py:120
+#: ../menulibre/Dialogs.py:127
 msgid "Do you want to save the changes before leaving this launcher?"
 msgstr ""
 
 #. Translations: Delete Dialog, secondary text. Notifies user that
 #. the file cannot be restored once deleted.
-#: ../menulibre/Dialogs.py:148
+#: ../menulibre/Dialogs.py:155
 msgid "This cannot be undone."
 msgstr ""
 
 #. Translators: Revert Dialog, window title.
 #. Translators: Revert Dialog, confirmation button.
-#: ../menulibre/Dialogs.py:159 ../menulibre/Dialogs.py:170
+#: ../menulibre/Dialogs.py:166 ../menulibre/Dialogs.py:177
 msgid "Restore Launcher"
 msgstr ""
 
 #. Translators: Revert Dialog, primary text. Confirmation to revert
 #. all changes since the last file save.
-#: ../menulibre/Dialogs.py:162
+#: ../menulibre/Dialogs.py:169
 msgid "Are you sure you want to restore this launcher?"
 msgstr ""
 
 #. Translators: Revert Dialog, secondary text.
-#: ../menulibre/Dialogs.py:164
+#: ../menulibre/Dialogs.py:171
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
@@ -1235,12 +1235,12 @@ msgstr ""
 
 #. Translators: Launcher Removed Dialog, primary text. Indicates that
 #. the selected application is no longer installed.
-#: ../menulibre/Dialogs.py:187
+#: ../menulibre/Dialogs.py:194
 msgid "No Longer Installed"
 msgstr ""
 
 #. Translators: Launcher Removed Dialog, secondary text.
-#: ../menulibre/Dialogs.py:189
+#: ../menulibre/Dialogs.py:196
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -1248,19 +1248,19 @@ msgstr ""
 
 #. Translators: Not Found In PATH Dialog, primary text. Indicates
 #. that the provided script was not found in any PATH directory.
-#: ../menulibre/Dialogs.py:203
+#: ../menulibre/Dialogs.py:210
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr ""
 
 #. Translators: Save Error Dialog, primary text.
-#: ../menulibre/Dialogs.py:221
+#: ../menulibre/Dialogs.py:228
 #, python-format
 msgid "Failed to save \"%s\"."
 msgstr ""
 
 #. Translators: Save Error Dialog, secondary text.
-#: ../menulibre/Dialogs.py:224
+#: ../menulibre/Dialogs.py:231
 msgid "Do you have write permission to the file and directory?"
 msgstr ""
 
