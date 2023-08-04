@@ -1528,7 +1528,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             GObject.timeout_add(2000, self.on_execute_timeout, filename)
         else:
             os.remove(filename)
-            dlg = Dialogs.NotFoundInPathDialog(self, command)
+            dlg = Dialogs.NotFoundInPathDialog(self, command, self.use_headerbar)
             dlg.run()
 
     def on_execute_timeout(self, filename):
