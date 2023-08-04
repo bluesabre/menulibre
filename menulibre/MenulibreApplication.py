@@ -259,7 +259,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                           "for more information.") % docs_url
 
             dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
-                                       Gtk.ButtonsType.CLOSE, primary)
+                                       Gtk.ButtonsType.CLOSE, primary, use_header_bar=False)
             dialog.format_secondary_markup(secondary)
             dialog.run()
             sys.exit(1)
@@ -282,7 +282,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             secondary += "\n<b>%s</b>: %s" % (k, v)
 
         dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
-                                    Gtk.ButtonsType.CLOSE, primary)
+                                    Gtk.ButtonsType.CLOSE, primary, use_header_bar=False)
         dialog.format_secondary_markup(secondary)
 
         label = self.find_secondary_label(dialog)
@@ -773,7 +773,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                       "Do you want to run the following command?\n\n%s") % user_cmd
 
         dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
-                                    Gtk.ButtonsType.YES_NO, primary)
+                                    Gtk.ButtonsType.YES_NO, primary, use_header_bar=False)
         dialog.format_secondary_markup(secondary)
         response = dialog.run()
         if response == Gtk.ResponseType.YES:
@@ -789,7 +789,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                       "Please log out for you menu to update completely.")
 
         dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
-                                    Gtk.ButtonsType.CLOSE, primary)
+                                    Gtk.ButtonsType.CLOSE, primary, use_header_bar=False)
         dialog.format_secondary_markup(secondary)
         dialog.run()
         self.menu_restart_infobar.hide()
