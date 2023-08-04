@@ -606,7 +606,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.panes.add(self.treeview)
 
-        self.editor = ApplicationEditor()
+        self.editor = ApplicationEditor(use_headerbar=self.use_headerbar)
         self.panes.add(self.editor)
 
         self.treeview.set_search_entry(self.search_box)

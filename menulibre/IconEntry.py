@@ -29,7 +29,7 @@ class IconEntry(Gtk.MenuButton):
         'value-changed': (GObject.SignalFlags.RUN_FIRST, None, (str, str,)),
     }
 
-    def __init__(self):
+    def __init__(self, use_headerbar):
         super().__init__()
 
         self._value = ""
@@ -38,11 +38,11 @@ class IconEntry(Gtk.MenuButton):
         self.set_popup(menu)
 
         item = Gtk.MenuItem.new_with_label(_("Browse Icons…"))
-        item.connect("activate", self._on_browse_icons_clicked)
+        item.connect("activate", self._on_browse_icons_clicked, use_headerbar)
         menu.append(item)
 
         item = Gtk.MenuItem.new_with_label(_("Browse Files…"))
-        item.connect("activate", self._on_browse_files_clicked)
+        item.connect("activate", self._on_browse_files_clicked, use_headerbar)
         menu.append(item)
 
         menu.show_all()
@@ -63,8 +63,8 @@ class IconEntry(Gtk.MenuButton):
         overlay.add_overlay(self._overlay_image)
         overlay.set_overlay_pass_through(self._overlay_image, True)
 
-    def _on_browse_icons_clicked(self, widget):
-        dialog = IconSelectionDialog(self.get_toplevel(), "", False)
+    def _on_browse_icons_clicked(self, widget, use_headerbar):
+        dialog = IconSelectionDialog(self.get_toplevel(), "", use_headerbar)
         response = dialog.run()
 
         if response == Gtk.ResponseType.OK:
@@ -72,8 +72,8 @@ class IconEntry(Gtk.MenuButton):
 
         dialog.destroy()
 
-    def _on_browse_files_clicked(self, widget):
-        dialog = IconFileSelectionDialog(self.get_toplevel(), "", False)
+    def _on_browse_files_clicked(self, widget, use_headerbar):
+        dialog = IconFileSelectionDialog(self.get_toplevel(), "", use_headerbar)
         response = dialog.run()
 
         if response == Gtk.ResponseType.OK:
