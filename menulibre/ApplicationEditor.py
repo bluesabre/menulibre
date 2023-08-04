@@ -179,7 +179,7 @@ class ApplicationEditor(Gtk.Box):
                                             'actions', _('Actions'))
     
         # Advanced Settings
-        self._advanced_page = AdvancedPage()
+        self._advanced_page = AdvancedPage(use_headerbar=use_headerbar)
         self._advanced_page.connect("value-changed", self._on_changed)
         self._additional_settings.add_child(self._advanced_page,
                                             # Translators: "Advanced" launcher section

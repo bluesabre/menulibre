@@ -32,7 +32,7 @@ class AdvancedPage(Gtk.ScrolledWindow):
         'value-changed': (GObject.SignalFlags.RUN_FIRST, None, (str, str,)),
     }
 
-    def __init__(self):
+    def __init__(self, use_headerbar):
         super().__init__(hadjustment=None, vadjustment=None)
 
         self._row_index = 0
@@ -84,7 +84,7 @@ class AdvancedPage(Gtk.ScrolledWindow):
         self._add_row('StartupWMClass',
                       _("Startup WM Class"), 
                       _('If specified, the application will be requested to use the string as a WM class or a WM name hint at least in one window.'),
-                      StartupWmClassEntry('StartupWMClass'))
+                      StartupWmClassEntry('StartupWMClass', use_headerbar=use_headerbar))
         
         self._add_row('Implements',
                       _("Implements"), 
