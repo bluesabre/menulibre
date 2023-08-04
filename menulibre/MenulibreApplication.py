@@ -1716,7 +1716,8 @@ class Application(Gtk.Application):
 
     def help_cb(self, widget, data=None):
         """Help callback function."""
-        Dialogs.HelpDialog(self.win)
+        dialog = Dialogs.HelpDialog(self.win, self.win.use_headerbar)
+        dialog.show()
 
     def about_cb(self, widget, data=None):
         """About callback function.  Display the AboutDialog."""
