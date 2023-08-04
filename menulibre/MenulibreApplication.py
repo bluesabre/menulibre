@@ -1551,7 +1551,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             question = _("Are you sure you want to delete \"%s\"?") % name
             delete_func = self.delete_launcher
 
-        dialog = Dialogs.DeleteDialog(self, question)
+        dialog = Dialogs.DeleteDialog(self, question, self.use_headerbar)
 
         # Run
         if dialog.run() == Gtk.ResponseType.OK:

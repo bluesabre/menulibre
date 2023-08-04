@@ -153,14 +153,14 @@ class SaveOnLeaveDialog(Gtk.MessageDialog):
 
 
 class DeleteDialog(Gtk.MessageDialog):
-    def __init__(self, parent, primary):
+    def __init__(self, parent, primary, use_headerbar):
         # Translations: Delete Dialog, secondary text. Notifies user that
         # the file cannot be restored once deleted.
         secondary = _("This cannot be undone.")
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.QUESTION,
                                    buttons=Gtk.ButtonsType.OK_CANCEL,
-                                   text=primary)
+                                   text=primary, use_header_bar=False)
         self.format_secondary_markup(secondary)
 
 
