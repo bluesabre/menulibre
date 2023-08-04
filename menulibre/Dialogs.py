@@ -208,7 +208,7 @@ class LauncherRemovedDialog(Gtk.MessageDialog):
 
 
 class NotFoundInPathDialog(Gtk.MessageDialog):
-    def __init__(self, parent, command):
+    def __init__(self, parent, command, use_headerbar):
         # Translators: Not Found In PATH Dialog, primary text. Indicates
         # that the provided script was not found in any PATH directory.
         primary = _("Could not find \"%s\" in your PATH.") % command
@@ -218,7 +218,7 @@ class NotFoundInPathDialog(Gtk.MessageDialog):
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.ERROR,
                                    buttons=Gtk.ButtonsType.OK,
-                                   text=primary)
+                                   text=primary, use_header_bar=False)
         self.format_secondary_markup(secondary)
         self.connect("response", self.response_cb)
 
