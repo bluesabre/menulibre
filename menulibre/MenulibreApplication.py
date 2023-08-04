@@ -1250,7 +1250,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.cleanup_actions()
 
         if not self.write_launcher(filename):
-            dlg = Dialogs.SaveErrorDialog(self, filename)
+            dlg = Dialogs.SaveErrorDialog(self, filename, self.use_headerbar)
             dlg.run()
             return
 
