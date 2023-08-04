@@ -43,7 +43,7 @@ class ApplicationEditor(Gtk.Box):
         'value-changed': (GObject.SignalFlags.RUN_FIRST, None, (str, str,)),
     }
 
-    def __init__(self):
+    def __init__(self, use_headerbar):
         super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=12)
         self._directory_hide_widgets = []
         self._internal_values = {
@@ -65,7 +65,7 @@ class ApplicationEditor(Gtk.Box):
         hbox = Gtk.Box.new(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
         vbox.add(hbox)
 
-        self._icon_entry = IconEntry()
+        self._icon_entry = IconEntry(use_headerbar=use_headerbar)
         self._icon_entry.connect("value-changed", self._on_changed)
         hbox.pack_start(self._icon_entry, False, False, 0)
 
