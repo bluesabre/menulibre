@@ -624,7 +624,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def get_can_select(self):
         if self.save_button.get_sensitive():
-            dialog = Dialogs.SaveOnLeaveDialog(self)
+            dialog = Dialogs.SaveOnLeaveDialog(self, self.use_headerbar)
 
             response = dialog.run()
             dialog.destroy()
