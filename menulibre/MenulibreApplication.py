@@ -1496,7 +1496,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def on_revert_cb(self, widget):
         """Revert callback function."""
-        dialog = Dialogs.RevertDialog(self)
+        dialog = Dialogs.RevertDialog(self, self.use_headerbar)
         if dialog.run() == Gtk.ResponseType.OK:
             self.restore_launcher()
         dialog.destroy()
