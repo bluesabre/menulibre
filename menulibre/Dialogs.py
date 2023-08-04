@@ -96,7 +96,7 @@ class HelpDialog(Gtk.MessageDialog):
 
 
 class SaveOnCloseDialog(Gtk.MessageDialog):
-    def __init__(self, parent):
+    def __init__(self, parent, use_headerbar):
         # Translators: Save On Close Dialog, window title.
         title = _("Save Changes")
         # Translators: Save On Close Dialog, primary text.
@@ -116,7 +116,7 @@ class SaveOnCloseDialog(Gtk.MessageDialog):
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.QUESTION,
                                    buttons=Gtk.ButtonsType.NONE,
-                                   text=primary)
+                                   text=primary, use_header_bar=False)
         self.set_title(title)
         self.format_secondary_markup(secondary)
         for button in buttons:

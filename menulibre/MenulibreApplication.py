@@ -729,7 +729,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Save changes on close."""
         if self.save_button.get_sensitive():
             # Unsaved changes
-            dialog = Dialogs.SaveOnCloseDialog(self)
+            dialog = Dialogs.SaveOnCloseDialog(self, self.use_headerbar)
             response = dialog.run()
             dialog.destroy()
             # Cancel prevents the application from closing.
