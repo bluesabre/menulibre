@@ -20,7 +20,6 @@ import os
 
 import gi
 gi.require_version("Gtk", "3.0")
-
 from gi.repository import Gtk, Gdk, Pango, GObject, GdkPixbuf
 
 
@@ -51,11 +50,13 @@ class IconEntry(Gtk.MenuButton):
         overlay.set_size_request(48, 48)
         self.add(overlay)
 
-        self._image = Gtk.Image.new_from_icon_name("folder", Gtk.IconSize.DIALOG)
+        self._image = Gtk.Image.new_from_icon_name(
+            "folder", Gtk.IconSize.DIALOG)
         self._image.set_pixel_size(48)
         overlay.add(self._image)
 
-        self._overlay_image = Gtk.Image.new_from_icon_name("dialog-warning", Gtk.IconSize.MENU)
+        self._overlay_image = Gtk.Image.new_from_icon_name(
+            "dialog-warning", Gtk.IconSize.MENU)
         self._overlay_image.set_pixel_size(16)
         self._overlay_image.set_halign(Gtk.Align.END)
         self._overlay_image.set_valign(Gtk.Align.END)
@@ -73,7 +74,8 @@ class IconEntry(Gtk.MenuButton):
         dialog.destroy()
 
     def _on_browse_files_clicked(self, widget, use_headerbar):
-        dialog = IconFileSelectionDialog(self.get_toplevel(), "", use_headerbar)
+        dialog = IconFileSelectionDialog(
+            self.get_toplevel(), "", use_headerbar)
         response = dialog.run()
 
         if response == Gtk.ResponseType.OK:
@@ -95,7 +97,8 @@ class IconEntry(Gtk.MenuButton):
                 self._on_successful_image(icon_name, icon_name)
                 return
 
-            # If the Icon Theme has a symbolic version of the icon, set the image to that icon.
+            # If the Icon Theme has a symbolic version of the icon, set the
+            # image to that icon.
             if icon_theme.has_icon(icon_name + "-symbolic"):
                 icon_name = icon_name + "-symbolic"
                 self._image.set_from_icon_name(icon_name, 48)
@@ -118,7 +121,10 @@ class IconEntry(Gtk.MenuButton):
                     replacement_icon_name = "application-x-executable"
 
                 self._image.set_from_icon_name(replacement_icon_name, 48)
-                self._on_error_image(icon_name, _("<i>Missing icon:</i> %s") % icon_name)
+                self._on_error_image(
+                    icon_name,
+                    _("<i>Missing icon:</i> %s") %
+                    icon_name)
                 return
 
         if icon_theme.has_icon("applications-other"):
@@ -198,7 +204,10 @@ class IconSelectionDialog(Gtk.Dialog):
         self.treeview.connect("row-activated", self._on_treeview_row_activated)
         scrolled.add(self.treeview)
 
-        search.connect("search-changed", self._on_search_changed, self.treeview)
+        search.connect(
+            "search-changed",
+            self._on_search_changed,
+            self.treeview)
         self.connect("key-press-event", self._on_key_press_event, search)
 
         self.get_content_area().pack_start(box, True, True, 0)
@@ -280,7 +289,7 @@ class IconSelectionTreeView(Gtk.TreeView):
         model = self.get_model()
         idx = 0
         treeiter = model.get_iter_first()
-        while treeiter != None:
+        while treeiter is not None:
             if model[treeiter][0] == icon_name:
                 return Gtk.TreePath.new_from_string(str(idx))
             treeiter = model.iter_next(treeiter)

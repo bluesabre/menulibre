@@ -17,8 +17,7 @@
 
 import gi
 gi.require_version("Gtk", "3.0")
-
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk
 
 
 class Toolbar(Gtk.Toolbar):
@@ -33,7 +32,8 @@ class Toolbar(Gtk.Toolbar):
     def add_menu_button(self, icon_name, label, menu):
         item = Gtk.ToolItem.new()
 
-        image = Gtk.Image.new_from_icon_name(icon_name, Gtk.IconSize.LARGE_TOOLBAR)
+        image = Gtk.Image.new_from_icon_name(
+            icon_name, Gtk.IconSize.LARGE_TOOLBAR)
         image.set_pixel_size(24)
 
         button = Gtk.MenuButton.new()
@@ -57,7 +57,8 @@ class Toolbar(Gtk.Toolbar):
         return separator
 
     def add_button(self, icon_name, label):
-        image = Gtk.Image.new_from_icon_name(icon_name, Gtk.IconSize.LARGE_TOOLBAR)
+        image = Gtk.Image.new_from_icon_name(
+            icon_name, Gtk.IconSize.LARGE_TOOLBAR)
         image.set_pixel_size(24)
 
         item = Gtk.ToolButton.new(image, label)

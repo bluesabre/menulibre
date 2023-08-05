@@ -16,13 +16,10 @@
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import logging
-import os
 
 import gi
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
-
-from . menulibreconfig import get_data_file
 
 
 # lint:disable
@@ -65,7 +62,6 @@ def set_up_logging(opts):
 
 def show_uri(parent, link):
     """Open a web browser to the specified link."""
-    from gi.repository import Gtk  # pylint: disable=E0611
     screen = parent.get_screen()
     Gtk.show_uri(screen, link, Gtk.get_current_event_time())
 

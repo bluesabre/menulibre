@@ -27,12 +27,11 @@ from locale import gettext as _
 from xml.sax.saxutils import escape
 
 import logging
-logger = logging.getLogger('menulibre') # noqa
+logger = logging.getLogger('menulibre')  # noqa
 
 import gi
 gi.require_version('GMenu', '3.0')  # noqa
-
-from gi.repository import GdkPixbuf, Gio, GLib, GMenu, Gtk
+from gi.repository import Gio, GMenu, Gtk
 
 from . import util
 from .util import MenuItemTypes, escapeText, mapDesktopEnvironmentDirectories, unmapDesktopEnvironmentDirectories
@@ -47,7 +46,7 @@ def get_icon_theme_name_from_settings():
         theme_name = Gtk.Settings.get_default().get_property("gtk-icon-theme-name")
         if theme_name is not None and len(theme_name) > 0:
             return theme_name
-    except:
+    except BaseException:
         pass
     return None
 
@@ -58,11 +57,11 @@ def get_icon_theme_name_from_icons():
         if lookup is not None:
             filename = os.path.realpath(lookup.get_filename())
             path = filename.split('/')
-            for i in range(len(path)-1):
+            for i in range(len(path) - 1):
                 index = os.path.join('/'.join(path[0:-i]), 'index.theme')
                 if os.path.exists(index):
-                    return path[-i-1]
-    except:
+                    return path[-i - 1]
+    except BaseException:
         pass
     return None
 
@@ -152,15 +151,15 @@ def menu_to_treestore(treestore, parent, menu_items):
 def get_treestore():
     """Get the TreeStore implementation of the current menu."""
     treestore = Gtk.TreeStore(
-        str, # Name
-        str, # Comment
-        str, # Executable
-        str, # Categories
-        int, # MenuItemType
-        Gio.Icon, # GIcon
-        str, # icon-name
-        str, # Filename
-        bool, # Expand
+        str,  # Name
+        str,  # Comment
+        str,  # Executable
+        str,  # Categories
+        int,  # MenuItemType
+        Gio.Icon,  # GIcon
+        str,  # icon-name
+        str,  # Filename
+        bool,  # Expand
         bool  # Show
     )
     menus = get_menus()
@@ -171,7 +170,8 @@ def get_treestore():
 
 def get_extended_icons(icon_names, extended_names):
     results = []
-    prefer_symbolic = icon_theme_name in ["Adwaita"] and "folder" in extended_names
+    prefer_symbolic = icon_theme_name in [
+        "Adwaita"] and "folder" in extended_names
     for name in icon_names:
         if icon_theme.has_icon(name):
             return results
@@ -201,7 +201,9 @@ def get_submenus(menu, tree_dir):
                 app_info = child.get_app_info()
                 icon = app_info.get_icon()
                 icon_name = app_info.get_string("Icon")
-                extended_icon_names = ["applications-other", "application-x-executable"]
+                extended_icon_names = [
+                    "applications-other",
+                    "application-x-executable"]
                 display_name = app_info.get_display_name()
                 generic_name = app_info.get_generic_name()
                 comment = app_info.get_description()
@@ -244,7 +246,8 @@ def get_submenus(menu, tree_dir):
             if icon_name is not None:
                 icon_names = [icon_name] + icon_names
 
-            for extended_icon_name in get_extended_icons(icon_names, extended_icon_names):
+            for extended_icon_name in get_extended_icons(
+                    icon_names, extended_icon_names):
                 if isinstance(icon, Gio.ThemedIcon):
                     icon.append_name(extended_icon_name)
                 icon_names.append(extended_icon_name)
@@ -307,7 +310,7 @@ def removeWhitespaceNodes(node):
 def getUserMenuXml(tree):
     """Return the header portions of the menu xml file."""
     system_file = util.getSystemMenuPath(
-            os.path.basename(tree.get_canonical_menu_path()))
+        os.path.basename(tree.get_canonical_menu_path()))
     name = tree.get_root_directory().get_menu_id()
     menu_xml = "<!DOCTYPE Menu PUBLIC '-//freedesktop//DTD Menu 1.0//EN'" \
                " 'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>\n"

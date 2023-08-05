@@ -20,7 +20,6 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-
 from gi.repository import Gtk, GObject
 
 
@@ -82,11 +81,13 @@ class ActionEditor(Gtk.Box):
         add_button.connect("clicked", self._on_add_clicked)
         toolbar.add(add_button)
 
-        remove_button = self._make_button(_("Remove"), "list-remove-symbolic", False)
+        remove_button = self._make_button(
+            _("Remove"), "list-remove-symbolic", False)
         remove_button.connect("clicked", self._on_remove_clicked, treeview)
         toolbar.add(remove_button)
 
-        clear_button = self._make_button(_("Clear"), "list-remove-all-symbolic", False)
+        clear_button = self._make_button(
+            _("Clear"), "list-remove-all-symbolic", False)
         clear_button.connect("clicked", self._on_clear_clicked)
         toolbar.add(clear_button)
 
@@ -94,17 +95,37 @@ class ActionEditor(Gtk.Box):
         up_button.connect("clicked", self._on_move_clicked, treeview, -1)
         toolbar.add(up_button)
 
-        down_button = self._make_button(_("Move Down"), "go-down-symbolic", False)
+        down_button = self._make_button(
+            _("Move Down"), "go-down-symbolic", False)
         down_button.connect("clicked", self._on_move_clicked, treeview, 1)
         toolbar.add(down_button)
 
-        treeview.connect("cursor-changed", self._on_cursor_changed, remove_button, up_button, down_button)
+        treeview.connect(
+            "cursor-changed",
+            self._on_cursor_changed,
+            remove_button,
+            up_button,
+            down_button)
 
         self._row_change_inhibit = False
         self._row_change_singleton = False
         self._liststore.connect("row-changed", self._on_row_changed)
-        self._liststore.connect("row-inserted", self._on_row_inserted, treeview, remove_button, clear_button, up_button, down_button)
-        self._liststore.connect("row-deleted", self._on_row_deleted, treeview, remove_button, clear_button, up_button, down_button)
+        self._liststore.connect(
+            "row-inserted",
+            self._on_row_inserted,
+            treeview,
+            remove_button,
+            clear_button,
+            up_button,
+            down_button)
+        self._liststore.connect(
+            "row-deleted",
+            self._on_row_deleted,
+            treeview,
+            remove_button,
+            clear_button,
+            up_button,
+            down_button)
 
         self.show_all()
 
@@ -134,7 +155,12 @@ class ActionEditor(Gtk.Box):
             return False
         return True
 
-    def _toggle_move_buttons(self, treeview, remove_button, up_button, down_button):
+    def _toggle_move_buttons(
+            self,
+            treeview,
+            remove_button,
+            up_button,
+            down_button):
         try:
             model, [path] = treeview.get_selection().get_selected_rows()
         except ValueError:
@@ -153,8 +179,14 @@ class ActionEditor(Gtk.Box):
         down_button.set_sensitive(can_down)
         remove_button.set_sensitive(can_remove)
 
-    def _on_cursor_changed(self, treeview, remove_button, up_button, down_button):
-        self._toggle_move_buttons(treeview, remove_button, up_button, down_button)
+    def _on_cursor_changed(
+            self,
+            treeview,
+            remove_button,
+            up_button,
+            down_button):
+        self._toggle_move_buttons(
+            treeview, remove_button, up_button, down_button)
 
     def _on_toggle_changed(self, cell, path):
         treeiter = self._liststore.get_iter(path)
@@ -166,7 +198,7 @@ class ActionEditor(Gtk.Box):
         self._liststore[row][col] = new_text
         self.emit('value-changed', 'Actions', self.get_value())
 
-    def _on_move_clicked(self, widget, treeview, relative_position = 0):
+    def _on_move_clicked(self, widget, treeview, relative_position=0):
         sel = treeview.get_selection().get_selected()
         if sel:
             model, selected_iter = sel
@@ -223,16 +255,35 @@ class ActionEditor(Gtk.Box):
         self._row_change_singleton = True
         self.emit('value-changed', 'Actions', self.get_value())
 
-    def _on_row_inserted(self, model, path, treeiter, treeview, remove_button, clear_button, up_button, down_button):
+    def _on_row_inserted(
+            self,
+            model,
+            path,
+            treeiter,
+            treeview,
+            remove_button,
+            clear_button,
+            up_button,
+            down_button):
         if not self._row_change_inhibit:
             treeview.set_cursor(path, treeview.get_column(0), True)
         clear_button.set_sensitive(True)
-        self._toggle_move_buttons(treeview, remove_button, up_button, down_button)
+        self._toggle_move_buttons(
+            treeview, remove_button, up_button, down_button)
 
-    def _on_row_deleted(self, model, path, treeview, remove_button, clear_button, up_button, down_button):
+    def _on_row_deleted(
+            self,
+            model,
+            path,
+            treeview,
+            remove_button,
+            clear_button,
+            up_button,
+            down_button):
         sensitive = len(self._liststore) > 0
         clear_button.set_sensitive(sensitive)
-        self._toggle_move_buttons(treeview, remove_button, up_button, down_button)
+        self._toggle_move_buttons(
+            treeview, remove_button, up_button, down_button)
 
     def _clear(self):
         self._liststore.clear()
@@ -271,7 +322,8 @@ class ActionEditorDemoWindow(Gtk.Window):
         self.set_default_size(600, 300)
 
         page = ActionEditor()
-        page.set_value('[[true, "NewShortcut", "New Shortcut", ""], [true, "NewShortcut1", "New Shortcut", "Test"]]')
+        page.set_value(
+            '[[true, "NewShortcut", "New Shortcut", ""], [true, "NewShortcut1", "New Shortcut", "Test"]]')
         page.connect('value-changed', self._on_value_changed)
         self.add(page)
 

@@ -20,13 +20,14 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-
 from gi.repository import Gtk, Pango, GObject
+
 
 try:
     from . import FileHandler
 except ImportError:
     pass
+
 
 class ParsingErrorsDialog(Gtk.Dialog):
 
@@ -38,7 +39,7 @@ class ParsingErrorsDialog(Gtk.Dialog):
         )
 
         self.set_default_size(900, 480)
-        #self.set_default_size(1240, 480)
+        # self.set_default_size(1240, 480)
 
         box = Gtk.Box.new(orientation=Gtk.Orientation.VERTICAL, spacing=12)
         box.set_margin_top(9)
@@ -46,10 +47,12 @@ class ParsingErrorsDialog(Gtk.Dialog):
         box.set_margin_start(12)
         box.set_margin_end(12)
 
-        message_area = Gtk.Box.new(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
+        message_area = Gtk.Box.new(
+            orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
         box.pack_start(message_area, False, False, 0)
 
-        image = Gtk.Image.new_from_icon_name("dialog-warning", Gtk.IconSize.DIALOG)
+        image = Gtk.Image.new_from_icon_name(
+            "dialog-warning", Gtk.IconSize.DIALOG)
         message_area.pack_start(image, False, False, 0)
 
         message = Gtk.Label.new(_(
@@ -95,7 +98,7 @@ class ParsingErrorsDialog(Gtk.Dialog):
 
 class ErrorRow(Gtk.ListBoxRow):
     __gsignals__ = {
-        'action': (GObject.SignalFlags.RUN_FIRST, None, (str,str,)),
+        'action': (GObject.SignalFlags.RUN_FIRST, None, (str, str,)),
     }
 
     def __init__(self, filename, error):
@@ -118,17 +121,20 @@ class ErrorRow(Gtk.ListBoxRow):
         context.add_class("linked")
         box.pack_end(buttons, False, False, 0)
 
-        button = Gtk.Button.new_from_icon_name("folder-symbolic", Gtk.IconSize.BUTTON)
+        button = Gtk.Button.new_from_icon_name(
+            "folder-symbolic", Gtk.IconSize.BUTTON)
         button.set_tooltip_text(_("Open containing folder"))
         button.connect("clicked", self.emit_action, filename, "open-folder")
         buttons.add(button)
 
-        button = Gtk.Button.new_from_icon_name("text-editor-symbolic", Gtk.IconSize.BUTTON)
+        button = Gtk.Button.new_from_icon_name(
+            "text-editor-symbolic", Gtk.IconSize.BUTTON)
         button.set_tooltip_text(_("Open in text editor"))
         button.connect("clicked", self.emit_action, filename, "open-editor")
         buttons.add(button)
 
-        button = Gtk.Button.new_from_icon_name("edit-copy-symbolic", Gtk.IconSize.BUTTON)
+        button = Gtk.Button.new_from_icon_name(
+            "edit-copy-symbolic", Gtk.IconSize.BUTTON)
         button.set_tooltip_text(_("Copy file location"))
         button.connect("clicked", self.emit_action, filename, "copy-location")
         buttons.add(button)
@@ -156,7 +162,9 @@ class ParsingErrorsDemoWindow(Gtk.Window):
         dialog = ParsingErrorsDialog(self, True, True)
 
         for i in range(10):
-            dialog.add_item("/var/home/bluesabre/.local/share/applications/broken.desktop", "Exec program 'failed-app' has not been found in the PATH")
+            dialog.add_item(
+                "/var/home/bluesabre/.local/share/applications/broken.desktop",
+                "Exec program 'failed-app' has not been found in the PATH")
         response = dialog.run()
 
         if response == Gtk.ResponseType.OK:

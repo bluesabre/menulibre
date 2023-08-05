@@ -211,11 +211,13 @@ def desktop_menu_install(directory_files, desktop_files):
 
     # xdg-desktop-menu doesn't behave nicely with vendor- directories
     # without vendor- applications.
-    directory_dir = os.path.join(GLib.get_user_data_dir(), "desktop-directories")
+    directory_dir = os.path.join(
+        GLib.get_user_data_dir(),
+        "desktop-directories")
     for filename in directory_files:
         if not filename.startswith(directory_dir):
             continue
-        if not "/" in filename:
+        if "/" not in filename:
             continue
         basename = os.path.basename(filename)
         relative = filename.split("desktop-directories/")[1]
@@ -231,6 +233,7 @@ def desktop_menu_install(directory_files, desktop_files):
     subprocess.call(cmd_list)
 
     return True
+
 
 def desktop_menu_uninstall(directory_files, desktop_files):  # noqa
     """Remove applications or submenus from the desktop menu system

@@ -19,7 +19,6 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-
 from gi.repository import Gtk, GObject
 
 
@@ -33,7 +32,8 @@ class PathEntry(Gtk.Entry):
 
         self._value = ""
 
-        self.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, "folder-open")
+        self.set_icon_from_icon_name(
+            Gtk.EntryIconPosition.SECONDARY, "folder-open")
 
         self.connect("changed", self._on_entry_changed)
         self.connect("icon-release", self._on_icon_clicked, use_headerbar)
@@ -55,7 +55,8 @@ class PathEntry(Gtk.Entry):
         title = _("Select a working directory…")
         action = Gtk.FileChooserAction.SELECT_FOLDER
 
-        dialog = FileChooserDialog(self.get_toplevel(), title, action, use_headerbar)
+        dialog = FileChooserDialog(
+            self.get_toplevel(), title, action, use_headerbar)
         dialog.set_filename(self.get_value())
         result = dialog.run()
         if result == Gtk.ResponseType.OK:
@@ -67,8 +68,12 @@ class PathEntry(Gtk.Entry):
 
 class FileChooserDialog(Gtk.FileChooserDialog):
     def __init__(self, parent, title, action, use_headerbar):
-        Gtk.FileChooserDialog.__init__(self, title=title, transient_for=parent,
-                                       action=action, use_header_bar=use_headerbar)
+        Gtk.FileChooserDialog.__init__(
+            self,
+            title=title,
+            transient_for=parent,
+            action=action,
+            use_header_bar=use_headerbar)
         # Translators: File Chooser Dialog, cancel button.
         self.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
         # Translators: File Chooser Dialog, confirmation button.

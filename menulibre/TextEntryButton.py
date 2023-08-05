@@ -19,7 +19,6 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-
 from gi.repository import Gtk, Gdk, Pango, GObject
 
 
@@ -28,7 +27,12 @@ class TextEntryButton(Gtk.Stack):
         'value-changed': (GObject.SignalFlags.RUN_FIRST, None, (str, str,)),
     }
 
-    def __init__(self, property_name, bold_font=False, required=False, placeholder_text=""):
+    def __init__(
+            self,
+            property_name,
+            bold_font=False,
+            required=False,
+            placeholder_text=""):
         super().__init__()
         self._property_name = property_name
         self._value = ""
@@ -92,7 +96,8 @@ class TextEntryButton(Gtk.Stack):
         self._entry.grab_focus()
 
     def commit(self):
-        if self._entry.get_icon_name(Gtk.EntryIconPosition.SECONDARY) == "gtk-apply":
+        if self._entry.get_icon_name(
+                Gtk.EntryIconPosition.SECONDARY) == "gtk-apply":
             self.set_value(self._entry.get_text().strip())
         else:
             self.cancel()

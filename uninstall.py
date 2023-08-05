@@ -24,12 +24,17 @@ if len(sys.argv) > 1:
 else:
     args = []
 
-command = [sys.executable, 'setup.py', 'install'] + args + ['--record', 'files.txt']
-returncode = subprocess.run(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode
+command = [sys.executable, 'setup.py', 'install'] + \
+    args + ['--record', 'files.txt']
+returncode = subprocess.run(
+    command,
+    stdout=subprocess.DEVNULL,
+    stderr=subprocess.DEVNULL).returncode
 
 if returncode != 0:
     sys.stderr.write("Invalid commandline arguments provided.\n")
-    sys.stderr.write("Use the same commandline arguments you used to install.\n\n")
+    sys.stderr.write(
+        "Use the same commandline arguments you used to install.\n\n")
     sys.stderr.write("\t$ python3 uninstall.py --user\n")
     sys.stderr.write("\t$ sudo python3 uninstall.py\n\n")
     sys.exit(returncode)
@@ -51,7 +56,9 @@ os.remove('files.txt')
 
 files.append('%s/share/pixmaps/menulibre.png' % target)
 for size in ['scalable', '16x16', '24x24', '32x32', '48x48', '64x64']:
-    files.append('%s/share/icons/hicolor/%s/apps/menulibre.svg' % (target, size))
+    files.append(
+        '%s/share/icons/hicolor/%s/apps/menulibre.svg' %
+        (target, size))
 
 if len(files) == 0:
     sys.stderr.write("Failed to parse uninstall file list.\n")

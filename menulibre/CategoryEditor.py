@@ -21,7 +21,6 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-
 from gi.repository import Gtk, GObject
 
 
@@ -500,19 +499,30 @@ class CategoryEditor(Gtk.Box):
         add_button.connect("clicked", self._on_add_clicked)
         toolbar.add(add_button)
 
-        remove_button = self._make_button(_("Remove"), "list-remove-symbolic", False)
+        remove_button = self._make_button(
+            _("Remove"), "list-remove-symbolic", False)
         remove_button.connect("clicked", self._on_remove_clicked, treeview)
         toolbar.add(remove_button)
 
-        clear_button = self._make_button(_("Clear"), "list-remove-all-symbolic", False)
+        clear_button = self._make_button(
+            _("Clear"), "list-remove-all-symbolic", False)
         clear_button.connect("clicked", self._on_clear_clicked)
         toolbar.add(clear_button)
 
         self._row_change_inhibit = False
         self._row_change_singleton = False
         self._treestore.connect("row-changed", self._on_row_changed)
-        self._treestore.connect("row-inserted", self._on_row_inserted, treeview, remove_button, clear_button)
-        self._treestore.connect("row-deleted", self._on_row_deleted, remove_button, clear_button)
+        self._treestore.connect(
+            "row-inserted",
+            self._on_row_inserted,
+            treeview,
+            remove_button,
+            clear_button)
+        self._treestore.connect(
+            "row-deleted",
+            self._on_row_deleted,
+            remove_button,
+            clear_button)
 
         self._prefix = ""
         self._removals = []
@@ -603,7 +613,14 @@ class CategoryEditor(Gtk.Box):
         self._row_change_singleton = True
         self.emit('value-changed', 'Categories', self.get_value())
 
-    def _on_row_inserted(self, model, path, treeiter, treeview, remove_button, clear_button):
+    def _on_row_inserted(
+            self,
+            model,
+            path,
+            treeiter,
+            treeview,
+            remove_button,
+            clear_button):
         if not self._row_change_inhibit:
             treeview.set_cursor(path, treeview.get_column(0), True)
         remove_button.set_sensitive(True)
@@ -640,7 +657,8 @@ class CategoryEditor(Gtk.Box):
         if section not in list(self._section_lookup.keys()):
             section_path = str(len(list(self._section_lookup.keys())))
             section_sort = section_path.zfill(3)
-            section_iter = self._options.append(None, [section, "", section_desc, section_sort])
+            section_iter = self._options.append(
+                None, [section, "", section_desc, section_sort])
             self._section_lookup[section] = section_path
         else:
             section_path = self._section_lookup[section]
@@ -664,13 +682,19 @@ class CategoryEditor(Gtk.Box):
         section_desc, section_sort, section_iter = self._get_section(section)
         category_desc = lookup_category_description(category)
         category_sort = "%s-%s" % (section_sort, category_desc)
-        self._category_lookup[category] = [category, section_desc, category_desc]
-        self._options.append(section_iter, self._category_lookup[category] + [category_sort])
+        self._category_lookup[category] = [
+            category, section_desc, category_desc]
+        self._options.append(
+            section_iter,
+            self._category_lookup[category] +
+            [category_sort])
         return self._category_lookup[category]
 
     def _initialize_categories(self):
         sections = list(category_groups.keys())
-        sections = sorted(sections, key=lambda section: lookup_section_description(section))
+        sections = sorted(
+            sections,
+            key=lambda section: lookup_section_description(section))
 
         for section in sections:
             try:

@@ -15,16 +15,14 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from .TextEntry import TextEntry
 import os
 import subprocess
 from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-
 from gi.repository import Gtk, GLib
-
-from .TextEntry import TextEntry
 
 
 class StartupWmClassEntry(TextEntry):
@@ -51,13 +49,15 @@ class StartupWmClassEntry(TextEntry):
                 self.set_value(wm_class)
                 return
 
+
 class XpropWindowDialog(Gtk.MessageDialog):
     def __init__(self, parent, xprop_binary, use_headerbar):
         # Translators: Identify Window Dialog, primary text.
         primary = _("Identify Window")
         # Translators: Identify Window Dialog, secondary text. The selected
         # application is displayed in the placeholder text.
-        secondary = _("Click on the main application window for this launcher.")
+        secondary = _(
+            "Click on the main application window for this launcher.")
 
         Gtk.MessageDialog.__init__(self, transient_for=parent, modal=True,
                                    message_type=Gtk.MessageType.INFO,

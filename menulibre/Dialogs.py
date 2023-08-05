@@ -67,7 +67,7 @@ class HelpDialog(Gtk.MessageDialog):
         primary = _("Do you want to read the MenuLibre manual online?")
         # Translators: Help Dialog, secondary text.
         secondary = _("You will be redirected to the documentation website "
-                    "where the help pages are maintained.")
+                      "where the help pages are maintained.")
         buttons = [
             # Translators: Help Dialog, cancel button.
             (_("Cancel"), Gtk.ResponseType.CANCEL),
