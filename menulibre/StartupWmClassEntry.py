@@ -41,7 +41,7 @@ class StartupWmClassEntry(TextEntry):
             )
             self.connect(
                 'icon-press', self._on_icon_press, xprop, use_headerbar)
-            
+
     def _on_icon_press(self, entry, icon, event, xprop, use_headerbar):
         dialog = XpropWindowDialog(self.get_toplevel(), xprop, use_headerbar)
         wm_classes = dialog.run_xprop()

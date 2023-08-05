@@ -50,66 +50,66 @@ class AdvancedPage(Gtk.ScrolledWindow):
         self.add(self._grid)
 
         self._add_row('GenericName',
-                      _("Generic Name"), 
+                      _("Generic Name"),
                       _('Generic name of the application, for example "Web Browser".'),
                       TextEntry('GenericName'))
-        
+
         self._add_row('TryExec',
-                      _("Try Exec"), 
+                      _("Try Exec"),
                       _('Path to an executable file to determine if the program is installed. If the file is not present or is not executable, this entry may not be shown in a menu.'),
                       TextEntry('TryExec'))
-        
+
         self._add_row('OnlyShowIn',
-                      _("Only Show In"), 
+                      _("Only Show In"),
                       _('A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if "NotShowIn" is not set.\n'
                         'Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old'),
                       TextEntry('OnlyShowIn'))
-        
+
         self._add_row('NotShowIn',
-                      _("Not Shown In"), 
+                      _("Not Shown In"),
                       _('A list of environments that should not display this entry. You can only use this key if "OnlyShowIn" is not set.\n'
                         'Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old'),
                       TextEntry('NotShowIn'))
 
         self._add_row('MimeType',
-                      _("Mimetypes"), 
+                      _("Mimetypes"),
                       _('The MIME type(s) supported by this application.'),
                       TextEntry('MimeType'))
-        
+
         self._add_row('Keywords',
-                      _("Keywords"), 
+                      _("Keywords"),
                       _('A list of keywords to describe this entry. You can use these to help searching entries. These are not meant for display, and should not be redundant with the values of Name or GenericName.'),
                       TextEntry('Keywords'))
-        
+
         self._add_row('StartupWMClass',
-                      _("Startup WM Class"), 
+                      _("Startup WM Class"),
                       _('If specified, the application will be requested to use the string as a WM class or a WM name hint at least in one window.'),
                       StartupWmClassEntry('StartupWMClass', use_headerbar=use_headerbar))
-        
+
         self._add_row('Implements',
-                      _("Implements"), 
+                      _("Implements"),
                       _('A list of interfaces that this application implements.'),
                       TextEntry('Implements'))
 
         self._add_row('Hidden',
-                      _("Hidden"), 
+                      _("Hidden"),
                       _('If set to "True", the result for the user is equivalent to the .desktop file not existing at all.'),
                       SwitchEntry('Hidden'))
 
         self._add_row('DBusActivatable',
-                      _("DBUS Activatable"), 
+                      _("DBUS Activatable"),
                       _('Set this key to "True" if D-Bus activation is supported for this application and you want to use it.\n'
                         'See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information.'),
                       SwitchEntry('DBusActivatable'))
-        
+
         self._add_row('PrefersNonDefaultGPU',
-                      _("Prefers Non-Default GPU"), 
+                      _("Prefers Non-Default GPU"),
                       _('Set this key to "True" if this application prefers to be run on a more powerful GPU if available.\n'
                         'See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information.'),
                       SwitchEntry('PrefersNonDefaultGPU'))
 
         self._add_row('X-GNOME-UsesNotifications',
-                      _("Uses Notifications"), 
+                      _("Uses Notifications"),
                       _('Set this key to "True" if this application uses notifications.\n'
                         'See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information.'),
                       SwitchEntry('X-GNOME-UsesNotifications'))

@@ -177,7 +177,7 @@ class ApplicationEditor(Gtk.Box):
         self._additional_settings.add_child(self._action_editor,
                                             # Translators: "Actions" launcher section
                                             'actions', _('Actions'))
-    
+
         # Advanced Settings
         self._advanced_page = AdvancedPage(use_headerbar=use_headerbar)
         self._advanced_page.connect("value-changed", self._on_changed)
@@ -259,7 +259,7 @@ class ApplicationEditor(Gtk.Box):
         else:
             print("GET", key)
         return None
-    
+
     def remove_incomplete_actions(self):
         self._action_editor.remove_incomplete_actions()
 

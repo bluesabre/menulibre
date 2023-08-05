@@ -80,13 +80,13 @@ class TextEntryButton(Gtk.Stack):
 
     def get_value(self):
         return self._entry.get_text()
-    
+
     def _on_button_focus_in(self, button, event):
         button.set_relief(Gtk.ReliefStyle.NORMAL)
-    
+
     def _on_button_focus_out(self, button, event):
         button.set_relief(Gtk.ReliefStyle.NONE)
-    
+
     def _on_clicked(self, button):
         self.set_visible_child(self._entry)
         self._entry.grab_focus()
@@ -119,6 +119,6 @@ class TextEntryButton(Gtk.Stack):
         else:
             entry.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY,
                                           "gtk-apply")
-    
+
     def _on_entry_icon_press(self, entry, icon_pos, event):
         self._on_entry_activate(entry)

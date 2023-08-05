@@ -34,7 +34,7 @@ class ParsingErrorsDialog(Gtk.Dialog):
         super().__init__(title=_("Parsing Errors"), transient_for=parent,
                          use_header_bar=use_header_bar, flags=0)
         self.add_buttons(
-            _('Close'), Gtk.ResponseType.CLOSE, 
+            _('Close'), Gtk.ResponseType.CLOSE,
         )
 
         self.set_default_size(900, 480)

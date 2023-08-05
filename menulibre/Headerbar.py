@@ -25,7 +25,7 @@ class Headerbar(Gtk.HeaderBar):
 
     def __init__(self):
         super().__init__()
-        
+
         self.set_title("MenuLibre")
         self.set_custom_title(Gtk.Label.new())
         self.set_show_close_button(True)

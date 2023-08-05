@@ -25,7 +25,7 @@ class Section(Gtk.Frame):
 
     def __init__(self, label):
         super().__init__(label=label)
-        
+
         label = self.get_label_widget()
 
         attributes = Pango.AttrList.new()

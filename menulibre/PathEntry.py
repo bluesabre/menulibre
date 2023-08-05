@@ -48,7 +48,7 @@ class PathEntry(Gtk.Entry):
 
     def _on_entry_changed(self, widget):
         self.emit('value-changed', 'Path', self.get_value())
-    
+
     def _on_icon_clicked(self, entry, icon_pos, event, use_headerbar):
         """Show the file selection dialog when Path Browse is clicked."""
         # Translators: File Chooser Dialog, window title.
