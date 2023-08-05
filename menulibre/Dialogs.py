@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
-#   Copyright (C) 2012-2022 Sean Davis <sean@bluesabre.org>
+#   Copyright (C) 2012-2023 Sean Davis <sean@bluesabre.org>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published
@@ -37,7 +37,7 @@ class AboutDialog(Gtk.AboutDialog):
         self.set_title(_("About MenuLibre"))
         self.set_program_name("MenuLibre")
         self.set_logo_icon_name("menulibre")
-        self.set_copyright("Copyright © 2012-2022 Sean Davis")
+        self.set_copyright("Copyright © 2012-2023 Sean Davis")
         self.set_authors(authors)
         self.set_documenters(documenters)
         self.set_website("https://github.com/bluesabre/menulibre")

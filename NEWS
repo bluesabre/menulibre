@@ -1,5 +1,32 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+Unreleased, MenuLibre 2.3.2
+- Ported Glade files to Python
+- Header Bars are now enabled for some dialogs, while the main window has one:
+  - About
+  - Command Editor
+  - Icon Browser
+  - Icon File Browser
+  - Parsing Errors
+  - Working Directory Browser
+  - Additionally, the Add button now uses a popover when header bars are enabled
+- UX Improvements
+  - Add and Delete buttons now have tooltips, consistent with the other
+    toolbar buttons
+    - The toolip for the delete button now explains why it's disabled
+  - Category Editor now disables remove/clear actions when empty
+  - Action Editor now disables remove/clear actions when empty
+  - Command Editor now has a help button
+  - Icon Browser visual refresh with a full-length search entry and smaller,
+    consistent icons
+  - Unnecessary indentation was removed from the editor sections
+  - Window dimensions were reduced
+- Fixes
+  - Sidebar borders
+  - Execute button no longer sensitive for separators
+  - Made the "Details" button on the parsing errors infobar translatable
+
+
 30 April 2023, MenuLibre 2.3.1
 
 - New Features:
