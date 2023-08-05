@@ -90,11 +90,11 @@ class ActionEditor(Gtk.Box):
         clear_button.connect("clicked", self._on_clear_clicked)
         toolbar.add(clear_button)
 
-        up_button = self._make_button(_("Move Up"), "go-up-symbolic", True)
+        up_button = self._make_button(_("Move Up"), "go-up-symbolic", False)
         up_button.connect("clicked", self._on_move_clicked, treeview, -1)
         toolbar.add(up_button)
 
-        down_button = self._make_button(_("Move Down"), "go-down-symbolic", True)
+        down_button = self._make_button(_("Move Down"), "go-down-symbolic", False)
         down_button.connect("clicked", self._on_move_clicked, treeview, 1)
         toolbar.add(down_button)
 
@@ -103,8 +103,8 @@ class ActionEditor(Gtk.Box):
         self._row_change_inhibit = False
         self._row_change_singleton = False
         self._liststore.connect("row-changed", self._on_row_changed)
-        self._liststore.connect("row-inserted", self._on_row_inserted, treeview, remove_button, clear_button)
-        self._liststore.connect("row-deleted", self._on_row_deleted, remove_button, clear_button)
+        self._liststore.connect("row-inserted", self._on_row_inserted, treeview, remove_button, clear_button, up_button, down_button)
+        self._liststore.connect("row-deleted", self._on_row_deleted, treeview, remove_button, clear_button, up_button, down_button)
 
         self.show_all()
 
@@ -113,35 +113,38 @@ class ActionEditor(Gtk.Box):
         for row in self._liststore:
             if len(row[COL_NAME]) > 0 and len(row[COL_COMMAND]) > 0:
                 rows.append(row[:])
-        
+
         self._liststore.clear()
 
         for row in rows:
             self._liststore.append(row)
 
     def _has_prev_path(self, model, path):
-        if path.prev():
+        if path.copy().prev():
             return True
         return False
-    
+
     def _has_next_path(self, model, path):
         try:
-            string = str(int(path.to_string()) + 1)
-            next_path = Gtk.TreePath.new_from_string(string)
+            current_path_str = path.to_string()
+            next_path_str = str(int(current_path_str) + 1)
+            next_path = Gtk.TreePath.new_from_string(next_path_str)
             model.get_iter(next_path)
         except (TypeError, ValueError):
             return False
         return True
 
-    def _on_cursor_changed(self, treeview, remove_button, up_button, down_button):
-        model, treeiter = treeview.get_selection().get_selected()
+    def _toggle_move_buttons(self, treeview, remove_button, up_button, down_button):
+        try:
+            model, [path] = treeview.get_selection().get_selected_rows()
+        except ValueError:
+            path = None
 
         can_up = False
         can_down = False
         can_remove = False
 
-        if treeiter:
-            path = model.get_path(treeiter)
+        if path:
             can_up = self._has_prev_path(model, path)
             can_down = self._has_next_path(model, path)
             can_remove = True
@@ -149,6 +152,9 @@ class ActionEditor(Gtk.Box):
         up_button.set_sensitive(can_up)
         down_button.set_sensitive(can_down)
         remove_button.set_sensitive(can_remove)
+
+    def _on_cursor_changed(self, treeview, remove_button, up_button, down_button):
+        self._toggle_move_buttons(treeview, remove_button, up_button, down_button)
 
     def _on_toggle_changed(self, cell, path):
         treeiter = self._liststore.get_iter(path)
@@ -182,7 +188,7 @@ class ActionEditor(Gtk.Box):
         button = Gtk.ToolButton.new(image, label)
         button.set_sensitive(sensitive)
         return button
-    
+
     def _set_actions(self, rows):
         self._row_change_inhibit = True
 
@@ -217,16 +223,16 @@ class ActionEditor(Gtk.Box):
         self._row_change_singleton = True
         self.emit('value-changed', 'Actions', self.get_value())
 
-    def _on_row_inserted(self, model, path, treeiter, treeview, remove_button, clear_button):
+    def _on_row_inserted(self, model, path, treeiter, treeview, remove_button, clear_button, up_button, down_button):
         if not self._row_change_inhibit:
             treeview.set_cursor(path, treeview.get_column(0), True)
-        remove_button.set_sensitive(True)
         clear_button.set_sensitive(True)
+        self._toggle_move_buttons(treeview, remove_button, up_button, down_button)
 
-    def _on_row_deleted(self, model, path, remove_button, clear_button):
+    def _on_row_deleted(self, model, path, treeview, remove_button, clear_button, up_button, down_button):
         sensitive = len(self._liststore) > 0
-        remove_button.set_sensitive(sensitive)
         clear_button.set_sensitive(sensitive)
+        self._toggle_move_buttons(treeview, remove_button, up_button, down_button)
 
     def _clear(self):
         self._liststore.clear()
