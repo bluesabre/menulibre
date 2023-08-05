@@ -107,7 +107,7 @@ class ApplicationEditor(Gtk.Box):
         label.set_tooltip_text(_("The working directory."))
         grid.attach(label, 0, 1, 1, 1)
 
-        self._path_entry = PathEntry()
+        self._path_entry = PathEntry(use_headerbar=use_headerbar)
         self._path_entry.connect("value-changed", self._on_changed)
         self._path_entry.set_hexpand(True)
         grid.attach(self._path_entry, 1, 1, 1, 1)
