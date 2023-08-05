@@ -91,6 +91,13 @@ category_groups = {
 }
 
 
+# Create a reverse-lookup
+category_lookup = dict()
+for key in list(category_groups.keys()):
+    for item in category_groups[key]:
+        category_lookup[item] = key
+
+
 category_descriptions = {
     # Translators: Launcher section description
     'AudioVideo': _('Multimedia'),
