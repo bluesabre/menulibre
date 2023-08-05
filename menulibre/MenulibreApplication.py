@@ -22,6 +22,7 @@ from .util import MenuItemTypes, check_keypress, getRelativeName, getRelatedKeys
 from .Headerbar import Headerbar
 from .Toolbar import Toolbar
 from .ApplicationEditor import ApplicationEditor
+from .CategoryEditor import category_lookup
 from . import MenuEditor
 from . import MenulibreXdg, util, ParsingErrorsDialog
 from . import MenulibreTreeview, MenulibreHistory, Dialogs
@@ -45,93 +46,6 @@ session = os.getenv("DESKTOP_SESSION", "")
 root = os.getuid() == 0
 
 current_desktop = getCurrentDesktop()
-
-# Sourced from https://specifications.freedesktop.org/menu-spec/latest/apa.html
-# and https://specifications.freedesktop.org/menu-spec/latest/apas02.html ,
-# in addition category group names have been added to the list where launchers
-# typically use them (e.g. plain 'Utility' to add to Accessories), to allow the
-# user to restore default categories that have been manually removed
-category_groups = {
-    'Utility': (
-        'Accessibility', 'Archiving', 'Calculator', 'Clock',
-        'Compression', 'FileTools', 'TextEditor', 'TextTools', 'Utility'
-    ),
-    'Development': (
-        'Building', 'Debugger', 'Development', 'IDE', 'GUIDesigner',
-        'Profiling', 'RevisionControl', 'Translation', 'WebDevelopment'
-    ),
-    'Education': (
-        'Art', 'ArtificialIntelligence', 'Astronomy', 'Biology', 'Chemistry',
-        'ComputerScience', 'Construction', 'DataVisualization', 'Economy',
-        'Education', 'Electricity', 'Geography', 'Geology', 'Geoscience',
-        'History', 'Humanities', 'ImageProcessing', 'Languages', 'Literature',
-        'Maps', 'Math', 'MedicalSoftware', 'Music', 'NumericalAnalysis',
-        'ParallelComputing', 'Physics', 'Robotics', 'Spirituality', 'Sports'
-    ),
-    'Game': (
-        'ActionGame', 'AdventureGame', 'ArcadeGame', 'BoardGame',
-        'BlocksGame', 'CardGame', 'Emulator', 'Game', 'KidsGame', 'LogicGame',
-        'RolePlaying', 'Shooter', 'Simulation', 'SportsGame',
-        'StrategyGame'
-    ),
-    'Graphics': (
-        '2DGraphics', '3DGraphics', 'Graphics', 'OCR', 'Photography',
-        'Publishing', 'RasterGraphics', 'Scanning', 'VectorGraphics', 'Viewer'
-    ),
-    'Network': (
-        'Chat', 'Dialup', 'Feed', 'FileTransfer', 'HamRadio',
-        'InstantMessaging', 'IRCClient', 'Monitor', 'News', 'Network', 'P2P',
-        'RemoteAccess', 'Telephony', 'TelephonyTools', 'WebBrowser',
-        'WebDevelopment'
-    ),
-    'AudioVideo': (
-        'Audio', 'AudioVideoEditing', 'DiscBurning', 'Midi', 'Mixer', 'Player',
-        'Recorder', 'Sequencer', 'Tuner', 'TV', 'Video'
-    ),
-    'Office': (
-        'Calendar', 'ContactManagement', 'Database', 'Dictionary',
-        'Chart', 'Email', 'Finance', 'FlowChart', 'Office', 'PDA',
-        'Photography', 'ProjectManagement', 'Presentation', 'Publishing',
-        'Spreadsheet', 'WordProcessor'
-    ),
-    # Translators: "Other" category group. This item is only displayed for
-    # unknown or non-standard categories.
-    _('Other'): (
-        'Amusement', 'ConsoleOnly', 'Core', 'Documentation',
-        'Electronics', 'Engineering', 'GNOME', 'GTK', 'Java', 'KDE',
-        'Motif', 'Qt', 'XFCE'
-    ),
-    'Settings': (
-        'Accessibility', 'DesktopSettings', 'HardwareSettings',
-        'PackageManager', 'Printing', 'Security', 'Settings'
-    ),
-    'System': (
-        'Emulator', 'FileManager', 'Filesystem', 'FileTools', 'Monitor',
-        'Security', 'System', 'TerminalEmulator'
-    )
-}
-
-# DE-specific categories
-if util.getDefaultMenuPrefix() == 'xfce-':
-    category_groups['Xfce'] = (
-        'X-XFCE',
-        'X-Xfce-Toplevel',
-        'X-XFCE-PersonalSettings',
-        'X-XFCE-HardwareSettings',
-        'X-XFCE-SettingsDialog',
-        'X-XFCE-SystemSettings')
-elif util.getDefaultMenuPrefix() == 'gnome-':
-    category_groups['GNOME'] = (
-        'X-GNOME-NetworkSettings',
-        'X-GNOME-PersonalSettings',
-        'X-GNOME-Settings-Panel',
-        'X-GNOME-Utilities')
-
-# Create a reverse-lookup
-category_lookup = dict()
-for key in list(category_groups.keys()):
-    for item in category_groups[key]:
-        category_lookup[item] = key
 
 
 class MenulibreWindow(Gtk.ApplicationWindow):
