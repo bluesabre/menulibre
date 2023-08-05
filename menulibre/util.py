@@ -26,6 +26,8 @@ import shutil
 
 from locale import gettext as _
 
+import gi
+gi.require_version('Gdk', '3.0')
 from gi.repository import GLib, Gdk
 
 import logging
@@ -193,7 +195,7 @@ def getDefaultMenuName():
     return prefix
 
 
-def getDefaultMenuPrefix(): # noqa
+def getDefaultMenuPrefix():  # noqa
     """Return the default menu prefix."""
     prefix = os.environ.get('XDG_MENU_PREFIX', '')
 
@@ -342,7 +344,7 @@ def mapDesktopEnvironmentDirectories():
         target_dir = os.path.join(user_dir, menu)
         try:
             os.makedirs(target_dir)
-        except:
+        except BaseException:
             pass
         target = os.path.join(target_dir, filename)
         if not os.path.exists(target):
@@ -350,7 +352,7 @@ def mapDesktopEnvironmentDirectories():
             try:
                 logger.debug("copy %s to %s" % (src, target))
                 shutil.copy2(src, target)
-            except:
+            except BaseException:
                 logger.warning("Failed to copy %s to %s" % (src, target))
                 continue
 
@@ -359,7 +361,7 @@ def mapDesktopEnvironmentDirectories():
             if os.path.exists(symlink):
                 continue
             os.symlink(target, symlink)
-        except:
+        except BaseException:
             logger.warning("Failed to symlink %s to %s" % (src, target))
 
 
@@ -392,8 +394,9 @@ def unmapDesktopEnvironmentDirectories():
 
         try:
             os.remove(filename)
-        except:
+        except BaseException:
             logger.warning("Failed to remove symlink %s" % filename)
+
 
 def getUserDirectoriesDirectory():
     """Return the path to the user desktop-directories directory."""
@@ -756,6 +759,7 @@ def find_program(program):
 
     return None
 
+
 def validate_desktop_file(desktop_file):  # noqa
     """Validate a known-bad desktop file in the same way GMenu/glib does, to
     give a user real information about why certain files are broken."""
@@ -841,7 +845,7 @@ def validate_desktop_file(desktop_file):  # noqa
         exec_key = keyfile.get_string(start_group,
                                       GLib.KEY_FILE_DESKTOP_KEY_EXEC)
     except GLib.Error:
-        return False # LP: #1788814, Exec key is not required
+        return False  # LP: #1788814, Exec key is not required
 
     try:
         if find_program(exec_key) is None:
@@ -853,7 +857,7 @@ def validate_desktop_file(desktop_file):  # noqa
                 % ('Exec', exec_key, e))
 
     if type_key == "Service":
-        return False # KDE services are not displayed in the menu
+        return False  # KDE services are not displayed in the menu
 
     # Translators: This error is displayed for a failing desktop file where
     # errors were detected but the file seems otherwise valid.

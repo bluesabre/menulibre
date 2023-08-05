@@ -15,27 +15,23 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from .util import getDefaultMenuPrefix
+from .Section import Section
+from .AdvancedPage import AdvancedPage
+from .ActionEditor import ActionEditor
+from .CategoryEditor import CategoryEditor
+from .TextEntryButton import TextEntryButton
+from .SwitchEntry import SwitchEntry
+from .PathEntry import PathEntry
+from .FilenameLabel import FilenameLabel
+from .IconEntry import IconEntry
+from .CommandEditor import CommandEntry
+from .MenulibreStackSwitcher import StackSwitcherBox
 from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-
 from gi.repository import Gtk, GObject
-
-from .MenulibreStackSwitcher import StackSwitcherBox
-
-from .CommandEditor import CommandEntry
-from .IconEntry import IconEntry
-from .FilenameLabel import FilenameLabel
-from .PathEntry import PathEntry
-from .SwitchEntry import SwitchEntry
-from .TextEntryButton import TextEntryButton
-from .CategoryEditor import CategoryEditor
-from .ActionEditor import ActionEditor
-from .AdvancedPage import AdvancedPage
-from .Section import Section
-
-from .util import getDefaultMenuPrefix
 
 
 class ApplicationEditor(Gtk.Box):
@@ -72,11 +68,16 @@ class ApplicationEditor(Gtk.Box):
         namebox = Gtk.Box.new(orientation=Gtk.Orientation.VERTICAL, spacing=0)
         hbox.pack_start(namebox, True, True, 0)
 
-        self._name_entry = TextEntryButton('Name', bold_font=True, required=True, placeholder_text=_('Add name'))
+        self._name_entry = TextEntryButton(
+            'Name',
+            bold_font=True,
+            required=True,
+            placeholder_text=_('Add name'))
         self._name_entry.connect("value-changed", self._on_changed)
         namebox.pack_start(self._name_entry, True, True, 0)
 
-        self._comment_entry = TextEntryButton('Comment', placeholder_text=_('Add comment'))
+        self._comment_entry = TextEntryButton(
+            'Comment', placeholder_text=_('Add comment'))
         self._comment_entry.connect("value-changed", self._on_changed)
         namebox.pack_start(self._comment_entry, True, True, 0)
 
@@ -93,8 +94,10 @@ class ApplicationEditor(Gtk.Box):
 
         label = Gtk.Label.new(_("Command"))
         label.set_xalign(0.0)
-        label.set_tooltip_text(_("Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
-                                 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."))
+        label.set_tooltip_text(
+            _(
+                "Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
+                "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."))
         grid.attach(label, 0, 0, 1, 1)
 
         self._exec_entry = CommandEntry()
@@ -124,7 +127,8 @@ class ApplicationEditor(Gtk.Box):
         label = Gtk.Label.new(_("Run in terminal"))
         label.set_xalign(0.0)
         label.set_hexpand(True)
-        label.set_tooltip_text(_("If set to \"True\", the program will be ran in a terminal window."))
+        label.set_tooltip_text(
+            _("If set to \"True\", the program will be ran in a terminal window."))
         grid.attach(label, 0, 0, 1, 1)
 
         self._terminal_entry = SwitchEntry('Terminal')
@@ -137,7 +141,8 @@ class ApplicationEditor(Gtk.Box):
         label = Gtk.Label.new(_("Use startup notification"))
         label.set_xalign(0.0)
         label.set_hexpand(True)
-        label.set_tooltip_text(_("If set to \"True\", a startup notification is sent. Usually means that a busy cursor is shown while the application launches."))
+        label.set_tooltip_text(
+            _("If set to \"True\", a startup notification is sent. Usually means that a busy cursor is shown while the application launches."))
         grid.attach(label, 0, 1, 1, 1)
 
         self._startup_notify_entry = SwitchEntry('StartupNotify')
@@ -150,7 +155,8 @@ class ApplicationEditor(Gtk.Box):
         label = Gtk.Label.new(_("Hide from menus"))
         label.set_xalign(0.0)
         label.set_hexpand(True)
-        label.set_tooltip_text(_("If set to \"True\", this entry will not be shown in menus, but will be available for MIME type associations etc."))
+        label.set_tooltip_text(
+            _("If set to \"True\", this entry will not be shown in menus, but will be available for MIME type associations etc."))
         grid.attach(label, 0, 2, 1, 1)
 
         self._no_display_entry = SwitchEntry('NoDisplay')
@@ -168,21 +174,24 @@ class ApplicationEditor(Gtk.Box):
         self._category_editor.set_prefix(getDefaultMenuPrefix())
         self._category_editor.connect("value-changed", self._on_changed)
         self._additional_settings.add_child(self._category_editor,
-                                            # Translators: "Categories" launcher section
+                                            # Translators: "Categories"
+                                            # launcher section
                                             'categories', _('Categories'))
 
         # Actions Treeview and Inline Toolbar
         self._action_editor = ActionEditor()
         self._action_editor.connect("value-changed", self._on_changed)
         self._additional_settings.add_child(self._action_editor,
-                                            # Translators: "Actions" launcher section
+                                            # Translators: "Actions" launcher
+                                            # section
                                             'actions', _('Actions'))
 
         # Advanced Settings
         self._advanced_page = AdvancedPage(use_headerbar=use_headerbar)
         self._advanced_page.connect("value-changed", self._on_changed)
         self._additional_settings.add_child(self._advanced_page,
-                                            # Translators: "Advanced" launcher section
+                                            # Translators: "Advanced" launcher
+                                            # section
                                             'advanced', _('Advanced'))
 
         # Filename

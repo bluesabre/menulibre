@@ -15,6 +15,7 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import logging
 import os
 import subprocess
 import shlex
@@ -22,10 +23,8 @@ import shlex
 import gi
 gi.require_version("Gtk", "3.0")
 gi.require_version("Gdk", "3.0")
-
 from gi.repository import Gdk, Gio, Gtk, GLib
 
-import logging
 
 logger = logging.getLogger('menulibre')
 
@@ -54,7 +53,8 @@ class FileHandler:
         if not self._file_is_writable(file):
             admin = self._get_preferred_admin_editor()
             if admin is not None:
-                return admin.launch([self._get_file("admin://%s" % file.get_path())])
+                return admin.launch(
+                    [self._get_file("admin://%s" % file.get_path())])
 
             logging.warning(
                 "Could not find a text editor supporting admin://")
@@ -87,9 +87,13 @@ class FileHandler:
 
     def _file_is_writable(self, file: Gio.File):
         try:
-            info = file.query_info(Gio.FILE_ATTRIBUTE_ACCESS_CAN_WRITE, Gio.FileQueryInfoFlags.NONE, None)
-            return info.get_attribute_boolean(Gio.FILE_ATTRIBUTE_ACCESS_CAN_WRITE)
-        except:
+            info = file.query_info(
+                Gio.FILE_ATTRIBUTE_ACCESS_CAN_WRITE,
+                Gio.FileQueryInfoFlags.NONE,
+                None)
+            return info.get_attribute_boolean(
+                Gio.FILE_ATTRIBUTE_ACCESS_CAN_WRITE)
+        except BaseException:
             return False
 
     def _get_preferred_admin_editor(self):
@@ -133,7 +137,8 @@ class FileHandler:
             for path, directories, files in os.walk(data_dir):
                 if fname in files:
                     filename = os.path.join(data_dir, path, fname)
-                    if keyfile.load_from_file(filename, GLib.KeyFileFlags.NONE):
+                    if keyfile.load_from_file(
+                            filename, GLib.KeyFileFlags.NONE):
                         return keyfile
 
         return None
@@ -197,10 +202,11 @@ class FileHandler:
 
     def _get_pkexecs(self):
         try:
-            output = subprocess.check_output(["pkaction"], stderr=subprocess.STDOUT)
+            output = subprocess.check_output(
+                ["pkaction"], stderr=subprocess.STDOUT)
         except Exception as e:
             output = e.output
         try:
             return output.decode('utf-8').split("\n")
-        except:
+        except BaseException:
             return []

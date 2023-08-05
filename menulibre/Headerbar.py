@@ -17,8 +17,7 @@
 
 import gi
 gi.require_version("Gtk", "3.0")
-
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk
 
 
 class Headerbar(Gtk.HeaderBar):
@@ -65,7 +64,8 @@ class Headerbar(Gtk.HeaderBar):
         items = []
 
         for icon_name, label in button_specs:
-            item = Gtk.Button.new_from_icon_name(icon_name, Gtk.IconSize.BUTTON)
+            item = Gtk.Button.new_from_icon_name(
+                icon_name, Gtk.IconSize.BUTTON)
             item.set_tooltip_text(label)
             image = item.get_image()
             image.set_property('use-fallback', True)

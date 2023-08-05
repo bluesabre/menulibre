@@ -26,7 +26,7 @@ except ImportError:
                      "https://launchpad.net/python-distutils-extra\n")
     sys.exit(1)
 assert DistUtilsExtra.auto.__version__ >= '2.18', \
-        'needs DistUtilsExtra.auto >= 2.18'
+    'needs DistUtilsExtra.auto >= 2.18'
 
 
 def update_config(libdir, values={}):
@@ -57,14 +57,14 @@ def update_config(libdir, values={}):
 def move_icon_file(root, target_data, prefix):
     """Move the icon files to their installation prefix."""
     old_icon_path = os.path.normpath(
-            os.path.join(root, target_data, 'share', 'menulibre', 'media'))
+        os.path.join(root, target_data, 'share', 'menulibre', 'media'))
     for icon_size in ['16x16', '24x24', '32x32', '48x48', '64x64', 'scalable',
                       'pixmap']:
         # Install menulibre.png to share/pixmaps
         if icon_size == 'pixmap':
             old_icon_file = os.path.join(old_icon_path, 'menulibre.png')
             icon_path = os.path.normpath(
-                        os.path.join(root, target_data, 'share', 'pixmaps'))
+                os.path.join(root, target_data, 'share', 'pixmaps'))
             icon_file = os.path.join(icon_path, 'menulibre.png')
         # Install everything else to share/icons/hicolor
         else:
@@ -75,8 +75,8 @@ def move_icon_file(root, target_data, prefix):
                                              'menulibre_%s.svg' %
                                              icon_size.split('x')[0])
             icon_path = os.path.normpath(
-                    os.path.join(root, target_data, 'share', 'icons',
-                                 'hicolor', icon_size, 'apps'))
+                os.path.join(root, target_data, 'share', 'icons',
+                             'hicolor', icon_size, 'apps'))
             icon_file = os.path.join(icon_path, 'menulibre.svg')
 
         # Get the real paths.
@@ -111,7 +111,7 @@ def remove_appdata_in_file(root, target_data):
 def get_desktop_file(root, target_data, prefix):
     """Move the desktop file to its installation prefix."""
     desktop_path = os.path.realpath(
-            os.path.join(root, target_data, 'share', 'applications'))
+        os.path.join(root, target_data, 'share', 'applications'))
     desktop_file = os.path.join(desktop_path, 'menulibre.desktop')
     return desktop_file
 
@@ -145,7 +145,7 @@ def generate_changelog():
         git_path = os.path.join(script_path, ".git")
         if os.path.exists(git_path):
             cmd = ['git', 'log', '--pretty=format:"%ad %h %s"',
-                                    '--no-merges', '--date=short']
+                   '--no-merges', '--date=short']
             data = subprocess.check_output(cmd).decode("UTF-8")
             commits = data.split("\n")
             if len(commits) > 0:
@@ -153,7 +153,7 @@ def generate_changelog():
                 with open(changelog_path, "w") as outfile:
                     for line in commits:
                         outfile.write("%s\n" % line[1:-1])
-    except:
+    except BaseException:
         pass
 
 
@@ -170,6 +170,7 @@ write_appdata_file("data/metainfo/menulibre.appdata.xml.in")
 
 class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
     """Command Class to install and update the directory."""
+
     def run(self):
         """Run the setup commands."""
         DistUtilsExtra.auto.install_auto.run(self)
@@ -242,4 +243,4 @@ DistUtilsExtra.auto.setup(
                                     'menulibre-menu-validate.1']),
                 ('share/metainfo/', ['data/metainfo/menulibre.appdata.xml'])],
     cmdclass={'install': InstallAndUpdateDataDirectory}
-    )
+)

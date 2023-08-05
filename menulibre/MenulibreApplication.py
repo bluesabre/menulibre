@@ -16,6 +16,15 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import logging
+from .util import getCurrentDesktop, getProcessList
+from .util import MenuItemTypes, check_keypress, getRelativeName, getRelatedKeys
+from .Headerbar import Headerbar
+from .Toolbar import Toolbar
+from .ApplicationEditor import ApplicationEditor
+from . import MenuEditor
+from . import MenulibreXdg, util, ParsingErrorsDialog
+from . import MenulibreTreeview, MenulibreHistory, Dialogs
 import os
 import shlex
 import sys
@@ -27,20 +36,8 @@ from locale import gettext as _
 
 from gi import require_version
 require_version('Gtk', '3.0')
-from gi.repository import Gio, GLib, GObject, Gtk, Gdk, GdkPixbuf
+from gi.repository import Gio, GLib, GObject, Gtk, Gdk
 
-from . import MenulibreTreeview, MenulibreHistory, Dialogs
-from . import MenulibreXdg, util, ParsingErrorsDialog
-from . import MenuEditor
-from .ApplicationEditor import ApplicationEditor
-from .Toolbar import Toolbar
-from .Headerbar import Headerbar
-
-from .util import MenuItemTypes, check_keypress, getRelativeName, getRelatedKeys
-from .util import escapeText, getCurrentDesktop, getProcessList, getDefaultMenuPrefix
-import menulibre_lib
-
-import logging
 
 logger = logging.getLogger('menulibre')
 
@@ -117,14 +114,18 @@ category_groups = {
 # DE-specific categories
 if util.getDefaultMenuPrefix() == 'xfce-':
     category_groups['Xfce'] = (
-        'X-XFCE', 'X-Xfce-Toplevel', 'X-XFCE-PersonalSettings', 'X-XFCE-HardwareSettings',
-        'X-XFCE-SettingsDialog', 'X-XFCE-SystemSettings'
-    )
+        'X-XFCE',
+        'X-Xfce-Toplevel',
+        'X-XFCE-PersonalSettings',
+        'X-XFCE-HardwareSettings',
+        'X-XFCE-SettingsDialog',
+        'X-XFCE-SystemSettings')
 elif util.getDefaultMenuPrefix() == 'gnome-':
     category_groups['GNOME'] = (
-        'X-GNOME-NetworkSettings', 'X-GNOME-PersonalSettings', 'X-GNOME-Settings-Panel',
-        'X-GNOME-Utilities'
-    )
+        'X-GNOME-NetworkSettings',
+        'X-GNOME-PersonalSettings',
+        'X-GNOME-Settings-Panel',
+        'X-GNOME-Utilities')
 
 # Create a reverse-lookup
 category_lookup = dict()
@@ -144,7 +145,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         'quit': (GObject.SIGNAL_RUN_FIRST, GObject.TYPE_NONE,
                  (GObject.TYPE_BOOLEAN,)),
         'action-enabled': (GObject.SignalFlags.RUN_FIRST, GObject.TYPE_NONE,
-                 (GObject.TYPE_STRING, GObject.TYPE_BOOLEAN,)),
+                           (GObject.TYPE_STRING, GObject.TYPE_BOOLEAN,)),
     }
 
     def __init__(self, app, headerbar_pref=True):
@@ -171,7 +172,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.search_box = Gtk.SearchEntry.new()
         self.search_box.set_placeholder_text(_("Search"))
-        self.search_box.set_icon_from_icon_name(Gtk.EntryIconPosition.PRIMARY, "edit-find-symbolic")
+        self.search_box.set_icon_from_icon_name(
+            Gtk.EntryIconPosition.PRIMARY, "edit-find-symbolic")
         self.search_box.connect('icon-press', self.on_search_cleared)
 
         self.use_headerbar = headerbar_pref
@@ -180,7 +182,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         else:
             self.configure_application_toolbar(add_menu)
 
-        # Configure events for the headerbar or toolbar (they have the same setup)
+        # Configure events for the headerbar or toolbar (they have the same
+        # setup)
         self.connect_toolbar()
 
         self.configure_css()
@@ -201,7 +204,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def connect_toolbar(self):
         self.insert_action_item('add_button', self.add_button)
 
-        self.save_button.connect("clicked", self.activate_action_cb, 'save_launcher')
+        self.save_button.connect(
+            "clicked",
+            self.activate_action_cb,
+            'save_launcher')
         self.save_button.set_sensitive(False)
         self.insert_action_item('save_launcher', self.save_button)
 
@@ -213,14 +219,17 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.redo_button.set_sensitive(False)
         self.insert_action_item('redo', self.redo_button)
 
-        self.revert_button.connect("clicked", self.activate_action_cb, 'revert')
+        self.revert_button.connect(
+            "clicked", self.activate_action_cb, 'revert')
         self.revert_button.set_sensitive(False)
         self.insert_action_item('revert', self.revert_button)
 
-        self.execute_button.connect("clicked", self.activate_action_cb, 'execute')
+        self.execute_button.connect(
+            "clicked", self.activate_action_cb, 'execute')
         self.insert_action_item('execute', self.execute_button)
 
-        self.delete_button.connect("clicked", self.activate_action_cb, 'delete')
+        self.delete_button.connect(
+            "clicked", self.activate_action_cb, 'delete')
         self.delete_button.set_sensitive(False)
         self.insert_action_item('delete', self.delete_button)
 
@@ -258,8 +267,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                           "<a href='%s'>online documentation</a> "
                           "for more information.") % docs_url
 
-            dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
-                                       Gtk.ButtonsType.CLOSE, primary, use_header_bar=False)
+            dialog = Gtk.MessageDialog(
+                None,
+                0,
+                Gtk.MessageType.ERROR,
+                Gtk.ButtonsType.CLOSE,
+                primary,
+                use_header_bar=False)
             dialog.format_secondary_markup(secondary)
             dialog.run()
             sys.exit(1)
@@ -272,8 +286,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Translators: This link goes to the online documentation with more
         # information.
         secondary = _("The default menu could not be found. Please see the "
-                        "<a href='%s'>online documentation</a> "
-                        "for more information.") % docs_url
+                      "<a href='%s'>online documentation</a> "
+                      "for more information.") % docs_url
 
         secondary += "\n\n<big><b>%s</b></big>" % _("Diagnostics")
 
@@ -281,8 +295,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         for k, v in diagnostics.items():
             secondary += "\n<b>%s</b>: %s" % (k, v)
 
-        dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
-                                    Gtk.ButtonsType.CLOSE, primary, use_header_bar=False)
+        dialog = Gtk.MessageDialog(
+            None,
+            0,
+            Gtk.MessageType.ERROR,
+            Gtk.ButtonsType.CLOSE,
+            primary,
+            use_header_bar=False)
         dialog.format_secondary_markup(secondary)
 
         label = self.find_secondary_label(dialog)
@@ -292,7 +311,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         dialog.run()
         sys.exit(1)
 
-    def find_secondary_label(self, container = None):
+    def find_secondary_label(self, container=None):
         try:
             children = container.get_children()
             if len(children) == 0:
@@ -364,17 +383,22 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Configure the Add, Save, Undo, Redo, Revert, Delete widgets.
         headerbar = Headerbar()
 
-        self.add_button = headerbar.add_menu_button("list-add-symbolic", _("Add..."), add_menu)
-        self.save_button = headerbar.add_button("document-save-symbolic", _("Save Launcher"))
+        self.add_button = headerbar.add_menu_button(
+            "list-add-symbolic", _("Add..."), add_menu)
+        self.save_button = headerbar.add_button(
+            "document-save-symbolic", _("Save Launcher"))
 
         self.undo_button, self.redo_button = headerbar.add_buttons([
             ["edit-undo-symbolic", _("Undo")],
             ["edit-redo-symbolic", _("Redo")],
         ])
 
-        self.revert_button = headerbar.add_button("document-revert-symbolic", _("Revert"))
-        self.execute_button = headerbar.add_button("media-playback-start-symbolic", _("Test Launcher"))
-        self.delete_button = headerbar.add_button("edit-delete-symbolic", _("Delete..."))
+        self.revert_button = headerbar.add_button(
+            "document-revert-symbolic", _("Revert"))
+        self.execute_button = headerbar.add_button(
+            "media-playback-start-symbolic", _("Test Launcher"))
+        self.delete_button = headerbar.add_button(
+            "edit-delete-symbolic", _("Delete..."))
 
         headerbar.add_search(self.search_box)
 
@@ -388,111 +412,111 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Add Launcher
         self.actions['add_launcher'] = Gtk.Action(
-                name='add_launcher',
-                # Translators: Add Launcher action label
-                label=_('Add _Launcher…'),
-                # Translators: Add Launcher action tooltip
-                tooltip=_('Add Launcher…'),
-                stock_id=Gtk.STOCK_NEW)
+            name='add_launcher',
+            # Translators: Add Launcher action label
+            label=_('Add _Launcher…'),
+            # Translators: Add Launcher action tooltip
+            tooltip=_('Add Launcher…'),
+            stock_id=Gtk.STOCK_NEW)
 
         # Add Directory
         self.actions['add_directory'] = Gtk.Action(
-                name='add_directory',
-                # Translators: Add Directory action label
-                label=_('Add _Directory…'),
-                # Translators: Add Directory action tooltip
-                tooltip=_('Add Directory…'),
-                stock_id=Gtk.STOCK_NEW)
+            name='add_directory',
+            # Translators: Add Directory action label
+            label=_('Add _Directory…'),
+            # Translators: Add Directory action tooltip
+            tooltip=_('Add Directory…'),
+            stock_id=Gtk.STOCK_NEW)
 
         # Add Separator
         self.actions['add_separator'] = Gtk.Action(
-                name='add_separator',
-                # Translators: Add Separator action label
-                label=_('_Add Separator…'),
-                # Translators: Add Separator action tooltip
-                tooltip=_('Add Separator…'),
-                stock_id=Gtk.STOCK_NEW)
+            name='add_separator',
+            # Translators: Add Separator action label
+            label=_('_Add Separator…'),
+            # Translators: Add Separator action tooltip
+            tooltip=_('Add Separator…'),
+            stock_id=Gtk.STOCK_NEW)
 
         # Save Launcher
         self.actions['save_launcher'] = Gtk.Action(
-                name='save_launcher',
-                # Translators: Save Launcher action label
-                label=_('_Save'),
-                # Translators: Save Launcher action tooltip
-                tooltip=_('Save'),
-                stock_id=Gtk.STOCK_SAVE)
+            name='save_launcher',
+            # Translators: Save Launcher action label
+            label=_('_Save'),
+            # Translators: Save Launcher action tooltip
+            tooltip=_('Save'),
+            stock_id=Gtk.STOCK_SAVE)
 
         # Undo
         self.actions['undo'] = Gtk.Action(
-                name='undo',
-                # Translators: Undo action label
-                label=_('_Undo'),
-                # Translators: Undo action tooltip
-                tooltip=_('Undo'),
-                stock_id=Gtk.STOCK_UNDO)
+            name='undo',
+            # Translators: Undo action label
+            label=_('_Undo'),
+            # Translators: Undo action tooltip
+            tooltip=_('Undo'),
+            stock_id=Gtk.STOCK_UNDO)
 
         # Redo
         self.actions['redo'] = Gtk.Action(
-                name='redo',
-                # Translators: Redo action label
-                label=_('_Redo'),
-                # Translators: Redo action tooltip
-                tooltip=_('Redo'),
-                stock_id=Gtk.STOCK_REDO)
+            name='redo',
+            # Translators: Redo action label
+            label=_('_Redo'),
+            # Translators: Redo action tooltip
+            tooltip=_('Redo'),
+            stock_id=Gtk.STOCK_REDO)
 
         # Revert
         self.actions['revert'] = Gtk.Action(
-                name='revert',
-                # Translators: Revert action label
-                label=_('_Revert'),
-                # Translators: Revert action tooltip
-                tooltip=_('Revert'),
-                stock_id=Gtk.STOCK_REVERT_TO_SAVED)
+            name='revert',
+            # Translators: Revert action label
+            label=_('_Revert'),
+            # Translators: Revert action tooltip
+            tooltip=_('Revert'),
+            stock_id=Gtk.STOCK_REVERT_TO_SAVED)
 
         # Execute
         self.actions['execute'] = Gtk.Action(
-                name='execute',
-                # Translators: Execute action label
-                label=_('_Execute'),
-                # Translators: Execute action tooltip
-                tooltip=_('Execute Launcher'),
-                stock_id=Gtk.STOCK_MEDIA_PLAY)
+            name='execute',
+            # Translators: Execute action label
+            label=_('_Execute'),
+            # Translators: Execute action tooltip
+            tooltip=_('Execute Launcher'),
+            stock_id=Gtk.STOCK_MEDIA_PLAY)
 
         # Delete
         self.actions['delete'] = Gtk.Action(
-                name='delete',
-                # Translators: Delete action label
-                label=_('_Delete'),
-                # Translators: Delete action tooltip
-                tooltip=_('Delete'),
-                stock_id=Gtk.STOCK_DELETE)
+            name='delete',
+            # Translators: Delete action label
+            label=_('_Delete'),
+            # Translators: Delete action tooltip
+            tooltip=_('Delete'),
+            stock_id=Gtk.STOCK_DELETE)
 
         # Quit
         self.actions['quit'] = Gtk.Action(
-                name='quit',
-                # Translators: Quit action label
-                label=_('_Quit'),
-                # Translators: Quit action tooltip
-                tooltip=_('Quit'),
-                stock_id=Gtk.STOCK_QUIT)
+            name='quit',
+            # Translators: Quit action label
+            label=_('_Quit'),
+            # Translators: Quit action tooltip
+            tooltip=_('Quit'),
+            stock_id=Gtk.STOCK_QUIT)
 
         # Help
         self.actions['help'] = Gtk.Action(
-                name='help',
-                # Translators: Help action label
-                label=_('_Contents'),
-                # Translators: Help action tooltip
-                tooltip=_('Help'),
-                stock_id=Gtk.STOCK_HELP)
+            name='help',
+            # Translators: Help action label
+            label=_('_Contents'),
+            # Translators: Help action tooltip
+            tooltip=_('Help'),
+            stock_id=Gtk.STOCK_HELP)
 
         # About
         self.actions['about'] = Gtk.Action(
-                name='about',
-                # Translators: About action label
-                label=_('_About'),
-                # Translators: About action tooltip
-                tooltip=_('About'),
-                stock_id=Gtk.STOCK_ABOUT)
+            name='about',
+            # Translators: About action label
+            label=_('_About'),
+            # Translators: About action tooltip
+            tooltip=_('About'),
+            stock_id=Gtk.STOCK_ABOUT)
 
         # Connect the GtkAction events.
         self.actions['add_launcher'].connect('activate',
@@ -521,7 +545,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         content = self.infobar.get_content_area()
 
-        label = Gtk.Label.new(_("Invalid desktop files detected! Please see details."))
+        label = Gtk.Label.new(
+            _("Invalid desktop files detected! Please see details."))
         label.show()
         content.add(label)
 
@@ -544,17 +569,19 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         content = self.menu_restart_infobar.get_content_area()
 
-        label = Gtk.Label.new(_("Your applications menu may need to be restarted."))
+        label = Gtk.Label.new(
+            _("Your applications menu may need to be restarted."))
         label.show()
         content.add(label)
 
-        self.menu_restart_infobar.add_button(_("Restart menu..."), Gtk.ResponseType.ACCEPT)
+        self.menu_restart_infobar.add_button(
+            _("Restart menu..."), Gtk.ResponseType.ACCEPT)
 
         self.menu_restart_infobar.set_show_close_button(True)
         self.menu_restart_infobar.set_default_response(Gtk.ResponseType.CLOSE)
 
-        self.menu_restart_infobar.connect('response',
-                             self.on_menu_restart_infobar_response)
+        self.menu_restart_infobar.connect(
+            'response', self.on_menu_restart_infobar_response)
 
     def on_menu_restart_infobar_response(self, infobar, response_id):
         if response_id == Gtk.ResponseType.CLOSE:
@@ -567,7 +594,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         toolbar = Toolbar()
         self.toolbar_container.add(toolbar)
 
-        self.add_button = toolbar.add_menu_button("list-add", _("Add..."), add_menu)
+        self.add_button = toolbar.add_menu_button(
+            "list-add", _("Add..."), add_menu)
 
         toolbar.add_separator()
 
@@ -584,7 +612,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         toolbar.add_separator()
 
-        self.execute_button = toolbar.add_button("system-run", _("Test Launcher"))
+        self.execute_button = toolbar.add_button(
+            "system-run", _("Test Launcher"))
 
         toolbar.add_separator()
 
@@ -746,9 +775,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
 
 # Applications Treeview
+
+
     def on_apps_browser_requires_menu_reload(self, widget, required):
         self.menu_restart_infobar.show()
-
 
     def on_menu_restart_button_activate(self, widget):
         processes = getProcessList()
@@ -764,16 +794,21 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.menu_restart_dialog(cmd)
 
-
     def menu_restart_dialog(self, cmd):
         user_cmd = " ".join(cmd)
 
         primary = _("Menu restart required")
-        secondary = _("MenuLibre can do this automatically. "
-                      "Do you want to run the following command?\n\n%s") % user_cmd
+        secondary = _(
+            "MenuLibre can do this automatically. "
+            "Do you want to run the following command?\n\n%s") % user_cmd
 
-        dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
-                                    Gtk.ButtonsType.YES_NO, primary, use_header_bar=False)
+        dialog = Gtk.MessageDialog(
+            None,
+            0,
+            Gtk.MessageType.ERROR,
+            Gtk.ButtonsType.YES_NO,
+            primary,
+            use_header_bar=False)
         dialog.format_secondary_markup(secondary)
         response = dialog.run()
         if response == Gtk.ResponseType.YES:
@@ -781,20 +816,23 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             self.menu_restart_infobar.hide()
         dialog.destroy()
 
-
     def menu_unable_to_restart_dialog(self):
         primary = _("Menu restart required")
         secondary = _("However, MenuLibre cannot determine how to do this "
                       "automatically on your system. "
                       "Please log out for you menu to update completely.")
 
-        dialog = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
-                                    Gtk.ButtonsType.CLOSE, primary, use_header_bar=False)
+        dialog = Gtk.MessageDialog(
+            None,
+            0,
+            Gtk.MessageType.ERROR,
+            Gtk.ButtonsType.CLOSE,
+            primary,
+            use_header_bar=False)
         dialog.format_secondary_markup(secondary)
         dialog.run()
         self.menu_restart_infobar.hide()
         dialog.destroy()
-
 
     def on_apps_browser_add_directory_enabled(self, widget, enabled):
         """Update the Add Directory menu item when the selected row is
@@ -825,7 +863,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     'Keywords', 'StartupWMClass', 'Implements', 'Categories',
                     'Hidden', 'DBusActivatable', 'PrefersNonDefaultGPU',
                     'X-GNOME-UsesNotifications']:
-                    self.set_value(key, None)
+            self.set_value(key, None)
 
         # Clear the Actions and Icon.
         self.set_value('Actions', None, store=True)
@@ -863,7 +901,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 displayed_name = row_data[MenuEditor.COL_NAME]
                 comment = row_data[MenuEditor.COL_COMMENT]
 
-                self.set_value('Icon', row_data[MenuEditor.COL_ICON_NAME], store=True)
+                self.set_value('Icon',
+                               row_data[MenuEditor.COL_ICON_NAME],
+                               store=True)
                 self.set_value('Name', displayed_name, store=True)
                 self.set_value('Comment', comment, store=True)
                 self.set_value('Filename', filename, store=True)
@@ -891,7 +931,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             else:
                 # Display a dialog saying this item is missing
-                dialog = Dialogs.LauncherRemovedDialog(self, self.use_headerbar)
+                dialog = Dialogs.LauncherRemovedDialog(
+                    self, self.use_headerbar)
                 dialog.run()
                 dialog.destroy()
                 # Mark this item as missing to delete it later.
@@ -946,8 +987,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     self.emit('action-enabled', name, True)
 
             # Enable deletion (LP: #1751616)
-            #self.delete_button.set_sensitive(True)
-            #self.delete_button.set_tooltip_text(_("Delete..."))
+            # self.delete_button.set_sensitive(True)
+            # self.delete_button.set_tooltip_text(_("Delete..."))
 
         # If the entry has a query...
         else:
@@ -996,7 +1037,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Disable deletion if we're in search mode (LP: #1751616)
         if self.search_box.get_text() != "":
             self.delete_button.set_sensitive(False)
-            self.delete_button.set_tooltip_text(_("You cannot delete this file while a search is active."))
+            self.delete_button.set_tooltip_text(
+                _("You cannot delete this file while a search is active."))
 
     def get_inner_value(self, key):
         """Get the value stored for key."""
@@ -1270,8 +1312,15 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         categories = self.get_value('Categories')
         icon_name = self.get_value('Icon')
         hidden = self.get_value('Hidden') or self.get_value('NoDisplay')
-        self.treeview.update_selected(name, comment, executable, categories,
-                                      item_type, icon_name, filename, not hidden)
+        self.treeview.update_selected(
+            name,
+            comment,
+            executable,
+            categories,
+            item_type,
+            icon_name,
+            filename,
+            not hidden)
         self.history.clear()
 
         # Update all instances
@@ -1289,7 +1338,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             processes = getProcessList()
             if "mate-panel" in processes:
                 self.menu_restart_infobar.show()
-
 
     def update_launcher_categories(self, remove, add):  # noqa
         original_filename = self.get_value('Filename')
@@ -1328,7 +1376,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             if category.strip() == "":
                 try:
                     categories.remove(category)
-                except: # noqa
+                except:  # noqa
                     pass
 
         categories.sort()
@@ -1385,18 +1433,21 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                     model[parent][MenuEditor.COL_TYPE] == MenuItemTypes.DIRECTORY):
 
                 # Any direct parents are required directories.
-                required_category_directories.add(model[parent][MenuEditor.COL_NAME])
+                required_category_directories.add(
+                    model[parent][MenuEditor.COL_NAME])
 
                 # Adding if the directory returned is top level
                 _, parent_parent = self.treeview.get_parent(model, parent)
                 if parent_parent is None:
-                    launchers_in_top_level_dirs[model[parent][MenuEditor.COL_NAME]] = instance
+                    launchers_in_top_level_dirs[model[parent][
+                        MenuEditor.COL_NAME]] = instance
 
         # Obtaining a lookup of top-level directories -> iters
         top_level_dirs = {}
         for row in model:
             if row[MenuEditor.COL_TYPE] == MenuItemTypes.DIRECTORY:
-                top_level_dirs[row[MenuEditor.COL_NAME]] = model.get_iter(row.path)
+                top_level_dirs[row[MenuEditor.COL_NAME]
+                               ] = model.get_iter(row.path)
 
         # Looping through all set categories - category specified is at maximum
         # detail level, this needs to be converted to the parent group name,
@@ -1528,7 +1579,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             GObject.timeout_add(2000, self.on_execute_timeout, filename)
         else:
             os.remove(filename)
-            dlg = Dialogs.NotFoundInPathDialog(self, command, self.use_headerbar)
+            dlg = Dialogs.NotFoundInPathDialog(
+                self, command, self.use_headerbar)
             dlg.run()
 
     def on_execute_timeout(self, filename):
@@ -1619,7 +1671,7 @@ class Application(Gtk.Application):
             settings = GLib.KeyFile.new()
             settings.set_boolean("menulibre", "UseHeaderbar", preference)
             settings.save_to_file(self.settings_file)
-        except: # noqa
+        except:  # noqa
             pass
 
     def get_use_headerbar(self):
@@ -1629,7 +1681,7 @@ class Application(Gtk.Application):
             settings = GLib.KeyFile.new()
             settings.load_from_file(self.settings_file, GLib.KeyFileFlags.NONE)
             return settings.get_boolean("menulibre", "UseHeaderbar")
-        except: # noqa
+        except:  # noqa
             return None
 
     def do_activate(self):
@@ -1697,11 +1749,13 @@ class Application(Gtk.Application):
         self.add_action(add_launcher_action)
 
         add_directory_action = Gio.SimpleAction.new("add_directory", None)
-        add_directory_action.connect("activate", self.action_cb, "add_directory")
+        add_directory_action.connect(
+            "activate", self.action_cb, "add_directory")
         self.add_action(add_directory_action)
 
         add_separator_action = Gio.SimpleAction.new("add_separator", None)
-        add_separator_action.connect("activate", self.action_cb, "add_separator")
+        add_separator_action.connect(
+            "activate", self.action_cb, "add_separator")
         self.add_action(add_separator_action)
 
     def bad_files_cb(self, widget, data=None):

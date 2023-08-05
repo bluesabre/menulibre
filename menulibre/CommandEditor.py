@@ -22,7 +22,6 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-
 from gi.repository import Gtk, Gio, GObject, GLib, Pango, Gdk
 
 
@@ -33,7 +32,7 @@ class CommandEditorDialog(Gtk.Dialog):
                          use_header_bar=use_header_bar, flags=0)
         self.add_buttons(
             _('Cancel'), Gtk.ResponseType.CANCEL,
-                _('Apply'), Gtk.ResponseType.OK
+            _('Apply'), Gtk.ResponseType.OK
         )
 
         self.set_default_size(400, 200)
@@ -87,8 +86,7 @@ class CommandEditorDialog(Gtk.Dialog):
 
         help = HelpButton(
             "https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec",
-            _("Help")
-        )
+            _("Help"))
         box.pack_start(help, False, False, 0)
 
         self.get_content_area().add(box)
@@ -256,8 +254,8 @@ class CommandEditorEntry(Gtk.Box):
         text = self.entry.get_text()
         pos = self.entry.get_position()
 
-        is_equals = pos > 0 and text[pos-1] == "="
-        need_space_before = pos > 0 and text[pos-1] != "="
+        is_equals = pos > 0 and text[pos - 1] == "="
+        need_space_before = pos > 0 and text[pos - 1] != "="
         need_space_after = len(text) > pos
 
         if is_equals and " " in value:
@@ -304,11 +302,13 @@ class CommandEditorEntry(Gtk.Box):
             single += found[key]
 
         if single > 1:
-            return _("A single command line may only contain one of %f, %u, %F, or %U")
+            return _(
+                "A single command line may only contain one of %f, %u, %F, or %U")
 
         for key in keys:
             if quoted[key] > 0:
-                return _("Field code '%s' can not be used inside a quoted argument") % key
+                return _(
+                    "Field code '%s' can not be used inside a quoted argument") % key
 
         for key in deprecated:
             if found[key] > 0:
@@ -466,7 +466,9 @@ class CommandToolBox(Gtk.Box):
         popover.add_option(
             "%i", _("The <tt>Icon</tt> key of this launcher."), size_group)
         popover.add_option(
-            "%c", _("The translated <tt>Name</tt> key of this launcher."), size_group)
+            "%c",
+            _("The translated <tt>Name</tt> key of this launcher."),
+            size_group)
         popover.add_option(
             "%k", _("The file path of this launcher."), size_group)
         popover.connect("row-activated", self.on_field_code_activated)
@@ -560,7 +562,8 @@ class CommandEditorEnvEditor(Gtk.MenuButton):
         elif " " in text:
             var_entry.set_icon_from_icon_name(
                 Gtk.EntryIconPosition.SECONDARY, "dialog-error")
-            var_entry.set_icon_tooltip_text(Gtk.EntryIconPosition.SECONDARY,
+            var_entry.set_icon_tooltip_text(
+                Gtk.EntryIconPosition.SECONDARY,
                 _("Spaces not permitted in environment variables"))
         else:
             var_entry.set_icon_from_icon_name(
@@ -584,9 +587,11 @@ class CommandEditorEnvEditor(Gtk.MenuButton):
                 Gtk.EntryIconPosition.SECONDARY, None)
 
     def on_activate(self, widget, var_entry, val_entry, popover):
-        if var_entry.get_icon_name(Gtk.EntryIconPosition.SECONDARY) != "gtk-apply":
+        if var_entry.get_icon_name(
+                Gtk.EntryIconPosition.SECONDARY) != "gtk-apply":
             return
-        if val_entry.get_icon_name(Gtk.EntryIconPosition.SECONDARY) != "gtk-apply":
+        if val_entry.get_icon_name(
+                Gtk.EntryIconPosition.SECONDARY) != "gtk-apply":
             return
 
         var = var_entry.get_text().strip()
@@ -828,7 +833,9 @@ class CommandEntry(Gtk.Entry):
     def __init__(self):
         Gtk.Entry.__init__(self)
 
-        self.set_icon_from_icon_name(Gtk.EntryIconPosition.SECONDARY, 'document-edit-symbolic')
+        self.set_icon_from_icon_name(
+            Gtk.EntryIconPosition.SECONDARY,
+            'document-edit-symbolic')
 
         self.connect("icon-release", self.on_icon_release)
 
@@ -838,7 +845,8 @@ class CommandEntry(Gtk.Entry):
         if icon_pos != Gtk.EntryIconPosition.SECONDARY:
             return
 
-        dialog = CommandEditorDialog(self.get_toplevel(), self.get_text(), True)
+        dialog = CommandEditorDialog(
+            self.get_toplevel(), self.get_text(), True)
         response = dialog.run()
 
         if response == Gtk.ResponseType.OK:

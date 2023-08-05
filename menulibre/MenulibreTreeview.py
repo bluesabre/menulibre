@@ -39,8 +39,8 @@ class Treeview(Gtk.Box):
                                   GObject.TYPE_BOOLEAN,
                                   (GObject.TYPE_BOOLEAN,)),
         'requires-menu-reload': (GObject.SIGNAL_RUN_LAST,
-                                  GObject.TYPE_BOOLEAN,
-                                  (GObject.TYPE_BOOLEAN,)),
+                                 GObject.TYPE_BOOLEAN,
+                                 (GObject.TYPE_BOOLEAN,)),
     }
 
     loaded = False
@@ -120,16 +120,20 @@ class Treeview(Gtk.Box):
         img = Gtk.Image.new_from_icon_name('go-up-symbolic', Gtk.IconSize.MENU)
         self._move_up_button = Gtk.ToolButton.new(img, _("Move Up"))
         self._move_up_button.set_tooltip_text(_("Move Up"))
-        self._move_up_button.connect('clicked', self._move_iter, (self._treeview, -1))
+        self._move_up_button.connect(
+            'clicked', self._move_iter, (self._treeview, -1))
         self._toolbar.add(self._move_up_button)
 
-        img = Gtk.Image.new_from_icon_name('go-down-symbolic', Gtk.IconSize.MENU)
+        img = Gtk.Image.new_from_icon_name(
+            'go-down-symbolic', Gtk.IconSize.MENU)
         self._move_down_button = Gtk.ToolButton.new(img, _("Move Down"))
         self._move_down_button.set_tooltip_text(_("Move Down"))
-        self._move_down_button.connect('clicked', self._move_iter, (self._treeview, 1))
+        self._move_down_button.connect(
+            'clicked', self._move_iter, (self._treeview, 1))
         self._toolbar.add(self._move_down_button)
 
-        img = Gtk.Image.new_from_icon_name('view-sort-ascending-symbolic', Gtk.IconSize.MENU)
+        img = Gtk.Image.new_from_icon_name(
+            'view-sort-ascending-symbolic', Gtk.IconSize.MENU)
         self._sort_button = Gtk.ToolButton.new(img, _("Sort Alphabetically"))
         self._sort_button.set_tooltip_text(_("Sort Alphabetically"))
         self._sort_button.connect('clicked', self._sort_iter)
@@ -230,7 +234,8 @@ class Treeview(Gtk.Box):
                 # Update the required categories.
                 model, parent_data = self.get_parent_row_data()
                 if parent_data is not None:
-                    categories = util.getRequiredCategories(parent_data[MenuEditor.COL_FILENAME])
+                    categories = util.getRequiredCategories(
+                        parent_data[MenuEditor.COL_FILENAME])
                 else:
                     categories = util.getRequiredCategories(None)
                 self.parent.update_launcher_categories(categories, [])
@@ -246,8 +251,15 @@ class Treeview(Gtk.Box):
                 executable = entry['Exec']
                 icon_name = entry['Icon']
                 hidden = entry['Hidden'] or entry['NoDisplay']
-                self.update_selected(name, comment, executable, categories,
-                                     item_type, icon_name, original, not hidden)
+                self.update_selected(
+                    name,
+                    comment,
+                    executable,
+                    categories,
+                    item_type,
+                    icon_name,
+                    original,
+                    not hidden)
                 model, row_data = self.get_selected_row_data()
                 self.update_launcher_instances(filename, row_data)
                 treeiter = None
@@ -301,7 +313,7 @@ class Treeview(Gtk.Box):
         try:
             string = path.to_string()
             parts = string.split(":")
-            parts[-1] = str(int(parts[-1])+1)
+            parts[-1] = str(int(parts[-1]) + 1)
             string = ":".join(parts)
             path = Gtk.TreePath.new_from_string(string)
             model.get_iter(path)
@@ -466,7 +478,8 @@ class Treeview(Gtk.Box):
 
     def _icon_name_func(self, col, renderer, treestore, treeiter, user_data):
         """CellRenderer function to set the gicon for each row."""
-        renderer.set_property("gicon", treestore[treeiter][MenuEditor.COL_G_ICON])
+        renderer.set_property("gicon",
+                              treestore[treeiter][MenuEditor.COL_G_ICON])
 
     def _get_selected_iter(self):
         """Return the current treeview model and selected iter."""
@@ -665,7 +678,7 @@ class Treeview(Gtk.Box):
             return True
 
         if query in executable.lower():
-                return True
+            return True
 
         # Match against the desktop file.
         desktop = desktop.replace("menulibre-", "")
@@ -716,7 +729,8 @@ class Treeview(Gtk.Box):
                 parent = model.iter_parent(parent)
             parents.reverse()
             if menu_install:
-                installed = MenulibreXdg.desktop_menu_install(parents, [filename])
+                installed = MenulibreXdg.desktop_menu_install(parents, [
+                                                              filename])
                 if not installed:
                     self.emit("requires-menu-reload", True)
 
@@ -748,8 +762,8 @@ class Treeview(Gtk.Box):
         """Update the menu files."""
         if self.menu_timeout_id > 0:
             GLib.source_remove(self.menu_timeout_id)
-        self.menu_timeout_id = GLib.timeout_add_seconds(1,
-            self.update_menu_timeout)
+        self.menu_timeout_id = GLib.timeout_add_seconds(
+            1, self.update_menu_timeout)
 
     def update_menu_timeout(self):
         # Do not save menu layout if in search mode (lp #1306999)
@@ -832,7 +846,8 @@ class Treeview(Gtk.Box):
             # Get current required categories
             model, parent = self.get_parent(model, selected_iter)
             if parent:
-                categories = util.getRequiredCategories(model[parent][MenuEditor.COL_FILENAME])
+                categories = util.getRequiredCategories(
+                    model[parent][MenuEditor.COL_FILENAME])
             else:
                 categories = util.getRequiredCategories(None)
 
@@ -886,7 +901,8 @@ class Treeview(Gtk.Box):
             # Get new required categories
             model, parent = self.get_parent(model, selected_iter)
             if parent:
-                new_categories = util.getRequiredCategories(model[parent][MenuEditor.COL_FILENAME])
+                new_categories = util.getRequiredCategories(
+                    model[parent][MenuEditor.COL_FILENAME])
             else:
                 new_categories = util.getRequiredCategories(None)
 
@@ -1024,7 +1040,7 @@ class Treeview(Gtk.Box):
     def scroll_to_selection(self):
         model, sel_iter = self._get_selected_iter()
         self._treeview.scroll_to_cell(model.get_path(sel_iter), None,
-                                False, 0.0, 0.0)
+                                      False, 0.0, 0.0)
 
     def set_search_entry(self, entry):
         self._treeview.set_search_entry(entry)
