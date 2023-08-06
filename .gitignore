@@ -3,6 +3,7 @@ ChangeLog
 MANIFEST
 build/
 dist/
+menulibre.egg-info/
 menulibre/__pycache__/
 menulibre_lib/__pycache__/
 data/metainfo/menulibre.appdata.xml
