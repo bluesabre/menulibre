@@ -585,7 +585,6 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             else:
                 self.save_launcher()
                 return True
-            return False
         else:
             return True
 

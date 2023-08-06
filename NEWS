@@ -25,8 +25,6 @@ Unreleased, MenuLibre 2.3.2
   - Sidebar borders
   - Execute button no longer sensitive for separators
   - Made the "Details" button on the parsing errors infobar translatable
-- Todo
-  - Adding a new launcher replaces all separators
 
 
 30 April 2023, MenuLibre 2.3.1

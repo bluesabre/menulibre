@@ -552,6 +552,8 @@ class Treeview(Gtk.Box):
 
     def _get_launcher_instances(self, filename, model=None, parent=None):
         """Return a list of all treeiters referencing this filename."""
+        if filename is None:
+            return []
         if model is None:
             model, treeiter = self._get_selected_iter()
         treeiters = []
