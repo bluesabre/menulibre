@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-01 07:00-0400\n"
+"POT-Creation-Date: 2023-08-06 06:18-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Yaya - Nurul Azeera Hidayah @ Muhammad Nur Hidayat Yasuyoshi (MNH48) <admin@mnh48.moe>, 2023\n"
 "Language-Team: Malay (Arabic) (https://app.transifex.com/bluesabreorg/teams/99550/ms@Arab/)\n"
@@ -45,55 +45,55 @@ msgid "Use toolbar layout (server side decorations)"
 msgstr "ݢوناکن تاتالتق بر ڤڠندال (هياسن سيسي ڤلاين)"
 
 #. Translators: "Show" tree column header
-#: ../menulibre/ActionEditor.py:57
+#: ../menulibre/ActionEditor.py:56
 msgid "Show"
 msgstr "تونجوق"
 
 #. Translators: "Name" tree column header
-#: ../menulibre/ActionEditor.py:65
+#: ../menulibre/ActionEditor.py:64
 msgid "Name"
 msgstr "نام"
 
 #. Translators: "Command" tree column header
-#: ../menulibre/ActionEditor.py:73 ../menulibre/ApplicationEditor.py:94
-#: ../menulibre/CommandEditor.py:612 ../menulibre/CommandEditor.py:624
+#: ../menulibre/ActionEditor.py:72 ../menulibre/ApplicationEditor.py:95
+#: ../menulibre/CommandEditor.py:617 ../menulibre/CommandEditor.py:629
 msgid "Command"
 msgstr "ڤرينة"
 
-#: ../menulibre/ActionEditor.py:81 ../menulibre/CategoryEditor.py:499
+#: ../menulibre/ActionEditor.py:80 ../menulibre/CategoryEditor.py:505
 #: ../menulibre/CommandEditor.py:434
 msgid "Add"
 msgstr "تمبه"
 
-#: ../menulibre/ActionEditor.py:85 ../menulibre/CategoryEditor.py:503
+#: ../menulibre/ActionEditor.py:85 ../menulibre/CategoryEditor.py:510
 msgid "Remove"
 msgstr "بواڠ"
 
-#: ../menulibre/ActionEditor.py:89 ../menulibre/CategoryEditor.py:507
-#: ../menulibre/CommandEditor.py:172
+#: ../menulibre/ActionEditor.py:90 ../menulibre/CategoryEditor.py:515
+#: ../menulibre/CommandEditor.py:170
 msgid "Clear"
 msgstr "کوسوڠکن"
 
-#: ../menulibre/ActionEditor.py:93 ../menulibre/MenulibreTreeview.py:121
+#: ../menulibre/ActionEditor.py:94 ../menulibre/MenulibreTreeview.py:121
 #: ../menulibre/MenulibreTreeview.py:122
 msgid "Move Up"
 msgstr "اليه کأتس"
 
-#: ../menulibre/ActionEditor.py:97 ../menulibre/MenulibreTreeview.py:127
-#: ../menulibre/MenulibreTreeview.py:128
+#: ../menulibre/ActionEditor.py:99 ../menulibre/MenulibreTreeview.py:129
+#: ../menulibre/MenulibreTreeview.py:130
 msgid "Move Down"
 msgstr "اليه کباوه"
 
 #. Translators: Placeholder text for a newly created action
-#: ../menulibre/ActionEditor.py:245
+#: ../menulibre/ActionEditor.py:302
 msgid "New Shortcut"
 msgstr "ڤينتسن بهارو"
 
-#: ../menulibre/AdvancedPage.py:53
+#: ../menulibre/AdvancedPage.py:52
 msgid "Generic Name"
 msgstr "نام ݢينريک"
 
-#: ../menulibre/AdvancedPage.py:54
+#: ../menulibre/AdvancedPage.py:53
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr "نام ݢينريک اڤليکاسي⹁ چونتوهڽ \"ڤلاير سساوڠ\""
 
@@ -126,7 +126,7 @@ msgstr ""
 msgid "Not Shown In"
 msgstr "تيدق دتونجوقکن دالم"
 
-#: ../menulibre/AdvancedPage.py:70
+#: ../menulibre/AdvancedPage.py:71
 msgid ""
 "A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
@@ -134,19 +134,19 @@ msgstr ""
 "سناراي ڤرسکيترن يڠ تيدق ڤاتوت ڤاڤرکن ماسوقن اين. اندا هاڽ بوليه ݢونا ککونچي اين جک ڤمبوليه اوبه \"OnlyShowIn\" تيدق دتتڤکن.\n"
 "نيلاي يڠ موڠکين ترماسوقله: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#: ../menulibre/AdvancedPage.py:75
+#: ../menulibre/AdvancedPage.py:76
 msgid "Mimetypes"
 msgstr "جنيس MIME"
 
-#: ../menulibre/AdvancedPage.py:76
+#: ../menulibre/AdvancedPage.py:77
 msgid "The MIME type(s) supported by this application."
 msgstr "جنيس MIME يڠ دسوکوڠ اڤليکاسي اين."
 
-#: ../menulibre/AdvancedPage.py:80
+#: ../menulibre/AdvancedPage.py:82
 msgid "Keywords"
 msgstr "کات کونچي"
 
-#: ../menulibre/AdvancedPage.py:81
+#: ../menulibre/AdvancedPage.py:83
 msgid ""
 "A list of keywords to describe this entry. You can use these to help "
 "searching entries. These are not meant for display, and should not be "
@@ -155,11 +155,11 @@ msgstr ""
 "Senarai kata kunci untuk jelaskan masukan ini. Anda boleh guna kata kunci ini untuk bantu menggelintar masukan. Ia bukan untuk dipaparkan, dan tidak patut digandakan dengan nilai Name atau GenericName.\n"
 "سناراي کات کونچي اونتوق جلسکن ماسوقن اين. اندا بوليه ݢونا کات کونچي اين اونتوق بنتو مڠݢلينتر ماسوقن. اي بوکن اونتوق دڤاڤرکن⹁ دان تيدق ڤاتوت دݢنداکن دڠن نيلاي Name اتاو GenericName."
 
-#: ../menulibre/AdvancedPage.py:85
+#: ../menulibre/AdvancedPage.py:88
 msgid "Startup WM Class"
 msgstr "کلس WM ڤرمولاٴن"
 
-#: ../menulibre/AdvancedPage.py:86
+#: ../menulibre/AdvancedPage.py:89
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
@@ -167,19 +167,19 @@ msgstr ""
 "جک دڽاتکن⹁ اڤليکاسي اکن دمينتا اونتوق ݢوناکن رينتيتن سباݢاي کلس WM اتاو "
 "ڤمبايڠ نام WM سکورڠ-کورڠڽ دالم ساتو تتيڠکڤ."
 
-#: ../menulibre/AdvancedPage.py:90
+#: ../menulibre/AdvancedPage.py:96
 msgid "Implements"
 msgstr "ملقساناکن"
 
-#: ../menulibre/AdvancedPage.py:91
+#: ../menulibre/AdvancedPage.py:97
 msgid "A list of interfaces that this application implements."
 msgstr "سناراي انتارا موک يڠ اڤليکاسي اين لقساناکن."
 
-#: ../menulibre/AdvancedPage.py:95
+#: ../menulibre/AdvancedPage.py:102
 msgid "Hidden"
 msgstr "ترسمبوڽي"
 
-#: ../menulibre/AdvancedPage.py:96
+#: ../menulibre/AdvancedPage.py:103
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
@@ -187,11 +187,11 @@ msgstr ""
 "جک دتتڤکن ڤد \"بنر\"⹁ کڤوتوسن اونتوق ڤڠݢونا اداله سام دڠن فاٴيل .desktop "
 "تيدق وجود لڠسوڠ."
 
-#: ../menulibre/AdvancedPage.py:100
+#: ../menulibre/AdvancedPage.py:108
 msgid "DBUS Activatable"
 msgstr "DBUS بوليه اکتيف"
 
-#: ../menulibre/AdvancedPage.py:101
+#: ../menulibre/AdvancedPage.py:110
 msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information."
@@ -199,11 +199,11 @@ msgstr ""
 "تتڤکن ککونچي اين کڤد \"بنر\" سکيراڽ ڤڠاکتيفن D-Bus دسوکوڠ اونتوق اڤليکاسي اين دان اندا ايڠين مڠݢوناکنڽ.\n"
 "سيلا ليهت https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable اونتوق معلومت لنجوت."
 
-#: ../menulibre/AdvancedPage.py:106
+#: ../menulibre/AdvancedPage.py:116
 msgid "Prefers Non-Default GPU"
 msgstr "اوتاماکن GPU بوکن-لالاي"
 
-#: ../menulibre/AdvancedPage.py:107
+#: ../menulibre/AdvancedPage.py:118
 msgid ""
 "Set this key to \"True\" if this application prefers to be run on a more powerful GPU if available.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information."
@@ -211,11 +211,11 @@ msgstr ""
 "تتڤکن ککونچي اين کڤد \"بنر\" جک اڤليکاسي اين ايڠين دجالنکن ڤد GPU يڠ لبيه برکواسا جک اد.\n"
 "سيلا ليهت https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu اونتوق معلومت لنجوت."
 
-#: ../menulibre/AdvancedPage.py:112
+#: ../menulibre/AdvancedPage.py:124
 msgid "Uses Notifications"
 msgstr "ڤمبريتاهوان ڤڠݢونا"
 
-#: ../menulibre/AdvancedPage.py:113
+#: ../menulibre/AdvancedPage.py:126
 msgid ""
 "Set this key to \"True\" if this application uses notifications.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information."
@@ -227,16 +227,16 @@ msgstr ""
 msgid "Add name"
 msgstr "تمبه نام"
 
-#: ../menulibre/ApplicationEditor.py:79
+#: ../menulibre/ApplicationEditor.py:80
 msgid "Add comment"
 msgstr "تمبه اولسن"
 
 #. Application Details Frame
-#: ../menulibre/ApplicationEditor.py:84
+#: ../menulibre/ApplicationEditor.py:85
 msgid "Application Details"
 msgstr "ڤرينچين اڤليکاسي"
 
-#: ../menulibre/ApplicationEditor.py:96
+#: ../menulibre/ApplicationEditor.py:99
 msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."
@@ -244,32 +244,32 @@ msgstr ""
 "اتور چارا اونتوق دجالنکن دڠن ارݢومنڽ. ککونچي اين دڤرلوکن سکيراڽ ڤمبوليه اوبه DBusActivatable تيدق دتتڤکن کڤد \"بنر\" اتاو سکيراڽ اندا ممرلوکن کسراسيان دڠن ڤلقساناٴن يڠ تيدق مماهمي ڤڠاکتيفن D-Bus.\n"
 "سيلا ليهت https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec اونتوق سناراي ارݢومن يڠ دسوکوڠ."
 
-#: ../menulibre/ApplicationEditor.py:105
+#: ../menulibre/ApplicationEditor.py:108
 msgid "Working Directory"
 msgstr "ديريکتوري کرجا"
 
-#: ../menulibre/ApplicationEditor.py:107
+#: ../menulibre/ApplicationEditor.py:110
 msgid "The working directory."
 msgstr "ديريکتوري کرجا."
 
 #. Options Frame
-#: ../menulibre/ApplicationEditor.py:116
+#: ../menulibre/ApplicationEditor.py:119
 msgid "Options"
 msgstr "ڤيليهن"
 
-#: ../menulibre/ApplicationEditor.py:124
+#: ../menulibre/ApplicationEditor.py:127
 msgid "Run in terminal"
 msgstr "جالن دالم ترمينل"
 
-#: ../menulibre/ApplicationEditor.py:127
+#: ../menulibre/ApplicationEditor.py:131
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr "جک دتتڤکن کڤد \"بنر\"⹁ اتور چارا اکن دجالنکن دالم تتيڠکڤ ترمينل."
 
-#: ../menulibre/ApplicationEditor.py:137
+#: ../menulibre/ApplicationEditor.py:141
 msgid "Use startup notification"
 msgstr "ݢونا ڤمبريتاهوان ڤرمولاٴن"
 
-#: ../menulibre/ApplicationEditor.py:140
+#: ../menulibre/ApplicationEditor.py:145
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
@@ -277,11 +277,11 @@ msgstr ""
 "جک دتتڤکن کڤد \"بنر\"⹁ ڤمبريتاهوان ڤرمولاٴن اکن دهنتر. بياساڽ برمقصود کورسور"
 " سيبوق دتونجوقکن سماس اڤليکاسي دلنچرکن."
 
-#: ../menulibre/ApplicationEditor.py:150
+#: ../menulibre/ApplicationEditor.py:155
 msgid "Hide from menus"
 msgstr "سمبوڽي دري مينو"
 
-#: ../menulibre/ApplicationEditor.py:153
+#: ../menulibre/ApplicationEditor.py:159
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
@@ -289,730 +289,732 @@ msgstr ""
 "Jika ditetapkan kepada \"Benar\", masukan ini tidak akan ditunjukkan dalam menu, tetapi tersedia untuk perkaitan jenis MIME dll.\n"
 "جک دتتڤکن کڤد \"بنر\"⹁ ماسوقن اين تيدق اکن دتونجوقکن دالم مينو⹁ تتاڤي ترسديا اونتوق ڤرکاٴيتن جنيس MIME دان لاٴين٢."
 
-#. Translators: "Categories" launcher section
-#: ../menulibre/ApplicationEditor.py:172
+#. Translators: "Categories"
+#. launcher section
+#: ../menulibre/ApplicationEditor.py:179
 msgid "Categories"
 msgstr "کاتيݢوري"
 
-#. Translators: "Actions" launcher section
-#: ../menulibre/ApplicationEditor.py:179
+#. Translators: "Actions" launcher
+#. section
+#: ../menulibre/ApplicationEditor.py:187
 msgid "Actions"
 msgstr "تيندقن"
 
-#. Translators: "Advanced" launcher section
-#: ../menulibre/ApplicationEditor.py:186
+#. Translators: "Advanced" launcher
+#. section
+#: ../menulibre/ApplicationEditor.py:195
 msgid "Advanced"
 msgstr "لنجوتن"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:97
+#: ../menulibre/CategoryEditor.py:103
 msgid "Multimedia"
 msgstr "مولتيميديا"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:99
+#: ../menulibre/CategoryEditor.py:105
 msgid "Development"
 msgstr "ڤمباڠونن"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:101
+#: ../menulibre/CategoryEditor.py:107
 msgid "Education"
 msgstr "ڤنديديقن"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:103
+#: ../menulibre/CategoryEditor.py:109
 msgid "Games"
 msgstr "ڤرماٴينن"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:105
+#: ../menulibre/CategoryEditor.py:111
 msgid "Graphics"
 msgstr "ݢرافيک"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:107
+#: ../menulibre/CategoryEditor.py:113
 msgid "Internet"
 msgstr "اينترنيت"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:109
+#: ../menulibre/CategoryEditor.py:115
 msgid "Office"
 msgstr "ڤجابت"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:111
+#: ../menulibre/CategoryEditor.py:117
 msgid "Settings"
 msgstr "تتڤن"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:113
+#: ../menulibre/CategoryEditor.py:119
 msgid "System"
 msgstr "سيستم"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:115
+#: ../menulibre/CategoryEditor.py:121
 msgid "Accessories"
 msgstr "اکسيسوري"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:117
+#: ../menulibre/CategoryEditor.py:123
 msgid "WINE"
 msgstr "WINE"
 
 #. Translators: Launcher section description
 #. Translators: "Other" category group. This item is only displayed for
 #. unknown or non-standard categories.
-#: ../menulibre/CategoryEditor.py:119 ../menulibre/CategoryEditor.py:433
-#: ../menulibre/MenulibreApplication.py:102
+#: ../menulibre/CategoryEditor.py:125 ../menulibre/CategoryEditor.py:439
 msgid "Other"
 msgstr "لاٴين٢"
 
 #. Translators: Launcher category in the Utility section
 #. Translators: Launcher category in the Settings section
-#: ../menulibre/CategoryEditor.py:122 ../menulibre/CategoryEditor.py:346
+#: ../menulibre/CategoryEditor.py:128 ../menulibre/CategoryEditor.py:352
 msgid "Accessibility"
 msgstr "کبوليهچاڤاين"
 
 #. Translators: Launcher category in the Utility section
-#: ../menulibre/CategoryEditor.py:124
+#: ../menulibre/CategoryEditor.py:130
 msgid "Archiving"
 msgstr "ڤڠارکيبن"
 
 #. Translators: Launcher category in the Utility section
-#: ../menulibre/CategoryEditor.py:126
+#: ../menulibre/CategoryEditor.py:132
 msgid "Calculator"
 msgstr "کلکولاتور"
 
 #. Translators: Launcher category in the Utility section
-#: ../menulibre/CategoryEditor.py:128
+#: ../menulibre/CategoryEditor.py:134
 msgid "Clock"
 msgstr "جم"
 
 #. Translators: Launcher category in the Utility section
-#: ../menulibre/CategoryEditor.py:130
+#: ../menulibre/CategoryEditor.py:136
 msgid "Compression"
 msgstr "ڤممڤتن"
 
 #. Translators: Launcher category in the Utility section
 #. Translators: Launcher category in the System section
-#: ../menulibre/CategoryEditor.py:132 ../menulibre/CategoryEditor.py:365
+#: ../menulibre/CategoryEditor.py:138 ../menulibre/CategoryEditor.py:371
 msgid "File Tools"
 msgstr "التن فاٴيل"
 
 #. Translators: Launcher category in the Utility section
-#: ../menulibre/CategoryEditor.py:134
+#: ../menulibre/CategoryEditor.py:140
 msgid "Text Editor"
 msgstr "ڤڽونتيڠ تيک‌س"
 
 #. Translators: Launcher category in the Utility section
-#: ../menulibre/CategoryEditor.py:136
+#: ../menulibre/CategoryEditor.py:142
 msgid "Text Tools"
 msgstr "التن تيک‌س"
 
 #. Translators: Launcher category in the Development section
-#: ../menulibre/CategoryEditor.py:139
+#: ../menulibre/CategoryEditor.py:145
 msgid "Building"
 msgstr "بيناٴن"
 
 #. Translators: Launcher category in the Development section
-#: ../menulibre/CategoryEditor.py:141
+#: ../menulibre/CategoryEditor.py:147
 msgid "Debugger"
 msgstr "ڤڽهڤڤيجت"
 
 #. Translators: Launcher category in the Development section
-#: ../menulibre/CategoryEditor.py:143
+#: ../menulibre/CategoryEditor.py:149
 msgid "IDE"
 msgstr "IDE"
 
 #. Translators: Launcher category in the Development section
-#: ../menulibre/CategoryEditor.py:145
+#: ../menulibre/CategoryEditor.py:151
 msgid "GUI Designer"
 msgstr "ڤريک GUI"
 
 #. Translators: Launcher category in the Development section
-#: ../menulibre/CategoryEditor.py:147
+#: ../menulibre/CategoryEditor.py:153
 msgid "Profiling"
 msgstr "ڤمڤروفيلن"
 
 #. Translators: Launcher category in the Development section
-#: ../menulibre/CategoryEditor.py:149
+#: ../menulibre/CategoryEditor.py:155
 msgid "Revision Control"
 msgstr "کاولن سيمقن"
 
 #. Translators: Launcher category in the Development section
-#: ../menulibre/CategoryEditor.py:151
+#: ../menulibre/CategoryEditor.py:157
 msgid "Translation"
 msgstr "ترجمهن"
 
 #. Translators: Launcher category in the Development section
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:153 ../menulibre/CategoryEditor.py:289
+#: ../menulibre/CategoryEditor.py:159 ../menulibre/CategoryEditor.py:295
 msgid "Web Development"
 msgstr "ڤمباڠونن سساوڠ"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:156
+#: ../menulibre/CategoryEditor.py:162
 msgid "Art"
 msgstr "سني"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:158
+#: ../menulibre/CategoryEditor.py:164
 msgid "Artificial Intelligence"
 msgstr "کچردسن بواتن"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:160
+#: ../menulibre/CategoryEditor.py:166
 msgid "Astronomy"
 msgstr "استرونومي"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:162
+#: ../menulibre/CategoryEditor.py:168
 msgid "Biology"
 msgstr "بيولوݢي"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:164
+#: ../menulibre/CategoryEditor.py:170
 msgid "Chemistry"
 msgstr "کيميا"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:166
+#: ../menulibre/CategoryEditor.py:172
 msgid "Computer Science"
 msgstr "ساٴين‌س کومڤوتر"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:168
+#: ../menulibre/CategoryEditor.py:174
 msgid "Construction"
 msgstr "ڤمبيناٴن"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:170
+#: ../menulibre/CategoryEditor.py:176
 msgid "Data Visualization"
 msgstr "ڤمبايڠن داتا"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:172
+#: ../menulibre/CategoryEditor.py:178
 msgid "Economy"
 msgstr "ايکونومي"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:174
+#: ../menulibre/CategoryEditor.py:180
 msgid "Electricity"
 msgstr "ايليکتريک"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:176
+#: ../menulibre/CategoryEditor.py:182
 msgid "Geography"
 msgstr "ݢيوݢرافي"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:178
+#: ../menulibre/CategoryEditor.py:184
 msgid "Geology"
 msgstr "ݢيولوݢي"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:180
+#: ../menulibre/CategoryEditor.py:186
 msgid "Geoscience"
 msgstr "ݢيوساٴين‌س"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:182
+#: ../menulibre/CategoryEditor.py:188
 msgid "History"
 msgstr "سجاره"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:184
+#: ../menulibre/CategoryEditor.py:190
 msgid "Humanities"
 msgstr "کماءنسياٴن"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:186
+#: ../menulibre/CategoryEditor.py:192
 msgid "Image Processing"
 msgstr "ڤمڤروسيسن ايميج"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:188
+#: ../menulibre/CategoryEditor.py:194
 msgid "Languages"
 msgstr "بهاس"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:190
+#: ../menulibre/CategoryEditor.py:196
 msgid "Literature"
 msgstr "سسترا"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:192
+#: ../menulibre/CategoryEditor.py:198
 msgid "Maps"
 msgstr "ڤتا"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:194
+#: ../menulibre/CategoryEditor.py:200
 msgid "Math"
 msgstr "ماتماتيک"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:196
+#: ../menulibre/CategoryEditor.py:202
 msgid "Medical Software"
 msgstr "ڤرايسين ڤراوبتن"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:198
+#: ../menulibre/CategoryEditor.py:204
 msgid "Music"
 msgstr "موزيک"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:200
+#: ../menulibre/CategoryEditor.py:206
 msgid "Numerical Analysis"
 msgstr "اناليسيس براڠک"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:202
+#: ../menulibre/CategoryEditor.py:208
 msgid "Parallel Computing"
 msgstr "ڤڠکومڤوترن سلاري"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:204
+#: ../menulibre/CategoryEditor.py:210
 msgid "Physics"
 msgstr "فيزيک"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:206
+#: ../menulibre/CategoryEditor.py:212
 msgid "Robotics"
 msgstr "روبوتيک"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:208
+#: ../menulibre/CategoryEditor.py:214
 msgid "Spirituality"
 msgstr "کروحانين"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:210
+#: ../menulibre/CategoryEditor.py:216
 msgid "Sports"
 msgstr "سوکن"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:213
+#: ../menulibre/CategoryEditor.py:219
 msgid "Action Game"
 msgstr "ڤرماٴينن اکسي"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:215
+#: ../menulibre/CategoryEditor.py:221
 msgid "Adventure Game"
 msgstr "ڤرماٴينن ڤڠمباراٴن"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:217
+#: ../menulibre/CategoryEditor.py:223
 msgid "Arcade Game"
 msgstr "ڤرماٴينن ارکيد"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:219
+#: ../menulibre/CategoryEditor.py:225
 msgid "Board Game"
 msgstr "ڤرماٴينن برڤاڤن"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:221
+#: ../menulibre/CategoryEditor.py:227
 msgid "Blocks Game"
 msgstr "ڤرماٴينن بلوک"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:223
+#: ../menulibre/CategoryEditor.py:229
 msgid "Card Game"
 msgstr "ڤرماٴينن کد"
 
 #. Translators: Launcher category in the Game section
 #. Translators: Launcher category in the System section
-#: ../menulibre/CategoryEditor.py:225 ../menulibre/CategoryEditor.py:359
+#: ../menulibre/CategoryEditor.py:231 ../menulibre/CategoryEditor.py:365
 msgid "Emulator"
 msgstr "ڤلاݢق"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:227
+#: ../menulibre/CategoryEditor.py:233
 msgid "Kids Game"
 msgstr "ڤرماٴينن کانق٢"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:229
+#: ../menulibre/CategoryEditor.py:235
 msgid "Logic Game"
 msgstr "ڤرماٴينن لوݢيک"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:231
+#: ../menulibre/CategoryEditor.py:237
 msgid "Role Playing"
 msgstr "ڤرماٴينن ڤرانن"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:233
+#: ../menulibre/CategoryEditor.py:239
 msgid "Shooter"
 msgstr "ڤنيمبق"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:235
+#: ../menulibre/CategoryEditor.py:241
 msgid "Simulation"
 msgstr "ڤڽلاکوان"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:237
+#: ../menulibre/CategoryEditor.py:243
 msgid "Sports Game"
 msgstr "ڤرماٴينن سوکن"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:239
+#: ../menulibre/CategoryEditor.py:245
 msgid "Strategy Game"
 msgstr "ڤرماٴينن ستراتيݢي"
 
 #. Translators: Launcher category in the Graphics section
-#: ../menulibre/CategoryEditor.py:242
+#: ../menulibre/CategoryEditor.py:248
 msgid "2D Graphics"
 msgstr "ݢرافيک 2D"
 
 #. Translators: Launcher category in the Graphics section
-#: ../menulibre/CategoryEditor.py:244
+#: ../menulibre/CategoryEditor.py:250
 msgid "3D Graphics"
 msgstr "ݢرافيک 3D"
 
 #. Translators: Launcher category in the Graphics section
-#: ../menulibre/CategoryEditor.py:246
+#: ../menulibre/CategoryEditor.py:252
 msgid "OCR"
 msgstr "OCR"
 
 #. Translators: Launcher category in the Graphics section
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:248 ../menulibre/CategoryEditor.py:333
+#: ../menulibre/CategoryEditor.py:254 ../menulibre/CategoryEditor.py:339
 msgid "Photography"
 msgstr "فوتوݢرافي"
 
 #. Translators: Launcher category in the Graphics section
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:250 ../menulibre/CategoryEditor.py:339
+#: ../menulibre/CategoryEditor.py:256 ../menulibre/CategoryEditor.py:345
 msgid "Publishing"
 msgstr "ڤنربيتن"
 
 #. Translators: Launcher category in the Graphics section
-#: ../menulibre/CategoryEditor.py:252
+#: ../menulibre/CategoryEditor.py:258
 msgid "Raster Graphics"
 msgstr "ݢرافيک رستر"
 
 #. Translators: Launcher category in the Graphics section
-#: ../menulibre/CategoryEditor.py:254
+#: ../menulibre/CategoryEditor.py:260
 msgid "Scanning"
 msgstr "ڤڠيمبسن"
 
 #. Translators: Launcher category in the Graphics section
-#: ../menulibre/CategoryEditor.py:256
+#: ../menulibre/CategoryEditor.py:262
 msgid "Vector Graphics"
 msgstr "ݢرافيک ۏيکتور"
 
 #. Translators: Launcher category in the Graphics section
-#: ../menulibre/CategoryEditor.py:258
+#: ../menulibre/CategoryEditor.py:264
 msgid "Viewer"
 msgstr "ڤميدڠ"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:261
+#: ../menulibre/CategoryEditor.py:267
 msgid "Chat"
 msgstr "سيمبڠ"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:263
+#: ../menulibre/CategoryEditor.py:269
 msgid "Dialup"
 msgstr "داٴيلن"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:265
+#: ../menulibre/CategoryEditor.py:271
 msgid "Feed"
 msgstr "سواڤن"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:267
+#: ../menulibre/CategoryEditor.py:273
 msgid "File Transfer"
 msgstr "ڤيندهن فاٴيل"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:269
+#: ../menulibre/CategoryEditor.py:275
 msgid "Ham Radio"
 msgstr "راديو اماتور"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:271
+#: ../menulibre/CategoryEditor.py:277
 msgid "Instant Messaging"
 msgstr "ڤميسيجن سݢرا"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:273
+#: ../menulibre/CategoryEditor.py:279
 msgid "IRC Client"
 msgstr "کليئن IRC"
 
 #. Translators: Launcher category in the Network section
 #. Translators: Launcher category in the System section
-#: ../menulibre/CategoryEditor.py:275 ../menulibre/CategoryEditor.py:367
+#: ../menulibre/CategoryEditor.py:281 ../menulibre/CategoryEditor.py:373
 msgid "Monitor"
 msgstr "مونيتور"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:277
+#: ../menulibre/CategoryEditor.py:283
 msgid "News"
 msgstr "بريتا"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:279
+#: ../menulibre/CategoryEditor.py:285
 msgid "P2P"
 msgstr "P2P"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:281
+#: ../menulibre/CategoryEditor.py:287
 msgid "Remote Access"
 msgstr "چاڤاين جاٴوه"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:283
+#: ../menulibre/CategoryEditor.py:289
 msgid "Telephony"
 msgstr "تيليفوني"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:285
+#: ../menulibre/CategoryEditor.py:291
 msgid "Telephony Tools"
 msgstr "التن تيليفوني"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:287
+#: ../menulibre/CategoryEditor.py:293
 msgid "Web Browser"
 msgstr "ڤلاير سساوڠ"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:292
+#: ../menulibre/CategoryEditor.py:298
 msgid "Audio"
 msgstr "اٴوديو"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:294
+#: ../menulibre/CategoryEditor.py:300
 msgid "Audio Video Editing"
 msgstr "سونتيڠن اٴوديو ۏيديو"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:296
+#: ../menulibre/CategoryEditor.py:302
 msgid "Disc Burning"
 msgstr "ڤلبورن چکرا"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:298
+#: ../menulibre/CategoryEditor.py:304
 msgid "Midi"
 msgstr "MIDI"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:300
+#: ../menulibre/CategoryEditor.py:306
 msgid "Mixer"
 msgstr "ڤنچمڤور"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:302
+#: ../menulibre/CategoryEditor.py:308
 msgid "Player"
 msgstr "ڤماٴين"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:304
+#: ../menulibre/CategoryEditor.py:310
 msgid "Recorder"
 msgstr "ڤراقم"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:306
+#: ../menulibre/CategoryEditor.py:312
 msgid "Sequencer"
 msgstr "ڤنجوجوق"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:308
+#: ../menulibre/CategoryEditor.py:314
 msgid "Tuner"
 msgstr "ڤنالا"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:310
+#: ../menulibre/CategoryEditor.py:316
 msgid "TV"
 msgstr "TV"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:312
+#: ../menulibre/CategoryEditor.py:318
 msgid "Video"
 msgstr "ۏيديو"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:315
+#: ../menulibre/CategoryEditor.py:321
 msgid "Calendar"
 msgstr "کاليندر"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:317
+#: ../menulibre/CategoryEditor.py:323
 msgid "Contact Management"
 msgstr "ڤڠوروسن کنلن"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:319
+#: ../menulibre/CategoryEditor.py:325
 msgid "Database"
 msgstr "ڤڠکلن داتا"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:321
+#: ../menulibre/CategoryEditor.py:327
 msgid "Dictionary"
 msgstr "قاموس"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:323
+#: ../menulibre/CategoryEditor.py:329
 msgid "Chart"
 msgstr "چرتا"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:325
+#: ../menulibre/CategoryEditor.py:331
 msgid "Email"
 msgstr "إي-ميل"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:327
+#: ../menulibre/CategoryEditor.py:333
 msgid "Finance"
 msgstr "کواڠن"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:329
+#: ../menulibre/CategoryEditor.py:335
 msgid "Flow Chart"
 msgstr "چرتا الير"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:331
+#: ../menulibre/CategoryEditor.py:337
 msgid "PDA"
 msgstr "PDA"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:335
+#: ../menulibre/CategoryEditor.py:341
 msgid "Project Management"
 msgstr "ڤڠوروسن ڤروجيک"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:337
+#: ../menulibre/CategoryEditor.py:343
 msgid "Presentation"
 msgstr "ڤرسمبهن"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:341
+#: ../menulibre/CategoryEditor.py:347
 msgid "Spreadsheet"
 msgstr "لمبرن همڤرن"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:343
+#: ../menulibre/CategoryEditor.py:349
 msgid "Word Processor"
 msgstr "ڤمڤروسيس کات"
 
 #. Translators: Launcher category in the Settings section
-#: ../menulibre/CategoryEditor.py:348
+#: ../menulibre/CategoryEditor.py:354
 msgid "Desktop Settings"
 msgstr "تتڤن اتس ميجا"
 
 #. Translators: Launcher category in the Settings section
-#: ../menulibre/CategoryEditor.py:350
+#: ../menulibre/CategoryEditor.py:356
 msgid "Hardware Settings"
 msgstr "تتڤن ڤرکاکسن"
 
 #. Translators: Launcher category in the Settings section
-#: ../menulibre/CategoryEditor.py:352
+#: ../menulibre/CategoryEditor.py:358
 msgid "Package Manager"
 msgstr "ڤڠوروس ڤاکيج"
 
 #. Translators: Launcher category in the Settings section
-#: ../menulibre/CategoryEditor.py:354
+#: ../menulibre/CategoryEditor.py:360
 msgid "Printing"
 msgstr "ڤنچيتقن"
 
 #. Translators: Launcher category in the Settings section
 #. Translators: Launcher category in the System section
-#: ../menulibre/CategoryEditor.py:356 ../menulibre/CategoryEditor.py:369
+#: ../menulibre/CategoryEditor.py:362 ../menulibre/CategoryEditor.py:375
 msgid "Security"
 msgstr "کسلامتن"
 
 #. Translators: Launcher category in the System section
-#: ../menulibre/CategoryEditor.py:361
+#: ../menulibre/CategoryEditor.py:367
 msgid "File Manager"
 msgstr "ڤڠوروس فاٴيل"
 
 #. Translators: Launcher category in the System section
-#: ../menulibre/CategoryEditor.py:363
+#: ../menulibre/CategoryEditor.py:369
 msgid "Filesystem"
 msgstr "سيستم فاٴيل"
 
 #. Translators: Launcher category in the System section
-#: ../menulibre/CategoryEditor.py:371
+#: ../menulibre/CategoryEditor.py:377
 msgid "Terminal Emulator"
 msgstr "ڤلاݢق ترمينل"
 
 #. Translators: Vendor-neutral launcher category
-#: ../menulibre/CategoryEditor.py:374
+#: ../menulibre/CategoryEditor.py:380
 msgid "Network Settings"
 msgstr "تتڤن رڠکاين"
 
 #. Translators: Vendor-neutral launcher category
-#: ../menulibre/CategoryEditor.py:376
+#: ../menulibre/CategoryEditor.py:382
 msgid "Personal Settings"
 msgstr "تتڤن ڤريبادي"
 
 #. Translators: Vendor-neutral launcher category
-#: ../menulibre/CategoryEditor.py:378
+#: ../menulibre/CategoryEditor.py:384
 msgid "Panel Settings"
 msgstr "تتڤن ڤانل"
 
 #. Translators: Vendor-neutral launcher category
-#: ../menulibre/CategoryEditor.py:380
+#: ../menulibre/CategoryEditor.py:386
 msgid "Settings Dialog"
 msgstr "ديالوݢ تتڤن"
 
 #. Translators: Vendor-neutral launcher category
-#: ../menulibre/CategoryEditor.py:382
+#: ../menulibre/CategoryEditor.py:388
 msgid "System Settings"
 msgstr "تتڤن سيستم"
 
 #. Translators: Vendor-neutral launcher category
-#: ../menulibre/CategoryEditor.py:384
+#: ../menulibre/CategoryEditor.py:390
 msgid "Toplevel"
 msgstr "ڤارس ترتيڠݢي"
 
 #. Translators: Vendor-neutral launcher category
-#: ../menulibre/CategoryEditor.py:386
+#: ../menulibre/CategoryEditor.py:392
 msgid "Utilities"
 msgstr "اوتيليتي"
 
 #. Translators: Launcher category specific to a desktop environment
-#: ../menulibre/CategoryEditor.py:389
+#: ../menulibre/CategoryEditor.py:395
 msgid "GNOME"
 msgstr "GNOME"
 
 #. Translators: Launcher category specific to a desktop environment
-#: ../menulibre/CategoryEditor.py:391
+#: ../menulibre/CategoryEditor.py:397
 msgid "GTK"
 msgstr "GTK"
 
 #. Translators: Launcher category specific to a desktop environment
-#: ../menulibre/CategoryEditor.py:393
+#: ../menulibre/CategoryEditor.py:399
 msgid "Xfce"
 msgstr "Xfce"
 
 #. Translators: Translated key (original key)
-#: ../menulibre/CategoryEditor.py:407
+#: ../menulibre/CategoryEditor.py:413
 #, python-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
 #. Translators: Placeholder text for the launcher-specific category
 #. selection.
-#: ../menulibre/CategoryEditor.py:481
+#: ../menulibre/CategoryEditor.py:487
 msgid "Select a category"
 msgstr "ڤيليه ساتو کاتيݢوري"
 
 #. Translators: "Category Name" tree column header
-#: ../menulibre/CategoryEditor.py:485
+#: ../menulibre/CategoryEditor.py:491
 msgid "Category Name"
 msgstr "نام کاتيݢوري"
 
 #. Translators: "Section" tree column header
-#: ../menulibre/CategoryEditor.py:491
+#: ../menulibre/CategoryEditor.py:497
 msgid "Section"
 msgstr "بهاݢين"
 
-#: ../menulibre/CommandEditor.py:32
+#: ../menulibre/CommandEditor.py:31
 msgid "Command Editor"
 msgstr "ڤڽونتيڠ ڤرينته"
 
@@ -1021,32 +1023,32 @@ msgstr "ڤڽونتيڠ ڤرينته"
 #. Translators: Save On Leave Dialog, don't save, cancel leave.
 #. Translators: Revert Dialog, cancel button.
 #. Translators: File Chooser Dialog, cancel button.
-#: ../menulibre/CommandEditor.py:35 ../menulibre/Dialogs.py:65
-#: ../menulibre/Dialogs.py:100 ../menulibre/Dialogs.py:129
-#: ../menulibre/Dialogs.py:168 ../menulibre/IconEntry.py:157
-#: ../menulibre/IconEntry.py:177 ../menulibre/PathEntry.py:73
+#: ../menulibre/CommandEditor.py:34 ../menulibre/Dialogs.py:73
+#: ../menulibre/Dialogs.py:111 ../menulibre/Dialogs.py:140
+#: ../menulibre/Dialogs.py:179 ../menulibre/IconEntry.py:163
+#: ../menulibre/IconEntry.py:183 ../menulibre/PathEntry.py:78
 msgid "Cancel"
 msgstr "باتل"
 
-#: ../menulibre/CommandEditor.py:36 ../menulibre/IconEntry.py:158
-#: ../menulibre/IconEntry.py:178
+#: ../menulibre/CommandEditor.py:35 ../menulibre/IconEntry.py:164
+#: ../menulibre/IconEntry.py:184
 msgid "Apply"
 msgstr "ݢونا"
 
 #. Translators: Help action tooltip
-#: ../menulibre/CommandEditor.py:90 ../menulibre/MenulibreApplication.py:489
-#: ../menulibre/MenulibreApplication.py:1665
+#: ../menulibre/CommandEditor.py:89 ../menulibre/MenulibreApplication.py:423
+#: ../menulibre/MenulibreApplication.py:1636
 msgid "Help"
 msgstr "بنتوان"
 
 #. Translators: Revert action tooltip
-#: ../menulibre/CommandEditor.py:166 ../menulibre/MenulibreApplication.py:379
-#: ../menulibre/MenulibreApplication.py:453
-#: ../menulibre/MenulibreApplication.py:587
+#: ../menulibre/CommandEditor.py:164 ../menulibre/MenulibreApplication.py:311
+#: ../menulibre/MenulibreApplication.py:387
+#: ../menulibre/MenulibreApplication.py:525
 msgid "Revert"
 msgstr "اوندور"
 
-#: ../menulibre/CommandEditor.py:307
+#: ../menulibre/CommandEditor.py:306
 msgid "A single command line may only contain one of %f, %u, %F, or %U"
 msgstr ""
 "ساتو باريس ڤرينته هاڽ بوليه مڠاندوڠي ساله ساتو دري %f⹁ %u⹁ %F⹁ اتاو %U"
@@ -1127,35 +1129,35 @@ msgstr "لبيهن"
 msgid "The <tt>Icon</tt> key of this launcher."
 msgstr "ککونچي <tt>Icon</tt> اونتوق ڤلنچر اين."
 
-#: ../menulibre/CommandEditor.py:469
+#: ../menulibre/CommandEditor.py:470
 msgid "The translated <tt>Name</tt> key of this launcher."
 msgstr "ککونچي <tt>Name</tt> يڠ دترجمهکن اونتوق ڤلنچر اين."
 
-#: ../menulibre/CommandEditor.py:471
+#: ../menulibre/CommandEditor.py:473
 msgid "The file path of this launcher."
 msgstr "لالوان فاٴيل اونتوق ڤلنچر اين."
 
-#: ../menulibre/CommandEditor.py:497
+#: ../menulibre/CommandEditor.py:499
 msgid "Environment variable"
 msgstr "ڤمبوليه اوبه ڤرسکيترن"
 
-#: ../menulibre/CommandEditor.py:509
+#: ../menulibre/CommandEditor.py:511
 msgid "Variable"
 msgstr "ڤمبوليه اوبه"
 
-#: ../menulibre/CommandEditor.py:518
+#: ../menulibre/CommandEditor.py:520
 msgid "Value"
 msgstr "نيلاي"
 
-#: ../menulibre/CommandEditor.py:564
+#: ../menulibre/CommandEditor.py:567
 msgid "Spaces not permitted in environment variables"
 msgstr "جارق تيدق دبنرکن دالم ڤمبوليه اوبه ڤرسکيترن"
 
-#: ../menulibre/CommandEditor.py:638
+#: ../menulibre/CommandEditor.py:643
 msgid "Select an executable"
 msgstr "ڤيليه ساتو بوليه لاکو"
 
-#: ../menulibre/CommandEditor.py:692
+#: ../menulibre/CommandEditor.py:697
 msgid "Select an application"
 msgstr "ڤيليه ساتو اڤليکاسي"
 
@@ -1165,17 +1167,17 @@ msgid "About MenuLibre"
 msgstr "ڤريهل MenuLibre"
 
 #. Translators: Help Dialog, window title.
-#: ../menulibre/Dialogs.py:57
+#: ../menulibre/Dialogs.py:65
 msgid "Online Documentation"
 msgstr "ڤندوکومنن دالم تالين"
 
 #. Translators: Help Dialog, primary text.
-#: ../menulibre/Dialogs.py:59
+#: ../menulibre/Dialogs.py:67
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr "اداکه اندا ايڠين باچ مانوال MenuLibre اتس تالين؟"
 
 #. Translators: Help Dialog, secondary text.
-#: ../menulibre/Dialogs.py:61
+#: ../menulibre/Dialogs.py:69
 msgid ""
 "You will be redirected to the documentation website where the help pages are"
 " maintained."
@@ -1183,67 +1185,67 @@ msgstr "اندا اکن دلينچوڠکن کلامن سساوڠ ڤندوکوم�
 
 #. Translators: Help Dialog, confirmation button. Navigates to
 #. online documentation.
-#: ../menulibre/Dialogs.py:68
+#: ../menulibre/Dialogs.py:76
 msgid "Read Online"
 msgstr "باچ اتس تالين"
 
 #. Translators: Save On Close Dialog, window title.
 #. Translators: Save On Leave Dialog, window title.
-#: ../menulibre/Dialogs.py:90 ../menulibre/Dialogs.py:118
+#: ../menulibre/Dialogs.py:101 ../menulibre/Dialogs.py:129
 msgid "Save Changes"
 msgstr "سيمڤن ڤروبهن"
 
 #. Translators: Save On Close Dialog, primary text.
-#: ../menulibre/Dialogs.py:92
+#: ../menulibre/Dialogs.py:103
 msgid "Do you want to save the changes before closing?"
 msgstr "اداکه اندا ايڠين سيمڤن ڤروبهن يڠ دبوات سبلوم منوتوڤ؟"
 
 #. Translators: Save On Close Dialog, secondary text.
 #. Translators: Save On Leave Dialog, primary text.
-#: ../menulibre/Dialogs.py:94 ../menulibre/Dialogs.py:123
+#: ../menulibre/Dialogs.py:105 ../menulibre/Dialogs.py:134
 msgid "If you don't save the launcher, all the changes will be lost."
 msgstr "جک اندا تيدق سيمڤن ڤلنچر⹁ سموا ڤروبهن يڠ دبوات اکن هيلڠ."
 
 #. Translators: Save On Close Dialog, don't save, then close.
 #. Translators: Save On Leave Dialog, don't save, then leave.
-#: ../menulibre/Dialogs.py:98 ../menulibre/Dialogs.py:127
+#: ../menulibre/Dialogs.py:109 ../menulibre/Dialogs.py:138
 msgid "Don't Save"
 msgstr "جاڠن سيمڤن"
 
 #. Translators: Save On Close Dialog, do save, then close.
 #. Translators: Save On Leave Dialog, do save, then leave.
 #. Translators: Save Launcher action tooltip
-#: ../menulibre/Dialogs.py:102 ../menulibre/Dialogs.py:131
-#: ../menulibre/MenulibreApplication.py:426
-#: ../menulibre/MenulibreApplication.py:578
+#: ../menulibre/Dialogs.py:113 ../menulibre/Dialogs.py:142
+#: ../menulibre/MenulibreApplication.py:360
+#: ../menulibre/MenulibreApplication.py:516
 msgid "Save"
 msgstr "سيمڤن"
 
 #. Translators: Save On Leave Dialog, primary text.
-#: ../menulibre/Dialogs.py:120
+#: ../menulibre/Dialogs.py:131
 msgid "Do you want to save the changes before leaving this launcher?"
 msgstr "اداکه اندا ايڠين سيمڤن ڤروبهن يڠ دبوات سبلوم منيڠݢلکن ڤلنچر اين؟"
 
 #. Translations: Delete Dialog, secondary text. Notifies user that
 #. the file cannot be restored once deleted.
-#: ../menulibre/Dialogs.py:148
+#: ../menulibre/Dialogs.py:159
 msgid "This cannot be undone."
 msgstr "ڤربواتن اين تيدق بوليه دأوندورکن."
 
 #. Translators: Revert Dialog, window title.
 #. Translators: Revert Dialog, confirmation button.
-#: ../menulibre/Dialogs.py:159 ../menulibre/Dialogs.py:170
+#: ../menulibre/Dialogs.py:170 ../menulibre/Dialogs.py:181
 msgid "Restore Launcher"
 msgstr "ڤوليه ڤلنچر"
 
 #. Translators: Revert Dialog, primary text. Confirmation to revert
 #. all changes since the last file save.
-#: ../menulibre/Dialogs.py:162
+#: ../menulibre/Dialogs.py:173
 msgid "Are you sure you want to restore this launcher?"
 msgstr "اداکه اندا ايڠين ڤوليهکن ڤلنچر اين؟"
 
 #. Translators: Revert Dialog, secondary text.
-#: ../menulibre/Dialogs.py:164
+#: ../menulibre/Dialogs.py:175
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
@@ -1253,12 +1255,12 @@ msgstr ""
 
 #. Translators: Launcher Removed Dialog, primary text. Indicates that
 #. the selected application is no longer installed.
-#: ../menulibre/Dialogs.py:187
+#: ../menulibre/Dialogs.py:198
 msgid "No Longer Installed"
 msgstr "سوده تيدق ترڤاسڠ"
 
 #. Translators: Launcher Removed Dialog, secondary text.
-#: ../menulibre/Dialogs.py:189
+#: ../menulibre/Dialogs.py:200
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -1268,92 +1270,92 @@ msgstr ""
 
 #. Translators: Not Found In PATH Dialog, primary text. Indicates
 #. that the provided script was not found in any PATH directory.
-#: ../menulibre/Dialogs.py:203
+#: ../menulibre/Dialogs.py:214
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr "تيدق جومڤا \"%s\" دالم ڤمبوليه اوبه PATH اندا."
 
 #. Translators: Save Error Dialog, primary text.
-#: ../menulibre/Dialogs.py:221
+#: ../menulibre/Dialogs.py:232
 #, python-format
 msgid "Failed to save \"%s\"."
 msgstr "ݢاݢل مڽيمڤن \"%s\"."
 
 #. Translators: Save Error Dialog, secondary text.
-#: ../menulibre/Dialogs.py:224
+#: ../menulibre/Dialogs.py:235
 msgid "Do you have write permission to the file and directory?"
 msgstr "اداکه اندا ممڤوڽاٴي کأيذينن منوليس کفاٴيل دان ديريکتوري؟"
 
-#: ../menulibre/IconEntry.py:40
+#: ../menulibre/IconEntry.py:39
 msgid "Browse Icons…"
 msgstr "ڤيليه ايکون…"
 
-#: ../menulibre/IconEntry.py:44
+#: ../menulibre/IconEntry.py:43
 msgid "Browse Files…"
 msgstr "ڤيليه فاٴيل…"
 
-#: ../menulibre/IconEntry.py:121
+#: ../menulibre/IconEntry.py:126
 #, python-format
 msgid "<i>Missing icon:</i> %s"
 msgstr "<i>ايکون هيلڠ:</i> %s"
 
-#: ../menulibre/IconEntry.py:153
+#: ../menulibre/IconEntry.py:159
 msgid "Select an image"
 msgstr "ڤيليه ساتو ايميج"
 
 #. Translators: "Images" file chooser dialog filter
-#: ../menulibre/IconEntry.py:163
+#: ../menulibre/IconEntry.py:169
 msgid "Images"
 msgstr "ايميج"
 
-#: ../menulibre/IconEntry.py:174
+#: ../menulibre/IconEntry.py:180
 msgid "Select an icon"
 msgstr "ڤيليه ساتو ايکون"
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:126 ../menulibre/MenulibreApplication.py:846
-#: ../menulibre/MenulibreApplication.py:1139
+#: ../menulibre/MenuEditor.py:125 ../menulibre/MenulibreApplication.py:792
+#: ../menulibre/MenulibreApplication.py:1100
 msgid "Separator"
 msgstr "ڤميسه"
 
-#: ../menulibre/MenulibreApplication.py:171
+#: ../menulibre/MenulibreApplication.py:88
 msgid "Search"
 msgstr "ݢلينتر"
 
-#: ../menulibre/MenulibreApplication.py:234
+#: ../menulibre/MenulibreApplication.py:159
 msgid "Add _Launcher"
 msgstr "تمبه ڤلنچر (_L)"
 
-#: ../menulibre/MenulibreApplication.py:235
+#: ../menulibre/MenulibreApplication.py:160
 msgid "Add _Directory"
 msgstr "تمبه ديريکتوري (_D)"
 
-#: ../menulibre/MenulibreApplication.py:236
+#: ../menulibre/MenulibreApplication.py:161
 msgid "Add _Separator"
 msgstr "تمبه ڤميسه (_S)"
 
 #. Translators: This error is displayed when the application is run
 #. as a root user. The application exits once the dialog is
 #. dismissed.
-#: ../menulibre/MenulibreApplication.py:255
+#: ../menulibre/MenulibreApplication.py:174
 msgid "MenuLibre cannot be run as root."
 msgstr "MenuLibre تيدق بوليه دجالنکن سباݢاي ڤڠݢونا اکر."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
-#: ../menulibre/MenulibreApplication.py:261
+#: ../menulibre/MenulibreApplication.py:180
 #, python-format
 msgid ""
 "Please see the <a href='%s'>online documentation</a> for more information."
 msgstr "سيلا ليهت <a href='%s'>ڤندوکومنن اتس تالين</a> اونتوق معلومت لنجوت."
 
-#: ../menulibre/MenulibreApplication.py:272
+#: ../menulibre/MenulibreApplication.py:196
 msgid "MenuLibre failed to load."
 msgstr "MenuLibre ݢاݢل دمواتکن."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
-#: ../menulibre/MenulibreApplication.py:278
+#: ../menulibre/MenulibreApplication.py:202
 #, python-format
 msgid ""
 "The default menu could not be found. Please see the <a href='%s'>online "
@@ -1362,164 +1364,164 @@ msgstr ""
 "مينو لالاي تيدق دجومڤاٴي. سيلا ليهت <a href='%s'>ڤندوکومنن دالم تالين</a> "
 "اونتوق معلومت لنجوت. "
 
-#: ../menulibre/MenulibreApplication.py:282
+#: ../menulibre/MenulibreApplication.py:206
 msgid "Diagnostics"
 msgstr "دياݢنوسيس"
 
-#: ../menulibre/MenulibreApplication.py:371
-#: ../menulibre/MenulibreApplication.py:574
+#: ../menulibre/MenulibreApplication.py:301
+#: ../menulibre/MenulibreApplication.py:512
 msgid "Add..."
 msgstr "تمبه..."
 
-#: ../menulibre/MenulibreApplication.py:372
+#: ../menulibre/MenulibreApplication.py:303
 msgid "Save Launcher"
 msgstr "سيمڤن ڤلنچر"
 
 #. Translators: Undo action tooltip
-#: ../menulibre/MenulibreApplication.py:375
-#: ../menulibre/MenulibreApplication.py:435
-#: ../menulibre/MenulibreApplication.py:582
+#: ../menulibre/MenulibreApplication.py:306
+#: ../menulibre/MenulibreApplication.py:369
+#: ../menulibre/MenulibreApplication.py:520
 msgid "Undo"
 msgstr "بوات اصل"
 
 #. Translators: Redo action tooltip
-#: ../menulibre/MenulibreApplication.py:376
-#: ../menulibre/MenulibreApplication.py:444
-#: ../menulibre/MenulibreApplication.py:583
+#: ../menulibre/MenulibreApplication.py:307
+#: ../menulibre/MenulibreApplication.py:378
+#: ../menulibre/MenulibreApplication.py:521
 msgid "Redo"
 msgstr "بوات سمولا"
 
-#: ../menulibre/MenulibreApplication.py:380
-#: ../menulibre/MenulibreApplication.py:591
+#: ../menulibre/MenulibreApplication.py:313
+#: ../menulibre/MenulibreApplication.py:530
 msgid "Test Launcher"
 msgstr "چوبا ڤلنچر"
 
-#: ../menulibre/MenulibreApplication.py:381
-#: ../menulibre/MenulibreApplication.py:595
-#: ../menulibre/MenulibreApplication.py:975
-#: ../menulibre/MenulibreApplication.py:987
+#: ../menulibre/MenulibreApplication.py:315
+#: ../menulibre/MenulibreApplication.py:534
+#: ../menulibre/MenulibreApplication.py:929
+#: ../menulibre/MenulibreApplication.py:941
 msgid "Delete..."
 msgstr "ڤادم..."
 
 #. Translators: Add Launcher action label
-#: ../menulibre/MenulibreApplication.py:397
+#: ../menulibre/MenulibreApplication.py:331
 msgid "Add _Launcher…"
 msgstr "تمبه ڤلنچر… (_L)"
 
 #. Translators: Add Launcher action tooltip
-#: ../menulibre/MenulibreApplication.py:399
+#: ../menulibre/MenulibreApplication.py:333
 msgid "Add Launcher…"
 msgstr "تمبه ڤلنچر…"
 
 #. Translators: Add Directory action label
-#: ../menulibre/MenulibreApplication.py:406
+#: ../menulibre/MenulibreApplication.py:340
 msgid "Add _Directory…"
 msgstr "تمبه ديريکتوري… (_D)"
 
 #. Translators: Add Directory action tooltip
-#: ../menulibre/MenulibreApplication.py:408
+#: ../menulibre/MenulibreApplication.py:342
 msgid "Add Directory…"
 msgstr "تمبه ديريکتوري…"
 
 #. Translators: Add Separator action label
-#: ../menulibre/MenulibreApplication.py:415
+#: ../menulibre/MenulibreApplication.py:349
 msgid "_Add Separator…"
 msgstr "تمبه ڤميسه… (_A)"
 
 #. Translators: Add Separator action tooltip
-#: ../menulibre/MenulibreApplication.py:417
+#: ../menulibre/MenulibreApplication.py:351
 msgid "Add Separator…"
 msgstr "تمبه ڤميسه…"
 
 #. Translators: Save Launcher action label
-#: ../menulibre/MenulibreApplication.py:424
+#: ../menulibre/MenulibreApplication.py:358
 msgid "_Save"
 msgstr "سيمڤن (_S)"
 
 #. Translators: Undo action label
-#: ../menulibre/MenulibreApplication.py:433
+#: ../menulibre/MenulibreApplication.py:367
 msgid "_Undo"
 msgstr "بوات اصل (_U)"
 
 #. Translators: Redo action label
-#: ../menulibre/MenulibreApplication.py:442
+#: ../menulibre/MenulibreApplication.py:376
 msgid "_Redo"
 msgstr "بوات سمولا (_R)"
 
 #. Translators: Revert action label
-#: ../menulibre/MenulibreApplication.py:451
+#: ../menulibre/MenulibreApplication.py:385
 msgid "_Revert"
 msgstr "کمبالي سمولا (_R)"
 
 #. Translators: Execute action label
-#: ../menulibre/MenulibreApplication.py:460
+#: ../menulibre/MenulibreApplication.py:394
 msgid "_Execute"
 msgstr "لاکوکن (_E)"
 
 #. Translators: Execute action tooltip
-#: ../menulibre/MenulibreApplication.py:462
+#: ../menulibre/MenulibreApplication.py:396
 msgid "Execute Launcher"
 msgstr "لاکوکن ڤلنچر"
 
 #. Translators: Delete action label
-#: ../menulibre/MenulibreApplication.py:469
+#: ../menulibre/MenulibreApplication.py:403
 msgid "_Delete"
 msgstr "ڤادم (_D)"
 
 #. Translators: Delete action tooltip
-#: ../menulibre/MenulibreApplication.py:471
+#: ../menulibre/MenulibreApplication.py:405
 msgid "Delete"
 msgstr "ڤادم"
 
 #. Translators: Quit action label
-#: ../menulibre/MenulibreApplication.py:478
+#: ../menulibre/MenulibreApplication.py:412
 msgid "_Quit"
 msgstr "کلوار (_Q)"
 
 #. Translators: Quit action tooltip
-#: ../menulibre/MenulibreApplication.py:480
-#: ../menulibre/MenulibreApplication.py:1667
+#: ../menulibre/MenulibreApplication.py:414
+#: ../menulibre/MenulibreApplication.py:1638
 msgid "Quit"
 msgstr "کلوار"
 
 #. Translators: Help action label
-#: ../menulibre/MenulibreApplication.py:487
+#: ../menulibre/MenulibreApplication.py:421
 msgid "_Contents"
 msgstr "کاندوڠن (_C)"
 
 #. Translators: About action label
-#: ../menulibre/MenulibreApplication.py:496
+#: ../menulibre/MenulibreApplication.py:430
 msgid "_About"
 msgstr "ڤريهل (_A)"
 
 #. Translators: About action tooltip
-#: ../menulibre/MenulibreApplication.py:498
-#: ../menulibre/MenulibreApplication.py:1666
+#: ../menulibre/MenulibreApplication.py:432
+#: ../menulibre/MenulibreApplication.py:1637
 msgid "About"
 msgstr "ڤريهل"
 
-#: ../menulibre/MenulibreApplication.py:528
+#: ../menulibre/MenulibreApplication.py:463
 msgid "Invalid desktop files detected! Please see details."
 msgstr "فاٴيل اتس ميجا تيدق صح دکسن! سيلا ليهت ڤرينچين."
 
-#: ../menulibre/MenulibreApplication.py:532
+#: ../menulibre/MenulibreApplication.py:467
 msgid "Details"
 msgstr "ڤرينچين"
 
-#: ../menulibre/MenulibreApplication.py:551
+#: ../menulibre/MenulibreApplication.py:487
 msgid "Your applications menu may need to be restarted."
 msgstr "مينو اڤليکاسي اندا موڠکين ڤرلو دمولاکن سمولا."
 
-#: ../menulibre/MenulibreApplication.py:555
+#: ../menulibre/MenulibreApplication.py:492
 msgid "Restart menu..."
 msgstr "مولا سمولا مينو..."
 
-#: ../menulibre/MenulibreApplication.py:774
-#: ../menulibre/MenulibreApplication.py:789
+#: ../menulibre/MenulibreApplication.py:713
+#: ../menulibre/MenulibreApplication.py:733
 msgid "Menu restart required"
 msgstr "مولا سمولا مينو دڤرلوکن"
 
-#: ../menulibre/MenulibreApplication.py:775
+#: ../menulibre/MenulibreApplication.py:715
 #, python-format
 msgid ""
 "MenuLibre can do this automatically. Do you want to run the following command?\n"
@@ -1530,7 +1532,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../menulibre/MenulibreApplication.py:790
+#: ../menulibre/MenulibreApplication.py:734
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
 "system. Please log out for you menu to update completely."
@@ -1542,50 +1544,50 @@ msgstr ""
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:994
+#: ../menulibre/MenulibreApplication.py:948
 msgid "You do not have permission to delete this file."
 msgstr "اندا تيدق ممڤوڽاٴي کأيذينن ممادم فاٴيل اين."
 
-#: ../menulibre/MenulibreApplication.py:999
+#: ../menulibre/MenulibreApplication.py:954
 msgid "You cannot delete this file while a search is active."
 msgstr "اندا تيدق بوليه ڤادم فاٴيل اين کتيک ݢلينترن ماسيه اکتيف."
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1064
+#: ../menulibre/MenulibreApplication.py:1019
 msgid "New Launcher"
 msgstr "ڤلنچر بهارو"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1067 ../menulibre/MenulibreXdg.py:50
+#: ../menulibre/MenulibreApplication.py:1022 ../menulibre/MenulibreXdg.py:50
 msgid "A small descriptive blurb about this application."
 msgstr "بلورب کترڠن کچيل مڠناٴي اڤليکاسي اين."
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1117
+#: ../menulibre/MenulibreApplication.py:1075
 msgid "New Directory"
 msgstr "ديريکتوري بهارو"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1120
+#: ../menulibre/MenulibreApplication.py:1078
 msgid "A small descriptive blurb about this directory."
 msgstr "بلورب کترڠن کچيل مڠناٴي ديريکتوري اين."
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:1541
+#: ../menulibre/MenulibreApplication.py:1512
 msgid "Are you sure you want to delete this separator?"
 msgstr "اداکه اندا ايڠين ممادم ڤميسه اين؟"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:1545
+#: ../menulibre/MenulibreApplication.py:1516
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "اداکه اندا ايڠين ممادم \"%s\"؟"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:1660
+#: ../menulibre/MenulibreApplication.py:1631
 msgid "Parsing Error Log"
 msgstr "لوݢ رالت ڤڠهوراين"
 
@@ -1594,7 +1596,7 @@ msgstr "لوݢ رالت ڤڠهوراين"
 msgid "Search Results"
 msgstr "حاصيل ݢلينتر"
 
-#: ../menulibre/MenulibreTreeview.py:133 ../menulibre/MenulibreTreeview.py:134
+#: ../menulibre/MenulibreTreeview.py:137 ../menulibre/MenulibreTreeview.py:138
 msgid "Sort Alphabetically"
 msgstr "ايسيه ايکوت ابجد"
 
@@ -1603,15 +1605,15 @@ msgstr "ايسيه ايکوت ابجد"
 msgid "New Menu Item"
 msgstr "بوتير مينو بهارو"
 
-#: ../menulibre/ParsingErrorsDialog.py:34
+#: ../menulibre/ParsingErrorsDialog.py:35
 msgid "Parsing Errors"
 msgstr "رالت ڤڠهوراين"
 
-#: ../menulibre/ParsingErrorsDialog.py:37
+#: ../menulibre/ParsingErrorsDialog.py:38
 msgid "Close"
 msgstr "توتوڤ"
 
-#: ../menulibre/ParsingErrorsDialog.py:56
+#: ../menulibre/ParsingErrorsDialog.py:59
 msgid ""
 "The following desktop files have failed parsing by the underlying library, and will therefore not show up in MenuLibre.\n"
 "Please investigate these problems with the associated package maintainer."
@@ -1619,36 +1621,34 @@ msgstr ""
 "فاٴيل اتس ميجا دباوه تيدق داڤت دهورايکن اوليه ڤوستاک يڠ برکاٴيتن⹁ اوليه ايت اي تيدق اکن مونچول دالم MenuLibre.\n"
 "سيلا سياست مسئله اين برسام ڤڽڠݢارا ڤاکيج يڠ برکاٴيتن."
 
-#: ../menulibre/ParsingErrorsDialog.py:122
+#: ../menulibre/ParsingErrorsDialog.py:126
 msgid "Open containing folder"
 msgstr "بوک فولدر ترکاندوڠ"
 
-#: ../menulibre/ParsingErrorsDialog.py:127
+#: ../menulibre/ParsingErrorsDialog.py:132
 msgid "Open in text editor"
 msgstr "بوک دالم ڤڽونتيڠ تيک‌س"
 
-#: ../menulibre/ParsingErrorsDialog.py:132
+#: ../menulibre/ParsingErrorsDialog.py:138
 msgid "Copy file location"
 msgstr "سالين لوکاسي فاٴيل"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/PathEntry.py:55
 msgid "Select a working directory"
-msgstr "ڤيليه ساتو ديريکتوري کرجا…"
+msgstr "ڤيليه سواتو ديريکتوري کرجا"
 
 #. Translators: File Chooser Dialog, confirmation button.
-#: ../menulibre/PathEntry.py:75
+#: ../menulibre/PathEntry.py:80
 msgid "OK"
 msgstr "اوکي"
 
 #. Translators: Identify Window Dialog, primary text.
-#: ../menulibre/StartupWmClassEntry.py:40
-#: ../menulibre/StartupWmClassEntry.py:57
+#: ../menulibre/StartupWmClassEntry.py:38
+#: ../menulibre/StartupWmClassEntry.py:56
 msgid "Identify Window"
 msgstr "کنل ڤستي تتيڠکڤ"
 
-#. Translators: Identify Window Dialog, secondary text. The selected
-#. application is displayed in the placeholder text.
 #: ../menulibre/StartupWmClassEntry.py:60
 msgid "Click on the main application window for this launcher."
 msgstr "کليک ڤد تتيڠکڤ اڤليکاسي اوتام اونتوق ڤلنچر اين."
@@ -1656,7 +1656,7 @@ msgstr "کليک ڤد تتيڠکڤ اڤليکاسي اوتام اونتوق ڤل
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
 #. code is displayed.
-#: ../menulibre/util.py:781
+#: ../menulibre/util.py:785
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr "تيدق ممڤو ممواتکن فاٴيل اتس ميجا دسببکن رالت بريکوت: %s"
@@ -1664,31 +1664,31 @@ msgstr "تيدق ممڤو ممواتکن فاٴيل اتس ميجا دسببکن
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
 #. translated.
-#: ../menulibre/util.py:796
+#: ../menulibre/util.py:800
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr "کومڤولن ڤمولا تيدق صح - کتيک اين نيلايڽ '%s'⹁ سڤاتوتڽ '%s'"
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:806
+#: ../menulibre/util.py:810
 #, python-format
 msgid "%s key not found"
 msgstr "ککونچي %s تيدق دجومڤاٴي"
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
-#: ../menulibre/util.py:819
+#: ../menulibre/util.py:823
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr "نيلاي %s تيدق صح - کتيک اين نيلايڽ '%s'⹁ سڤاتوتڽ '%s'"
 
-#: ../menulibre/util.py:848
+#: ../menulibre/util.py:852
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
 msgstr "اتور چارا %s '%s' تيدق دجومڤاٴي دالم ڤمبوليه اوبه PATH"
 
-#: ../menulibre/util.py:851
+#: ../menulibre/util.py:855
 #, python-format
 msgid ""
 "%s program '%s' is not a valid shell command according to "
@@ -1700,7 +1700,7 @@ msgstr ""
 #. KDE services are not displayed in the menu
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
-#: ../menulibre/util.py:860
+#: ../menulibre/util.py:864
 msgid "Unknown error. Desktop file appears to be valid."
 msgstr "رالت تيدق دکتاهوٴي. فاٴيل اتس ميجا کليهتن سڤرتي صح."
 
