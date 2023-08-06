@@ -927,7 +927,7 @@ msgstr "Uusi pikakuvake"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1206
-msgid "Select a working directory…"
+msgid "Select a working directory"
 msgstr "Valitse työhakemisto..."
 
 #. Translators: File Chooser Dialog, window title.

@@ -910,7 +910,7 @@ msgstr "Neue Tastenkombination"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1140
-msgid "Select a working directory…"
+msgid "Select a working directory"
 msgstr "Einen Arbeitsordner auswählen …"
 
 #. Translators: File Chooser Dialog, window title.

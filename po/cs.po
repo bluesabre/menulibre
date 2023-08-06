@@ -882,7 +882,7 @@ msgstr "Nová zkratka"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1139
-msgid "Select a working directory…"
+msgid "Select a working directory"
 msgstr "Vybrat pracovní adresář..."
 
 #. Translators: File Chooser Dialog, window title.

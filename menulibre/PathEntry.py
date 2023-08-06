@@ -52,7 +52,7 @@ class PathEntry(Gtk.Entry):
     def _on_icon_clicked(self, entry, icon_pos, event, use_headerbar):
         """Show the file selection dialog when Path Browse is clicked."""
         # Translators: File Chooser Dialog, window title.
-        title = _("Select a working directory…")
+        title = _("Select a working directory")
         action = Gtk.FileChooserAction.SELECT_FOLDER
 
         dialog = FileChooserDialog(

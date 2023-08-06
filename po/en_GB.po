@@ -887,8 +887,8 @@ msgstr "New Shortcut"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1139
-msgid "Select a working directory…"
-msgstr "Select a working directory…"
+msgid "Select a working directory"
+msgstr "Select a working directory"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1143

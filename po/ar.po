@@ -894,7 +894,7 @@ msgstr "اختصار جديد"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1140
-msgid "Select a working directory…"
+msgid "Select a working directory"
 msgstr "اختيار مجلد العمل..."
 
 #. Translators: File Chooser Dialog, window title.

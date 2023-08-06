@@ -858,7 +858,7 @@ msgstr "Nova Prečica"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1139
-msgid "Select a working directory…"
+msgid "Select a working directory"
 msgstr "Odaberite radni direktorij..."
 
 #. Translators: File Chooser Dialog, window title.

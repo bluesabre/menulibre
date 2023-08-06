@@ -929,7 +929,7 @@ msgstr "Yeni Kısayol"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1206
-msgid "Select a working directory…"
+msgid "Select a working directory"
 msgstr "Çalışma Dizini Seç"
 
 #. Translators: File Chooser Dialog, window title.

@@ -889,7 +889,7 @@ msgstr "Νέα Συντόμευση"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1139
-msgid "Select a working directory…"
+msgid "Select a working directory"
 msgstr "Επιλογή καταλόγου εργασίας..."
 
 #. Translators: File Chooser Dialog, window title.

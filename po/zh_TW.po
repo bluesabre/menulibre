@@ -836,7 +836,7 @@ msgstr "新增捷徑"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1139
-msgid "Select a working directory…"
+msgid "Select a working directory"
 msgstr "選取工作目錄..."
 
 #. Translators: File Chooser Dialog, window title.

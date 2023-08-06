@@ -1633,7 +1633,7 @@ msgstr "سالين لوکاسي فاٴيل"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/PathEntry.py:55
-msgid "Select a working directory…"
+msgid "Select a working directory"
 msgstr "ڤيليه ساتو ديريکتوري کرجا…"
 
 #. Translators: File Chooser Dialog, confirmation button.

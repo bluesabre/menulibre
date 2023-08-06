@@ -1645,7 +1645,7 @@ msgstr "Salin lokasi fail"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/PathEntry.py:55
-msgid "Select a working directory…"
+msgid "Select a working directory"
 msgstr "Pilih satu direktori kerja..."
 
 #. Translators: File Chooser Dialog, confirmation button.

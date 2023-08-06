@@ -884,7 +884,7 @@ msgstr "Novo atalho"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1139
-msgid "Select a working directory…"
+msgid "Select a working directory"
 msgstr "Selecione o diretório de trabalho"
 
 #. Translators: File Chooser Dialog, window title.

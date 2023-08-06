@@ -884,7 +884,7 @@ msgstr "新しいショートカット"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1139
-msgid "Select a working directory…"
+msgid "Select a working directory"
 msgstr "作業ディレクトリの選択..."
 
 #. Translators: File Chooser Dialog, window title.

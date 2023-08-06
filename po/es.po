@@ -932,7 +932,7 @@ msgstr "Acceso directo nuevo"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1206
-msgid "Select a working directory…"
+msgid "Select a working directory"
 msgstr "Seleccione una carpeta de trabajo…"
 
 #. Translators: File Chooser Dialog, window title.

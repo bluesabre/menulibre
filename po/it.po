@@ -928,7 +928,7 @@ msgstr "Nuova scorciatoia"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1206
-msgid "Select a working directory…"
+msgid "Select a working directory"
 msgstr "Seleziona una directory di lavoro..."
 
 #. Translators: File Chooser Dialog, window title.

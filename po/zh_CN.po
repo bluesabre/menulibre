@@ -880,7 +880,7 @@ msgstr "新快捷键"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/MenulibreApplication.py:1140
-msgid "Select a working directory…"
+msgid "Select a working directory"
 msgstr "选择一个工作目录…"
 
 #. Translators: File Chooser Dialog, window title.
