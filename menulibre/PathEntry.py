@@ -33,7 +33,7 @@ class PathEntry(Gtk.Entry):
         self._value = ""
 
         self.set_icon_from_icon_name(
-            Gtk.EntryIconPosition.SECONDARY, "folder-open")
+            Gtk.EntryIconPosition.SECONDARY, "folder-open-symbolic")
 
         self.connect("changed", self._on_entry_changed)
         self.connect("icon-release", self._on_icon_clicked, use_headerbar)
