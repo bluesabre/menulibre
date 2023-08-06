@@ -306,22 +306,3 @@ class IconSelectionTreeView(Gtk.TreeView):
     def get_icon(self):
         model, treeiter = self.get_selection().get_selected()
         return model[treeiter][0]
-
-
-class IconEntryDemoWindow(Gtk.Window):
-    def __init__(self):
-        Gtk.Window.__init__(self, title="Icon File Selection Dialog Example")
-
-        self.set_border_width(6)
-
-        entry = IconEntry()
-        entry.set_value('badicon')
-
-        self.add(entry)
-
-
-if __name__ == "__main__":
-    win = IconEntryDemoWindow()
-    win.connect("destroy", Gtk.main_quit)
-    win.show_all()
-    Gtk.main()

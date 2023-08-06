@@ -313,26 +313,3 @@ class ActionEditor(Gtk.Box):
     def _on_clear_clicked(self, widget):
         self._clear()
         self.emit('value-changed', 'Actions', self.get_value())
-
-
-class ActionEditorDemoWindow(Gtk.Window):
-    def __init__(self):
-        Gtk.Window.__init__(self, title="Action Editor Example")
-
-        self.set_default_size(600, 300)
-
-        page = ActionEditor()
-        page.set_value(
-            '[[true, "NewShortcut", "New Shortcut", ""], [true, "NewShortcut1", "New Shortcut", "Test"]]')
-        page.connect('value-changed', self._on_value_changed)
-        self.add(page)
-
-    def _on_value_changed(self, widget, key, value):
-        print(key, value)
-
-
-if __name__ == "__main__":
-    win = ActionEditorDemoWindow()
-    win.connect("destroy", Gtk.main_quit)
-    win.show_all()
-    Gtk.main()

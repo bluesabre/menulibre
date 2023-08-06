@@ -883,21 +883,3 @@ class CommandEntry(Gtk.Entry):
 
     def _on_changed(self, widget):
         self.emit('value-changed', 'Exec', self.get_value())
-
-
-class CommandEditorDemoWindow(Gtk.Window):
-    def __init__(self):
-        Gtk.Window.__init__(self, title="Command Editor Dialog Example")
-
-        self.set_border_width(6)
-
-        entry = CommandEntry()
-
-        self.add(entry)
-
-
-if __name__ == "__main__":
-    win = CommandEditorDemoWindow()
-    win.connect("destroy", Gtk.main_quit)
-    win.show_all()
-    Gtk.main()

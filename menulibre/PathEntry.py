@@ -78,26 +78,3 @@ class FileChooserDialog(Gtk.FileChooserDialog):
         self.add_button(_("Cancel"), Gtk.ResponseType.CANCEL)
         # Translators: File Chooser Dialog, confirmation button.
         self.add_button(_("OK"), Gtk.ResponseType.OK)
-
-
-class PathEntryDemoWindow(Gtk.Window):
-    def __init__(self):
-        Gtk.Window.__init__(self, title="Path Dialog Example")
-
-        self.set_border_width(6)
-
-        entry = PathEntry()
-        entry.set_value('badicon')
-        entry.connect("value-changed", self._on_value_changed)
-
-        self.add(entry)
-
-    def _on_value_changed(self, widget, name, value):
-        print("%s: %s" % (name, value))
-
-
-if __name__ == "__main__":
-    win = PathEntryDemoWindow()
-    win.connect("destroy", Gtk.main_quit)
-    win.show_all()
-    Gtk.main()

@@ -715,25 +715,3 @@ class CategoryEditor(Gtk.Box):
         self._treestore[cell_path][COL_CATEGORY] = row[COL_CATEGORY]
         self._treestore[cell_path][COL_SECTION] = row[COL_SECTION]
         self._treestore[cell_path][COL_DESC] = row[COL_DESC]
-
-
-class CategoryEditorDemoWindow(Gtk.Window):
-    def __init__(self):
-        Gtk.Window.__init__(self, title="Category Editor Example")
-
-        self.set_default_size(600, 300)
-
-        page = CategoryEditor()
-        page.set_value("Development;ArcadeGame;SomethingCrazy")
-        page.connect('value-changed', self._on_value_changed)
-        self.add(page)
-
-    def _on_value_changed(self, widget, key, value):
-        print(key, value)
-
-
-if __name__ == "__main__":
-    win = CategoryEditorDemoWindow()
-    win.connect("destroy", Gtk.main_quit)
-    win.show_all()
-    Gtk.main()
