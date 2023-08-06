@@ -74,6 +74,7 @@ class TextEntryButton(Gtk.Stack):
             attributes.insert(Pango.attr_style_new(Pango.Style.NORMAL))
             if self._bold_font:
                 attributes.insert(Pango.attr_weight_new(Pango.Weight.BOLD))
+                attributes.insert(Pango.attr_size_new(12000))
         else:
             self._label.set_text(self._placeholder_text)
             attributes.insert(Pango.attr_style_new(Pango.Style.ITALIC))
