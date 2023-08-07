@@ -120,14 +120,15 @@ def menu_to_treestore(treestore, parent, menu_items):
         item_type = item[0]
         if item_type == MenuItemTypes.SEPARATOR:
             executable = ""
-            displayed_name = "<s>                    </s>"
+            displayed_name = _("Separator")
             # Translators: Separator menu item
             tooltip = _("Separator")
             categories = ""
             filename = None
-            icon = None
-            icon_name = ""
-            show = True
+            icon_name = "content-loading-symbolic"
+            icon = Gio.ThemedIcon.new(icon_name)
+            item_type = MenuItemTypes.SEPARATOR
+            show = False
         else:
             executable = item[2]['executable']
             displayed_name = escape(item[2]['display_name'])

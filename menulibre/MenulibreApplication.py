@@ -1095,18 +1095,18 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
     def add_separator(self):
         """Add Separator callback function."""
-        name = "<s>                    </s>"
+        name = _("Separator")
         # Translators: Separator menu item
         tooltip = _("Separator")
         categories = ""
         filename = None
-        icon = None
-        icon_name = ""
+        icon_name = "content-loading-symbolic"
+        icon = Gio.ThemedIcon.new(icon_name)
         item_type = MenuItemTypes.SEPARATOR
         filename = None
         executable = ""
         row_data = [name, tooltip, executable, categories, item_type, icon,
-                    icon_name, filename, False, True]
+                    icon_name, filename, False, False]
 
         self.treeview.append(row_data)
 

@@ -85,7 +85,7 @@ class Treeview(Gtk.Box):
         # Set the markup property on the Text cell.
         col.add_attribute(col_cell_text, "markup", 0)
 
-        # Add the cell data func for the pixbuf column to render icons.
+        # Add the cell data func for the text column to render labels.
         col.set_cell_data_func(col_cell_text, self._text_display_func, None)
 
         # Set the Tooltip column.
@@ -474,12 +474,16 @@ class Treeview(Gtk.Box):
             renderer.set_property("style", Pango.Style.NORMAL)
         else:
             renderer.set_property("style", Pango.Style.ITALIC)
+        separator = treestore[treeiter][MenuEditor.COL_TYPE] == MenuItemTypes.SEPARATOR
+        renderer.set_property("sensitive", not separator)
         renderer.set_property("style-set", True)
 
     def _icon_name_func(self, col, renderer, treestore, treeiter, user_data):
         """CellRenderer function to set the gicon for each row."""
         renderer.set_property("gicon",
                               treestore[treeiter][MenuEditor.COL_G_ICON])
+        separator = treestore[treeiter][MenuEditor.COL_TYPE] == MenuItemTypes.SEPARATOR
+        renderer.set_property("sensitive", not separator)
 
     def _get_selected_iter(self):
         """Return the current treeview model and selected iter."""

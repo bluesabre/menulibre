@@ -21,6 +21,7 @@ Unreleased, MenuLibre 2.3.2
     consistent icons
   - Unnecessary indentation was removed from the editor sections
   - Window dimensions were reduced
+  - Separators are now displayed in the application treeview
 - Fixes
   - Sidebar borders
   - Execute button no longer sensitive for separators
