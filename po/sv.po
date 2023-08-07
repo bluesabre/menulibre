@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-23 03:15-0400\n"
+"POT-Creation-Date: 2023-08-07 06:51-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>, 2023\n"
 "Language-Team: Swedish (https://app.transifex.com/bluesabreorg/teams/99550/sv/)\n"
@@ -30,102 +30,6 @@ msgstr "Menyredigerare"
 msgid "Add or remove applications from the menu"
 msgstr "Lägg till eller ta bort program från menyn"
 
-#. Translators: This option adds a new application entry to the menu.
-#: ../data/ui/MenulibreWindow.ui.h:2
-msgid "Add _Launcher"
-msgstr "Lägg till progr_amstartare"
-
-#. Translators: This option adds a new directory entry to the menu.
-#: ../data/ui/MenulibreWindow.ui.h:4
-msgid "Add _Directory"
-msgstr "Lägg till _katalog"
-
-#. Translators: This option adds a new separator entry to the menu.
-#: ../data/ui/MenulibreWindow.ui.h:6
-msgid "Add _Separator"
-msgstr "Lägg till av_skiljare"
-
-#. Translators: Toolbar button to save the currently selected item.
-#: ../data/ui/MenulibreWindow.ui.h:8
-msgid "Save Launcher"
-msgstr "Spara programstartare"
-
-#. Translators: Toolbar button to undo last change to currently selected item.
-#. Translators: Undo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:10 ../menulibre/MenulibreApplication.py:401
-msgid "Undo"
-msgstr "Ångra"
-
-#. Translators: Toolbar button to redo the last undone change to currently
-#. selected item.
-#. Translators: Redo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:12 ../menulibre/MenulibreApplication.py:410
-msgid "Redo"
-msgstr "Gör om"
-
-#. Translators: Toolbar button to revery the currently selected item to it
-#. Translators: Revert action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:14 ../menulibre/CommandEditor.py:166
-#: ../menulibre/MenulibreApplication.py:419
-msgid "Revert"
-msgstr "Återställ"
-
-#. Translators: Toolbar button to test the currently selected item.
-#: ../data/ui/MenulibreWindow.ui.h:16
-msgid "Test Launcher"
-msgstr "Testa startare"
-
-#. Translators: Toolbar button to delete the currently selected item.
-#. Translators: Delete action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:437
-msgid "Delete"
-msgstr "Ta bort"
-
-#. Translators: Save On Close Dialog, do save, then close.
-#. Translators: Save On Leave Dialog, do save, then leave.
-#. Translators: Save Launcher action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:19 ../menulibre/Dialogs.py:102
-#: ../menulibre/Dialogs.py:131 ../menulibre/MenulibreApplication.py:392
-msgid "Save"
-msgstr "Spara"
-
-#. Translators: Placeholder text for the search text entry.
-#: ../data/ui/MenulibreWindow.ui.h:21
-msgid "Search"
-msgstr "Sök"
-
-#. Translators: This error is displayed in a notice at the top of the
-#. application when one or more desktop files fails processing.
-#: ../data/ui/MenulibreWindow.ui.h:23
-msgid "Invalid desktop files detected! Please see details."
-msgstr "Ogiltiga skrivbordsfiler upptäcktes! Se detaljer."
-
-#. Translators: Treeview toolbar button to move the currently selected item
-#. up.
-#: ../data/ui/MenulibreWindow.ui.h:25 ../menulibre/ActionEditor.py:93
-msgid "Move Up"
-msgstr "Flytta upp"
-
-#. Translators: Treeview toolbar button to move the currently selected item
-#. down.
-#: ../data/ui/MenulibreWindow.ui.h:27 ../menulibre/ActionEditor.py:97
-msgid "Move Down"
-msgstr "Flytta ner"
-
-#. Translators: Treeview toolbar button to sort the currently open submenu
-#. alphabetically.
-#: ../data/ui/MenulibreWindow.ui.h:29
-msgid "Sort Alphabetically"
-msgstr "Sortera i bokstavsordning"
-
-#: ../data/ui/MenulibreWindow.ui.h:30
-msgid "Restart menu..."
-msgstr "Starta om meny..."
-
-#: ../data/ui/MenulibreWindow.ui.h:31
-msgid "Your applications menu may need to be restarted."
-msgstr "Din programmeny kan behöva startas om."
-
 #. Translators: Command line option to display debug messages on stdout
 #: ../menulibre/__init__.py:34
 msgid "Show debug messages"
@@ -142,45 +46,55 @@ msgid "Use toolbar layout (server side decorations)"
 msgstr "Använd verktygsfält layout (klientsidadekorationer)"
 
 #. Translators: "Show" tree column header
-#: ../menulibre/ActionEditor.py:57
+#: ../menulibre/ActionEditor.py:56
 msgid "Show"
 msgstr "Visa"
 
 #. Translators: "Name" tree column header
-#: ../menulibre/ActionEditor.py:65
+#: ../menulibre/ActionEditor.py:64
 msgid "Name"
 msgstr "Namn"
 
 #. Translators: "Command" tree column header
-#: ../menulibre/ActionEditor.py:73 ../menulibre/ApplicationEditor.py:94
-#: ../menulibre/CommandEditor.py:612 ../menulibre/CommandEditor.py:624
+#: ../menulibre/ActionEditor.py:72 ../menulibre/ApplicationEditor.py:95
+#: ../menulibre/CommandEditor.py:617 ../menulibre/CommandEditor.py:629
 msgid "Command"
 msgstr "Kommando"
 
-#: ../menulibre/ActionEditor.py:81 ../menulibre/CategoryEditor.py:499
+#: ../menulibre/ActionEditor.py:80 ../menulibre/CategoryEditor.py:505
 #: ../menulibre/CommandEditor.py:434
 msgid "Add"
 msgstr "Lägg till"
 
-#: ../menulibre/ActionEditor.py:85 ../menulibre/CategoryEditor.py:503
+#: ../menulibre/ActionEditor.py:85 ../menulibre/CategoryEditor.py:510
 msgid "Remove"
 msgstr "Ta bort"
 
-#: ../menulibre/ActionEditor.py:89 ../menulibre/CategoryEditor.py:507
-#: ../menulibre/CommandEditor.py:172
+#: ../menulibre/ActionEditor.py:90 ../menulibre/CategoryEditor.py:515
+#: ../menulibre/CommandEditor.py:170
 msgid "Clear"
 msgstr "Rensa"
 
+#: ../menulibre/ActionEditor.py:94 ../menulibre/MenulibreTreeview.py:121
+#: ../menulibre/MenulibreTreeview.py:122
+msgid "Move Up"
+msgstr "Flytta upp"
+
+#: ../menulibre/ActionEditor.py:99 ../menulibre/MenulibreTreeview.py:129
+#: ../menulibre/MenulibreTreeview.py:130
+msgid "Move Down"
+msgstr "Flytta ner"
+
 #. Translators: Placeholder text for a newly created action
-#: ../menulibre/ActionEditor.py:245
+#: ../menulibre/ActionEditor.py:302
 msgid "New Shortcut"
 msgstr "Ny genväg"
 
-#: ../menulibre/AdvancedPage.py:53
+#: ../menulibre/AdvancedPage.py:52
 msgid "Generic Name"
 msgstr "Allmänt namn"
 
-#: ../menulibre/AdvancedPage.py:54
+#: ../menulibre/AdvancedPage.py:53
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr "Allmänt namn på programmet, till exempel \"webbläsare\"."
 
@@ -214,7 +128,7 @@ msgstr ""
 msgid "Not Shown In"
 msgstr "Inte visad i"
 
-#: ../menulibre/AdvancedPage.py:70
+#: ../menulibre/AdvancedPage.py:71
 msgid ""
 "A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
@@ -222,19 +136,19 @@ msgstr ""
 "En lista med miljöer som inte ska visa den här posten. Du kan bara använda den här nyckeln om \"OnlyShowIn\" inte är inställd.\n"
 "Möjliga värden inkluderar: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#: ../menulibre/AdvancedPage.py:75
+#: ../menulibre/AdvancedPage.py:76
 msgid "Mimetypes"
 msgstr "Mime-typer"
 
-#: ../menulibre/AdvancedPage.py:76
+#: ../menulibre/AdvancedPage.py:77
 msgid "The MIME type(s) supported by this application."
 msgstr "De MIME-typer som stöds av det här programmet."
 
-#: ../menulibre/AdvancedPage.py:80
+#: ../menulibre/AdvancedPage.py:82
 msgid "Keywords"
 msgstr "Nyckelord"
 
-#: ../menulibre/AdvancedPage.py:81
+#: ../menulibre/AdvancedPage.py:83
 msgid ""
 "A list of keywords to describe this entry. You can use these to help "
 "searching entries. These are not meant for display, and should not be "
@@ -244,11 +158,11 @@ msgstr ""
 " för att söka efter poster. De är inte avsedda att visas, och bör inte "
 "överlappa värden för Namn eller Allmänt namn."
 
-#: ../menulibre/AdvancedPage.py:85
+#: ../menulibre/AdvancedPage.py:88
 msgid "Startup WM Class"
 msgstr "Startup WM Class"
 
-#: ../menulibre/AdvancedPage.py:86
+#: ../menulibre/AdvancedPage.py:89
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
@@ -256,19 +170,19 @@ msgstr ""
 "Om valt, kommer programmet att uppmanas att använda strängen som en WM-klass"
 " eller ett WM-namnantydan åtminstone i ett fönster."
 
-#: ../menulibre/AdvancedPage.py:90
+#: ../menulibre/AdvancedPage.py:96
 msgid "Implements"
 msgstr "Implementerar"
 
-#: ../menulibre/AdvancedPage.py:91
+#: ../menulibre/AdvancedPage.py:97
 msgid "A list of interfaces that this application implements."
 msgstr "En lista över gränssnitt som detta program implementerar."
 
-#: ../menulibre/AdvancedPage.py:95
+#: ../menulibre/AdvancedPage.py:102
 msgid "Hidden"
 msgstr "Dold"
 
-#: ../menulibre/AdvancedPage.py:96
+#: ../menulibre/AdvancedPage.py:103
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
@@ -276,11 +190,11 @@ msgstr ""
 "Om satt till \"Sant\", motsvarar användarens resultat .desktop-filen som "
 "inte alls finns."
 
-#: ../menulibre/AdvancedPage.py:100
+#: ../menulibre/AdvancedPage.py:108
 msgid "DBUS Activatable"
 msgstr "DBUS Activatable"
 
-#: ../menulibre/AdvancedPage.py:101
+#: ../menulibre/AdvancedPage.py:110
 msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information."
@@ -288,11 +202,11 @@ msgstr ""
 "Sätt denna nyckel till  \"Sant\" om D-Bus aktivering stöds av det här programmet och du vill använda det.\n"
 "Se https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable."
 
-#: ../menulibre/AdvancedPage.py:106
+#: ../menulibre/AdvancedPage.py:116
 msgid "Prefers Non-Default GPU"
 msgstr "Föredrar icke-standard GPU"
 
-#: ../menulibre/AdvancedPage.py:107
+#: ../menulibre/AdvancedPage.py:118
 msgid ""
 "Set this key to \"True\" if this application prefers to be run on a more powerful GPU if available.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information."
@@ -300,11 +214,11 @@ msgstr ""
 "Sätt denna nyckel till \"True\" om det här programmet föredrar att köras på en kraftfullare GPU om tillgänglig\n"
 "Se https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu för mer information."
 
-#: ../menulibre/AdvancedPage.py:112
+#: ../menulibre/AdvancedPage.py:124
 msgid "Uses Notifications"
 msgstr "Använder notifieringar"
 
-#: ../menulibre/AdvancedPage.py:113
+#: ../menulibre/AdvancedPage.py:126
 msgid ""
 "Set this key to \"True\" if this application uses notifications.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information."
@@ -316,16 +230,16 @@ msgstr ""
 msgid "Add name"
 msgstr "Lägg till namn"
 
-#: ../menulibre/ApplicationEditor.py:79
+#: ../menulibre/ApplicationEditor.py:80
 msgid "Add comment"
 msgstr "Lägg till kommentar"
 
 #. Application Details Frame
-#: ../menulibre/ApplicationEditor.py:84
+#: ../menulibre/ApplicationEditor.py:85
 msgid "Application Details"
 msgstr "Programdetaljer"
 
-#: ../menulibre/ApplicationEditor.py:96
+#: ../menulibre/ApplicationEditor.py:99
 msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
 "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."
@@ -333,32 +247,32 @@ msgstr ""
 "Program att köra med argument. Den här nyckeln krävs om DBusActivatable inte är inställd till \"Sant\" eller om du behöver kompatibilitet med implementeringar som inte förstår D-Bus aktivering.\n"
 "Se https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec för en lista på argument som stöds."
 
-#: ../menulibre/ApplicationEditor.py:105
+#: ../menulibre/ApplicationEditor.py:108
 msgid "Working Directory"
 msgstr "Arbetskatalog"
 
-#: ../menulibre/ApplicationEditor.py:107
+#: ../menulibre/ApplicationEditor.py:110
 msgid "The working directory."
 msgstr "Arbetskatalogen."
 
 #. Options Frame
-#: ../menulibre/ApplicationEditor.py:116
+#: ../menulibre/ApplicationEditor.py:119
 msgid "Options"
 msgstr "Alternativ"
 
-#: ../menulibre/ApplicationEditor.py:124
+#: ../menulibre/ApplicationEditor.py:127
 msgid "Run in terminal"
 msgstr "Kör i en terminal"
 
-#: ../menulibre/ApplicationEditor.py:127
+#: ../menulibre/ApplicationEditor.py:131
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr "Om satt till \"Sant\", kommer programmet att köras i ett terminalfönster."
 
-#: ../menulibre/ApplicationEditor.py:137
+#: ../menulibre/ApplicationEditor.py:141
 msgid "Use startup notification"
 msgstr "Använd startnotifieringar"
 
-#: ../menulibre/ApplicationEditor.py:140
+#: ../menulibre/ApplicationEditor.py:145
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
@@ -366,11 +280,11 @@ msgstr ""
 "Om satt till \"Sant\", skickas en startnotifiering. Oftast betyder det att "
 "en upptagen muspekare visas medan programmet startar."
 
-#: ../menulibre/ApplicationEditor.py:150
+#: ../menulibre/ApplicationEditor.py:155
 msgid "Hide from menus"
 msgstr "Dölj i menyer"
 
-#: ../menulibre/ApplicationEditor.py:153
+#: ../menulibre/ApplicationEditor.py:159
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
@@ -378,730 +292,732 @@ msgstr ""
 "Om satt till \"Sant\", kommer den här posten inte att visas i menyer, men "
 "kommer att vara tillgänglig för MIME-typ associeringar etc."
 
-#. Translators: "Categories" launcher section
-#: ../menulibre/ApplicationEditor.py:172
+#. Translators: "Categories"
+#. launcher section
+#: ../menulibre/ApplicationEditor.py:179
 msgid "Categories"
 msgstr "Kategorier"
 
-#. Translators: "Actions" launcher section
-#: ../menulibre/ApplicationEditor.py:179
+#. Translators: "Actions" launcher
+#. section
+#: ../menulibre/ApplicationEditor.py:187
 msgid "Actions"
 msgstr "Åtgärder"
 
-#. Translators: "Advanced" launcher section
-#: ../menulibre/ApplicationEditor.py:186
+#. Translators: "Advanced" launcher
+#. section
+#: ../menulibre/ApplicationEditor.py:195
 msgid "Advanced"
 msgstr "Avancerat"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:97
+#: ../menulibre/CategoryEditor.py:103
 msgid "Multimedia"
 msgstr "Multimedia"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:99
+#: ../menulibre/CategoryEditor.py:105
 msgid "Development"
 msgstr "Utveckling"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:101
+#: ../menulibre/CategoryEditor.py:107
 msgid "Education"
 msgstr "Utbildning"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:103
+#: ../menulibre/CategoryEditor.py:109
 msgid "Games"
 msgstr "Spel"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:105
+#: ../menulibre/CategoryEditor.py:111
 msgid "Graphics"
 msgstr "Grafik"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:107
+#: ../menulibre/CategoryEditor.py:113
 msgid "Internet"
 msgstr "Internet"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:109
+#: ../menulibre/CategoryEditor.py:115
 msgid "Office"
 msgstr "Kontor"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:111
+#: ../menulibre/CategoryEditor.py:117
 msgid "Settings"
 msgstr "Inställningar"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:113
+#: ../menulibre/CategoryEditor.py:119
 msgid "System"
 msgstr "System"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:115
+#: ../menulibre/CategoryEditor.py:121
 msgid "Accessories"
 msgstr "Tillbehör"
 
 #. Translators: Launcher section description
-#: ../menulibre/CategoryEditor.py:117
+#: ../menulibre/CategoryEditor.py:123
 msgid "WINE"
 msgstr "WINE"
 
 #. Translators: Launcher section description
 #. Translators: "Other" category group. This item is only displayed for
 #. unknown or non-standard categories.
-#: ../menulibre/CategoryEditor.py:119 ../menulibre/CategoryEditor.py:433
-#: ../menulibre/MenulibreApplication.py:100
+#: ../menulibre/CategoryEditor.py:125 ../menulibre/CategoryEditor.py:439
 msgid "Other"
 msgstr "Annan"
 
 #. Translators: Launcher category in the Utility section
 #. Translators: Launcher category in the Settings section
-#: ../menulibre/CategoryEditor.py:122 ../menulibre/CategoryEditor.py:346
+#: ../menulibre/CategoryEditor.py:128 ../menulibre/CategoryEditor.py:352
 msgid "Accessibility"
 msgstr "Tillgänglighet"
 
 #. Translators: Launcher category in the Utility section
-#: ../menulibre/CategoryEditor.py:124
+#: ../menulibre/CategoryEditor.py:130
 msgid "Archiving"
 msgstr "Arkivering"
 
 #. Translators: Launcher category in the Utility section
-#: ../menulibre/CategoryEditor.py:126
+#: ../menulibre/CategoryEditor.py:132
 msgid "Calculator"
 msgstr "Miniräknare"
 
 #. Translators: Launcher category in the Utility section
-#: ../menulibre/CategoryEditor.py:128
+#: ../menulibre/CategoryEditor.py:134
 msgid "Clock"
 msgstr "Klocka"
 
 #. Translators: Launcher category in the Utility section
-#: ../menulibre/CategoryEditor.py:130
+#: ../menulibre/CategoryEditor.py:136
 msgid "Compression"
 msgstr "Kompression"
 
 #. Translators: Launcher category in the Utility section
 #. Translators: Launcher category in the System section
-#: ../menulibre/CategoryEditor.py:132 ../menulibre/CategoryEditor.py:365
+#: ../menulibre/CategoryEditor.py:138 ../menulibre/CategoryEditor.py:371
 msgid "File Tools"
 msgstr "Filverktyg"
 
 #. Translators: Launcher category in the Utility section
-#: ../menulibre/CategoryEditor.py:134
+#: ../menulibre/CategoryEditor.py:140
 msgid "Text Editor"
 msgstr "Textredigerare"
 
 #. Translators: Launcher category in the Utility section
-#: ../menulibre/CategoryEditor.py:136
+#: ../menulibre/CategoryEditor.py:142
 msgid "Text Tools"
 msgstr "Textverktyg"
 
 #. Translators: Launcher category in the Development section
-#: ../menulibre/CategoryEditor.py:139
+#: ../menulibre/CategoryEditor.py:145
 msgid "Building"
 msgstr "Byggande"
 
 #. Translators: Launcher category in the Development section
-#: ../menulibre/CategoryEditor.py:141
+#: ../menulibre/CategoryEditor.py:147
 msgid "Debugger"
 msgstr "Avlusare"
 
 #. Translators: Launcher category in the Development section
-#: ../menulibre/CategoryEditor.py:143
+#: ../menulibre/CategoryEditor.py:149
 msgid "IDE"
 msgstr "IDE"
 
 #. Translators: Launcher category in the Development section
-#: ../menulibre/CategoryEditor.py:145
+#: ../menulibre/CategoryEditor.py:151
 msgid "GUI Designer"
 msgstr "GUI Designer"
 
 #. Translators: Launcher category in the Development section
-#: ../menulibre/CategoryEditor.py:147
+#: ../menulibre/CategoryEditor.py:153
 msgid "Profiling"
 msgstr "Profilerare"
 
 #. Translators: Launcher category in the Development section
-#: ../menulibre/CategoryEditor.py:149
+#: ../menulibre/CategoryEditor.py:155
 msgid "Revision Control"
 msgstr "Revisionskontroll"
 
 #. Translators: Launcher category in the Development section
-#: ../menulibre/CategoryEditor.py:151
+#: ../menulibre/CategoryEditor.py:157
 msgid "Translation"
 msgstr "Översättning"
 
 #. Translators: Launcher category in the Development section
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:153 ../menulibre/CategoryEditor.py:289
+#: ../menulibre/CategoryEditor.py:159 ../menulibre/CategoryEditor.py:295
 msgid "Web Development"
 msgstr "Webbutveckling"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:156
+#: ../menulibre/CategoryEditor.py:162
 msgid "Art"
 msgstr "Konst"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:158
+#: ../menulibre/CategoryEditor.py:164
 msgid "Artificial Intelligence"
 msgstr "Artificiell intelligens"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:160
+#: ../menulibre/CategoryEditor.py:166
 msgid "Astronomy"
 msgstr "Astronomi"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:162
+#: ../menulibre/CategoryEditor.py:168
 msgid "Biology"
 msgstr "Biologi"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:164
+#: ../menulibre/CategoryEditor.py:170
 msgid "Chemistry"
 msgstr "Kemi"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:166
+#: ../menulibre/CategoryEditor.py:172
 msgid "Computer Science"
 msgstr "Datavetenskap"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:168
+#: ../menulibre/CategoryEditor.py:174
 msgid "Construction"
 msgstr "Konstruktion"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:170
+#: ../menulibre/CategoryEditor.py:176
 msgid "Data Visualization"
 msgstr "Datavisualisering"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:172
+#: ../menulibre/CategoryEditor.py:178
 msgid "Economy"
 msgstr "Ekonomi"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:174
+#: ../menulibre/CategoryEditor.py:180
 msgid "Electricity"
 msgstr "Elektricitet"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:176
+#: ../menulibre/CategoryEditor.py:182
 msgid "Geography"
 msgstr "Geografi"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:178
+#: ../menulibre/CategoryEditor.py:184
 msgid "Geology"
 msgstr "Geologi"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:180
+#: ../menulibre/CategoryEditor.py:186
 msgid "Geoscience"
 msgstr "Geovetenskap"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:182
+#: ../menulibre/CategoryEditor.py:188
 msgid "History"
 msgstr "Historia"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:184
+#: ../menulibre/CategoryEditor.py:190
 msgid "Humanities"
 msgstr "Humaniora"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:186
+#: ../menulibre/CategoryEditor.py:192
 msgid "Image Processing"
 msgstr "Bildbehandling"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:188
+#: ../menulibre/CategoryEditor.py:194
 msgid "Languages"
 msgstr "Språk"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:190
+#: ../menulibre/CategoryEditor.py:196
 msgid "Literature"
 msgstr "Litteratur"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:192
+#: ../menulibre/CategoryEditor.py:198
 msgid "Maps"
 msgstr "Kartor"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:194
+#: ../menulibre/CategoryEditor.py:200
 msgid "Math"
 msgstr "Matematik"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:196
+#: ../menulibre/CategoryEditor.py:202
 msgid "Medical Software"
 msgstr "Medicinsk programvara"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:198
+#: ../menulibre/CategoryEditor.py:204
 msgid "Music"
 msgstr "Musik"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:200
+#: ../menulibre/CategoryEditor.py:206
 msgid "Numerical Analysis"
 msgstr "Numerisk analys"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:202
+#: ../menulibre/CategoryEditor.py:208
 msgid "Parallel Computing"
 msgstr "Parallell beräkning"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:204
+#: ../menulibre/CategoryEditor.py:210
 msgid "Physics"
 msgstr "Fysik"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:206
+#: ../menulibre/CategoryEditor.py:212
 msgid "Robotics"
 msgstr "Robotik"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:208
+#: ../menulibre/CategoryEditor.py:214
 msgid "Spirituality"
 msgstr "Andlighet"
 
 #. Translators: Launcher category in the Education section
-#: ../menulibre/CategoryEditor.py:210
+#: ../menulibre/CategoryEditor.py:216
 msgid "Sports"
 msgstr "Sport"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:213
+#: ../menulibre/CategoryEditor.py:219
 msgid "Action Game"
 msgstr "Action spel"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:215
+#: ../menulibre/CategoryEditor.py:221
 msgid "Adventure Game"
 msgstr "Äventyrs spel"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:217
+#: ../menulibre/CategoryEditor.py:223
 msgid "Arcade Game"
 msgstr "Arkad spel"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:219
+#: ../menulibre/CategoryEditor.py:225
 msgid "Board Game"
 msgstr "Brädspel"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:221
+#: ../menulibre/CategoryEditor.py:227
 msgid "Blocks Game"
 msgstr "Block spel"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:223
+#: ../menulibre/CategoryEditor.py:229
 msgid "Card Game"
 msgstr "Kortspel"
 
 #. Translators: Launcher category in the Game section
 #. Translators: Launcher category in the System section
-#: ../menulibre/CategoryEditor.py:225 ../menulibre/CategoryEditor.py:359
+#: ../menulibre/CategoryEditor.py:231 ../menulibre/CategoryEditor.py:365
 msgid "Emulator"
 msgstr "Emulator"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:227
+#: ../menulibre/CategoryEditor.py:233
 msgid "Kids Game"
 msgstr "Barnspel"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:229
+#: ../menulibre/CategoryEditor.py:235
 msgid "Logic Game"
 msgstr "Logik spel"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:231
+#: ../menulibre/CategoryEditor.py:237
 msgid "Role Playing"
 msgstr "Rollspel"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:233
+#: ../menulibre/CategoryEditor.py:239
 msgid "Shooter"
 msgstr "Skjutare"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:235
+#: ../menulibre/CategoryEditor.py:241
 msgid "Simulation"
 msgstr "Simulering"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:237
+#: ../menulibre/CategoryEditor.py:243
 msgid "Sports Game"
 msgstr "Sport spel"
 
 #. Translators: Launcher category in the Game section
-#: ../menulibre/CategoryEditor.py:239
+#: ../menulibre/CategoryEditor.py:245
 msgid "Strategy Game"
 msgstr "Strategi spel"
 
 #. Translators: Launcher category in the Graphics section
-#: ../menulibre/CategoryEditor.py:242
+#: ../menulibre/CategoryEditor.py:248
 msgid "2D Graphics"
 msgstr "2D grafik"
 
 #. Translators: Launcher category in the Graphics section
-#: ../menulibre/CategoryEditor.py:244
+#: ../menulibre/CategoryEditor.py:250
 msgid "3D Graphics"
 msgstr "3D grafik"
 
 #. Translators: Launcher category in the Graphics section
-#: ../menulibre/CategoryEditor.py:246
+#: ../menulibre/CategoryEditor.py:252
 msgid "OCR"
 msgstr "OCR"
 
 #. Translators: Launcher category in the Graphics section
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:248 ../menulibre/CategoryEditor.py:333
+#: ../menulibre/CategoryEditor.py:254 ../menulibre/CategoryEditor.py:339
 msgid "Photography"
 msgstr "Fotografi"
 
 #. Translators: Launcher category in the Graphics section
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:250 ../menulibre/CategoryEditor.py:339
+#: ../menulibre/CategoryEditor.py:256 ../menulibre/CategoryEditor.py:345
 msgid "Publishing"
 msgstr "Publicering"
 
 #. Translators: Launcher category in the Graphics section
-#: ../menulibre/CategoryEditor.py:252
+#: ../menulibre/CategoryEditor.py:258
 msgid "Raster Graphics"
 msgstr "Raster grafik"
 
 #. Translators: Launcher category in the Graphics section
-#: ../menulibre/CategoryEditor.py:254
+#: ../menulibre/CategoryEditor.py:260
 msgid "Scanning"
 msgstr "Skanning"
 
 #. Translators: Launcher category in the Graphics section
-#: ../menulibre/CategoryEditor.py:256
+#: ../menulibre/CategoryEditor.py:262
 msgid "Vector Graphics"
 msgstr "Vektorgrafik"
 
 #. Translators: Launcher category in the Graphics section
-#: ../menulibre/CategoryEditor.py:258
+#: ../menulibre/CategoryEditor.py:264
 msgid "Viewer"
 msgstr "Visare"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:261
+#: ../menulibre/CategoryEditor.py:267
 msgid "Chat"
 msgstr "Chatt"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:263
+#: ../menulibre/CategoryEditor.py:269
 msgid "Dialup"
 msgstr "Ringa upp"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:265
+#: ../menulibre/CategoryEditor.py:271
 msgid "Feed"
 msgstr "Flöde"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:267
+#: ../menulibre/CategoryEditor.py:273
 msgid "File Transfer"
 msgstr "Filöverföring"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:269
+#: ../menulibre/CategoryEditor.py:275
 msgid "Ham Radio"
 msgstr "Amatörradio"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:271
+#: ../menulibre/CategoryEditor.py:277
 msgid "Instant Messaging"
 msgstr "Snabbmeddelande"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:273
+#: ../menulibre/CategoryEditor.py:279
 msgid "IRC Client"
 msgstr "IRC klient"
 
 #. Translators: Launcher category in the Network section
 #. Translators: Launcher category in the System section
-#: ../menulibre/CategoryEditor.py:275 ../menulibre/CategoryEditor.py:367
+#: ../menulibre/CategoryEditor.py:281 ../menulibre/CategoryEditor.py:373
 msgid "Monitor"
 msgstr "Bevaka"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:277
+#: ../menulibre/CategoryEditor.py:283
 msgid "News"
 msgstr "Nyheter"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:279
+#: ../menulibre/CategoryEditor.py:285
 msgid "P2P"
 msgstr "P2P"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:281
+#: ../menulibre/CategoryEditor.py:287
 msgid "Remote Access"
 msgstr "Fjärranslutning"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:283
+#: ../menulibre/CategoryEditor.py:289
 msgid "Telephony"
 msgstr "Telefoni"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:285
+#: ../menulibre/CategoryEditor.py:291
 msgid "Telephony Tools"
 msgstr "Telefoni verktyg"
 
 #. Translators: Launcher category in the Network section
-#: ../menulibre/CategoryEditor.py:287
+#: ../menulibre/CategoryEditor.py:293
 msgid "Web Browser"
 msgstr "Webbläsare"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:292
+#: ../menulibre/CategoryEditor.py:298
 msgid "Audio"
 msgstr "Ljud"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:294
+#: ../menulibre/CategoryEditor.py:300
 msgid "Audio Video Editing"
 msgstr "Ljud Video redigering"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:296
+#: ../menulibre/CategoryEditor.py:302
 msgid "Disc Burning"
 msgstr "Skivbränning"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:298
+#: ../menulibre/CategoryEditor.py:304
 msgid "Midi"
 msgstr "Midi"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:300
+#: ../menulibre/CategoryEditor.py:306
 msgid "Mixer"
 msgstr "Mixer"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:302
+#: ../menulibre/CategoryEditor.py:308
 msgid "Player"
 msgstr "Spelare"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:304
+#: ../menulibre/CategoryEditor.py:310
 msgid "Recorder"
 msgstr "Inspelare"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:306
+#: ../menulibre/CategoryEditor.py:312
 msgid "Sequencer"
 msgstr "Sekvenserare"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:308
+#: ../menulibre/CategoryEditor.py:314
 msgid "Tuner"
 msgstr "Tuner"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:310
+#: ../menulibre/CategoryEditor.py:316
 msgid "TV"
 msgstr "TV"
 
 #. Translators: Launcher category in the AudioVideo section
-#: ../menulibre/CategoryEditor.py:312
+#: ../menulibre/CategoryEditor.py:318
 msgid "Video"
 msgstr "Video"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:315
+#: ../menulibre/CategoryEditor.py:321
 msgid "Calendar"
 msgstr "Kalender"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:317
+#: ../menulibre/CategoryEditor.py:323
 msgid "Contact Management"
 msgstr "Kontakthanterare"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:319
+#: ../menulibre/CategoryEditor.py:325
 msgid "Database"
 msgstr "Databas"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:321
+#: ../menulibre/CategoryEditor.py:327
 msgid "Dictionary"
 msgstr "Ordbok"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:323
+#: ../menulibre/CategoryEditor.py:329
 msgid "Chart"
 msgstr "Diagram"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:325
+#: ../menulibre/CategoryEditor.py:331
 msgid "Email"
 msgstr "E-post"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:327
+#: ../menulibre/CategoryEditor.py:333
 msgid "Finance"
 msgstr "Finans"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:329
+#: ../menulibre/CategoryEditor.py:335
 msgid "Flow Chart"
 msgstr "Flödesschema"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:331
+#: ../menulibre/CategoryEditor.py:337
 msgid "PDA"
 msgstr "PDA"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:335
+#: ../menulibre/CategoryEditor.py:341
 msgid "Project Management"
 msgstr "Projekthantering"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:337
+#: ../menulibre/CategoryEditor.py:343
 msgid "Presentation"
 msgstr "Presentation"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:341
+#: ../menulibre/CategoryEditor.py:347
 msgid "Spreadsheet"
 msgstr "Kalkylblad"
 
 #. Translators: Launcher category in the Office section
-#: ../menulibre/CategoryEditor.py:343
+#: ../menulibre/CategoryEditor.py:349
 msgid "Word Processor"
 msgstr "Ordbehandlare"
 
 #. Translators: Launcher category in the Settings section
-#: ../menulibre/CategoryEditor.py:348
+#: ../menulibre/CategoryEditor.py:354
 msgid "Desktop Settings"
 msgstr "Skrivbordsinställningar"
 
 #. Translators: Launcher category in the Settings section
-#: ../menulibre/CategoryEditor.py:350
+#: ../menulibre/CategoryEditor.py:356
 msgid "Hardware Settings"
 msgstr "Hårdvaruinställningar"
 
 #. Translators: Launcher category in the Settings section
-#: ../menulibre/CategoryEditor.py:352
+#: ../menulibre/CategoryEditor.py:358
 msgid "Package Manager"
 msgstr "Pakethanterare"
 
 #. Translators: Launcher category in the Settings section
-#: ../menulibre/CategoryEditor.py:354
+#: ../menulibre/CategoryEditor.py:360
 msgid "Printing"
 msgstr "Utskrift"
 
 #. Translators: Launcher category in the Settings section
 #. Translators: Launcher category in the System section
-#: ../menulibre/CategoryEditor.py:356 ../menulibre/CategoryEditor.py:369
+#: ../menulibre/CategoryEditor.py:362 ../menulibre/CategoryEditor.py:375
 msgid "Security"
 msgstr "Säkerhet"
 
 #. Translators: Launcher category in the System section
-#: ../menulibre/CategoryEditor.py:361
+#: ../menulibre/CategoryEditor.py:367
 msgid "File Manager"
 msgstr "Filhanterare"
 
 #. Translators: Launcher category in the System section
-#: ../menulibre/CategoryEditor.py:363
+#: ../menulibre/CategoryEditor.py:369
 msgid "Filesystem"
 msgstr "Filsystem"
 
 #. Translators: Launcher category in the System section
-#: ../menulibre/CategoryEditor.py:371
+#: ../menulibre/CategoryEditor.py:377
 msgid "Terminal Emulator"
 msgstr "Terminal Emulator"
 
 #. Translators: Vendor-neutral launcher category
-#: ../menulibre/CategoryEditor.py:374
+#: ../menulibre/CategoryEditor.py:380
 msgid "Network Settings"
 msgstr "Nätverksinställningar"
 
 #. Translators: Vendor-neutral launcher category
-#: ../menulibre/CategoryEditor.py:376
+#: ../menulibre/CategoryEditor.py:382
 msgid "Personal Settings"
 msgstr "Personliga inställningar"
 
 #. Translators: Vendor-neutral launcher category
-#: ../menulibre/CategoryEditor.py:378
+#: ../menulibre/CategoryEditor.py:384
 msgid "Panel Settings"
 msgstr "Panelinställningar"
 
 #. Translators: Vendor-neutral launcher category
-#: ../menulibre/CategoryEditor.py:380
+#: ../menulibre/CategoryEditor.py:386
 msgid "Settings Dialog"
 msgstr "Inställningar dialogrutan"
 
 #. Translators: Vendor-neutral launcher category
-#: ../menulibre/CategoryEditor.py:382
+#: ../menulibre/CategoryEditor.py:388
 msgid "System Settings"
 msgstr "Systeminställningar"
 
 #. Translators: Vendor-neutral launcher category
-#: ../menulibre/CategoryEditor.py:384
+#: ../menulibre/CategoryEditor.py:390
 msgid "Toplevel"
 msgstr "Högsta nivån"
 
 #. Translators: Vendor-neutral launcher category
-#: ../menulibre/CategoryEditor.py:386
+#: ../menulibre/CategoryEditor.py:392
 msgid "Utilities"
 msgstr "Verktyg"
 
 #. Translators: Launcher category specific to a desktop environment
-#: ../menulibre/CategoryEditor.py:389
+#: ../menulibre/CategoryEditor.py:395
 msgid "GNOME"
 msgstr "GNOME"
 
 #. Translators: Launcher category specific to a desktop environment
-#: ../menulibre/CategoryEditor.py:391
+#: ../menulibre/CategoryEditor.py:397
 msgid "GTK"
 msgstr "GTK"
 
 #. Translators: Launcher category specific to a desktop environment
-#: ../menulibre/CategoryEditor.py:393
+#: ../menulibre/CategoryEditor.py:399
 msgid "Xfce"
 msgstr "Xfce"
 
 #. Translators: Translated key (original key)
-#: ../menulibre/CategoryEditor.py:407
+#: ../menulibre/CategoryEditor.py:413
 #, python-format
 msgid "%s (%s)"
 msgstr "%s (%s)"
 
 #. Translators: Placeholder text for the launcher-specific category
 #. selection.
-#: ../menulibre/CategoryEditor.py:481
+#: ../menulibre/CategoryEditor.py:487
 msgid "Select a category"
 msgstr "Välj en kategori"
 
 #. Translators: "Category Name" tree column header
-#: ../menulibre/CategoryEditor.py:485
+#: ../menulibre/CategoryEditor.py:491
 msgid "Category Name"
 msgstr "Kategorinamn"
 
 #. Translators: "Section" tree column header
-#: ../menulibre/CategoryEditor.py:491
+#: ../menulibre/CategoryEditor.py:497
 msgid "Section"
 msgstr "Sektion"
 
-#: ../menulibre/CommandEditor.py:32
+#: ../menulibre/CommandEditor.py:31
 msgid "Command Editor"
 msgstr "Kommandoredigerare"
 
@@ -1110,25 +1026,32 @@ msgstr "Kommandoredigerare"
 #. Translators: Save On Leave Dialog, don't save, cancel leave.
 #. Translators: Revert Dialog, cancel button.
 #. Translators: File Chooser Dialog, cancel button.
-#: ../menulibre/CommandEditor.py:35 ../menulibre/Dialogs.py:65
-#: ../menulibre/Dialogs.py:100 ../menulibre/Dialogs.py:129
-#: ../menulibre/Dialogs.py:168 ../menulibre/IconEntry.py:157
-#: ../menulibre/IconEntry.py:177 ../menulibre/PathEntry.py:73
+#: ../menulibre/CommandEditor.py:34 ../menulibre/Dialogs.py:73
+#: ../menulibre/Dialogs.py:111 ../menulibre/Dialogs.py:140
+#: ../menulibre/Dialogs.py:179 ../menulibre/IconEntry.py:163
+#: ../menulibre/IconEntry.py:183 ../menulibre/PathEntry.py:78
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: ../menulibre/CommandEditor.py:36 ../menulibre/IconEntry.py:158
-#: ../menulibre/IconEntry.py:178
+#: ../menulibre/CommandEditor.py:35 ../menulibre/IconEntry.py:164
+#: ../menulibre/IconEntry.py:184
 msgid "Apply"
 msgstr "Tillämpa"
 
 #. Translators: Help action tooltip
-#: ../menulibre/CommandEditor.py:90 ../menulibre/MenulibreApplication.py:455
-#: ../menulibre/MenulibreApplication.py:1620
+#: ../menulibre/CommandEditor.py:89 ../menulibre/MenulibreApplication.py:423
+#: ../menulibre/MenulibreApplication.py:1636
 msgid "Help"
 msgstr "Hjälp"
 
-#: ../menulibre/CommandEditor.py:307
+#. Translators: Revert action tooltip
+#: ../menulibre/CommandEditor.py:164 ../menulibre/MenulibreApplication.py:311
+#: ../menulibre/MenulibreApplication.py:387
+#: ../menulibre/MenulibreApplication.py:525
+msgid "Revert"
+msgstr "Återställ"
+
+#: ../menulibre/CommandEditor.py:306
 msgid "A single command line may only contain one of %f, %u, %F, or %U"
 msgstr "En enda kommandorad kan bara innehålla en av %f,%u,%F, eller %U"
 
@@ -1208,35 +1131,35 @@ msgstr "Extra"
 msgid "The <tt>Icon</tt> key of this launcher."
 msgstr "<tt>Ikon</tt>nyckel av denna programstartare"
 
-#: ../menulibre/CommandEditor.py:469
+#: ../menulibre/CommandEditor.py:470
 msgid "The translated <tt>Name</tt> key of this launcher."
 msgstr "Den översatta <tt>Namn</tt> nyckeln av denna programstartare."
 
-#: ../menulibre/CommandEditor.py:471
+#: ../menulibre/CommandEditor.py:473
 msgid "The file path of this launcher."
 msgstr "Filsökvägen av denna programstartare."
 
-#: ../menulibre/CommandEditor.py:497
+#: ../menulibre/CommandEditor.py:499
 msgid "Environment variable"
 msgstr "Miljövariabel"
 
-#: ../menulibre/CommandEditor.py:509
+#: ../menulibre/CommandEditor.py:511
 msgid "Variable"
 msgstr "Variabel"
 
-#: ../menulibre/CommandEditor.py:518
+#: ../menulibre/CommandEditor.py:520
 msgid "Value"
 msgstr "Värde"
 
-#: ../menulibre/CommandEditor.py:564
+#: ../menulibre/CommandEditor.py:567
 msgid "Spaces not permitted in environment variables"
 msgstr "Mellanslag är inte tillåtna i miljövariabler"
 
-#: ../menulibre/CommandEditor.py:638
+#: ../menulibre/CommandEditor.py:643
 msgid "Select an executable"
 msgstr "Välj en körbar fil"
 
-#: ../menulibre/CommandEditor.py:692
+#: ../menulibre/CommandEditor.py:697
 msgid "Select an application"
 msgstr "Välj ett program"
 
@@ -1246,17 +1169,17 @@ msgid "About MenuLibre"
 msgstr "Om MenuLibre"
 
 #. Translators: Help Dialog, window title.
-#: ../menulibre/Dialogs.py:57
+#: ../menulibre/Dialogs.py:65
 msgid "Online Documentation"
 msgstr "Onlinedokumentation"
 
 #. Translators: Help Dialog, primary text.
-#: ../menulibre/Dialogs.py:59
+#: ../menulibre/Dialogs.py:67
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr "Vill du läsa MenuLibres manual online?"
 
 #. Translators: Help Dialog, secondary text.
-#: ../menulibre/Dialogs.py:61
+#: ../menulibre/Dialogs.py:69
 msgid ""
 "You will be redirected to the documentation website where the help pages are"
 " maintained."
@@ -1266,59 +1189,68 @@ msgstr ""
 
 #. Translators: Help Dialog, confirmation button. Navigates to
 #. online documentation.
-#: ../menulibre/Dialogs.py:68
+#: ../menulibre/Dialogs.py:76
 msgid "Read Online"
 msgstr "Läs online"
 
 #. Translators: Save On Close Dialog, window title.
 #. Translators: Save On Leave Dialog, window title.
-#: ../menulibre/Dialogs.py:90 ../menulibre/Dialogs.py:118
+#: ../menulibre/Dialogs.py:101 ../menulibre/Dialogs.py:129
 msgid "Save Changes"
 msgstr "Spara ändringar"
 
 #. Translators: Save On Close Dialog, primary text.
-#: ../menulibre/Dialogs.py:92
+#: ../menulibre/Dialogs.py:103
 msgid "Do you want to save the changes before closing?"
 msgstr "Vill du spara ändringarna innan stängning?"
 
 #. Translators: Save On Close Dialog, secondary text.
 #. Translators: Save On Leave Dialog, primary text.
-#: ../menulibre/Dialogs.py:94 ../menulibre/Dialogs.py:123
+#: ../menulibre/Dialogs.py:105 ../menulibre/Dialogs.py:134
 msgid "If you don't save the launcher, all the changes will be lost."
 msgstr ""
 "Om du inte sparar programstartaren, kommer alla ändringar att förloras."
 
 #. Translators: Save On Close Dialog, don't save, then close.
 #. Translators: Save On Leave Dialog, don't save, then leave.
-#: ../menulibre/Dialogs.py:98 ../menulibre/Dialogs.py:127
+#: ../menulibre/Dialogs.py:109 ../menulibre/Dialogs.py:138
 msgid "Don't Save"
 msgstr "Spara inte"
 
+#. Translators: Save On Close Dialog, do save, then close.
+#. Translators: Save On Leave Dialog, do save, then leave.
+#. Translators: Save Launcher action tooltip
+#: ../menulibre/Dialogs.py:113 ../menulibre/Dialogs.py:142
+#: ../menulibre/MenulibreApplication.py:360
+#: ../menulibre/MenulibreApplication.py:516
+msgid "Save"
+msgstr "Spara"
+
 #. Translators: Save On Leave Dialog, primary text.
-#: ../menulibre/Dialogs.py:120
+#: ../menulibre/Dialogs.py:131
 msgid "Do you want to save the changes before leaving this launcher?"
 msgstr "Vill du spara ändringarna innan du lämnar denna programstartare?"
 
 #. Translations: Delete Dialog, secondary text. Notifies user that
 #. the file cannot be restored once deleted.
-#: ../menulibre/Dialogs.py:148
+#: ../menulibre/Dialogs.py:159
 msgid "This cannot be undone."
 msgstr "Detta kan inte ångras."
 
 #. Translators: Revert Dialog, window title.
 #. Translators: Revert Dialog, confirmation button.
-#: ../menulibre/Dialogs.py:159 ../menulibre/Dialogs.py:170
+#: ../menulibre/Dialogs.py:170 ../menulibre/Dialogs.py:181
 msgid "Restore Launcher"
 msgstr "Återställ Programstartare"
 
 #. Translators: Revert Dialog, primary text. Confirmation to revert
 #. all changes since the last file save.
-#: ../menulibre/Dialogs.py:162
+#: ../menulibre/Dialogs.py:173
 msgid "Are you sure you want to restore this launcher?"
 msgstr "Är du säker på att du vill återställa denna programstartare?"
 
 #. Translators: Revert Dialog, secondary text.
-#: ../menulibre/Dialogs.py:164
+#: ../menulibre/Dialogs.py:175
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
@@ -1328,12 +1260,12 @@ msgstr ""
 
 #. Translators: Launcher Removed Dialog, primary text. Indicates that
 #. the selected application is no longer installed.
-#: ../menulibre/Dialogs.py:187
+#: ../menulibre/Dialogs.py:198
 msgid "No Longer Installed"
 msgstr "Inte längre installerat"
 
 #. Translators: Launcher Removed Dialog, secondary text.
-#: ../menulibre/Dialogs.py:189
+#: ../menulibre/Dialogs.py:200
 msgid ""
 "This launcher has been removed from the system.\n"
 "Selecting the next available item."
@@ -1343,76 +1275,94 @@ msgstr ""
 
 #. Translators: Not Found In PATH Dialog, primary text. Indicates
 #. that the provided script was not found in any PATH directory.
-#: ../menulibre/Dialogs.py:203
+#: ../menulibre/Dialogs.py:214
 #, python-format
 msgid "Could not find \"%s\" in your PATH."
 msgstr "Det gick inte att hitta \"%s\" i din PATH."
 
 #. Translators: Save Error Dialog, primary text.
-#: ../menulibre/Dialogs.py:221
+#: ../menulibre/Dialogs.py:232
 #, python-format
 msgid "Failed to save \"%s\"."
 msgstr "Misslyckades med att spara \"%s\"."
 
 #. Translators: Save Error Dialog, secondary text.
-#: ../menulibre/Dialogs.py:224
+#: ../menulibre/Dialogs.py:235
 msgid "Do you have write permission to the file and directory?"
 msgstr "Har du skrivbehörighet till filen och katalogen?"
 
-#: ../menulibre/IconEntry.py:40
+#: ../menulibre/IconEntry.py:39
 msgid "Browse Icons…"
 msgstr "Bläddra bland ikoner…"
 
-#: ../menulibre/IconEntry.py:44
+#: ../menulibre/IconEntry.py:43
 msgid "Browse Files…"
 msgstr "Bläddra bland filer…"
 
-#: ../menulibre/IconEntry.py:121
+#: ../menulibre/IconEntry.py:126
 #, python-format
 msgid "<i>Missing icon:</i> %s"
 msgstr "<i>Saknar ikon:</i> %s"
 
-#: ../menulibre/IconEntry.py:153
+#: ../menulibre/IconEntry.py:159
 msgid "Select an image"
 msgstr "Välj en bild"
 
 #. Translators: "Images" file chooser dialog filter
-#: ../menulibre/IconEntry.py:163
+#: ../menulibre/IconEntry.py:169
 msgid "Images"
 msgstr "Bilder"
 
-#: ../menulibre/IconEntry.py:174
+#: ../menulibre/IconEntry.py:180
 msgid "Select an icon"
 msgstr "Välj en ikon"
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:126 ../menulibre/MenulibreApplication.py:801
-#: ../menulibre/MenulibreApplication.py:1094
+#: ../menulibre/MenuEditor.py:123 ../menulibre/MenuEditor.py:125
+#: ../menulibre/MenulibreApplication.py:792
+#: ../menulibre/MenulibreApplication.py:1098
+#: ../menulibre/MenulibreApplication.py:1100
 msgid "Separator"
 msgstr "Avskiljare"
+
+#: ../menulibre/MenulibreApplication.py:88
+msgid "Search"
+msgstr "Sök"
+
+#: ../menulibre/MenulibreApplication.py:159
+msgid "Add _Launcher"
+msgstr "Lägg till progr_amstartare"
+
+#: ../menulibre/MenulibreApplication.py:160
+msgid "Add _Directory"
+msgstr "Lägg till _katalog"
+
+#: ../menulibre/MenulibreApplication.py:161
+msgid "Add _Separator"
+msgstr "Lägg till av_skiljare"
 
 #. Translators: This error is displayed when the application is run
 #. as a root user. The application exits once the dialog is
 #. dismissed.
-#: ../menulibre/MenulibreApplication.py:194
+#: ../menulibre/MenulibreApplication.py:174
 msgid "MenuLibre cannot be run as root."
 msgstr "MenuLibre kan inte köras som rot."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
-#: ../menulibre/MenulibreApplication.py:200
+#: ../menulibre/MenulibreApplication.py:180
 #, python-format
 msgid ""
 "Please see the <a href='%s'>online documentation</a> for more information."
 msgstr "Se <a href='%s'>online documentation</a> för mer information."
 
-#: ../menulibre/MenulibreApplication.py:211
+#: ../menulibre/MenulibreApplication.py:196
 msgid "MenuLibre failed to load."
 msgstr "MenuLibre misslyckades med att ladda."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
-#: ../menulibre/MenulibreApplication.py:217
+#: ../menulibre/MenulibreApplication.py:202
 #, python-format
 msgid ""
 "The default menu could not be found. Please see the <a href='%s'>online "
@@ -1421,108 +1371,164 @@ msgstr ""
 "Standardmenyn kunde inte hittas. Se <a href='%s'>online dokumentationen</a> "
 "för mer information."
 
-#: ../menulibre/MenulibreApplication.py:221
+#: ../menulibre/MenulibreApplication.py:206
 msgid "Diagnostics"
 msgstr "Diagnostik"
 
+#: ../menulibre/MenulibreApplication.py:301
+#: ../menulibre/MenulibreApplication.py:512
+msgid "Add..."
+msgstr "Lägg till..."
+
+#: ../menulibre/MenulibreApplication.py:303
+msgid "Save Launcher"
+msgstr "Spara programstartare"
+
+#. Translators: Undo action tooltip
+#: ../menulibre/MenulibreApplication.py:306
+#: ../menulibre/MenulibreApplication.py:369
+#: ../menulibre/MenulibreApplication.py:520
+msgid "Undo"
+msgstr "Ångra"
+
+#. Translators: Redo action tooltip
+#: ../menulibre/MenulibreApplication.py:307
+#: ../menulibre/MenulibreApplication.py:378
+#: ../menulibre/MenulibreApplication.py:521
+msgid "Redo"
+msgstr "Gör om"
+
+#: ../menulibre/MenulibreApplication.py:313
+#: ../menulibre/MenulibreApplication.py:530
+msgid "Test Launcher"
+msgstr "Testa startare"
+
+#: ../menulibre/MenulibreApplication.py:315
+#: ../menulibre/MenulibreApplication.py:534
+#: ../menulibre/MenulibreApplication.py:929
+#: ../menulibre/MenulibreApplication.py:941
+msgid "Delete..."
+msgstr "Ta bort..."
+
 #. Translators: Add Launcher action label
-#: ../menulibre/MenulibreApplication.py:363
+#: ../menulibre/MenulibreApplication.py:331
 msgid "Add _Launcher…"
 msgstr "_Lägg till programstartare…"
 
 #. Translators: Add Launcher action tooltip
-#: ../menulibre/MenulibreApplication.py:365
+#: ../menulibre/MenulibreApplication.py:333
 msgid "Add Launcher…"
 msgstr "Lägg till programstartare…"
 
 #. Translators: Add Directory action label
-#: ../menulibre/MenulibreApplication.py:372
+#: ../menulibre/MenulibreApplication.py:340
 msgid "Add _Directory…"
 msgstr "Lägg till _katalog…"
 
 #. Translators: Add Directory action tooltip
-#: ../menulibre/MenulibreApplication.py:374
+#: ../menulibre/MenulibreApplication.py:342
 msgid "Add Directory…"
 msgstr "Lägg till katalog…"
 
 #. Translators: Add Separator action label
-#: ../menulibre/MenulibreApplication.py:381
+#: ../menulibre/MenulibreApplication.py:349
 msgid "_Add Separator…"
 msgstr "Lägg till _avskiljare…"
 
 #. Translators: Add Separator action tooltip
-#: ../menulibre/MenulibreApplication.py:383
+#: ../menulibre/MenulibreApplication.py:351
 msgid "Add Separator…"
 msgstr "Lägg till avskiljare…"
 
 #. Translators: Save Launcher action label
-#: ../menulibre/MenulibreApplication.py:390
+#: ../menulibre/MenulibreApplication.py:358
 msgid "_Save"
 msgstr "_Spara"
 
 #. Translators: Undo action label
-#: ../menulibre/MenulibreApplication.py:399
+#: ../menulibre/MenulibreApplication.py:367
 msgid "_Undo"
 msgstr "_Ångra"
 
 #. Translators: Redo action label
-#: ../menulibre/MenulibreApplication.py:408
+#: ../menulibre/MenulibreApplication.py:376
 msgid "_Redo"
 msgstr "Gö_r om"
 
 #. Translators: Revert action label
-#: ../menulibre/MenulibreApplication.py:417
+#: ../menulibre/MenulibreApplication.py:385
 msgid "_Revert"
 msgstr "Åte_rställ"
 
 #. Translators: Execute action label
-#: ../menulibre/MenulibreApplication.py:426
+#: ../menulibre/MenulibreApplication.py:394
 msgid "_Execute"
 msgstr "_Kör"
 
 #. Translators: Execute action tooltip
-#: ../menulibre/MenulibreApplication.py:428
+#: ../menulibre/MenulibreApplication.py:396
 msgid "Execute Launcher"
 msgstr "Kör startare"
 
 #. Translators: Delete action label
-#: ../menulibre/MenulibreApplication.py:435
+#: ../menulibre/MenulibreApplication.py:403
 msgid "_Delete"
 msgstr "Ta _bort"
 
+#. Translators: Delete action tooltip
+#: ../menulibre/MenulibreApplication.py:405
+msgid "Delete"
+msgstr "Ta bort"
+
 #. Translators: Quit action label
-#: ../menulibre/MenulibreApplication.py:444
+#: ../menulibre/MenulibreApplication.py:412
 msgid "_Quit"
 msgstr "A_vsluta"
 
 #. Translators: Quit action tooltip
-#: ../menulibre/MenulibreApplication.py:446
-#: ../menulibre/MenulibreApplication.py:1622
+#: ../menulibre/MenulibreApplication.py:414
+#: ../menulibre/MenulibreApplication.py:1638
 msgid "Quit"
 msgstr "Avsluta"
 
 #. Translators: Help action label
-#: ../menulibre/MenulibreApplication.py:453
+#: ../menulibre/MenulibreApplication.py:421
 msgid "_Contents"
 msgstr "_Innehåll"
 
 #. Translators: About action label
-#: ../menulibre/MenulibreApplication.py:462
+#: ../menulibre/MenulibreApplication.py:430
 msgid "_About"
 msgstr "_Om"
 
 #. Translators: About action tooltip
-#: ../menulibre/MenulibreApplication.py:464
-#: ../menulibre/MenulibreApplication.py:1621
+#: ../menulibre/MenulibreApplication.py:432
+#: ../menulibre/MenulibreApplication.py:1637
 msgid "About"
 msgstr "Om"
 
-#: ../menulibre/MenulibreApplication.py:729
-#: ../menulibre/MenulibreApplication.py:744
+#: ../menulibre/MenulibreApplication.py:463
+msgid "Invalid desktop files detected! Please see details."
+msgstr "Ogiltiga skrivbordsfiler upptäcktes! Se detaljer."
+
+#: ../menulibre/MenulibreApplication.py:467
+msgid "Details"
+msgstr "Detaljer"
+
+#: ../menulibre/MenulibreApplication.py:487
+msgid "Your applications menu may need to be restarted."
+msgstr "Din programmeny kan behöva startas om."
+
+#: ../menulibre/MenulibreApplication.py:492
+msgid "Restart menu..."
+msgstr "Starta om meny..."
+
+#: ../menulibre/MenulibreApplication.py:713
+#: ../menulibre/MenulibreApplication.py:733
 msgid "Menu restart required"
 msgstr "Meny omstart krävs"
 
-#: ../menulibre/MenulibreApplication.py:730
+#: ../menulibre/MenulibreApplication.py:715
 #, python-format
 msgid ""
 "MenuLibre can do this automatically. Do you want to run the following command?\n"
@@ -1533,7 +1539,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../menulibre/MenulibreApplication.py:745
+#: ../menulibre/MenulibreApplication.py:734
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
 "system. Please log out for you menu to update completely."
@@ -1544,9 +1550,13 @@ msgstr ""
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:949
+#: ../menulibre/MenulibreApplication.py:948
 msgid "You do not have permission to delete this file."
 msgstr "Du har inte tillåtelse att ta bort denna fil."
+
+#: ../menulibre/MenulibreApplication.py:954
+msgid "You cannot delete this file while a search is active."
+msgstr "Du kan inte ta bort den här filen medan en sökning är aktiv."
 
 #. Translators: Placeholder text for a newly created launcher.
 #: ../menulibre/MenulibreApplication.py:1019
@@ -1560,52 +1570,56 @@ msgid "A small descriptive blurb about this application."
 msgstr "En kort beskrivning om detta program."
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1072
+#: ../menulibre/MenulibreApplication.py:1075
 msgid "New Directory"
 msgstr "Ny katalog"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1075
+#: ../menulibre/MenulibreApplication.py:1078
 msgid "A small descriptive blurb about this directory."
 msgstr "En kort beskrivning om denna katalog"
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:1496
+#: ../menulibre/MenulibreApplication.py:1512
 msgid "Are you sure you want to delete this separator?"
 msgstr "Är du säker på att du vill ta bort denna avskiljare?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:1500
+#: ../menulibre/MenulibreApplication.py:1516
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Är du säker på att du vill ta bort  \"%s\"?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:1615
+#: ../menulibre/MenulibreApplication.py:1631
 msgid "Parsing Error Log"
 msgstr "Tolkningsfel då fellogg skulle analyseras"
 
 #. Translators: "Search Results" treeview column header
-#: ../menulibre/MenulibreTreeview.py:74
+#: ../menulibre/MenulibreTreeview.py:73
 msgid "Search Results"
 msgstr "Sökresultat"
+
+#: ../menulibre/MenulibreTreeview.py:137 ../menulibre/MenulibreTreeview.py:138
+msgid "Sort Alphabetically"
+msgstr "Sortera i bokstavsordning"
 
 #. Translators: Placeholder text for a new menu item name.
 #: ../menulibre/MenulibreXdg.py:47
 msgid "New Menu Item"
 msgstr "Ny menypost"
 
-#: ../menulibre/ParsingErrorsDialog.py:34
+#: ../menulibre/ParsingErrorsDialog.py:35
 msgid "Parsing Errors"
 msgstr "Tolkningsfel"
 
-#: ../menulibre/ParsingErrorsDialog.py:37
+#: ../menulibre/ParsingErrorsDialog.py:38
 msgid "Close"
 msgstr "Stäng"
 
-#: ../menulibre/ParsingErrorsDialog.py:56
+#: ../menulibre/ParsingErrorsDialog.py:59
 msgid ""
 "The following desktop files have failed parsing by the underlying library, and will therefore not show up in MenuLibre.\n"
 "Please investigate these problems with the associated package maintainer."
@@ -1614,36 +1628,34 @@ msgstr ""
 "underliggande biblioteket och kommer därför inte att visas i MenuLibre. "
 "Vänligen undersök dessa problem med ansvarig paketunderhållare."
 
-#: ../menulibre/ParsingErrorsDialog.py:122
+#: ../menulibre/ParsingErrorsDialog.py:126
 msgid "Open containing folder"
 msgstr "Öppna innehållande mapp"
 
-#: ../menulibre/ParsingErrorsDialog.py:127
+#: ../menulibre/ParsingErrorsDialog.py:132
 msgid "Open in text editor"
 msgstr "Öppna i textredigerare"
 
-#: ../menulibre/ParsingErrorsDialog.py:132
+#: ../menulibre/ParsingErrorsDialog.py:138
 msgid "Copy file location"
 msgstr "Kopiera filens plats"
 
 #. Translators: File Chooser Dialog, window title.
 #: ../menulibre/PathEntry.py:55
 msgid "Select a working directory"
-msgstr "Välj en arbetskatalog…"
+msgstr "Välj arbetskatalog"
 
 #. Translators: File Chooser Dialog, confirmation button.
-#: ../menulibre/PathEntry.py:75
+#: ../menulibre/PathEntry.py:80
 msgid "OK"
 msgstr "OK"
 
 #. Translators: Identify Window Dialog, primary text.
-#: ../menulibre/StartupWmClassEntry.py:40
-#: ../menulibre/StartupWmClassEntry.py:57
+#: ../menulibre/StartupWmClassEntry.py:38
+#: ../menulibre/StartupWmClassEntry.py:56
 msgid "Identify Window"
 msgstr "Identifiera fönster"
 
-#. Translators: Identify Window Dialog, secondary text. The selected
-#. application is displayed in the placeholder text.
 #: ../menulibre/StartupWmClassEntry.py:60
 msgid "Click on the main application window for this launcher."
 msgstr "Klicka på huvudprogramfönstret för denna programstartare."
@@ -1651,7 +1663,7 @@ msgstr "Klicka på huvudprogramfönstret för denna programstartare."
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
 #. code is displayed.
-#: ../menulibre/util.py:781
+#: ../menulibre/util.py:785
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr "Det gick inte att ladda skrivbordsfilen på grund av följande fel: %s"
@@ -1659,31 +1671,31 @@ msgstr "Det gick inte att ladda skrivbordsfilen på grund av följande fel: %s"
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
 #. translated.
-#: ../menulibre/util.py:796
+#: ../menulibre/util.py:800
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr "Startgrupp är ogiltig -  för närvarande '%s', ska vara '%s'"
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:806
+#: ../menulibre/util.py:810
 #, python-format
 msgid "%s key not found"
 msgstr "%s nyckel hittades inte"
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
-#: ../menulibre/util.py:819
+#: ../menulibre/util.py:823
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr "%s värde är ogiltigt - för närvarande '%s'. ska vara '%s'"
 
-#: ../menulibre/util.py:848
+#: ../menulibre/util.py:852
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
 msgstr "%s program '%s' har inte hittats i PATH"
 
-#: ../menulibre/util.py:851
+#: ../menulibre/util.py:855
 #, python-format
 msgid ""
 "%s program '%s' is not a valid shell command according to "
@@ -1695,7 +1707,7 @@ msgstr ""
 #. KDE services are not displayed in the menu
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
-#: ../menulibre/util.py:860
+#: ../menulibre/util.py:864
 msgid "Unknown error. Desktop file appears to be valid."
 msgstr "Okänt fel. Skrivbordsfilen verkar vara giltig."
 
