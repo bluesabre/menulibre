@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-07 06:51-0400\n"
+"POT-Creation-Date: 2023-08-10 06:52-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1264,6 +1264,10 @@ msgstr ""
 #. Translators: Save Error Dialog, secondary text.
 #: ../menulibre/Dialogs.py:235
 msgid "Do you have write permission to the file and directory?"
+msgstr ""
+
+#: ../menulibre/FilenameLabel.py:51
+msgid "Copy"
 msgstr ""
 
 #: ../menulibre/IconEntry.py:39
