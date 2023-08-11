@@ -18,6 +18,7 @@
 from .TextEntry import TextEntry
 from .StartupWmClassEntry import StartupWmClassEntry
 from .SwitchEntry import SwitchEntry
+from .FieldLabel import FieldLabel
 from locale import gettext as _
 
 import gi
@@ -107,32 +108,36 @@ class AdvancedPage(Gtk.ScrolledWindow):
             'DBusActivatable',
             _("DBUS Activatable"),
             _(
-                'Set this key to "True" if D-Bus activation is supported for this application and you want to use it.\n'
-                'See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information.'),
-            SwitchEntry('DBusActivatable'))
+                'Set this key to "True" if D-Bus activation is supported for this application and you want to use it.'),
+            SwitchEntry('DBusActivatable'),
+            _("More Information"),
+            "https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable")
 
         self._add_row(
             'PrefersNonDefaultGPU',
             _("Prefers Non-Default GPU"),
             _(
-                'Set this key to "True" if this application prefers to be run on a more powerful GPU if available.\n'
-                'See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information.'),
-            SwitchEntry('PrefersNonDefaultGPU'))
+                'Set this key to "True" if this application prefers to be run on a more powerful GPU if available.'),
+            SwitchEntry('PrefersNonDefaultGPU'),
+            _("More Information"),
+            "https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu")
 
         self._add_row(
             'X-GNOME-UsesNotifications',
             _("Uses Notifications"),
             _(
-                'Set this key to "True" if this application uses notifications.\n'
-                'See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information.'),
-            SwitchEntry('X-GNOME-UsesNotifications'))
+                'Set this key to "True" if this application uses notifications.'),
+            SwitchEntry('X-GNOME-UsesNotifications'),
+            _("More Information"),
+            "https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications")
 
         self.show_all()
 
-    def _add_row(self, id, text, tooltip, widget):
-        label = Gtk.Label.new(text)
-        label.set_tooltip_text(tooltip)
-        label.set_xalign(0.0)
+    def _add_row(self, id, text, tooltip, widget, help_text=None, help_url=None):
+        label = FieldLabel(
+            label=text, key_name=id, description=tooltip, help_text=help_text,
+            help_url=help_url
+        )
         self._grid.attach(label, 0, self._row_index, 1, 1)
 
         widget.connect('value-changed', self._on_widget_value_changed)

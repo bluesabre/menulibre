@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-10 06:52-0400\n"
+"POT-Creation-Date: 2023-08-11 07:19-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,7 +51,7 @@ msgid "Name"
 msgstr ""
 
 #. Translators: "Command" tree column header
-#: ../menulibre/ActionEditor.py:72 ../menulibre/ApplicationEditor.py:95
+#: ../menulibre/ActionEditor.py:72 ../menulibre/ApplicationEditor.py:97
 #: ../menulibre/CommandEditor.py:617 ../menulibre/CommandEditor.py:629
 msgid "Command"
 msgstr ""
@@ -85,30 +85,30 @@ msgstr ""
 msgid "New Shortcut"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:52
+#: ../menulibre/AdvancedPage.py:53
 msgid "Generic Name"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:53
+#: ../menulibre/AdvancedPage.py:54
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:58
+#: ../menulibre/AdvancedPage.py:59
 msgid "Try Exec"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:59
+#: ../menulibre/AdvancedPage.py:60
 msgid ""
 "Path to an executable file to determine if the program is installed. If the "
 "file is not present or is not executable, this entry may not be shown in a "
 "menu."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:63
+#: ../menulibre/AdvancedPage.py:64
 msgid "Only Show In"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:64
+#: ../menulibre/AdvancedPage.py:65
 msgid ""
 "A list of environments that should display this entry. Other environments "
 "will not display this entry. You can only use this key if \"NotShowIn\" is "
@@ -117,11 +117,11 @@ msgid ""
 "MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:69
+#: ../menulibre/AdvancedPage.py:70
 msgid "Not Shown In"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:71
+#: ../menulibre/AdvancedPage.py:72
 msgid ""
 "A list of environments that should not display this entry. You can only use "
 "this key if \"OnlyShowIn\" is not set.\n"
@@ -129,146 +129,146 @@ msgid ""
 "MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:76
+#: ../menulibre/AdvancedPage.py:77
 msgid "Mimetypes"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:77
+#: ../menulibre/AdvancedPage.py:78
 msgid "The MIME type(s) supported by this application."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:82
+#: ../menulibre/AdvancedPage.py:83
 msgid "Keywords"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:83
+#: ../menulibre/AdvancedPage.py:84
 msgid ""
 "A list of keywords to describe this entry. You can use these to help "
 "searching entries. These are not meant for display, and should not be "
 "redundant with the values of Name or GenericName."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:88
+#: ../menulibre/AdvancedPage.py:89
 msgid "Startup WM Class"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:89
+#: ../menulibre/AdvancedPage.py:90
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:96
+#: ../menulibre/AdvancedPage.py:97
 msgid "Implements"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:97
+#: ../menulibre/AdvancedPage.py:98
 msgid "A list of interfaces that this application implements."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:102
+#: ../menulibre/AdvancedPage.py:103
 msgid "Hidden"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:103
+#: ../menulibre/AdvancedPage.py:104
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:108
+#: ../menulibre/AdvancedPage.py:109
 msgid "DBUS Activatable"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:110
+#: ../menulibre/AdvancedPage.py:111
 msgid ""
 "Set this key to \"True\" if D-Bus activation is supported for this "
-"application and you want to use it.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
-"Keys#dbusactivatable for more information."
+"application and you want to use it."
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:116
-msgid "Prefers Non-Default GPU"
+#: ../menulibre/AdvancedPage.py:113 ../menulibre/AdvancedPage.py:122
+#: ../menulibre/AdvancedPage.py:131
+msgid "More Information"
 msgstr ""
 
 #: ../menulibre/AdvancedPage.py:118
-msgid ""
-"Set this key to \"True\" if this application prefers to be run on a more "
-"powerful GPU if available.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
-"Keys#prefersnondefaultgpu for more information."
+msgid "Prefers Non-Default GPU"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:124
+#: ../menulibre/AdvancedPage.py:120
+msgid ""
+"Set this key to \"True\" if this application prefers to be run on a more "
+"powerful GPU if available."
+msgstr ""
+
+#: ../menulibre/AdvancedPage.py:127
 msgid "Uses Notifications"
 msgstr ""
 
-#: ../menulibre/AdvancedPage.py:126
-msgid ""
-"Set this key to \"True\" if this application uses notifications.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
-"Keys#x-gnome-usesnotifications for more information."
+#: ../menulibre/AdvancedPage.py:129
+msgid "Set this key to \"True\" if this application uses notifications."
 msgstr ""
 
-#: ../menulibre/ApplicationEditor.py:75
+#: ../menulibre/ApplicationEditor.py:76
 msgid "Add name"
 msgstr ""
 
-#: ../menulibre/ApplicationEditor.py:80
+#: ../menulibre/ApplicationEditor.py:81
 msgid "Add comment"
 msgstr ""
 
 #. Application Details Frame
-#: ../menulibre/ApplicationEditor.py:85
+#: ../menulibre/ApplicationEditor.py:86
 msgid "Application Details"
 msgstr ""
 
-#: ../menulibre/ApplicationEditor.py:99
+#: ../menulibre/ApplicationEditor.py:100
 msgid ""
 "Program to execute with arguments. This key is required if DBusActivatable "
 "is not set to \"True\" or if you need compatibility with implementations "
-"that do not understand D-Bus activation.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-"
-"Keys#exec for a list of supported arguments."
+"that do not understand D-Bus activation."
 msgstr ""
 
-#: ../menulibre/ApplicationEditor.py:108
+#: ../menulibre/ApplicationEditor.py:101
+msgid "Supported Arguments"
+msgstr ""
+
+#: ../menulibre/ApplicationEditor.py:111
 msgid "Working Directory"
 msgstr ""
 
-#: ../menulibre/ApplicationEditor.py:110
+#: ../menulibre/ApplicationEditor.py:113
 msgid "The working directory."
 msgstr ""
 
 #. Options Frame
-#: ../menulibre/ApplicationEditor.py:119
+#: ../menulibre/ApplicationEditor.py:122
 msgid "Options"
 msgstr ""
 
-#: ../menulibre/ApplicationEditor.py:127
+#: ../menulibre/ApplicationEditor.py:131
 msgid "Run in terminal"
 msgstr ""
 
-#: ../menulibre/ApplicationEditor.py:131
+#: ../menulibre/ApplicationEditor.py:133
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
 
-#: ../menulibre/ApplicationEditor.py:141
+#: ../menulibre/ApplicationEditor.py:145
 msgid "Use startup notification"
 msgstr ""
 
-#: ../menulibre/ApplicationEditor.py:145
+#: ../menulibre/ApplicationEditor.py:147
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
 msgstr ""
 
-#: ../menulibre/ApplicationEditor.py:155
+#: ../menulibre/ApplicationEditor.py:158
 msgid "Hide from menus"
 msgstr ""
 
-#: ../menulibre/ApplicationEditor.py:159
+#: ../menulibre/ApplicationEditor.py:160
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
@@ -276,19 +276,19 @@ msgstr ""
 
 #. Translators: "Categories"
 #. launcher section
-#: ../menulibre/ApplicationEditor.py:179
+#: ../menulibre/ApplicationEditor.py:180
 msgid "Categories"
 msgstr ""
 
 #. Translators: "Actions" launcher
 #. section
-#: ../menulibre/ApplicationEditor.py:187
+#: ../menulibre/ApplicationEditor.py:188
 msgid "Actions"
 msgstr ""
 
 #. Translators: "Advanced" launcher
 #. section
-#: ../menulibre/ApplicationEditor.py:195
+#: ../menulibre/ApplicationEditor.py:196
 msgid "Advanced"
 msgstr ""
 
@@ -1266,7 +1266,7 @@ msgstr ""
 msgid "Do you have write permission to the file and directory?"
 msgstr ""
 
-#: ../menulibre/FilenameLabel.py:51
+#: ../menulibre/FilenameLabel.py:45
 msgid "Copy"
 msgstr ""
 

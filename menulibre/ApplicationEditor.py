@@ -27,6 +27,7 @@ from .FilenameLabel import FilenameLabel
 from .IconEntry import IconEntry
 from .CommandEditor import CommandEntry
 from .MenulibreStackSwitcher import StackSwitcherBox
+from .FieldLabel import FieldLabel
 from locale import gettext as _
 
 import gi
@@ -92,12 +93,13 @@ class ApplicationEditor(Gtk.Box):
         grid.set_column_spacing(12)
         self._app_details.add(grid)
 
-        label = Gtk.Label.new(_("Command"))
-        label.set_xalign(0.0)
-        label.set_tooltip_text(
+        label = FieldLabel(
+            _("Command"),
+            "Exec",
             _(
-                "Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
-                "See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."))
+                "Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation."),
+            _("Supported Arguments"),
+            "https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec")
         grid.attach(label, 0, 0, 1, 1)
 
         self._exec_entry = CommandEntry()
@@ -105,9 +107,10 @@ class ApplicationEditor(Gtk.Box):
         self._exec_entry.set_hexpand(True)
         grid.attach(self._exec_entry, 1, 0, 1, 1)
 
-        label = Gtk.Label.new(_("Working Directory"))
-        label.set_xalign(0.0)
-        label.set_tooltip_text(_("The working directory."))
+        label = FieldLabel(
+            _("Working Directory"),
+            "Path",
+            _("The working directory."))
         grid.attach(label, 0, 1, 1, 1)
 
         self._path_entry = PathEntry(use_headerbar=use_headerbar)
@@ -124,11 +127,11 @@ class ApplicationEditor(Gtk.Box):
         grid.set_column_spacing(12)
         self._options.add(grid)
 
-        label = Gtk.Label.new(_("Run in terminal"))
-        label.set_xalign(0.0)
-        label.set_hexpand(True)
-        label.set_tooltip_text(
+        label = FieldLabel(
+            _("Run in terminal"),
+            "Terminal",
             _("If set to \"True\", the program will be ran in a terminal window."))
+        label.set_hexpand(True)
         grid.attach(label, 0, 0, 1, 1)
 
         self._terminal_entry = SwitchEntry('Terminal')
@@ -138,10 +141,9 @@ class ApplicationEditor(Gtk.Box):
         self._directory_hide_widgets.append(label)
         self._directory_hide_widgets.append(self._terminal_entry)
 
-        label = Gtk.Label.new(_("Use startup notification"))
-        label.set_xalign(0.0)
-        label.set_hexpand(True)
-        label.set_tooltip_text(
+        label = FieldLabel(
+            _("Use startup notification"),
+            "StartupNotify",
             _("If set to \"True\", a startup notification is sent. Usually means that a busy cursor is shown while the application launches."))
         grid.attach(label, 0, 1, 1, 1)
 
@@ -152,10 +154,9 @@ class ApplicationEditor(Gtk.Box):
         self._directory_hide_widgets.append(label)
         self._directory_hide_widgets.append(self._startup_notify_entry)
 
-        label = Gtk.Label.new(_("Hide from menus"))
-        label.set_xalign(0.0)
-        label.set_hexpand(True)
-        label.set_tooltip_text(
+        label = FieldLabel(
+            _("Hide from menus"),
+            "NoDisplay",
             _("If set to \"True\", this entry will not be shown in menus, but will be available for MIME type associations etc."))
         grid.attach(label, 0, 2, 1, 1)
 
