@@ -247,8 +247,8 @@ msgid ""
 "that do not understand D-Bus activation."
 msgstr ""
 "Program do wykonania z argumentami. Ten klucz jest wymagany, jeśli "
-"DBusActivatable nie jest ustawiony na „True” lub jeśli potrzebujesz "
-"zgodności z implementacjami, które nie rozumieją aktywacji D-Bus."
+"DBusActivatable nie ustawiono na „True” lub jeśli potrzebujesz zgodności z "
+"implementacjami, które nie rozumieją aktywacji D-Bus."
 
 #: ../menulibre/ApplicationEditor.py:101
 msgid "Supported Arguments"
