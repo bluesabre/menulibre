@@ -46,11 +46,13 @@ class LabelWithHidingButton(Gtk.EventBox):
         style_context = Gtk.StyleContext()
         style_context.add_provider_for_screen(
             screen, provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
-        provider.load_from_data("#hideybutton {padding: 0; border-radius: 0; min-height: 18px; min-width: 18px;}".encode())
+        provider.load_from_data(
+            "#hideybutton {padding: 0; border-radius: 0; min-height: 18px; min-width: 18px;}".encode())
 
         box.add(self._button)
 
-        self.add_events(Gdk.EventMask.ENTER_NOTIFY_MASK | Gdk.EventMask.LEAVE_NOTIFY_MASK)
+        self.add_events(Gdk.EventMask.ENTER_NOTIFY_MASK |
+                        Gdk.EventMask.LEAVE_NOTIFY_MASK)
 
         self._label_entered = False
         self._button_entered = False
@@ -59,18 +61,30 @@ class LabelWithHidingButton(Gtk.EventBox):
         self.connect("enter-notify-event", self._enter_notify_cb, self._button)
         self.connect("leave-notify-event", self._leave_notify_cb, self._button)
 
-        self._button.connect("enter-notify-event", self._button_enter_notify_cb, self._button)
-        self._button.connect("leave-notify-event", self._button_leave_notify_cb, self._button)
+        self._button.connect(
+            "enter-notify-event",
+            self._button_enter_notify_cb,
+            self._button)
+        self._button.connect(
+            "leave-notify-event",
+            self._button_leave_notify_cb,
+            self._button)
 
-        self._button.connect("focus-in-event", self._button_focus_in_cb, self._button)
-        self._button.connect("focus-out-event", self._button_focus_out_cb, self._button)
+        self._button.connect(
+            "focus-in-event",
+            self._button_focus_in_cb,
+            self._button)
+        self._button.connect(
+            "focus-out-event",
+            self._button_focus_out_cb,
+            self._button)
 
     def get_button(self):
         return self._button
-    
+
     def get_label(self):
         return self._label
-    
+
     def _toggle_button_visibility(self, button):
         if self._label_entered or self._button_entered or self._button_focused:
             button.set_opacity(1.0)

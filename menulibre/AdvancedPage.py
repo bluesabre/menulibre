@@ -133,7 +133,8 @@ class AdvancedPage(Gtk.ScrolledWindow):
 
         self.show_all()
 
-    def _add_row(self, id, text, tooltip, widget, help_text=None, help_url=None):
+    def _add_row(self, id, text, tooltip, widget,
+                 help_text=None, help_url=None):
         label = FieldLabel(
             label=text, key_name=id, description=tooltip, help_text=help_text,
             help_url=help_url
