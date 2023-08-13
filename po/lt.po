@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-06 06:18-0400\n"
+"POT-Creation-Date: 2023-08-13 06:54-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Moo, 2023\n"
 "Language-Team: Lithuanian (https://app.transifex.com/bluesabreorg/teams/99550/lt/)\n"
@@ -56,7 +56,7 @@ msgid "Name"
 msgstr "Pavadinimas"
 
 #. Translators: "Command" tree column header
-#: ../menulibre/ActionEditor.py:72 ../menulibre/ApplicationEditor.py:95
+#: ../menulibre/ActionEditor.py:72 ../menulibre/ApplicationEditor.py:97
 #: ../menulibre/CommandEditor.py:617 ../menulibre/CommandEditor.py:629
 msgid "Command"
 msgstr "Komanda"
@@ -90,19 +90,19 @@ msgstr "Nuleisti žemyn"
 msgid "New Shortcut"
 msgstr "Naujas susiejimas"
 
-#: ../menulibre/AdvancedPage.py:52
+#: ../menulibre/AdvancedPage.py:53
 msgid "Generic Name"
 msgstr "Bendrinis pavadinimas"
 
-#: ../menulibre/AdvancedPage.py:53
+#: ../menulibre/AdvancedPage.py:54
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr "Bendrinis programos pavadinimas, pavyzdžiui, „Saityno naršyklė“."
 
-#: ../menulibre/AdvancedPage.py:58
+#: ../menulibre/AdvancedPage.py:59
 msgid "Try Exec"
 msgstr "Bandyti vykdyti"
 
-#: ../menulibre/AdvancedPage.py:59
+#: ../menulibre/AdvancedPage.py:60
 msgid ""
 "Path to an executable file to determine if the program is installed. If the "
 "file is not present or is not executable, this entry may not be shown in a "
@@ -112,11 +112,11 @@ msgstr ""
 "programa yra įdiegta. Jei failo nėra arba neleidžiama jo vykdyti kaip "
 "programą, šis įrašas meniu gali būti nerodomas."
 
-#: ../menulibre/AdvancedPage.py:63
+#: ../menulibre/AdvancedPage.py:64
 msgid "Only Show In"
 msgstr "Rodyti tik"
 
-#: ../menulibre/AdvancedPage.py:64
+#: ../menulibre/AdvancedPage.py:65
 msgid ""
 "A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if \"NotShowIn\" is not set.\n"
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
@@ -124,11 +124,11 @@ msgstr ""
 "Aplinkų, kurios turėtų rodyti šį įrašą, sąrašas. Kitos aplinkos šio įrašo nerodys. Galite naudoti šį raktą tik tuo atveju, jei nėra nustatytas „Nerodoma“.\n"
 "Galimos reikšmės:  Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#: ../menulibre/AdvancedPage.py:69
+#: ../menulibre/AdvancedPage.py:70
 msgid "Not Shown In"
 msgstr "Nerodoma"
 
-#: ../menulibre/AdvancedPage.py:71
+#: ../menulibre/AdvancedPage.py:72
 msgid ""
 "A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
@@ -136,19 +136,19 @@ msgstr ""
 "Aplinkų, kurios neturėtų rodyti šio įrašo, sąrašas. Galite naudoti šį raktą tik tuo atveju, jei nėra nustatytas „RodytiTik“.\n"
 "Galimos reikšmės:  Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#: ../menulibre/AdvancedPage.py:76
+#: ../menulibre/AdvancedPage.py:77
 msgid "Mimetypes"
 msgstr "Mime tipai"
 
-#: ../menulibre/AdvancedPage.py:77
+#: ../menulibre/AdvancedPage.py:78
 msgid "The MIME type(s) supported by this application."
 msgstr "Šios programos palaikomi MIME tipai."
 
-#: ../menulibre/AdvancedPage.py:82
+#: ../menulibre/AdvancedPage.py:83
 msgid "Keywords"
 msgstr "Raktažodžiai"
 
-#: ../menulibre/AdvancedPage.py:83
+#: ../menulibre/AdvancedPage.py:84
 msgid ""
 "A list of keywords to describe this entry. You can use these to help "
 "searching entries. These are not meant for display, and should not be "
@@ -158,11 +158,11 @@ msgstr ""
 "pagalbinę įrašų paieškos priemonę. Jie nėra skirti rodymui ir neturėtų "
 "dubliuotis su Pavadinimo ir BendrinioPavadinimo reikšmėmis."
 
-#: ../menulibre/AdvancedPage.py:88
+#: ../menulibre/AdvancedPage.py:89
 msgid "Startup WM Class"
 msgstr "Paleidimo WM klasė"
 
-#: ../menulibre/AdvancedPage.py:89
+#: ../menulibre/AdvancedPage.py:90
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
@@ -170,19 +170,19 @@ msgstr ""
 "Jei nurodyta, programos bus paprašyta bent viename lange, eilutę naudoti "
 "kaip WM klasę arba WM pavadinimo užuominą."
 
-#: ../menulibre/AdvancedPage.py:96
+#: ../menulibre/AdvancedPage.py:97
 msgid "Implements"
 msgstr "Įgyvendina"
 
-#: ../menulibre/AdvancedPage.py:97
+#: ../menulibre/AdvancedPage.py:98
 msgid "A list of interfaces that this application implements."
 msgstr "Sąsajų, kurias ši programa įgyvendina, sąrašas."
 
-#: ../menulibre/AdvancedPage.py:102
+#: ../menulibre/AdvancedPage.py:103
 msgid "Hidden"
 msgstr "Paslėpta"
 
-#: ../menulibre/AdvancedPage.py:103
+#: ../menulibre/AdvancedPage.py:104
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
@@ -190,89 +190,96 @@ msgstr ""
 "Jei nustatyta į „Tiesa“, tuomet naudotojui bus pateikiamas toks rezultatas, "
 "tarsi .desktop failo iš viso nebūtų."
 
-#: ../menulibre/AdvancedPage.py:108
+#: ../menulibre/AdvancedPage.py:109
 msgid "DBUS Activatable"
 msgstr "DBUS aktyvuojamas"
 
-#: ../menulibre/AdvancedPage.py:110
+#: ../menulibre/AdvancedPage.py:111
 msgid ""
-"Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information."
+"Set this key to \"True\" if D-Bus activation is supported for this "
+"application and you want to use it."
 msgstr ""
-"Nustatykite šį raktą į „Tiesa“, jei šiai programai yra palaikomas D-Bus aktyvavimas ir jūs norite jį naudoti.\n"
-"Išsamesnei informacijai žiūrėkite https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable"
+"Nustatykite šį raktą į „Tiesa“, jei šiai programai yra prieinamas D-Bus "
+"aktyvavimas ir, jei norite jį naudoti."
 
-#: ../menulibre/AdvancedPage.py:116
+#: ../menulibre/AdvancedPage.py:113 ../menulibre/AdvancedPage.py:122
+#: ../menulibre/AdvancedPage.py:131
+msgid "More Information"
+msgstr "Daugiau informacijos"
+
+#: ../menulibre/AdvancedPage.py:118
 msgid "Prefers Non-Default GPU"
 msgstr "Teikia pirmenybę nenumatytajam grafiniam procesoriui"
 
-#: ../menulibre/AdvancedPage.py:118
+#: ../menulibre/AdvancedPage.py:120
 msgid ""
-"Set this key to \"True\" if this application prefers to be run on a more powerful GPU if available.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information."
+"Set this key to \"True\" if this application prefers to be run on a more "
+"powerful GPU if available."
 msgstr ""
-"Nustatykite šį raktą į „Tiesa“, jei ši programa teikia pirmenybę būti paleista galingesniame grafikos procesoriuje, jei šis prieinamas.\n"
-"Išsamesnei informacijai, žiūrėkite https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu"
+"Nustatykite šį raktą į „Tiesa“, jei ši programa teikia pirmenybę būti "
+"paleista galingesniame grafiniame procesoriuje, jei toks yra prieinamas."
 
-#: ../menulibre/AdvancedPage.py:124
+#: ../menulibre/AdvancedPage.py:127
 msgid "Uses Notifications"
 msgstr "Naudoja pranešimus"
 
-#: ../menulibre/AdvancedPage.py:126
-msgid ""
-"Set this key to \"True\" if this application uses notifications.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information."
-msgstr ""
-"Nustatykite šį raktą į „Tiesa“, jei ši programa naudoja pranešimus.\n"
-"Išsamesnei informacijai žiūrėkite https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications"
+#: ../menulibre/AdvancedPage.py:129
+msgid "Set this key to \"True\" if this application uses notifications."
+msgstr "Nustatykite šį raktą į „Tiesa“, jei ši programa naudoja pranešimus."
 
-#: ../menulibre/ApplicationEditor.py:75
+#: ../menulibre/ApplicationEditor.py:76
 msgid "Add name"
 msgstr "Pridėti pavadinimą"
 
-#: ../menulibre/ApplicationEditor.py:80
+#: ../menulibre/ApplicationEditor.py:81
 msgid "Add comment"
 msgstr "Pridėti komentarą"
 
 #. Application Details Frame
-#: ../menulibre/ApplicationEditor.py:85
+#: ../menulibre/ApplicationEditor.py:86
 msgid "Application Details"
 msgstr "Išsamiau apie programą"
 
-#: ../menulibre/ApplicationEditor.py:99
+#: ../menulibre/ApplicationEditor.py:100
 msgid ""
-"Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."
+"Program to execute with arguments. This key is required if DBusActivatable "
+"is not set to \"True\" or if you need compatibility with implementations "
+"that do not understand D-Bus activation."
 msgstr ""
-"Su argumentais vykdoma programa. Šis raktas yra reikalingas, jei DBusAktyvuojamas yra nustatyta į „Tiesa“ arba jei jums reikalingas suderinamumas su realizavimais, kurie nesupranta D-Bus aktyvavimo.\n"
-"Palaikomų argumentų sąrašą žiūrėkite adresu https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec."
+"Programa, kurią vykdyti naudojant argumentus. Šis raktas yra būtinas, jei "
+"DBusActivatable nėra nustatyta į „Tiesa“ arba, jeigu jums reikia "
+"suderinamumo su įgyvendinimais, kurie nesupranta D-Bus aktyvavimo."
 
-#: ../menulibre/ApplicationEditor.py:108
+#: ../menulibre/ApplicationEditor.py:101
+msgid "Supported Arguments"
+msgstr "Palaikomi argumentai"
+
+#: ../menulibre/ApplicationEditor.py:111
 msgid "Working Directory"
 msgstr "Darbinis katalogas"
 
-#: ../menulibre/ApplicationEditor.py:110
+#: ../menulibre/ApplicationEditor.py:113
 msgid "The working directory."
 msgstr "Darbinis katalogas"
 
 #. Options Frame
-#: ../menulibre/ApplicationEditor.py:119
+#: ../menulibre/ApplicationEditor.py:122
 msgid "Options"
 msgstr "Parinktys"
 
-#: ../menulibre/ApplicationEditor.py:127
+#: ../menulibre/ApplicationEditor.py:131
 msgid "Run in terminal"
 msgstr "Vykdyti terminale"
 
-#: ../menulibre/ApplicationEditor.py:131
+#: ../menulibre/ApplicationEditor.py:133
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr "Jei nustatyta į „Tiesa“, tuomet programa bus vykdoma terminalo lange."
 
-#: ../menulibre/ApplicationEditor.py:141
+#: ../menulibre/ApplicationEditor.py:145
 msgid "Use startup notification"
 msgstr "Naudoti paleidimo pranešimą"
 
-#: ../menulibre/ApplicationEditor.py:145
+#: ../menulibre/ApplicationEditor.py:147
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
@@ -281,11 +288,11 @@ msgstr ""
 "Dažniausiai, tai reiškia, kad kol bus paleidžiama programa, žymeklis bus "
 "rodomas kaip užimtas."
 
-#: ../menulibre/ApplicationEditor.py:155
+#: ../menulibre/ApplicationEditor.py:158
 msgid "Hide from menus"
 msgstr "Slėpti iš meniu"
 
-#: ../menulibre/ApplicationEditor.py:159
+#: ../menulibre/ApplicationEditor.py:160
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
@@ -295,19 +302,19 @@ msgstr ""
 
 #. Translators: "Categories"
 #. launcher section
-#: ../menulibre/ApplicationEditor.py:179
+#: ../menulibre/ApplicationEditor.py:180
 msgid "Categories"
 msgstr "Kategorijos"
 
 #. Translators: "Actions" launcher
 #. section
-#: ../menulibre/ApplicationEditor.py:187
+#: ../menulibre/ApplicationEditor.py:188
 msgid "Actions"
 msgstr "Veiksmai"
 
 #. Translators: "Advanced" launcher
 #. section
-#: ../menulibre/ApplicationEditor.py:195
+#: ../menulibre/ApplicationEditor.py:196
 msgid "Advanced"
 msgstr "Išsamiau"
 
@@ -1029,19 +1036,19 @@ msgstr "Komandų redaktorius"
 #. Translators: File Chooser Dialog, cancel button.
 #: ../menulibre/CommandEditor.py:34 ../menulibre/Dialogs.py:73
 #: ../menulibre/Dialogs.py:111 ../menulibre/Dialogs.py:140
-#: ../menulibre/Dialogs.py:179 ../menulibre/IconEntry.py:163
-#: ../menulibre/IconEntry.py:183 ../menulibre/PathEntry.py:78
+#: ../menulibre/Dialogs.py:179 ../menulibre/IconEntry.py:165
+#: ../menulibre/IconEntry.py:185 ../menulibre/PathEntry.py:78
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: ../menulibre/CommandEditor.py:35 ../menulibre/IconEntry.py:164
-#: ../menulibre/IconEntry.py:184
+#: ../menulibre/CommandEditor.py:35 ../menulibre/IconEntry.py:166
+#: ../menulibre/IconEntry.py:186
 msgid "Apply"
 msgstr "Taikyti"
 
 #. Translators: Help action tooltip
 #: ../menulibre/CommandEditor.py:89 ../menulibre/MenulibreApplication.py:423
-#: ../menulibre/MenulibreApplication.py:1636
+#: ../menulibre/MenulibreApplication.py:1635
 msgid "Help"
 msgstr "Pagalba"
 
@@ -1292,6 +1299,10 @@ msgstr "Nepavyko įrašyti „%s“."
 msgid "Do you have write permission to the file and directory?"
 msgstr "Ar turite leidimą rašyti į failą ir katalogą?"
 
+#: ../menulibre/FilenameLabel.py:48
+msgid "Copy"
+msgstr "Kopija"
+
 #: ../menulibre/IconEntry.py:39
 msgid "Browse Icons…"
 msgstr "Naršyti piktogramas..."
@@ -1300,27 +1311,29 @@ msgstr "Naršyti piktogramas..."
 msgid "Browse Files…"
 msgstr "Naršyti failus..."
 
-#: ../menulibre/IconEntry.py:126
+#: ../menulibre/IconEntry.py:128
 #, python-format
 msgid "<i>Missing icon:</i> %s"
 msgstr "<i>Trūkstama piktograma:</i> %s"
 
-#: ../menulibre/IconEntry.py:159
+#: ../menulibre/IconEntry.py:161
 msgid "Select an image"
 msgstr "Pasirinkti paveikslą"
 
 #. Translators: "Images" file chooser dialog filter
-#: ../menulibre/IconEntry.py:169
+#: ../menulibre/IconEntry.py:171
 msgid "Images"
 msgstr "Paveikslai"
 
-#: ../menulibre/IconEntry.py:180
+#: ../menulibre/IconEntry.py:182
 msgid "Select an icon"
 msgstr "Pasirinkti piktogramą"
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:125 ../menulibre/MenulibreApplication.py:792
-#: ../menulibre/MenulibreApplication.py:1100
+#: ../menulibre/MenuEditor.py:123 ../menulibre/MenuEditor.py:125
+#: ../menulibre/MenulibreApplication.py:791
+#: ../menulibre/MenulibreApplication.py:1097
+#: ../menulibre/MenulibreApplication.py:1099
 msgid "Separator"
 msgstr "Skirtukas"
 
@@ -1406,8 +1419,8 @@ msgstr "Išbandyti leistuką"
 
 #: ../menulibre/MenulibreApplication.py:315
 #: ../menulibre/MenulibreApplication.py:534
-#: ../menulibre/MenulibreApplication.py:929
-#: ../menulibre/MenulibreApplication.py:941
+#: ../menulibre/MenulibreApplication.py:928
+#: ../menulibre/MenulibreApplication.py:940
 msgid "Delete..."
 msgstr "Ištrinti..."
 
@@ -1488,7 +1501,7 @@ msgstr "_Išeiti"
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:414
-#: ../menulibre/MenulibreApplication.py:1638
+#: ../menulibre/MenulibreApplication.py:1637
 msgid "Quit"
 msgstr "Išeiti"
 
@@ -1504,7 +1517,7 @@ msgstr "_Apie"
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:432
-#: ../menulibre/MenulibreApplication.py:1637
+#: ../menulibre/MenulibreApplication.py:1636
 msgid "About"
 msgstr "Apie"
 
@@ -1525,12 +1538,12 @@ msgstr "Gali būti, kad jūsų programų meniu reikia paleisti iš naujo."
 msgid "Restart menu..."
 msgstr "Paleisti meniu iš naujo..."
 
-#: ../menulibre/MenulibreApplication.py:713
-#: ../menulibre/MenulibreApplication.py:733
+#: ../menulibre/MenulibreApplication.py:712
+#: ../menulibre/MenulibreApplication.py:732
 msgid "Menu restart required"
 msgstr "Reikia paleisti meniu iš naujo"
 
-#: ../menulibre/MenulibreApplication.py:715
+#: ../menulibre/MenulibreApplication.py:714
 #, python-format
 msgid ""
 "MenuLibre can do this automatically. Do you want to run the following command?\n"
@@ -1541,7 +1554,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../menulibre/MenulibreApplication.py:734
+#: ../menulibre/MenulibreApplication.py:733
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
 "system. Please log out for you menu to update completely."
@@ -1552,50 +1565,50 @@ msgstr ""
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:948
+#: ../menulibre/MenulibreApplication.py:947
 msgid "You do not have permission to delete this file."
 msgstr "Jūs neturite leidimo ištrinti šį failą."
 
-#: ../menulibre/MenulibreApplication.py:954
+#: ../menulibre/MenulibreApplication.py:953
 msgid "You cannot delete this file while a search is active."
 msgstr "Jūs negalite ištrinti šio failo tol, kol yra vykdoma paieška."
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1019
+#: ../menulibre/MenulibreApplication.py:1018
 msgid "New Launcher"
 msgstr "Naujas leistukas"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1022 ../menulibre/MenulibreXdg.py:50
+#: ../menulibre/MenulibreApplication.py:1021 ../menulibre/MenulibreXdg.py:50
 msgid "A small descriptive blurb about this application."
 msgstr "Trumpas ir aiškus šios programos aprašas."
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1075
+#: ../menulibre/MenulibreApplication.py:1074
 msgid "New Directory"
 msgstr "Naujas katalogas"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1078
+#: ../menulibre/MenulibreApplication.py:1077
 msgid "A small descriptive blurb about this directory."
 msgstr "Trumpa aprošomoji anotacija apie šį katalogą."
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:1512
+#: ../menulibre/MenulibreApplication.py:1511
 msgid "Are you sure you want to delete this separator?"
 msgstr "Ar tikrai norite ištrinti šį skirtuką?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:1516
+#: ../menulibre/MenulibreApplication.py:1515
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Ar tikrai norite ištrinti „%s“?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:1631
+#: ../menulibre/MenulibreApplication.py:1630
 msgid "Parsing Error Log"
 msgstr "Nagrinėjimo klaidų žurnalas"
 
