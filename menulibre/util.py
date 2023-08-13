@@ -16,6 +16,7 @@
 #   You should have received a copy of the GNU General Public License along
 #   with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import logging
 import os
 import re
 import subprocess
@@ -30,7 +31,6 @@ import gi
 gi.require_version('Gdk', '3.0')
 from gi.repository import GLib, Gdk
 
-import logging
 logger = logging.getLogger('menulibre')
 
 old_psutil_format = isinstance(psutil.Process.username, property)

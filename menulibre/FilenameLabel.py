@@ -28,7 +28,10 @@ class FilenameLabel(LabelWithHidingButton):
     }
 
     def __init__(self):
-        super().__init__(label="", icon_name="edit-copy-symbolic", icon_size=Gtk.IconSize.BUTTON)
+        super().__init__(
+            label="",
+            icon_name="edit-copy-symbolic",
+            icon_size=Gtk.IconSize.BUTTON)
         self._value = None
 
         label = self.get_label()
