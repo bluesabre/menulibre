@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-06 06:18-0400\n"
+"POT-Creation-Date: 2023-08-13 06:54-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Marek Adamski, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/bluesabreorg/teams/99550/pl/)\n"
@@ -56,7 +56,7 @@ msgid "Name"
 msgstr "Nazwa"
 
 #. Translators: "Command" tree column header
-#: ../menulibre/ActionEditor.py:72 ../menulibre/ApplicationEditor.py:95
+#: ../menulibre/ActionEditor.py:72 ../menulibre/ApplicationEditor.py:97
 #: ../menulibre/CommandEditor.py:617 ../menulibre/CommandEditor.py:629
 msgid "Command"
 msgstr "Polecenie"
@@ -90,19 +90,19 @@ msgstr "Przemieść w dół"
 msgid "New Shortcut"
 msgstr "Nowy skrót"
 
-#: ../menulibre/AdvancedPage.py:52
+#: ../menulibre/AdvancedPage.py:53
 msgid "Generic Name"
 msgstr "Nazwa ogólna"
 
-#: ../menulibre/AdvancedPage.py:53
+#: ../menulibre/AdvancedPage.py:54
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr "Ogólna nazwa programu, na przykład „Przeglądarka internetowa”."
 
-#: ../menulibre/AdvancedPage.py:58
+#: ../menulibre/AdvancedPage.py:59
 msgid "Try Exec"
 msgstr "Wypróbuj plik wykonywalny"
 
-#: ../menulibre/AdvancedPage.py:59
+#: ../menulibre/AdvancedPage.py:60
 msgid ""
 "Path to an executable file to determine if the program is installed. If the "
 "file is not present or is not executable, this entry may not be shown in a "
@@ -112,11 +112,11 @@ msgstr ""
 "zainstalowany. Jeśli plik nie istnieje lub nie jest wykonywalny, element ten"
 " może nie być wyświetlany w menu."
 
-#: ../menulibre/AdvancedPage.py:63
+#: ../menulibre/AdvancedPage.py:64
 msgid "Only Show In"
 msgstr "Wyświetlaj tylko w"
 
-#: ../menulibre/AdvancedPage.py:64
+#: ../menulibre/AdvancedPage.py:65
 msgid ""
 "A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if \"NotShowIn\" is not set.\n"
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
@@ -124,11 +124,11 @@ msgstr ""
 "Lista środowisk, które powinny wyświetlić ten element. Inne środowiska nie będą go wyświetlały. Możesz użyć tego klucza tylko wtedy, gdy nie ustawiono „OnlyShowIn”.\n"
 "Możliwe wartości zawierają: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#: ../menulibre/AdvancedPage.py:69
+#: ../menulibre/AdvancedPage.py:70
 msgid "Not Shown In"
 msgstr "Nie wyświetlaj tylko w"
 
-#: ../menulibre/AdvancedPage.py:71
+#: ../menulibre/AdvancedPage.py:72
 msgid ""
 "A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
 "Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
@@ -136,19 +136,19 @@ msgstr ""
 "Lista środowisk, które zapewne nie będą wyświetlały tego elementu. Możesz użyć tego klucza tylko wtedy, gdy nie ustawiono „OnlyShowIn”.\n"
 "Możliwe wartości zawierają:  Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
 
-#: ../menulibre/AdvancedPage.py:76
+#: ../menulibre/AdvancedPage.py:77
 msgid "Mimetypes"
 msgstr "Typy MIME"
 
-#: ../menulibre/AdvancedPage.py:77
+#: ../menulibre/AdvancedPage.py:78
 msgid "The MIME type(s) supported by this application."
 msgstr "Rodzaj(e) MIME obsługiwany(-e) przez ten program."
 
-#: ../menulibre/AdvancedPage.py:82
+#: ../menulibre/AdvancedPage.py:83
 msgid "Keywords"
 msgstr "Słowa kluczowe"
 
-#: ../menulibre/AdvancedPage.py:83
+#: ../menulibre/AdvancedPage.py:84
 msgid ""
 "A list of keywords to describe this entry. You can use these to help "
 "searching entries. These are not meant for display, and should not be "
@@ -158,11 +158,11 @@ msgstr ""
 "wyszukiwaniu elementów. Nie są one przeznaczone do wyświetlania i nie "
 "powinny być identyczne z nazwą i nazwą ogólną."
 
-#: ../menulibre/AdvancedPage.py:88
+#: ../menulibre/AdvancedPage.py:89
 msgid "Startup WM Class"
 msgstr "Startowa klasa WM"
 
-#: ../menulibre/AdvancedPage.py:89
+#: ../menulibre/AdvancedPage.py:90
 msgid ""
 "If specified, the application will be requested to use the string as a WM "
 "class or a WM name hint at least in one window."
@@ -170,19 +170,19 @@ msgstr ""
 "Jeśli określono, program będzie próbował użyć ciągu znaków jako klasy WM lub"
 " wskazówki nazwy WM w przynajmniej jednym oknie."
 
-#: ../menulibre/AdvancedPage.py:96
+#: ../menulibre/AdvancedPage.py:97
 msgid "Implements"
 msgstr "Implementuje"
 
-#: ../menulibre/AdvancedPage.py:97
+#: ../menulibre/AdvancedPage.py:98
 msgid "A list of interfaces that this application implements."
 msgstr "Lista interfejsów implementowanych przez ten program."
 
-#: ../menulibre/AdvancedPage.py:102
+#: ../menulibre/AdvancedPage.py:103
 msgid "Hidden"
 msgstr "Ukryty"
 
-#: ../menulibre/AdvancedPage.py:103
+#: ../menulibre/AdvancedPage.py:104
 msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
@@ -190,90 +190,97 @@ msgstr ""
 "Jeśli ustawiono na „True”, wynik dla użytkownika jest odpowiednikiem pliku "
 ".desktop, który w ogóle nie istnieje."
 
-#: ../menulibre/AdvancedPage.py:108
+#: ../menulibre/AdvancedPage.py:109
 msgid "DBUS Activatable"
 msgstr "Aktywowany przez D-Bus"
 
-#: ../menulibre/AdvancedPage.py:110
+#: ../menulibre/AdvancedPage.py:111
 msgid ""
-"Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information."
+"Set this key to \"True\" if D-Bus activation is supported for this "
+"application and you want to use it."
 msgstr ""
-"Ustaw ten klucz na „True”, jeśli aktywacja magistrali D-Bus jest obsługiwana przez ten program i ma być używana.\n"
-"Więcej informacji można znaleźć pod adresem https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable."
+"Ustaw ten klucz na „True”, jeśli aktywacja D-Bus jest obsługiwana dla tej "
+"aplikacji i chcesz jej użyć."
 
-#: ../menulibre/AdvancedPage.py:116
+#: ../menulibre/AdvancedPage.py:113 ../menulibre/AdvancedPage.py:122
+#: ../menulibre/AdvancedPage.py:131
+msgid "More Information"
+msgstr "Więcej informacji"
+
+#: ../menulibre/AdvancedPage.py:118
 msgid "Prefers Non-Default GPU"
 msgstr "Preferuje inny niż domyślny procesor graficzny"
 
-#: ../menulibre/AdvancedPage.py:118
+#: ../menulibre/AdvancedPage.py:120
 msgid ""
-"Set this key to \"True\" if this application prefers to be run on a more powerful GPU if available.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information."
+"Set this key to \"True\" if this application prefers to be run on a more "
+"powerful GPU if available."
 msgstr ""
-"Ustaw ten klucz na „True”, jeśli ten program woli działać na wydajniejszym GPU, jeśli jest dostępny.\n"
-"Więcej informacji można znaleźć pod adresem https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu."
+"Ustaw ten klucz na „True”, jeśli ta aplikacja woli działać na mocniejszym "
+"GPU, jeśli jest dostępny."
 
-#: ../menulibre/AdvancedPage.py:124
+#: ../menulibre/AdvancedPage.py:127
 msgid "Uses Notifications"
 msgstr "Używa powiadomień"
 
-#: ../menulibre/AdvancedPage.py:126
-msgid ""
-"Set this key to \"True\" if this application uses notifications.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information."
-msgstr ""
-"Ustaw ten klucz na „True”, jeśli ten program używa powiadomień.\n"
-"Więcej informacji można znaleźć pod adresem https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications."
+#: ../menulibre/AdvancedPage.py:129
+msgid "Set this key to \"True\" if this application uses notifications."
+msgstr "Ustaw ten klucz na „True”, jeśli ta aplikacja używa powiadomień."
 
-#: ../menulibre/ApplicationEditor.py:75
+#: ../menulibre/ApplicationEditor.py:76
 msgid "Add name"
 msgstr "Dodaj nazwę"
 
-#: ../menulibre/ApplicationEditor.py:80
+#: ../menulibre/ApplicationEditor.py:81
 msgid "Add comment"
 msgstr "Dodaj komentarz"
 
 #. Application Details Frame
-#: ../menulibre/ApplicationEditor.py:85
+#: ../menulibre/ApplicationEditor.py:86
 msgid "Application Details"
 msgstr "Szczegóły programu"
 
-#: ../menulibre/ApplicationEditor.py:99
+#: ../menulibre/ApplicationEditor.py:100
 msgid ""
-"Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."
+"Program to execute with arguments. This key is required if DBusActivatable "
+"is not set to \"True\" or if you need compatibility with implementations "
+"that do not understand D-Bus activation."
 msgstr ""
-"Program do uruchomienia z argumentami. Ten klucz jest wymagany, jeśli DBusActivatable nie jest ustawione na „True” lub gdy potrzebujesz zgodności z implementacjami, które nie rozumieją aktywacji D-Bus.\n"
-"Zobacz https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec, aby uzyskać listę obsługiwanych argumentów."
+"Program do wykonania z argumentami. Ten klucz jest wymagany, jeśli "
+"DBusActivatable nie jest ustawiony na „True” lub jeśli potrzebujesz "
+"zgodności z implementacjami, które nie rozumieją aktywacji D-Bus."
 
-#: ../menulibre/ApplicationEditor.py:108
+#: ../menulibre/ApplicationEditor.py:101
+msgid "Supported Arguments"
+msgstr "Obsługiwane argumenty"
+
+#: ../menulibre/ApplicationEditor.py:111
 msgid "Working Directory"
 msgstr "Katalog roboczy"
 
-#: ../menulibre/ApplicationEditor.py:110
+#: ../menulibre/ApplicationEditor.py:113
 msgid "The working directory."
 msgstr "Katalog roboczy."
 
 #. Options Frame
-#: ../menulibre/ApplicationEditor.py:119
+#: ../menulibre/ApplicationEditor.py:122
 msgid "Options"
 msgstr "Opcje"
 
-#: ../menulibre/ApplicationEditor.py:127
+#: ../menulibre/ApplicationEditor.py:131
 msgid "Run in terminal"
 msgstr "Uruchamiaj w terminalu"
 
-#: ../menulibre/ApplicationEditor.py:131
+#: ../menulibre/ApplicationEditor.py:133
 msgid "If set to \"True\", the program will be ran in a terminal window."
 msgstr ""
 "Jeśli ustawiono na „True”, to program będzie uruchamiany w oknie terminala."
 
-#: ../menulibre/ApplicationEditor.py:141
+#: ../menulibre/ApplicationEditor.py:145
 msgid "Use startup notification"
 msgstr "Użyj powiadomienia o uruchomieniu"
 
-#: ../menulibre/ApplicationEditor.py:145
+#: ../menulibre/ApplicationEditor.py:147
 msgid ""
 "If set to \"True\", a startup notification is sent. Usually means that a "
 "busy cursor is shown while the application launches."
@@ -282,11 +289,11 @@ msgstr ""
 "Zwykle oznacza to, że podczas uruchamiania programu wyświetlany jest zajęty "
 "kursor."
 
-#: ../menulibre/ApplicationEditor.py:155
+#: ../menulibre/ApplicationEditor.py:158
 msgid "Hide from menus"
 msgstr "Ukryj w menu"
 
-#: ../menulibre/ApplicationEditor.py:159
+#: ../menulibre/ApplicationEditor.py:160
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
@@ -296,19 +303,19 @@ msgstr ""
 
 #. Translators: "Categories"
 #. launcher section
-#: ../menulibre/ApplicationEditor.py:179
+#: ../menulibre/ApplicationEditor.py:180
 msgid "Categories"
 msgstr "Kategorie"
 
 #. Translators: "Actions" launcher
 #. section
-#: ../menulibre/ApplicationEditor.py:187
+#: ../menulibre/ApplicationEditor.py:188
 msgid "Actions"
 msgstr "Czynności"
 
 #. Translators: "Advanced" launcher
 #. section
-#: ../menulibre/ApplicationEditor.py:195
+#: ../menulibre/ApplicationEditor.py:196
 msgid "Advanced"
 msgstr "Zaawansowane"
 
@@ -1030,19 +1037,19 @@ msgstr "Edytor poleceń"
 #. Translators: File Chooser Dialog, cancel button.
 #: ../menulibre/CommandEditor.py:34 ../menulibre/Dialogs.py:73
 #: ../menulibre/Dialogs.py:111 ../menulibre/Dialogs.py:140
-#: ../menulibre/Dialogs.py:179 ../menulibre/IconEntry.py:163
-#: ../menulibre/IconEntry.py:183 ../menulibre/PathEntry.py:78
+#: ../menulibre/Dialogs.py:179 ../menulibre/IconEntry.py:165
+#: ../menulibre/IconEntry.py:185 ../menulibre/PathEntry.py:78
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: ../menulibre/CommandEditor.py:35 ../menulibre/IconEntry.py:164
-#: ../menulibre/IconEntry.py:184
+#: ../menulibre/CommandEditor.py:35 ../menulibre/IconEntry.py:166
+#: ../menulibre/IconEntry.py:186
 msgid "Apply"
 msgstr "Zastosuj"
 
 #. Translators: Help action tooltip
 #: ../menulibre/CommandEditor.py:89 ../menulibre/MenulibreApplication.py:423
-#: ../menulibre/MenulibreApplication.py:1636
+#: ../menulibre/MenulibreApplication.py:1635
 msgid "Help"
 msgstr "Pomoc"
 
@@ -1294,6 +1301,10 @@ msgstr "Nie udało się zapisać „%s”."
 msgid "Do you have write permission to the file and directory?"
 msgstr "Czy masz uprawnienia do zapisu dla tego pliku i katalogu?"
 
+#: ../menulibre/FilenameLabel.py:48
+msgid "Copy"
+msgstr "Skopiuj"
+
 #: ../menulibre/IconEntry.py:39
 msgid "Browse Icons…"
 msgstr "Przeglądaj ikony…"
@@ -1302,27 +1313,29 @@ msgstr "Przeglądaj ikony…"
 msgid "Browse Files…"
 msgstr "Przeglądaj pliki…"
 
-#: ../menulibre/IconEntry.py:126
+#: ../menulibre/IconEntry.py:128
 #, python-format
 msgid "<i>Missing icon:</i> %s"
 msgstr "<i>Brakująca ikona:</i> %s"
 
-#: ../menulibre/IconEntry.py:159
+#: ../menulibre/IconEntry.py:161
 msgid "Select an image"
 msgstr "Wybór obrazu"
 
 #. Translators: "Images" file chooser dialog filter
-#: ../menulibre/IconEntry.py:169
+#: ../menulibre/IconEntry.py:171
 msgid "Images"
 msgstr "Obrazy"
 
-#: ../menulibre/IconEntry.py:180
+#: ../menulibre/IconEntry.py:182
 msgid "Select an icon"
 msgstr "Wybór ikony"
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:125 ../menulibre/MenulibreApplication.py:792
-#: ../menulibre/MenulibreApplication.py:1100
+#: ../menulibre/MenuEditor.py:123 ../menulibre/MenuEditor.py:125
+#: ../menulibre/MenulibreApplication.py:791
+#: ../menulibre/MenulibreApplication.py:1097
+#: ../menulibre/MenulibreApplication.py:1099
 msgid "Separator"
 msgstr "Separator"
 
@@ -1408,8 +1421,8 @@ msgstr "Testuj aktywator"
 
 #: ../menulibre/MenulibreApplication.py:315
 #: ../menulibre/MenulibreApplication.py:534
-#: ../menulibre/MenulibreApplication.py:929
-#: ../menulibre/MenulibreApplication.py:941
+#: ../menulibre/MenulibreApplication.py:928
+#: ../menulibre/MenulibreApplication.py:940
 msgid "Delete..."
 msgstr "Usuń..."
 
@@ -1490,7 +1503,7 @@ msgstr "Za_kończ"
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:414
-#: ../menulibre/MenulibreApplication.py:1638
+#: ../menulibre/MenulibreApplication.py:1637
 msgid "Quit"
 msgstr "Zakończ"
 
@@ -1506,7 +1519,7 @@ msgstr "O progra_mie"
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:432
-#: ../menulibre/MenulibreApplication.py:1637
+#: ../menulibre/MenulibreApplication.py:1636
 msgid "About"
 msgstr "O programie"
 
@@ -1526,12 +1539,12 @@ msgstr "Menu programów może wymagać ponownego uruchomienia."
 msgid "Restart menu..."
 msgstr "Ponownie uruchom menu…"
 
-#: ../menulibre/MenulibreApplication.py:713
-#: ../menulibre/MenulibreApplication.py:733
+#: ../menulibre/MenulibreApplication.py:712
+#: ../menulibre/MenulibreApplication.py:732
 msgid "Menu restart required"
 msgstr "Wymagane ponowne uruchomienie menu"
 
-#: ../menulibre/MenulibreApplication.py:715
+#: ../menulibre/MenulibreApplication.py:714
 #, python-format
 msgid ""
 "MenuLibre can do this automatically. Do you want to run the following command?\n"
@@ -1542,7 +1555,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../menulibre/MenulibreApplication.py:734
+#: ../menulibre/MenulibreApplication.py:733
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
 "system. Please log out for you menu to update completely."
@@ -1554,50 +1567,50 @@ msgstr ""
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:948
+#: ../menulibre/MenulibreApplication.py:947
 msgid "You do not have permission to delete this file."
 msgstr "Brak uprawnień, do usunięcia pliku."
 
-#: ../menulibre/MenulibreApplication.py:954
+#: ../menulibre/MenulibreApplication.py:953
 msgid "You cannot delete this file while a search is active."
 msgstr "Nie możesz usunąć tego pliku, gdy wyszukiwanie jest aktywne."
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1019
+#: ../menulibre/MenulibreApplication.py:1018
 msgid "New Launcher"
 msgstr "Nowy aktywator"
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1022 ../menulibre/MenulibreXdg.py:50
+#: ../menulibre/MenulibreApplication.py:1021 ../menulibre/MenulibreXdg.py:50
 msgid "A small descriptive blurb about this application."
 msgstr "Drobna opisowa informacja o tym programie."
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1075
+#: ../menulibre/MenulibreApplication.py:1074
 msgid "New Directory"
 msgstr "Nowy katalog"
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1078
+#: ../menulibre/MenulibreApplication.py:1077
 msgid "A small descriptive blurb about this directory."
 msgstr "Krótki opis tego katalogu."
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:1512
+#: ../menulibre/MenulibreApplication.py:1511
 msgid "Are you sure you want to delete this separator?"
 msgstr "Czy ma pewno usunąć ten separator?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:1516
+#: ../menulibre/MenulibreApplication.py:1515
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Czy na pewno usunąć „%s”?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:1631
+#: ../menulibre/MenulibreApplication.py:1630
 msgid "Parsing Error Log"
 msgstr "Dziennik błędów analizy"
 
