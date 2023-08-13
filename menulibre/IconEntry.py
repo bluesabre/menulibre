@@ -117,6 +117,8 @@ class IconEntry(Gtk.MenuButton):
             else:
                 if icon_name.startswith("applications-"):
                     replacement_icon_name = "folder"
+                elif icon_name == "gnome-settings":
+                    replacement_icon_name = "folder"
                 else:
                     replacement_icon_name = "application-x-executable"
 
