@@ -1035,7 +1035,7 @@ msgstr "ڤڽونتيڠ ڤرينته"
 #: ../menulibre/Dialogs.py:179 ../menulibre/IconEntry.py:165
 #: ../menulibre/IconEntry.py:185 ../menulibre/PathEntry.py:78
 msgid "Cancel"
-msgstr "باتل"
+msgstr "بطل"
 
 #: ../menulibre/CommandEditor.py:35 ../menulibre/IconEntry.py:166
 #: ../menulibre/IconEntry.py:186
