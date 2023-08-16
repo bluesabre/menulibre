@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 06:54-0400\n"
+"POT-Creation-Date: 2023-08-15 22:46-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Marek Adamski, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/bluesabreorg/teams/99550/pl/)\n"
@@ -1773,13 +1773,21 @@ msgstr "Łatwo zmieniaj pozycje menu zgodnie z własnymi potrzebami"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:8
 msgid ""
+"This release features a refreshed user interface and new inline help buttons"
+" for each field."
+msgstr ""
+"To wydanie zawiera odświeżony interfejs użytkownika i nowe wbudowane "
+"przyciski pomocy dla każdego pola."
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:9
+msgid ""
 "This release adds a new command editor and improves support for icon themes "
 "with missing icons."
 msgstr ""
 "To wydanie dodaje nowy edytor poleceń i poprawia obsługę motywów ikon z "
 "brakującymi ikonami."
 
-#: ../data/metainfo/menulibre.appdata.xml.in.h:9
+#: ../data/metainfo/menulibre.appdata.xml.in.h:10
 msgid ""
 "This release adds support for MATE and Unity and improves integration with "
 "the desktop environment."
@@ -1787,7 +1795,7 @@ msgstr ""
 "Ta wydanie dodaje obsługę MATE i Unity oraz poprawia integrację ze "
 "środowiskiem graficznym."
 
-#: ../data/metainfo/menulibre.appdata.xml.in.h:10
+#: ../data/metainfo/menulibre.appdata.xml.in.h:11
 msgid "This release fixes a crash when menus fail to load on KDE."
 msgstr ""
 "W tym wydaniu naprawiono błąd powodujący nieładowanie się menu w środowisku "
