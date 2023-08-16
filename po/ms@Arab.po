@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 06:54-0400\n"
+"POT-Creation-Date: 2023-08-15 22:46-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Yaya - Nurul Azeera Hidayah @ Muhammad Nur Hidayat Yasuyoshi (MNH48) <admin@mnh48.moe>, 2023\n"
 "Language-Team: Malay (Arabic) (https://app.transifex.com/bluesabreorg/teams/99550/ms@Arab/)\n"
@@ -1762,13 +1762,21 @@ msgstr "سوسون سمولا بوتير مينو دڠن موده مڠيکوت �
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:8
 msgid ""
+"This release features a refreshed user interface and new inline help buttons"
+" for each field."
+msgstr ""
+"تربيتن اين مڽوروتي انتارا موک ڤڠݢونا يڠ دڤربهاروٴي دان بوتڠ بنتوان سباريس "
+"بهارو باݢي ستياڤ ميدن."
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:9
+msgid ""
 "This release adds a new command editor and improves support for icon themes "
 "with missing icons."
 msgstr ""
 "تربيتن اين منمبه ڤڽونتيڠ ڤرينته بهارو دان منمبه باٴيق سوکوڠن اونتوق تيما٢ "
 "ايکون يڠ کهيلڠن ايکون."
 
-#: ../data/metainfo/menulibre.appdata.xml.in.h:9
+#: ../data/metainfo/menulibre.appdata.xml.in.h:10
 msgid ""
 "This release adds support for MATE and Unity and improves integration with "
 "the desktop environment."
@@ -1776,7 +1784,7 @@ msgstr ""
 "تربيتن اين منمبه سوکوڠن اونتوق MATE دان Unity سرتا منمبهباٴيق ڤڽڤادوان دڠن "
 "ڤرسکيترن اتس ميجا."
 
-#: ../data/metainfo/menulibre.appdata.xml.in.h:10
+#: ../data/metainfo/menulibre.appdata.xml.in.h:11
 msgid "This release fixes a crash when menus fail to load on KDE."
 msgstr ""
 "تربيتن اين ممباٴيقي سواتو رانڤ يڠ برلاکو اڤابيلا مينو ݢاݢل دمواتکن دKDE."
