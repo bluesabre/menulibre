@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 06:54-0400\n"
+"POT-Creation-Date: 2023-08-15 22:46-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1718,16 +1718,22 @@ msgstr ""
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:8
 msgid ""
+"This release features a refreshed user interface and new inline help buttons "
+"for each field."
+msgstr ""
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:9
+msgid ""
 "This release adds a new command editor and improves support for icon themes "
 "with missing icons."
 msgstr ""
 
-#: ../data/metainfo/menulibre.appdata.xml.in.h:9
+#: ../data/metainfo/menulibre.appdata.xml.in.h:10
 msgid ""
 "This release adds support for MATE and Unity and improves integration with "
 "the desktop environment."
 msgstr ""
 
-#: ../data/metainfo/menulibre.appdata.xml.in.h:10
+#: ../data/metainfo/menulibre.appdata.xml.in.h:11
 msgid "This release fixes a crash when menus fail to load on KDE."
 msgstr ""

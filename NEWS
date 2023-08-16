@@ -1,6 +1,6 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-Unreleased, MenuLibre 2.3.2
+16 August 2023, MenuLibre 2.3.2
 
 - All Glade and GtkBuilder usage has been replaced with native Python and GTK
   code. This simplifies future updates and enables porting to newer toolkits.
@@ -32,6 +32,15 @@ Unreleased, MenuLibre 2.3.2
   . Icon Browser: Search box expands the length of the dialog
   . Icon Browser: Icons are displayed at a smaller, standard size
   . Sidebar: Separators are now displayed with an icon and faded text
+- Updated Translations:
+  . Arabic, Basque, Brazilian Portuguese, Breton, Catalan, Chinese (China),
+    Chinese (Hong Kong), Chinese (Traditional), Croatian, Czech, Danish,
+    Dutch, English (Australia), English (United Kingdom), Esperanto,
+    Finnish, French, Frisian, Galician, German, Greek, Hebrew, Icelandic,
+    Italian, Japanese, Kazakh, Korean, Lithuanian, Malay, Malay (Arabic),
+    Malayalam, Norwegian Bokmal, Polish, Portuguese, Portuguese (Portugal),
+    Russian, Serbian, Sinhalese, Slovak, Slovenian, Spanish, Swedish, Turkish,
+    Ukrainian
 
 
 30 April 2023, MenuLibre 2.3.1
