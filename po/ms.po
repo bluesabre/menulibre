@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-13 06:54-0400\n"
+"POT-Creation-Date: 2023-08-15 22:46-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
 "Last-Translator: Yaya - Nurul Azeera Hidayah @ Muhammad Nur Hidayat Yasuyoshi (MNH48) <admin@mnh48.moe>, 2023\n"
 "Language-Team: Malay (https://app.transifex.com/bluesabreorg/teams/99550/ms/)\n"
@@ -1778,13 +1778,21 @@ msgstr "Susun semula butir menu dengan mudah mengikut keperluan anda"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:8
 msgid ""
+"This release features a refreshed user interface and new inline help buttons"
+" for each field."
+msgstr ""
+"Terbitan ini menyoroti antara muka pengguna yang diperbaharui dan butang "
+"bantuan sebaris baharu bagi setiap medan."
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:9
+msgid ""
 "This release adds a new command editor and improves support for icon themes "
 "with missing icons."
 msgstr ""
 "Terbitan ini menambah penyunting perintah baharu dan menambah baik sokongan "
 "untuk tema-tema ikon yang kehilangan ikon."
 
-#: ../data/metainfo/menulibre.appdata.xml.in.h:9
+#: ../data/metainfo/menulibre.appdata.xml.in.h:10
 msgid ""
 "This release adds support for MATE and Unity and improves integration with "
 "the desktop environment."
@@ -1792,7 +1800,7 @@ msgstr ""
 "Terbitan ini menambah sokongan untuk MATE dan Unity serta menambahbaik "
 "penyepaduan dengan persekitaran atas meja."
 
-#: ../data/metainfo/menulibre.appdata.xml.in.h:10
+#: ../data/metainfo/menulibre.appdata.xml.in.h:11
 msgid "This release fixes a crash when menus fail to load on KDE."
 msgstr ""
 "Terbitan ini membaiki suatu ranap yang berlaku apabila menu gagal dimuatkan "
