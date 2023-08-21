@@ -1006,6 +1006,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             return
         else:
             self.editor.set_value(key, value)
+            if key == 'Filename':
+                self.set_editor_filename(value)
 
     def get_value(self, key):  # noqa
         """Return the value stored for the specified key."""
