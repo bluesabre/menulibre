@@ -121,7 +121,7 @@ class FileHandler:
         return execs
 
     def _editor_supports_admin_protocol(self, editor):
-        return editor.get_executable() in [
+        return editor in [
             "gedit",
             "pluma"
         ]
@@ -183,7 +183,7 @@ class FileHandler:
                         preferred = editor
         if preferred is not None:
             return self._get_pkexec_editor(preferred, pkexec_bin)
-        if default is not None:
+        if default is not None and default.get_id() not in ["code.desktop"]:
             return self._get_pkexec_editor(default, pkexec_bin)
         logging.warning(
             "Could not find a text editor supporting pkexec")
