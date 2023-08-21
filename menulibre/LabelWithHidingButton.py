@@ -19,7 +19,7 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, Gdk
+from gi.repository import Gtk, Gdk  # type: ignore
 
 class LabelWithHidingButton(Gtk.EventBox):
 
@@ -42,12 +42,13 @@ class LabelWithHidingButton(Gtk.EventBox):
         context.add_class("flat")
 
         screen = Gdk.Screen.get_default()
-        provider = Gtk.CssProvider()
-        style_context = Gtk.StyleContext()
-        style_context.add_provider_for_screen(
-            screen, provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
-        provider.load_from_data(
-            "#hideybutton {padding: 0; border-radius: 0; min-height: 18px; min-width: 18px;}".encode())
+        if screen is not None:
+            provider = Gtk.CssProvider()
+            style_context = Gtk.StyleContext()
+            style_context.add_provider_for_screen(
+                screen, provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+            provider.load_from_data(
+                "#hideybutton {padding: 0; border-radius: 0; min-height: 18px; min-width: 18px;}".encode())
 
         box.add(self._button)
 
