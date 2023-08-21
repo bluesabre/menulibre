@@ -1022,7 +1022,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         display_name = name
         # Translators: Placeholder text for a newly created launcher's
         # description.
-        comment = _("A small descriptive blurb about this application.")
+        comment = ""
         categories = ""
         item_type = MenuItemTypes.APPLICATION
         icon_name = "application-x-executable"
@@ -1079,7 +1079,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         display_name = name
         # Translators: Placeholder text for a newly created directory's
         # description.
-        comment = _("A small descriptive blurb about this directory.")
+        comment = ""
         categories = ""
         item_type = MenuItemTypes.DIRECTORY
         icon_name = "folder"
