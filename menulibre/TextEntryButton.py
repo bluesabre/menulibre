@@ -62,6 +62,8 @@ class TextEntryButton(Gtk.Stack):
 
         self.set_homogeneous(True)
 
+        self._on_entry_changed(self._entry)
+
     def set_value(self, value):
         if value is None:
             value = ""
@@ -119,6 +121,8 @@ class TextEntryButton(Gtk.Stack):
         if entry.get_icon_name(Gtk.EntryIconPosition.SECONDARY) == "gtk-apply":
             self.commit()
             self._button.grab_focus()
+        else:
+            self.cancel()
 
     def _on_entry_changed(self, entry):
         text = entry.get_text().strip()
