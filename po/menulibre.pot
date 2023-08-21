@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-21 13:40-0400\n"
+"POT-Creation-Date: 2023-08-21 13:46-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1585,15 +1585,15 @@ msgid ""
 "Please investigate these problems with the associated package maintainer."
 msgstr ""
 
-#: ../menulibre/ParsingErrorsDialog.py:126
+#: ../menulibre/ParsingErrorsDialog.py:128
 msgid "Open containing folder"
 msgstr ""
 
-#: ../menulibre/ParsingErrorsDialog.py:132
+#: ../menulibre/ParsingErrorsDialog.py:134
 msgid "Open in text editor"
 msgstr ""
 
-#: ../menulibre/ParsingErrorsDialog.py:138
+#: ../menulibre/ParsingErrorsDialog.py:140
 msgid "Copy file location"
 msgstr ""
 
