@@ -20,6 +20,7 @@ import os
 import subprocess
 
 from locale import gettext as _
+from xml.sax.saxutils import escape
 
 from gi.repository import Gio, GObject, Gtk, Pango, GLib
 
@@ -83,7 +84,7 @@ class Treeview(Gtk.Box):
         col.pack_start(col_cell_text, True)
 
         # Set the markup property on the Text cell.
-        col.add_attribute(col_cell_text, "markup", 0)
+        col.add_attribute(col_cell_text, "markup", MenuEditor.COL_DISPLAY_NAME)
 
         # Add the cell data func for the text column to render labels.
         col.set_cell_data_func(col_cell_text, self._text_display_func, None)
@@ -379,6 +380,7 @@ class Treeview(Gtk.Box):
         """Update the application treeview selected row data."""
         model, treeiter = self._get_selected_iter()
         model[treeiter][MenuEditor.COL_NAME] = name
+        model[treeiter][MenuEditor.COL_DISPLAY_NAME] = escape(name)
         model[treeiter][MenuEditor.COL_COMMENT] = escapeText(comment)
         model[treeiter][MenuEditor.COL_EXEC] = executable
         model[treeiter][MenuEditor.COL_CATEGORIES] = categories
@@ -657,8 +659,11 @@ class Treeview(Gtk.Box):
 
     def _treeview_match(self, model, treeiter, query):
         """Match subfunction for filtering search results."""
-        name, comment, executable, categories, item_type, icon, pixbuf, desktop, \
-            expanded, show = model[treeiter][:]
+        name = model[treeiter][MenuEditor.COL_NAME]
+        comment = model[treeiter][MenuEditor.COL_COMMENT]
+        executable = model[treeiter][MenuEditor.COL_EXEC]
+        item_type = model[treeiter][MenuEditor.COL_TYPE]
+        desktop = model[treeiter][MenuEditor.COL_FILENAME]
 
         # Hide separators in the search results.
         if item_type == MenuItemTypes.SEPARATOR:

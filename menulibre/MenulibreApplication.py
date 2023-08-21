@@ -812,13 +812,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             if new_launcher or (filename is not None):
                 self.editor.show()
-                displayed_name = row_data[MenuEditor.COL_NAME]
+                name = row_data[MenuEditor.COL_NAME]
                 comment = row_data[MenuEditor.COL_COMMENT]
 
                 self.set_value('Icon',
                                row_data[MenuEditor.COL_ICON_NAME],
                                store=True)
-                self.set_value('Name', displayed_name, store=True)
+                self.set_value('Name', name, store=True)
                 self.set_value('Comment', comment, store=True)
                 self.set_value('Filename', filename, store=True)
 
@@ -1019,6 +1019,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Add Launcher callback function."""
         # Translators: Placeholder text for a newly created launcher.
         name = _("New Launcher")
+        display_name = name
         # Translators: Placeholder text for a newly created launcher's
         # description.
         comment = _("A small descriptive blurb about this application.")
@@ -1028,7 +1029,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
         executable = ""
-        new_row_data = [name, comment, executable, categories, item_type, icon,
+        new_row_data = [name, display_name, comment, executable, categories, item_type, icon,
                         icon_name, filename, True]
 
         model, parent_data = self.treeview.get_parent_row_data()
@@ -1075,6 +1076,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Add Directory callback function."""
         # Translators: Placeholder text for a newly created directory.
         name = _("New Directory")
+        display_name = name
         # Translators: Placeholder text for a newly created directory's
         # description.
         comment = _("A small descriptive blurb about this directory.")
@@ -1084,7 +1086,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
         executable = ""
-        row_data = [name, comment, executable, categories, item_type, icon,
+        row_data = [name, display_name, comment, executable, categories, item_type, icon,
                     icon_name, filename, True, True]
 
         self.treeview.append(row_data)
@@ -1098,6 +1100,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def add_separator(self):
         """Add Separator callback function."""
         name = _("Separator")
+        display_name = name
         # Translators: Separator menu item
         tooltip = _("Separator")
         categories = ""
@@ -1107,7 +1110,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         item_type = MenuItemTypes.SEPARATOR
         filename = None
         executable = ""
-        row_data = [name, tooltip, executable, categories, item_type, icon,
+        row_data = [name, display_name, tooltip, executable, categories, item_type, icon,
                     icon_name, filename, False, False]
 
         self.treeview.append(row_data)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-21 04:08-0400\n"
+"POT-Creation-Date: 2023-08-21 04:39-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,13 +70,13 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
-#: ../menulibre/ActionEditor.py:94 ../menulibre/MenulibreTreeview.py:121
-#: ../menulibre/MenulibreTreeview.py:122
+#: ../menulibre/ActionEditor.py:94 ../menulibre/MenulibreTreeview.py:122
+#: ../menulibre/MenulibreTreeview.py:123
 msgid "Move Up"
 msgstr ""
 
-#: ../menulibre/ActionEditor.py:99 ../menulibre/MenulibreTreeview.py:129
-#: ../menulibre/MenulibreTreeview.py:130
+#: ../menulibre/ActionEditor.py:99 ../menulibre/MenulibreTreeview.py:130
+#: ../menulibre/MenulibreTreeview.py:131
 msgid "Move Down"
 msgstr ""
 
@@ -1022,7 +1022,7 @@ msgstr ""
 
 #. Translators: Help action tooltip
 #: ../menulibre/CommandEditor.py:89 ../menulibre/MenulibreApplication.py:425
-#: ../menulibre/MenulibreApplication.py:1638
+#: ../menulibre/MenulibreApplication.py:1641
 msgid "Help"
 msgstr ""
 
@@ -1297,10 +1297,10 @@ msgid "Select an icon"
 msgstr ""
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:123 ../menulibre/MenuEditor.py:125
+#: ../menulibre/MenuEditor.py:124 ../menulibre/MenuEditor.py:127
 #: ../menulibre/MenulibreApplication.py:793
-#: ../menulibre/MenulibreApplication.py:1100
 #: ../menulibre/MenulibreApplication.py:1102
+#: ../menulibre/MenulibreApplication.py:1105
 msgid "Separator"
 msgstr ""
 
@@ -1464,7 +1464,7 @@ msgstr ""
 
 #. Translators: Quit action tooltip
 #: ../menulibre/MenulibreApplication.py:416
-#: ../menulibre/MenulibreApplication.py:1640
+#: ../menulibre/MenulibreApplication.py:1643
 msgid "Quit"
 msgstr ""
 
@@ -1480,7 +1480,7 @@ msgstr ""
 
 #. Translators: About action tooltip
 #: ../menulibre/MenulibreApplication.py:434
-#: ../menulibre/MenulibreApplication.py:1639
+#: ../menulibre/MenulibreApplication.py:1642
 msgid "About"
 msgstr ""
 
@@ -1538,44 +1538,44 @@ msgstr ""
 
 #. Translators: Placeholder text for a newly created launcher's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1024 ../menulibre/MenulibreXdg.py:50
+#: ../menulibre/MenulibreApplication.py:1025 ../menulibre/MenulibreXdg.py:50
 msgid "A small descriptive blurb about this application."
 msgstr ""
 
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1077
+#: ../menulibre/MenulibreApplication.py:1078
 msgid "New Directory"
 msgstr ""
 
 #. Translators: Placeholder text for a newly created directory's
 #. description.
-#: ../menulibre/MenulibreApplication.py:1080
+#: ../menulibre/MenulibreApplication.py:1082
 msgid "A small descriptive blurb about this directory."
 msgstr ""
 
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:1514
+#: ../menulibre/MenulibreApplication.py:1517
 msgid "Are you sure you want to delete this separator?"
 msgstr ""
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:1518
+#: ../menulibre/MenulibreApplication.py:1521
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr ""
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:1633
+#: ../menulibre/MenulibreApplication.py:1636
 msgid "Parsing Error Log"
 msgstr ""
 
 #. Translators: "Search Results" treeview column header
-#: ../menulibre/MenulibreTreeview.py:73
+#: ../menulibre/MenulibreTreeview.py:74
 msgid "Search Results"
 msgstr ""
 
-#: ../menulibre/MenulibreTreeview.py:137 ../menulibre/MenulibreTreeview.py:138
+#: ../menulibre/MenulibreTreeview.py:138 ../menulibre/MenulibreTreeview.py:139
 msgid "Sort Alphabetically"
 msgstr ""
 
