@@ -37,7 +37,7 @@ from locale import gettext as _
 
 from gi import require_version
 require_version('Gtk', '3.0')
-from gi.repository import Gio, GLib, GObject, Gtk, Gdk
+from gi.repository import Gio, GLib, GObject, Gtk, Gdk  # type: ignore
 
 
 logger = logging.getLogger('menulibre')
@@ -184,11 +184,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                           "for more information.") % docs_url
 
             dialog = Gtk.MessageDialog(
-                None,
-                0,
-                Gtk.MessageType.ERROR,
-                Gtk.ButtonsType.CLOSE,
-                primary,
+                message_type=Gtk.MessageType.ERROR,
+                buttons=Gtk.ButtonsType.CLOSE,
+                text=primary,
                 use_header_bar=False)
             dialog.format_secondary_markup(secondary)
             dialog.run()
@@ -212,11 +210,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             secondary += "\n<b>%s</b>: %s" % (k, v)
 
         dialog = Gtk.MessageDialog(
-            None,
-            0,
-            Gtk.MessageType.ERROR,
-            Gtk.ButtonsType.CLOSE,
-            primary,
+            message_type=Gtk.MessageType.ERROR,
+            buttons=Gtk.ButtonsType.CLOSE,
+            text=primary,
             use_header_bar=False)
         dialog.format_secondary_markup(secondary)
 
@@ -227,7 +223,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         dialog.run()
         sys.exit(1)
 
-    def find_secondary_label(self, container=None):
+    def find_secondary_label(self, container):
         try:
             children = container.get_children()
             if len(children) == 0:
@@ -275,6 +271,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.connect('delete-event', self.on_window_delete_event)
 
     def configure_css(self):
+        screen = Gdk.Screen.get_default()
+        if screen is None:
+            return
+
         css = """
         #MenulibreSidebarToolbar {
             border-left-width: 0;
@@ -286,12 +286,22 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             border-left-width: 0;
             border-right-width: 0;
         }
+        #helpbutton {
+            padding: 0;
+        }
+        #hideybutton {
+            padding: 0;
+            border-radius: 0;
+            min-height: 18px;
+            min-width: 18px;
+        }
         """
+
         style_provider = Gtk.CssProvider.new()
         style_provider.load_from_data(bytes(css.encode()))
 
         Gtk.StyleContext.add_provider_for_screen(
-            Gdk.Screen.get_default(), style_provider,
+            screen, style_provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
 
@@ -717,11 +727,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             "Do you want to run the following command?\n\n%s") % user_cmd
 
         dialog = Gtk.MessageDialog(
-            None,
-            0,
-            Gtk.MessageType.ERROR,
-            Gtk.ButtonsType.YES_NO,
-            primary,
+            transient_for=self.get_toplevel(),  # type: ignore
+            message_type=Gtk.MessageType.ERROR,
+            buttons=Gtk.ButtonsType.YES_NO,
+            text=primary,
             use_header_bar=False)
         dialog.format_secondary_markup(secondary)
         response = dialog.run()
@@ -737,11 +746,10 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                       "Please log out for you menu to update completely.")
 
         dialog = Gtk.MessageDialog(
-            None,
-            0,
-            Gtk.MessageType.ERROR,
-            Gtk.ButtonsType.CLOSE,
-            primary,
+            transient_for=self.get_toplevel(),  # type: ignore
+            message_type=Gtk.MessageType.ERROR,
+            buttons=Gtk.ButtonsType.CLOSE,
+            text=primary,
             use_header_bar=False)
         dialog.format_secondary_markup(secondary)
         dialog.run()
@@ -784,10 +792,13 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.set_value('Icon', None, store=True)
 
         model, row_data = self.treeview.get_selected_row_data()
+        if row_data is None:
+            return
+
         item_type = row_data[MenuEditor.COL_TYPE]
 
         # If the selected row is a separator, hide the editor.
-        if item_type == MenuItemTypes.SEPARATOR:
+        if item_type == MenuItemTypes.SEPARATOR:  # type: ignore
             self.editor.hide()
             # Translators: Separator menu item
             self.set_value('Name', _("Separator"), store=True)
@@ -822,7 +833,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
                 self.set_value('Comment', comment, store=True)
                 self.set_value('Filename', filename, store=True)
 
-                if item_type == MenuItemTypes.APPLICATION:
+                if item_type == MenuItemTypes.APPLICATION:  # type: ignore
                     self.editor.show_all()
                     entry = MenulibreXdg.MenulibreDesktopEntry(filename)
                     for key in getRelatedKeys(item_type, key_only=True):
@@ -861,9 +872,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             move_down_enabled = not self.treeview.is_last()
         else:
             self.treeview.set_sortable(True)
-            if item_type == MenuItemTypes.APPLICATION or \
-                    item_type == MenuItemTypes.LINK or \
-                    item_type == MenuItemTypes.SEPARATOR:
+            if item_type in [MenuItemTypes.APPLICATION,  # type: ignore
+                             MenuItemTypes.LINK,  # type: ignore
+                             MenuItemTypes.SEPARATOR]:  # type: ignore
                 move_up_enabled = True
                 move_down_enabled = True
             else:
@@ -1024,7 +1035,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # description.
         comment = ""
         categories = ""
-        item_type = MenuItemTypes.APPLICATION
+        item_type = MenuItemTypes.APPLICATION  # type: ignore
         icon_name = "application-x-executable"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
@@ -1041,7 +1052,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Add to the treeview on the current level or as a child of a selected
         # directory
-        dir_selected = row_data[MenuEditor.COL_TYPE] == MenuItemTypes.DIRECTORY
+        dir_selected = row_data[MenuEditor.COL_TYPE] == MenuItemTypes.DIRECTORY  # type: ignore
         if dir_selected:
             self.treeview.add_child(new_row_data)
         else:
@@ -1081,7 +1092,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # description.
         comment = ""
         categories = ""
-        item_type = MenuItemTypes.DIRECTORY
+        item_type = MenuItemTypes.DIRECTORY  # type: ignore
         icon_name = "folder"
         icon = Gio.ThemedIcon.new(icon_name)
         filename = None
@@ -1107,7 +1118,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         filename = None
         icon_name = "content-loading-symbolic"
         icon = Gio.ThemedIcon.new(icon_name)
-        item_type = MenuItemTypes.SEPARATOR
+        item_type = MenuItemTypes.SEPARATOR  # type: ignore
         filename = None
         executable = ""
         row_data = [name, display_name, tooltip, executable, categories, item_type, icon,
@@ -1151,14 +1162,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
             value = self.get_value(key)
             if ktype == str:
-                if len(value) > 0:
-                    keyfile.set_string("Desktop Entry", key, value)
+                if len(value) > 0:  # type: ignore
+                    keyfile.set_string("Desktop Entry", key, value)  # type: ignore
             if ktype == float:
                 if value != 0:
-                    keyfile.set_double("Desktop Entry", key, value)
+                    keyfile.set_double("Desktop Entry", key, value)  # type: ignore
             if ktype == bool:
                 if value is not False:
-                    keyfile.set_boolean("Desktop Entry", key, value)
+                    keyfile.set_boolean("Desktop Entry", key, value)  # type: ignore
             if ktype == list:
                 value = self.list_str_to_list(value)
                 if len(value) > 0:
@@ -1176,6 +1187,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Save the current launcher details, remove from the current directory
         if it no longer has the required category."""
 
+        item_type = None
+        original_filename = None
+
         if temp:
             filename = tempfile.mkstemp('.desktop', 'menulibre-')[1]
         else:
@@ -1188,6 +1202,11 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         if not temp:
             model, row_data = self.treeview.get_selected_row_data()
+            if row_data is None:
+                dlg = Dialogs.SaveErrorDialog(self, filename, self.use_headerbar)
+                dlg.run()
+                return False
+
             item_type = row_data[MenuEditor.COL_TYPE]
 
             model, parent_data = self.treeview.get_parent_row_data()
@@ -1212,7 +1231,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         if not self.write_launcher(filename):
             dlg = Dialogs.SaveErrorDialog(self, filename, self.use_headerbar)
             dlg.run()
-            return
+            return False
 
         if temp:
             return filename
@@ -1257,6 +1276,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             if "mate-panel" in processes:
                 self.menu_restart_infobar.show()
 
+        return True
+
     def update_launcher_categories(self, remove, add):  # noqa
         original_filename = self.get_value('Filename')
         if original_filename is None or not os.path.isfile(original_filename):
@@ -1269,7 +1290,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Get the original contents
         keyfile = GLib.KeyFile.new()
-        keyfile.load_from_file(original_filename, GLib.KeyFileFlags.NONE)
+        keyfile.load_from_file(original_filename,  # type: ignore
+                               GLib.KeyFileFlags.NONE)
 
         try:
             categories = keyfile.get_string_list("Desktop Entry", "Categories")
@@ -1308,6 +1330,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         # Update all instances
         model, row_data = self.treeview.get_selected_row_data()
+        if row_data is None:
+            return
         row_data[MenuEditor.COL_CATEGORIES] = ';'.join(categories)
         row_data[MenuEditor.COL_FILENAME] = save_filename
         self.treeview.update_launcher_instances(original_filename, row_data)
@@ -1329,6 +1353,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # user has explicitly deleted) will be added, so this shouldn't be a
         # problem
         model, row_data = self.treeview.get_selected_row_data()
+        if row_data is None:
+            return
         if row_data[MenuEditor.COL_CATEGORIES]:
             categories = row_data[MenuEditor.COL_CATEGORIES].split(';')[:-1]
         else:
@@ -1348,7 +1374,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
             # regardless...
             _, parent = self.treeview.get_parent(model, instance)
             if (parent is not None and
-                    model[parent][MenuEditor.COL_TYPE] == MenuItemTypes.DIRECTORY):
+                    model[parent][MenuEditor.COL_TYPE] == MenuItemTypes.DIRECTORY):  # type: ignore
 
                 # Any direct parents are required directories.
                 required_category_directories.add(
@@ -1363,7 +1389,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         # Obtaining a lookup of top-level directories -> iters
         top_level_dirs = {}
         for row in model:
-            if row[MenuEditor.COL_TYPE] == MenuItemTypes.DIRECTORY:
+            if row[MenuEditor.COL_TYPE] == MenuItemTypes.DIRECTORY:  # type: ignore
                 top_level_dirs[row[MenuEditor.COL_NAME]
                                ] = model.get_iter(row.path)
 
@@ -1489,14 +1515,17 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         self.editor.commit()
         filename = self.save_launcher(True)
 
+        if not filename:
+            return
+
         entry = MenulibreXdg.MenulibreDesktopEntry(filename)
         command = self.find_command_in_string(entry["Exec"])
 
         if self.find_in_path(command):
-            subprocess.Popen(["xdg-open", filename])
+            subprocess.Popen(["xdg-open", filename])  # type: ignore
             GObject.timeout_add(2000, self.on_execute_timeout, filename)
         else:
-            os.remove(filename)
+            os.remove(filename)  # type: ignore
             dlg = Dialogs.NotFoundInPathDialog(
                 self, command, self.use_headerbar)
             dlg.run()
@@ -1507,11 +1536,14 @@ class MenulibreWindow(Gtk.ApplicationWindow):
     def on_delete_cb(self, widget):
         """Delete callback function."""
         model, row_data = self.treeview.get_selected_row_data()
+        if row_data is None:
+            return
+
         name = row_data[MenuEditor.COL_NAME]
         item_type = row_data[MenuEditor.COL_TYPE]
 
         # Prepare the strings
-        if item_type == MenuItemTypes.SEPARATOR:
+        if item_type == MenuItemTypes.SEPARATOR:  # type: ignore
             # Translators: Confirmation dialog to delete the selected
             # separator.
             question = _("Are you sure you want to delete this separator?")
@@ -1617,7 +1649,7 @@ class Application(Gtk.Application):
         else:
             headerbar = False
 
-        self.win = MenulibreWindow(self, headerbar)
+        self.win = MenulibreWindow(self, headerbar)  # type: ignore
         self.win.show()
 
         self.win.connect('about', self.about_cb)

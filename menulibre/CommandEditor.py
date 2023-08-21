@@ -132,16 +132,6 @@ class HelpButton(Gtk.LinkButton):
         self.set_name('helpbutton')
         self.set_halign(Gtk.Align.START)
 
-        screen = Gdk.Screen.get_default()
-        if screen is None:
-            return
-
-        provider = Gtk.CssProvider()
-        style_context = Gtk.StyleContext()
-        style_context.add_provider_for_screen(
-            screen, provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
-        provider.load_from_data("#helpbutton {padding: 0;}".encode())
-
 
 class CommandEditorEntry(Gtk.Box):
     __gsignals__ = {
