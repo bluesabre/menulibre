@@ -22,7 +22,7 @@ from locale import gettext as _
 
 import subprocess
 
-from gi.repository import GLib
+from gi.repository import GLib  # type: ignore
 
 locale.textdomain('menulibre')
 

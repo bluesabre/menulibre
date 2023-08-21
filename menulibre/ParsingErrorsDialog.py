@@ -20,7 +20,7 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, Pango, GObject
+from gi.repository import Gtk, Pango, GObject  # type: ignore
 
 
 try:
@@ -33,7 +33,7 @@ class ParsingErrorsDialog(Gtk.Dialog):
 
     def __init__(self, parent, use_header_bar=False, demo_mode=False):
         super().__init__(title=_("Parsing Errors"), transient_for=parent,
-                         use_header_bar=use_header_bar, flags=0)
+                         use_header_bar=use_header_bar, flags=0)  # type: ignore
         self.add_buttons(
             _('Close'), Gtk.ResponseType.CLOSE,
         )
@@ -87,6 +87,8 @@ class ParsingErrorsDialog(Gtk.Dialog):
     def on_row_action(self, row, action, filename):
         if self.demo_mode:
             print(action, filename)
+            return
+        if self.file_handler is None:
             return
         if action == "open-folder":
             self.file_handler.open_folder(filename)
