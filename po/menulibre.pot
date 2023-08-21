@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-21 04:50-0400\n"
+"POT-Creation-Date: 2023-08-21 04:52-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -264,11 +264,11 @@ msgid ""
 "busy cursor is shown while the application launches."
 msgstr ""
 
-#: ../menulibre/ApplicationEditor.py:158
+#: ../menulibre/ApplicationEditor.py:159
 msgid "Hide from menus"
 msgstr ""
 
-#: ../menulibre/ApplicationEditor.py:160
+#: ../menulibre/ApplicationEditor.py:161
 msgid ""
 "If set to \"True\", this entry will not be shown in menus, but will be "
 "available for MIME type associations etc."
@@ -276,19 +276,19 @@ msgstr ""
 
 #. Translators: "Categories"
 #. launcher section
-#: ../menulibre/ApplicationEditor.py:180
+#: ../menulibre/ApplicationEditor.py:182
 msgid "Categories"
 msgstr ""
 
 #. Translators: "Actions" launcher
 #. section
-#: ../menulibre/ApplicationEditor.py:188
+#: ../menulibre/ApplicationEditor.py:190
 msgid "Actions"
 msgstr ""
 
 #. Translators: "Advanced" launcher
 #. section
-#: ../menulibre/ApplicationEditor.py:196
+#: ../menulibre/ApplicationEditor.py:198
 msgid "Advanced"
 msgstr ""
 
