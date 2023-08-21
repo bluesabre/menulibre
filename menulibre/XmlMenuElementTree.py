@@ -207,8 +207,9 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
         treeiter = model.iter_nth_child(model_parent, n_child)
 
         # Extract the menu item details.
-        name, comment, executable, categories, item_type, gicon, icon, desktop, expanded, \
-            show = model[treeiter][:]
+        name = model[treeiter][MenuEditor.COL_NAME]
+        item_type = model[treeiter][MenuEditor.COL_TYPE]
+        desktop = model[treeiter][MenuEditor.COL_FILENAME]
 
         if item_type == MenuItemTypes.DIRECTORY:
             # Do not save duplicate directories.
@@ -254,8 +255,9 @@ def model_to_xml_includes(model, model_parent=None, menu_parent=None):
         treeiter = model.iter_nth_child(model_parent, n_child)
 
         # Extract the menu item details.
-        name, comment, executable, categories, item_type, gicon, icon, desktop, expanded, \
-            show = model[treeiter][:]
+        categories = model[treeiter][MenuEditor.COL_CATEGORIES]
+        item_type = model[treeiter][MenuEditor.COL_TYPE]
+        desktop = model[treeiter][MenuEditor.COL_FILENAME]
 
         if desktop is None:
             continue
@@ -292,8 +294,9 @@ def model_to_xml_layout(model, model_parent=None, menu_parent=None,  # noqa
         treeiter = model.iter_nth_child(model_parent, n_child)
 
         # Extract the menu item details.
-        name, comment, executable, categories, item_type, gicon, icon, desktop, expanded, \
-            show = model[treeiter][:]
+        name = model[treeiter][MenuEditor.COL_NAME]
+        item_type = model[treeiter][MenuEditor.COL_TYPE]
+        desktop = model[treeiter][MenuEditor.COL_FILENAME]
 
         if item_type == MenuItemTypes.DIRECTORY:
             # Do not save duplicate directories.

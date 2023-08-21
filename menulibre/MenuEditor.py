@@ -85,15 +85,16 @@ menu_name = ""
 
 
 COL_NAME = 0
-COL_COMMENT = 1
-COL_EXEC = 2
-COL_CATEGORIES = 3
-COL_TYPE = 4
-COL_G_ICON = 5
-COL_ICON_NAME = 6
-COL_FILENAME = 7
-COL_EXPAND = 8
-COL_SHOW = 9
+COL_DISPLAY_NAME = 1
+COL_COMMENT = 2
+COL_EXEC = 3
+COL_CATEGORIES = 4
+COL_TYPE = 5
+COL_G_ICON = 6
+COL_ICON_NAME = 7
+COL_FILENAME = 8
+COL_EXPAND = 9
+COL_SHOW = 10
 
 
 def get_default_menu():
@@ -120,7 +121,8 @@ def menu_to_treestore(treestore, parent, menu_items):
         item_type = item[0]
         if item_type == MenuItemTypes.SEPARATOR:
             executable = ""
-            displayed_name = _("Separator")
+            name = _("Separator")
+            displayed_name = name
             # Translators: Separator menu item
             tooltip = _("Separator")
             categories = ""
@@ -131,7 +133,8 @@ def menu_to_treestore(treestore, parent, menu_items):
             show = False
         else:
             executable = item[2]['executable']
-            displayed_name = escape(item[2]['display_name'])
+            name = item[2]['display_name']
+            displayed_name = escape(name)
             show = item[2]['show']
             tooltip = escapeText(item[2]['comment'])
             categories = item[2]['categories']
@@ -140,7 +143,7 @@ def menu_to_treestore(treestore, parent, menu_items):
             icon_name = item[2]['icon_name']
 
         treeiter = treestore.append(
-            parent, [displayed_name, tooltip, executable, categories,
+            parent, [name, displayed_name, tooltip, executable, categories,
                      item_type, icon, icon_name, filename, False, show])
 
         if item_type == MenuItemTypes.DIRECTORY:
@@ -153,6 +156,7 @@ def get_treestore():
     """Get the TreeStore implementation of the current menu."""
     treestore = Gtk.TreeStore(
         str,  # Name
+        str,  # Displayed Name
         str,  # Comment
         str,  # Executable
         str,  # Categories
