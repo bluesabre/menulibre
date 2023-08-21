@@ -29,7 +29,7 @@ from locale import gettext as _
 
 import gi
 gi.require_version('Gdk', '3.0')
-from gi.repository import GLib, Gdk
+from gi.repository import GLib, Gdk  # type: ignore
 
 logger = logging.getLogger('menulibre')
 

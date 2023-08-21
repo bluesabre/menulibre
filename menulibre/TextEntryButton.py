@@ -19,7 +19,7 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, Gdk, Pango, GObject
+from gi.repository import Gtk, Gdk, Pango, GObject  # type: ignore
 
 
 class TextEntryButton(Gtk.Stack):
@@ -108,7 +108,10 @@ class TextEntryButton(Gtk.Stack):
         self._entry.set_text(self._value)
 
     def _on_entry_key_press(self, entry, event):
-        if Gdk.keyval_name(event.get_keyval()[1]).lower() == 'escape':
+        keyval_name = Gdk.keyval_name(event.get_keyval()[1])
+        if keyval_name is None:
+            return
+        if keyval_name.lower() == 'escape':
             self.cancel()
             self._button.grab_focus()
 

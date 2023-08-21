@@ -211,7 +211,7 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
         item_type = model[treeiter][MenuEditor.COL_TYPE]
         desktop = model[treeiter][MenuEditor.COL_FILENAME]
 
-        if item_type == MenuItemTypes.DIRECTORY:
+        if item_type == MenuItemTypes.DIRECTORY:  # type: ignore
             # Do not save duplicate directories.
             global processed_directories
             if desktop in processed_directories:
@@ -221,12 +221,12 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
             if desktop is None:
                 # Cinnamon fix.
                 if name == 'wine-wine':
-                    next_element = menu_parent.addMenu(name)
+                    next_element = menu_parent.addMenu(name)  # type: ignore
                 else:
                     continue
             else:
                 directory_name = util.getDirectoryName(desktop)
-                next_element = menu_parent.addMenu(directory_name, desktop)
+                next_element = menu_parent.addMenu(directory_name, desktop)  # type: ignore
 
             # Do Menus
             model_to_xml_menus(model, treeiter, next_element)
@@ -238,10 +238,10 @@ def model_to_xml_menus(model, model_parent=None, menu_parent=None):
             # Do Layouts
             model_to_xml_layout(model, treeiter, next_element)
 
-        elif item_type == MenuItemTypes.APPLICATION:
+        elif item_type == MenuItemTypes.APPLICATION:  # type: ignore
             pass
 
-        elif item_type == MenuItemTypes.SEPARATOR:
+        elif item_type == MenuItemTypes.SEPARATOR:  # type: ignore
             pass
 
 
@@ -272,9 +272,9 @@ def model_to_xml_includes(model, model_parent=None, menu_parent=None):
 
         # Items in custom directories by menulibre have a category, but
         # includes are required otherwise they are dropped by GMenu
-        if item_type == MenuItemTypes.APPLICATION and (
+        if item_type == MenuItemTypes.APPLICATION and (  # type: ignore
                 not categories or user_directory):
-            include = menu_parent.addInclude()
+            include = menu_parent.addInclude()  # type: ignore
             try:
                 include.addFilename(os.path.basename(desktop))
             except AttributeError:
@@ -284,7 +284,7 @@ def model_to_xml_includes(model, model_parent=None, menu_parent=None):
 def model_to_xml_layout(model, model_parent=None, menu_parent=None,  # noqa
                         merge=True):
     """Append the <Layout> element to menu_parent."""
-    layout = menu_parent.addLayout()
+    layout = menu_parent.addLayout()  # type: ignore
 
     # Add a merge for any submenus (except toplevel)
     if merge:
@@ -298,7 +298,7 @@ def model_to_xml_layout(model, model_parent=None, menu_parent=None,  # noqa
         item_type = model[treeiter][MenuEditor.COL_TYPE]
         desktop = model[treeiter][MenuEditor.COL_FILENAME]
 
-        if item_type == MenuItemTypes.DIRECTORY:
+        if item_type == MenuItemTypes.DIRECTORY:  # type: ignore
             # Do not save duplicate directories.
             global processed_directories
             if desktop in processed_directories:
@@ -316,7 +316,7 @@ def model_to_xml_layout(model, model_parent=None, menu_parent=None,  # noqa
                 directory_name = util.getDirectoryName(desktop)
                 layout.addMenuname(directory_name)
 
-        elif item_type == MenuItemTypes.APPLICATION and desktop is not None:
+        elif item_type == MenuItemTypes.APPLICATION and desktop is not None:  # type: ignore
             try:
 
                 # According to the spec, desktop files may be located in
@@ -337,7 +337,7 @@ def model_to_xml_layout(model, model_parent=None, menu_parent=None,  # noqa
             except AttributeError:
                 pass
 
-        elif item_type == MenuItemTypes.SEPARATOR:
+        elif item_type == MenuItemTypes.SEPARATOR:  # type: ignore
             layout.addSeparator()
 
     # Add a merge for any new/unincluded menu items (except toplevel).
@@ -372,6 +372,10 @@ def treeview_to_xml(treeview):
     menu_name = MenuEditor.menu_name
     menu_file = MenuEditor.get_default_menu()
     merge_file = util.getSystemMenuPath(menu_file)
+
+    if menu_file is None:
+        return False
+
     filename = os.path.join(util.getUserMenusDirectory(), menu_file)
 
     # Create the menu XML
@@ -381,3 +385,5 @@ def treeview_to_xml(treeview):
 
     # Write the file.
     menu.write(filename)
+
+    return True
