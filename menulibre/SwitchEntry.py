@@ -31,6 +31,7 @@ class SwitchEntry(Gtk.Switch):
 
         self.set_halign(Gtk.Align.END)
         self.set_valign(Gtk.Align.CENTER)
+        self.set_margin_end(1)
 
         self.connect('notify::active', self._on_changed)
 
