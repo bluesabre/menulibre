@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-21 13:58-0400\n"
+"POT-Creation-Date: 2023-08-21 15:08-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,13 +70,13 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
-#: ../menulibre/ActionEditor.py:94 ../menulibre/MenulibreTreeview.py:124
-#: ../menulibre/MenulibreTreeview.py:125
+#: ../menulibre/ActionEditor.py:94 ../menulibre/MenulibreTreeview.py:123
+#: ../menulibre/MenulibreTreeview.py:124
 msgid "Move Up"
 msgstr ""
 
-#: ../menulibre/ActionEditor.py:99 ../menulibre/MenulibreTreeview.py:132
-#: ../menulibre/MenulibreTreeview.py:133
+#: ../menulibre/ActionEditor.py:99 ../menulibre/MenulibreTreeview.py:131
+#: ../menulibre/MenulibreTreeview.py:132
 msgid "Move Down"
 msgstr ""
 
@@ -1298,7 +1298,7 @@ msgid "Select an icon"
 msgstr ""
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:131 ../menulibre/MenuEditor.py:134
+#: ../menulibre/MenuEditor.py:130 ../menulibre/MenuEditor.py:133
 #: ../menulibre/MenulibreApplication.py:804
 #: ../menulibre/MenulibreApplication.py:1113
 #: ../menulibre/MenulibreApplication.py:1116
@@ -1562,11 +1562,11 @@ msgid "Parsing Error Log"
 msgstr ""
 
 #. Translators: "Search Results" treeview column header
-#: ../menulibre/MenulibreTreeview.py:76
+#: ../menulibre/MenulibreTreeview.py:75
 msgid "Search Results"
 msgstr ""
 
-#: ../menulibre/MenulibreTreeview.py:140 ../menulibre/MenulibreTreeview.py:141
+#: ../menulibre/MenulibreTreeview.py:139 ../menulibre/MenulibreTreeview.py:140
 msgid "Sort Alphabetically"
 msgstr ""
 

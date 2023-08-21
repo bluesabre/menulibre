@@ -20,7 +20,6 @@ import os
 import subprocess
 
 from locale import gettext as _
-from xml.sax.saxutils import escape
 
 from gi.repository import Gio, GObject, Gtk, Pango, GLib  # type: ignore
 
@@ -397,8 +396,8 @@ class Treeview(Gtk.Box):
             return
 
         model[treeiter][MenuEditor.COL_NAME] = name
-        model[treeiter][MenuEditor.COL_DISPLAY_NAME] = escape(name)
-        model[treeiter][MenuEditor.COL_COMMENT] = escapeText(comment)
+        model[treeiter][MenuEditor.COL_DISPLAY_NAME] = escapeText(name)
+        model[treeiter][MenuEditor.COL_COMMENT] = comment
         model[treeiter][MenuEditor.COL_EXEC] = executable
         model[treeiter][MenuEditor.COL_CATEGORIES] = categories
         model[treeiter][MenuEditor.COL_TYPE] = item_type

@@ -24,7 +24,6 @@ import os
 import xml.dom.minidom
 import xml.parsers.expat
 from locale import gettext as _
-from xml.sax.saxutils import escape
 
 import logging
 logger = logging.getLogger('menulibre')  # noqa
@@ -141,9 +140,9 @@ def menu_to_treestore(treestore, parent, menu_items):
         else:
             executable = item[2]['executable']
             name = item[2]['display_name']
-            displayed_name = escape(name)
+            displayed_name = escapeText(name)
             show = item[2]['show']
-            tooltip = escapeText(item[2]['comment'])
+            tooltip = item[2]['comment']
             categories = item[2]['categories']
             icon = item[2]['icon']
             filename = item[2]['filename']
