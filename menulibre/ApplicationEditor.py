@@ -145,6 +145,7 @@ class ApplicationEditor(Gtk.Box):
             _("Use startup notification"),
             "StartupNotify",
             _("If set to \"True\", a startup notification is sent. Usually means that a busy cursor is shown while the application launches."))
+        label.set_hexpand(True)
         grid.attach(label, 0, 1, 1, 1)
 
         self._startup_notify_entry = SwitchEntry('StartupNotify')
@@ -158,6 +159,7 @@ class ApplicationEditor(Gtk.Box):
             _("Hide from menus"),
             "NoDisplay",
             _("If set to \"True\", this entry will not be shown in menus, but will be available for MIME type associations etc."))
+        label.set_hexpand(True)
         grid.attach(label, 0, 2, 1, 1)
 
         self._no_display_entry = SwitchEntry('NoDisplay')
