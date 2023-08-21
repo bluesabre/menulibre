@@ -19,7 +19,7 @@ import os
 
 from locale import gettext as _
 
-from gi.repository import Gtk
+from gi.repository import Gtk  # type: ignore
 
 import menulibre_lib
 
