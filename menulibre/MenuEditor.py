@@ -31,7 +31,7 @@ logger = logging.getLogger('menulibre')  # noqa
 
 import gi
 gi.require_version('GMenu', '3.0')  # noqa
-from gi.repository import Gio, GMenu, Gtk
+from gi.repository import Gio, GMenu, Gtk  # type: ignore
 
 from . import util
 from .util import MenuItemTypes, escapeText, mapDesktopEnvironmentDirectories, unmapDesktopEnvironmentDirectories
@@ -43,7 +43,10 @@ icon_theme = Gtk.IconTheme.get_default()
 
 def get_icon_theme_name_from_settings():
     try:
-        theme_name = Gtk.Settings.get_default().get_property("gtk-icon-theme-name")
+        settings = Gtk.Settings.get_default()
+        if settings is None:
+            return None
+        theme_name = settings.get_property("gtk-icon-theme-name")
         if theme_name is not None and len(theme_name) > 0:
             return theme_name
     except BaseException:
@@ -53,14 +56,18 @@ def get_icon_theme_name_from_settings():
 
 def get_icon_theme_name_from_icons():
     try:
-        lookup = icon_theme.lookup_icon("folder", 16, 0)
-        if lookup is not None:
-            filename = os.path.realpath(lookup.get_filename())
-            path = filename.split('/')
-            for i in range(len(path) - 1):
-                index = os.path.join('/'.join(path[0:-i]), 'index.theme')
-                if os.path.exists(index):
-                    return path[-i - 1]
+        lookup = icon_theme.lookup_icon("folder", 16, 0)  # type: ignore
+        if lookup is None:
+            return None
+        filename = lookup.get_filename()
+        if filename is None:
+            return None
+        filename = os.path.realpath(filename)
+        path = filename.split('/')
+        for i in range(len(path) - 1):
+            index = os.path.join('/'.join(path[0:-i]), 'index.theme')
+            if os.path.exists(index):
+                return path[-i - 1]
     except BaseException:
         pass
     return None
@@ -119,7 +126,7 @@ def menu_to_treestore(treestore, parent, menu_items):
     """Convert the Alacarte menu to a standard treestore."""
     for item in menu_items:
         item_type = item[0]
-        if item_type == MenuItemTypes.SEPARATOR:
+        if item_type == MenuItemTypes.SEPARATOR:  # type: ignore
             executable = ""
             name = _("Separator")
             displayed_name = name
@@ -129,7 +136,7 @@ def menu_to_treestore(treestore, parent, menu_items):
             filename = None
             icon_name = "content-loading-symbolic"
             icon = Gio.ThemedIcon.new(icon_name)
-            item_type = MenuItemTypes.SEPARATOR
+            item_type = MenuItemTypes.SEPARATOR  # type: ignore
             show = False
         else:
             executable = item[2]['executable']
@@ -146,7 +153,7 @@ def menu_to_treestore(treestore, parent, menu_items):
             parent, [name, displayed_name, tooltip, executable, categories,
                      item_type, icon, icon_name, filename, False, show])
 
-        if item_type == MenuItemTypes.DIRECTORY:
+        if item_type == MenuItemTypes.DIRECTORY:  # type: ignore
             treestore = menu_to_treestore(treestore, treeiter, item[3])
 
     return treestore
@@ -154,7 +161,7 @@ def menu_to_treestore(treestore, parent, menu_items):
 
 def get_treestore():
     """Get the TreeStore implementation of the current menu."""
-    treestore = Gtk.TreeStore(
+    treestore = Gtk.TreeStore(  # type: ignore
         str,  # Name
         str,  # Displayed Name
         str,  # Comment
@@ -198,10 +205,10 @@ def get_submenus(menu, tree_dir):
     structure = []
     for child in menu.getContents(tree_dir):
         if isinstance(child, GMenu.TreeSeparator):
-            structure.append([MenuItemTypes.SEPARATOR, child, None, None])
+            structure.append([MenuItemTypes.SEPARATOR, child, None, None])  # type: ignore
         else:
             if isinstance(child, GMenu.TreeEntry):
-                item_type = MenuItemTypes.APPLICATION
+                item_type = MenuItemTypes.APPLICATION  # type: ignore
                 entry_id = child.get_desktop_file_id()
                 app_info = child.get_app_info()
                 icon = app_info.get_icon()
@@ -224,7 +231,7 @@ def get_submenus(menu, tree_dir):
                 hidden = is_hidden or no_display or not show_in
 
             elif isinstance(child, GMenu.TreeDirectory):
-                item_type = MenuItemTypes.DIRECTORY
+                item_type = MenuItemTypes.DIRECTORY  # type: ignore
                 entry_id = child.get_menu_id()
                 icon = child.get_icon()
                 icon_name = None
@@ -240,7 +247,7 @@ def get_submenus(menu, tree_dir):
                 submenus = get_submenus(menu, child)
 
             else:
-                extended_icon_names = []
+                continue
 
             icon_names = []
             if isinstance(icon, Gio.ThemedIcon):
@@ -263,7 +270,8 @@ def get_submenus(menu, tree_dir):
             elif icon is None:
                 icon = Gio.ThemedIcon.new(icon_name)
 
-            filename = os.path.realpath(filename)
+            if filename is not None:
+                filename = os.path.realpath(filename)
 
             details = {'display_name': display_name,
                        'generic_name': generic_name,
@@ -320,8 +328,9 @@ def getUserMenuXml(tree):
     menu_xml = "<!DOCTYPE Menu PUBLIC '-//freedesktop//DTD Menu 1.0//EN'" \
                " 'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>\n"
     menu_xml += "<Menu>\n  <Name>" + name + "</Name>\n  "
-    menu_xml += "<MergeFile type=\"parent\">" + system_file + \
-                "</MergeFile>\n</Menu>\n"
+    if system_file is not None:
+        menu_xml += "<MergeFile type=\"parent\">" + system_file + "</MergeFile>\n"
+    menu_xml += "</Menu>\n"
     return menu_xml
 
 
@@ -395,7 +404,7 @@ class MenuEditor(object):
         while item_type != GMenu.TreeItemType.INVALID:
             if item_type == GMenu.TreeItemType.DIRECTORY:
                 item = item_iter.get_directory()
-                yield (item, self.isVisible(item))
+                yield (item, True)
             item_type = item_iter.next()
 
     def getContents(self, item):
