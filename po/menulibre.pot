@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-21 04:39-0400\n"
+"POT-Creation-Date: 2023-08-21 04:45-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1532,25 +1532,13 @@ msgid "You cannot delete this file while a search is active."
 msgstr ""
 
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1021
+#: ../menulibre/MenulibreApplication.py:1021 ../menulibre/MenulibreXdg.py:46
 msgid "New Launcher"
-msgstr ""
-
-#. Translators: Placeholder text for a newly created launcher's
-#. description.
-#: ../menulibre/MenulibreApplication.py:1025 ../menulibre/MenulibreXdg.py:50
-msgid "A small descriptive blurb about this application."
 msgstr ""
 
 #. Translators: Placeholder text for a newly created directory.
 #: ../menulibre/MenulibreApplication.py:1078
 msgid "New Directory"
-msgstr ""
-
-#. Translators: Placeholder text for a newly created directory's
-#. description.
-#: ../menulibre/MenulibreApplication.py:1082
-msgid "A small descriptive blurb about this directory."
 msgstr ""
 
 #. Translators: Confirmation dialog to delete the selected
@@ -1577,11 +1565,6 @@ msgstr ""
 
 #: ../menulibre/MenulibreTreeview.py:138 ../menulibre/MenulibreTreeview.py:139
 msgid "Sort Alphabetically"
-msgstr ""
-
-#. Translators: Placeholder text for a new menu item name.
-#: ../menulibre/MenulibreXdg.py:47
-msgid "New Menu Item"
 msgstr ""
 
 #: ../menulibre/ParsingErrorsDialog.py:35
