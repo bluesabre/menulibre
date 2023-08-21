@@ -115,6 +115,8 @@ class MenulibreWindow(Gtk.ApplicationWindow):
 
         self.show_all()
 
+        self.on_apps_browser_cursor_changed(None, None)
+
     def connect_toolbar(self):
         self.insert_action_item('add_button', self.add_button)
 
@@ -998,10 +1000,9 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         """Set the DesktopSpec key, value pair in the editor."""
         if store:
             self.history.store(key, value)
-        if self.get_inner_value(key) == value:
-            return
-        self.history.append(key, self.get_inner_value(key), value)
-        self.set_inner_value(key, value)
+        if not self.get_inner_value(key) == value:
+            self.history.append(key, self.get_inner_value(key), value)
+            self.set_inner_value(key, value)
         if not adjust_widget:
             return
         else:
