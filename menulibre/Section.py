@@ -17,7 +17,7 @@
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, Pango
+from gi.repository import Gtk, Pango  # type: ignore
 
 
 class Section(Gtk.Frame):
@@ -27,8 +27,9 @@ class Section(Gtk.Frame):
 
         label = self.get_label_widget()
 
-        attributes = Pango.AttrList.new()
-        attributes.insert(Pango.attr_weight_new(Pango.Weight.BOLD))
-        label.set_attributes(attributes)
+        if label is not None:
+            attributes = Pango.AttrList.new()
+            attributes.insert(Pango.attr_weight_new(Pango.Weight.BOLD))
+            label.set_attributes(attributes)  # type: ignore
 
         self.set_shadow_type(Gtk.ShadowType.NONE)

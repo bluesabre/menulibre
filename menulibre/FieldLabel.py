@@ -22,7 +22,7 @@ import menulibre_lib
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, Pango, GObject
+from gi.repository import Gtk, Pango, GObject  # type: ignore
 
 
 class FieldLabel(LabelWithHidingButton):
@@ -76,13 +76,13 @@ class FieldInfo(Gtk.MessageDialog):
         self.format_secondary_markup(secondary)
 
         message_area = self.get_content_area().get_children()[0]
-        if isinstance(message_area.get_children()[0], Gtk.Image):
-            message_area.get_children()[0].destroy()
+        if isinstance(message_area.get_children()[0], Gtk.Image):  # type: ignore
+            message_area.get_children()[0].destroy()  # type: ignore
 
         if help_text:
             button = self.add_button(help_text, Gtk.ResponseType.HELP)
             bbox = self.get_action_area()
-            bbox.set_child_secondary(button, True)
+            bbox.set_child_secondary(button, True)  # type: ignore
 
         self.connect("response", self.response_cb, help_url)
 

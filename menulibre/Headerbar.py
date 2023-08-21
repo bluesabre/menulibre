@@ -17,7 +17,7 @@
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk
+from gi.repository import Gtk  # type: ignore
 
 
 class Headerbar(Gtk.HeaderBar):
@@ -49,7 +49,8 @@ class Headerbar(Gtk.HeaderBar):
         item.set_tooltip_text(label)
 
         image = item.get_image()
-        image.set_property('use-fallback', True)
+        if image is not None:
+            image.set_property('use-fallback', True)
 
         self.add(item)
 
@@ -68,7 +69,8 @@ class Headerbar(Gtk.HeaderBar):
                 icon_name, Gtk.IconSize.BUTTON)
             item.set_tooltip_text(label)
             image = item.get_image()
-            image.set_property('use-fallback', True)
+            if image is not None:
+                image.set_property('use-fallback', True)
             box.add(item)
             items.append(item)
 

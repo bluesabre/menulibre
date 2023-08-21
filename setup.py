@@ -56,6 +56,8 @@ def update_config(libdir, values={}):
 
 def move_icon_file(root, target_data, prefix):
     """Move the icon files to their installation prefix."""
+    icon_file = None
+
     old_icon_path = os.path.normpath(
         os.path.join(root, target_data, 'share', 'menulibre', 'media'))
     for icon_size in ['16x16', '24x24', '32x32', '48x48', '64x64', 'scalable',

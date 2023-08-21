@@ -20,7 +20,7 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk, GObject  # type: ignore
 
 
 COL_SHOW = 0
@@ -41,7 +41,7 @@ class ActionEditor(Gtk.Box):
         scrolled.set_shadow_type(Gtk.ShadowType.IN)
         self.pack_start(scrolled, True, True, 0)
 
-        self._liststore = Gtk.ListStore.new([bool, str, str, str])
+        self._liststore = Gtk.ListStore.new([bool, str, str, str])  # type: ignore
 
         treeview = Gtk.TreeView.new_with_model(self._liststore)
         treeview.set_enable_search(False)
@@ -53,7 +53,7 @@ class ActionEditor(Gtk.Box):
         renderer.connect("toggled", self._on_toggle_changed)
 
         # Translators: "Show" tree column header
-        col = Gtk.TreeViewColumn(_("Show"), renderer, active=COL_SHOW)
+        col = Gtk.TreeViewColumn(_("Show"), renderer, active=COL_SHOW)  # type: ignore
         treeview.append_column(col)
 
         renderer = Gtk.CellRendererText()
@@ -61,7 +61,7 @@ class ActionEditor(Gtk.Box):
         renderer.connect('edited', self._on_edited, COL_DISPLAYED)
 
         # Translators: "Name" tree column header
-        col = Gtk.TreeViewColumn(_("Name"), renderer, text=COL_DISPLAYED)
+        col = Gtk.TreeViewColumn(_("Name"), renderer, text=COL_DISPLAYED)  # type: ignore
         treeview.append_column(col)
 
         renderer = Gtk.CellRendererText()
@@ -69,7 +69,7 @@ class ActionEditor(Gtk.Box):
         renderer.connect('edited', self._on_edited, COL_COMMAND)
 
         # Translators: "Command" tree column header
-        col = Gtk.TreeViewColumn(_("Command"), renderer, text=COL_COMMAND)
+        col = Gtk.TreeViewColumn(_("Command"), renderer, text=COL_COMMAND)  # type: ignore
         treeview.append_column(col)
 
         toolbar = Gtk.Toolbar.new()
@@ -164,7 +164,7 @@ class ActionEditor(Gtk.Box):
         try:
             model, [path] = treeview.get_selection().get_selected_rows()
         except ValueError:
-            path = None
+            model = path = None
 
         can_up = False
         can_down = False

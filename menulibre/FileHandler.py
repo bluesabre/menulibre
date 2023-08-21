@@ -23,7 +23,7 @@ import shlex
 import gi
 gi.require_version("Gtk", "3.0")
 gi.require_version("Gdk", "3.0")
-from gi.repository import Gdk, Gio, Gtk, GLib
+from gi.repository import Gdk, Gio, Gtk, GLib  # type: ignore
 
 
 logger = logging.getLogger('menulibre')
@@ -116,8 +116,9 @@ class FileHandler:
         infos = Gio.AppInfo.get_all_for_type("text/plain")
         for info in infos:
             appid = info.get_id()
-            appid = appid[:-8]
-            execs[appid] = info
+            if appid is not None:
+                appid = appid[:-8]
+                execs[appid] = info
         return execs
 
     def _editor_supports_admin_protocol(self, editor):
@@ -177,7 +178,7 @@ class FileHandler:
         for appid, editor in self._get_editors().items():
             for pkexec in pkexecs:
                 if pkexec == appid or pkexec == "org.freedesktop.policykit.pkexec.%s" % appid:
-                    if editor.get_id() == default.get_id():
+                    if default is not None and editor.get_id() == default.get_id():
                         return self._get_pkexec_editor(editor, pkexec_bin)
                     if preferred is None:
                         preferred = editor
@@ -205,7 +206,7 @@ class FileHandler:
             output = subprocess.check_output(
                 ["pkaction"], stderr=subprocess.STDOUT)
         except Exception as e:
-            output = e.output
+            output = e.output  # type: ignore
         try:
             return output.decode('utf-8').split("\n")
         except BaseException:

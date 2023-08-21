@@ -20,7 +20,7 @@ from .LabelWithHidingButton import LabelWithHidingButton
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, Gdk, Pango, GObject
+from gi.repository import Gtk, Gdk, Pango, GObject  # type: ignore
 
 class FilenameLabel(LabelWithHidingButton):
     __gsignals__ = {
@@ -63,5 +63,7 @@ class FilenameLabel(LabelWithHidingButton):
         return self._value
 
     def _button_clicked_cb(self, widget):
+        if self._value is None:
+            return
         clipboard = Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD)
         clipboard.set_text(self._value, -1)

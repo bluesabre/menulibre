@@ -32,7 +32,7 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk, GObject  # type: ignore
 
 
 class ApplicationEditor(Gtk.Box):
@@ -70,7 +70,7 @@ class ApplicationEditor(Gtk.Box):
         hbox.pack_start(namebox, True, True, 0)
 
         self._name_entry = TextEntryButton(
-            'Name',
+            property_name='Name',
             bold_font=True,
             required=True,
             placeholder_text=_('Add name'))
@@ -78,7 +78,7 @@ class ApplicationEditor(Gtk.Box):
         namebox.pack_start(self._name_entry, True, True, 0)
 
         self._comment_entry = TextEntryButton(
-            'Comment', placeholder_text=_('Add comment'))
+            property_name='Comment', placeholder_text=_('Add comment'))
         self._comment_entry.connect("value-changed", self._on_changed)
         namebox.pack_start(self._comment_entry, True, True, 0)
 

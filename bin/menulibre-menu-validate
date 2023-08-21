@@ -33,7 +33,7 @@ gi.require_version('GMenu', '3.0')
 gi.require_version('Gtk', '3.0')  # This seems to be needed for imported
                                   # menulibre code
 
-from gi.repository import GMenu
+from gi.repository import GMenu  # type: ignore
 
 
 # As with the main script, need to mess with the path to access menulibre code

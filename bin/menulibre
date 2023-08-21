@@ -24,7 +24,7 @@ import signal
 
 import gi
 gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk
+from gi.repository import Gtk  # type: ignore
 
 # Check GTK Version, minimum required is 3.10
 if Gtk.check_version(3,10,0):

@@ -23,7 +23,7 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk, GObject  # type: ignore
 
 
 class AdvancedPage(Gtk.ScrolledWindow):
@@ -32,7 +32,7 @@ class AdvancedPage(Gtk.ScrolledWindow):
     }
 
     def __init__(self, use_headerbar):
-        super().__init__(hadjustment=None, vadjustment=None)
+        super().__init__(hadjustment=None, vadjustment=None)  # type: ignore
 
         self._row_index = 0
         self._widgets = {}

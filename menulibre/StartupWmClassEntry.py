@@ -22,7 +22,7 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, GLib
+from gi.repository import Gtk, GLib  # type: ignore
 
 
 class StartupWmClassEntry(TextEntry):
@@ -86,15 +86,19 @@ class XpropWindowDialog(Gtk.MessageDialog):
         return False
 
     def check_xprop(self):
-        if self.process.poll() is not None:
-            output = self.process.stdout.read().decode('UTF-8').strip()
-            if output.startswith("WM_CLASS"):
-                values = output.split("=", 1)[1].split(", ")
-                for value in values:
-                    value = value.strip()
-                    value = value[1:-1]
-                    if value not in self.classes:
-                        self.classes.append(value)
-            self.destroy()
-            return False
-        return True
+        if self.process is None:
+            return True
+        if self.process.poll() is None:
+            return True
+        if self.process.stdout is None:
+            return True
+        output = self.process.stdout.read().decode('UTF-8').strip()
+        if output.startswith("WM_CLASS"):
+            values = output.split("=", 1)[1].split(", ")
+            for value in values:
+                value = value.strip()
+                value = value[1:-1]
+                if value not in self.classes:
+                    self.classes.append(value)
+        self.destroy()
+        return False

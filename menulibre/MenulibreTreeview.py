@@ -20,9 +20,8 @@ import os
 import subprocess
 
 from locale import gettext as _
-from xml.sax.saxutils import escape
 
-from gi.repository import Gio, GObject, Gtk, Pango, GLib
+from gi.repository import Gio, GObject, Gtk, Pango, GLib  # type: ignore
 
 from . import MenuEditor, MenulibreXdg, XmlMenuElementTree, util
 from .util import MenuItemTypes, check_keypress, getBasename, getRelativeName, escapeText
@@ -55,23 +54,25 @@ class Treeview(Gtk.Box):
 
         self.set_size_request(220, -1)
 
-        treestore = MenuEditor.get_treestore()
-        if treestore:
-            self.loaded = True
-
         scrolled = Gtk.ScrolledWindow.new(hadjustment=None, vadjustment=None)
         scrolled.set_shadow_type(Gtk.ShadowType.IN)
         scrolled.set_name("MenulibreSidebarScroll")
         self.pack_start(scrolled, True, True, 0)
 
-        self._treeview = Gtk.TreeView.new_with_model(treestore)
+        treestore = MenuEditor.get_treestore()
+        if treestore is not None:
+            self.loaded = True
+            self._treeview = Gtk.TreeView.new_with_model(treestore)
+        else:
+            self._treeview = Gtk.TreeView.new()
+
         self._treeview.set_show_expanders(True)
         self._treeview.set_enable_search(False)
         self._treeview.set_headers_visible(False)
         scrolled.add(self._treeview)
 
         # Translators: "Search Results" treeview column header
-        col = Gtk.TreeViewColumn(_("Search Results"))
+        col = Gtk.TreeViewColumn(_("Search Results"))  # type: ignore
 
         # Icon renderer
         col_cell_img = Gtk.CellRendererPixbuf()
@@ -181,6 +182,9 @@ class Treeview(Gtk.Box):
         if treeiter is None or model is None:
             model, treeiter = self._get_selected_iter()
 
+        if treeiter is None:
+            return None
+
         new_iter = model.prepend(treeiter)
 
         if do_select:
@@ -198,10 +202,17 @@ class Treeview(Gtk.Box):
         self._last_selected_path = -1
         model, treeiter = self._get_selected_iter()
 
+        filename = None
+        original = None
+        item_type = None
+        del_files = []
+
         if not ui_only:
 
-            filename = model[treeiter][MenuEditor.COL_FILENAME]
-            item_type = model[treeiter][MenuEditor.COL_TYPE]
+            if treeiter is not None:
+                filename = model[treeiter][MenuEditor.COL_FILENAME]
+                item_type = model[treeiter][MenuEditor.COL_TYPE]
+
             if filename is not None:
                 basename = getRelativeName(filename)
                 original = util.getSystemLauncherPath(basename)
@@ -231,7 +242,7 @@ class Treeview(Gtk.Box):
 
             # How is it possible that a launcher is to be removed, but its
             # associated desktop file has not been returned to be deleted?
-            if filename not in del_files:
+            if filename is None or filename not in del_files:
                 # Update the required categories.
                 model, parent_data = self.get_parent_row_data()
                 if parent_data is not None:
@@ -290,7 +301,7 @@ class Treeview(Gtk.Box):
         parent = None
         if model is None:
             model, treeiter = self._get_selected_iter()
-        if treeiter:
+        if treeiter is not None:
             path = model.get_path(treeiter)
             if path.up():
                 if path.get_depth() > 0:
@@ -342,9 +353,10 @@ class Treeview(Gtk.Box):
     def get_parent_row_data(self):
         """Get the row data of the parent iter."""
         model, parent = self.get_parent()
-        if parent is not None:
-            return model, model[parent][:]
-        return model, None
+        if parent is None:
+            return model, None
+        parent_data: list = model[parent][:]  # type: ignore
+        return model, parent_data
 
     def get_selected_filename(self):
         """Return the filename of the current selected treeiter."""
@@ -358,7 +370,8 @@ class Treeview(Gtk.Box):
         model, treeiter = self._get_selected_iter()
         if model is None or treeiter is None:
             return model, None
-        return model, model[treeiter][:]
+        row_data: list = model[treeiter][:]  # type: ignore
+        return model, row_data
 
 # Set
     def set_can_select_function(self, can_select_func):
@@ -379,9 +392,12 @@ class Treeview(Gtk.Box):
                         icon_name, filename, show=True):
         """Update the application treeview selected row data."""
         model, treeiter = self._get_selected_iter()
+        if treeiter is None:
+            return
+
         model[treeiter][MenuEditor.COL_NAME] = name
-        model[treeiter][MenuEditor.COL_DISPLAY_NAME] = escape(name)
-        model[treeiter][MenuEditor.COL_COMMENT] = escapeText(comment)
+        model[treeiter][MenuEditor.COL_DISPLAY_NAME] = escapeText(name)
+        model[treeiter][MenuEditor.COL_COMMENT] = comment
         model[treeiter][MenuEditor.COL_EXEC] = executable
         model[treeiter][MenuEditor.COL_CATEGORIES] = categories
         model[treeiter][MenuEditor.COL_TYPE] = item_type
@@ -476,7 +492,7 @@ class Treeview(Gtk.Box):
             renderer.set_property("style", Pango.Style.NORMAL)
         else:
             renderer.set_property("style", Pango.Style.ITALIC)
-        separator = treestore[treeiter][MenuEditor.COL_TYPE] == MenuItemTypes.SEPARATOR
+        separator = treestore[treeiter][MenuEditor.COL_TYPE] == MenuItemTypes.SEPARATOR  # type: ignore
         renderer.set_property("sensitive", not separator)
         renderer.set_property("style-set", True)
 
@@ -484,12 +500,13 @@ class Treeview(Gtk.Box):
         """CellRenderer function to set the gicon for each row."""
         renderer.set_property("gicon",
                               treestore[treeiter][MenuEditor.COL_G_ICON])
-        separator = treestore[treeiter][MenuEditor.COL_TYPE] == MenuItemTypes.SEPARATOR
+        separator = treestore[treeiter][MenuEditor.COL_TYPE] == MenuItemTypes.SEPARATOR  # type: ignore
         renderer.set_property("sensitive", not separator)
 
     def _get_selected_iter(self):
         """Return the current treeview model and selected iter."""
-        model, treeiter = self._treeview.get_selection().get_selected()
+        model: Gtk.TreeStore
+        model, treeiter = self._treeview.get_selection().get_selected()  # type: ignore
         return model, treeiter
 
     def _populate_and_select_iter(self, model, treeiter, row_data,
@@ -521,7 +538,7 @@ class Treeview(Gtk.Box):
             basename = getRelativeName(filename)
             original = util.getSystemLauncherPath(basename)
             item_type = model[treeiter][MenuEditor.COL_TYPE]
-            if original is None and item_type == MenuItemTypes.DIRECTORY:
+            if original is None and item_type == MenuItemTypes.DIRECTORY:  # type: ignore
                 pass
             else:
                 block_run = True
@@ -565,6 +582,8 @@ class Treeview(Gtk.Box):
         treeiters = []
         for n_child in range(model.iter_n_children(parent)):
             treeiter = model.iter_nth_child(parent, n_child)
+            if treeiter is None:
+                continue
             iter_filename = model[treeiter][MenuEditor.COL_FILENAME]
             if iter_filename == filename:
                 treeiters.append(treeiter)
@@ -599,12 +618,15 @@ class Treeview(Gtk.Box):
     def search(self, terms):
         """Search the treeview for the specified terms."""
         self._search_terms = str(terms.lower())
-        model = self._treeview.get_model()
+        model: Gtk.TreeModelFilter = self._treeview.get_model()  # type: ignore
         model.refilter()
 
     def set_searchable(self, searchable, expand=False):
         """Set the TreeView searchable."""
         model = self._treeview.get_model()
+        if model is None:
+            return
+
         if searchable:
             self._lock_menus = True
             # Show the "Search Results" header and disable the inline toolbar.
@@ -639,13 +661,15 @@ class Treeview(Gtk.Box):
                 self._treeview.collapse_all()
                 for n_child in range(model.iter_n_children(None)):
                     treeiter = model.iter_nth_child(None, n_child)
+                    if treeiter is None:
+                        continue
                     row = model[treeiter]
                     if row[MenuEditor.COL_FILENAME]:
                         self._treeview.expand_row(row.path, False)
 
                 # Try to get the row that was selected previously.
                 if (f_model is not None) and (f_iter is not None):
-                    row_data = f_model[f_iter][:]
+                    row_data = f_model[f_iter][:]  # type: ignore
                     selected_iter = self._get_iter_by_data(row_data, model,
                                                            parent=None)
 
@@ -653,9 +677,10 @@ class Treeview(Gtk.Box):
                 else:
                     selected_iter = model.get_iter_first()
 
-                # Set the cursor.
-                path = model.get_path(selected_iter)
-                self._treeview.set_cursor(path)
+                if selected_iter is not None:
+                    # Set the cursor.
+                    path = model.get_path(selected_iter)
+                    self._treeview.set_cursor(path)
 
     def _treeview_match(self, model, treeiter, query):
         """Match subfunction for filtering search results."""
@@ -666,7 +691,7 @@ class Treeview(Gtk.Box):
         desktop = model[treeiter][MenuEditor.COL_FILENAME]
 
         # Hide separators in the search results.
-        if item_type == MenuItemTypes.SEPARATOR:
+        if item_type == MenuItemTypes.SEPARATOR:  # type: ignore
             return False
 
         # Convert None to blank.
@@ -698,7 +723,7 @@ class Treeview(Gtk.Box):
             return True
 
         # Show the directory if any child items match.
-        if item_type == MenuItemTypes.DIRECTORY:
+        if item_type == MenuItemTypes.DIRECTORY:  # type: ignore
             return self._treeview_match_directory(query, model, treeiter)
 
         # No matches, return False.
@@ -726,6 +751,8 @@ class Treeview(Gtk.Box):
         """Install the specified filename in the menu structure."""
         model, treeiter = self._get_selected_iter()
         if filename is None:
+            return
+        if treeiter is None:
             return
         if filename.endswith('.desktop'):
             menu_install = True
@@ -878,9 +905,9 @@ class Treeview(Gtk.Box):
                 sibling_type = model[sibling_iter][MenuEditor.COL_TYPE]
 
                 # Sibling Directory
-                if sibling_type == MenuItemTypes.DIRECTORY:
+                if sibling_type == MenuItemTypes.DIRECTORY:  # type: ignore
                     # Do not move directories into other directories.
-                    if selected_type == MenuItemTypes.DIRECTORY:
+                    if selected_type == MenuItemTypes.DIRECTORY:  # type: ignore
                         move_down = False
 
                     # Append or Prepend to expanded directories.
@@ -939,13 +966,15 @@ class Treeview(Gtk.Box):
 
         self.emit("cursor-changed", True)
 
-    def _get_iter_by_data(self, row_data, model, parent=None):
+    def _get_iter_by_data(self, row_data, model: Gtk.TreeModel, parent=None):
         """Search the TreeModel for a row matching row_data.
 
         Return the TreeIter found or None if none found."""
         for n_child in range(model.iter_n_children(parent)):
             treeiter = model.iter_nth_child(parent, n_child)
-            if model[treeiter][:] == row_data:
+            if treeiter is None:
+                continue
+            if model[treeiter][:] == row_data:  # type: ignore
                 return treeiter
             if model.iter_n_children(treeiter) != 0:
                 value = self._get_iter_by_data(row_data, model, treeiter)
@@ -1011,7 +1040,7 @@ class Treeview(Gtk.Box):
 
         # Get the current selected row
         model, sel_iter = self._get_selected_iter()
-        if sel_iter:
+        if sel_iter is not None:
 
             # Move to the parent iter - if there is no parent, it must be the
             # top level, which is ignored
@@ -1022,26 +1051,33 @@ class Treeview(Gtk.Box):
                 # Deteriming list of item names
                 for i in range(model.iter_n_children(parent_iter)):
                     child_iter = model.iter_nth_child(parent_iter, i)
-                    item_names.append(model[child_iter][MenuEditor.COL_NAME])
+                    if child_iter is not None:
+                        item_names.append(model[child_iter][MenuEditor.COL_NAME])
 
                 # Applying unstable (?) case-insensitive alphabetical sort
                 item_names = sorted(item_names, key=str.lower)
 
                 for i in range(len(item_names)):
                     child_iter = model.iter_nth_child(parent_iter, i)
+                    if child_iter is None:
+                        continue
 
                     # Ignore if item is already sorted or at least has an
                     # identical title to that expected
                     if item_names[i] != model[child_iter][MenuEditor.COL_NAME]:
+                        search_iter = None
 
                         # Locating desired item in the remaining unsorted items
                         for r in range(i, len(item_names)):
                             search_iter = model.iter_nth_child(parent_iter, r)
+                            if search_iter is None:
+                                continue
                             if item_names[i] == model[search_iter][MenuEditor.COL_NAME]:
                                 break
 
-                        # Moving the found item into place
-                        model.move_before(search_iter, child_iter)
+                        if search_iter is not None:
+                            # Moving the found item into place
+                            model.move_before(search_iter, child_iter)
 
                 # Committing changes
                 self.update_menus()
@@ -1050,6 +1086,8 @@ class Treeview(Gtk.Box):
 
     def scroll_to_selection(self):
         model, sel_iter = self._get_selected_iter()
+        if sel_iter is None:
+            return
         self._treeview.scroll_to_cell(model.get_path(sel_iter), None,
                                       False, 0.0, 0.0)
 

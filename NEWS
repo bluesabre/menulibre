@@ -4,6 +4,8 @@ MenuLibre                                                                  NEWS
 
 - All Glade and GtkBuilder usage has been replaced with native Python and GTK
   code. This simplifies future updates and enables porting to newer toolkits.
+- All code was processed with Pylance to identify and resolve various unknown
+  and potential bugs.
 - New Features:
   . Label tooltips have been replaced by a new, on-demand help button.
     Clicking this button will show a dialog with more information and links.

@@ -21,7 +21,7 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk, GObject  # type: ignore
 
 
 # Sourced from https://specifications.freedesktop.org/menu-spec/latest/apa.html
@@ -406,6 +406,8 @@ def lookup_vendor_category_description(spec_name):
         unvendored = spec_name[10:]
     elif spec_name.startswith("X-"):
         unvendored = "-".join(spec_name.split("-")[2:])
+    else:
+        unvendored = spec_name
 
     try:
         description = category_descriptions[unvendored]
@@ -463,9 +465,9 @@ class CategoryEditor(Gtk.Box):
         scrolled.set_shadow_type(Gtk.ShadowType.IN)
         self.pack_start(scrolled, True, True, 0)
 
-        self._options = Gtk.TreeStore.new([str, str, str, str])
+        self._options = Gtk.TreeStore.new([str, str, str, str])  # type: ignore
         self._options.set_sort_column_id(3, Gtk.SortType.ASCENDING)
-        self._treestore = Gtk.TreeStore.new([str, str, str])
+        self._treestore = Gtk.TreeStore.new([str, str, str])  # type: ignore
 
         self._section_lookup = {}
         self._category_lookup = {}
@@ -488,13 +490,13 @@ class CategoryEditor(Gtk.Box):
         renderer.connect("changed", self._on_combo_changed)
 
         # Translators: "Category Name" tree column header
-        col = Gtk.TreeViewColumn(_("Category Name"), renderer, text=COL_DESC)
+        col = Gtk.TreeViewColumn(_("Category Name"), renderer, text=COL_DESC)  # type: ignore
         treeview.append_column(col)
 
         renderer = Gtk.CellRendererText()
 
         # Translators: "Section" tree column header
-        col = Gtk.TreeViewColumn(_("Section"), renderer, text=COL_SECTION)
+        col = Gtk.TreeViewColumn(_("Section"), renderer, text=COL_SECTION)  # type: ignore
         treeview.append_column(col)
 
         toolbar = Gtk.Toolbar.new()

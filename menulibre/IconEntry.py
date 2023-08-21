@@ -20,7 +20,7 @@ import os
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, Gdk, Pango, GObject, GdkPixbuf
+from gi.repository import Gtk, Gdk, Pango, GObject, GdkPixbuf  # type: ignore
 
 
 class IconEntry(Gtk.MenuButton):
@@ -108,26 +108,26 @@ class IconEntry(Gtk.MenuButton):
             # If the icon name is actually a file, render it to the Image.
             elif os.path.isfile(icon_name):
                 pixbuf = GdkPixbuf.Pixbuf.new_from_file(icon_name)
-                scaled = pixbuf.scale_simple(48, 48,
-                                             GdkPixbuf.InterpType.HYPER)
-                self._image.set_from_pixbuf(scaled)
-                self._on_successful_image(icon_name, icon_name)
-                return
+                if pixbuf is not None:
+                    scaled = pixbuf.scale_simple(48, 48,
+                                                GdkPixbuf.InterpType.HYPER)
+                    self._image.set_from_pixbuf(scaled)
+                    self._on_successful_image(icon_name, icon_name)
+                    return
 
+            if icon_name.startswith("applications-"):
+                replacement_icon_name = "folder"
+            elif icon_name == "gnome-settings":
+                replacement_icon_name = "folder"
             else:
-                if icon_name.startswith("applications-"):
-                    replacement_icon_name = "folder"
-                elif icon_name == "gnome-settings":
-                    replacement_icon_name = "folder"
-                else:
-                    replacement_icon_name = "application-x-executable"
+                replacement_icon_name = "application-x-executable"
 
-                self._image.set_from_icon_name(replacement_icon_name, 48)
-                self._on_error_image(
-                    icon_name,
-                    _("<i>Missing icon:</i> %s") %
-                    icon_name)
-                return
+            self._image.set_from_icon_name(replacement_icon_name, 48)
+            self._on_error_image(
+                icon_name,
+                _("<i>Missing icon:</i> %s") %
+                icon_name)
+            return
 
         if icon_theme.has_icon("applications-other"):
             icon_name = "applications-other"
@@ -180,7 +180,7 @@ class IconSelectionDialog(Gtk.Dialog):
 
     def __init__(self, parent, initial_icon="", use_header_bar=False):
         super().__init__(title=_("Select an icon"), transient_for=parent,
-                         use_header_bar=use_header_bar, flags=0)
+                         use_header_bar=use_header_bar, flags=0)  # type: ignore
         self.add_buttons(
             _('Cancel'), Gtk.ResponseType.CANCEL,
             _('Apply'), Gtk.ResponseType.OK
@@ -230,7 +230,10 @@ class IconSelectionDialog(Gtk.Dialog):
     def _on_key_press_event(self, widget, event, search):
         if not bool(event.get_state() & Gdk.ModifierType.CONTROL_MASK):
             return False
-        if Gdk.keyval_name(event.get_keyval()[1]).lower() != 'f':
+        keyval_name = Gdk.keyval_name(event.get_keyval()[1])
+        if keyval_name is None:
+            return False
+        if keyval_name.lower() != 'f':
             return False
         search.grab_focus()
 
@@ -242,7 +245,7 @@ class IconSelectionTreeView(Gtk.TreeView):
     def __init__(self, search_entry):
         super().__init__()
 
-        icons = Gtk.ListStore.new([str, str])
+        icons = Gtk.ListStore.new([str, str])  # type: ignore
 
         icon_theme = Gtk.IconTheme.get_default()
         icons_list = icon_theme.list_icons(None)
@@ -289,6 +292,8 @@ class IconSelectionTreeView(Gtk.TreeView):
 
     def _get_path_to_icon(self, icon_name):
         model = self.get_model()
+        if model is None:
+            return None
         idx = 0
         treeiter = model.get_iter_first()
         while treeiter is not None:
@@ -307,4 +312,6 @@ class IconSelectionTreeView(Gtk.TreeView):
 
     def get_icon(self):
         model, treeiter = self.get_selection().get_selected()
+        if treeiter is None:
+            return None
         return model[treeiter][0]

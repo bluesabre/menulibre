@@ -29,7 +29,7 @@ from locale import gettext as _
 
 import gi
 gi.require_version('Gdk', '3.0')
-from gi.repository import GLib, Gdk
+from gi.repository import GLib, Gdk  # type: ignore
 
 logger = logging.getLogger('menulibre')
 
@@ -82,11 +82,11 @@ MenuItemKeys = (
 def getRelatedKeys(menu_item_type, key_only=False):
     if isinstance(menu_item_type, str):
         if menu_item_type == "Application":
-            menu_item_type = MenuItemTypes.APPLICATION
+            menu_item_type = MenuItemTypes.APPLICATION  # type: ignore
         elif menu_item_type == "Link":
-            menu_item_type = MenuItemTypes.LINK
+            menu_item_type = MenuItemTypes.LINK  # type: ignore
         elif menu_item_type == "Directory":
-            menu_item_type = MenuItemTypes.DIRECTORY
+            menu_item_type = MenuItemTypes.DIRECTORY  # type: ignore
 
     results = []
     for tup in MenuItemKeys:
@@ -138,7 +138,7 @@ def getProcessList():
     """Return a list of unique process names for the current user."""
     username = getpass.getuser()
     try:
-        pids = psutil.get_pid_list()
+        pids = psutil.get_pid_list()  # type: ignore
     except AttributeError:
         pids = psutil.pids()
     processes = []
@@ -156,21 +156,25 @@ def getProcessList():
     return processes
 
 
-def getRelativeName(filename):
+def getRelativeName(filename: str):
     if filename.endswith('.desktop'):
         basename = filename.split('/applications/', 1)[1]
     elif filename.endswith('.directory'):
         basename = filename.split('/desktop-directories/', 1)[1]
+    else:
+        basename = ""
     return basename
 
 
-def getBasename(filename):
+def getBasename(filename: str):
     if filename.endswith('.desktop'):
         basename = filename.split('/applications/', 1)[1]
     elif filename.endswith('.directory'):
         basename = filename.split('/desktop-directories/', 1)[1]
         if basename.startswith("%s/" % getDefaultMenuName()):
             basename = filename.split("%s/" % getDefaultMenuName(), 1)[1]
+    else:
+        basename = ""
     return basename
 
 
@@ -347,8 +351,8 @@ def mapDesktopEnvironmentDirectories():
         except BaseException:
             pass
         target = os.path.join(target_dir, filename)
+        src = os.path.join(basedir, filename)
         if not os.path.exists(target):
-            src = os.path.join(basedir, filename)
             try:
                 logger.debug("copy %s to %s" % (src, target))
                 shutil.copy2(src, target)
@@ -637,6 +641,8 @@ def getSaveFilename(name, filename, item_type, force_update=False):  # noqa
         elif item_type == 'Directory':
             path = getUserDirectoriesDirectory()
             ext = '.directory'
+        else:
+            path = ""
 
         basedir = os.path.dirname(os.path.join(path, basename))
         if not os.path.exists(basedir):
@@ -707,7 +713,10 @@ def check_keypress(event, keys):  # noqa
             return False
     if 'Escape' in keys:
         keys[keys.index('Escape')] = 'escape'
-    if Gdk.keyval_name(event.get_keyval()[1]).lower() not in keys:
+    keyval_name = Gdk.keyval_name(event.get_keyval()[1])
+    if keyval_name is None:
+        return False
+    if keyval_name.lower() not in keys:
         return False
 
     return True
@@ -747,7 +756,7 @@ def find_program(program):
     if len(program) == 0:
         return None
 
-    params = list(GLib.shell_parse_argv(program)[1])
+    params = list(GLib.shell_parse_argv(program)[1])  # type: ignore
     executable = params[0]
 
     if os.path.exists(executable):
@@ -802,7 +811,7 @@ def validate_desktop_file(desktop_file):  # noqa
 
     # Type validation
     try:
-        type_key = keyfile.get_string(start_group,
+        type_key = keyfile.get_string(start_group,  # type: ignore
                                       GLib.KEY_FILE_DESKTOP_KEY_TYPE)
     except GLib.Error:
         # Translators: This error is displayed when a required key is
@@ -828,7 +837,7 @@ def validate_desktop_file(desktop_file):  # noqa
     # is not executable, the entry may be ignored (not be used in menus, for
     # example)."
     try:
-        try_exec = keyfile.get_string(start_group,
+        try_exec = keyfile.get_string(start_group,  # type: ignore
                                       GLib.KEY_FILE_DESKTOP_KEY_TRY_EXEC)
     except GLib.Error:
         pass
@@ -842,7 +851,7 @@ def validate_desktop_file(desktop_file):  # noqa
 
     # Validating executable
     try:
-        exec_key = keyfile.get_string(start_group,
+        exec_key = keyfile.get_string(start_group,  # type: ignore
                                       GLib.KEY_FILE_DESKTOP_KEY_EXEC)
     except GLib.Error:
         return False  # LP: #1788814, Exec key is not required
