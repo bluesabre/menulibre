@@ -21,7 +21,7 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, GObject
+from gi.repository import Gtk, GObject  # type: ignore
 
 
 # Sourced from https://specifications.freedesktop.org/menu-spec/latest/apa.html

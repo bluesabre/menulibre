@@ -22,14 +22,14 @@ from locale import gettext as _
 
 import gi
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, Gio, GObject, GLib, Pango, Gdk
+from gi.repository import Gtk, Gio, GObject, GLib, Pango, Gdk  # type: ignore
 
 
 class CommandEditorDialog(Gtk.Dialog):
 
     def __init__(self, parent, initial_text, use_header_bar):
         super().__init__(title=_("Command Editor"), transient_for=parent,
-                         use_header_bar=use_header_bar, flags=0)
+                         use_header_bar=use_header_bar, flags=0)  # type: ignore
         self.add_buttons(
             _('Cancel'), Gtk.ResponseType.CANCEL,
             _('Apply'), Gtk.ResponseType.OK
@@ -129,17 +129,18 @@ class HelpButton(Gtk.LinkButton):
         super().__init__(uri=uri)
 
         self.set_label(label)
+        self.set_name('helpbutton')
+        self.set_halign(Gtk.Align.START)
 
         screen = Gdk.Screen.get_default()
+        if screen is None:
+            return
+
         provider = Gtk.CssProvider()
         style_context = Gtk.StyleContext()
         style_context.add_provider_for_screen(
             screen, provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
         provider.load_from_data("#helpbutton {padding: 0;}".encode())
-
-        self.set_name('helpbutton')
-
-        self.set_halign(Gtk.Align.START)
 
 
 class CommandEditorEntry(Gtk.Box):
@@ -408,15 +409,15 @@ class CommandEditorEntry(Gtk.Box):
             field = (True, _('No invalid field codes'))
 
         if env != self.state['env']:
-            self.state['env'] = env
+            self.state['env'] = env  # type: ignore
             self.emit('env-state-changed', env[0], env[1])
 
         if cmd != self.state['cmd']:
-            self.state['cmd'] = cmd
+            self.state['cmd'] = cmd  # type: ignore
             self.emit('cmd-state-changed', cmd[0], cmd[1])
 
         if field != self.state['field']:
-            self.state['field'] = field
+            self.state['field'] = field  # type: ignore
             self.emit('field-state-changed', field[0], field[1])
 
 
@@ -693,7 +694,7 @@ class AppChooserMenu(Gtk.ComboBox):
     def __init__(self):
         super().__init__()
 
-        store = Gtk.ListStore.new([str, str, Gio.Icon])
+        store = Gtk.ListStore.new([str, str, Gio.Icon])  # type: ignore
         store.append([_("Select an application"), None, None])
 
         app_list = []
@@ -736,7 +737,7 @@ class AppChooserMenu(Gtk.ComboBox):
         treeiter = self.get_active_iter()
         if treeiter is None:
             return None
-        row = treemodel[treeiter][:]
+        row = treemodel[treeiter][:]  # type: ignore
         return row[1]
 
 

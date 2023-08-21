@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-21 05:12-0400\n"
+"POT-Creation-Date: 2023-08-21 07:48-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,21 +52,21 @@ msgstr ""
 
 #. Translators: "Command" tree column header
 #: ../menulibre/ActionEditor.py:72 ../menulibre/ApplicationEditor.py:97
-#: ../menulibre/CommandEditor.py:617 ../menulibre/CommandEditor.py:629
+#: ../menulibre/CommandEditor.py:618 ../menulibre/CommandEditor.py:630
 msgid "Command"
 msgstr ""
 
-#: ../menulibre/ActionEditor.py:80 ../menulibre/CategoryEditor.py:505
-#: ../menulibre/CommandEditor.py:434
+#: ../menulibre/ActionEditor.py:80 ../menulibre/CategoryEditor.py:507
+#: ../menulibre/CommandEditor.py:435
 msgid "Add"
 msgstr ""
 
-#: ../menulibre/ActionEditor.py:85 ../menulibre/CategoryEditor.py:510
+#: ../menulibre/ActionEditor.py:85 ../menulibre/CategoryEditor.py:512
 msgid "Remove"
 msgstr ""
 
-#: ../menulibre/ActionEditor.py:90 ../menulibre/CategoryEditor.py:515
-#: ../menulibre/CommandEditor.py:170
+#: ../menulibre/ActionEditor.py:90 ../menulibre/CategoryEditor.py:517
+#: ../menulibre/CommandEditor.py:171
 msgid "Clear"
 msgstr ""
 
@@ -350,7 +350,7 @@ msgstr ""
 #. Translators: Launcher section description
 #. Translators: "Other" category group. This item is only displayed for
 #. unknown or non-standard categories.
-#: ../menulibre/CategoryEditor.py:125 ../menulibre/CategoryEditor.py:439
+#: ../menulibre/CategoryEditor.py:125 ../menulibre/CategoryEditor.py:441
 msgid "Other"
 msgstr ""
 
@@ -978,24 +978,24 @@ msgid "Xfce"
 msgstr ""
 
 #. Translators: Translated key (original key)
-#: ../menulibre/CategoryEditor.py:413
+#: ../menulibre/CategoryEditor.py:415
 #, python-format
 msgid "%s (%s)"
 msgstr ""
 
 #. Translators: Placeholder text for the launcher-specific category
 #. selection.
-#: ../menulibre/CategoryEditor.py:487
+#: ../menulibre/CategoryEditor.py:489
 msgid "Select a category"
 msgstr ""
 
 #. Translators: "Category Name" tree column header
-#: ../menulibre/CategoryEditor.py:491
+#: ../menulibre/CategoryEditor.py:493
 msgid "Category Name"
 msgstr ""
 
 #. Translators: "Section" tree column header
-#: ../menulibre/CategoryEditor.py:497
+#: ../menulibre/CategoryEditor.py:499
 msgid "Section"
 msgstr ""
 
@@ -1027,121 +1027,122 @@ msgid "Help"
 msgstr ""
 
 #. Translators: Revert action tooltip
-#: ../menulibre/CommandEditor.py:164 ../menulibre/MenulibreApplication.py:313
+#: ../menulibre/CommandEditor.py:165 ../menulibre/MenulibreApplication.py:313
 #: ../menulibre/MenulibreApplication.py:389
 #: ../menulibre/MenulibreApplication.py:527
 msgid "Revert"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:306
+#: ../menulibre/CommandEditor.py:307
 msgid "A single command line may only contain one of %f, %u, %F, or %U"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:311
+#: ../menulibre/CommandEditor.py:312
 #, python-format
 msgid "Field code '%s' can not be used inside a quoted argument"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:315
+#: ../menulibre/CommandEditor.py:316
 #, python-format
 msgid "Field code '%s' has been deprecated"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:332 ../menulibre/CommandEditor.py:371
+#: ../menulibre/CommandEditor.py:333 ../menulibre/CommandEditor.py:372
 msgid "No command found"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:355
+#: ../menulibre/CommandEditor.py:356
 msgid "Environment variables should be preceded by env"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:358
+#: ../menulibre/CommandEditor.py:359
 msgid "Environment variables should precede the command"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:374
+#: ../menulibre/CommandEditor.py:375
 #, python-format
 msgid "File '%s' not found"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:377
+#: ../menulibre/CommandEditor.py:378
 #, python-format
 msgid "Command '%s' not found"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:398
+#: ../menulibre/CommandEditor.py:399
 msgid "No environment variable errors"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:403
+#: ../menulibre/CommandEditor.py:404
 msgid "No command errors"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:408
+#: ../menulibre/CommandEditor.py:409
 msgid "No invalid field codes"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:452
+#: ../menulibre/CommandEditor.py:453
 msgid "File"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:453
+#: ../menulibre/CommandEditor.py:454
 msgid "A single file or directory."
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:455
+#: ../menulibre/CommandEditor.py:456
 msgid "A list of files or directories."
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:459
+#: ../menulibre/CommandEditor.py:460
 msgid "URL"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:460
+#: ../menulibre/CommandEditor.py:461
 msgid "A single URL."
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:461
+#: ../menulibre/CommandEditor.py:462
 msgid "A list of URLs."
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:465
+#: ../menulibre/CommandEditor.py:466
 msgid "Extra"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:467
+#: ../menulibre/CommandEditor.py:468
 msgid "The <tt>Icon</tt> key of this launcher."
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:470
+#: ../menulibre/CommandEditor.py:471
 msgid "The translated <tt>Name</tt> key of this launcher."
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:473
+#: ../menulibre/CommandEditor.py:474
 msgid "The file path of this launcher."
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:499
+#: ../menulibre/CommandEditor.py:500
 msgid "Environment variable"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:511
+#: ../menulibre/CommandEditor.py:512
 msgid "Variable"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:520
+#: ../menulibre/CommandEditor.py:521
 msgid "Value"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:567
+#: ../menulibre/CommandEditor.py:568
 msgid "Spaces not permitted in environment variables"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:643
+#: ../menulibre/CommandEditor.py:644
 msgid "Select an executable"
 msgstr ""
 
-#: ../menulibre/CommandEditor.py:697
+#. type: ignore
+#: ../menulibre/CommandEditor.py:698
 msgid "Select an application"
 msgstr ""
 
@@ -1617,7 +1618,7 @@ msgstr ""
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
 #. code is displayed.
-#: ../menulibre/util.py:785
+#: ../menulibre/util.py:794
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr ""
@@ -1625,31 +1626,31 @@ msgstr ""
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
 #. translated.
-#: ../menulibre/util.py:800
+#: ../menulibre/util.py:809
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:810
+#: ../menulibre/util.py:819
 #, python-format
 msgid "%s key not found"
 msgstr ""
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
-#: ../menulibre/util.py:823
+#: ../menulibre/util.py:832
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr ""
 
-#: ../menulibre/util.py:852
+#: ../menulibre/util.py:861
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
 msgstr ""
 
-#: ../menulibre/util.py:855
+#: ../menulibre/util.py:864
 #, python-format
 msgid ""
 "%s program '%s' is not a valid shell command according to GLib."
@@ -1659,7 +1660,7 @@ msgstr ""
 #. KDE services are not displayed in the menu
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
-#: ../menulibre/util.py:864
+#: ../menulibre/util.py:873
 msgid "Unknown error. Desktop file appears to be valid."
 msgstr ""
 
