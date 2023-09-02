@@ -110,6 +110,17 @@ def remove_appdata_in_file(root, target_data):
     os.rmdir(metainfo)
 
 
+def remove_empty_data_directory(root, target_data):
+    """Remove to no-longer-needed data directory."""
+    old_data_path = os.path.normpath(
+        os.path.join(root, target_data, 'share', 'menulibre'))
+
+    # Media is now empty
+    if len(os.listdir(old_data_path)) == 0:
+        print(("Removing empty directory: %s" % old_data_path))
+        os.rmdir(old_data_path)
+
+
 def get_desktop_file(root, target_data, prefix):
     """Move the desktop file to its installation prefix."""
     desktop_path = os.path.realpath(
@@ -228,6 +239,7 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
         move_icon_file(self.root, target_data, self.prefix)
         remove_appdata_in_file(self.root, target_data)
         update_desktop_file(desktop_file, script_path)
+        remove_empty_data_directory(self.root, target_data)
 
 
 DistUtilsExtra.auto.setup(
