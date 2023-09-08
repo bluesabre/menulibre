@@ -121,7 +121,7 @@ msgstr ""
 
 #: ../menulibre/AdvancedPage.py:64
 msgid "Only Show In"
-msgstr "Показать только в"
+msgstr "Показывать только в"
 
 #: ../menulibre/AdvancedPage.py:65
 msgid ""
