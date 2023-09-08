@@ -209,10 +209,10 @@ msgid ""
 "If set to \"True\", the result for the user is equivalent to the .desktop "
 "file not existing at all."
 msgstr ""
-"Ключ: \"Hidden\" (Скрытый). Тип: логический. Значения: true, false.\n"
+"Ключ: «Hidden» (Скрытый). Тип: логический. Значения: true, false.\n"
 "\n"
-"\"Скрытый\" следует понимать как \"Удалённый\". Если равен true, для\n"
-"пользователя равнозначно тому, что файл \".desktop\" вообще не существует"
+"«Скрытый» следует понимать как «Удалённый». Если равен «true», для\n"
+"пользователя равнозначно тому, что файл «.desktop» вообще не существует"
 
 #: ../menulibre/AdvancedPage.py:109
 msgid "DBUS Activatable"
