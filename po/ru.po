@@ -53,7 +53,7 @@ msgstr "Показывать"
 #. Translators: "Name" tree column header
 #: ../menulibre/ActionEditor.py:64
 msgid "Name"
-msgstr "Имя"
+msgstr "Название"
 
 #. Translators: "Command" tree column header
 #: ../menulibre/ActionEditor.py:72 ../menulibre/ApplicationEditor.py:97
