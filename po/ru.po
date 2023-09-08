@@ -1094,8 +1094,8 @@ msgstr "Восстановить"
 #: ../menulibre/CommandEditor.py:297
 msgid "A single command line may only contain one of %f, %u, %F, or %U"
 msgstr ""
-"Командная строка может состоять только из одного из следующих элементов %f, "
-"%u, %F, или %U"
+"Командная строка может состоять только из одного из следующих элементов: %f,"
+" %u, %F, или %U"
 
 #: ../menulibre/CommandEditor.py:302
 #, python-format
