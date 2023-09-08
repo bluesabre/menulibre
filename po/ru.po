@@ -99,7 +99,7 @@ msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr ""
 "Ключ: \"GenericName\" (Обобщённое название). Тип: строка.\n"
 "\n"
-"Обобщённое название программы, например \"Веб-браузер\""
+"Обобщённое название программы, например «Веб-браузер»"
 
 #: ../menulibre/AdvancedPage.py:59
 msgid "Try Exec"
