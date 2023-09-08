@@ -92,7 +92,7 @@ msgstr "Новый ярлык"
 
 #: ../menulibre/AdvancedPage.py:53
 msgid "Generic Name"
-msgstr "Обобщённое имя"
+msgstr "Обобщённое название"
 
 #: ../menulibre/AdvancedPage.py:54
 msgid "Generic name of the application, for example \"Web Browser\"."
