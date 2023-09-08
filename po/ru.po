@@ -97,7 +97,7 @@ msgstr "Обобщённое название"
 #: ../menulibre/AdvancedPage.py:54
 msgid "Generic name of the application, for example \"Web Browser\"."
 msgstr ""
-"Ключ: \"GenericName\" (Обобщённое имя). Тип: строка.\n"
+"Ключ: \"GenericName\" (Обобщённое название). Тип: строка.\n"
 "\n"
 "Обобщённое название программы, например \"Веб-браузер\""
 
