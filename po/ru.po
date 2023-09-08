@@ -157,7 +157,7 @@ msgstr "Типы MIME"
 #: ../menulibre/AdvancedPage.py:78
 msgid "The MIME type(s) supported by this application."
 msgstr ""
-"Ключ: \"MimeType\" (Тип MIME). Тип: строка.\n"
+"Ключ: «MimeType» (Тип MIME). Тип: строка.\n"
 "\n"
 "Типы MIME, поддерживаемые этой программой"
 
