@@ -37,7 +37,7 @@ old_psutil_format = isinstance(psutil.Process.username, property)
 
 
 def enum(**enums):
-    """Add enumarations to Python."""
+    """Add enumerations to Python."""
     return type('Enum', (), enums)
 
 
