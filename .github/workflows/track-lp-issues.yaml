@@ -25,6 +25,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install launchpadlib
+      - name: Install hub
+        run: |
+          sudo apt-get update
+          sudo apt-get install hub
       - name: Mirror GitHub bugs from Launchpad
         id: getlpbugs
         run: |
