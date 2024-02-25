@@ -1,5 +1,27 @@
 MenuLibre                                                                  NEWS
 |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+25 February 2024, MenuLibre 2.4.0
+
+MenuLibre 2.4.0 features over two years of development work, now ready for
+production systems. Standout features include:
+
+- Improved desktop environment integration. MATE and Unity are now fully
+  supported. Environments that support the admin:// protocol will now open
+  files using this method instead of pkexec. Dialogs and other application
+  windows now match the design language of your DE automatically.
+- The new "Exec Editor" makes editing command arguments easier than ever,
+  allowing you to piece your launcher together without worrying about
+  escaping your arguments or knowing which short codes to use.
+- Help dialogs replace the wall-of-text tooltips that were hard to read
+  and would often obscure the application window.
+- Separators are displayed in the sidebar again, making it easier to
+  understand and modify your menu layout.
+- Numerous UX tweaks make MenuLibre easier on the eyes and easier to use.
+  Visual hints and tooltips are optimized to convey functionality and
+  feature availability. When a feature is disabled, hovering it with your
+  mouse cursor gives you a clear description of why.
+
+
 22 August 2023, MenuLibre 2.3.2
 
 - All Glade and GtkBuilder usage has been replaced with native Python and GTK

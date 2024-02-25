@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-
 #   MenuLibre - Advanced fd.o Compliant Menu Editor
-#   Copyright (C) 2012-2023 Sean Davis <sean@bluesabre.org>
+#   Copyright (C) 2012-2024 Sean Davis <sean@bluesabre.org>
 #
 #   This program is free software: you can redistribute it and/or modify it
 #   under the terms of the GNU General Public License version 3, as published
@@ -244,7 +244,7 @@ class InstallAndUpdateDataDirectory(DistUtilsExtra.auto.install_auto):
 
 DistUtilsExtra.auto.setup(
     name='menulibre',
-    version='2.3.2',
+    version='2.4.0',
     license='GPL-3',
     author='Sean Davis',
     author_email='sean@bluesabre.org',
