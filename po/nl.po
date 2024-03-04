@@ -1562,7 +1562,7 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:735
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
-"system. Please log out for you menu to update completely."
+"system. Please log out for your menu to update completely."
 msgstr ""
 "MenuLibre heeft geen methode gevonden om dit automatisch op úw systeem te "
 "doen. Meld u af en weer aan om het menu bij te werken."

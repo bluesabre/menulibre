@@ -743,7 +743,7 @@ class MenulibreWindow(Gtk.ApplicationWindow):
         primary = _("Menu restart required")
         secondary = _("However, MenuLibre cannot determine how to do this "
                       "automatically on your system. "
-                      "Please log out for you menu to update completely.")
+                      "Please log out for your menu to update completely.")
 
         dialog = Gtk.MessageDialog(
             transient_for=self.get_toplevel(),  # type: ignore

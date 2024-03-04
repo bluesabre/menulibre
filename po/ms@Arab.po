@@ -1548,7 +1548,7 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:735
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
-"system. Please log out for you menu to update completely."
+"system. Please log out for your menu to update completely."
 msgstr ""
 "والاو باݢايماناڤون⹁ MenuLibre تيدق ممڤو تنتوکن چارا اونتوق لاکوکن ڤرکارا اين"
 " سچارا اٴوتوماتيک ڤد سيستم اندا. سيلا لوݢ کلوار اݢر مينو اندا بوليه دکمس "

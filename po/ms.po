@@ -1563,7 +1563,7 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:735
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
-"system. Please log out for you menu to update completely."
+"system. Please log out for your menu to update completely."
 msgstr ""
 "Walau bagaimanapun, MenuLibre tidak mampu tentukan cara untuk lakukan "
 "perkara ini secara automatik pada sistem anda. Sila log keluar agar menu "

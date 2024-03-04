@@ -1559,7 +1559,7 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:744
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
-"system. Please log out for you menu to update completely."
+"system. Please log out for your menu to update completely."
 msgstr ""
 "Ancak MenuLibre bunu sisteminizde otomatik olarak nasıl yapacağınızı "
 "belirleyemedi. Menünüzü tamamen güncellemek için lütfen oturumu kapatın."

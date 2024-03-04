@@ -955,7 +955,7 @@ msgstr ""
 #: ../menulibre/MenulibreApplication.py:1274
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
-"system. Please log out for you menu to update completely."
+"system. Please log out for your menu to update completely."
 msgstr ""
 "Tanmateix, MenuLibre no pot determinar com fer-ho automàticament al vostre "
 "sistema. Tanqueu la sessió perquè el menú s'actualitzi completament."
