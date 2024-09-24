@@ -5,17 +5,17 @@
 # 
 # Translators:
 # Sean Davis <sean@bluesabre.org>, 2020
-# albanobattistella <albano_battistella@hotmail.com>, 2022
+# albanobattistella <albanobattistella@gmail.com>, 2024
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-09 21:59-0500\n"
+"POT-Creation-Date: 2023-09-02 08:14-0400\n"
 "PO-Revision-Date: 2020-06-10 02:27+0000\n"
-"Last-Translator: albanobattistella <albano_battistella@hotmail.com>, 2022\n"
-"Language-Team: Italian (https://www.transifex.com/bluesabreorg/teams/99550/it/)\n"
+"Last-Translator: albanobattistella <albanobattistella@gmail.com>, 2024\n"
+"Language-Team: Italian (https://app.transifex.com/bluesabreorg/teams/99550/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,446 +29,6 @@ msgstr "Editor del Menu"
 #: ../menulibre.desktop.in.h:2
 msgid "Add or remove applications from the menu"
 msgstr "Aggiungi e rimuovi applicazioni dal menù"
-
-#. Translators: This option adds a new application entry to the menu.
-#: ../data/ui/MenulibreWindow.ui.h:2
-msgid "Add _Launcher"
-msgstr "Aggiungi _Lanciatore"
-
-#. Translators: This option adds a new directory entry to the menu.
-#: ../data/ui/MenulibreWindow.ui.h:4
-msgid "Add _Directory"
-msgstr "Aggiungi _Cartella"
-
-#. Translators: This option adds a new separator entry to the menu.
-#: ../data/ui/MenulibreWindow.ui.h:6
-msgid "Add _Separator"
-msgstr "Aggiungi separatore"
-
-#. Translators: Icon popup menu item to browse available icons.
-#: ../data/ui/MenulibreWindow.ui.h:8
-msgid "Browse Icons…"
-msgstr "Sfoglia icone..."
-
-#. Translators: Icon popup menu item to browse files for an icon file.
-#: ../data/ui/MenulibreWindow.ui.h:10
-msgid "Browse Files…"
-msgstr "Sfoglia file..."
-
-#. Translators: Toolbar button to save the currently selected item.
-#: ../data/ui/MenulibreWindow.ui.h:12
-msgid "Save Launcher"
-msgstr "Salva Lanciatore"
-
-#. Translators: Toolbar button to undo last change to currently selected item.
-#. Translators: Undo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:14 ../menulibre/MenulibreApplication.py:482
-msgid "Undo"
-msgstr "Annulla l'ultima azione"
-
-#. Translators: Toolbar button to redo the last undone change to currently
-#. selected item.
-#. Translators: Redo action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:16 ../menulibre/MenulibreApplication.py:491
-msgid "Redo"
-msgstr "Ripeti"
-
-#. Translators: Toolbar button to revery the currently selected item to it
-#. Translators: Revert action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:18 ../menulibre/MenulibreApplication.py:500
-msgid "Revert"
-msgstr "Ripristina"
-
-#. Translators: Toolbar button to test the currently selected item.
-#: ../data/ui/MenulibreWindow.ui.h:20
-msgid "Test Launcher"
-msgstr "Lanciatore di prova"
-
-#. Translators: Toolbar button to delete the currently selected item.
-#. Translators: Delete action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:22 ../menulibre/MenulibreApplication.py:518
-msgid "Delete"
-msgstr "Cancella"
-
-#. Translators: Save On Close Dialog, do save, then close.
-#. Translators: Save On Leave Dialog, do save, then leave.
-#. Translators: Save Launcher action tooltip
-#: ../data/ui/MenulibreWindow.ui.h:23 ../menulibre/Dialogs.py:103
-#: ../menulibre/Dialogs.py:132 ../menulibre/MenulibreApplication.py:473
-msgid "Save"
-msgstr "Salva"
-
-#. Translators: Placeholder text for the search text entry.
-#: ../data/ui/MenulibreWindow.ui.h:25
-msgid "Search"
-msgstr "Cerca"
-
-#. Translators: This error is displayed in a notice at the top of the
-#. application when one or more desktop files fails processing.
-#: ../data/ui/MenulibreWindow.ui.h:27
-msgid "Invalid desktop files detected! Please see details."
-msgstr "Rilevati file desktop non validi! Si prega di vedere i dettagli."
-
-#: ../data/ui/MenulibreWindow.ui.h:28
-msgid "Restart menu..."
-msgstr "Riavvia il menu..."
-
-#: ../data/ui/MenulibreWindow.ui.h:29
-msgid "Your applications menu may need to be restarted."
-msgstr "Potrebbe essere necessario riavviare il menu delle applicazioni."
-
-#. Translators: Treeview toolbar button to move the currently selected item
-#. up.
-#: ../data/ui/MenulibreWindow.ui.h:31
-msgid "Move Up"
-msgstr "Sposta su"
-
-#. Translators: Treeview toolbar button to move the currently selected item
-#. down.
-#: ../data/ui/MenulibreWindow.ui.h:33
-msgid "Move Down"
-msgstr "Sposta giù"
-
-#. Translators: Treeview toolbar button to sort the currently open submenu
-#. alphabetically.
-#: ../data/ui/MenulibreWindow.ui.h:35
-msgid "Sort Alphabetically"
-msgstr "Ordina in ordine alfabetico"
-
-#. Translators: Placeholder text/hint for the application name entry.
-#: ../data/ui/MenulibreWindow.ui.h:37
-msgid "Application Name"
-msgstr "Nome Applicazione"
-
-#. Translators: Placeholder text/hint for the application comment entry.
-#. Translators: "Description" tree column header
-#: ../data/ui/MenulibreWindow.ui.h:39 ../menulibre/MenulibreApplication.py:899
-msgid "Description"
-msgstr "Descrizione"
-
-#. Translators: Tooltip for the "Exec" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:41
-msgid ""
-"Program to execute with arguments. This key is required if DBusActivatable is not set to \"True\" or if you need compatibility with implementations that do not understand D-Bus activation.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec for a list of supported arguments."
-msgstr ""
-"Programma da eseguire con argomenti. Questa chiave è necessaria se DBusActivatable non è impostato su \"True\" o se è necessaria la compatibilità con implementazioni che non comprendono l'attivazione D-Bus.\n"
-"Vedi https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#exec per un elenco di argomenti supportati."
-
-#. Translators: Treeview column for an action item
-#: ../data/ui/MenulibreWindow.ui.h:44
-msgid "Command"
-msgstr "Comando"
-
-#. Translators: Tooltip for the "Path" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:46
-msgid "The working directory."
-msgstr "Cartella di lavoro."
-
-#. Translators: "Path" text entry. The working directory of the application.
-#: ../data/ui/MenulibreWindow.ui.h:48
-msgid "Working Directory"
-msgstr "Directory di lavoro"
-
-#. Translators: Header for the commonly used application fields.
-#: ../data/ui/MenulibreWindow.ui.h:50
-msgid "Application Details"
-msgstr "Dettagli dell'applicazione"
-
-#. Translators: Tooltip for the "Terminal" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:52
-msgid "If set to \"True\", the program will be ran in a terminal window."
-msgstr "Se impostato a \"True\", il programma sarà eseguito in un terminale."
-
-#. Translators: "Terminal" on/off switch. When enabled, the application is
-#. executed in a terminal window.
-#: ../data/ui/MenulibreWindow.ui.h:54
-msgid "Run in terminal"
-msgstr "Esegui nel terminale"
-
-#. Translators: Tooltip for the "StartupNotify" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:56
-msgid ""
-"If set to \"True\", a startup notification is sent. Usually means that a "
-"busy cursor is shown while the application launches."
-msgstr ""
-"Se impostato a \"True\", viene inviata una notifica di avvio. Ciò significa "
-"di solito che è mostrato il cursore di \"occupato\" mentre l'applicazione si"
-" avvia."
-
-#. Translators: "StartupNotify" on/off switch. When enabled, a busy cursor is
-#. shown while the application launches.
-#: ../data/ui/MenulibreWindow.ui.h:58
-msgid "Use startup notification"
-msgstr "Usa la notifica all'avvio"
-
-#. Translators: Tooltip for the "NoDisplay" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:60
-msgid ""
-"If set to \"True\", this entry will not be shown in menus, but will be "
-"available for MIME type associations etc."
-msgstr ""
-"Se impostato a \"True\", questa voce non verrà mostrata nei menu, ma sarà "
-"disponibile per le associazioni dei tipi MIME etc."
-
-#. Translators: "NoDisplay" on/off switch. When enabled, the application will
-#. not be shown in menus, but will be available for MIME type associations
-#. etc.
-#: ../data/ui/MenulibreWindow.ui.h:62
-msgid "Hide from menus"
-msgstr "Nascondi dal menu"
-
-#. Translators: Header for the less common application and directory fields.
-#: ../data/ui/MenulibreWindow.ui.h:64
-msgid "Options"
-msgstr "Opzioni"
-
-#. Translators: Button to add item to list.
-#: ../data/ui/MenulibreWindow.ui.h:66
-msgid "Add"
-msgstr "Aggiungi"
-
-#. Translators: Button to remove item from list.
-#: ../data/ui/MenulibreWindow.ui.h:68
-msgid "Remove"
-msgstr "Rimuovi"
-
-#. Translators: Button to remove all items from list.
-#: ../data/ui/MenulibreWindow.ui.h:70
-msgid "Clear"
-msgstr "Pulisci"
-
-#. Translators: Treeview column for whether an action item is displayed
-#. (boolean).
-#: ../data/ui/MenulibreWindow.ui.h:72
-msgid "Show"
-msgstr "Mostra"
-
-#. Translators: Treeview column for the name of the displayed action item.
-#: ../data/ui/MenulibreWindow.ui.h:74
-msgid "Name"
-msgstr "Nome"
-
-#. Translators: Window title for the Select Icon dialog
-#: ../data/ui/MenulibreWindow.ui.h:76
-msgid "Select an icon…"
-msgstr "Seleziona un'icona…"
-
-#. Translators: Button to cancel and leave a dialog.
-#. Translators: Help Dialog, cancel button.
-#. Translators: Save On Close Dialog, don't save, cancel close.
-#. Translators: Save On Leave Dialog, don't save, cancel leave.
-#. Translators: Revert Dialog, cancel button.
-#. Translators: File Chooser Dialog, cancel button.
-#: ../data/ui/MenulibreWindow.ui.h:78 ../menulibre/Dialogs.py:66
-#: ../menulibre/Dialogs.py:101 ../menulibre/Dialogs.py:130
-#: ../menulibre/Dialogs.py:169 ../menulibre/Dialogs.py:189
-#: ../menulibre/MenulibreIconSelection.py:81
-msgid "Cancel"
-msgstr "Annulla"
-
-#. Translators: Button to accept and apply changes in a dialog.
-#: ../data/ui/MenulibreWindow.ui.h:80
-msgid "Apply"
-msgstr "Applica"
-
-#. Translators: Window title for the parsing error log dialog.
-#: ../data/ui/MenulibreWindow.ui.h:82
-msgid "Parsing Errors"
-msgstr "Errori di analisi"
-
-#. Translators: This text is displayed in the Parsing Errors dialog and
-#. provides a basic summary of the errors reported.
-#: ../data/ui/MenulibreWindow.ui.h:84
-msgid ""
-"The following desktop files have failed parsing by the underlying library, and will therefore not show up in MenuLibre.\n"
-"Please investigate these problems with the associated package maintainer."
-msgstr ""
-"I seguenti file desktop non sono stati analizzati dalla libreria sottostante e quindi non verranno visualizzati in MenuLibre.\n"
-"Si prega di indagare su questi problemi con il manutentore del pacchetto associato."
-
-#. Translators: Tooltip for the "GenericName" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:87
-msgid "Generic name of the application, for example \"Web Browser\"."
-msgstr "Nome generico dell'applicazione, ad esempio \"Browser Web\"."
-
-#. Translators: "GenericName" text entry. Generic name of the application, for
-#. example "Web Browser".
-#: ../data/ui/MenulibreWindow.ui.h:89
-msgid "Generic Name"
-msgstr "Nome generico"
-
-#. Translators: Tooltip for the "NotShowIn" text entry. Possible values
-#. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
-#. "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be
-#. translated.
-#: ../data/ui/MenulibreWindow.ui.h:91
-msgid ""
-"A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
-"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
-msgstr ""
-"La lista di ambienti che non dovrebbero mostrare questa voce. Si può usare questa opzione solo se \"OnlyShowIn\" non è impostato.\n"
-"I possibili valori includono: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
-
-#. Translators: "NotShowIn" text entry. A list of environments that should not
-#. display this entry.
-#: ../data/ui/MenulibreWindow.ui.h:94
-msgid "Not Shown In"
-msgstr "Non mostra in"
-
-#. Translators: Tooltip for the "OnlyShowIn" text entry. Possible values
-#. "Budgie", "Cinnamon", "EDE", "GNOME", "KDE", "LXDE", "LXQt", "MATE",
-#. "Pantheon", "Razor", "ROX", "TDE", "Unity", "XFCE", and "Old" should not be
-#. translated.
-#: ../data/ui/MenulibreWindow.ui.h:96
-msgid ""
-"A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if \"NotShowIn\" is not set.\n"
-"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
-msgstr ""
-"La lista di ambienti che dovrebbero mostrare questa voce. Gli altri ambienti non la mostreranno. Si può usare questa opzione solo se \"NotShowIn\" non è impostato.\n"
-"I possibili valori includono: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
-
-#. Translators: "OnlyShowIn" text entry. A list of environments that should
-#. display this entry.
-#: ../data/ui/MenulibreWindow.ui.h:99
-msgid "Only Shown In"
-msgstr "Mostra solamente in"
-
-#. Translators: Tooltip for the "TryExec" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:101
-msgid ""
-"Path to an executable file to determine if the program is installed. If the "
-"file is not present or is not executable, this entry may not be shown in a "
-"menu."
-msgstr ""
-"Percorso del file eseguibile per determinare se il programma è installato. "
-"Se il file non è presente o non è eseguibile, questa voce potrebbe non "
-"essere mostrata nei menu."
-
-#. Translators: "TryExec" text entry. Path to an executable file to determine
-#. if the program is installed.
-#: ../data/ui/MenulibreWindow.ui.h:103
-msgid "Try Exec"
-msgstr "Prova ad eseguire"
-
-#. Translators: Tooltip for the "Mimetypes" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:105
-msgid "The MIME type(s) supported by this application."
-msgstr "I tipi MIME supportati da questa applicazione."
-
-#. Translators: "Mimetype" text entry. The MIME type(s) supported by this
-#. application.
-#: ../data/ui/MenulibreWindow.ui.h:107
-msgid "Mimetypes"
-msgstr "Tipi MIME"
-
-#. Translators: Tooltip for the "Keywords" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:109
-msgid ""
-"A list of keywords to describe this entry. You can use these to help "
-"searching entries. These are not meant for display, and should not be "
-"redundant with the values of Name or GenericName."
-msgstr ""
-"Una lista di parole chiave per descrivere questa voce, che aiutano anche "
-"nella ricerca. Queste parole non verranno mostrate e non dovrebbero "
-"corrispondere ai valori di Name e GenericName"
-
-#. Translators: "Keywords" text entry. A list of keywords to describe this
-#. entry.
-#: ../data/ui/MenulibreWindow.ui.h:111
-msgid "Keywords"
-msgstr "Parole chiave"
-
-#. Translators: Tooltip for the "StartupWMClass" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:113
-msgid ""
-"If specified, the application will be requested to use the string as a WM "
-"class or a WM name hint at least in one window."
-msgstr ""
-"Se specificato, all'applicazione sarà richiesto di usare una stringa come WM"
-" class o WM name hint almeno in una finestra."
-
-#. Translators: "StartupWMClass" text entry. A window manager hint for the
-#. application
-#: ../data/ui/MenulibreWindow.ui.h:115
-msgid "Startup WM Class"
-msgstr "Startup WM Class"
-
-#. Translators: Identify Window Dialog, primary text.
-#: ../data/ui/MenulibreWindow.ui.h:116 ../menulibre/Dialogs.py:251
-msgid "Identify Window"
-msgstr "Identifica la finestra"
-
-#. Translators: Tooltip for the "Hidden" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:118
-msgid ""
-"If set to \"True\", the result for the user is equivalent to the .desktop "
-"file not existing at all."
-msgstr ""
-"Se impostato a \"True\", il risultato per l'utente è equivalente ad un file "
-".desktop non esistente."
-
-#. Translators: "Hidden" on/off switch. When enabled, the application is
-#. hidden from the menu.
-#: ../data/ui/MenulibreWindow.ui.h:120
-msgid "Hidden"
-msgstr "Nascosto"
-
-#. Translators: Tooltip for the "DBusActivatable" on/off switch.
-#: ../data/ui/MenulibreWindow.ui.h:122
-msgid ""
-"Set this key to \"True\" if D-Bus activation is supported for this application and you want to use it.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable for more information."
-msgstr ""
-"Imposta questa chiave su \"True\" se l'attivazione D-Bus è supportata per questa applicazione e desideri utilizzarla.\n"
-"Vedi https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#dbusactivatable per maggiori informazioni."
-
-#. Translators: "DBusActivatable" on/off switch. When enabled, the application
-#. is said to be activated via DBUS.
-#: ../data/ui/MenulibreWindow.ui.h:125
-msgid "DBUS Activatable"
-msgstr "DBUS Attivabile"
-
-#. Translators: Tooltip for the "Implements" text entry.
-#: ../data/ui/MenulibreWindow.ui.h:127
-msgid "A list of interfaces that this application implements."
-msgstr "Un elenco di interfacce implementate da questa applicazione."
-
-#. Translators: "Implements" text entry. A list of interfaces that this
-#. application implements.
-#: ../data/ui/MenulibreWindow.ui.h:129
-msgid "Implements"
-msgstr "Interfacce"
-
-#: ../data/ui/MenulibreWindow.ui.h:130
-msgctxt ""
-"If true, the application prefers to be run on a more powerful GPU (graphics "
-"processing unit, graphics card) if available."
-msgid ""
-"Set this key to \"True\" if this application prefers to be run on a more powerful GPU if available.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu for more information."
-msgstr ""
-"Imposta questa chiave su \"True\" se questa applicazione preferisce essere eseguita su una GPU più potente, se disponibile.\n"
-"Vedi https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#prefersnondefaultgpu per maggiori informazioni."
-
-#: ../data/ui/MenulibreWindow.ui.h:132
-msgctxt ""
-"If true, the application prefers to be run on a more powerful GPU (graphics "
-"processing unit, graphics card) if available."
-msgid "Prefers Non-Default GPU"
-msgstr "Preferisce GPU non predefinite"
-
-#: ../data/ui/MenulibreWindow.ui.h:133
-msgid ""
-"Set this key to \"True\" if this application uses notifications.\n"
-"See https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications for more information."
-msgstr ""
-"Imposta questa chiave su \"True\" se questa applicazione utilizza le notifiche.\n"
-"Vedi https://github.com/bluesabre/menulibre/wiki/Recognized-Desktop-Entry-Keys#x-gnome-usesnotifications per maggiori informazioni."
-
-#: ../data/ui/MenulibreWindow.ui.h:135
-msgid "Uses Notifications"
-msgstr "Utilizza notifiche"
 
 #. Translators: Command line option to display debug messages on stdout
 #: ../menulibre/__init__.py:34
@@ -485,23 +45,1155 @@ msgstr "Usa il layout della barra di intestazione (decorazioni lato client)"
 msgid "Use toolbar layout (server side decorations)"
 msgstr "Usa layout barra degli strumenti (decorazioni lato server)"
 
+#. Translators: "Show" tree column header
+#: ../menulibre/ActionEditor.py:56
+msgid "Show"
+msgstr "Mostra"
+
+#. Translators: "Name" tree column header
+#: ../menulibre/ActionEditor.py:64
+msgid "Name"
+msgstr "Nome"
+
+#. Translators: "Command" tree column header
+#: ../menulibre/ActionEditor.py:72 ../menulibre/ApplicationEditor.py:97
+#: ../menulibre/CommandEditor.py:608 ../menulibre/CommandEditor.py:620
+msgid "Command"
+msgstr "Comando"
+
+#: ../menulibre/ActionEditor.py:80 ../menulibre/CategoryEditor.py:507
+#: ../menulibre/CommandEditor.py:425
+msgid "Add"
+msgstr "Aggiungi"
+
+#: ../menulibre/ActionEditor.py:85 ../menulibre/CategoryEditor.py:512
+msgid "Remove"
+msgstr "Rimuovi"
+
+#: ../menulibre/ActionEditor.py:90 ../menulibre/CategoryEditor.py:517
+#: ../menulibre/CommandEditor.py:161
+msgid "Clear"
+msgstr "Pulisci"
+
+#: ../menulibre/ActionEditor.py:94 ../menulibre/MenulibreTreeview.py:123
+#: ../menulibre/MenulibreTreeview.py:124
+msgid "Move Up"
+msgstr "Sposta su"
+
+#: ../menulibre/ActionEditor.py:99 ../menulibre/MenulibreTreeview.py:131
+#: ../menulibre/MenulibreTreeview.py:132
+msgid "Move Down"
+msgstr "Sposta giù"
+
+#. Translators: Placeholder text for a newly created action
+#: ../menulibre/ActionEditor.py:302
+msgid "New Shortcut"
+msgstr "Nuova scorciatoia"
+
+#: ../menulibre/AdvancedPage.py:53
+msgid "Generic Name"
+msgstr "Nome generico"
+
+#: ../menulibre/AdvancedPage.py:54
+msgid "Generic name of the application, for example \"Web Browser\"."
+msgstr "Nome generico dell'applicazione, ad esempio \"Browser Web\"."
+
+#: ../menulibre/AdvancedPage.py:59
+msgid "Try Exec"
+msgstr "Prova ad eseguire"
+
+#: ../menulibre/AdvancedPage.py:60
+msgid ""
+"Path to an executable file to determine if the program is installed. If the "
+"file is not present or is not executable, this entry may not be shown in a "
+"menu."
+msgstr ""
+"Percorso del file eseguibile per determinare se il programma è installato. "
+"Se il file non è presente o non è eseguibile, questa voce potrebbe non "
+"essere mostrata nei menu."
+
+#: ../menulibre/AdvancedPage.py:64
+msgid "Only Show In"
+msgstr "Mostra solo in"
+
+#: ../menulibre/AdvancedPage.py:65
+msgid ""
+"A list of environments that should display this entry. Other environments will not display this entry. You can only use this key if \"NotShowIn\" is not set.\n"
+"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+msgstr ""
+"La lista di ambienti che dovrebbero mostrare questa voce. Gli altri ambienti non la mostreranno. Si può usare questa opzione solo se \"NotShowIn\" non è impostato.\n"
+"I possibili valori includono: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+
+#: ../menulibre/AdvancedPage.py:70
+msgid "Not Shown In"
+msgstr "Non mostra in"
+
+#: ../menulibre/AdvancedPage.py:72
+msgid ""
+"A list of environments that should not display this entry. You can only use this key if \"OnlyShowIn\" is not set.\n"
+"Possible values include: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+msgstr ""
+"La lista di ambienti che non dovrebbero mostrare questa voce. Si può usare questa opzione solo se \"OnlyShowIn\" non è impostato.\n"
+"I possibili valori includono: Budgie, Cinnamon, EDE, GNOME, KDE, LXDE, LXQt, MATE, Pantheon, Razor, ROX, TDE, Unity, XFCE, Old"
+
+#: ../menulibre/AdvancedPage.py:77
+msgid "Mimetypes"
+msgstr "Tipi MIME"
+
+#: ../menulibre/AdvancedPage.py:78
+msgid "The MIME type(s) supported by this application."
+msgstr "I tipi MIME supportati da questa applicazione."
+
+#: ../menulibre/AdvancedPage.py:83
+msgid "Keywords"
+msgstr "Parole chiave"
+
+#: ../menulibre/AdvancedPage.py:84
+msgid ""
+"A list of keywords to describe this entry. You can use these to help "
+"searching entries. These are not meant for display, and should not be "
+"redundant with the values of Name or GenericName."
+msgstr ""
+"Una lista di parole chiave per descrivere questa voce, che aiutano anche "
+"nella ricerca. Queste parole non verranno mostrate e non dovrebbero "
+"corrispondere ai valori di Name e GenericName"
+
+#: ../menulibre/AdvancedPage.py:89
+msgid "Startup WM Class"
+msgstr "Startup WM Class"
+
+#: ../menulibre/AdvancedPage.py:90
+msgid ""
+"If specified, the application will be requested to use the string as a WM "
+"class or a WM name hint at least in one window."
+msgstr ""
+"Se specificato, all'applicazione sarà richiesto di usare una stringa come WM"
+" class o WM name hint almeno in una finestra."
+
+#: ../menulibre/AdvancedPage.py:97
+msgid "Implements"
+msgstr "Interfacce"
+
+#: ../menulibre/AdvancedPage.py:98
+msgid "A list of interfaces that this application implements."
+msgstr "Un elenco di interfacce implementate da questa applicazione."
+
+#: ../menulibre/AdvancedPage.py:103
+msgid "Hidden"
+msgstr "Nascosto"
+
+#: ../menulibre/AdvancedPage.py:104
+msgid ""
+"If set to \"True\", the result for the user is equivalent to the .desktop "
+"file not existing at all."
+msgstr ""
+"Se impostato a \"True\", il risultato per l'utente è equivalente ad un file "
+".desktop non esistente."
+
+#: ../menulibre/AdvancedPage.py:109
+msgid "DBUS Activatable"
+msgstr "DBUS Attivabile"
+
+#: ../menulibre/AdvancedPage.py:111
+msgid ""
+"Set this key to \"True\" if D-Bus activation is supported for this "
+"application and you want to use it."
+msgstr ""
+"Imposta questa chiave su \"Vero\" se l'attivazione D-Bus è supportata per "
+"questa applicazione e desideri utilizzarla."
+
+#: ../menulibre/AdvancedPage.py:113 ../menulibre/AdvancedPage.py:122
+#: ../menulibre/AdvancedPage.py:131
+msgid "More Information"
+msgstr "Maggiori informazioni"
+
+#: ../menulibre/AdvancedPage.py:118
+msgid "Prefers Non-Default GPU"
+msgstr "Preferisce GPU non predefinita"
+
+#: ../menulibre/AdvancedPage.py:120
+msgid ""
+"Set this key to \"True\" if this application prefers to be run on a more "
+"powerful GPU if available."
+msgstr ""
+"Imposta questa chiave su \"True\" se questa applicazione preferisce essere "
+"eseguita su una GPU più potente, se disponibile."
+
+#: ../menulibre/AdvancedPage.py:127
+msgid "Uses Notifications"
+msgstr "Utilizza notifiche"
+
+#: ../menulibre/AdvancedPage.py:129
+msgid "Set this key to \"True\" if this application uses notifications."
+msgstr ""
+"Imposta questa chiave su \"True\" se questa applicazione utilizza le "
+"notifiche."
+
+#: ../menulibre/ApplicationEditor.py:76
+msgid "Add name"
+msgstr "Aggiungi nome"
+
+#: ../menulibre/ApplicationEditor.py:81
+msgid "Add comment"
+msgstr "Aggiungi commento"
+
+#. Application Details Frame
+#: ../menulibre/ApplicationEditor.py:86
+msgid "Application Details"
+msgstr "Dettagli dell'applicazione"
+
+#: ../menulibre/ApplicationEditor.py:100
+msgid ""
+"Program to execute with arguments. This key is required if DBusActivatable "
+"is not set to \"True\" or if you need compatibility with implementations "
+"that do not understand D-Bus activation."
+msgstr ""
+"Programma da eseguire con argomenti. Questa chiave è necessaria se "
+"DBusActivatable non è impostato su \"True\" o se è necessaria la "
+"compatibilità con implementazioni che non supportano l'attivazione D-Bus."
+
+#: ../menulibre/ApplicationEditor.py:101
+msgid "Supported Arguments"
+msgstr "Argomenti supportati"
+
+#: ../menulibre/ApplicationEditor.py:111
+msgid "Working Directory"
+msgstr "Directory di lavoro"
+
+#: ../menulibre/ApplicationEditor.py:113
+msgid "The working directory."
+msgstr "Cartella di lavoro."
+
+#. Options Frame
+#: ../menulibre/ApplicationEditor.py:122
+msgid "Options"
+msgstr "Opzioni"
+
+#: ../menulibre/ApplicationEditor.py:131
+msgid "Run in terminal"
+msgstr "Esegui nel terminale"
+
+#: ../menulibre/ApplicationEditor.py:133
+msgid "If set to \"True\", the program will be ran in a terminal window."
+msgstr "Se impostato a \"True\", il programma sarà eseguito in un terminale."
+
+#: ../menulibre/ApplicationEditor.py:145
+msgid "Use startup notification"
+msgstr "Usa la notifica all'avvio"
+
+#: ../menulibre/ApplicationEditor.py:147
+msgid ""
+"If set to \"True\", a startup notification is sent. Usually means that a "
+"busy cursor is shown while the application launches."
+msgstr ""
+"Se impostato a \"True\", viene inviata una notifica di avvio. Ciò significa "
+"di solito che è mostrato il cursore di \"occupato\" mentre l'applicazione si"
+" avvia."
+
+#: ../menulibre/ApplicationEditor.py:159
+msgid "Hide from menus"
+msgstr "Nascondi dal menu"
+
+#: ../menulibre/ApplicationEditor.py:161
+msgid ""
+"If set to \"True\", this entry will not be shown in menus, but will be "
+"available for MIME type associations etc."
+msgstr ""
+"Se impostato a \"True\", questa voce non verrà mostrata nei menu, ma sarà "
+"disponibile per le associazioni dei tipi MIME etc."
+
+#. Translators: "Categories"
+#. launcher section
+#: ../menulibre/ApplicationEditor.py:182
+msgid "Categories"
+msgstr "Categorie"
+
+#. Translators: "Actions" launcher
+#. section
+#: ../menulibre/ApplicationEditor.py:190
+msgid "Actions"
+msgstr "Azioni"
+
+#. Translators: "Advanced" launcher
+#. section
+#: ../menulibre/ApplicationEditor.py:198
+msgid "Advanced"
+msgstr "Avanzato"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:103
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:105
+msgid "Development"
+msgstr "Sviluppo"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:107
+msgid "Education"
+msgstr "Istruzione"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:109
+msgid "Games"
+msgstr "Giochi"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:111
+msgid "Graphics"
+msgstr "Grafica"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:113
+msgid "Internet"
+msgstr "Internet e Reti"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:115
+msgid "Office"
+msgstr "Ufficio"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:117
+msgid "Settings"
+msgstr "Impostazioni"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:119
+msgid "System"
+msgstr "Sistema"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:121
+msgid "Accessories"
+msgstr "Accessori"
+
+#. Translators: Launcher section description
+#: ../menulibre/CategoryEditor.py:123
+msgid "WINE"
+msgstr "Wine"
+
+#. Translators: Launcher section description
+#. Translators: "Other" category group. This item is only displayed for
+#. unknown or non-standard categories.
+#: ../menulibre/CategoryEditor.py:125 ../menulibre/CategoryEditor.py:441
+msgid "Other"
+msgstr "Altro"
+
+#. Translators: Launcher category in the Utility section
+#. Translators: Launcher category in the Settings section
+#: ../menulibre/CategoryEditor.py:128 ../menulibre/CategoryEditor.py:352
+msgid "Accessibility"
+msgstr "Accessibilità"
+
+#. Translators: Launcher category in the Utility section
+#: ../menulibre/CategoryEditor.py:130
+msgid "Archiving"
+msgstr "Archiviazione"
+
+#. Translators: Launcher category in the Utility section
+#: ../menulibre/CategoryEditor.py:132
+msgid "Calculator"
+msgstr "Calcolatrice"
+
+#. Translators: Launcher category in the Utility section
+#: ../menulibre/CategoryEditor.py:134
+msgid "Clock"
+msgstr "Orologio"
+
+#. Translators: Launcher category in the Utility section
+#: ../menulibre/CategoryEditor.py:136
+msgid "Compression"
+msgstr "Compressione"
+
+#. Translators: Launcher category in the Utility section
+#. Translators: Launcher category in the System section
+#: ../menulibre/CategoryEditor.py:138 ../menulibre/CategoryEditor.py:371
+msgid "File Tools"
+msgstr "Strumenti file"
+
+#. Translators: Launcher category in the Utility section
+#: ../menulibre/CategoryEditor.py:140
+msgid "Text Editor"
+msgstr "Editor di testo"
+
+#. Translators: Launcher category in the Utility section
+#: ../menulibre/CategoryEditor.py:142
+msgid "Text Tools"
+msgstr "Strumenti di testo"
+
+#. Translators: Launcher category in the Development section
+#: ../menulibre/CategoryEditor.py:145
+msgid "Building"
+msgstr "Costruzione"
+
+#. Translators: Launcher category in the Development section
+#: ../menulibre/CategoryEditor.py:147
+msgid "Debugger"
+msgstr "Debugger"
+
+#. Translators: Launcher category in the Development section
+#: ../menulibre/CategoryEditor.py:149
+msgid "IDE"
+msgstr "IDE"
+
+#. Translators: Launcher category in the Development section
+#: ../menulibre/CategoryEditor.py:151
+msgid "GUI Designer"
+msgstr "Progettista della GUI"
+
+#. Translators: Launcher category in the Development section
+#: ../menulibre/CategoryEditor.py:153
+msgid "Profiling"
+msgstr "Profilazione"
+
+#. Translators: Launcher category in the Development section
+#: ../menulibre/CategoryEditor.py:155
+msgid "Revision Control"
+msgstr "Controllo di revisione"
+
+#. Translators: Launcher category in the Development section
+#: ../menulibre/CategoryEditor.py:157
+msgid "Translation"
+msgstr "Traduzione"
+
+#. Translators: Launcher category in the Development section
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:159 ../menulibre/CategoryEditor.py:295
+msgid "Web Development"
+msgstr "Sviluppo web"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:162
+msgid "Art"
+msgstr "Arte"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:164
+msgid "Artificial Intelligence"
+msgstr "Intelligenza artificiale"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:166
+msgid "Astronomy"
+msgstr "Astronomia"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:168
+msgid "Biology"
+msgstr "Biologia"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:170
+msgid "Chemistry"
+msgstr "Chimica"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:172
+msgid "Computer Science"
+msgstr "Informatica"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:174
+msgid "Construction"
+msgstr "Costruzione"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:176
+msgid "Data Visualization"
+msgstr "Visualizzazione dati"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:178
+msgid "Economy"
+msgstr "Economia"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:180
+msgid "Electricity"
+msgstr "Elettricità"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:182
+msgid "Geography"
+msgstr "Geografia"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:184
+msgid "Geology"
+msgstr "Geologia"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:186
+msgid "Geoscience"
+msgstr "Geoscienza"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:188
+msgid "History"
+msgstr "Storia"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:190
+msgid "Humanities"
+msgstr "Scienze Umane"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:192
+msgid "Image Processing"
+msgstr "Elaborazione di immagini"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:194
+msgid "Languages"
+msgstr "Lingue"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:196
+msgid "Literature"
+msgstr "Letteratura"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:198
+msgid "Maps"
+msgstr "Mappe"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:200
+msgid "Math"
+msgstr "Matematica"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:202
+msgid "Medical Software"
+msgstr "Software medico"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:204
+msgid "Music"
+msgstr "Musica"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:206
+msgid "Numerical Analysis"
+msgstr "Analisi numerica"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:208
+msgid "Parallel Computing"
+msgstr "Calcolo parallelo"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:210
+msgid "Physics"
+msgstr "Fisica"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:212
+msgid "Robotics"
+msgstr "Robotica"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:214
+msgid "Spirituality"
+msgstr "Spiritualità"
+
+#. Translators: Launcher category in the Education section
+#: ../menulibre/CategoryEditor.py:216
+msgid "Sports"
+msgstr "Sport"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:219
+msgid "Action Game"
+msgstr "Gioco d'azione"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:221
+msgid "Adventure Game"
+msgstr "Gioco di avventura"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:223
+msgid "Arcade Game"
+msgstr "Giochi arcade"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:225
+msgid "Board Game"
+msgstr "Gioco da tavolo"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:227
+msgid "Blocks Game"
+msgstr "Gioco a blocchi"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:229
+msgid "Card Game"
+msgstr "Gioco di carte"
+
+#. Translators: Launcher category in the Game section
+#. Translators: Launcher category in the System section
+#: ../menulibre/CategoryEditor.py:231 ../menulibre/CategoryEditor.py:365
+msgid "Emulator"
+msgstr "Emulatore"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:233
+msgid "Kids Game"
+msgstr "Giochi per bambini"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:235
+msgid "Logic Game"
+msgstr "Gioco di logica"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:237
+msgid "Role Playing"
+msgstr "Giochi di ruolo"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:239
+msgid "Shooter"
+msgstr "Sparatutto"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:241
+msgid "Simulation"
+msgstr "Simulazione"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:243
+msgid "Sports Game"
+msgstr "Gioco Di Sport"
+
+#. Translators: Launcher category in the Game section
+#: ../menulibre/CategoryEditor.py:245
+msgid "Strategy Game"
+msgstr "Gioco di strategia"
+
+#. Translators: Launcher category in the Graphics section
+#: ../menulibre/CategoryEditor.py:248
+msgid "2D Graphics"
+msgstr "Grafica 2D"
+
+#. Translators: Launcher category in the Graphics section
+#: ../menulibre/CategoryEditor.py:250
+msgid "3D Graphics"
+msgstr "Grafica 3D"
+
+#. Translators: Launcher category in the Graphics section
+#: ../menulibre/CategoryEditor.py:252
+msgid "OCR"
+msgstr "OCR"
+
+#. Translators: Launcher category in the Graphics section
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:254 ../menulibre/CategoryEditor.py:339
+msgid "Photography"
+msgstr "Fotografia"
+
+#. Translators: Launcher category in the Graphics section
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:256 ../menulibre/CategoryEditor.py:345
+msgid "Publishing"
+msgstr "Editoria"
+
+#. Translators: Launcher category in the Graphics section
+#: ../menulibre/CategoryEditor.py:258
+msgid "Raster Graphics"
+msgstr "Grafica raster"
+
+#. Translators: Launcher category in the Graphics section
+#: ../menulibre/CategoryEditor.py:260
+msgid "Scanning"
+msgstr "Scansione"
+
+#. Translators: Launcher category in the Graphics section
+#: ../menulibre/CategoryEditor.py:262
+msgid "Vector Graphics"
+msgstr "Grafica vettoriale"
+
+#. Translators: Launcher category in the Graphics section
+#: ../menulibre/CategoryEditor.py:264
+msgid "Viewer"
+msgstr "Visualizzatore"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:267
+msgid "Chat"
+msgstr "Chat"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:269
+msgid "Dialup"
+msgstr "Connessione "
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:271
+msgid "Feed"
+msgstr "Feed"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:273
+msgid "File Transfer"
+msgstr "Trasferimento file"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:275
+msgid "Ham Radio"
+msgstr "Radioamatori"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:277
+msgid "Instant Messaging"
+msgstr "Messaggistica istantanea"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:279
+msgid "IRC Client"
+msgstr "Client IRC"
+
+#. Translators: Launcher category in the Network section
+#. Translators: Launcher category in the System section
+#: ../menulibre/CategoryEditor.py:281 ../menulibre/CategoryEditor.py:373
+msgid "Monitor"
+msgstr "Monitor"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:283
+msgid "News"
+msgstr "Notizie"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:285
+msgid "P2P"
+msgstr "P2P"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:287
+msgid "Remote Access"
+msgstr "Accesso remoto"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:289
+msgid "Telephony"
+msgstr "Telefonia"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:291
+msgid "Telephony Tools"
+msgstr "Strumenti per la telefonia"
+
+#. Translators: Launcher category in the Network section
+#: ../menulibre/CategoryEditor.py:293
+msgid "Web Browser"
+msgstr "Browser web"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:298
+msgid "Audio"
+msgstr "Audio"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:300
+msgid "Audio Video Editing"
+msgstr "Montaggio audiovideo"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:302
+msgid "Disc Burning"
+msgstr "Masterizzazione di dischi"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:304
+msgid "Midi"
+msgstr "Midi"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:306
+msgid "Mixer"
+msgstr "Mixer"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:308
+msgid "Player"
+msgstr "Video player"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:310
+msgid "Recorder"
+msgstr "Registratore"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:312
+msgid "Sequencer"
+msgstr "Sequenziatore"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:314
+msgid "Tuner"
+msgstr "Sintonizzatore"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:316
+msgid "TV"
+msgstr "TV"
+
+#. Translators: Launcher category in the AudioVideo section
+#: ../menulibre/CategoryEditor.py:318
+msgid "Video"
+msgstr "Video"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:321
+msgid "Calendar"
+msgstr "Calendario"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:323
+msgid "Contact Management"
+msgstr "Gestione dei contatti"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:325
+msgid "Database"
+msgstr "Database"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:327
+msgid "Dictionary"
+msgstr "Vocabolario"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:329
+msgid "Chart"
+msgstr "Grafico"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:331
+msgid "Email"
+msgstr "Email"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:333
+msgid "Finance"
+msgstr "Finanza"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:335
+msgid "Flow Chart"
+msgstr "Diagramma di flusso"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:337
+msgid "PDA"
+msgstr "PDA"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:341
+msgid "Project Management"
+msgstr "Gestione del progetto"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:343
+msgid "Presentation"
+msgstr "Presentazione"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:347
+msgid "Spreadsheet"
+msgstr "Foglio di calcolo"
+
+#. Translators: Launcher category in the Office section
+#: ../menulibre/CategoryEditor.py:349
+msgid "Word Processor"
+msgstr "Elaboratore di testo"
+
+#. Translators: Launcher category in the Settings section
+#: ../menulibre/CategoryEditor.py:354
+msgid "Desktop Settings"
+msgstr "Impostazioni del desktop"
+
+#. Translators: Launcher category in the Settings section
+#: ../menulibre/CategoryEditor.py:356
+msgid "Hardware Settings"
+msgstr "Impostazioni hardware"
+
+#. Translators: Launcher category in the Settings section
+#: ../menulibre/CategoryEditor.py:358
+msgid "Package Manager"
+msgstr "Gestore dei pacchetti"
+
+#. Translators: Launcher category in the Settings section
+#: ../menulibre/CategoryEditor.py:360
+msgid "Printing"
+msgstr "Stampante"
+
+#. Translators: Launcher category in the Settings section
+#. Translators: Launcher category in the System section
+#: ../menulibre/CategoryEditor.py:362 ../menulibre/CategoryEditor.py:375
+msgid "Security"
+msgstr "Sicurezza"
+
+#. Translators: Launcher category in the System section
+#: ../menulibre/CategoryEditor.py:367
+msgid "File Manager"
+msgstr "File Manager"
+
+#. Translators: Launcher category in the System section
+#: ../menulibre/CategoryEditor.py:369
+msgid "Filesystem"
+msgstr "Filesystem"
+
+#. Translators: Launcher category in the System section
+#: ../menulibre/CategoryEditor.py:377
+msgid "Terminal Emulator"
+msgstr "Emulatore di terminale"
+
+#. Translators: Vendor-neutral launcher category
+#: ../menulibre/CategoryEditor.py:380
+msgid "Network Settings"
+msgstr "Impostazioni di rete"
+
+#. Translators: Vendor-neutral launcher category
+#: ../menulibre/CategoryEditor.py:382
+msgid "Personal Settings"
+msgstr "Impostazioni personali"
+
+#. Translators: Vendor-neutral launcher category
+#: ../menulibre/CategoryEditor.py:384
+msgid "Panel Settings"
+msgstr "Impostazioni del pannello"
+
+#. Translators: Vendor-neutral launcher category
+#: ../menulibre/CategoryEditor.py:386
+msgid "Settings Dialog"
+msgstr "Finestra di dialogo Impostazioni"
+
+#. Translators: Vendor-neutral launcher category
+#: ../menulibre/CategoryEditor.py:388
+msgid "System Settings"
+msgstr "Impostazioni di sistema"
+
+#. Translators: Vendor-neutral launcher category
+#: ../menulibre/CategoryEditor.py:390
+msgid "Toplevel"
+msgstr "Livello superiore"
+
+#. Translators: Vendor-neutral launcher category
+#: ../menulibre/CategoryEditor.py:392
+msgid "Utilities"
+msgstr "Utilità"
+
+#. Translators: Launcher category specific to a desktop environment
+#: ../menulibre/CategoryEditor.py:395
+msgid "GNOME"
+msgstr "GNOME"
+
+#. Translators: Launcher category specific to a desktop environment
+#: ../menulibre/CategoryEditor.py:397
+msgid "GTK"
+msgstr "GTK"
+
+#. Translators: Launcher category specific to a desktop environment
+#: ../menulibre/CategoryEditor.py:399
+msgid "Xfce"
+msgstr "Xfce"
+
+#. Translators: Translated key (original key)
+#: ../menulibre/CategoryEditor.py:415
+#, python-format
+msgid "%s (%s)"
+msgstr "%s (%s)"
+
+#. Translators: Placeholder text for the launcher-specific category
+#. selection.
+#: ../menulibre/CategoryEditor.py:489
+msgid "Select a category"
+msgstr "Seleziona una categoria"
+
+#. Translators: "Category Name" tree column header
+#: ../menulibre/CategoryEditor.py:493
+msgid "Category Name"
+msgstr "Nome Categoria"
+
+#. Translators: "Section" tree column header
+#: ../menulibre/CategoryEditor.py:499
+msgid "Section"
+msgstr "Sezione"
+
+#: ../menulibre/CommandEditor.py:31
+msgid "Command Editor"
+msgstr "Comando dell' Editor"
+
+#. Translators: Help Dialog, cancel button.
+#. Translators: Save On Close Dialog, don't save, cancel close.
+#. Translators: Save On Leave Dialog, don't save, cancel leave.
+#. Translators: Revert Dialog, cancel button.
+#. Translators: File Chooser Dialog, cancel button.
+#: ../menulibre/CommandEditor.py:34 ../menulibre/Dialogs.py:73
+#: ../menulibre/Dialogs.py:111 ../menulibre/Dialogs.py:140
+#: ../menulibre/Dialogs.py:179 ../menulibre/IconEntry.py:165
+#: ../menulibre/IconEntry.py:185 ../menulibre/PathEntry.py:78
+msgid "Cancel"
+msgstr "Annulla"
+
+#: ../menulibre/CommandEditor.py:35 ../menulibre/IconEntry.py:166
+#: ../menulibre/IconEntry.py:186
+msgid "Apply"
+msgstr "Applica"
+
+#. Translators: Help action tooltip
+#: ../menulibre/CommandEditor.py:89 ../menulibre/MenulibreApplication.py:435
+#: ../menulibre/MenulibreApplication.py:1673
+msgid "Help"
+msgstr "Aiuto"
+
+#. Translators: Revert action tooltip
+#: ../menulibre/CommandEditor.py:155 ../menulibre/MenulibreApplication.py:323
+#: ../menulibre/MenulibreApplication.py:399
+#: ../menulibre/MenulibreApplication.py:537
+msgid "Revert"
+msgstr "Ripristina"
+
+#: ../menulibre/CommandEditor.py:297
+msgid "A single command line may only contain one of %f, %u, %F, or %U"
+msgstr ""
+"Una singola riga di comando può contenere solo uno tra  %f, %u, %F, o %U"
+
+#: ../menulibre/CommandEditor.py:302
+#, python-format
+msgid "Field code '%s' can not be used inside a quoted argument"
+msgstr ""
+"Il campo del codice '%s' non può essere utilizzato all'interno di un "
+"argomento tra virgolette"
+
+#: ../menulibre/CommandEditor.py:306
+#, python-format
+msgid "Field code '%s' has been deprecated"
+msgstr "Il codice campo '%s' è stato deprecato"
+
+#: ../menulibre/CommandEditor.py:323 ../menulibre/CommandEditor.py:362
+msgid "No command found"
+msgstr "Nessun comando trovato"
+
+#: ../menulibre/CommandEditor.py:346
+msgid "Environment variables should be preceded by env"
+msgstr "Le variabili d'ambiente dovrebbero essere precedute da env"
+
+#: ../menulibre/CommandEditor.py:349
+msgid "Environment variables should precede the command"
+msgstr "Le variabili d'ambiente dovrebbero precedere il comando"
+
+#: ../menulibre/CommandEditor.py:365
+#, python-format
+msgid "File '%s' not found"
+msgstr "File '%s' non trovato"
+
+#: ../menulibre/CommandEditor.py:368
+#, python-format
+msgid "Command '%s' not found"
+msgstr "Comando %s' non trovato"
+
+#: ../menulibre/CommandEditor.py:389
+msgid "No environment variable errors"
+msgstr "Nessun errore relativo alle variabili di ambiente"
+
+#: ../menulibre/CommandEditor.py:394
+msgid "No command errors"
+msgstr "Nessun errore di comando"
+
+#: ../menulibre/CommandEditor.py:399
+msgid "No invalid field codes"
+msgstr "Gioco di avventura"
+
+#: ../menulibre/CommandEditor.py:443
+msgid "File"
+msgstr "File"
+
+#: ../menulibre/CommandEditor.py:444
+msgid "A single file or directory."
+msgstr "Un singolo file o directory."
+
+#: ../menulibre/CommandEditor.py:446
+msgid "A list of files or directories."
+msgstr "Un elenco di file o directory."
+
+#: ../menulibre/CommandEditor.py:450
+msgid "URL"
+msgstr "URL"
+
+#: ../menulibre/CommandEditor.py:451
+msgid "A single URL."
+msgstr "Un unico URL."
+
+#: ../menulibre/CommandEditor.py:452
+msgid "A list of URLs."
+msgstr "Un elenco di URL."
+
+#: ../menulibre/CommandEditor.py:456
+msgid "Extra"
+msgstr "Extra"
+
+#: ../menulibre/CommandEditor.py:458
+msgid "The <tt>Icon</tt> key of this launcher."
+msgstr "L' <tt>Icona</tt> chiave di questo lanciatore."
+
+#: ../menulibre/CommandEditor.py:461
+msgid "The translated <tt>Name</tt> key of this launcher."
+msgstr "La chiave del <tt>nome</tt> tradotta di questo lanciatore."
+
+#: ../menulibre/CommandEditor.py:464
+msgid "The file path of this launcher."
+msgstr "Il percorso del file di questo lanciatore."
+
+#: ../menulibre/CommandEditor.py:490
+msgid "Environment variable"
+msgstr "Variabile d'ambiente"
+
+#: ../menulibre/CommandEditor.py:502
+msgid "Variable"
+msgstr "Variabile"
+
+#: ../menulibre/CommandEditor.py:511
+msgid "Value"
+msgstr "Valore"
+
+#: ../menulibre/CommandEditor.py:558
+msgid "Spaces not permitted in environment variables"
+msgstr "Spazi non consentiti nelle variabili di ambiente"
+
+#: ../menulibre/CommandEditor.py:634
+msgid "Select an executable"
+msgstr "Seleziona un eseguibile"
+
+#. type: ignore
+#: ../menulibre/CommandEditor.py:688
+msgid "Select an application"
+msgstr "Seleziona un' applicazione"
+
 #. Translators: About Dialog, window title.
-#: ../menulibre/Dialogs.py:38
+#: ../menulibre/Dialogs.py:37
 msgid "About MenuLibre"
 msgstr "A proposito di MenuLibre"
 
 #. Translators: Help Dialog, window title.
-#: ../menulibre/Dialogs.py:58
+#: ../menulibre/Dialogs.py:65
 msgid "Online Documentation"
 msgstr "Documentazione online"
 
 #. Translators: Help Dialog, primary text.
-#: ../menulibre/Dialogs.py:60
+#: ../menulibre/Dialogs.py:67
 msgid "Do you want to read the MenuLibre manual online?"
 msgstr "Vuoi leggere il manuale di MenuLibre online?"
 
 #. Translators: Help Dialog, secondary text.
-#: ../menulibre/Dialogs.py:62
+#: ../menulibre/Dialogs.py:69
 msgid ""
 "You will be redirected to the documentation website where the help pages are"
 " maintained."
@@ -511,69 +1203,73 @@ msgstr ""
 
 #. Translators: Help Dialog, confirmation button. Navigates to
 #. online documentation.
-#: ../menulibre/Dialogs.py:69
+#: ../menulibre/Dialogs.py:76
 msgid "Read Online"
 msgstr "Lettura online"
 
 #. Translators: Save On Close Dialog, window title.
 #. Translators: Save On Leave Dialog, window title.
-#: ../menulibre/Dialogs.py:91 ../menulibre/Dialogs.py:119
+#: ../menulibre/Dialogs.py:101 ../menulibre/Dialogs.py:129
 msgid "Save Changes"
 msgstr "Salva modifiche"
 
 #. Translators: Save On Close Dialog, primary text.
-#: ../menulibre/Dialogs.py:93
+#: ../menulibre/Dialogs.py:103
 msgid "Do you want to save the changes before closing?"
 msgstr "Vuoi salvare i cambiamenti prima di chiudere?"
 
 #. Translators: Save On Close Dialog, secondary text.
 #. Translators: Save On Leave Dialog, primary text.
-#: ../menulibre/Dialogs.py:95 ../menulibre/Dialogs.py:124
+#: ../menulibre/Dialogs.py:105 ../menulibre/Dialogs.py:134
 msgid "If you don't save the launcher, all the changes will be lost."
 msgstr "Se non salvi il lanciatore tutti i cambiamenti saranno persi."
 
 #. Translators: Save On Close Dialog, don't save, then close.
 #. Translators: Save On Leave Dialog, don't save, then leave.
-#: ../menulibre/Dialogs.py:99 ../menulibre/Dialogs.py:128
+#: ../menulibre/Dialogs.py:109 ../menulibre/Dialogs.py:138
 msgid "Don't Save"
 msgstr "Non salvare"
 
+#. Translators: Save On Close Dialog, do save, then close.
+#. Translators: Save On Leave Dialog, do save, then leave.
+#. Translators: Save Launcher action tooltip
+#: ../menulibre/Dialogs.py:113 ../menulibre/Dialogs.py:142
+#: ../menulibre/MenulibreApplication.py:372
+#: ../menulibre/MenulibreApplication.py:528
+msgid "Save"
+msgstr "Salva"
+
 #. Translators: Save On Leave Dialog, primary text.
-#: ../menulibre/Dialogs.py:121
+#: ../menulibre/Dialogs.py:131
 msgid "Do you want to save the changes before leaving this launcher?"
 msgstr "Vuoi salvare le modifiche prima di abbandonare questo lanciatore?"
 
 #. Translations: Delete Dialog, secondary text. Notifies user that
 #. the file cannot be restored once deleted.
-#: ../menulibre/Dialogs.py:149
+#: ../menulibre/Dialogs.py:159
 msgid "This cannot be undone."
 msgstr "Questa azione non può essere annullata."
 
 #. Translators: Revert Dialog, window title.
 #. Translators: Revert Dialog, confirmation button.
-#: ../menulibre/Dialogs.py:160 ../menulibre/Dialogs.py:171
+#: ../menulibre/Dialogs.py:170 ../menulibre/Dialogs.py:181
 msgid "Restore Launcher"
 msgstr "Ripristina il lanciatore"
 
 #. Translators: Revert Dialog, primary text. Confirmation to revert
 #. all changes since the last file save.
-#: ../menulibre/Dialogs.py:163
+#: ../menulibre/Dialogs.py:173
 msgid "Are you sure you want to restore this launcher?"
 msgstr "Sei sicuro di voler ripristinare questo lanciatore?"
 
 #. Translators: Revert Dialog, secondary text.
-#: ../menulibre/Dialogs.py:165
+#: ../menulibre/Dialogs.py:175
 msgid ""
 "All changes since the last saved state will be lost and cannot be restored "
 "automatically."
 msgstr ""
 "Tutte le modifiche dall'ultimo stato salvato saranno perse e non potranno "
 "essere ripristinate automaticamente."
-
-#. Translators: File Chooser Dialog, confirmation button.
-#: ../menulibre/Dialogs.py:191 ../menulibre/MenulibreIconSelection.py:82
-msgid "OK"
-msgstr "OK"
 
 #. Translators: Launcher Removed Dialog, primary text. Indicates that
 #. the selected application is no longer installed.
@@ -608,159 +1304,70 @@ msgstr "Impossibile salvare \"%s\"."
 msgid "Do you have write permission to the file and directory?"
 msgstr "Hai i permessi di scrittura per il file e la directory?"
 
-#. Translators: Identify Window Dialog, secondary text. The selected
-#. application is displayed in the placeholder text.
-#: ../menulibre/Dialogs.py:254
+#: ../menulibre/FilenameLabel.py:48
+msgid "Copy"
+msgstr "Copia"
+
+#: ../menulibre/IconEntry.py:39
+msgid "Browse Icons…"
+msgstr "Sfoglia icone..."
+
+#: ../menulibre/IconEntry.py:43
+msgid "Browse Files…"
+msgstr "Sfoglia file..."
+
+#: ../menulibre/IconEntry.py:128
 #, python-format
-msgid "Click on the main application window for '%s'."
-msgstr "Fare clic sulla finestra principale dell'applicazione per '%s'."
+msgid "<i>Missing icon:</i> %s"
+msgstr "<i>Icona mancante:</i> %s"
+
+#: ../menulibre/IconEntry.py:161
+msgid "Select an image"
+msgstr "Seleziona un' immagine"
+
+#. Translators: "Images" file chooser dialog filter
+#: ../menulibre/IconEntry.py:171
+msgid "Images"
+msgstr "Immagini"
+
+#: ../menulibre/IconEntry.py:182
+msgid "Select an icon"
+msgstr "Seleziona un' icona"
 
 #. Translators: Separator menu item
-#: ../menulibre/MenuEditor.py:117 ../menulibre/MenulibreApplication.py:1331
-#: ../menulibre/MenulibreApplication.py:1889
+#: ../menulibre/MenuEditor.py:130 ../menulibre/MenuEditor.py:133
+#: ../menulibre/MenulibreApplication.py:804
+#: ../menulibre/MenulibreApplication.py:1113
+#: ../menulibre/MenulibreApplication.py:1116
 msgid "Separator"
 msgstr "Separatore"
 
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:52
-msgid "Multimedia"
-msgstr "Multimedia"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:54
-msgid "Development"
-msgstr "Sviluppo"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:56
-msgid "Education"
-msgstr "Istruzione"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:58
-msgid "Games"
-msgstr "Giochi"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:60
-msgid "Graphics"
-msgstr "Grafica"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:62
-msgid "Internet"
-msgstr "Internet e Reti"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:64
-msgid "Office"
-msgstr "Ufficio"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:66
-msgid "Settings"
-msgstr "Impostazioni"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:68
-msgid "System"
-msgstr "Sistema"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:70
-msgid "Accessories"
-msgstr "Accessori"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:72
-msgid "WINE"
-msgstr "Wine"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:74
-msgid "Desktop configuration"
-msgstr "Configurazione del desktop"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:76
-msgid "User configuration"
-msgstr "Configurazione dell'utenza"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:78
-msgid "Hardware configuration"
-msgstr "Configurazione hardware"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:80
-msgid "GNOME application"
-msgstr "GNOME applicazione"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:82
-msgid "GTK+ application"
-msgstr "GTK+ applicazione"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:84
-msgid "GNOME user configuration"
-msgstr "Configurazione utente GNOME"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:86
-msgid "GNOME hardware configuration"
-msgstr "Configurazione hardware GNOME"
-
-#. Translators: Launcher category description
 #: ../menulibre/MenulibreApplication.py:88
-#: ../menulibre/MenulibreApplication.py:90
-msgid "GNOME system configuration"
-msgstr "Configurazione sistema GNOME"
+msgid "Search"
+msgstr "Cerca"
 
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:92
-#: ../menulibre/MenulibreApplication.py:94
-msgid "Xfce menu item"
-msgstr "Elemento di menu Xfce"
+#: ../menulibre/MenulibreApplication.py:161
+msgid "Add _Launcher"
+msgstr "Aggiungi _Lanciatore"
 
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:96
-msgid "Xfce toplevel menu item"
-msgstr "Elemento principale di menu Xfce"
+#: ../menulibre/MenulibreApplication.py:162
+msgid "Add _Directory"
+msgstr "Aggiungi _Cartella"
 
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:98
-msgid "Xfce user configuration"
-msgstr "Configurazione utente Xfce"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:100
-msgid "Xfce hardware configuration"
-msgstr "Configurazione hardware Xfce"
-
-#. Translators: Launcher category description
-#: ../menulibre/MenulibreApplication.py:102
-#: ../menulibre/MenulibreApplication.py:104
-msgid "Xfce system configuration"
-msgstr "Configurazione sistema Xfce"
-
-#. Translators: "Other" category group. This item is only displayed for
-#. unknown or non-standard categories.
-#: ../menulibre/MenulibreApplication.py:157
-#: ../menulibre/MenulibreApplication.py:212
-msgid "Other"
-msgstr "Altro"
+#: ../menulibre/MenulibreApplication.py:163
+msgid "Add _Separator"
+msgstr "Aggiungi separatore"
 
 #. Translators: This error is displayed when the application is run
 #. as a root user. The application exits once the dialog is
 #. dismissed.
-#: ../menulibre/MenulibreApplication.py:275
+#: ../menulibre/MenulibreApplication.py:176
 msgid "MenuLibre cannot be run as root."
 msgstr "MenuLibre non può essere eseguito come root"
 
 #. Translators: This link goes to the online documentation with more
 #. information.
-#: ../menulibre/MenulibreApplication.py:281
+#: ../menulibre/MenulibreApplication.py:182
 #, python-format
 msgid ""
 "Please see the <a href='%s'>online documentation</a> for more information."
@@ -768,13 +1375,13 @@ msgstr ""
 "Controlla la  <a href='%s'>documentazione online</a> per maggiori "
 "informazioni."
 
-#: ../menulibre/MenulibreApplication.py:292
+#: ../menulibre/MenulibreApplication.py:196
 msgid "MenuLibre failed to load."
 msgstr "Impossibile caricare MenuLibre."
 
 #. Translators: This link goes to the online documentation with more
 #. information.
-#: ../menulibre/MenulibreApplication.py:298
+#: ../menulibre/MenulibreApplication.py:202
 #, python-format
 msgid ""
 "The default menu could not be found. Please see the <a href='%s'>online "
@@ -783,165 +1390,164 @@ msgstr ""
 "Impossibile trovare il menu predefinito. Si prega di vedere la <a "
 "href='%s'>documentazione online</a> per maggiori informazioni."
 
-#: ../menulibre/MenulibreApplication.py:302
+#: ../menulibre/MenulibreApplication.py:206
 msgid "Diagnostics"
 msgstr "Diagnostica"
 
+#: ../menulibre/MenulibreApplication.py:313
+#: ../menulibre/MenulibreApplication.py:524
+msgid "Add..."
+msgstr "Aggiungi..."
+
+#: ../menulibre/MenulibreApplication.py:315
+msgid "Save Launcher"
+msgstr "Salva Lanciatore"
+
+#. Translators: Undo action tooltip
+#: ../menulibre/MenulibreApplication.py:318
+#: ../menulibre/MenulibreApplication.py:381
+#: ../menulibre/MenulibreApplication.py:532
+msgid "Undo"
+msgstr "Annulla l'ultima azione"
+
+#. Translators: Redo action tooltip
+#: ../menulibre/MenulibreApplication.py:319
+#: ../menulibre/MenulibreApplication.py:390
+#: ../menulibre/MenulibreApplication.py:533
+msgid "Redo"
+msgstr "Ripeti"
+
+#: ../menulibre/MenulibreApplication.py:325
+#: ../menulibre/MenulibreApplication.py:542
+msgid "Test Launcher"
+msgstr "Lanciatore di prova"
+
+#: ../menulibre/MenulibreApplication.py:327
+#: ../menulibre/MenulibreApplication.py:546
+#: ../menulibre/MenulibreApplication.py:941
+#: ../menulibre/MenulibreApplication.py:953
+msgid "Delete..."
+msgstr "Elimina..."
+
 #. Translators: Add Launcher action label
-#: ../menulibre/MenulibreApplication.py:444
+#: ../menulibre/MenulibreApplication.py:343
 msgid "Add _Launcher…"
 msgstr "Aggiungi _avviatore..."
 
 #. Translators: Add Launcher action tooltip
-#: ../menulibre/MenulibreApplication.py:446
+#: ../menulibre/MenulibreApplication.py:345
 msgid "Add Launcher…"
 msgstr "Aggiungi avviatore..."
 
 #. Translators: Add Directory action label
-#: ../menulibre/MenulibreApplication.py:453
+#: ../menulibre/MenulibreApplication.py:352
 msgid "Add _Directory…"
 msgstr "Aggiungi _Directory..."
 
 #. Translators: Add Directory action tooltip
-#: ../menulibre/MenulibreApplication.py:455
+#: ../menulibre/MenulibreApplication.py:354
 msgid "Add Directory…"
 msgstr "Aggiungi Directory..."
 
 #. Translators: Add Separator action label
-#: ../menulibre/MenulibreApplication.py:462
+#: ../menulibre/MenulibreApplication.py:361
 msgid "_Add Separator…"
 msgstr "_Aggiungi separatore..."
 
 #. Translators: Add Separator action tooltip
-#: ../menulibre/MenulibreApplication.py:464
+#: ../menulibre/MenulibreApplication.py:363
 msgid "Add Separator…"
 msgstr "Aggiungi separatore..."
 
 #. Translators: Save Launcher action label
-#: ../menulibre/MenulibreApplication.py:471
+#: ../menulibre/MenulibreApplication.py:370
 msgid "_Save"
 msgstr "_Salva"
 
 #. Translators: Undo action label
-#: ../menulibre/MenulibreApplication.py:480
+#: ../menulibre/MenulibreApplication.py:379
 msgid "_Undo"
 msgstr "Ann_ulla"
 
 #. Translators: Redo action label
-#: ../menulibre/MenulibreApplication.py:489
+#: ../menulibre/MenulibreApplication.py:388
 msgid "_Redo"
 msgstr "_Ripeti"
 
 #. Translators: Revert action label
-#: ../menulibre/MenulibreApplication.py:498
+#: ../menulibre/MenulibreApplication.py:397
 msgid "_Revert"
 msgstr "_Ripristina"
 
 #. Translators: Execute action label
-#: ../menulibre/MenulibreApplication.py:507
+#: ../menulibre/MenulibreApplication.py:406
 msgid "_Execute"
 msgstr "_Esegui"
 
 #. Translators: Execute action tooltip
-#: ../menulibre/MenulibreApplication.py:509
+#: ../menulibre/MenulibreApplication.py:408
 msgid "Execute Launcher"
 msgstr "Esegui Lanciatore"
 
 #. Translators: Delete action label
-#: ../menulibre/MenulibreApplication.py:516
+#: ../menulibre/MenulibreApplication.py:415
 msgid "_Delete"
 msgstr "_Cancella"
 
+#. Translators: Delete action tooltip
+#: ../menulibre/MenulibreApplication.py:417
+msgid "Delete"
+msgstr "Cancella"
+
 #. Translators: Quit action label
-#: ../menulibre/MenulibreApplication.py:525
+#: ../menulibre/MenulibreApplication.py:424
 msgid "_Quit"
 msgstr "_Esci"
 
 #. Translators: Quit action tooltip
-#: ../menulibre/MenulibreApplication.py:527
-#: ../menulibre/MenulibreApplication.py:2427
+#: ../menulibre/MenulibreApplication.py:426
+#: ../menulibre/MenulibreApplication.py:1675
 msgid "Quit"
 msgstr "Esci"
 
 #. Translators: Help action label
-#: ../menulibre/MenulibreApplication.py:534
+#: ../menulibre/MenulibreApplication.py:433
 msgid "_Contents"
 msgstr "_Contenuti"
 
-#. Translators: Help action tooltip
-#: ../menulibre/MenulibreApplication.py:536
-#: ../menulibre/MenulibreApplication.py:2425
-msgid "Help"
-msgstr "Aiuto"
-
 #. Translators: About action label
-#: ../menulibre/MenulibreApplication.py:543
+#: ../menulibre/MenulibreApplication.py:442
 msgid "_About"
 msgstr "_Informazioni"
 
 #. Translators: About action tooltip
-#: ../menulibre/MenulibreApplication.py:545
-#: ../menulibre/MenulibreApplication.py:2426
+#: ../menulibre/MenulibreApplication.py:444
+#: ../menulibre/MenulibreApplication.py:1674
 msgid "About"
 msgstr "Informazioni"
 
-#. Translators: "Categories" launcher section
-#: ../menulibre/MenulibreApplication.py:687
-msgid "Categories"
-msgstr "Categorie"
+#: ../menulibre/MenulibreApplication.py:475
+msgid "Invalid desktop files detected! Please see details."
+msgstr "Rilevati file desktop non validi! Si prega di vedere i dettagli."
 
-#. Translators: "Actions" launcher section
-#: ../menulibre/MenulibreApplication.py:690
-msgid "Actions"
-msgstr "Azioni"
+#: ../menulibre/MenulibreApplication.py:479
+msgid "Details"
+msgstr "Dettagli"
 
-#. Translators: "Advanced" launcher section
-#: ../menulibre/MenulibreApplication.py:693
-msgid "Advanced"
-msgstr "Avanzato"
+#: ../menulibre/MenulibreApplication.py:499
+msgid "Your applications menu may need to be restarted."
+msgstr "Potrebbe essere necessario riavviare il menu delle applicazioni."
 
-#. Translators: Launcher-specific categories, camelcase "This Entry"
-#: ../menulibre/MenulibreApplication.py:867
-msgid "ThisEntry"
-msgstr "Questo elemento"
+#: ../menulibre/MenulibreApplication.py:504
+msgid "Restart menu..."
+msgstr "Riavvia il menu..."
 
-#. Translators: Placeholder text for the launcher-specific category
-#. selection.
-#: ../menulibre/MenulibreApplication.py:888
-msgid "Select a category"
-msgstr "Seleziona una categoria"
-
-#. Translators: "Category Name" tree column header
-#: ../menulibre/MenulibreApplication.py:892
-msgid "Category Name"
-msgstr "Nome Categoria"
-
-#. Translators: "This Entry" launcher-specific category group
-#: ../menulibre/MenulibreApplication.py:995
-msgid "This Entry"
-msgstr "Questo elemento"
-
-#. Translators: Placeholder text for a newly created action
-#: ../menulibre/MenulibreApplication.py:1056
-msgid "New Shortcut"
-msgstr "Nuova scorciatoia"
-
-#. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1206
-msgid "Select a working directory"
-msgstr "Seleziona una directory di lavoro..."
-
-#. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreApplication.py:1210
-msgid "Select an executable…"
-msgstr "Seleziona un eseguibile"
-
-#: ../menulibre/MenulibreApplication.py:1258
-#: ../menulibre/MenulibreApplication.py:1273
+#: ../menulibre/MenulibreApplication.py:724
+#: ../menulibre/MenulibreApplication.py:743
 msgid "Menu restart required"
 msgstr "È necessario riavviare il menu"
 
-#: ../menulibre/MenulibreApplication.py:1259
+#: ../menulibre/MenulibreApplication.py:726
 #, python-format
 msgid ""
 "MenuLibre can do this automatically. Do you want to run the following command?\n"
@@ -952,84 +1558,116 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../menulibre/MenulibreApplication.py:1274
+#: ../menulibre/MenulibreApplication.py:744
 msgid ""
 "However, MenuLibre cannot determine how to do this automatically on your "
 "system. Please log out for your menu to update completely."
 msgstr ""
 "Tuttavia, MenuLibre non può determinare come farlo automaticamente sul tuo "
-"sistema. Si prega di disconnettersi per aggiornare completamente il menu."
+"sistema. Esci per aggiornare completamente il tuo menu."
 
 #. Translators: This error is displayed when the user does not
 #. have sufficient file system permissions to delete the
 #. selected file.
-#: ../menulibre/MenulibreApplication.py:1507
+#: ../menulibre/MenulibreApplication.py:960
 msgid "You do not have permission to delete this file."
 msgstr "Non hai i permessi per cancellare questo file."
 
+#: ../menulibre/MenulibreApplication.py:966
+msgid "You cannot delete this file while a search is active."
+msgstr "Non puoi eliminare questo file mentre è attiva una ricerca."
+
 #. Translators: Placeholder text for a newly created launcher.
-#: ../menulibre/MenulibreApplication.py:1813
+#: ../menulibre/MenulibreApplication.py:1032 ../menulibre/MenulibreXdg.py:46
 msgid "New Launcher"
 msgstr "Nuovo lanciatore"
 
-#. Translators: Placeholder text for a newly created launcher's
-#. description.
-#: ../menulibre/MenulibreApplication.py:1816 ../menulibre/MenulibreXdg.py:49
-msgid "A small descriptive blurb about this application."
-msgstr "Un breve testo descrittivo di questa applicazione."
-
 #. Translators: Placeholder text for a newly created directory.
-#: ../menulibre/MenulibreApplication.py:1867
+#: ../menulibre/MenulibreApplication.py:1089
 msgid "New Directory"
 msgstr "Nuova Directory"
 
-#. Translators: Placeholder text for a newly created directory's
-#. description.
-#: ../menulibre/MenulibreApplication.py:1870
-msgid "A small descriptive blurb about this directory."
-msgstr "Una piccola descrizione descrittiva di questa directory."
-
+#. Prepare the strings
+#. type: ignore
 #. Translators: Confirmation dialog to delete the selected
 #. separator.
-#: ../menulibre/MenulibreApplication.py:2304
+#: ../menulibre/MenulibreApplication.py:1549
 msgid "Are you sure you want to delete this separator?"
 msgstr "Sei sicuro di voler cancellare questo separatore?"
 
 #. Translators: Confirmation dialog to delete the selected launcher.
-#: ../menulibre/MenulibreApplication.py:2308
+#: ../menulibre/MenulibreApplication.py:1553
 #, python-format
 msgid "Are you sure you want to delete \"%s\"?"
 msgstr "Siete sicuri di voler eliminare \"%s\"?"
 
 #. Translators: Menu item to open the Parsing Errors dialog.
-#: ../menulibre/MenulibreApplication.py:2420
+#: ../menulibre/MenulibreApplication.py:1668
 msgid "Parsing Error Log"
 msgstr "Registro errori di analisi"
 
-#. Translators: File Chooser Dialog, window title.
-#: ../menulibre/MenulibreIconSelection.py:78
-msgid "Select an image…"
-msgstr "Seleziona un'immagine..."
-
-#. Translators: "Images" file chooser dialog filter
-#: ../menulibre/MenulibreIconSelection.py:87
-msgid "Images"
-msgstr "Immagini"
-
 #. Translators: "Search Results" treeview column header
-#: ../menulibre/MenulibreTreeview.py:74
+#: ../menulibre/MenulibreTreeview.py:75
 msgid "Search Results"
 msgstr "Risultati della ricerca"
 
-#. Translators: Placeholder text for a new menu item name.
-#: ../menulibre/MenulibreXdg.py:46
-msgid "New Menu Item"
-msgstr "Nuovo elemento di menu"
+#: ../menulibre/MenulibreTreeview.py:139 ../menulibre/MenulibreTreeview.py:140
+msgid "Sort Alphabetically"
+msgstr "Ordina in ordine alfabetico"
+
+#: ../menulibre/ParsingErrorsDialog.py:35
+msgid "Parsing Errors"
+msgstr "Errori di analisi"
+
+#: ../menulibre/ParsingErrorsDialog.py:38
+msgid "Close"
+msgstr "Chiudi"
+
+#: ../menulibre/ParsingErrorsDialog.py:59
+msgid ""
+"The following desktop files have failed parsing by the underlying library, and will therefore not show up in MenuLibre.\n"
+"Please investigate these problems with the associated package maintainer."
+msgstr ""
+"I seguenti file desktop non sono stati analizzati dalla libreria sottostante e quindi non verranno visualizzati in MenuLibre.\n"
+"Si prega di indagare su questi problemi con il manutentore del pacchetto associato."
+
+#: ../menulibre/ParsingErrorsDialog.py:128
+msgid "Open containing folder"
+msgstr "Apri la cartella contenente"
+
+#: ../menulibre/ParsingErrorsDialog.py:134
+msgid "Open in text editor"
+msgstr "Apri nell'editor di testo"
+
+#: ../menulibre/ParsingErrorsDialog.py:140
+msgid "Copy file location"
+msgstr "Copia posizione file"
+
+#. Translators: File Chooser Dialog, window title.
+#: ../menulibre/PathEntry.py:55
+msgid "Select a working directory"
+msgstr "Seleziona una directory di lavoro"
+
+#. Translators: File Chooser Dialog, confirmation button.
+#: ../menulibre/PathEntry.py:80
+msgid "OK"
+msgstr "OK"
+
+#. Translators: Identify Window Dialog, primary text.
+#: ../menulibre/StartupWmClassEntry.py:38
+#: ../menulibre/StartupWmClassEntry.py:56
+msgid "Identify Window"
+msgstr "Identifica la finestra"
+
+#: ../menulibre/StartupWmClassEntry.py:60
+msgid "Click on the main application window for this launcher."
+msgstr ""
+"Fare clic sulla finestra principale dell'applicazione per questo lanciatore"
 
 #. Translators: This error is displayed when a desktop file cannot
 #. be correctly read by MenuLibre. A (possibly untranslated) error
 #. code is displayed.
-#: ../menulibre/util.py:781
+#: ../menulibre/util.py:794
 #, python-format
 msgid "Unable to load desktop file due to the following error: %s"
 msgstr "Impossibile caricare il file desktop a causa del seguente errore: %s"
@@ -1037,7 +1675,7 @@ msgstr "Impossibile caricare il file desktop a causa del seguente errore: %s"
 #. Translators: This error is displayed when the first group in a
 #. failing desktop file is incorrect. "Start group" can be safely
 #. translated.
-#: ../menulibre/util.py:796
+#: ../menulibre/util.py:809
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
@@ -1045,24 +1683,24 @@ msgstr ""
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
-#: ../menulibre/util.py:806
+#: ../menulibre/util.py:819
 #, python-format
 msgid "%s key not found"
 msgstr "%s chiave non trovata"
 
 #. Translators: This error is displayed when a failing desktop file
 #. has an invalid value for the provided key.
-#: ../menulibre/util.py:819
+#: ../menulibre/util.py:832
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
 msgstr "%s il valore non è valido - attualmente '%s', dovrebbe essere '%s'"
 
-#: ../menulibre/util.py:848
+#: ../menulibre/util.py:861
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
 msgstr "%s il programma '%s' non è stato trovato nel PERCORSO"
 
-#: ../menulibre/util.py:851
+#: ../menulibre/util.py:864
 #, python-format
 msgid ""
 "%s program '%s' is not a valid shell command according to "
@@ -1074,7 +1712,7 @@ msgstr ""
 #. KDE services are not displayed in the menu
 #. Translators: This error is displayed for a failing desktop file where
 #. errors were detected but the file seems otherwise valid.
-#: ../menulibre/util.py:860
+#: ../menulibre/util.py:873
 msgid "Unknown error. Desktop file appears to be valid."
 msgstr "Errore sconosciuto. Il file desktop sembra essere valido."
 
@@ -1099,30 +1737,46 @@ msgid "Features:"
 msgstr "Caratteristiche:"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:4
-msgid "A beautiful interface powered by the latest version of GTK+."
-msgstr "Una bellissima interfaccia alimentata dall'ultima versione di GTK+."
+msgid "A beautiful interface powered by the latest version of GTK+"
+msgstr "Una bellissima interfaccia basata sull'ultima versione di GTK+"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:5
 msgid ""
 "Create new launchers, or modify existing ones with complete control over "
-"common settings and access to advanced settings."
+"common settings and access to advanced settings"
 msgstr ""
 "Crea nuovi lanciatori o modifica quelli esistenti con il controllo completo "
-"sulle impostazioni comuni e l'accesso alle impostazioni avanzate."
+"sulle impostazioni comuni e l'accesso alle impostazioni avanzate"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:6
 msgid ""
 "Add, remove, and adjust desktop actions: powerful shortcuts available used "
-"by Unity, Xfce, and Pantheon."
+"by Unity, Xfce, and Pantheon"
 msgstr ""
-"Aggiungi, rimuovi e regola le azioni del desktop: potenti scorciatoie "
-"disponibili utilizzate da Unity, Xfce e Pantheon."
+"Aggiungi, rimuovi e modifica le azioni del desktop: potenti scorciatoie "
+"disponibili utilizzate da Unity, Xfce e Pantheon"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:7
-msgid "Easily rearrange menu items to suit your needs."
-msgstr "Riorganizza facilmente le voci di menu in base alle tue esigenze."
+msgid "Easily rearrange menu items to suit your needs"
+msgstr "Riorganizza facilmente le voci del menu in base alle tue esigenze"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:8
+msgid ""
+"This release features a refreshed user interface and new inline help buttons"
+" for each field."
+msgstr ""
+"Questa versione presenta un'interfaccia utente aggiornata e nuovi pulsanti "
+"della guida in linea per ciascun campo."
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:9
+msgid ""
+"This release adds a new command editor and improves support for icon themes "
+"with missing icons."
+msgstr ""
+"Questa versione aggiunge un nuovo editor di comandi e migliora il supporto "
+"per i temi delle icone con icone mancanti."
+
+#: ../data/metainfo/menulibre.appdata.xml.in.h:10
 msgid ""
 "This release adds support for MATE and Unity and improves integration with "
 "the desktop environment."
@@ -1130,7 +1784,7 @@ msgstr ""
 "Questa versione aggiunge il supporto per MATE e Unity e migliora "
 "l'integrazione con l'ambiente desktop."
 
-#: ../data/metainfo/menulibre.appdata.xml.in.h:9
+#: ../data/metainfo/menulibre.appdata.xml.in.h:11
 msgid "This release fixes a crash when menus fail to load on KDE."
 msgstr ""
 "Questa versione risolve un crash quando i menu non vengono caricati su KDE."
