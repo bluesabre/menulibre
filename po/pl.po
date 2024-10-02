@@ -1195,7 +1195,7 @@ msgid ""
 "You will be redirected to the documentation website where the help pages are"
 " maintained."
 msgstr ""
-"Nastąpi przekierowanie na stronę z dokumentacją, gdzie przechowywane są "
+"Nastąpi przekierowanie na witrynę z dokumentacją, gdzie przechowywane są "
 "strony pomocy."
 
 #. Translators: Help Dialog, confirmation button. Navigates to
