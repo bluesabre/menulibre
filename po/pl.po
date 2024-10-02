@@ -1727,7 +1727,8 @@ msgid ""
 msgstr ""
 "Wszystkie pola określone w specyfikacjach FreeDesktop.org Desktop Entry oraz"
 " Menu są dostępne do szybkiej aktualizacji. Dodatkowo MenuLibre zapewnia "
-"edytor akcji aktywatora używanych przez programy takie jak Unity i Plank."
+"edytor czynności aktywatora używanych przez programy takie jak Unity i "
+"Plank."
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:3
 msgid "Features:"
