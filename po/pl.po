@@ -1068,12 +1068,12 @@ msgstr ""
 #: ../menulibre/CommandEditor.py:302
 #, python-format
 msgid "Field code '%s' can not be used inside a quoted argument"
-msgstr "Kod pola '%s' nie może być użyty w argumencie ujętym w cudzysłów"
+msgstr "Kod pola „%s” nie może być użyty w argumencie ujętym w cudzysłów"
 
 #: ../menulibre/CommandEditor.py:306
 #, python-format
 msgid "Field code '%s' has been deprecated"
-msgstr "Kod pola '%s' został wycofany"
+msgstr "Kod pola „%s” został wycofany"
 
 #: ../menulibre/CommandEditor.py:323 ../menulibre/CommandEditor.py:362
 msgid "No command found"
@@ -1090,12 +1090,12 @@ msgstr "Zmienne środowiskowe powinny poprzedzać polecenie"
 #: ../menulibre/CommandEditor.py:365
 #, python-format
 msgid "File '%s' not found"
-msgstr "Nie znaleziono pliku '%s'"
+msgstr "Nie znaleziono pliku „%s”"
 
 #: ../menulibre/CommandEditor.py:368
 #, python-format
 msgid "Command '%s' not found"
-msgstr "Nie znaleziono polecenia '%s'"
+msgstr "Nie znaleziono polecenia „%s”"
 
 #: ../menulibre/CommandEditor.py:389
 msgid "No environment variable errors"
@@ -1677,7 +1677,7 @@ msgstr "Nie udało się załadować pliku wpisu z powodu następującego błędu
 #, python-format
 msgid "Start group is invalid - currently '%s', should be '%s'"
 msgstr ""
-"Grupa początkowa jest nieprawidłowa - obecnie '%s', a powinna być '%s'"
+"Grupa początkowa jest nieprawidłowa – obecnie „%s”, a powinna być „%s”"
 
 #. Translators: This error is displayed when a required key is
 #. missing in a failing desktop file.
@@ -1691,12 +1691,12 @@ msgstr "Nie znaleziono klucza %s"
 #: ../menulibre/util.py:832
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
-msgstr "Wartość %s jest nieprawidłowa – obecnie '%s', prawidłowa to '%s'"
+msgstr "Wartość %s jest nieprawidłowa – obecnie „%s, prawidłowa to „%s”"
 
 #: ../menulibre/util.py:861
 #, python-format
 msgid "%s program '%s' has not been found in the PATH"
-msgstr "%s program '%s' nie został znaleziony w ŚCIEŻCE"
+msgstr "%s program „%s” nie został znaleziony w ŚCIEŻCE"
 
 #: ../menulibre/util.py:864
 #, python-format
@@ -1704,7 +1704,7 @@ msgid ""
 "%s program '%s' is not a valid shell command according to "
 "GLib.shell_parse_argv, error: %s"
 msgstr ""
-"'%s' programu %s nie jest prawidłowym poleceniem powłoki zgodnie z "
+"„%s” programu %s nie jest prawidłowym poleceniem powłoki zgodnie z "
 "GLib.shell_parse_argv, błąd: %s"
 
 #. KDE services are not displayed in the menu
