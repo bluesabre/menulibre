@@ -1691,7 +1691,7 @@ msgstr "Nie znaleziono klucza %s"
 #: ../menulibre/util.py:832
 #, python-format
 msgid "%s value is invalid - currently '%s', should be '%s'"
-msgstr "Wartość %s jest nieprawidłowa – obecnie „%s, prawidłowa to „%s”"
+msgstr "Wartość %s jest nieprawidłowa – obecnie „%s”, prawidłowa to „%s”"
 
 #: ../menulibre/util.py:861
 #, python-format
