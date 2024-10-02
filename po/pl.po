@@ -216,8 +216,8 @@ msgid ""
 "Set this key to \"True\" if this application prefers to be run on a more "
 "powerful GPU if available."
 msgstr ""
-"Ustaw ten klucz na „True”, jeśli ta aplikacja woli działać na mocniejszym "
-"GPU, jeśli jest dostępny."
+"Ustaw ten klucz na „True”, jeśli te program woli działać na mocniejszym GPU,"
+" jeśli jest dostępny."
 
 #: ../menulibre/AdvancedPage.py:127
 msgid "Uses Notifications"
@@ -225,7 +225,7 @@ msgstr "Używa powiadomień"
 
 #: ../menulibre/AdvancedPage.py:129
 msgid "Set this key to \"True\" if this application uses notifications."
-msgstr "Ustaw ten klucz na „True”, jeśli ta aplikacja używa powiadomień."
+msgstr "Ustaw ten klucz na „True”, jeśli ten program używa powiadomień."
 
 #: ../menulibre/ApplicationEditor.py:76
 msgid "Add name"
@@ -1727,7 +1727,7 @@ msgid ""
 msgstr ""
 "Wszystkie pola określone w specyfikacjach FreeDesktop.org Desktop Entry oraz"
 " Menu są dostępne do szybkiej aktualizacji. Dodatkowo MenuLibre zapewnia "
-"edytor akcji aktywatora używanych przez aplikacje takie jak Unity i Plank."
+"edytor akcji aktywatora używanych przez programy takie jak Unity i Plank."
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:3
 msgid "Features:"
