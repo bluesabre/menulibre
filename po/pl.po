@@ -1526,7 +1526,7 @@ msgstr "O programie"
 
 #: ../menulibre/MenulibreApplication.py:475
 msgid "Invalid desktop files detected! Please see details."
-msgstr "Wykryto nieprawidłowe pliki wpisów! Spójrz w szczegóły."
+msgstr "Wykryto nieprawidłowe pliki wpisów! Zobacz szczegóły."
 
 #: ../menulibre/MenulibreApplication.py:479
 msgid "Details"
