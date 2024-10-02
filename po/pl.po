@@ -1196,7 +1196,7 @@ msgid ""
 " maintained."
 msgstr ""
 "Nastąpi przekierowanie na stronę z dokumentacją, gdzie przechowywane są "
-"podręczniki obsługi programów."
+"strony pomocy."
 
 #. Translators: Help Dialog, confirmation button. Navigates to
 #. online documentation.
