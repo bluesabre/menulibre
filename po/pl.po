@@ -1570,7 +1570,7 @@ msgstr ""
 #. selected file.
 #: ../menulibre/MenulibreApplication.py:960
 msgid "You do not have permission to delete this file."
-msgstr "Brak uprawnień, do usunięcia pliku."
+msgstr "Nie masz uprawnień do usunięcia tego pliku."
 
 #: ../menulibre/MenulibreApplication.py:966
 msgid "You cannot delete this file while a search is active."
