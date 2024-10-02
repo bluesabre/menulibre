@@ -1751,7 +1751,7 @@ msgid ""
 "Add, remove, and adjust desktop actions: powerful shortcuts available used "
 "by Unity, Xfce, and Pantheon"
 msgstr ""
-"Dodawaj, usuwaj i dostosowuj działania pulpitu: potężne skróty dostępne w "
+"Dodawaj, usuwaj i dostosowuj czynności pulpitu: potężne skróty dostępne w "
 "Unity, Xfce i Pantheon"
 
 #: ../data/metainfo/menulibre.appdata.xml.in.h:7
