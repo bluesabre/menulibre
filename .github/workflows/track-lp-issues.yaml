@@ -18,7 +18,7 @@ jobs:
       # Checkout code
       - uses: actions/checkout@v5
       - name: Install Python 3
-        uses: actions/setup-python@v5.5.0
+        uses: actions/setup-python@v6.0.0
         with:
           python-version: 3.8
       - name: Install dependencies
