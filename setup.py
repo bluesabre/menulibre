@@ -54,8 +54,16 @@ def update_config(libdir, values={}):
     return oldvalues
 
 
+def render_png_icon(svg_file, png_file, size):
+    """Rasterize an SVG icon to a fixed-size PNG."""
+    subprocess.run(
+        ['rsvg-convert', '-w', str(size), '-h', str(size),
+         '-o', png_file, svg_file],
+        check=True)
+
+
 def move_icon_file(root, target_data, prefix):
-    """Move the icon files to their installation prefix."""
+    """Move/render the icon files to their installation prefix."""
     icon_file = None
 
     old_icon_path = os.path.normpath(
@@ -68,18 +76,24 @@ def move_icon_file(root, target_data, prefix):
             icon_path = os.path.normpath(
                 os.path.join(root, target_data, 'share', 'pixmaps'))
             icon_file = os.path.join(icon_path, 'menulibre.png')
-        # Install everything else to share/icons/hicolor
-        else:
-            if icon_size == 'scalable':
-                old_icon_file = os.path.join(old_icon_path, 'menulibre.svg')
-            else:
-                old_icon_file = os.path.join(old_icon_path,
-                                             'menulibre_%s.svg' %
-                                             icon_size.split('x')[0])
+        # Install the master SVG to share/icons/hicolor/scalable.
+        elif icon_size == 'scalable':
+            old_icon_file = os.path.join(old_icon_path, 'menulibre.svg')
             icon_path = os.path.normpath(
                 os.path.join(root, target_data, 'share', 'icons',
                              'hicolor', icon_size, 'apps'))
             icon_file = os.path.join(icon_path, 'menulibre.svg')
+        # The fixed-size hicolor folders may only contain raster images, so
+        # the hand-tuned per-size SVGs are rendered to PNGs here rather than
+        # installed as-is.
+        else:
+            old_icon_file = os.path.join(old_icon_path,
+                                         'menulibre_%s.svg' %
+                                         icon_size.split('x')[0])
+            icon_path = os.path.normpath(
+                os.path.join(root, target_data, 'share', 'icons',
+                             'hicolor', icon_size, 'apps'))
+            icon_file = os.path.join(icon_path, 'menulibre.png')
 
         # Get the real paths.
         old_icon_file = os.path.realpath(old_icon_file)
@@ -90,7 +104,14 @@ def move_icon_file(root, target_data, prefix):
             sys.exit(1)
         if not os.path.exists(icon_path):
             os.makedirs(icon_path)
-        if old_icon_file != icon_file:
+
+        if icon_size not in ('scalable', 'pixmap'):
+            print(("Rendering icon file: %s -> %s" %
+                  (old_icon_file, icon_file)))
+            render_png_icon(old_icon_file, icon_file,
+                            int(icon_size.split('x')[0]))
+            os.remove(old_icon_file)
+        elif old_icon_file != icon_file:
             print(("Moving icon file: %s -> %s" % (old_icon_file, icon_file)))
             os.rename(old_icon_file, icon_file)
 

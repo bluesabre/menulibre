@@ -18,6 +18,7 @@ used by applications such as Unity and Plank.
  - gir1.2-gtk-3.0
  - intltool
  - libgnome-menu-3-dev
+ - librsvg2-bin (rsvg-convert)
  - python-gi-dev
  - python3
  - [python3-distutils-extra](https://launchpad.net/python-distutils-extra)
